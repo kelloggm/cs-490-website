@@ -1,8 +1,7 @@
 ---
-title: Week 0 Announcement
+title: Draft Website Works
 week: 0
-date: 2019-04-01
+date: 2023-01-03
 ---
 
-Hello world!
-{: .fs-5 }
+Testing the announcements function. TODO: remove this before publishing, hopefully!
