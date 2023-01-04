@@ -3,7 +3,7 @@ title: Week 2
 ---
 
 Jan 23
- : **IP 0 due**{: .label .label-red } 
+ : **Individual Project 0 due**{: .label .label-red } 
 
 Jan 24
 : [Process](#)
