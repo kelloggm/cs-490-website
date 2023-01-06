@@ -8,6 +8,9 @@ Jan 31
 
     **Optional reading**: Bacchelli and Bird's [Expectations, Outcomes, and Challenges Of Modern Code Review](../assets/codereview.pdf)
 
+Jan 31
+ : **Individual Project 1 due**{: .label .label-red } 
+
 Feb 2
 : [Code Review (2)](#)
   : **Mandatory reading**: Gee's [Five Code Review Antipatterns](https://blogs.oracle.com/javamagazine/post/five-code-review-antipatterns)

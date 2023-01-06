@@ -4,7 +4,7 @@ title: "Individual Project 1"
 permalink: /projects/ip1
 parent: Projects
 nav_order: 2
-due_date: "Tuesday, February 7 2023, 11:59PM AoE"
+due_date: "Tuesday, January 31, 2023, 11:59PM AoE"
 submission_notes: Submit via GradeScope
 ---
 

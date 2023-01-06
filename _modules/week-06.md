@@ -8,6 +8,9 @@ Feb 21
 
     **Optional reading**: TODO
 
+Feb 21
+ : **Project Plan due**{: .label .label-red } 
+
 Feb 23
 : [Requirements and Specifications (2)](#)
   : **Mandatory reading**: TODO

@@ -8,6 +8,10 @@ Mar 7
 
     **Optional reading**: TODO
 
+Mar 7
+ : **Revised Project Plan due**{: .label .label-red } 
+
+
 Mar 9
 : [Static Analysis (2)](#)
   : **Mandatory reading**: TODO

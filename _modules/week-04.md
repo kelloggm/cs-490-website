@@ -9,7 +9,7 @@ Feb 7
     **Optional reading**: TODO
 
 Feb 7
- : **Individual Project 1 due**{: .label .label-red } 
+ : **Project Formation due**{: .label .label-red } 
 
 Feb 9
 : [Testing (1)](#)
