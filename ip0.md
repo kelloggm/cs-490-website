@@ -4,7 +4,7 @@ title: "Individual Project 0: Venusians"
 permalink: /projects/ip0
 parent: Projects
 nav_order: 1
-due_date: "Monday January 23, 2023, 11:59PM Eastern."
+due_date: "Monday January 23, 2023, 11:59PM AoE."
 submission_notes: Submit on GradeScope 
 ---
 
@@ -21,15 +21,13 @@ Your assignment will be graded following the rubric embedded in this
 document.  Based on past experiences, we project that this assignment
 could take you up to 14 hours (depending on your prior preparation).
 We encourage you to start early so that you can post questions on
-Piazza, make the most use of our TAs' tutorials, and attend office
+Piazza and attend office
 hours as necessary in order to ensure that you can reach Satisfactory
 marks across the board.
 
 **This is an individual assignment.** 
 
-Please post any questions about this assignment on Piazza.  We have
-many sections of this class, and we want to make sure that we respond
-to your questions the same way, regardless of which section you are in.
+Please post any questions about this assignment on Piazza.
 
 ## Problem Statement
 
@@ -91,12 +89,12 @@ ship 1 would return true.
 
 ## Starter Code and Details
 
-We will supply you with starter code in [hw1.zip]({{site.baseurl}}/Assignments/HW1/hw1-starter.zip).
+We will supply you with starter code in [ip0-starter-code.zip]({{site.baseurl}}/Projects/IP0/ip0-starter-code.zip).
 
 ### Getting Started
 
-1. Download and unpack [hw1.zip]({{site.baseurl}}/Assignments/HW1/hw1-starter.zip) in a fresh directory. You should have a directory `hw1-handout` containing `package.json`, `src/` and a bunch of other files.
-2. Open `hw1-handout` in VSCode.
+1. Download and unpack [ip0-starter-code.zip]({{site.baseurl}}/Projects/IP0/ip0-starter-code.zip) in a fresh directory. You should have a directory `ip0` containing `package.json`, `src/` and a bunch of other files.
+2. Open `ip0` in VSCode.
 3. Open up the VSCode terminal with `ctrl + ~`. Alternatively, you can also open a seperate terminal/cmd. Please make sure the shell is in the same folder as your `package.json`.
 4. Fetch all the necessary dependancies by running `npm install`. You may _not_ install additional third-party libraries to use in your code beyond what is included in the handout - we will grade your code using the `package.json` distributed in the handout.
 5. The package also includes some basic sanity tests, which you can run by saying `npm test`.
@@ -143,7 +141,7 @@ When we say "no errors reported by the linter", we mean the following:
 
 Submit your assignment in GradeScope. The easiest way to get into
 GradeScope the first time is to first [sign into
-Canvas](https://northeastern.instructure.com/courses/99531) and then
+Canvas](#) and then
 click the link on our course for "GradeScope".  You should then also
 have the option to create an account on GradeScope (if you don't
 already have one) so that you can log in to GradeScope directly.
