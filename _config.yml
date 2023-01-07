@@ -17,7 +17,7 @@ title: CS 490-002 (Sp23)
 tagline: The course website for NJIT CS 490-002
 description: The course website for NJIT CS 490-002 in Spring 2023, as taught by Martin Kellogg
 author: Martin Kellogg
-baseurl: '/just-the-class' # the subpath of your site, e.g. /blog
+baseurl: '/cs-490' # the subpath of your site, e.g. /blog
 url: 'https://kevinl.info' # the base hostname & protocol for your site, e.g. http://example.com
 exclude: ["Gemfile", "Gemfile.lock", "LICENSE"]
 
@@ -28,8 +28,6 @@ search_enabled: true
 heading_anchors: true
 permalink: pretty
 aux_links:
-  Martin Kellogg:
-    - 'https://web.njit.edu/~mjk76/'
   Canvas:
     - 'https://github.com/kevinlin1/just-the-class'
   Piazza:

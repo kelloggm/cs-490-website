@@ -4,7 +4,7 @@ title: Week 11
 
 Mar 28
 : [Software Architecture (1)](#)
-  : **Mandatory reading**: TODO
+  : **Mandatory reading**: Kästner's [Thinking Like a Software Architect](https://ckaestne.medium.com/thinking-like-a-software-architect-121ea6919871)
 
     **Optional reading**: TODO
 
