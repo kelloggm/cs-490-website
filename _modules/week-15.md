@@ -3,10 +3,11 @@ title: Week 15
 ---
 
 Apr 25
-: [Open-source Software](#)
-  : **Mandatory reading**: TODO
+: [Advanced Static Analysis](#)
+  : **Mandatory reading**: Kellogg et al.'s [Lightweight and Modular Resource Leak Verification](https://web.njit.edu/~mjk76/papers/esec-fse-2021-camera-ready-updated.pdf) (you don't need to understand all of the technical details: focus on 1) the problem the authors are trying to solve, and 2) their overall approach. It's okay if there are things in this reading you don't understand.)
 
-    **Optional reading**: Terrell et al.'s [Gender differences and bias in open source: pull request acceptance of women versus men](../assets/genderpull.pdf)
+    **Optional reading**: Kellogg et al.'s [Accumulation Analysis](https://web.njit.edu/~mjk76/papers/ECOOP22-camera-ready.pdf)
+
 
 Apr 27
 : [Software Engineer Panel](#)

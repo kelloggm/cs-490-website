@@ -10,7 +10,7 @@ Feb 14
 
 Feb 16
 : [Testing (3)](#)
-  : **Mandatory reading**: TODO
+  : **Mandatory reading**: Petrovic's [Mutation Testing](https://testing.googleblog.com/2021/04/mutation-testing.html)
 
     **Optional reading**: Barr et al.'s [The Oracle Problem in Software Testing: A Survey](../assets/testoracles.pdf))
 

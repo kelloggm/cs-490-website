@@ -4,9 +4,9 @@ title: Week 7
 
 Feb 28
 : [Languages](#)
-  : **Mandatory reading**: TODO
+  : **Mandatory reading**: Howarth's [Why Discord is Switching from Go to Rust](https://discord.com/blog/why-discord-is-switching-from-go-to-rust)
 
-    **Optional reading**: TODO
+    **Optional reading**: Hoare's [Hints on Programming Language Design](../assets/hoarehints.pdf) (shorter than it looks!)
 
 Mar 2
 : [Build Systems](../assets/build-systems-lecture.pdf)
