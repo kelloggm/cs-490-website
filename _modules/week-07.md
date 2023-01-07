@@ -8,6 +8,9 @@ Feb 28
 
     **Optional reading**: Hoare's [Hints on Programming Language Design](../assets/hoarehints.pdf) (shorter than it looks!)
 
+Feb 28
+ : **Individual Project 2 due**{: .label .label-red } 
+
 Mar 2
 : [Build Systems](../assets/build-systems-lecture.pdf)
   : **Mandatory reading**: Atwood's [The F5 Key Is Not a Build Process](https://blog.codinghorror.com/the-f5-key-is-not-a-build-process/)
