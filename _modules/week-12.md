@@ -8,7 +8,7 @@ Apr 4
 
     **Optional reading**: TODO
 
-Aor 6
+Apr 6
 : [Free and Open-source Software](#)
   : **Mandatory reading**: Stallman's [Why Open Source Misses the Point of Free Software](https://www.gnu.org/philosophy/open-source-misses-the-point.en.html)
 
