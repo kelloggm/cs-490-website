@@ -20,6 +20,19 @@ timeline:
   - '5:30 PM'
 schedule:
   - name: Monday
+    events:
+      - name: 'OH: Martin'
+        start: 1:30 PM
+        end: 2:30 PM
+        location: GITC 4314
+      - name: 'Tutoring: Rishik'
+        start: 12:00 PM
+	end: 3:00 PM
+	location: GITC 3700
+      - name: 'Tutoring: Logan'
+        start: 10:00 AM
+	end: 11:00 AM
+	location: GITC 3700
   - name: Tuesday
     events:
       - name: Lecture
@@ -33,5 +46,17 @@ schedule:
         start: 11:30 AM
         end: 1:00 PM
         location: KUPF 203
+      - name: 'Tutoring: Rishik'
+        start: 5:00 PM
+	end: 8:00 PM
+	location: GITC 3700
+      - name: 'Tutoring: Cao'
+        start: 10:00 AM
+	end: 4:00 PM
+	location: GITC 3700
   - name: Friday
+      - name: 'Tutoring: Palak'
+        start: 12:00 PM
+	end: 1:00 PM
+	location: GITC 3700
 ---
