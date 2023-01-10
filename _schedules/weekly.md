@@ -55,6 +55,7 @@ schedule:
         end: 4:00 PM
         location: GITC 3700
   - name: Friday
+    events:
       - name: 'Tutoring: Palak'
         start: 12:00 PM
         end: 1:00 PM
