@@ -27,12 +27,12 @@ schedule:
         location: GITC 4314
       - name: 'Tutoring: Rishik'
         start: 12:00 PM
-	end: 3:00 PM
-	location: GITC 3700
+        end: 3:00 PM
+        location: GITC 3700
       - name: 'Tutoring: Logan'
         start: 10:00 AM
-	end: 11:00 AM
-	location: GITC 3700
+        end: 11:00 AM
+        location: GITC 3700
   - name: Tuesday
     events:
       - name: Lecture
@@ -48,15 +48,15 @@ schedule:
         location: KUPF 203
       - name: 'Tutoring: Rishik'
         start: 5:00 PM
-	end: 8:00 PM
-	location: GITC 3700
+        end: 8:00 PM
+        location: GITC 3700
       - name: 'Tutoring: Cao'
         start: 10:00 AM
-	end: 4:00 PM
-	location: GITC 3700
+        end: 4:00 PM
+        location: GITC 3700
   - name: Friday
       - name: 'Tutoring: Palak'
         start: 12:00 PM
-	end: 1:00 PM
-	location: GITC 3700
+        end: 1:00 PM
+        location: GITC 3700
 ---
