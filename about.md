@@ -241,6 +241,14 @@ such as your teammates and the wider internet, is always allowed. But,
 it would be illegal to copy code from a competing company working on a
 similar product.
 
+# Consquences of Violating the Collaboration Policy
+
+(From the University)
+
+“Academic Integrity is the cornerstone of higher education and is central to the ideals of this course and the university. Cheating is strictly prohibited and devalues the degree that you are working on. As a member of the NJIT community, it is your responsibility to protect your educational investment by knowing and following the academic code of integrity policy that is found at: http://www5.njit.edu/policies/sites/policies/files/academic-integrity-code.pdf.   
+
+Please note that it is my professional obligation and responsibility to report any academic misconduct to the Dean of Students Office. Any student found in violation of the code by cheating, plagiarizing or using any online software inappropriately will result in disciplinary action. This may include a failing grade of F, and/or suspension or dismissal from the university. If you have any questions about the code of Academic Integrity, please contact the Dean of Students Office at dos@njit.edu”
+
 # Late Policy
 
 You may use up to two late days on Individual Projects 1 and 2 (in
