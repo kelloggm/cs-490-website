@@ -1,7 +1,7 @@
 ---
 layout: page
 title: Project Plan
-permalink: /projects/project-plan
+permalink: /projects/project-plan.html
 parent: Projects
 nav_order: 4
 ---

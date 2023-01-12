@@ -1,7 +1,7 @@
 ---
 layout: page
 title: Installing a Development Environment
-permalink: /tutorials/week1-getting-started
+permalink: /tutorials/week1-getting-started.html
 parent: Tutorials
 nav_order: 1
 ---

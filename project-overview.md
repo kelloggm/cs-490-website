@@ -1,7 +1,7 @@
 ---
 layout: page
 title: Project Overview
-permalink: /projects/project-overview
+permalink: /projects/project-overview.html
 parent: Projects
 nav_order: 4
 ---

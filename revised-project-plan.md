@@ -1,7 +1,7 @@
 ---
 layout: page
 title: Revised Project Plan
-permalink: /projects/revised-project-plan
+permalink: /projects/revised-project-plan.html
 parent: Projects
 nav_order: 5
 ---

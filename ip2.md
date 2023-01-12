@@ -1,7 +1,7 @@
 ---
 layout: project
 title: "Individual Project 2"
-permalink: /projects/ip2
+permalink: /projects/ip2.html
 parent: Projects
 nav_order: 2
 due_date: "Tuesday, February 28, 2023, 11:59PM AoE"

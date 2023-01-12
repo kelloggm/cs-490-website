@@ -1,7 +1,7 @@
 ---
 layout: page
 title: Project Final Deliverable
-permalink: /projects/project-deliverable
+permalink: /projects/project-deliverable.html
 parent: Projects
 nav_order: 6
 ---
