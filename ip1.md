@@ -43,7 +43,7 @@ The objectives of this assignment are to:
 ## Getting started with this assignment
 
 Before you begin, be sure to check that you have NodeJS 16.x installed, along with VSCode. We have provided a [tutorial on setting up a development environment for this class]({{site.baseurl}}{%link week1-getting-started.md %}), and you should be able to re-use most of your setup from IP0.
-Start by [downloading the starter code]({{site.baseurl}}{%link /Projects/IP1/ip1-handout.zip %}). Extract the archive and run `npm install` to fetch the dependencies. Avery has provided you with some very basic sanity tests that you can extend for testing your implementation as you go.
+Start by [downloading the starter code]({{site.baseurl}}/projects/IP1/ip1-handout.zip). Extract the archive and run `npm install` to fetch the dependencies. Avery has provided you with some very basic sanity tests that you can extend for testing your implementation as you go.
 
 
 ### Overview of relevant classes

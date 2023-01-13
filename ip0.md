@@ -89,17 +89,17 @@ ship 1 would return true.
 
 ## Starter Code and Details
 
-We will supply you with starter code in [ip0-starter-code.zip]({{site.baseurl}}/Projects/IP0/ip0-starter-code.zip).
+We will supply you with starter code in [ip0-starter-code.zip]({{site.baseurl}}/projects/IP0/ip0-starter-code.zip).
 
 ### Getting Started
 
-1. Download and unpack [ip0-starter-code.zip]({{site.baseurl}}/Projects/IP0/ip0-starter-code.zip) in a fresh directory. You should have a directory `ip0` containing `package.json`, `src/` and a bunch of other files.
+1. Download and unpack [ip0-starter-code.zip]({{site.baseurl}}/projects/IP0/ip0-starter-code.zip) in a fresh directory. You should have a directory `ip0` containing `package.json`, `src/` and a bunch of other files.
 2. Open `ip0` in VSCode.
 3. Open up the VSCode terminal with `ctrl + ~`. Alternatively, you can also open a seperate terminal/cmd. Please make sure the shell is in the same folder as your `package.json`.
 4. Fetch all the necessary dependancies by running `npm install`. You may _not_ install additional third-party libraries to use in your code beyond what is included in the handout - we will grade your code using the `package.json` distributed in the handout.
 5. The package also includes some basic sanity tests, which you can run by saying `npm test`.
 
-To help you set up a local development environment for this class, we've prepared a tutorial for [setting up a development environment with NodeJS, VSCode and TypeScript](../../tutorials/week1-getting-started.md). Additionally, [An Absolute Beginner's Guide to Using npm](https://nodesource.com/blog/an-absolute-beginners-guide-to-using-npm/) can help you in getting acquainted with `npm`. As a reference for getting started with TypeScript, we suggest the book ["Programming TypeScript" by Boris Cherny](https://learning.oreilly.com/library/view/programming-typescript/9781492037644/).
+To help you set up a local development environment for this class, we've prepared a tutorial for [setting up a development environment with NodeJS, VSCode and TypeScript](../../tutorials/week1-getting-started.html). Additionally, [An Absolute Beginner's Guide to Using npm](https://nodesource.com/blog/an-absolute-beginners-guide-to-using-npm/) can help you in getting acquainted with `npm`. As a reference for getting started with TypeScript, we suggest the book ["Programming TypeScript" by Boris Cherny](https://learning.oreilly.com/library/view/programming-typescript/9781492037644/).
 
 
 ## Rubric

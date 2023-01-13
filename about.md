@@ -83,9 +83,9 @@ well-defined program in a language you’ve never seen before.
 Your grade is composed of the following sub-scores (in no particular order):
 * 15%: Participation & Professionalism
 * 5%: Optional Reading Responses
-* 20%: Individual Projects
+* 15%: Individual Projects
 * 45%: Group Project
-* 25%: Final Exam
+* 20%: Final Exam
 
 This class will be curved: when grading, I prefer to use the whole
 range available rather than scores in a tight range. That is, if an

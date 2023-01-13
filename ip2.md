@@ -54,7 +54,7 @@ The objectives of this assignment are to:
 
 ## Getting started with this assignment
 
-Start by [downloading the starter code]({{site.baseurl}}{%link /Projects/IP2/ip2-starter-code.zip %}). Extract the archive and run `npm install` to fetch the dependencies. 
+Start by [downloading the starter code]({{site.baseurl}}/projects/IP2/ip2-starter-code.zip). Extract the archive and run `npm install` to fetch the dependencies. 
 
 ### Installation notes
 
