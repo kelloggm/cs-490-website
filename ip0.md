@@ -141,7 +141,7 @@ When we say "no errors reported by the linter", we mean the following:
 
 Submit your assignment in GradeScope. The easiest way to get into
 GradeScope the first time is to first [sign into
-Canvas](#) and then
+Canvas](https://njit.instructure.com/courses/26613) and then
 click the link on our course for "GradeScope".  You should then also
 have the option to create an account on GradeScope (if you don't
 already have one) so that you can log in to GradeScope directly.
