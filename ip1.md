@@ -48,7 +48,9 @@ Start by [downloading the starter code]({{site.baseurl}}/projects/IP1/ip1-handou
 ### Overview of relevant classes
 The [UML class diagram](https://en.wikipedia.org/wiki/Unified_Modeling_Language) below shows the three main classes that you will be implementing for this deliverable (`InteractableArea`, `ViewingArea`, and `ConversationArea`), along with several relevant classes that you will need to interact with. For `Town` and `ServerToClientEvents`, we show only the most relevant methods.
 
-<img src="../assets/uml.svg" />
+<a href="../assets/uml.svg" target="_blank">
+   <img src="../assets/uml.svg" />
+</a>
 
 ## Grading
 This submission will be scored out of 100 points, 90 of which will be automatically awarded by the grading script, with the remaining 10 manually awarded by the course staff.
