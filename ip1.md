@@ -45,83 +45,10 @@ The objectives of this assignment are to:
 Before you begin, be sure to check that you have NodeJS 16.x installed, along with VSCode. We have provided a [tutorial on setting up a development environment for this class]({{site.baseurl}}{%link week1-getting-started.md %}), and you should be able to re-use most of your setup from IP0.
 Start by [downloading the starter code]({{site.baseurl}}/projects/IP1/ip1-handout.zip). Extract the archive and run `npm install` to fetch the dependencies. Avery has provided you with some very basic sanity tests that you can extend for testing your implementation as you go.
 
-
 ### Overview of relevant classes
 The [UML class diagram](https://en.wikipedia.org/wiki/Unified_Modeling_Language) below shows the three main classes that you will be implementing for this deliverable (`InteractableArea`, `ViewingArea`, and `ConversationArea`), along with several relevant classes that you will need to interact with. For `Town` and `ServerToClientEvents`, we show only the most relevant methods.
-<script src="{{site.baseurl}}/assets/js/mermaid.min.js" />
-<div class="mermaid">
- %%{init: { 'theme':'forest', } }%%
-classDiagram
-   class InteractableArea {
-       +string id
-       ~Player[] _occupants
-       +string[] occupantsByID
-       +boolean isActive
-       +BoundingBox boundingBox
-       +add(player: Player)
-       +remove(player: Player)
-       +addPlayersWithinBounds(allPlayers: Player[])
-       +toModel()
-       +contains(location: PlayerLocation)
-       +overlaps(otherInteractable: Interactable)
-       #_emitAreaChanged()
-   }
 
-   class ViewingArea {
-       +string video
-       +number progress
-       +boolean isPlaying
-       +updateModel(updatedModel:ViewingAreaModel)
-       +fromMapObject(mapObject, townEmitter)
-   }
-
-   class ConversationArea {
-       +string? topic
-       +fromMapObject(mapObject, townEmitter)
-   }
-   class BoundingBox {
-       +number x
-       +number y
-       +number width
-       +number height
-   }
-   class Player {
-       +PlayerLocation location
-       +string id
-       +string username
-   }
-   class PlayerLocation {
-       +number x
-       +number y
-       +Direction rotation
-       +boolean moving
-       +string? interactableID
-   }
-   class Town {
-       +string townID
-       +string friendlyName
-       +InteractableArea[] interactables
-       +Player[] players
-       +void initializeMap(mapFile: string)
-   }
-   class TownEmitter {
-       +void emit(eventName: ServerToClientEvents, eventData)
-   }
-   class ServerToClientEvents {
-       +void playerMoved(movedPlayer: Player)
-       +void interactableUpdate(updatedInteractable: Interactable)
-   }
-   ViewingArea ..|> InteractableArea
-   ConversationArea ..|> InteractableArea
-   InteractableArea o-- BoundingBox
-   InteractableArea o-- Player
-   InteractableArea o-- TownEmitter
-   Player o-- PlayerLocation
-   Town o-- Player
-   Town o-- InteractableArea
-   Town o-- TownEmitter
-   TownEmitter -- ServerToClientEvents
-</div>
+<img src="../assets/uml.svg" />
 
 ## Grading
 This submission will be scored out of 100 points, 90 of which will be automatically awarded by the grading script, with the remaining 10 manually awarded by the course staff.
