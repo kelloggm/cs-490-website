@@ -8,12 +8,12 @@ Jan 31
   
     **Optional reading**: De Rosso et al.'s [Purposes, concepts, misfits, and a redesign of git](../assets/gitless.pdf)
 
-Jan 31
- : **Individual Project 1 due**{: .label .label-red } 
-
 Feb 2
 : [Working in Teams](#)
   : **Mandatory reading**: Jackson's [The Google Technical Interview](../assets/googleinterview.pdf)
   
     **Optional reading**: Behroozi et al.'s [Hiring is Broken: What Do Developers Say About Technical Interviews?](../assets/hiring-is-broken.pdf)
+
+Feb 2
+ : **Individual Project 1 due**{: .label .label-red } 
 
