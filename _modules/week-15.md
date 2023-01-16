@@ -10,3 +10,6 @@ Apr 25
 
 Apr 27
 : Final Exam (in-class)
+
+May 2
+ : **Second Optional Reading Response due**{: .label .label-red } 

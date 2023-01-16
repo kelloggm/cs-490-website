@@ -18,3 +18,5 @@ Mar 9
 
     **Optional reading**: Terrell et al.'s [Gender differences and bias in open source: pull request acceptance of women versus men](../assets/genderpull.pdf)
 
+Mar 11
+ : **First Optional Reading Response due**{: .label .label-red } 
