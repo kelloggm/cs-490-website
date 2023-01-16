@@ -128,10 +128,7 @@ One optional reading is due ~50% of the way through class (in spring
 semesters, around spring break). The other is due at the end of the
 semester. For the first optional reading, you aren’t restricted to
 readings that are associated with lectures earlier in the semester:
-you are always welcome to read ahead. The two optional readings that
-you choose must be on different topics: that is, you can’t pick the
-optional reading for Testing (1) and for Testing (2) (you can only
-choose one from a Testing lecture).
+you are always welcome to read ahead.
 
 ## Participation & Professionalism
 
