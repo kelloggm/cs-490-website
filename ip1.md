@@ -64,7 +64,7 @@ You will __not__ receive detailed feedback on which injected bugs you do or do n
 The autograding script will impose a strict rate limit of 5 submissions per 24 hours.
 Submissions that fail to grade will not count against the quota.
 This limit exists to encourage you to start early on this assignment: students generally report that assignments like this take between 3-20 hours.
-If you start early, you will be able to take full advantage of the resources that we provide to help you succeed: office hours, discussion on Piazza --- and the ability to have a greater total number of submission attempts.
+If you start early, you will be able to take full advantage of the resources that we provide to help you succeed: office hours, discussion on CampusWire --- and the ability to have a greater total number of submission attempts.
 
 Your code will be manually evaluated for conformance to our course [style guide]({{ site.baseurl }}{% link style.md %}). This manual evaluation will account for 10% of your total grade on this assignment. We will manually evaluate your code for style on the following rubric:
 

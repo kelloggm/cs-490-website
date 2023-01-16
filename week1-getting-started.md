@@ -14,7 +14,7 @@ Contents:
 * [Installing Visual Studio Code](#installing-visual-studio-code-vscode)
 * [Hello, World in TypeScript](#getting-started-with-typescript)
 
-If you run into any difficulties following any of these steps, please post (in a non-private question) on Piazza.
+If you run into any difficulties following any of these steps, please post (in a non-private question) on CampusWire.
 
 # Installing NodeJS
 
