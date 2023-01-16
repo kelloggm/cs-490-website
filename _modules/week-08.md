@@ -3,18 +3,18 @@ title: Week 8
 ---
 
 Mar 7
-: [Static Analysis (1)](#)
-  : **Mandatory reading**: Ayewah et al.'s [Experiences Using Static Analysis to Find Bugs](../assets/findbugs.pdf)
+: [Static Analysis (2)](#)
+  : **Mandatory reading**: Schwartz-Narbonne's [How to integrate formal proofs into software development](https://www.amazon.science/blog/how-to-integrate-formal-proofs-into-software-development)
 
-    **Optional reading**: Bessey et al.'s [A Few Billion Lines of Code Later: Using Static Analysis to Find Bugs in the Real World](../assets/coverity.pdf) 
+    **Optional reading**: Chapter 2 ("Abstract Interpretation") of Ernst's [Notes on Program Analysis](../assets/ernst-ai-notes.pdf)
 
 Mar 7
  : **Revised Project Plan due**{: .label .label-red } 
 
 
 Mar 9
-: [Static Analysis (2)](#)
-  : **Mandatory reading**: Schwartz-Narbonne's [How to integrate formal proofs into software development](https://www.amazon.science/blog/how-to-integrate-formal-proofs-into-software-development)
+: [Free and Open-source Software](#)
+  : **Mandatory reading**: Stallman's [Why Open Source Misses the Point of Free Software](https://www.gnu.org/philosophy/open-source-misses-the-point.en.html)
 
-    **Optional reading**: Chapter 2 ("Abstract Interpretation") of Ernst's [Notes on Program Analysis](../assets/ernst-ai-notes.pdf)
+    **Optional reading**: Terrell et al.'s [Gender differences and bias in open source: pull request acceptance of women versus men](../assets/genderpull.pdf)
 

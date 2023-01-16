@@ -8,6 +8,7 @@ Mar 21
 
     **Optional reading**: Ko and Myers' [Designing the WhyLine: A Debugging Interface for Asking Questions about Program Behavior](../assets/whyline.pdf)
 
+
 Mar 23
 : [Debugging (2)](#)
   : **Mandatory reading**: Zeller's [Automated Debugging: Are We Close?](../assets/delta.pdf)

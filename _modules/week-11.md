@@ -14,4 +14,3 @@ Mar 30
 
     **Optional reading**: Kellogg et al.'s [Verifying Object Construction](https://web.njit.edu/~mjk76/papers/ICSE2020-camera-ready.pdf)
 
-

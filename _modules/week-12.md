@@ -9,8 +9,8 @@ Apr 4
     **Optional reading**: TODO
 
 Apr 6
-: [Free and Open-source Software](#)
-  : **Mandatory reading**: Stallman's [Why Open Source Misses the Point of Free Software](https://www.gnu.org/philosophy/open-source-misses-the-point.en.html)
+: [Tech debt, refactoring, and maintenance (1)](#)
+  : **Mandatory reading**: Allman's [Managing Technical Debt](../assets/techdebt.pdf)
 
-    **Optional reading**: Terrell et al.'s [Gender differences and bias in open source: pull request acceptance of women versus men](../assets/genderpull.pdf)
+    **Optional reading**: Kim et al.'s [A Field Study of Refactoring Challenges and Benefits](../assets/refactoring.pdf)
 

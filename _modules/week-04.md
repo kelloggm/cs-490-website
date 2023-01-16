@@ -3,17 +3,18 @@ title: Week 4
 ---
 
 Feb 7
-: [Working in Teams](#)
-  : **Mandatory reading**: Jackson's [The Google Technical Interview](../assets/googleinterview.pdf)
-  
-    **Optional reading**: Behroozi et al.'s [Hiring is Broken: What Do Developers Say About Technical Interviews?](../assets/hiring-is-broken.pdf)
+: [Requirements and Specifications (1)](#)
+  : **Mandatory reading**: Spolsky's [How to be a Program Manager](https://www.joelonsoftware.com/2009/03/09/how-to-be-a-program-manager/)
+
+    **Optional reading**: Ernst et al.'s [The Daikon system for dynamic detection of likely invariants](../assets/daikon.pdf)
 
 Feb 7
  : **Project Formation due**{: .label .label-red } 
 
 Feb 9
-: [Testing (1)](#)
-  : **Mandatory reading**: Shore's [The Art of Agile Development: Test-Driven Development](http://www.jamesshore.com/v2/books/aoad1/test_driven_development)
+: [Requirements and Specifications (2)](#)
+  : **Mandatory reading**: Wayne's [Using Formal Methods at Work](https://www.hillelwayne.com/post/using-formal-methods/)
+  
+    **Optional reading**: Lamport's [Introduction to TLA](../assets/tla.pdf)
 
-    **Optional reading**: Saff and Ernst's [An Experimental Evaluation of Continuous Testing During Development](https://homes.cs.washington.edu/~mernst/pubs/ct-user-study-issta2004.pdf)
 

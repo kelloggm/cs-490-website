@@ -3,17 +3,17 @@ title: Week 7
 ---
 
 Feb 28
-: [Languages](#)
-  : **Mandatory reading**: Howarth's [Why Discord is Switching from Go to Rust](https://discord.com/blog/why-discord-is-switching-from-go-to-rust)
+: [Build Systems](../assets/build-systems-lecture.pdf)
+  : **Mandatory reading**: Atwood's [The F5 Key Is Not a Build Process](https://blog.codinghorror.com/the-f5-key-is-not-a-build-process/)
 
-    **Optional reading**: Hoare's [Hints on Programming Language Design](../assets/hoarehints.pdf) (shorter than it looks!)
+    **Optional reading**: Mokhov et al.'s [Build Systems à la Carte](https://www.microsoft.com/en-us/research/uploads/prod/2018/03/build-systems-final.pdf)
 
 Feb 28
  : **Individual Project 2 due**{: .label .label-red } 
 
 Mar 2
-: [Build Systems](../assets/build-systems-lecture.pdf)
-  : **Mandatory reading**: Atwood's [The F5 Key Is Not a Build Process](https://blog.codinghorror.com/the-f5-key-is-not-a-build-process/)
+: [Static Analysis (1)](#)
+  : **Mandatory reading**: Ayewah et al.'s [Experiences Using Static Analysis to Find Bugs](../assets/findbugs.pdf)
 
-    **Optional reading**: Mokhov et al.'s [Build Systems à la Carte](https://www.microsoft.com/en-us/research/uploads/prod/2018/03/build-systems-final.pdf)
+    **Optional reading**: Bessey et al.'s [A Few Billion Lines of Code Later: Using Static Analysis to Find Bugs in the Real World](../assets/coverity.pdf) 
 
