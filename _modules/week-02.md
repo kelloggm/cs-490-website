@@ -7,7 +7,7 @@ Jan 23
 
 Jan 24
 : [Process](#)
-  : **Mandatory reading**: The [Agile Manifesto](https://agilemanifesto.org/) (this should take under a minute to read, but I suggest you think about what it is advocating for at least a few minutes before moving onto the next article) and Hosking's [Agile Projects Have Become Waterfall Projects With Sprints](https://itnext.io/agile-projects-have-become-waterfall-projects-with-sprints-536141801856)
+  : **Mandatory reading**: The [Agile Manifesto](https://agilemanifesto.org/) (this should take under a minute to read, but I suggest you think about what it is advocating for at least a few minutes before moving onto the next article), Hosking's [Agile Projects Have Become Waterfall Projects With Sprints](https://itnext.io/agile-projects-have-become-waterfall-projects-with-sprints-536141801856), and the [Individual Project 1 Specification](../ip1.md)
   
     **Optional reading**: Anda et al.'s [Variability and Reproducibility in Software Engineering: A Study of Four Companies that Developed the Same System](../assets/estimation.pdf)
 

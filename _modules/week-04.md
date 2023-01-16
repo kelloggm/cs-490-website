@@ -4,7 +4,7 @@ title: Week 4
 
 Feb 7
 : [Requirements and Specifications (1)](#)
-  : **Mandatory reading**: Spolsky's [How to be a Program Manager](https://www.joelonsoftware.com/2009/03/09/how-to-be-a-program-manager/)
+  : **Mandatory reading**: Spolsky's [How to be a Program Manager](https://www.joelonsoftware.com/2009/03/09/how-to-be-a-program-manager/) and the [Group Project Specification](../project-overview.md)
 
     **Optional reading**: Ernst et al.'s [The Daikon system for dynamic detection of likely invariants](../assets/daikon.pdf)
 
