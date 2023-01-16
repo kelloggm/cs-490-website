@@ -6,7 +6,7 @@ Feb 21
 : [Testing (3)](#)
   : **Mandatory reading**: Petrovic's [Mutation Testing](https://testing.googleblog.com/2021/04/mutation-testing.html)
 
-    **Optional reading**: Barr et al.'s [The Oracle Problem in Software Testing: A Survey](../assets/testoracles.pdf))
+    **Optional reading**: Barr et al.'s [The Oracle Problem in Software Testing: A Survey](../assets/testoracles.pdf)
 
 Feb 21
  : **Project Plan due**{: .label .label-red } 
