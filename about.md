@@ -3,9 +3,6 @@ title: Syllabus
 layout: page
 ---
 
-**Construction warning: this website is under construction and the content
-is subject to change**.
-
 # Syllabus
 
 Welcome to CS 490: Guided Design in Software Engineering! This is a

@@ -10,7 +10,7 @@ Jan 31
 
 Feb 2
 : [Working in Teams](#)
-  : **Mandatory reading**: Jackson's [The Google Technical Interview](../assets/googleinterview.pdf) and the [Individual Project 2 Specification](../ip2.md)
+  : **Mandatory reading**: Jackson's [The Google Technical Interview](../assets/googleinterview.pdf) and the [Individual Project 2 Specification](../projects/ip2.html)
   
     **Optional reading**: Behroozi et al.'s [Hiring is Broken: What Do Developers Say About Technical Interviews?](../assets/hiring-is-broken.pdf)
 

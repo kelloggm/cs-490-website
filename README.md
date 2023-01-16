@@ -8,9 +8,6 @@ seo:
   name: CS 490 (Sp23)
 ---
 
-**Construction warning: this website is under construction and the content
-is subject to change**.
-
 # Welcome to CS 490!
 
 Welcome to CS 490: Guided Design in Software Engineering! This is a
