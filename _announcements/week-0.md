@@ -1,7 +1,7 @@
 ---
-title: Draft Website Works
+title: Welcome to CS 490!
 week: 0
-date: 2023-01-03
+date: 2023-01-17
 ---
 
-Testing the announcements function. TODO: remove this before publishing, hopefully!
+Welcome to CS 490! This webpage is the main hub for the course.
