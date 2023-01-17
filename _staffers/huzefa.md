@@ -1,6 +1,6 @@
 ---
 name: Huzefa Pitolwala
-role: TA
+role: Teaching Assistant
 email: hip2@njit.edu
 photo: #
 ---
