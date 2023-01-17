@@ -33,12 +33,20 @@ schedule:
         start: 1:30 PM
         end: 2:30 PM
         location: GITC 4314
+      - name: 'OH: Huzefa'
+        start: 3:00 PM
+        end: 4:00 PM
+        location: GITC 4th floor TBD
   - name: Tuesday
     events:
       - name: Lecture
         start: 11:30 AM
         end: 1:00 PM
         location: KUPF 203
+      - name: 'OH: Huzefa'
+        start: 6:00 PM
+        end: 7:00 PM
+        location: GITC 4th floor TBD
   - name: Wednesday
   - name: Thursday
     events:
