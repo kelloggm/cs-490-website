@@ -34,9 +34,9 @@ schedule:
         end: 2:30 PM
         location: GITC 4314
       - name: 'OH: Huzefa'
-        start: 3:00 PM
-        end: 4:00 PM
-        location: GITC 4th floor TBD
+        start: 4:30 PM
+        end: 5:30 PM
+        location: GITC 4234
   - name: Tuesday
     events:
       - name: Lecture
@@ -46,7 +46,7 @@ schedule:
       - name: 'OH: Huzefa'
         start: 6:00 PM
         end: 7:00 PM
-        location: GITC 4th floor TBD
+        location: GITC 4234
   - name: Wednesday
   - name: Thursday
     events:
