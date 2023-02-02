@@ -9,7 +9,7 @@ Jan 31
     **Optional reading**: De Rosso et al.'s [Purposes, concepts, misfits, and a redesign of git](../assets/gitless.pdf)
 
 Feb 2
-: [Working in Teams](#)
+: [Working in Teams](../assets/lecture-06-teams.pdf)
   : **Mandatory reading**: Jackson's [The Google Technical Interview](../assets/googleinterview.pdf) and the [Individual Project 2 Specification](../projects/ip2.html)
   
     **Optional reading**: Behroozi et al.'s [Hiring is Broken: What Do Developers Say About Technical Interviews?](../assets/hiring-is-broken.pdf)
