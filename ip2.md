@@ -350,7 +350,7 @@ Point break down for each of the testing tasks:
 Partial marks are available for detecting some (but not all) faults. The number of faults detected may not directly correlate with the difficulty of writing the test: there are several faults that are nearly guaranteed to be detected together (writing a test that finds one of them is guaranteed to find both of them), which is why there are different cutoffs for partial and full marks for the tests.
 
 ### Task 3: Implement React Hooks (60 points total)
-As discussed in Module 8, an effective pattern for building React applications is to use *hooks* within components to access global state. 
+An effective pattern for building React applications is to use *hooks* within components to access global state. 
 As part of the refactoring to implement the *Interactable* abstraction throughout Covey.Town, Avery also refactored the entire React-based frontend to use this pattern of hooks.
 Before implementing the final component that displays and synchronizes video playback in Viewing Areas, your next task will be to implement these hooks - some of which are related to the interactables, and some of which 
 are related to Avery's overall refactoring to use more hooks.
