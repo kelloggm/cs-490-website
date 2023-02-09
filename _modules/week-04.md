@@ -12,7 +12,7 @@ Feb 7
  : **Project Formation due**{: .label .label-red } 
 
 Feb 9
-: [Requirements and Specifications (2)](#)
+: [Requirements and Specifications (2)](../assets/lecture-08-specs2.pdf)
   : **Mandatory reading**: Wayne's [Using Formal Methods at Work](https://www.hillelwayne.com/post/using-formal-methods/)
   
     **Optional reading**: Lamport's [Introduction to TLA](../assets/tla.pdf)
