@@ -99,7 +99,7 @@ These methods are located in two files:
 
 The `socket.on` handler is automatically invoked by the [socket-io library](https://socket.io) when an event is received from a remote client.
 The `createViewingArea` function is automatically invoked by the [tsoa REST middleware](https://github.com/lukeautry/tsoa) when a REST request is made by a remote client.
-We will learn more about both technologies in modules 9 and 10; for the purposes of this assignment you need only implement the functions as specified (such that they pass the provided test cases).
+For the purposes of this assignment you need only implement the functions as specified (such that they pass the provided test cases).
 
 To run the tests for this part, run the command `npm test TestName` in the `townService` directory, where `TestName` is either `Town.test` or `TownsController`.
 
@@ -431,7 +431,7 @@ export function useConversationAreaTopic(area: ConversationAreaController): stri
 There are no hooks for the `ViewingAreaController` at this point - Avery noticed that the data in the `ViewingAreaController` is only used by at most one component, so felt that it would be an over-eager design optimization to define reusable hooks to access that data now.
 
 #### Grading for Task 3:
-You do not need to write any tests for task 1. The handout contains all of the tests that our grading script will use.
+You do not need to write any tests for task 3. The handout contains all of the tests that our grading script will use.
 
 Point break down for each of the implementation tasks:
 * Implement TownController.ts useTownSettings: 12 points
@@ -497,10 +497,7 @@ To receive marks for implementing each feature, your implementation must pass al
 
 
 ## Submission Instructions
-Submit your assignment in GradeScope. The easiest way to get into GradeScope the first time is to first
-[sign into Canvas](https://njit.instructure.com/courses/26613) and then click the link on our course for "GradeScope". 
-You should then also have the option to create an account on GradeScope (if you don't already have one) so that you can log in to GradeScope directly.
-Please contact the instructors immediately if you have difficulty accessing the course on GradeScope.
+Submit your assignment in GradeScope.
 
 To submit your assignment: run the command `npm run zip` **in the top-level directory of the handout**. This will produce a file called `covey-town.zip` which should contain these files:
 * townService/src/town/Town.ts
