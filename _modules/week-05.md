@@ -10,7 +10,7 @@ Feb 14
 
 Feb 16
 : [Testing (2)](#)
-  : **Mandatory reading**: SQLite's [How SQLite is Tested](https://www.sqlite.org/testing.html)
+  : **Mandatory reading**: Petrovic's [Mutation Testing](https://testing.googleblog.com/2021/04/mutation-testing.html)
 
     **Optional reading**: Memon et al.'s [Taming Google-Scale Continuous Testing](../assets/googletest.pdf)
 

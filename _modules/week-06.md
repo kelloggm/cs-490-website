@@ -4,7 +4,7 @@ title: Week 6
 
 Feb 21
 : [Testing (3)](#)
-  : **Mandatory reading**: Petrovic's [Mutation Testing](https://testing.googleblog.com/2021/04/mutation-testing.html)
+  : **Mandatory reading**: SQLite's [How SQLite is Tested](https://www.sqlite.org/testing.html)
 
     **Optional reading**: Barr et al.'s [The Oracle Problem in Software Testing: A Survey](../assets/testoracles.pdf)
 
