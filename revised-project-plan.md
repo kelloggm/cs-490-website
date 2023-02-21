@@ -77,8 +77,8 @@ Your work breakdown should take the format of a simple textual list.
 **Mandatory update for all teams:** Even if your work breakdown is entirely unchanged compared to the preliminary plan, please be certain to include updates on all "sprint 0" tasks (those which were scheduled to be completed before the due date of this revised plan). Many teams include research/learning tasks in the first week to help inform the rest of the work breakdown: you should be certain to revise your work breakdown based on what you have learned so far.
  
 ## Submission 
-Your revised project plan should be submitted as a single PDF in GradeScope to the assignment "Revised Project Plan."
-Each team submits a single document to GradeScope: when uploading the submission, GradeScope will ask you who your teammates are, and then will associate this submission with every member of your team. Be sure to tag your team mates.
+Your revised project plan should be submitted as a single PDF in Canvas to the assignment "Revised Project Plan."
+Each team submits a single document to Canvas.
 
 ## Grading
 The revised project plan will account for 10% of your project grade, and will be graded out of 100 points. The grading of the revised project plan is further broken down as follows:

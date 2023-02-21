@@ -96,8 +96,8 @@ unexpected bugs, etc., that need to be ironed out. Padding your schedule like th
 Your work breakdown should take the format of a simple textual list.
  
 ## Submission 
-Your project plan should be submitted as a single PDF in GradeScope to the assignment "Preliminary Project Plan."
-Each team submits a single document to GradeScope: when uploading the submission, GradeScope will ask you who your teammates are, and then will associate this submission with every member of your team. Be sure to tag your team mates.
+Your project plan should be submitted as a single PDF in Canvas to the assignment "Preliminary Project Plan."
+Each team submits a single document to Canvas: when uploading the submission, your teams should already be present in Canvas. Be sure to tag your team mates.
 The assignment is due by the end of February 21, AoE.
 
 ## Grading
