@@ -96,7 +96,7 @@ unexpected bugs, etc., that need to be ironed out. Padding your schedule like th
 Your work breakdown should take the format of a simple textual list.
  
 ## Submission 
-Your project plan should be submitted as a single PDF in Canvas to the assignment "Preliminary Project Plan."
+Your project plan should be submitted as a single PDF in [Canvas](https://njit.instructure.com/courses/26613) to the assignment "Preliminary Project Plan."
 Each team submits a single document to Canvas: when uploading the submission, your teams should already be present in Canvas. Be sure to tag your team mates.
 The assignment is due by the end of February 21, AoE.
 
