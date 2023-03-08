@@ -3,7 +3,7 @@ title: Week 8
 ---
 
 Mar 7
-: [Static Analysis (2)](#)
+: [Static Analysis (2)](../assets/lecture-14-15-static-analysis.pdf)
   : **Mandatory reading**: Schwartz-Narbonne's [How to integrate formal proofs into software development](https://www.amazon.science/blog/how-to-integrate-formal-proofs-into-software-development)
 
     **Optional reading**: Chapter 2 ("Abstract Interpretation") of Ernst's [Notes on Program Analysis](../assets/ernst-ai-notes.pdf)

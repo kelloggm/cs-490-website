@@ -12,7 +12,7 @@ Feb 28
  : **Individual Project 2 due**{: .label .label-red } 
 
 Mar 2
-: [Static Analysis (1)](#)
+: [Static Analysis (1)](../assets/lecture-14-15-static-analysis.pdf)
   : **Mandatory reading**: Ayewah et al.'s [Experiences Using Static Analysis to Find Bugs](../assets/findbugs.pdf)
 
     **Optional reading**: Bessey et al.'s [A Few Billion Lines of Code Later: Using Static Analysis to Find Bugs in the Real World](../assets/coverity.pdf) 
