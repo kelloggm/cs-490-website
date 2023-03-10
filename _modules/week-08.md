@@ -13,7 +13,7 @@ Mar 7
 
 
 Mar 9
-: [Free and Open-source Software](#)
+: [Free and Open-source Software](../assets/lecture-16-floss.pdf)
   : **Mandatory reading**: Stallman's [Why Open Source Misses the Point of Free Software](https://www.gnu.org/philosophy/open-source-misses-the-point.en.html)
 
     **Optional reading**: Terrell et al.'s [Gender differences and bias in open source: pull request acceptance of women versus men](../assets/genderpull.pdf)
