@@ -6,7 +6,7 @@ parent: Projects
 nav_order: 6
 ---
 # Project: Final Deliverable **Due TBD, 11:59pm AoE**{: .label .label-red }
-The final project deliverable is the implementation, available in github and deployed on Netlify and Heroku, and the documentation turned in to Canvas. It also includes demos and/or posters.
+The final project deliverable is the implementation (in GitHub) and the documentation turned in to Canvas. It also includes your demo and a poster.
 
 # Project Implementation and Documentation
 
@@ -17,7 +17,7 @@ codebase is independent of the grade you receive, but provides a platform for mo
 ## Contents
 
 Your final team deliverable will include:
-* The implementation of your new feature, deployed to Netlify + Heroku
+* The implementation of your new feature
 * Automated tests for your new feature
 * A report that describes how to use your new feature
 * A poster
@@ -31,20 +31,20 @@ Accompanying the final team deliverable will be an *individual reflection*, whic
 ### Submission Instructions
 
 #### Code and documentation
- After you have pushed all of your code (and documentation) to your team's GitHub repository, create [a release](https://docs.github.com/en/free-pro-team@latest/github/administering-a-repository/managing-releases-in-a-repository) on GitHub, and apply the tag version `final-submission`. After your release is created, you'll find that there is now a `.zip` that can be downloaded from GitHub that contains a snapshot of your entire repository. Download this zip file, unpack it, and follow the instructions that you provided in your README to double-check that the course staff will be able to run your project (this step is handy to make sure that you didn't forget to include some key files in git). If needed, you can delete the release, make some changes, and re-release up until the deadline. **Submit this zip file to Canvas** under the assignment "Project: Code Submission". Submit your report separately to Canvas, under the assignment "Project: Report".
+ After you have pushed all of your code (and documentation) to your team's GitHub repository, create [a release](https://docs.github.com/en/free-pro-team@latest/github/administering-a-repository/managing-releases-in-a-repository) on GitHub, and apply the tag version `final-submission`. After your release is created, you'll find that there is now a `.zip` that can be downloaded from GitHub that contains a snapshot of your entire repository. Download this zip file, unpack it, and follow the instructions that you provided in your README to double-check that the course staff will be able to run your project locally (this step is handy to make sure that you didn't forget to include some key files in git). If needed, you can delete the release, make some changes, and re-release up until the deadline. **Submit this zip file to Canvas** under the assignment "Project: Code Submission". Submit your report separately to Canvas, under the assignment "Project: Report".
 
 #### Project Poster & Demo
 Each team will submit a poster. Your poster will be a single-page document, that will include the following aspects:
 
 * Short description of the project (OK to reuse text from the project plan/report)
-* Link to public demo site, link to source repo (OK to make the repo public now, or OK to leave as private)
+* Link to source repo (OK to make the repo public now, or OK to leave as private)
 * Short description of the technology stack and overall design decisions
 * Short description of future work that could build on your project - additional features that you think could be interesting, or ideas for refactoring the code.
 * Screenshots of the feature, visually demonstrating the main functionality that you implemented.
 
-We've created a [sample poster for the "Conversation Areas" feature]({{ site.baseurl }}{% link Examples/conversation-areas-poster.pdf %}), which you might find useful in deciding how to format your poster. It's fine to use a different aspect ratio (e.g. portrait instead of landscape), and there are no specific requirements for font size or amount of text. Please try to create a document that you feel represents your project, imagine your target audience as a recruiter for a software engineering role: your goal is to demonstrate that you have some experience working on some non-trivial software engineering project.
+We've created a [sample poster for the "Conversation Areas" feature]({{ site.baseurl }}{% link Examples/conversation-areas-poster.pdf %}), which you might find useful in deciding how to format your poster. It's fine to use a different aspect ratio (e.g. portrait instead of landscape), and there are no specific requirements for font size or amount of text. Please try to create a document that you feel represents your project, imagine your target audience as a recruiter for a software engineering role: your goal is to demonstrate that you have some experience working on some non-trivial software engineering project. **Posters will be submitted on Canvas**, under the assignment "Project: Poster".
 
-We will have live (in-person) demos at the project showcase during the class' final exam slot. **Posters will be submitted on Canvas**, under the assignment "Project: Poster".
+We will have live (in-person) demos at the project showcase during the class' final exam slot. You may (but are not required to) print your poster and bring it with you.
  
 #### Individual Reflection
 Create a PDF of your reflection, and submit it to Canvas, under the assignment "Project: Individual Reflection". 
@@ -79,12 +79,12 @@ We will grade each delivered project holistically using the following two rubric
 
 #### Satisfactory:
 * Implemented feature satisfies the conditions of satisfaction as proposed by the team and as agreed to by the course staff. If technical difficulties resulted in features being dropped, the project may still earn full marks on "delivered features," but these difficulties must have been documented with the course staff as you encountered them during development.
-* Implemented feature is deployed to a publicly-accessible URL, using Netlify and Heroku for hosting. Detailed instructions for deployement will be supplied later.
+* Implemented feature can be deployed locally following the instructions provided with the code submission in its README without any debugging by the course staff.
 * Implemented feature contains no ESLint warnings or errors; does not include any eslint-disable or ts-ignore flags
 
 #### Meets minimum requirements:
 * Implemented feature largely satisfies acceptance criteria as proposed by the team, but may not meet the course staff’s interpretation of those criteria.
-* Implemented feature is deployed to a publicly-accessible URL, using Netlify and Heroku for hosting. Detailed instructions for deployement will be supplied later.
+* Implemented feature can be deployed locally following the instructions provided with the code submission in its README, with minor debugging by the course staff (e.g., one or two minor missing steps).
 * The implementation may have some obvious flaws, but largely works without crashing.
 * Implemented feature does not include any eslint-disable or ts-ignore flag
 
@@ -160,9 +160,22 @@ The final report should consist of three sections:
 * The document is at most 2 pages (fewer pages are absolutely acceptable, consider this a rough limit) 
 
 ### 10% Demonstration / Posters
-Each team will be required to submit a poster. In addition, some sections may have a demo (live in-person, via zoom or by recorded video). Each instructor will provide details regarding expectations for the demo and/or presentation. The schedule and manner of these demos might also vary from section to section.
+Each team will be required to submit a poster and to demonstrate their feature during the final exam slot to their classmates and to the instructor(s) and TA(s).
 
-Select projects will be hosted in our project showcase. Here are the projects from Spring 2022 [project showcase](https://neu-se.github.io/CS4530-Spring-2022/assignments/project-showcase).
+Select projects may be hosted in a project showcase. Here are the projects from Spring 2022 [project showcase](https://neu-se.github.io/CS4530-Spring-2022/assignments/project-showcase).
+
+#### Satisfactory:
+* Poster is a single page
+* Poster describes the project clearly
+* Poster describes technology stack and overall design decisions clearly
+* Poster describes future work clearly
+* Poster visually demonstrates your feature well
+* Demo is functional during the final exam slot and is consistent with the project as described in the rest of your final submission
+
+#### Meets minimum requirements:
+* Poster is a single page
+* Poster is missing at most one of the following elements: project description, technology stack/design decisions, future work, visual demo of feature
+* Demo is functional during the final exam slot and is mostly consistent with the project as described in the rest of your final submission
 
 ## Individual Reflection
 
