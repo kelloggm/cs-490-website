@@ -4,7 +4,7 @@ title: "Optional Readings"
 permalink: /projects/optional-readings.html
 parent: Projects
 nav_order: 7
-due_date: "Saturday March 11, 2023, 11:59 PM AoE"
+due_date: "Tuesday May 2, 2023, 11:59 PM AoE"
 submission_notes: Submit on Canvas
 ---
 
