@@ -10,6 +10,7 @@ Apr 25
 
 Apr 27
 : Final Exam (in-class)
+  : [Practice Exam](../assets/practice.pdf) ([key](../assets/practice-key.pdf))
 
 May 2
  : **Second Optional Reading Response due**{: .label .label-red } 
