@@ -9,7 +9,7 @@ Apr 11
     **Optional reading**: Malkawi's [The art of software systems development: Reliability, Availability, Maintainability, Performance (RAMP)](../assets/maintainability.pdf) (read up through the 4 "Cases" and then skip to and read the Discussion)
 
 Apr 13
-: [DevOps (1)](../assets/lecture-23-devops-1.pdf)
+: [DevOps (1)](../assets/lecture-23-devops1.pdf)
   : **Mandatory reading**: Sloss' ["Introduction"](https://sre.google/sre-book/introduction/) and Baye's ["Emergency Response"](https://sre.google/sre-book/emergency-response/) from Google's [Site Reliability Engineering](https://sre.google/sre-book/table-of-contents/)
 
     **Optional reading**: Dean and Barroso's ["The Tail at Scale"](../assets/tail-at-scale.pdf)
