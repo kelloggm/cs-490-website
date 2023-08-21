@@ -13,7 +13,4 @@ Oct 25
 
 Oct 27
 : Mid-term Exam (in-class)
-  : [Practice Exam](../assets/practice.pdf) ([key](../assets/practice-key.pdf))
-
-   [Final Exam](../assets/exam.pdf) ([key](../assets/exam-key.pdf))
-
+  : see the [exams](../exam) page for old and practice exams (with keys)

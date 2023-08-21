@@ -1,11 +1,11 @@
 ---
 layout: home
-title: CS 490 (Sp23)
+title: CS 490 (Au23)
 nav_exclude: true
 permalink: /:path/
 seo:
   type: Course
-  name: CS 490 (Sp23)
+  name: CS 490 (Au23)
 ---
 
 # Welcome to CS 490!
@@ -23,9 +23,9 @@ engineering.
 
 On this course website, you can find:
 - the [syllabus](about.md),
-- [announcements](announcements.md),
 - a [course calendar](calendar.md) (which includes links to the required readings)),
 - a [staff](staff.md) page,
 - links to all [assignments](assignments.md),
 - useful [tutorials](tutorials.md),
-- and a weekly [schedule](schedule.md).
+- information about [exams](exam.md) (including old/practice exams with solutions),
+- and a weekly [schedule](schedule.md) showing all available help (office hours and tutoring).
