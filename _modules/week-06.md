@@ -2,16 +2,16 @@
 title: Week 6
 ---
 
-Feb 21
-: [Testing (3)](../assets/lecture-11-testing3.pdf)
-  : **Mandatory reading**: SQLite's [How SQLite is Tested](https://www.sqlite.org/testing.html)
+Oct 11
+: [Working in Teams](../assets/lecture-06-teams.pdf)
+  : **Mandatory reading**: Jackson's [The Google Technical Interview](../assets/googleinterview.pdf) and the [Individual Project 2 Specification](../projects/ip2.html)
+  
+    **Optional reading**: Behroozi et al.'s [Hiring is Broken: What Do Developers Say About Technical Interviews?](../assets/hiring-is-broken.pdf)
 
-    **Optional reading**: Barr et al.'s [The Oracle Problem in Software Testing: A Survey](../assets/testoracles.pdf)
-
-Feb 21
+Oct 12
  : **Project Plan due**{: .label .label-red } 
 
-Feb 23
+Oct 13
 : [Languages](../assets/lecture-12-languages.pdf)
   : **Mandatory reading**: Howarth's [Why Discord is Switching from Go to Rust](https://discord.com/blog/why-discord-is-switching-from-go-to-rust)
 

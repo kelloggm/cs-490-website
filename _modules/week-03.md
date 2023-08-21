@@ -2,18 +2,18 @@
 title: Week 3
 ---
 
-Jan 31
+Sep 20
+: [Testing (3)](../assets/lecture-11-testing3.pdf)
+  : **Mandatory reading**: SQLite's [How SQLite is Tested](https://www.sqlite.org/testing.html)
+
+    **Optional reading**: Barr et al.'s [The Oracle Problem in Software Testing: A Survey](../assets/testoracles.pdf)
+
+Sep 22
 : [Version Control](../assets/lecture-05-version-control.pdf)
   : **Mandatory reading**: Ernst's [Version control concepts and best practices](https://homes.cs.washington.edu/~mernst/advice/version-control.html)
   
     **Optional reading**: De Rosso et al.'s [Purposes, concepts, misfits, and a redesign of git](../assets/gitless.pdf)
 
-Feb 2
-: [Working in Teams](../assets/lecture-06-teams.pdf)
-  : **Mandatory reading**: Jackson's [The Google Technical Interview](../assets/googleinterview.pdf) and the [Individual Project 2 Specification](../projects/ip2.html)
-  
-    **Optional reading**: Behroozi et al.'s [Hiring is Broken: What Do Developers Say About Technical Interviews?](../assets/hiring-is-broken.pdf)
-
-Feb 2
+Sep 22
  : **Individual Project 1 due**{: .label .label-red } 
 

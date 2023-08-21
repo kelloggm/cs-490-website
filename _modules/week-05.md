@@ -2,15 +2,15 @@
 title: Week 5
 ---
 
-Feb 14
-: [Testing (1)](../assets/lecture-09-testing1.pdf)
-  : **Mandatory reading**: Shore's [The Art of Agile Development: Test-Driven Development](http://www.jamesshore.com/v2/books/aoad1/test_driven_development)
+Oct 4
+: [Process](../assets/lecture-03-process.pdf)
+  : **Mandatory reading**: The [Agile Manifesto](https://agilemanifesto.org/) (this should take under a minute to read, but I suggest you think about what it is advocating for at least a few minutes before moving onto the next article), Hosking's [Agile Projects Have Become Waterfall Projects With Sprints](https://itnext.io/agile-projects-have-become-waterfall-projects-with-sprints-536141801856), and the [Individual Project 1 Specification](../projects/ip1.html)
+  
+    **Optional reading**: Anda et al.'s [Variability and Reproducibility in Software Engineering: A Study of Four Companies that Developed the Same System](../assets/estimation.pdf)
 
-    **Optional reading**: Saff and Ernst's [An Experimental Evaluation of Continuous Testing During Development](https://homes.cs.washington.edu/~mernst/pubs/ct-user-study-issta2004.pdf)
+Oct 6
+: [Code Review](../assets/lecture-04-code-review.pdf)
+  : **Mandatory reading**: Google's [How to do a code review](https://google.github.io/eng-practices/review/reviewer/) (read all six linked sub-pages in the bulleted list)
 
-Feb 16
-: [Testing (2)](../assets/lecture-10-testing2.pdf)
-  : **Mandatory reading**: Petrovic's [Mutation Testing](https://testing.googleblog.com/2021/04/mutation-testing.html)
-
-    **Optional reading**: Memon et al.'s [Taming Google-Scale Continuous Testing](../assets/googletest.pdf)
+    **Optional reading**: Bacchelli and Bird's [Expectations, Outcomes, and Challenges Of Modern Code Review](../assets/codereview.pdf)
 

@@ -2,15 +2,14 @@
 title: Week 13
 ---
 
-Apr 11
-: [Tech debt, refactoring, and maintenance (2)](../assets/lecture-22-refactoring.pdf)
-  : **Mandatory reading**: Spolsky's [Things you should never do, part I](https://www.joelonsoftware.com/2000/04/06/things-you-should-never-do-part-i/)
+Nov 29
+: [DevOps (2)](../assets/lecture-24-devops2.pdf)
+  : **Mandatory reading**: Lunney and Lueder's ["Postmortem Culture: Learning from Failure"](https://sre.google/sre-book/postmortem-culture/) from Google's [Site Reliability Engineering](https://sre.google/sre-book/table-of-contents/) and Luu's ["Postmortem Lessons"](https://danluu.com/postmortem-lessons/)
 
-    **Optional reading**: Malkawi's [The art of software systems development: Reliability, Availability, Maintainability, Performance (RAMP)](../assets/maintainability.pdf) (read up through the 4 "Cases" and then skip to and read the Discussion)
+    **Optional reading**: Xu et al.'s ["Do Not Blame Users for Misconfiguration"](https://cseweb.ucsd.edu//~tixu/papers/sosp13.pdf)
 
-Apr 13
-: [DevOps (1)](../assets/lecture-23-devops1.pdf)
-  : **Mandatory reading**: Sloss' ["Introduction"](https://sre.google/sre-book/introduction/) and Baye's ["Emergency Response"](https://sre.google/sre-book/emergency-response/) from Google's [Site Reliability Engineering](https://sre.google/sre-book/table-of-contents/)
-
-    **Optional reading**: Dean and Barroso's ["The Tail at Scale"](../assets/tail-at-scale.pdf)
-
+Dec 1
+: [What is Software Engineering?](../assets/lecture-25-se-research.pdf)
+  : **Mandatory reading**: Shaw's ["What makes good research in software engineering?"](../assets/good-se.pdf)
+  
+    **Optional reading**: read 10 abstracts in the [latest FSE proceedings](https://dblp.org/db/conf/sigsoft/fse2023.html) and make a list of words you don’t know. Then, look up at least 5 of those words and write a brief definition. Submit the list of words, the 5 definitions, and the titles of the papers whose abstracts you read. (I recommend choosing the ten 10 papers whose titles sound the most interesting to you.)

@@ -2,14 +2,16 @@
 title: Week 11
 ---
 
-Mar 28
-: No class (Martin has the flu)
+Nov 15
+: [Tech debt, refactoring, and maintenance (1)](../assets/lecture-21-tech-debt.pdf)
+  : **Mandatory reading**: Allman's [Managing Technical Debt](../assets/techdebt.pdf)
 
-Mar 30
-: [Software Architecture (1)](../assets/lecture-19-architecture.pdf)
-  : **Mandatory reading**: Kästner's [Thinking Like a Software Architect](https://ckaestne.medium.com/thinking-like-a-software-architect-121ea6919871)
+    **Optional reading**: Kim et al.'s [A Field Study of Refactoring Challenges and Benefits](../assets/refactoring.pdf)
 
-    **Optional reading**: Garlan's [Software Architecture](../assets/architecture.pdf)
+Nov 17
+: [Tech debt, refactoring, and maintenance (2)](../assets/lecture-22-refactoring.pdf)
+  : **Mandatory reading**: Spolsky's [Things you should never do, part I](https://www.joelonsoftware.com/2000/04/06/things-you-should-never-do-part-i/)
 
-Mar 30
+    **Optional reading**: Malkawi's [The art of software systems development: Reliability, Availability, Maintainability, Performance (RAMP)](../assets/maintainability.pdf) (read up through the 4 "Cases" and then skip to and read the Discussion)
+
 

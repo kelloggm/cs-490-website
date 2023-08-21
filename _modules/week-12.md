@@ -2,15 +2,11 @@
 title: Week 12
 ---
 
-Apr 4
-: [Software Architecture (2)](../assets/lecture-20-design-patterns.pdf)
-  : **Mandatory reading**: Fowler's [Writing Software Patterns](https://www.martinfowler.com/articles/writingPatterns.html) (read up to, but not including, "Common Pattern Forms") and Lewis and Fowler's [Microservices]( https://www.martinfowler.com/articles/microservices.html)
+Nov 22
+: [DevOps (1)](../assets/lecture-23-devops1.pdf)
+  : **Mandatory reading**: Sloss' ["Introduction"](https://sre.google/sre-book/introduction/) and Baye's ["Emergency Response"](https://sre.google/sre-book/emergency-response/) from Google's [Site Reliability Engineering](https://sre.google/sre-book/table-of-contents/)
 
-    **Optional reading**: Kellogg et al.'s [Verifying Object Construction](https://web.njit.edu/~mjk76/papers/ICSE2020-camera-ready.pdf)
+    **Optional reading**: Dean and Barroso's ["The Tail at Scale"](../assets/tail-at-scale.pdf)
 
-Apr 6
-: [Tech debt, refactoring, and maintenance (1)](../assets/lecture-21-tech-debt.pdf)
-  : **Mandatory reading**: Allman's [Managing Technical Debt](../assets/techdebt.pdf)
-
-    **Optional reading**: Kim et al.'s [A Field Study of Refactoring Challenges and Benefits](../assets/refactoring.pdf)
-
+Nov 24
+: No class (Thanksgiving holiday)
