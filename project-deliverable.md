@@ -6,7 +6,7 @@ parent: Projects
 nav_order: 6
 ---
 # Project: Final Deliverable **Due TBD, 11:59pm AoE**{: .label .label-red }
-The final project deliverable is the implementation (in GitHub) and the documentation turned in to Canvas. It also includes your demo and a poster.
+The final project deliverable is the implementation (in GitHub) and the documentation turned in to Canvas. It also includes your final demo.
 
 # Project Implementation and Documentation
 
@@ -20,7 +20,6 @@ Your final team deliverable will include:
 * The implementation of your new feature
 * Automated tests for your new feature
 * A report that describes how to use your new feature
-* A poster
     
 Accompanying the final team deliverable will be an *individual reflection*, which every student must submit on their own which will include your reflections on:
 * The evolution of your project concept: How does the project that you delivered compare to what you originally planned to deliver? What caused these deviations?
@@ -33,18 +32,10 @@ Accompanying the final team deliverable will be an *individual reflection*, whic
 #### Code and documentation
  After you have pushed all of your code (and documentation) to your team's GitHub repository, create [a release](https://docs.github.com/en/free-pro-team@latest/github/administering-a-repository/managing-releases-in-a-repository) on GitHub, and apply the tag version `final-submission`. After your release is created, you'll find that there is now a `.zip` that can be downloaded from GitHub that contains a snapshot of your entire repository. Download this zip file, unpack it, and follow the instructions that you provided in your README to double-check that the course staff will be able to run your project locally (this step is handy to make sure that you didn't forget to include some key files in git). If needed, you can delete the release, make some changes, and re-release up until the deadline. **Submit this zip file to Canvas** under the assignment "Project: Code Submission". Submit your report separately to Canvas, under the assignment "Project: Report".
 
-#### Project Poster & Demo
-Each team will submit a poster. Your poster will be a single-page document, that will include the following aspects:
+#### Project Demo
 
-* Short description of the project (OK to reuse text from the project plan/report)
-* Link to source repo (OK to make the repo public now, or OK to leave as private)
-* Short description of the technology stack and overall design decisions
-* Short description of future work that could build on your project - additional features that you think could be interesting, or ideas for refactoring the code.
-* Screenshots of the feature, visually demonstrating the main functionality that you implemented.
-
-We've created a [sample poster for the "Conversation Areas" feature]({{ site.baseurl }}{% link Examples/conversation-areas-poster.pdf %}), which you might find useful in deciding how to format your poster. It's fine to use a different aspect ratio (e.g. portrait instead of landscape), and there are no specific requirements for font size or amount of text. Please try to create a document that you feel represents your project, imagine your target audience as a recruiter for a software engineering role: your goal is to demonstrate that you have some experience working on some non-trivial software engineering project. **Posters will be submitted on Canvas**, under the assignment "Project: Poster".
-
-We will have live (in-person) demos at the project showcase during the class' final exam slot. You may (but are not required to) print your poster and bring it with you.
+We will have live (in-person) demos at the project showcase during the last day of class. You are required to attend on the last day of class, barring exceptional circumstances.
+Make sure that at least one member of your team has a laptop that can access your deployed covey.town instance with them on the last day of class.
  
 #### Individual Reflection
 Create a PDF of your reflection, and submit it to Canvas, under the assignment "Project: Individual Reflection". 
@@ -56,20 +47,23 @@ In cases where team members do not equally contribute to the project, we may ass
 
 ### Summary of grading
 * Planning Documents
-  * 10% Preliminary Project Plan (already graded)
-  * 10% Revised Project Plan (already submitted)
+  * 7.5% Preliminary Project Plan (already graded)
+  * 10% Revised Project Plan (already graded)
 * Activities During the Project
-  * 5% Weekly Meetings with Mentor and Team Surveys
+  * 5% Meetings with Mentor and Team Surveys
   * 10% Ongoing development progress, including code reviews
 * Final Deliverables
   * Code 
     * 20% Final implementation of your feature
     * 10% Final test suite of your feature
-  * Report
-    * 5% Feature Overview
-    * 10% Technical Overview
-    * 10% Process Overview
-  * 10% Demonstration & Posters
+   * Report
+      * 5% Feature Overview
+      * 7.5% Technical Overview
+      * 7.5% Process Overview
+   * Demonstrations
+      * 2.5% Wizard-of-Oz demo (already graded)
+      * 5% Preliminary Demo (already graded)
+      * 10% Final demo
 
 This adds up to 100%; this sum is worth 45% of the course grade.
 
@@ -100,7 +94,6 @@ The project must include evidence of testing. Ideally, all new features will be 
 * Tests may contain ESlint warnings (but no errors); does not include any eslint-disable or ts-ignore flags
 
 ### Activities During the Project
-
 
 #### 5% Weekly Meetings with Mentor and Team Surveys
 Throughout the semester, each team will be meeting with their mentor and with the instructor to discuss their project progress. Attendance at these meetings and demonstrations of progress will, cumulatively, account for 5% of the project grade. You will also be asked to complete Team Surveys and/or Peer evaluations to help track the progress.
@@ -139,7 +132,7 @@ The final report should consist of three sections:
 * The course staff were able to figure out how to use it through trial and error.
 * The section is at most 4 pages, NOT including figures. Fewer pages are absolutely acceptable, consider this a rough limit
 
-#### 10% Report - Technical Overview
+#### 7.5% Report - Technical Overview
 ##### Satisfactory:
 * Technical Overview contains a description of any substantive changes to the existing Covey.Town codebase, and of the architecture of your new code.
 * It uses UML diagrams, CRC cards, state diagrams or any of the other techniques that help describe the structure.
@@ -149,7 +142,7 @@ The final report should consist of three sections:
 * Technical Overview includes a description of all major changes to the code compared to our existing Covey.Town codebase.
 * The document is at most 2 pages (fewer pages are absolutely acceptable, consider this a rough limit) 
 
-#### 10% Process Overview
+#### 7.5% Process Overview
 ##### Satisfactory:
 * Process overview contains a detailed description of the manner in which agile project management processes were used during the project (i.e., sprints, sprint reviews, retrospectives and blameless reviews).
 * It provides a summary of what was planned to happen in each sprint vs what actually happened, with a discussion of what was revised as a result. 
@@ -159,23 +152,40 @@ The final report should consist of three sections:
 * It provides a summary of what was planned to happen in each sprint vs what actually happened, with a discussion of what was revised as a result. 
 * The document is at most 2 pages (fewer pages are absolutely acceptable, consider this a rough limit) 
 
-### 10% Demonstration / Posters
-Each team will be required to submit a poster and to demonstrate their feature during the final exam slot to their classmates and to the instructor(s) and TA(s).
+### 10% Final Demonstration
+Each team will be required to demonstrate their feature to their classmates and to the instructor(s) and TA(s) on the last day of class.
 
 Select projects may be hosted in a project showcase. Here are the projects from Spring 2022 [project showcase](https://neu-se.github.io/CS4530-Spring-2022/assignments/project-showcase).
 
 #### Satisfactory:
-* Poster is a single page
-* Poster describes the project clearly
-* Poster describes technology stack and overall design decisions clearly
-* Poster describes future work clearly
-* Poster visually demonstrates your feature well
-* Demo is functional during the final exam slot and is consistent with the project as described in the rest of your final submission
+* Demo is functional on the final day of class and is consistent with the project as described in the rest of your final submission
 
 #### Meets minimum requirements:
-* Poster is a single page
-* Poster is missing at most one of the following elements: project description, technology stack/design decisions, future work, visual demo of feature
-* Demo is functional during the final exam slot and is mostly consistent with the project as described in the rest of your final submission
+* Demo is functional on the final day of class and is mostly consistent with the project as described in the rest of your final submission
+
+### Resubmission After the Final Demo
+
+Sometimes, project teams can't quite finish everything they've promised by the time of the final demonstration on the last day of class.
+It's better to deliver a feature late than never deliver it, so if you find yourself in this situation, you're permitted to continue working
+on your project and resubmit your project materials and do another demo for the instructor and your project mentor.
+
+If your team is in this situation, you must:
+* On the same day as the final demo (i.e., the last day of class), send an email to the instructor, your project mentor TA, and your teammates declaring that
+you intend to resubmit. Each of your teammates must respond by this deadline indicating that they agree that a resubmission is appropriate.
+* In writing (email is fine), declare exactly which feature(s) or user stor(ies) you will complete by the resubmission deadline. This email must be received
+by the instructor and TAs no later than 72 hours after the deadline for your initial email declaring your intention to resubmit (i.e., it must be received no more than 3 days later, AoE, than the last day of class).
+* You must schedule a meeting with your project mentor and the instructor before the class' final exam (note: day of the final exam is **not** acceptable) to re-demonstrate your
+feature. The deadline for scheduling this demo is the same as the deadline for providing the scope of work email (see previous bullet point): no more than 3 days after the last day of class. Note that the instructor generally does not check email on the weekend.
+
+The consequences of choosing to resubmit are:
+* you will not receive your final grades on your project materials until **after** your resubmission demo.
+* you must resubmit all project deliverables before your rescheduled demo.
+* you will be held to a higher standard on all project materials, since your team will have extra time to polish them.
+* your final grades on all materials will be evenly split between the grade you would have received on your original submission and
+the grade you receive on your resubmission. Additionally, a 5% late penalty is automatically applied to your resubmission. A further
+5% penalty is applied if, in the view of the instructor, your resubmission does not substantially improve on your original submission.
+Do not resubmit unless your work was substantially incomplete at the regular deadline: these policies mean that resubmitting is only a good
+idea if your project would otherwise be graded poorly.
 
 ## Individual Reflection
 

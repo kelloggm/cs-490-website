@@ -5,7 +5,7 @@ permalink: /projects/revised-project-plan.html
 parent: Projects
 nav_order: 5
 ---
-# Revised Project Plan **Due Tuesday, March 7, 2023 AoE**{: .label .label-red }
+# Revised Project Plan **Due Monday 23 October, 2023 11:59pm AoE**{: .label .label-red }
 You should use the feedback on your preliminary project plan to revise the scope of your project, and discuss any changes with your assigned mentor. The goal of this assignment is to finalize the intended scope of your project based on these discussions and to outline the tasks that you will need to accomplish in order to complete your project.
 
 Your mentor will review your project plan and provide you with feedback on the scope and details provided in your preliminary plan.

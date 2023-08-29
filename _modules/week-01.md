@@ -11,6 +11,6 @@ Sep 8
    : **Mandatory reading**: Spolsky's [The Joel Test](https://www.joelonsoftware.com/2000/08/09/the-joel-test-12-steps-to-better-code/) (note that this article is from 2000, so the examples are a little dated) and Triglia's [Why you should use Black for your Python style linting
 ](http://www.locallyoptimal.com/blog/2019/08/23/why-you-should-use-black-for-your-python-style-linting/)
 
-     **Optional reading**: Ajami et al.'s [Syntax, predicates, idioms — what really affects code complexity?](../assets/complexity.pdf)
+     **Your Choice reading**: Ajami et al.'s [Syntax, predicates, idioms — what really affects code complexity?](../assets/complexity.pdf)
 
   

@@ -78,37 +78,36 @@ well-defined program in a language you’ve never seen before.
 # Grading and Assignments
 
 Your grade is composed of the following sub-scores (in no particular order):
-* 15%: Participation & Professionalism
-* 5%: Optional Reading Responses
+* 10%: Participation & Professionalism
+* 5%: "Your Choice" Reading Responses
 * 15%: Individual Projects
 * 45%: Group Project
-* 20%: Final Exam
+* 25%: Exams (10% for the mid-term, 15% for the final)
 
 This class will be curved: when grading, I prefer to use the whole
 range available rather than scores in a tight range. That is, if an
 assignment is worth 10 points, I will give grades at all the points
 between 0 and 10. I will project your raw scores onto the final
-distribution three times during the semester:
-* after the first optional reading is graded (~ halfway through the class)
+distribution twice during the semester:
+* after the mid-term exam
 * shortly before the final exam
-* when I compute final grades.
 
 You will be notified of your current projected class grade via email at each of these points.
 
 ## Readings and Reading Responses
 
-Each lecture has two kinds of readings: mandatory and optional
+Each lecture has two kinds of readings: mandatory and "Your Choice"
 readings. I expect you to read mandatory readings before coming to
 class that day, and participation quizzes (see Participation &
 Professionalism, below) will cover the mandatory readings only. During
-the semester, you **must** complete **at least two** optional readings and do
-an associated task. Most optional readings are research papers from
+the semester, you **must** complete **at least two** "Your Choice" readings and do
+an associated task. Most "Your Choice" readings are research papers from
 the software engineering literature: the idea is that you will do a
 deeper dive on two topics that interest you.
 
-Some optional readings have a specific task associated with them; if
+Some "Your Choice" readings have a specific task associated with them; if
 you choose one of those, complete the task and then submit the result
-on Canvas. If there is no task associated with an optional reading,
+on Canvas. If there is no task associated with an "Your Choice" reading,
 the task is to write a one-page reaction to the paper that explains what you
 have learned and submit that to Canvas. There is no required format for your reaction, but you might
 consider including any or all of the following:
@@ -118,12 +117,12 @@ consider including any or all of the following:
 * a description of how this paper might be useful to a software engineer working in industry
 * a description of how you might apply a lesson from the paper to your own work, now or in the future
 
-When you submit an optional reading task, be sure to include in your submission the title
-of the optional reading.
+When you submit an "Your Choice" reading task, be sure to include in your submission the title
+of the "Your Choice" reading.
 
-One optional reading is due ~50% of the way through class (in spring
+One "Your Choice" reading is due ~50% of the way through class (in spring
 semesters, around spring break). The other is due at the end of the
-semester. For the first optional reading, you aren’t restricted to
+semester. For the first "Your Choice" reading, you aren’t restricted to
 readings that are associated with lectures earlier in the semester:
 you are always welcome to read ahead.
 
@@ -137,7 +136,7 @@ distracting other students and credit for asking and answering
 questions (either in person or on the course discussion board).
 
 Second, your *Participation* score is based on reading quizzes (about topics from the mandatory
-readings only - quizzes will never cover optional readings) at the
+readings only - quizzes will never cover "Your Choice" readings) at the
 beginning of most lectures. You get half credit on these quizzes just
 for being there, and half credit for answering the reading questions
 correctly (the questions will always be easy if you did the
@@ -152,6 +151,18 @@ These policies are designed to encourage you to come to class. A big
 part of the goal of this class is to help you develop an intuition for
 what good software engineering looks like, and without coming to class
 you won’t get the full benefit of that intuition.
+
+### Remote Participation
+
+Generally this class does not support remote participation: teaching
+is much more effective, in my experience, when everyone is physically
+present. However, I understand that sometimes you are sick, traveling,
+or otherwise unable to come to class. I will arrange for remote participation
+in any particular lecture as long as you request it at least one hour
+in advance (if you're sick or in some other emergency)
+or 24 hours in advance (if you're traveling or otherwise planning to be
+unable to come to class). Notify the instructor via email if you need
+to participate in a particular class remotely.
 
 ## Course Project (both Individual and Group)
 
@@ -177,7 +188,7 @@ the [open source Covey.Town codebase on GitHub](https://github.com/neu-se/covey.
 additional course credit will be awarded to these teams, but these
 students will have the opportunity to receive public recognition for
 their project (in the form of a pull request merged into our
-repository and acknowledgements in the project’s contributors list).
+repository and acknowledgments in the project’s contributors list).
 
 The project will provide hands-on experience to complement the skills taught in this class, requiring students to be able to:
 * Work effectively in a small team
@@ -194,16 +205,21 @@ The project will provide hands-on experience to complement the skills taught in 
     * Twilio’s Programmable Video API
     * Postman
 
-## Final Exam
+## Exams
 
-The final exam will be held during the last regular class meeting of
-the semester. It will cover a range of topics discussed in lecture
+There are two exams in this course:
+* a mid-term, which is held in class about halfway through the semester (worth 10% of your course grade)
+* a final exam, which is held during the university-scheduled final exam slot (worth 15% of your course grade)
+
+Both exams will cover a range of topics discussed in lecture
 and/or in the mandatory readings, from any time during the
-semester. The exam will be comprehensive, covering many of the topics
+semester up to the point when the exam is held.
+The exam will be comprehensive, covering many of the topics
 we discuss; I may ask about anything we covered in class or that you
 were supposed to read. The exam will be conducted in person. Contact
 the course staff privately via email if you are not able to attend for
-any reason (e.g., you are sick) and we will arrange an alternative.
+any reason (e.g., you are sick or need special accommodations) and we will arrange an alternative.
+See the [exams page](../exam) for more information.
 
 # Collaboration Policy
 
@@ -219,15 +235,21 @@ acceptable and unacceptable collaboration on a programming assignment
 in this course:
 
 Acceptable collaborations:
-* Discuss problems/solutions/anything with any number of other students (as long as you don’t look at each other’s code)
+* Discuss problems/solutions/anything with any number of other students (as long as you don’t look at each other’s code).
 * Copy a short (about 10 lines or fewer - use your judgment) snippet from [stackoverflow.com](stackoverflow.com) or a similar source, as long as you include a comment with the source URL.
 * Copy code written by one of your teammates during the group project for another part of the group project.
+* Copy code from the output of a large language model such as ChatGPT that you prompted yourself,
+if you include a link to a record of your interaction with the model (e.g., ChatGPT's "share" feature)
+as a code comment.
 
 Unacceptable collaborations:
 * Copy code directly from another student on an individual project.
 * Copy code from another group on a group project.
-* Copy a significant portion (more than about 10 lines of code - use your judgment) of your assignment from the internet, even if you cite your source.
+* Copy a significant portion (more than about 10 lines of code or a single method - use your judgment) of your assignment from the internet, even if you cite your source.
 * Copy a short snippet from the internet without citing your source.
+* Copy code from the output of a large language model (such as ChatGPT) without citing your source
+* Copy code from the output of a large language model prompted by someone other than you (or your teammates,
+for the group project)
 
 These rules are intended to mimic what is acceptable in industry when
 working as a software engineer: using the resources available to you,
@@ -235,7 +257,7 @@ such as your teammates and the wider internet, is always allowed. But,
 it would be illegal to copy code from a competing company working on a
 similar product.
 
-# Consquences of Violating the Collaboration Policy
+# Consequences of Violating the Collaboration Policy
 
 (From the University)
 
@@ -255,9 +277,9 @@ total). Assignments turned in after your group’s second late day will
 not be accepted.
 
 You may not use late days on Individual Project 0, the Group Project
-Presentation, or the Group Project Final Submission.
+Class Demo, or the Group Project Final Submission (or resubmission).
 
-# Acknowledgements
+# Acknowledgments
 
 This course is heavily inspired by a number of other courses in software engineering at other universities, especially:
 * [Jon Bell](https://www.jonbell.net/)’s [CS 4530](https://neu-se.github.io/CS4530-Fall-2022/) at Northeastern (special thanks to Jon and his colleagues for their permission to re-use the Covey.Town project materials.)

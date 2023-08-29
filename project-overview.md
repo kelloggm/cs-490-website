@@ -19,10 +19,13 @@ All implementation will take place in the TypeScript programming language, using
 
 | Date | Deliverable | Description | 
 | -----| ----------- | ----------- |
-| 2/7/23 | Team Formation | Specify preferences for teammates |
-| 2/21/23 | [Preliminary Project Plan]({{ site.baseurl }}{% link project-plan.md %}) | Propose a new feature for Covey.Town that can be planned and implemented within 7 weeks |
-| 3/7/23 | [Revised Project Plan]({{ site.baseurl }}{% link revised-project-plan.md %}) | Refine the scope of your feature based on staff feedback, define detailed requirements and project acceptance criteria. |
-| TBD, one-four days before project showcase | Project Implementation and Documentation | Deliver your new feature, including design documentation and tests |
+| 9/27/23 | Team Formation | Specify preferences for teammates |
+| 10/9/23 | [Preliminary Project Plan]({{ site.baseurl }}{% link project-plan.md %}) | Propose a new feature for Covey.Town that can be planned and implemented within 7 weeks |
+| 10/23/23 | [Revised Project Plan]({{ site.baseurl }}{% link revised-project-plan.md %}) | Refine the scope of your feature based on staff feedback, define detailed requirements and project acceptance criteria. |
+| 11/3/23 | [Wizard-of-Oz Demo]({{ site.baseurl }}{% link demos.md %}) | Show what your project will look like, once it is complete, to your project mentor and the instructor. This demo doesn't require you to have any code working yet. |
+| 12/1/23 | [Preliminary Demo]({{ site.baseurl }}{% link demos.md %}) | Demonstrate one user story to your project mentor and the instructor. In this demo, you need to actually be running your own code (unlike the Wizard-of-Oz demo).  |
+| 12/12/23 | Project Implementation and Documentation | Deliver your new feature, including design documentation and tests. You will demo it to the whole class on the last day of class (12/13). |
+| 12/X/23 | Project Implementation and Documentation (Resubmission) | If your demo on 12/13 does not meet your project goals, you may schedule another demo with your project mentor and the instructor before the final exam (on 12/X). Re-submit your code and documentation immediately before the demo. |
 
 All assignments are due on the specified date, AoE (i.e., before the beginning of the next day anywhere on Earth, which is at 7am EST the next day).
 
@@ -30,7 +33,7 @@ All assignments are due on the specified date, AoE (i.e., before the beginning o
 Your overall project grade (which will account for 45% of your final grade in this course) will be the weighted average of each of the deliverables.
 
 * Planning Documents
-  * 10% Preliminary Project Plan
+  * 7.5% Preliminary Project Plan
   * 10% Revised Project Plan
 * Activities During the Project
   * 5% Meetings with Mentor and Team Surveys
@@ -41,9 +44,12 @@ Your overall project grade (which will account for 45% of your final grade in th
     * 10% Final test suite of your feature
    * Report
       * 5% Feature Overview
-      * 10% Technical Overview
-      * 10% Process Overview
-   * 10% Demonstration & Posters
+      * 7.5% Technical Overview
+      * 7.5% Process Overview
+   * Demonstrations
+      * 2.5% Wizard-of-Oz demo
+      * 5% Preliminary Demo
+      * 10% Final demo
   
 In cases where team members do not equally contribute to the project, we may assign different grades to different individuals, up to an extreme of deducting 50% of the team project grade for a student.
 We will evaluate each individual's contribution on the basis of a variety of factors, including progress reports at meetings, through inspecting version control history, through each students' self-reflection, and through each students' peer evaluation (during and/or) at the end of the project.

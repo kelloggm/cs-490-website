@@ -1,6 +1,6 @@
 ---
 layout: page
-title: How to Read a Paper (Useful for Optional Readings)
+title: How to Read a Paper (Useful for "Your Choice" Readings)
 permalink: /tutorials/reading-papers.html
 parent: Tutorials
 nav_order: 2
@@ -19,7 +19,7 @@ typically reports on about a person-year's worth of work (though this can vary w
 The authors will be a mix of junior and senior researchers: anyone who contributed
 something "intellectually significant" to the paper is typically listed as an author.
 In most CS sub-disciplines (including software engineering, which is the source for
-most of the optional readings), author order is indicative: the first author is usually
+most of the "Your Choice" readings), author order is indicative: the first author is usually
 the person who did most of the technical work (e.g., implementing the tool, running the
 experiments, etc.), and the last author is typically the project leader (often, but not
 always, the first author's research advisor). Often, but not always,
