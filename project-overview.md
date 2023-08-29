@@ -56,14 +56,14 @@ We will evaluate each individual's contribution on the basis of a variety of fac
 We will make regular efforts to collect and distribute this feedback throughout the project — our ultimate goal is for all students to participate and receive full marks.
 
 ### Team Formation
-All projects will be completed in a team of 3-4 students.
+All projects will be completed in a team of 3-4 students (most teams will have 4).
 The very first deliverable for the project will be a team formation survey: you will be able to indicate
 your preferences for teammates. The instructors will assign students to the teams based on a number of factors including your responses to the survey.
 
 ### Team Meetings with Mentor
 Each team will be assigned a member of the course staff as a mentor, who will also serve as your point of contact for project grading.
-During the week of February 13-17, you will have a "Kickoff Meeting" with your mentor, where you will meet your mentor and have the opportunity to share any early ideas that you might want feedback on before submitting the project pitch.
-Once project begins in full force, you will have regular meetings with your mentor (scheduled at your team's and your mentor's convenience, at least once every two weeks) in order to help ensure that you are making progress on the project, and to help address problems that you encounter (be they technical or non-technical problems).
+During the first week after project teams are announced, you will have a "Kickoff Meeting" with your mentor, where you will meet your mentor and have the opportunity to share any early ideas that you might want feedback on before submitting the project pitch.
+Once project begins in full force, you will have regular meetings with your mentor (scheduled at your team's and your mentor's convenience, at least once every week) in order to help ensure that you are making progress on the project, and to help address problems that you encounter (be they technical or non-technical problems).
 
 ###  Preliminary Project Plan
 All projects will involve frontend and backend development of a new feature for Covey.Town.

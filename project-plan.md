@@ -5,7 +5,7 @@ permalink: /projects/project-plan.html
 parent: Projects
 nav_order: 4
 ---
-# Project Plan **Due Monday 9 October, 2023, 11:59pm AoE**{: .label .label-red }
+# Project Plan **Due Monday 9 October 2023, 11:59pm AoE**{: .label .label-red }
 All projects will involve frontend and backend development of a new feature for Covey.Town.
 Once teams have been formed, you and your team will decide what kind of new feature you would like to build.
 Your feature should be something that can be implemented within the timeframe allotted (5 weeks, plus 2 weeks of planning), and will be implemented in a fork of the main Covey.Town codebase.
@@ -71,7 +71,7 @@ Be realistic, and leave time for contingencies and for your other courses.
 If you are uncertain that some tasks will be feasible, then be sure to include evaluation tasks earlier-on in the project that will allow for "go/no-go" decisions to move forward on a task or drop it.
 
 We understand that it is quite difficult to estimate the technical complexity of a new project (as you are doing in the case of this course).
-We will provide you with feedback on this preliminary project plan, which you will use to produce a revised project plan (due March 7).
+We will provide you with feedback on this preliminary project plan, which you will use to produce a revised project plan (due two weeks after the main project plan).
 Throughout the project period, teams will meet regularly with their mentor, who will help track progress on a week-to-week basis and help to determine when adjustments to the project scope are needed.
 
 Each work item should contain the following information:
@@ -84,21 +84,18 @@ Each work item should contain the following information:
     * Large: Currently unable to provide a responsible estimate. 
 * A brief (1-2 sentence max) justification of how you reached the size estimate of the task 
 * Milestone for delivering the task, chosen from one of the following two-week sprints:
-  * Sprint 0: Feb 21-Mar 3
-  * Sprint 1: Mar 4-Mar 17 (note that this sprint includes Spring Break, which might impact your planning) 
-  * Sprint 2: Mar 18-Mar 31
-  * Sprint 3: Apr 1-Apr 14
-  * Spring 4: Apr 15-Apr 28
-
-(We leave some time between the end of the last sprint and the project showcase for slippage: there are always
-unexpected bugs, etc., that need to be ironed out. Padding your schedule like this is a good idea!)
+  * Sprint 0: Oct 9 - Oct 20
+  * Sprint 1: Oct 23 - Nov 3
+  * Sprint 2: Nov 6 - Nov 17
+  * Sprint 3: Nov 20 - Dec 1
+  * Spring 4: Dec 4 - Dec 12 (note: this sprint is about 10 days, because the deadline is Dec 12. We don't recommend scheduling many tasks in this sprint, because of the likelihood that some tasks from prior sprints might not be done yet.)
 
 Your work breakdown should take the format of a simple textual list.
  
 ## Submission 
 Your project plan should be submitted as a single PDF in [Canvas](https://njit.instructure.com/courses/26613) to the assignment "Preliminary Project Plan."
 Each team submits a single document to Canvas: when uploading the submission, your teams should already be present in Canvas. Be sure to tag your team mates.
-The assignment is due by the end of February 21, AoE.
+The assignment is due by the end of October 9, AoE.
 
 ## Grading
 The project plan will account for 10% of your project grade, and will be graded out of 100 points. The grading of the project plan is further broken down as follows:
