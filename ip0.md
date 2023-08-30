@@ -4,7 +4,7 @@ title: "Individual Project 0: Venusians"
 permalink: /projects/ip0.html
 parent: Projects
 nav_order: 1
-due_date: "Monday January 23, 2023, 11:59PM AoE."
+due_date: "Monday, 11 September 2023, 11:59PM AoE."
 submission_notes: Submit on GradeScope 
 ---
 
@@ -16,6 +16,17 @@ ecosystem.
 * have you re-acquaint yourself with the basics of object-oriented
 programming, such as classes and objects.
 * learn to write new code in TypeScript.
+* ensure that you're a confident enough programmer to succeed in CS 490,
+which will regularly ask you to tackle programming tasks using tools,
+environments, APIs, etc., with which you are not otherwise familiar.
+We don't expect that you've had any formal introduction to TypeScript
+before attempting this assignment: it is mainly testing your ability
+to figure out TypeScript from the languages that you do know.
+
+Note that this assignment is due on the same day as the drop deadline.
+That is intentional: if you're really struggling to figure out IP0,
+we recommend that you drop the course and return to it in a later
+semester when you are better prepared.
 
 Your assignment will be graded following the rubric embedded in this
 document.  Based on past experiences, we project that this assignment
