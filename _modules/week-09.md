@@ -16,5 +16,4 @@ Nov 3
     **Your Choice reading**: Cleve and Zeller's [Locating Causes of Program Failures](../assets/delta2.pdf)
 
 Nov 3
- : **First Your Choice Reading Response due**{: .label .label-red } 
  : **Project Wizard-of-Oz Demo due**{: .label .label-red } 

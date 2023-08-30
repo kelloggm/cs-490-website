@@ -78,8 +78,7 @@ well-defined program in a language you’ve never seen before.
 # Grading and Assignments
 
 Your grade is composed of the following sub-scores (in no particular order):
-* 10%: Participation & Professionalism
-* 5%: "Your Choice" Reading Responses
+* 15%: Participation & Professionalism
 * 15%: Individual Projects
 * 45%: Group Project
 * 25%: Exams (10% for the mid-term, 15% for the final)
@@ -98,33 +97,14 @@ You will be notified of your current projected class grade via email at each of 
 
 Each lecture has two kinds of readings: mandatory and "Your Choice"
 readings. I expect you to read mandatory readings before coming to
-class that day, and participation quizzes (see Participation &
+class that day, and reading quizzes (see Participation &
 Professionalism, below) will cover the mandatory readings only. During
-the semester, you **must** complete **at least two** "Your Choice" readings and do
-an associated task. Most "Your Choice" readings are research papers from
+the semester, you **must** complete **at least two** "Your Choice" readings:
+one before the mid-term, and another before the final.
+Most "Your Choice" readings are research papers from
 the software engineering literature: the idea is that you will do a
-deeper dive on two topics that interest you.
-
-Some "Your Choice" readings have a specific task associated with them; if
-you choose one of those, complete the task and then submit the result
-on Canvas. If there is no task associated with an "Your Choice" reading,
-the task is to write a one-page reaction to the paper that explains what you
-have learned and submit that to Canvas. There is no required format for your reaction, but you might
-consider including any or all of the following:
-* a one or two paragraph summary of the key points of the paper
-* a list of the paper’s strengths: what did the paper do well, scientifically?
-* a list of the paper’s weaknesses: what did the paper do poorly? Did it makes claims you didn't believe?
-* a description of how this paper might be useful to a software engineer working in industry
-* a description of how you might apply a lesson from the paper to your own work, now or in the future
-
-When you submit an "Your Choice" reading task, be sure to include in your submission the title
-of the "Your Choice" reading.
-
-One "Your Choice" reading is due ~50% of the way through class (in spring
-semesters, around spring break). The other is due at the end of the
-semester. For the first "Your Choice" reading, you aren’t restricted to
-readings that are associated with lectures earlier in the semester:
-you are always welcome to read ahead.
+deeper dive on two topics that interest you. The "Your Choice" readings
+will be checked on the exams with reading questions: see the ["Your Choice" reading page](../projects/optional-readings.html).
 
 ## Participation & Professionalism
 

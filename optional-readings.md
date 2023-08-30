@@ -4,38 +4,29 @@ title: '"Your Choice" Readings'
 permalink: /projects/optional-readings.html
 parent: Projects
 nav_order: 7
-due_date: "Tuesday May 2, 2023, 11:59 PM AoE"
-submission_notes: Submit on Canvas
 ---
 
 Each lecture has one or more "Your Choice" reading assignments.
-During the semester, you **must** complete **at least two** "Your Choice" readings and do
-an associated task. Most "Your Choice" readings are research papers from
-the software engineering literature: the idea is that you will do a
-deeper dive on two topics that interest you. If you're not sure how to
-approach reading a research paper, there are [resources to help you](../tutorials/how-to-read-a-paper.md).
+During the semester, you **must** complete **at least two** "Your Choice" readings:
+one before the mid-term exam, and the other before the final exam.
+Each exam will have one question per "Your Choice" reading (similar
+in difficulty to the regular reading quiz questions); answering one
+of these (that you choose, hence the name) correctly will be part of your grade on the exam.
 
-Some "Your Choice" readings have a specific task associated with them; if
-you choose one of those, complete the task and then submit the result
-on Canvas. If there is no task associated with an "Your Choice" reading,
-the task is to write a one-page reaction to the paper that explains what you
-have learned and submit that to Canvas. (Note that one page is the **maximum**:
-it would be wise to use as much of it as you can. Do not use a font smaller than size
-10.)
-There is no required format for your reaction, but you might
-consider including any or all of the following:
-* a one or two paragraph summary of the key points of the paper
-* a list of the paper’s strengths: what did the paper do well, scientifically?
-* a list of the paper’s weaknesses: what did the paper do poorly? Did it makes claims you didn't believe?
-* a description of how this paper might be useful to a software engineer working in industry (be sure to be specific)
-* a description of how you might apply a lesson from the paper to your own work, now or in the future
+You'll be permitted to answer as many additional questions as you like
+for extra credit, too, so long as you don't get any incorrect. (Students
+who get at least one "Your Choice" reading question wrong are ineligible
+for any extra credit from "Your Choice" reading questions on the exams.)
 
-When you submit an "Your Choice" reading task, be sure to include in your submission the title
-of the reading.
+One "Your Choice" reading ("What is Software Engineering"'s task related to reading
+research paper abstracts) has a specific task associated with it. If you submit this
+"Your Choice" assignment to Canvas before the final exam, you'll recieve one point
+of extra credit on the exam.
 
-One "Your Choice" reading is due ~50% of the way through class.
-The other is due at the end of the
-semester.
-For the first "Your Choice" reading, you aren’t restricted to
-readings that are associated with lectures earlier in the semester:
-you are always welcome to read ahead.
+(Last semester, I asked students to write one-page reactions to these readings
+instead of putting questions on the exams. I've been experimenting with ChatGPT
+and similar tools over the summer, and it's become clear to me that these tools
+can produce similar reactions to the sort that an average undergrad produces.
+So, I decided that I could either 1) grade the reactions much more harshly, applying
+my usual standards for graduate students, and give most of you zeroes, or 2)
+try an alternative marking strategy. I chose the latter: I want you to succeed!)

@@ -12,8 +12,13 @@ which you take the exam is fair game. I may also
 include questions about assigned mandatory readings,
 homework assignments, or any other class content
 that you are supposed to have viewed. Notably,
-this does **not** include the "your choice" readings (though
-those are fair game for extra credit questions).
+this does not generally include the "Your Choice"
+readings: I don't expect you to have read all of those,
+so questions about them will always offer you a choice
+of which reading to answer a question about.
+See the ["Your Choice" readings page](../projects/optional-readings.html)
+for more information about how the "Your Choice" readings will
+be assessed on the exams.
 
 My exam design philosophy is to aim for a wide range
 of question difficulties: I try to include both some questions
