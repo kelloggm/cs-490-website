@@ -32,13 +32,13 @@ Your assignment will be graded following the rubric embedded in this
 document.  Based on past experiences, we project that this assignment
 could take you up to 14 hours (depending on your prior preparation).
 We encourage you to start early so that you can post questions on
-CampusWire and attend office
+Discord and attend office
 hours as necessary in order to ensure that you can reach Satisfactory
 marks across the board.
 
 **This is an individual assignment.** 
 
-Please post any questions about this assignment on CampusWire.
+Please post any questions about this assignment on Discord.
 
 ## Problem Statement
 

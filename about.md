@@ -144,6 +144,14 @@ or 24 hours in advance (if you're traveling or otherwise planning to be
 unable to come to class). Notify the instructor via email if you need
 to participate in a particular class remotely.
 
+### Asking Questions
+
+There is a course [Discord server](https://discord.com/channels/1147225783987875950/1147225783987875953)
+which you can use to ask (and answer) questions about any of the course topics or for
+help with the homework. Participating on Discord is optional, but if you do
+participate in a productive manner (especially by answering other student's questions!), it will have a
+positive impact on your participation score.
+
 ## Course Project (both Individual and Group)
 
 The assignments and project for this class are designed to mirror the

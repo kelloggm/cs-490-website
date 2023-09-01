@@ -29,9 +29,9 @@ heading_anchors: true
 permalink: pretty
 aux_links:
   Canvas:
-    - ''
-  CampusWire:
-    - ''
+    - 'https://njit.instructure.com/courses/29030'
+  Discord:
+    - 'https://discord.com/channels/1147225783987875950/1147225783987875953'
   Gradescope:
     - ''
 footer_content: "&copy; 2022-2023 Martin Kellogg, Jonathan Bell, Adeel Bhutta and Mitch Wand. Released under the <a href=\"https://creativecommons.org/licenses/by-sa/4.0/\">CC BY-SA</a> license"

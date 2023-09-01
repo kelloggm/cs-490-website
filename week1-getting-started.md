@@ -14,13 +14,13 @@ Contents:
 * [Installing Visual Studio Code](#installing-visual-studio-code-vscode)
 * [Hello, World in TypeScript](#getting-started-with-typescript)
 
-If you run into any difficulties following any of these steps, please post (in a non-private question) on CampusWire.
+If you run into any difficulties following any of these steps, please post (in a non-private question) on Discord.
 
 # Installing NodeJS
 
 Node.js is a JavaScript runtime built on Chrome's V8 JavaScript engine.
 
-For this class, you will need Node.js version 16 (16.17 is the latest version at time of writing, although any 16.x should work in theory). 
+For this class, you will need Node.js version 18 (18.17.1 is the latest version at time of writing, although any 18.x should work in theory). 
 There are many ways that you can install Node.js: for instance, you can use a package manager like
 `snap` or `homebrew` to install it; you can download an installer directly from the Node.js website, and you can,
 of course, build it from source. However, due to the complexity of running different Node.js versions on the same machine, we *very strongly* suggest using `nvm`, as explained below.
@@ -34,7 +34,7 @@ have previously installed Node.js.
 
 ## Installing NodeJS with NVM for Windows
 
-1. Download `nvm-setup.zip` from the most recent release of [nvm-windows](https://github.com/coreybutler/nvm-windows/releases) (at time of writing this document, version 1.1.9).
+1. Download `nvm-setup.zip` from the most recent release of [nvm-windows](https://github.com/coreybutler/nvm-windows/releases) (at time of writing this document, version 1.1.11).
    - ![image](./assets/week1-getting-started/node/download-nvmw.png)
 2. Extract the contents of `nvm-setup.zip` and run the executable `nvm-setup.exe`.
    - This should open the nvm installation wizard.
@@ -43,42 +43,41 @@ have previously installed Node.js.
    - ![image](./assets/week1-getting-started/node/nvmw-finished.png)
 8. Open a command prompt with administrative privileges (type `cmd` in the windows start bar, then select "Run as administrator").
 9. Verify the installation, run the command `nvm version`
-   - This should display the version of nvm installed.
+   - This should display the version of nvm installed (in the image, 1.1.9; yours should say "1.1.11").
    - ![image](./assets/week1-getting-started/node/nvmw-verification.png)
 10. Run the command `nvm list available` to display all available NodeJS versions.
    - ![image](./assets/week1-getting-started/node/nvmw-list-available.png)
-11. Install the latest LTS (Long term supported, as opposed to the "development") version of Node.js available using the command `nvm install 16.13.2`.
-12. To use this version of NodeJS, run the command `nvm use 16.13.2`.
+11. Install the latest LTS (Long term supported, as opposed to the "development") version of Node.js available using the command `nvm install 18.17.1`.
+12. To use this version of NodeJS, run the command `nvm use 18.17.1`.
 13. Now, NodeJS should be installed and ready for use. To verify the installation run the below commands:
    - `node -v`
    - `npm -v`
-   - ![image](./assets/week1-getting-started/node/nvmw-use-16.png)
 
 *Troubleshooting with VSCode*: Did you follow these instructions successfully, but find a "Command not found" error when you try to run `npm` in VSCode? Try this: Close VSCode completely. Re-open it. In your command shell in VSCode, try again. We have noticed that if you have VSCode open while installing `nvm`, it is possible that VSCode will not see the new software installation until it's closed and re-opened. You can also confirm that VSCode correctly sees the NodeJS installation by running `echo %PATH%` in your windows command shell in VSCode: it should include an entry similar to `C:\Program Files\nodejs`.
 
 ## Installation Steps (Linux / Mac)
 
-1. Run either `curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.1/install.sh | bash` or `wget -qO- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.1/install.sh | bash`.
+1. Run either `curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.5/install.sh | bash` or `wget -qO- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.5/install.sh | bash`.
 2. Close and reopen a terminal.
 3. Verify nvm is working by entering `command -v nvm`. If your terminal prints
 out `nvm`, it should be working. If you see `nvm: command not found` or no
 feedback, open a new terminal and trying again or restart from step 1.
-4. Install the latest LTS (Long term supported, as opposed to the "development") version of Node.js by typing `nvm install 16`.
+4. Install the latest LTS (Long term supported, as opposed to the "development") version of Node.js by typing `nvm install 18`.
 
 ## Verification
 
 1. Open a shell or windows powershell.
 2. Run the command `node -v`
-  - This should print the current version of nodeJS installed (v16.x.x)
+  - This should print the current version of nodeJS installed (v18.x.x)
 3. Run the command `npm -v`
   - This should print the current version of npm installed (v8.x.x)
 ![image](./assets/week1-getting-started/node/verification.JPG)
-4. If you find that some other version is being used, and would like to change the default to 16, run the command `nvm alias default 16`
+4. If you find that some other version is being used, and would like to change the default to 18, run the command `nvm alias default 18`
 
 # Installing Visual Studio Code (VSCode)
 
 Visual Studio Code is a lightweight but powerful source code editor which runs on your desktop and is available for Windows, macOS and Linux. It comes with built-in support for JavaScript, TypeScript and Node.js and has a rich ecosystem of extensions for other languages (such as C++, C#, Java, Python, PHP, Go) and runtimes (such as .NET and Unity). VSCode also supports importing hotkey configurations from most other text editors and IDEs. Read more [here](https://code.visualstudio.com/docs).
-While you are required to use *an* IDE for this class, it is not mandatory to use VSCode: if you already are comfortable developing TypeScript or JavaScript
+While you should use *an* IDE for this class, it is not mandatory to use VSCode: if you already are comfortable developing TypeScript or JavaScript
 in another suitable IDE (like IntelliJ), then you are welcome to continue to use that. However, VSCode is the
 "supported" option: if you struggle to get things like the linter set up correctly in VSCode, we will be happy to help you. 
 However, we can't provide such support for all IDEs. 
