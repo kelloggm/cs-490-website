@@ -4,8 +4,9 @@ role: Instructor
 email: martin.kellogg@njit.edu
 website: https://web.njit.edu/~mjk76/
 photo: martin.jpg
+pronouns: he/him
 ---
-Office Hours: TBD eastern, GITC 4314; or by appointment.
+Office Hours: Fridays, 10-11am eastern, GITC 4314; or by appointment.
 
 To schedule an appointment with me, check [my
 calendar](https://calendar.google.com/calendar/u/0?cid=bWprNzZAbmppdC5lZHU)

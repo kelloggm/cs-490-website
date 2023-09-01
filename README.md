@@ -25,7 +25,6 @@ On this course website, you can find:
 - the [syllabus](about.md),
 - a [course calendar](calendar.md) (which includes links to the required readings)),
 - a [staff](staff.md) page,
-- links to all [assignments](assignments.md),
-- useful [tutorials](tutorials.md),
-- information about [exams](exam.md) (including old/practice exams with solutions),
-- and a weekly [schedule](schedule.md) showing all available help (office hours and tutoring).
+- links to all [assignments](./projects),
+- useful [tutorials](tutorials.md), and
+- information about [exams](exam.md) (including old/practice exams with solutions).

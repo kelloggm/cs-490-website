@@ -3,7 +3,7 @@ layout: page
 title: Project Final Deliverable
 permalink: /projects/project-deliverable.html
 parent: Projects
-nav_order: 6
+nav_order: 7
 ---
 # Project: Final Deliverable **Due TBD, 11:59pm AoE**{: .label .label-red }
 The final project deliverable is the implementation (in GitHub) and the documentation turned in to Canvas. It also includes your final demo.

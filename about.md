@@ -52,7 +52,7 @@ a software high-rise: not only is it more than a single-person job,
 but also there’s lots of other things you need to worry about that
 don’t come up when you’re building a shed.
 
-The first homework assignment is due immediately before the drop date,
+The first homework assignment is due right at the drop date,
 and is intended to let you check that you have the basic skills that
 will be needed for this course: it requires you to write a
 well-defined program in a language you’ve never seen before.
@@ -121,10 +121,10 @@ beginning of most lectures. You get half credit on these quizzes just
 for being there, and half credit for answering the reading questions
 correctly (the questions will always be easy if you did the
 reading). For full participation, you need to get at least a score of
-60% on all quizzes over the whole semester (this gives you space to
+66.67% on all quizzes over the whole semester (this gives you space to
 e.g., miss a reading quiz because you were sick or have a family
 emergency - there are no excuses for missing reading quizzes). Put
-another way, you can miss up to 40% of the reading quiz points and
+another way, you can miss up to 1/3 of the reading quiz points and
 still get full participation points.
 
 These policies are designed to encourage you to come to class. A big
@@ -216,7 +216,9 @@ online resources. You are permitted to copy small amounts of code
 from any source except another student’s copy of an assignment,
 *as long as you cite your source*. “Another student’s copy of an
 assignment” also includes students not currently enrolled in the
-course - e.g., students who took this class in previous semesters or
+course - e.g., students who took (or are taking - I am in contact with
+the instructors using covey.town at Northeastern and we will compare code submitted in both classes)
+this class in previous semesters or
 took classes that used similar individual projects at other
 institutions. To make this more clear, here are some examples of
 acceptable and unacceptable collaboration on a programming assignment

@@ -3,7 +3,7 @@ layout: page
 title: Project Demos
 permalink: /projects/project-demos.html
 parent: Projects
-nav_order: 4
+nav_order: 6
 ---
 
 # Demos

@@ -33,14 +33,13 @@ aux_links:
   Discord:
     - 'https://discord.com/channels/1147225783987875950/1147225783987875953'
   Gradescope:
-    - ''
+    - 'https://www.gradescope.com/courses/602493'
 footer_content: "&copy; 2022-2023 Martin Kellogg, Jonathan Bell, Adeel Bhutta and Mitch Wand. Released under the <a href=\"https://creativecommons.org/licenses/by-sa/4.0/\">CC BY-SA</a> license"
 
 # Collections for website data
 collections:
   staffers:
   modules:
-  schedules:
   announcements:
 # Default layouts for each collection type
 defaults:
@@ -57,11 +56,6 @@ defaults:
       type: modules
     values:
       layout: module
-  - scope:
-      path: ''
-      type: schedules
-    values:
-      layout: schedule
   - scope:
       path: ''
       type: announcements
