@@ -1,6 +1,6 @@
 ---
 name: Eshika Malgari
-role: TA
+role: Teaching Assistant
 email: erm3@njit.edu
 ---
 Office Hours: TBD
