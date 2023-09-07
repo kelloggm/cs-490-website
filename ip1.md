@@ -1,4 +1,4 @@
-OA---
+---
 layout: project
 title: "Individual Project 1"
 permalink: /projects/ip1.html
