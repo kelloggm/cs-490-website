@@ -74,9 +74,7 @@ The new `GameArea` abstraction extends `InteractableArea`, adding state to track
 
 The base `Game` abstract class tracks the state of the game, including who is playing it. The abstract class includes the glue that allows the socket protocol to serialize the game state such that it can be sent from the server to clients. Implementors of the `Game` abstract class implement the methods `applyMove`, `_join` and `_leave`.
 
-<script src="{{site.baseurl}}/assets/js/mermaid.min.js"></script>
-<div class="mermaid">
-%%{init: { 'theme':'forest', } }%%
+<img src="../assets/ip1-uml.png" alt="UML diagram of relevant classes. The source code used to generate the diagram follows (it is mermaid.js code, which you could paste into mermaid.live or another mermaid renderer):
 classDiagram
     class Game {
       +GameState state
@@ -88,14 +86,12 @@ classDiagram
     ~ _join(player: Player)
     ~ _leave(player: Player)
     + applyMove(move: GameMove)
-
     }
     class  GameArea {
         ~Game _game
         ~GameResult _history
     }
     class TicTacToeGame {
-
     }
     class TicTacToeGameArea {
     }
@@ -114,7 +110,6 @@ classDiagram
        + handleCommand(command: InteractableCommand, player:Player)
        #_emitAreaChanged()
     }
-
     class GameResult {
         +GameInstanceID gameID
         +Map scores
@@ -124,7 +119,7 @@ classDiagram
     TicTacToeGameArea ..|> GameArea
     GameArea ..|> InteractableArea
     GameArea o-- Game
-</div>
+"/>
 
 ## Implementation Tasks
 This deliverable has four parts; each part will be graded on its own rubric. You should complete the assignment one part at a time, in the order presented here.
@@ -250,7 +245,7 @@ There are three types of commands that the `TicTacToeGameArea` will receive, whi
 
 Avery has provided a complete test suite for `handleCommand` - you do not need to write any additional tests.
 
-<details><summary markdown="span">View the specification for this methods</summary>
+<details><summary markdown="span">View the specification for these methods</summary>
 {% highlight typescript %}
    /**
    * Handle a command from a player in this game area.
