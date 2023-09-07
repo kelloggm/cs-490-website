@@ -39,7 +39,7 @@ The objectives of this assignment are to:
 
 ## Getting started with this assignment
 
-Before you begin, be sure to check that you have NodeJS 18.x installed, along with VSCode. We have provided a [tutorial on setting up a development environment for this class](../week1-getting-started.html) 
+Before you begin, be sure to check that you have NodeJS 18.x installed, along with VSCode. We have provided a [tutorial on setting up a development environment for this class](../week1-getting-started.html).
 Start by [downloading the starter code](../assets/ip1-handout.zip). Extract the archive and run `npm install` to fetch the dependencies. Avery has provided you with some very basic sanity tests that you can extend for testing your implementation as you go. You can run these tests with the command `npm test TicTacToe` (note that many tests are *expected* to fail until you have begun to implement the assignment).
 
 ## Grading
