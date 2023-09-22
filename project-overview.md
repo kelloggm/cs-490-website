@@ -79,7 +79,7 @@ The project plan will focus on two sections:
 
 ### Creating a GitHub Repository
 Your team's development must take place within a private GitHub repository in our GitHub Classroom. To create your repository, each member of your team should follow these instructions:
-1. Sign in to [GitHub.com](https://www.github.com/), and then [use our invitation to create a repository with the covey.town codebase](https://classroom.github.com/a/8iDafWvm). Check to see if one of your groupmates has created a group already - if so, select it to join it. Otherwise, you should enter your group number (e.g. "Group 7Y") as the team name. 
+1. Sign in to [GitHub.com](https://www.github.com/), and then [use our invitation to create a repository with the covey.town codebase](https://classroom.github.com/a/BsWErky1). Check to see if one of your groupmates has created a group already - if so, select it to join it. Otherwise, you should enter your group number (e.g. "Group 7Y") as the team name. 
 2. Refresh the page, and it will show a link to your new repository. Click the link to navigate to your new repository. This is the repository you will use for the project.
 
 This repository will be private, and visible only to your team and the course staff. After the semester ends, you are welcome to make it public - you have complete administrative control of the repository.
