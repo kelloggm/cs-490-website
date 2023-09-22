@@ -110,5 +110,5 @@ Accompanying the final team deliverable will be an *individual reflection*, whic
 * The software engineering processes that you feel could have been improved in your project: were there any procesess that in hindsight, you wish that you followed, or wish that you followed better?
 * Your team dynamic: Provide a frank (and ideally, blameless) postmortem of your and your teammates collaborative performance and participation. If you had to do this same project over with the same teammates, what would *you* have done differently (or not) to improve your team's overall performance?
 
-Finally, you will participate in a "project showcase" during the course's final exam slot. During this showcase, you'll take turns demo'ing your new feature to the rest
+Finally, you will participate in a "project showcase" during the last day of class. During this showcase, you'll take turns demo'ing your new feature to the rest
 of the class, while the rest of your team views the demos of other teams.
