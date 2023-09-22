@@ -1,7 +1,7 @@
 ---
 layout: page
 title: Unit Testing with Jest
-permalink: /tutorials/week1-unit-testing
+permalink: /tutorials/week1-unit-testing.html
 parent: Tutorials
 nav_order: 4
 ---
