@@ -1,6 +1,6 @@
 ---
 layout: project
-title: "Individual Project 1"
+title: "Individual Project 2"
 permalink: /projects/ip2.html
 parent: Projects
 nav_order: 2
