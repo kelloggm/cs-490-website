@@ -1,0 +1,81 @@
+# Agile Projects Have Become Waterfall Projects With Sprints
+by Ben "The Hosk" Hosking
+
+All the agility has been sucked out of agile projects. Doing agile is not the same as being agile.
+
+Agile projects have become bloated, lazy waterfall projects with two weeks sprints. The waterfall production line approach is suited to projects with known requirements or making widgets.
+
+Currently, agile projects are turds rolled in raisins and called roses. Any developer with half a nose can smell these are not roses and late projects or failed projects waiting to happen.
+
+The [Agile manifesto](https://agilemanifesto.org/) is full of enthusiasm, vibrancy and can do attitude. It empowers small teams to create software with minimal guidance and tells them to go get it.
+
+Agile doesn’t specify exact rules to follow because you were meant to learn and improve as you went and work out the most effective way to work based on feedback. It acknowledges there are no best ways because each project is unique.
+
+Agile promised to deliver software faster and customers to return on investment quicker. When you hype any project mythology up more than a Lady Gaga concert, disappointment is likely in 99 percent of Agile projects.
+
+# Agile has turned into a stiff old man
+Agile took over the world and become so popular customers demanded agile projects, regardless of whether it was a good choice or they had the right people.
+
+In the book "Sooner Safer Happier: Antipatterns and Patterns for Business Agility" the writers complain projects do Agile instead of being agile. Agile has become a product instead of a mindset.
+
+“It’s agile snake oil, cookie cutter Agile, Agile in a box. Install it and you will be Agile. It’s Agile for Agiles sake.” [Sooner Safer Happier](https://amzn.to/3dwXkt7)
+
+I would say it’s worse; companies and Dev teams want agile delivery that involves product backlogs, sprints, and fixed deadlines/cost. The agility part of agile projects is completely removed.
+
+* The retrospectives are gone
+* The agility and changing the ways of working are gone
+* Fast delivery into production is gone
+* Deadlines are expected to be kept
+* Teams are not empowered or autonomous
+* It’s more like waterfall projects with upfront requirements, fixed deadlines, sprints and 2 weekly demos.
+
+The word agile means nothing and agile projects have had all the agility squeezed out them
+
+# Worst of all worlds
+There are many projects which are Agile in name but chaos in reality
+
+There is no appetite for empowering small teams. Management doesn’t trust teams and wants to monitor all decisions, and this has seen an explosion in meetings.
+
+No focus on improving ways of working to optimise for the project.
+
+This extra layer of management and meetings slows down development giving development teams less and less time for development. Any time gained from remote working is gobbled up in meetings.
+
+Developers are busier and lonelier than ever before. Burning out in higher numbers and continuing to move jobs in the hope the next job is better.
+
+# Inflatable dartboards
+Wagile software development is a group of software development methodologies that result from attempting to implement Agile in environments not ideally suited to or ill-prepared for this methodology, where the resulting approach is a combination of agile and waterfall methodologies — [wiki](https://en.everybodywiki.com/Wagile_software_development)
+
+The wagile approach is not a tool suitable for building unique software. It’s an inflatable dartboard or a chocolate teapot.
+
+It creates impossible project plans to deliver late projects, and higher costs. No one knows how the software should work at the start. It’s an emergent process where you discover requirements as high-level requirements are turned into detailed requirements.
+
+You cannot create fixed deadlines unless you know all the requirements and guarantee no requirements are changed.
+
+Why did we get here?
+Waterfall projects are ill-suited to software projects before agile and are still not suited to software projects now.
+
+Agile offered a magic way to deliver projects quickly and on time with small teams. Agile wasn’t a magic formula that turned bad developers into super heroes and deliver all projects on time (spoiler alert, there is no magic formula).
+
+We now have a grass is the greener scenario.
+* During late/failed waterfall projects, agile projects seemed greener.
+* Now we have late/failed agile projects, wagile projects seem greener
+
+# Too busy to think
+I enjoyed working on agile projects because they might start badly, there was hope they would improve. It was refreshing for the development team to be asked to identify problems and put forward suggestions (which were mostly ignored for being too hard).
+
+The development team felt (slightly) empowered with the potential to decide and act fast. Having a product owner who can decide, allowed developers to have direct access to business experts.
+
+These days agile is a slow, frustrating meeting fuelled trudge, like swimming through peanut butter, lots of effort for little reward.
+
+Agile project methodology won’t disappear but it’s in its cash cow days of projects doing Agile but not being Agile. [The Rumours of the Death of Agile Have Been Greatly Exaggerated](https://itnext.io/agile-isnt-dead-and-it-can-t-be-killed-64d4ceba9e50).
+
+When the world ends, there will still be agile projects, running late and being delivered by cockroaches :-)
+
+# Conclusion
+People are the reason for success or failure. Project methodology, technology and programming languages are the tools used to create software.
+
+There is not and never will be a magic formula to deliver projects.
+
+Soon there will be a new project methodology that will promise to deliver software projects on time and on budget. It won’t work, but we will all have fun learning new terms and joining a new methodology cult.
+
+In the meantime we are stuck with the half waterfall/half agile project approach that takes bits of each and still makes projects late.
