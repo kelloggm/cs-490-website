@@ -45,7 +45,7 @@ Given the preliminary nature of your project, we do not expect that you will kno
 However: Large tasks (those which you can not provide a responsible estimate for) must be accompanied by smaller "research" tasks that can be performed early on in the project, providing clear deadlines by which the task must either be refined into smaller tasks (based on new knowledge gathered), or reworked/abandoned.
 You might consider even scheduling some of these research tasks to take place during Sprint 0 (immediately after submitting this document).
 
-For example: Consider if you were proposing the "Viewing Area" project (the individual project), without the experience of having completed it. It might be difficult to consider how to break down a task like "Implement the frontend components for sychnronized video playback" into something that you could commit to doing within a day or two. Given that this is a task that can be delayed until the end of the project (no other tasks depend on it), it would be wise to consider having some tasks early on in the project, such as: "Find react components that embed YouTube videos," and "Implement simple video player that does not synchronize playback." Completing these smaller tasks early would let you both demonstrate that some forward progress is being made, and also allow you to create a much more responsible estimate for how that last, otherwise insurmountably large task would take.
+For example: Consider if you were proposing a "Viewing Area" project (this was an individual project in previous semesters). It might be difficult to consider how to break down a task like "Implement the frontend components for sychnronized video playback" into something that you could commit to doing within a day or two. Given that this is a task that can be delayed until the end of the project (no other tasks depend on it), it would be wise to consider having some tasks early on in the project, such as: "Find react components that embed YouTube videos," and "Implement simple video player that does not synchronize playback." Completing these smaller tasks early would let you both demonstrate that some forward progress is being made, and also allow you to create a much more responsible estimate for how that last, otherwise insurmountably large task would take.
 
 Be realistic, and leave time for contingencies and for your other courses.
 If you are uncertain that some tasks will be feasible, then be sure to include evaluation tasks earlier-on in the project that will allow for "go/no-go" decisions to move forward on a task or drop it.
@@ -61,13 +61,13 @@ Each work item should contain the following information:
     * Small: Can likely be completed by one team member in one sitting of less than 3-4 hours
     * Medium: Likely to require involvement of multiple team members, over the course of 1-2 days
     * Large: Currently unable to provide a responsible estimate. 
-* A brief (1-2 sentence max) justification of how you reached the size estimate of the task 
-* Milestone for delivering the task, chosen from one of the following:
-  * Sprint 0: Feb 21-Mar 3
-  * Sprint 1: Mar 4-Mar 17 (note that this sprint includes Spring Break, which might impact your planning) 
-  * Sprint 2: Mar 18-Mar 31
-  * Sprint 3: Apr 1-Apr 14
-  * Spring 4: Apr 15-Apr 28
+* A brief (1-2 sentence max) justification of how you reached the size estimate of the task
+* Milestone for delivering the task, chosen from one of the following two-week sprints:
+  * Sprint 0: Oct 9 - Oct 20
+  * Sprint 1: Oct 23 - Nov 3
+  * Sprint 2: Nov 6 - Nov 17
+  * Sprint 3: Nov 20 - Dec 1
+  * Spring 4: Dec 4 - Dec 12 (note: this sprint is about 10 days, because the deadline is Dec 12. We don't recommend scheduling many tasks in this sprint, because of the likelihood that some tasks from prior sprints might not be done yet.)
 
 (We leave some time between the end of the last sprint and the project showcase for slippage: there are always
 unexpected bugs, etc., that need to be ironed out. Padding your schedule like this is a good idea!)
@@ -87,7 +87,7 @@ The revised project plan will account for 10% of your project grade, and will be
 * Receive full marks if there is a narrative consisting of 4-10 sentences that describes a specific problem that your project aims to solve.
 * Receive partial credit if the narrative is present, but does not describe a problem that the project aims to solve
 
-### User stories (45 points):
+### User stories (15 points):
 Each of the three user stories will account for 5% of your grade on this assignment and graded as follows:
 * Receive full marks if:
   * The user story fits the problem statement
@@ -96,10 +96,10 @@ Each of the three user stories will account for 5% of your grade on this assignm
   * Conditions of satisfaction can be turned into Testable behaviors
   * Conditions of satisfaction are prioritized 
 
-### Work breakdown (50 points):
+### Work breakdown (80 points):
 Your work breakdown will be evaluated holistically on the following rubric:
 
-#### Coverage of tasks needed (20 points):
+#### Coverage of tasks needed (30 points):
 Receive full marks if the work breakdown includes all (reasonably expected) tasks to implement your feature, considering these kinds of tasks: 
   * Background research 
   * Design of interfaces and data types
@@ -111,12 +111,12 @@ Receive full marks if the work breakdown includes all (reasonably expected) task
 It is not possible to state generically for all projects whether *all* of the above types of tasks are necessary.
 However, we believe that this list is exhaustive (we do not expect other kinds of tasks).
 
-#### Assignment of tasks (5 points):
+#### Assignment of tasks (10 points):
 Receive full marks if:
 * Each element on the work breakdown is assigned to one team member
 * The distribution of tasks of each size are roughly similar between the whole team (no single person is assigned significantly more or fewer tasks of one size)
 
-#### Sizing of tasks (20 points):
+#### Sizing of tasks (30 points):
 Receive full marks if each element on the work breakdown:
 * Has a size estimate (small, medium, or large) that is provided by the team member assigned the task.
 * Has a responsible justification for that estimation
@@ -124,7 +124,7 @@ Receive full marks if each element on the work breakdown:
   * Is accompanied by a reasonable explanation of why the team is unnable to provide a responsible estimate
   * Is accompanied by at least one small or medium task, scheduled well-before the "large" task is due to be completed. We would expect that most of these research tasks are scheduled to sprint 0, or perhaps sprint 1.
 
-#### Scheduling of tasks (5 points):
+#### Scheduling of tasks (10 points):
 Receive full marks if each element on the work breakdown:
 * Is assigned to a sprint
 * There are no obvious constraint violations (tasks that logically must happen before others should be scheduled before them)
