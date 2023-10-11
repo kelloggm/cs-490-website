@@ -6,7 +6,7 @@ Oct 9
  : **Project Plan due**{: .label .label-red } 
 
 Oct 11
-: [Code Review](../assets/lecture-04-code-review.pdf)
+: [Code Review](../assets/lecture-11-code-review.pdf)
   : **Mandatory reading**: Google's [How to do a code review](https://google.github.io/eng-practices/review/reviewer/) (read all six linked sub-pages in the bulleted list)
 
     **Your Choice reading**: Bacchelli and Bird's [Expectations, Outcomes, and Challenges Of Modern Code Review](../assets/codereview.pdf)
