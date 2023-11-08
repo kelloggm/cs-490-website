@@ -2,8 +2,6 @@
 title: Week 11
 ---
 
-Nov 13
- : **Project Architecture Diagram due**{: .label .label-red } 
 
 Nov 15
 : [Tech debt, refactoring, and maintenance (1)](../assets/lecture-21-tech-debt.pdf)
