@@ -12,7 +12,7 @@ Dec 1
 : [What is Software Engineering?](../assets/lecture-25-se-research.pdf)
   : **Mandatory reading**: Shaw's ["What makes good research in software engineering?"](../assets/good-se.pdf)
   
-    **Your Choice reading**: read 10 abstracts in the [latest FSE proceedings](https://dblp.org/db/conf/sigsoft/fse2023.html) and make a list of words you don’t know. Then, look up at least 5 of those words and write a brief definition. Submit the list of words, the 5 definitions, and the titles of the papers whose abstracts you read. (I recommend choosing the ten 10 papers whose titles sound the most interesting to you.)
+    **Your Choice reading**: read 10 abstracts in the [latest ICSE proceedings](https://dblp.org/db/conf/icse/icse2023.html) and make a list of words you don’t know. Then, look up at least 5 of those words and write a brief definition. Send me the list of words, the 5 definitions, and the titles of the papers whose abstracts you read over email. (The reading quiz question for this reading will cover a topic that everyone who chooses this reading has read.)
 
 Dec 1
  : **Project Preliminary Demo due**{: .label .label-red } 
