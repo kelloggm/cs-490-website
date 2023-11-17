@@ -9,10 +9,10 @@ Nov 29
     **Your Choice reading**: Xu et al.'s ["Do Not Blame Users for Misconfiguration"](https://cseweb.ucsd.edu//~tixu/papers/sosp13.pdf)
 
 Dec 1
-: [What is Software Engineering?](../assets/lecture-25-se-research.pdf)
-  : **Mandatory reading**: Shaw's ["What makes good research in software engineering?"](../assets/good-se.pdf)
-  
-    **Your Choice reading**: read 10 abstracts in the [latest ICSE proceedings](https://dblp.org/db/conf/icse/icse2023.html) and make a list of words you don’t know. Then, look up at least 5 of those words and write a brief definition. Send me the list of words, the 5 definitions, and the titles of the papers whose abstracts you read over email. (The reading quiz question for this reading will cover a topic that everyone who chooses this reading has read.)
+: [Free and Open-source Software](../assets/lecture-16-floss.pdf)
+  : **Mandatory reading**: Stallman's [Why Open Source Misses the Point of Free Software](https://www.gnu.org/philosophy/open-source-misses-the-point.en.html)
 
+    **Your Choice reading**: Terrell et al.'s [Gender differences and bias in open source: pull request acceptance of women versus men](../assets/genderpull.pdf)
+    
 Dec 1
  : **Project Preliminary Demo due**{: .label .label-red } 
