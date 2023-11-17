@@ -3,9 +3,8 @@ title: Week 14
 ---
 
 Dec 6
-: [Software Engineer Panel](https://njit.webex.com/njit/j.php?MTID=mbd7b3aafcb37c1ea74d76cb0846956c9)
-  : **Mandatory reading**: none, but attendance today counts for double participation. Also, submit at least one question before
-  class on Canvas.
+: In-class Project Workday (Martin is traveling)
+  : **Mandatory reading**: none
 
     **Your Choice reading**: none
 
