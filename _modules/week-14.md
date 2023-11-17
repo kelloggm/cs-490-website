@@ -3,7 +3,7 @@ title: Week 14
 ---
 
 Dec 6
-: In-class Project Workday (Martin is traveling)
+: In-class Project Workday (Martin is traveling at [FSE](https://conf.researchr.org/home/fse-2023))
   : **Mandatory reading**: none
 
     **Your Choice reading**: none

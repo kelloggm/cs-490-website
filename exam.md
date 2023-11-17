@@ -39,3 +39,5 @@ ask on exams.
 [Sp23 Practice Final Exam](../assets/practice-sp23.pdf) ([key](../assets/practice-sp23-key.pdf))
 
 [Sp23 Final Exam](../assets/exam-sp23.pdf) ([key](../assets/exam-sp23-key.pdf))
+
+[Au23 Midterm](../assets/au23-midterm.pdf) ([key](../assets/au23-midterm-key.pdf))
