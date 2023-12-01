@@ -8,6 +8,8 @@ Dec 6
 
     **Your Choice reading**: none
 
+    **Totally Optional, For Fun Readings**: Gross' [The Grug Brained Developer](https://grugbrain.dev/) and Kingsbury's [Reversing the technical interview](https://aphyr.com/posts/340-reversing-the-technical-interview)
+
 Dec 8
 : [What is Software Engineering?](../assets/lecture-25-se-research.pdf)
   : **Mandatory reading**: Shaw's ["What makes good research in software engineering?"](../assets/good-se.pdf)
