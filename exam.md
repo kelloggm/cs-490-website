@@ -36,8 +36,10 @@ on these exams will have been covered by then. Hopefully, these exams
 will give you a good idea of the sort of questions that I like to
 ask on exams.
 
-[Sp23 Practice Final Exam](../assets/practice-sp23.pdf) ([key](../assets/practice-sp23-key.pdf))
+[Sp23 Practice Final](../assets/practice-sp23.pdf) ([key](../assets/practice-sp23-key.pdf))
 
-[Sp23 Final Exam](../assets/exam-sp23.pdf) ([key](../assets/exam-sp23-key.pdf))
+[Sp23 Final](../assets/exam-sp23.pdf) ([key](../assets/exam-sp23-key.pdf))
 
 [Au23 Midterm](../assets/au23-midterm.pdf) ([key](../assets/au23-midterm-key.pdf))
+
+[Au23 Final](../assets/au23-final.pdf) ([key](../assets/au23-final-key.pdf))
