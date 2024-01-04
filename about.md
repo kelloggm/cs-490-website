@@ -5,33 +5,24 @@ layout: page
 
 # Syllabus
 
-Welcome to CS 490: Guided Design in Software Engineering! This is a
-course about building software that satisfies stronger properties than
-“it works”: it’s about building software that is correct, reliable,
-maintainable, testable, and usable. That is, this course will teach
-you about how to build software *well*.
-
-The course is structured around giving you experience in both the
-theory (through readings and lectures) and the practice (through
-programming assignments and a large group project) of software
-engineering.
-
-# Course Outcomes
-
-Official course outcomes:
-* Students will be able to explain the major theories and methods applicable to professional software engineering.
-* Students will be able to design, implement and evaluate a computer based system to meet desired needs.
-* Students will be able to function effectively on a team to accomplish a goal.
-* Students will be able to use current techniques, skills and tools necessary for computing practice.
-
-My course design is based additionally on these unofficial outcomes:
-* Students will be able to assess the quality of software engineering being done at some future workplace
-* Students will be competent software engineers that I wouldn’t be worried about hiring
+Welcome to CS 684! This class is focused on software quality: both how
+to assess it and how to achieve it in your own work. The course
+therefore has two technical focuses: **testing** and **static analysis**, both
+of which are important for assuring quality in the real world. We’ll
+spend roughly 60% of the course (through spring break) on testing, and
+the rest of the course on static analysis. My goal in this course is
+to get you up-to-date with the best practices at the **very best**
+software engineering firms in the world in these two topics: that is,
+the goal of this course is to give you a firm foundation in the
+“state-of-the-practice” in industry. Note that reaching this level
+requires us to engage with the research literature, as the top
+engineers at the best software firms do—--especially the most important
+papers from the past 10-20 years.
 
 # Prerequisites
 
-Technically this course requires CS 280 and CS 288, which are both
-courses about *how* to program. I will assume in this course that you
+While this course has no official prerequisites,
+I will assume in this course that you already
 know how to program: that is, that if I tell you to go write some
 code, you’ll be able to go do it. Since this course focuses on how to
 program **well** (i.e., how to engineer software!), you first need to know
@@ -41,47 +32,50 @@ ask you to go write code in some language you’ve never seen before,
 you’ll be able to find the necessary components online, find an online
 tutorial on the syntax, and figure out how to write that code. Put
 another way, I won’t teach you how to write a program: this course
-already assumes that you can do that.
-
-As an analogy to carpentry, classes like CS 113 teach you how to build
-the equivalent of a software cabinet. CS 280 and CS 288 teach you how
-to build something like a software shed: pretty big, but still small
-enough for one person to do on their own by combining the skills they
-learned building cabinets. CS 490 is about the equivalent of building
-a software high-rise: not only is it more than a single-person job,
-but also there’s lots of other things you need to worry about that
-don’t come up when you’re building a shed.
-
-The first homework assignment is due right at the drop date,
-and is intended to let you check that you have the basic skills that
-will be needed for this course: it requires you to write a
-well-defined program in a language you’ve never seen before.
+already assumes that you can do that. It is a graduate-level CS elective,
+after all.
 
 # Topics
 
-* What is Software Engineering?
-* Software Engineering process
-* Version control
-* Code review
-* Programming in teams
-* Testing, including coverage, continuous integration, test-driven development, mutation testing, and fuzzing
-* Requirements and specifications
-* Programming languages
-* Build systems
-* Static analysis
-* Debugging
-* Architecture and design, including design patterns, microservice design, designing for security, and designing for scale
-* Technical debt, refactoring, and maintenance
-* DevOps, logging and post-mortems
-* Open source software
+The course is primarily structured around covering two topics in depth:
+testing and static analysis. We will cover testing in the greatest depth,
+including at least the following topics:
+* formal definitions of testing
+* basic testing terminology and theory (e.g., unit vs integration testing, regression tests, etc.)
+* coverage
+* fuzzing and random test input generation
+* mutation testing and analysis
+* oracles and oracle generation
+* differential testing
+
+In addition, we will cover other analysis techniques for quality assurance.
+These will include at least:
+* dataflow analysis
+* abstract interpretation
+* reduction of program analysis problems to SMT
+* other useful dynamic analyses beyond testing, such as dynamic race detectors
+
+# Course Structure
+
+This is an evening class in a three-hour block. Three hours is a long time,
+and I do not think you all want to listen to me talk for that long; further,
+I do not want to lecture for three hours straight every week. With that in mind,
+almost all classes will be split into two parts: a "lecture" part first, followed
+by a in-class exercise. Each in-class exercise is also a homework assignment
+(and all homework assignments begin as in-class exercises). These assignments are
+generally due one week later (i.e., by the end of the day before the next class),
+though there is one exception to this (the mutation testing assignment is longer
+and worth more points,
+so I've spread it over two weeks; there is no in-class for "other dynamic analyses"
+to compensate for that). During the in-class exercise period, the TA and I will
+circulate through the room and answer questions about the assignments.
 
 # Grading and Assignments
 
 Your grade is composed of the following sub-scores (in no particular order):
+* 60%: Homeworks
+* 25%: Exams (10% for the midterm, 15% for the final)
 * 15%: Participation & Professionalism
-* 15%: Individual Projects
-* 45%: Group Project
-* 25%: Exams (10% for the mid-term, 15% for the final)
 
 This class will be curved: when grading, I prefer to use the whole
 range available rather than scores in a tight range. That is, if an
@@ -95,36 +89,29 @@ You will be notified of your current projected class grade via email at each of 
 
 ## Readings and Reading Responses
 
-Each lecture has two kinds of readings: mandatory and "Your Choice"
-readings. I expect you to read mandatory readings before coming to
-class that day, and reading quizzes (see Participation &
-Professionalism, below) will cover the mandatory readings only. During
-the semester, you **must** complete **at least two** "Your Choice" readings:
-one before the mid-term, and another before the final.
-Most "Your Choice" readings are research papers from
-the software engineering literature: the idea is that you will do a
-deeper dive on two topics that interest you. The "Your Choice" readings
-will be checked on the exams with reading questions: see the ["Your Choice" reading page](../projects/optional-readings.html).
+Each lecture has mandatory readings.
+I expect you to read mandatory readings before coming to
+class that day, and I will check that you've done so using
+reading quizzes (see Participation & Professionalism, below).
 
 ## Participation & Professionalism
 
 Your participation & professionalism grade is composed of two scores. 
 
-First, your *Professionalism* score is based on the instructor’s
+First, your *Professionalism* score is based on the instructors'
 impression of how well you participated in class, with deductions for
 distracting other students and credit for asking and answering
 questions (either in person or on the course discussion board).
 
-Second, your *Participation* score is based on reading quizzes (about topics from the mandatory
-readings only - quizzes will never cover "Your Choice" readings) at the
+Second, your *Participation* score is based on reading quizzes at the
 beginning of most lectures. You get half credit on these quizzes just
 for being there, and half credit for answering the reading questions
 correctly (the questions will always be easy if you did the
 reading). For full participation, you need to get at least a score of
-66.67% on all quizzes over the whole semester (this gives you space to
+70% on all quizzes over the whole semester (this gives you space to
 e.g., miss a reading quiz because you were sick or have a family
 emergency - there are no excuses for missing reading quizzes). Put
-another way, you can miss up to 1/3 of the reading quiz points and
+another way, you can miss up to 30% of the reading quiz points and
 still get full participation points.
 
 These policies are designed to encourage you to come to class. A big
@@ -146,52 +133,11 @@ to participate in a particular class remotely.
 
 ### Asking Questions
 
-There is a course [Discord server](https://discord.com/channels/1147225783987875950/1147225783987875953)
+There is a course [Discord server]()
 which you can use to ask (and answer) questions about any of the course topics or for
 help with the homework. Participating on Discord is optional, but if you do
-participate in a productive manner (especially by answering other student's questions!), it will have a
+participate in a productive manner (especially by answering other student's questions!), it can have a
 positive impact on your participation score.
-
-## Course Project (both Individual and Group)
-
-The assignments and project for this class are designed to mirror the
-experiences of a software engineer joining a new development team: you
-will be “onboarded” to our codebase, make several individual
-contributions, and then form a team to propose, develop and implement
-a new feature. The codebase that we’ll be developing on is a remote
-collaboration tool called [Covey.Town](https://www.covey.town/).
-Covey.Town provides a virtual
-meeting space where different groups of people can have simultaneous
-video calls, allowing participants to drift between different
-conversations, just like in real life. Covey.Town is inspired by
-existing products like [Gather.Town](https://gather.town/), [Sococo](https://www.sococo.com/), and [Gatherly.IO](https://www.gatherly.io/) — but it
-is an open source effort, and the features will be proposed and
-implemented by you! All implementation will take place in the
-TypeScript programming language, using React for the user interface.
-
-At the end of the semester, the instructors and TAs will evaluate all
-of the student projects, and select the best (in terms of usability,
-code quality, test suite quality, and overall design) to merge into
-the [open source Covey.Town codebase on GitHub](https://github.com/neu-se/covey.town) repository. No
-additional course credit will be awarded to these teams, but these
-students will have the opportunity to receive public recognition for
-their project (in the form of a pull request merged into our
-repository and acknowledgments in the project’s contributors list).
-
-The project will provide hands-on experience to complement the skills taught in this class, requiring students to be able to:
-* Work effectively in a small team
-* Enumerate and prioritize development tasks
-* Propose, design, implement and test a new feature in an existing non-toy software application
-* Write code that their team members can read and review
-* Review teammates’ code
-* Analyze a proposed software architecture
-* Use relevant software tools, such as:
-    * TypeScript
-    * Visual Studio Code (or similar IDE)
-    * Git
-    * Mocha and Jest
-    * Twilio’s Programmable Video API
-    * Postman
 
 ## Exams
 
@@ -216,10 +162,8 @@ online resources. You are permitted to copy small amounts of code
 from any source except another student’s copy of an assignment,
 *as long as you cite your source*. “Another student’s copy of an
 assignment” also includes students not currently enrolled in the
-course - e.g., students who took (or are taking - I am in contact with
-the instructors using covey.town at Northeastern and we will compare code submitted in both classes)
-this class in previous semesters or
-took classes that used similar individual projects at other
+course - e.g., students who took
+this class in previous semesters or took classes that used similar materials at other
 institutions. To make this more clear, here are some examples of
 acceptable and unacceptable collaboration on a programming assignment
 in this course:
@@ -238,14 +182,17 @@ Unacceptable collaborations:
 * Copy a significant portion (more than about 10 lines of code or a single method - use your judgment) of your assignment from the internet, even if you cite your source.
 * Copy a short snippet from the internet without citing your source.
 * Copy code from the output of a large language model (such as ChatGPT) without citing your source
-* Copy code from the output of a large language model prompted by someone other than you (or your teammates,
-for the group project)
+* Copy code from the output of a large language model prompted by someone other than you
 
 These rules are intended to mimic what is acceptable in industry when
 working as a software engineer: using the resources available to you,
 such as your teammates and the wider internet, is always allowed. But,
 it would be illegal to copy code from a competing company working on a
-similar product.
+similar product. The same rules apply to English writing, although you should avoid
+copying text whole-sale from any source (this specifically means that using an LLM
+to help you with writing is allowed, but do note that I don't think LLMs produce
+particularly lucid text, so you should definitely avoid using LLM-generated text
+without editing it heavily if you want to do well on a written assignment).
 
 # Consequences of Violating the Collaboration Policy
 
@@ -257,24 +204,22 @@ Please note that it is my professional obligation and responsibility to report a
 
 # Late Policy
 
-You may use up to two late days on Individual Projects 1 and 2 (in
-total: either 2 on one of the two or one on each) without
-penalty. Assignments turned in after your second late day will not be
-accepted.
-
-Your group may use up to two late days on the Group Projects (in
-total). Assignments turned in after your group’s second late day will
-not be accepted.
-
-You may not use late days on Individual Project 0, the Group Project
-Class Demo, or the Group Project Final Submission (or resubmission).
+You may use a late day on a homework assignment up to twice throughout the semester.
+Assignments are generally due on a particular day "anywhere on Earth" (AoE), which
+is typically 7am the following day on the US east coast. Using a late day allows you
+to submit up to 24 hours later without penalty.
+Assignments turned in more than one day late or after you have already used two
+late days during the semester will not be accepted.
 
 # Acknowledgments
 
 This course is heavily inspired by a number of other courses in software engineering at other universities, especially:
-* [Jon Bell](https://www.jonbell.net/)’s [CS 4530](https://neu-se.github.io/CS4530-Fall-2022/) at Northeastern (special thanks to Jon and his colleagues for their permission to re-use the Covey.Town project materials.)
+* [René Just](https://homes.cs.washington.edu/~rjust/)'s [CSE 504P](https://homes.cs.washington.edu/~rjust/courses/CSEP504/) at the University of Washington
+* [Michael Ernst](https://homes.cs.washington.edu/~mernst/)'s [CSE 503](https://courses.cs.washington.edu/courses/cse503) at the University of Washington
 * [Wes Weimer](https://web.eecs.umich.edu/~weimerw/)'s [EECS 481](https://web.eecs.umich.edu/~weimerw/481/index.html) at the University of Michigan
-* [Michael Ernst](https://homes.cs.washington.edu/~mernst/)'s [CSE 403](https://courses.cs.washington.edu/courses/cse403/19wi/) at the University of Washington
+
+Thanks especially to René and Wes for permitting me to reuse assignment specifications
+from their courses.
 
 As a student, if you’re looking for more materials (or just a different perspective) on any of the topics we cover, you might start with those (excellent) courses.
 

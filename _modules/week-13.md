@@ -2,17 +2,11 @@
 title: Week 13
 ---
 
-Nov 29
-: [DevOps (2)](../assets/lecture-24-devops2.pdf)
-  : **Mandatory reading**: Lunney and Lueder's ["Postmortem Culture: Learning from Failure"](https://sre.google/sre-book/postmortem-culture/) from Google's [Site Reliability Engineering](https://sre.google/sre-book/table-of-contents/) and Luu's ["Postmortem Lessons"](https://danluu.com/postmortem-lessons/)
+Apr 10
+ : **Homework 8 due**{: .label .label-red } 
 
-    **Your Choice reading**: Xu et al.'s ["Do Not Blame Users for Misconfiguration"](https://cseweb.ucsd.edu//~tixu/papers/sosp13.pdf)
-
-Dec 1
-: [Free and Open-source Software](../assets/lecture-16-floss.pdf)
-  : **Mandatory reading**: Stallman's [Why Open Source Misses the Point of Free Software](https://www.gnu.org/philosophy/open-source-misses-the-point.en.html)
-
-    **Your Choice reading**: Terrell et al.'s [Gender differences and bias in open source: pull request acceptance of women versus men](../assets/genderpull.pdf)
-    
-Dec 1
- : **Project Preliminary Demo due**{: .label .label-red } 
+Apr 11
+: [Abstract Interpretation (2)]()
+  : **Reading**: sections 2.15 to 2.20 of Ernst's [Notes on Program Analysis](https://homes.cs.washington.edu/~mernst/pubs/program-analysis-book-abstract.html) and sections 1.0 to 2.2 of Jones and Nielson's [Abstract Interpretation: a semantics-based tool for program analysis](https://web.njit.edu/~mjk76/teaching/cs785-au22/jones-nielson.pdf), then skim the remainder of chapter 2 of the same
+  
+    **In-class**: start [HW9](../projects/hw9.html)

@@ -2,15 +2,12 @@
 title: Week 3
 ---
 
-Sep 20
-: [Testing (3)](../assets/lecture-05-testing3.pdf)
-  : **Mandatory reading**: SQLite's [How SQLite is Tested](https://www.sqlite.org/testing.html)
+Jan 31
+ : **Homework 1 due**{: .label .label-red } 
 
-    **Your Choice reading**: Barr et al.'s [The Oracle Problem in Software Testing: A Survey](../assets/testoracles.pdf)
+Feb 1
+: [Coverage]()
+  : **Reading**: Ivankovic et al.'s [Code Coverage at Google](https://dl.acm.org/doi/pdf/10.1145/3338906.3340459) and Chen et al.'s [Revisiting the Relationship Between Fault Detection, Test Adequacy Criteria, and Test Set Size](https://homes.cs.washington.edu/~rjust/publ/mutants_faults_revisited_ase_2020.pdf)
 
-Sep 22
-: [Version Control](../assets/lecture-06-version-control.pdf)
-  : **Mandatory reading**: Ernst's [Version control concepts and best practices](https://homes.cs.washington.edu/~mernst/advice/version-control.html)
-  
-    **Your Choice reading**: De Rosso et al.'s [Purposes, concepts, misfits, and a redesign of git](../assets/gitless.pdf)
+    **In-class**: start [HW2](../projects/hw2.html)
 

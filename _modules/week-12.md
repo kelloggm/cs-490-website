@@ -2,11 +2,11 @@
 title: Week 12
 ---
 
-Nov 22
-: [DevOps (1)](../assets/lecture-23-devops1.pdf)
-  : **Mandatory reading**: Sloss' ["Introduction"](https://sre.google/sre-book/introduction/) and Baye's ["Emergency Response"](https://sre.google/sre-book/emergency-response/) from Google's [Site Reliability Engineering](https://sre.google/sre-book/table-of-contents/)
+Apr 3
+ : **Homework 7 due**{: .label .label-red } 
 
-    **Your Choice reading**: Dean and Barroso's ["The Tail at Scale"](../assets/tail-at-scale.pdf)
-
-Nov 24
-: No class (Thanksgiving holiday)
+Apr 4
+: [Abstract Interpretation (1)]()
+  : **Reading**: sections 2.0 to 2.14 of Ernst's [Notes on Program Analysis](https://homes.cs.washington.edu/~mernst/pubs/program-analysis-book-abstract.html)
+  
+    **In-class**: start [HW8](../projects/hw8.html)

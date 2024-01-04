@@ -1,30 +1,33 @@
 ---
 layout: home
-title: CS 490 (Au23)
+title: CS 684 (Sp24)
 nav_exclude: true
 permalink: /:path/
 seo:
   type: Course
-  name: CS 490 (Au23)
+  name: CS 684 (Sp23)
 ---
 
-# Welcome to CS 490!
+# Welcome to CS 684!
 
-Welcome to CS 490: Guided Design in Software Engineering! This is a
-course about building software that satisfies stronger properties than
-“it works”: it’s about building software that is correct, reliable,
-maintainable, testable, and usable. That is, this course will teach
-you about how to build software *well*.
-
-The course is structured around giving you experience in both the
-theory (through readings and lectures) and the practice (through
-programming assignments and a large group project) of software
-engineering.
+Welcome to CS 684! This class is focused on software quality: both how
+to assess it and how to achieve it in your own work. The course
+therefore has two technical focuses: **testing** and **static analysis**, both
+of which are important for assuring quality in the real world. We’ll
+spend roughly 60% of the course (through spring break) on testing, and
+the rest of the course on static analysis. My goal in this course is
+to get you up-to-date with the best practices at the **very best**
+software engineering firms in the world in these two topics: that is,
+the goal of this course is to give you a firm foundation in the
+“state-of-the-practice” in industry. Note that reaching this level
+requires us to engage with the research literature, as the top
+engineers at the best software firms do—--especially the most important
+papers from the past 10-20 years.
 
 On this course website, you can find:
 - the [syllabus](about.md),
-- a [course calendar](calendar.md) (which includes links to the required readings)),
-- a [staff](staff.md) page,
+- a [course calendar](calendar.md) (which includes links to the required readings),
 - links to all [assignments](./projects),
-- useful [tutorials](tutorials.md), and
-- information about [exams](exam.md) (including old/practice exams with solutions).
+- useful [tutorials](tutorials.md),
+- a [staff](staff.md) page, and
+- information about how I write [exams](exam.md) (including old exams that I have written for undergraduate versions of this course, with solutions).

@@ -2,16 +2,11 @@
 title: Week 14
 ---
 
-Dec 6
-: In-class Project Workday (Martin is traveling at [FSE](https://conf.researchr.org/home/fse-2023))
-  : **Mandatory reading**: none
+Apr 17
+ : **Homework 9 due**{: .label .label-red } 
 
-    **Your Choice reading**: none
-
-    **Totally Optional, For Fun Readings**: Gross' [The Grug Brained Developer](https://grugbrain.dev/) and Kingsbury's [Reversing the technical interview](https://aphyr.com/posts/340-reversing-the-technical-interview)
-
-Dec 8
-: [What is Software Engineering?](../assets/lecture-25-se-research.pdf)
-  : **Mandatory reading**: Shaw's ["What makes good research in software engineering?"](../assets/good-se.pdf)
+Apr 18
+: [Using SMT solvers]()
+  : **Reading**: Bjørner et al.'s [Programming Z3](https://link.springer.com/content/pdf/10.1007/978-3-030-17601-3.pdf) (article begins on page 165 of the PDF; not as long as it looks!)
   
-    **Your Choice reading**: read 10 abstracts in the [latest ICSE proceedings](https://dblp.org/db/conf/icse/icse2023.html) and make a list of words you don’t know. Then, look up at least 5 of those words and write a brief definition. Send me the list of words, the 5 definitions, and the titles of the papers whose abstracts you read over email. (The reading quiz question for this reading will cover a topic that everyone who chooses this reading has read.)
+    **In-class**: start [HW10](../projects/hw10.html)

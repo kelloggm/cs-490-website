@@ -2,15 +2,11 @@
 title: Week 8
 ---
 
-Oct 23
- : **Revised Project Plan due**{: .label .label-red } 
+Mar 7
+: [Other Dynamic Analyses]()
+  : **Reading**: Musuvathi et al.'s [Finding and Reproducing Heisenbugs in Concurrent Programs](https://web.eecs.umich.edu/~weimerw/2022-481F/readings/chess.pdf)
+  
+    **In-class**: continue working on [HW6](../projects/hw6.html)
 
-Oct 25
-: [Static Analysis (2)](../assets/lecture-14-15-static-analysis.pdf)
-  : **Mandatory reading**: Schwartz-Narbonne's [How to integrate formal proofs into software development](https://www.amazon.science/blog/how-to-integrate-formal-proofs-into-software-development)
-
-    **Your Choice reading**: Chapter 2 ("Abstract Interpretation") of Ernst's [Notes on Program Analysis](../assets/ernst-ai-notes.pdf)
-
-Oct 27
-: Mid-term Exam (in-class)
-  : see the [exams](../exam) page for old and practice exams (with keys)
+TBD
+: HW6 will be due either at the end of this week or during spring break
