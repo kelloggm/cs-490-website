@@ -230,3 +230,226 @@ You're all set! You can proceed to submitting the assignment (see below, after o
 
 ## Option 2 — Amazon EC2
 
+**Note well**: This option will take longer than Option 1. Amazon AWS accounts can take up to 24 hours to verify, which means you may have to wait before you can submit the assignment. Start early!
+
+You will need a [Secure Shell (SSH)](https://en.wikipedia.org/wiki/SSH_(Secure_Shell)) client. SSH allows you to remotely interact with a server. (If you've never used SSH before, scrolling back up the page and watching the appropriate section of the "Linux Fundamentals" video might help.) When you SSH to a remote computer, you have access to a command prompt that runs software on that computer. We will be using SSH to interact with a virtual machine we create in the cloud with Amazon EC2. On *Windows*, I recommend using WSL to run SSH. You can also use [PuTTY](https://www.putty.org/). On *Mac*, you should already have `ssh` installed. Open a terminal and you can run `ssh`. On *Linux*, you can use `ssh`, but you may need to install it first (e.g., `sudo apt-get install openssh` or similar, depending on your platform). It is your responsibility to understand how to use SSH, though we give some pointers below.
+
+[Amazon EC2](https://aws.amazon.com/ec2/) is a cloud computing service that allows you to rent virtual machines that you can `ssh` to and run programs like any other computer. Amazon offers a large number of cloud-based services all under the umbrella of AWS (Amazon Web Services). EC2 is a subset of AWS. **In this section, you will create an AWS account to manage EC2 virtual machines.**
+
+You can sign up for a new account on Amazon EC2, and in doing so, you get 12 months of free access to a virtual machine that is enough to complete the assignments in this course. If you do not already have an Amazon EC2 account, navigate to [https://aws.amazon.com/ec2/](https://aws.amazon.com/ec2/) and click "Create new account" in the upper right.
+
+Complete the sign up process. You may be prompted for credit card information, however you should not be charged as long as you create only one virtual machine on the free tier. You then will have access to the Amazon AWS Console. _If you are prompted, you want to sign in as a "Root" user for the AWS console._
+
+<details markdown="block">
+<summary>AWS Account Creation</summary>
+Note that it can take 24 hours for Amazon to verify your account. We believe this is because they manually review account creation — after all, they are giving you access to computing resources. Since cloud services are easily abused (e.g., for spam emails, command and control virus management, and distributed denial of service attacks), Amazon applies a bit of scrutiny to AWS users. **Start early!**
+</details>
+
+<details markdown="block">
+<summary>Notice: AWS Web GUI Changes</summary>
+Some of the screenshots in this guide are from older versions of the AWS Web Interface. The GUI changes fairly frequently and so your view may look a little different from the screenshots. Everything is fine and it's good practice to follow along with documentation that is not an exact match. The course staff verified that the instructions work and pass the HW0 autograder most recently on 8/27/2022. If you believe you've discovered a problematic difference between this guide and the current version of the AWS GUI, contact your TA.
+</details>
+
+### Creating a New VM
+
+Now that you have created an account, you can use the AWS Console to help manage and launch virtual machine instances. We will walk you through the steps to create an Ubuntu 22.04 VM below.
+
+#### (1) Open the AWS Console
+
+After you create an AWS account, you can visit the AWS Console at [https://console.aws.amazon.com](https://console.aws.amazon.com). At the console, you should be greeted with a large screen full of many services. See highlight on left: 
+<details markdown="block">
+<summary>Click here to see AWS Console screenshot</summary>
+![](../assets/ec2-create2.png)
+</details>
+
+#### (2) Open the EC2 Manager
+
+From the AWS Console, click the "EC2" link to open the Elastic Cloud Compute manager. The EC2 Manager lets you manage and launch Instances, which are virtual machines that you configure. The first thing we need to do is configure and launch a new instance. Click the Launch Instance button.
+
+<details markdown="block">
+<summary>Click here to see EC2 Manager screenshot</summary>
+![](../assets/ec2-create3.png)
+</details>
+
+#### (3) Choose an Ubuntu 22.04 LTS Instance
+
+**This is the most important step.** You must select an Ubuntu Server 22.04 LTS (HVM), SSD Volume Type instance. This is a free tier eligible instance that contains an environment suitable for completing the rest of the assignments. Don't pick other versions of Ubuntu (NOT 18.04 or 20.04, etc.). The autograder uses Ubuntu 22.04 (in an AWS VM!), so if you want the smoothest experience, use that version. As of 1/12/2023, the correct image is the default for Ubuntu:
+
+<details markdown="block">
+<summary>Click here to see screenshot of the instructor selecting the correct VM image</summary>
+![](../assets/ec2-ubuntu.png)
+</details>
+
+After that you can fill out the rest of the selection (e.g., making certain to select your key pair for that instance) and then verify that it is in the Free Tier.
+
+<details markdown="block">
+<summary>Click here for "free tier" screenshot</summary>
+![](../assets/weimer-free-tier.jpeg)
+</details>
+
+#### (4) Configure Your Instance
+
+After you select the image to launch, it may ask you a few questions about storage (pick the default if so).
+
+_Usually_, it will skip ahead and ask you about instance details. You want to pick the free version, called a `t2.micro` instance. If you were using cloud computing for a business or another project, you could configure resources like (a) how many CPUs, (b) how much RAM, and (c) what type of storage you get on the VM. For this course, just pick
+"t2.micro" to get the free level.
+
+<details markdown="block">
+<summary>Click here for instance type selection screenshot</summary>
+![](../assets/ec2-create5.png)
+</details>
+
+#### (5) Configure Authentication
+
+After you set up your instance, you need to create a way to login. This is a tricky security problem because Amazon wants to give you root (Administrator) access to your new instance. The way they do this is by using asymmetric key encryption. Basically, Amazon will let you download a file that serves as your credentials. Rather than entering a password, you will provide this special file to let you login. If you'd like to learn more about asymmetric key encryption, take a security course.
+
+Now, you will be prompted to set up credentials for logging in. Select Create a new key pair and type in any name (the examples use "eecs481" in the screenshots below). (If you are given a key type option, like "RSA" vs. "ED22519", pick "RSA".) Then, click Download Key Pair. It is **imperative** that you keep this file in a secure location. **Do not upload it to GitHub**, do not move it around. This is basically like a password for accessing your instance — you wouldn't want someone malicious to access your instance and do something bad with it (you would be legally responsible for whatever they did!).
+
+<details markdown="block">
+<summary>Click here for keypair creation screenshot</summary>
+![](../assets/ec2-create6.png)
+</details>
+
+Once you had downloaded your Key Pair, you should be able to Launch your instance. Do so and continue. There is a screenshot below showing what you should see after launching your instance.
+
+<details markdown="block">
+<summary>Click here for launch confirmation screenshot</summary>
+![](../assets/ec2-create7.png)
+</details>
+
+#### (6) Connect to Your Instance
+
+At this point, you have set up an Ubuntu 22.04 instance on EC2 and created associated credentials. You now have a virtual machine running in the cloud that you can connect to. You will use ssh to connect to your instance. This is the recommended way — you could technically install a front-end and use remote desktop software, however we strongly recommend using the command line, since you will be using the CLI in many of the course assignments.
+
+From the [EC2 Management Dashboard](https://console.aws.amazon.com/ec2/#Instances), right-click your running instance. You should see a menu pop up like below:
+
+![](../assets/ec2-create9.png)
+
+Click "Connect". It will pop up a window giving you a number of options. Pick the "SSH Client" tab to see how to connect via ssh:
+
+![](../assets/ec2-create10.png)
+
+On this window, you will see the hostname of your EC2 instance to which you can ssh, as well as a number of instructions for connecting.
+
+<details markdown="block">
+<summary>Mac permissions errors</summary>
+Some students, especially those using Mac computers, report receiving permission errors when they try to SSH into their EC2 instances:
+
+![](../assets/mac-ssh-permissions.jpeg)
+
+In this case, a command like
+```
+chmod go-rwx /path/to/eecs481.pem
+```
+usually resolves the issue. [More information is available online about this SSH issue.](https://stackabuse.com/how-to-fix-warning-unprotected-private-key-file-on-mac-and-linux/)
+</details>
+
+<details markdown="block">
+<summary>Using Windows WSL to SSH to EC2</summary>
+If you are using Windows Subsystem for Linux (WSL) to connect to your Amazon EC2 instance, you must prepare your key file before connecting. Our recommendation is to run the following (but use your path):
+```
+mkdir -p ~/.ssh/
+cp /path/to/your/downloaded/eecs481.pem ~/.ssh
+chmod 400 ~/.ssh/eecs481.pem
+```
+Windows WSL does not apply Linux file permissions correctly unless you are dealing with files contained within the Linux FS. Moving your key to `~/.ssh/` will allow you to chmod 400 appropriately. The SSH client will not allow you to connect to any server using that key if it does not have the correct permissions.
+</details>
+
+Recall you downloaded a `.pem` file when you set up authentication for your instance (see part 5 above). You must specify this file on your SSH client to connect to your instance.
+
+First, you must provide the correct access permissions to the `.pem` file. Usually, this means running `chmod 400 /path/to/your/.pem`. Once you do so, you can use the ssh command directly:
+```
+ssh -i /path/to/your/.pem ubuntu@<your-EC2-hostname-here>
+```
+
+(You must substitute in the path to your downloaded `.pem` file as well as the hostname of your EC2 instance, which takes the form of `ec2-X-Y-Z.us.W.compute.amazonaws.com` for some values of W, X, Y, and Z. Collect these values from the EC2 Console.)
+
+If you receive an error that the path is "too long for Unix domain socket" or the like, open `~/.ssh/config` in a text editor and modify the control path to match this ([reference](https://gist.github.com/andyvanee/bcf95b1044b80e72b4a42933549a079b)):
+```
+Host *
+        ControlPath ~/.ssh/control/%C
+        ControlMaster auto
+```
+
+**At this point, you should be logged in to your EC2 Instance!** See below for an example of connecting to such an instance from the WSL environment (though note that the machine in the screenshot uses an old version of Ubuntu. Your instance should be version 22.04 (codename: jammy) instead of version 16.04):
+
+![](../assets/ec2-create11.png)
+
+Once you're all finished, you need one more step to install gcc (a compiler for C and C++ programs):
+```
+sudo apt-get update
+sudo apt-get install gcc
+```
+
+Then, you can proceed to Submitting the assignment below!
+
+You can safely stop the VM instance when you aren't using it (e.g., between homeworks) and restart it when you are.
+
+## Submitting HW0
+
+Note well: after submitting this assignment, you are welcome to use whatever environment you like for this course instead, but you may run into issues this semester with compiling or running some software. Debugging systems integration issues is good practice (and indeed, an intentional part of this courses assignments). Unfortunately, we cannot support every combination of student hardware and software. Thus, the officially supported environment in Ubuntu 22.04.
+
+Complete the assignment through Gradescope (accessed via the bar at the top of this webpage).For HW0, you are asked to submit a single file named `output.txt`. Obtain your `output.txt` file by running the following commands in your virtual machine guest:
+```
+cd ~
+wget https://web.eecs.umich.edu/~weimerw/481/hw0/hw0sample
+chmod u+x hw0sample
+./hw0sample
+```
+
+If you receive an error such as "failed: Temporary failure in name resolution. wget: unable to resolve host address 'web.eecs.umich.edu'" on your VM, make sure your guest is connected to the Internet by switching it to _bridged_ mode.
+
+After invoking `./hw0sample`, you will find a file output.txt in your home directory. Upload that file to the autograder and you're done!
+
+<details markdown="block">
+<summary>What do these commands do?</summary>
+The file `hw0sample` is a program that detects which version of Ubuntu you are running and which version of gcc you have installed. If you followed either of Option 1 or Option 2, you should have an identical environment with Ubuntu 22.04 installed and gcc 11.4.0 installed. Thus, the `output.txt` will (mostly) only been correct if invoked on the environment expected by the autograder for the subsequent assignments. If you get full credit for HW0, then you at least have some confidence that you can eventually get the rest of the assignments working as well!
+
+Note well: If you run `hw0sample` on another environment besides the Ubuntu 22.04 environment described in this spec, then no guarantees are made about the correctness of the file (or whether you can run the program at all). Only run this in your VM.
+</details>
+
+<details markdown="block">
+<summary>How do I get output.txt out of the VM?</summary>
+Note that since you're working inside a VM, you'll occasionally need to move files to and from your VM guest and host. In this case, you have downloaded a program (`hw0sample`) using the `wget` utility. This makes a file in your VM guest environment. When you run that program, it creates a new `output.txt` file in the VM environment as well. But how do you get that file to the autograder?
+
+If you used Option 1 and installed the Guest Additions, you can drag and drop files to and from the VM. Just open up the file manager inside your VM, then drag the output.txt file to a directory on your host. Then you can upload from there. If you aren't quite certain about how to drag and drop once Guest Additions is installed see [this video](https://www.youtube.com/watch?v=xYkeFJb2vBY) for more information.
+
+In addition, with option 1, you can also open Firefox inside of the guest VM and open Gradescope from there! You may find this easier when working on the other assignments: just keep the autograder open in your guest, and upload from there.
+
+If you used Option 2, you can use the scp (Secure Copy) utility to copy files from your EC2 instance.
+
+On your _host_ computer in a terminal, you download a file from your EC2 instance to your host computer:
+```
+scp -i /path/to/your/.pem ubuntu@>your_EC2_hostname<:/path/to/some/remote/file.txt  /path/to/where/you/want/to/download/it/target.txt
+```
+
+The command above copies some `file.txt` to `target.txt`.
+
+On your _host_ computer in a terminal, you can upload a file to your EC2 instance from your host computer:
+```
+scp -i /path/to/your/.pem /path/to/local/file/to/upload.txt ubuntu@>your_EC2_hostname<:/path/to/some/remote/target.txt
+```
+The command above will upload `upload.txt` from your local computer to `target.txt` on the EC2 instance.
+
+For some later homeworks, the -r option for scp may be helpful: it recursively transfers entire directories.
+</details>
+
+<details markdown="block">
+<summary>How do I transfer many files at once with scp</summary>
+Quick answer: `scp -r` (but keep the `-i key.pem`)
+
+Long answer: If you're not familiar with utilities like these, we definitely encourage you to watch the video above and practice Googling usage patterns for and hints for less-familiar tools. There will be multiple instances later in the course where similar questions come up and you will definitely be in a better position to help yourself if you cultivate a habit of looking in multiple sources for such information. Good luck!
+</details>
+
+<details markdown="block">
+<summary>Penalty for cheating on HW0</summary>
+It would be easy to copy someone else's `output.txt` file and submit it as your own. Don't do this: it is cheating.
+If you later have **any problems** and you come to office hours without a working Ubuntu 22.04 environment
+(and you got full credit on HW0), we will know that you cheated on HW0 and you will **automatically fail the course**. Trust us on this: it is easy for us to tell.
+</details>
+
+## Final Remarks
+
+There is a fair bit of systems programming in this course. We will use a mixture of command line tools, multiple languages, and other large projects that you may not have seen, written, or used before. That's the point. In software engineering, much of your day-to-day work will involve reading code and documentation, as well as getting things set up to run. We are big believers that this type of experience is some of the most valuable you can acquire as a student — it makes you more productive at other tasks.
+
+This assignment is not meant to take more than 2 hours (excluding the time taken to download the Ubuntu 22.04 `.iso` in Option 1, or the Amazon AWS signup time in Option 2). Please use this assignment as a gauge for your technical preparedness in this course. A big component of the assignments is "read the docs, figure out how to invoke the tools." We acknowledge this is not for everyone — indeed, one purpose of having this assignment due so early is to help you decide whether you like this style of assignment. Please contact us on Discord if you have any questions!
