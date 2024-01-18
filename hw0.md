@@ -116,7 +116,7 @@ You will need:
 
 * A copy of VirtualBox for your operating system. [General download link (look under "Platform Package" or similar)](https://www.virtualbox.org/wiki/Downloads).
 * A copy of 64-bit Ubuntu 22.04 ([Download](https://releases.ubuntu.com/jammy/) — 64-bit is required here: don't use 32-bit). This is a large `.iso` file that might take a long time to download. You don't need it until part way through the installation process, but you should start the download now.
-* When something goes wrong during this installation, we recommend that you _search this webpage_ and aslo _look for previous posts on the forum_. Some solutions may be listed a little lower on the webpage than when you encounter them. Macs typically give students many more issues than Windows machines, so if you are a student using a Mac, looking to see if the issue is already addressed can be a big time saver.
+* When something goes wrong during this installation, we recommend that you _search this webpage_ and also _look for previous posts on the forum_. Some solutions may be listed a little lower on the webpage than when you encounter them. Macs typically give students many more issues than Windows machines, so if you are a student using a Mac, looking to see if the issue is already addressed can be a big time saver.
 
 ### VirtualBox
 
