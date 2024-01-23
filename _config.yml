@@ -29,13 +29,11 @@ heading_anchors: true
 permalink: pretty
 aux_links:
   Canvas:
-    - ''
+    - 'https://njit.instructure.com/courses/32931'
   Discord:
-    - ''
+    - 'https://discord.com/channels/1197590679623315466'
   Gradescope:
-    - ''
-  autograder.io:
-    - ''
+    - 'https://www.gradescope.com/courses/695850'
 footer_content: "&copy; 2022-2024 Martin Kellogg, Westley Weimer, René Just, Jonathan Bell, Adeel Bhutta and Mitch Wand. Released under the <a href=\"https://creativecommons.org/licenses/by-sa/4.0/\">CC BY-SA</a> license"
 
 # Collections for website data

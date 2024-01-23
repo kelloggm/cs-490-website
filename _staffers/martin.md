@@ -3,7 +3,7 @@ name: Martin Kellogg
 role: Instructor
 email: martin.kellogg@njit.edu
 website: https://web.njit.edu/~mjk76/
-photo: martin.jpg
+photo: martin.jpeg
 pronouns: he/him
 ---
 Office Hours: by appointment.

@@ -5,7 +5,7 @@ permalink: /projects/hw0.html
 parent: Homeworks
 nav_order: 1
 due_date: "Wednesday, January 24, 2024, 11:59PM AoE"
-submission_notes: Submit via Canvas
+submission_notes: Submit via Gradescope
 ---
 
 CS 684 is a software engineering course. There a focus on reading code and using large systems to accomplish tasks,
