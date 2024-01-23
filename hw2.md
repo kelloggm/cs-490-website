@@ -18,7 +18,7 @@ You will then be asked to write a short report reflecting on the activity.
 
 You may work with a partner for this assignment. Only one partner needs to submit for any of the programming assignments on the autograder, but you do need to use Gradescope's interface to select your partner. [(Here is a video showing Gradescope partner selection.)](https://www.youtube.com/watch?v=rue7p_kATLA&t=1m6s). Only one of you needs to submit the written report on Canvas, but similarly you need to create a project group on Canvas in order to submit as a group.
 
-You may use files, benchmarks or resources from the Internet (unlike in many other classes) or instructors, provided you cite them in your written report. (If you use the same resource many times, such as StackOverflow, one citation per resource suffices.)
+You may use files, benchmarks or resources from the Internet (unlike in many other classes), provided you cite them in your written report. (If you use the same resource many times, such as StackOverflow, one citation per resource suffices.)
 
 <details markdown="block">
   <summary>
