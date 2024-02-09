@@ -352,3 +352,7 @@ In this section we detail previous student issues and resolutions:
     > Try making a copy of your test image directory, then remove any "large" test images from this new directory (I deleted all test images over 100KB), and then try running a new AFL session with this new input directory, and a new output directory. Each "session" of AFL basically runs in a single thread, so it seems to be fine running two different sessions at once, with different input/output directories. I watched as my new run (with small test image files) consistently ran with an exec speed of 500-1000, and achieved 600 total paths in under 7 minutes, all while safely letting my old session continue to run.
 
     > tl;dr Don't use lots of "large" images with AFL (large roughly being >100KB)
+
+18. **Question**: When I try to compile libpng using the AFL compiler, I get an error like the following: `C compiler cannot create executables`.
+
+**Answer**: Make sure you have the libraries you need to compile libpng. You may want to refer back to the [HW2 instructions](./hw2.html).
