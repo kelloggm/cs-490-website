@@ -8,7 +8,7 @@ due_date: "Wednesday, February 14, 2024, 11:59PM AoE"
 submission_notes: Submit via Canvas
 ---
 
-In this assignment you will use tools to automatically create high-coverage test suites for different programs.
+In this assignment you will use tools to automatically create a high-coverage test suite for a program.
 
 You _may_ work with a partner for this assignment.
 
@@ -355,4 +355,4 @@ In this section we detail previous student issues and resolutions:
 
 18. **Question**: When I try to compile libpng using the AFL compiler, I get an error like the following: `C compiler cannot create executables`.
 
-**Answer**: Make sure you have the libraries you need to compile libpng. You may want to refer back to the [HW2 instructions](./hw2.html).
+    **Answer**: Make sure you have the libraries you need to compile libpng. You may want to refer back to the [HW2 instructions](./hw2.html).
