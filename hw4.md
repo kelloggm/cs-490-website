@@ -49,21 +49,21 @@ It is **your responsibility** to download, compile, and run the subject programs
 The subject program is [jsoup](https://jsoup.org/) (v 1.11.2), a library for extracting
 real-world HTML data using DOM, CSS and jquery-like methods. A copy of
 the version of the source code known to work for this assignment is
-available [here](TODO); you can also use `git clone https://github.com/jhy/jsoup.git`.
+available [here](../assets/jsoup-1.11.2.zip); you can also use `git clone https://github.com/jhy/jsoup.git`.
 It involves about 18,000 lines of
 code spread over 60 files. This program is a bit small for this
 course, but comes with a rich existing test suite. This existing test
 suite will serve as a baseline for comparison
 
 The associated test input (**and oracle!**) generation tool is [EvoSuite](https://en.wikipedia.org/wiki/EvoSuite), version 1.0.5.
-Mirror copies of [evosuite-1.0.5.jar](TODO) and [evosuite-standalone-runtime-1.0.5.jar](TODO) are available, but you should visit the [project webpage](http://www.evosuite.org/) for documentation.
+Mirror copies of [evosuite-1.0.5.jar](../assets/evosuite-1.0.5.jar) and [evosuite-standalone-runtime-1.0.5.jar](../assets/evosuite-standalone-runtime-1.0.5.jar) are available, but you should visit the [project webpage](http://www.evosuite.org/) for documentation.
 
 EvoSuite generates unit tests (cf. [JUnit](https://en.wikipedia.org/wiki/JUnit)) for Java programs.
 
 #### JSoup Installation Details
 
 You can install `jsoup` and use `cobertura` to assess the statement and branch coverage of its built-in test suite
-(note that you may need to install [Maven](TODO) to run `mvn`):
+(note that you may need to install [Maven](https://maven.apache.org/) to run `mvn`):
 ```
 $ unzip jsoup-1.11.2.zip
 $ cd jsoup-master/
@@ -101,7 +101,7 @@ consider learning `rsync`.).
 #### EvoSuite Installation and Use Details
 
 EvoSuite includes some [clear tutorials](http://www.evosuite.org/documentation/tutorial-part-1/) explaining its use.
-Mirror copies of [hamcrest-core-1.3.jar](TODO) and [junit-4.12.jar](TODO) are available if you need them.
+Mirror copies of [hamcrest-core-1.3.jar](../assets/hamcrest-core-1.3.jar) and [junit-4.12.jar](../assets/junit-4.12.jar) are available if you need them.
 
 Once you have EvoSuite installed you can invoke it on jsoup via:
 ```
