@@ -6,7 +6,7 @@ Feb 7
  : **Homework 2 due**{: .label .label-red } 
 
 Feb 8
-: [Fuzzing]()
+: [Fuzzing](../assets/lecture-04-fuzzing.pdf)
   : **Reading**: Zeller’s [Fuzzing: Breaking Things With Random Inputs](https://www.fuzzingbook.org/html/Fuzzer.html)
   
     **In-class**: start [HW3](../projects/hw3.html)
