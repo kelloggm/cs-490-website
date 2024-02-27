@@ -4,7 +4,7 @@ title: "Homework 6: Mutation Testing"
 permalink: /projects/hw6.html
 parent: Homeworks
 nav_order: 7
-due_date: "TBD, 2024, 11:59PM AoE"
+due_date: "Wednesday, March 13, 2024, 11:59PM AoE"
 submission_notes: Submit via Gradescope and Canvas
 ---
 
@@ -53,8 +53,8 @@ talk to me about it!).
 </p> 
 
 <p>
-The grading server uses <tt>Python TBD</tt> for this assignment. (Yes,
-this is a change from other Homeworks.) 
+The grading server uses Python 3.10.12 for this assignment. (Yes,
+this is a change from other homeworks.) 
 </p> 
 
 ### HW6a: Mutation Testing (Python)
@@ -800,7 +800,7 @@ or
 AttributeError: 'Classdef' object has no attribute 'starargs'
  </pre> 
 </p>
-<p><b>Answer:</b> The autograder uses Python TODO with AST TODO. You'll want
+<p><b>Answer:</b> The autograder uses Python 3.10.12 with astor version 0.8.1. You'll want
 to make sure you're using the same versions. 
 </p> 
 <li> <p><b>Question:</b> Some online documentation makes a big deal about
