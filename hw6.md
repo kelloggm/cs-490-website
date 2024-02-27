@@ -12,9 +12,9 @@ submission_notes: Submit via Gradescope and Canvas
 In this assignment you will write a tool to carry out simple
 <a href="https://en.wikipedia.org/wiki/Mutation_testing">mutation
 testing</a> on Python programs. Given a program, your tool must generate
-mutants of that program such that the <a
-href="http://crestweb.cs.ucl.ac.uk/resources/mutation_testing_repository/theory.php">mutation
-adequacy score</a> correctly rank-orders a number of held-out test suites
+mutants of that program such that the mutation
+adequacy score (i.e., the percentage of mutants that are killed by each test suite)
+correctly rank-orders a number of held-out test suites
 for that program in terms of their quality. 
 </p>
 <p>
@@ -527,7 +527,7 @@ any tests. If you apply too many, the mutant will be killed by every
 test. In both cases such a mutant will not help to distinguish between
 high- and low-quality test suites.
 * You may want to implement additional mutation operators. See Section
-II.b of <a href="readings/mutation-testing.pdf">Jia and Harman's <i>An
+II.b of <a href="../assets/mutation-testing.pdf">Jia and Harman's <i>An
 Analysis and Survey of the Development of Mutation Testing</i></a> for
 ideas.
 * Thought question. Suppose your program is just one main method with
