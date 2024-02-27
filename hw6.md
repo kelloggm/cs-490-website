@@ -60,7 +60,7 @@ this is a change from other homeworks.)
 ### HW6a: Mutation Testing (Python)
 
 <p>
-You mutation testing tool will take the form of a Python program
+Your mutation testing tool will take the form of a Python program
 called 
 <tt>mutate.py</tt>. Your <tt>mutate.py</tt> accepts two command line
 arguments: first, the name of a Python source program to mutate; second,
