@@ -108,3 +108,7 @@ As usual in this class, you may use files, benchmarks or resources from the Inte
     **Answer**: For Variant A, the software should be publicly-available (e.g., on Github) and actively-maintained (i.e., commits are regularly made to add features or fix bugs). It should also exist to accomplish some task - it must not be a toy or a course project (e.g., a "twitter clone" that is not actually deployed anywhere is not allowed). We recommend that you select a program in the same category as the subject programs from previous homeworks, (e.g., JSoup or libpng would be good choices, if they had not been used in previous homeworks).
 
     For Variant B, the software should be actively supported, and you should be able to point to a URL. We typically expect you to choose well-known online classification systems if you choose Variant B.
+
+2. **Question**: Is it possible to start Part 2 before finishing Part 1?
+
+    **Answer**: There are no dependencies between Part 1 and Part 2, and you can complete them in either order.
