@@ -7,3 +7,5 @@ Mar 7
   : **Reading**: Musuvathi et al.'s [Finding and Reproducing Heisenbugs in Concurrent Programs](https://web.eecs.umich.edu/~weimerw/2022-481F/readings/chess.pdf)
   
     **In-class**: continue working on [HW6](../projects/hw6.html)
+
+    **Lecture recording**: [video (.mp4)](../assets/lecture-08.mp4), [transcript (.vtt)](../assets/lecture-08.vtt)

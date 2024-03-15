@@ -1,0 +1,4129 @@
+WEBVTT
+
+1 "" (0)
+00:00:09.000 --> 00:00:29.000
+So today's topic is mutation testing, um, which I think we've, we've teased already this semester a bit. I think I spent a few minutes on it and we discussed it last week. Uh, today we're gonna spend the whole class on it. So, we're going to go into a lot of depth, but 1st, as usual, uh, there will be reading quiz. Let's see if we can go. And, uh, I'm going to put a, uh, 2 minutes on the clock.
+
+2 "" (0)
+00:00:29.000 --> 00:00:35.370
+There are the questions mutation testing developers.
+
+3 "" (0)
+00:00:35.370 --> 00:00:39.330
+Part of your current view is exactly correct. Right right. So that was hopefully the easy 1.
+
+4 "" (0)
+00:00:39.330 --> 00:00:46.560
+A question too, we're at a 1 line snippet of code. That's obviously error as defined by the paper. What does error to me? What is the paper to find? Error? Does.
+
+5 "" (0)
+00:00:46.560 --> 00:00:53.580
+Yes, uninteresting in particular uninteresting to mutate. All right so mutating. It wouldn't help.
+
+6 "" (0)
+00:00:53.580 --> 00:00:56.730
+It's not going to help uncover bugs.
+
+7 "" (0)
+00:00:56.730 --> 00:01:02.400
+Or write new tests. So what are some examples of things that the paper suggested are arid? Yeah.
+
+8 "" (0)
+00:01:06.870 --> 00:01:12.420
+Yeah, print statement is an excellent answer are the things that anyone wrote.
+
+9 "" (0)
+00:01:12.420 --> 00:01:15.960
+I thought of logging.
+
+10 "" (0)
+00:01:15.960 --> 00:01:22.200
+Yes, logging or debugging code. That's an excellent example.
+
+11 "" (0)
+00:01:22.200 --> 00:01:27.510
+There was 1 other example that they gave, I think, at least once maybe twice.
+
+12 "" (0)
+00:01:27.510 --> 00:01:47.510
+Was the, uh, uh, the, the initial size of a collection, right? If you initialize in a ray list as having 16 elements or 64 uh, at the beginning, it doesn't make a big difference. It's only going to affect performance. Right? So, uh, anything like this. But anything that, uh, we believe is error that you wrote down will get full credit. And I hope Cosby is listening here.
+
+13 "" (0)
+00:01:47.510 --> 00:01:56.010
+Anything that's even remotely reasonable is full credit. All right. Okay. Any questions about this, we'll come back to the, the idea of later in the lecture.
+
+14 "" (0)
+00:01:56.010 --> 00:02:16.010
+All right, if not, then we will press ahead. So today we're going to talk about mutation testing and we're going to go through a mutation testing and quite a bit of detail. I've opened some relation and I'll review at least all the definitions that we talked about before, um, and probably will cover a few more mutation testing for whatever reason. It's super heavy on vocabulary. So, I apologize in advance for that.
+
+15 "" (0)
+00:02:16.010 --> 00:02:26.280
+Then we'll talk about some of the assumptions mutation testing and also the implications of those assumptions. Right um, and all of this will be with the goal of getting towards.
+
+16 "" (0)
+00:02:26.280 --> 00:02:34.740
+How practical is this in real life? Like, how do people actually use it? And so, towards the end of the day today, we're going to talk about the Google paper that we read.
+
+17 "" (0)
+00:02:34.740 --> 00:02:41.400
+All right, so let's get on it. Uh, so, does anybody know what this means? Has everyone seen this phrase before.
+
+18 "" (0)
+00:02:44.910 --> 00:02:49.290
+Does a surprise test of your liberal arts education? Does anyone know what language that said?
+
+19 "" (0)
+00:02:49.290 --> 00:02:52.410
+Flatten yeah, definitely Latin. Um.
+
+20 "" (0)
+00:02:52.410 --> 00:03:10.260
+And we'll have a guess, at what am I mean? Yes that's exactly right, right. Who watches the waters right? Or who watches the watchman? Right? Um, and it was said by this, this guy juvenile, who is a Roman satirist in the 1st century 80 that's not very important right? What it is is who watches the watchers.
+
+21 "" (0)
+00:03:10.260 --> 00:03:18.480
+And this is fundamentally the, I, the idea behind mutation testing basically boils down to, uh, how do we apply this question.
+
+22 "" (0)
+00:03:18.480 --> 00:03:23.490
+To, uh, to testing, right this is a very famous question that, uh, you know.
+
+23 "" (0)
+00:03:23.490 --> 00:03:34.170
+If you take a liberal arts class, you might encounter. Right? This is a famous phrase in the realm of things like politics. Right? But in testing, it's also the motivation for.
+
+24 "" (0)
+00:03:34.170 --> 00:03:49.950
+Why we do mutation testing right? And it's notable that this question is recursive. Right? Whatever the answer is, we can ask the same question about it, and we'll come back to that, uh, as we go further today. Right? This is part of the reason this question is interesting for to, for example, politicians, because.
+
+25 "" (0)
+00:03:49.950 --> 00:04:00.420
+You know, if, even if you appoint someone to watch, like, then the question is who does that? But of course, now someone is watching them. So now you, it's sort of there's a chain of watchers all the way along.
+
+26 "" (0)
+00:04:00.420 --> 00:04:13.800
+So, what does this have to do testing as I said, this is the main motivation for mutation testing right? Is that the sort of core idea of mutation testing is that we need or we want to have a, um, a system that can keep an eye on our tests right?
+
+27 "" (0)
+00:04:13.800 --> 00:04:24.510
+Um, and so, uh, the key question we need to ask ourselves here is, how do we know that our tests are actually good right? And the, the reason that this matters that test also programs, right? When we're writing tests.
+
+28 "" (0)
+00:04:24.510 --> 00:04:41.909
+We're trying to check whether our program does the right thing, but the test themselves are programs and therefore they can have bugs in exactly. The same sort of ways that other programs can have bugs and so they can also be wrong. Right? And so, you know, if we, if we knew that our tests were correct, then we wouldn't need to worry about.
+
+29 "" (0)
+00:04:41.909 --> 00:04:48.539
+Testing our tests, but because we do, uh, we don't know that, like, the same reason. We don't know that, uh, our programs are correct.
+
+30 "" (0)
+00:04:48.539 --> 00:05:01.679
+Uh, we do actually need to worry about how do we check whether the test themselves are right, right so, to some extent, today's conversation is going to be about, like, sort of a meta view on testing. All right. Like, this is the question about, how do you check whether tests are actually doing the right thing?
+
+31 "" (0)
+00:05:01.679 --> 00:05:07.799
+All right. Okay, so we've already discussed 1 possible answer for how do we check whether test survey.
+
+32 "" (0)
+00:05:07.799 --> 00:05:27.799
+And that's coverage, right? We talked that we said, like, coverage is a a way to tell whether 1 test suite, uh, does a better job of covering the, uh, the, the space of the program, right? Uh, than another. And, and how much is a useful measure, but it's a limited 1, right? So, you know, better coverage could be meaning better tests, but that's not. We've seen examples of.
+
+33 "" (0)
+00:05:27.799 --> 00:05:45.569
+Cases where that's not always true and this is because coverage is an imperfect metric right? Fundamentally, it's only about inputs. Right coverage doesn't tell us anything about the quality for example, of the Oracles that we're using. Right. You can achieve high coverage with an Oracle that just says don't crash.
+
+34 "" (0)
+00:05:45.569 --> 00:05:51.989
+And you're going to achieve high coverage with a set of very good Oracles but coverage can't tell those 2 test suites apart.
+
+35 "" (0)
+00:05:51.989 --> 00:06:05.669
+And so average is it best a rough guideline to the actual quality of a test suite? The actual quality is some, like, unknowable, uh, you know, subjective thing. But I covered is a rough approximation. Right? It's a rough guideline.
+
+36 "" (0)
+00:06:05.669 --> 00:06:08.759
+Um, shouldn't like.
+
+37 "" (0)
+00:06:08.759 --> 00:06:12.779
+War coverage does not necessarily mean more better in all situations. Right?
+
+38 "" (0)
+00:06:12.779 --> 00:06:18.299
+And so our question for today is going to be, how can we do better? Right? How can we have a measure of test suite quality?
+
+39 "" (0)
+00:06:18.299 --> 00:06:34.019
+That takes into account more things than just inputs. And in particular we want to test suite, quality metric that naturally considers the quality of the input. The way the coverage does right. Coverage is basically a measure of how much of the input space have you, uh, have you covered.
+
+40 "" (0)
+00:06:34.019 --> 00:06:40.799
+Um, and also, uh, the quality of the Oracles, right? We want something that is naturally aligned with both.
+
+41 "" (0)
+00:06:40.799 --> 00:06:44.489
+And that's what mutation testing is going to be 4.
+
+42 "" (0)
+00:06:44.489 --> 00:06:50.699
+Okay, so there's a general technique for solving who watches the watcher style problems, which is basically, like, test the waters.
+
+43 "" (0)
+00:06:50.699 --> 00:07:10.699
+So, intentionally what you do is if you have a set of watchers, and you want to know if they're watching correctly, you intentionally introduce some problems and you check how often they find this. So, for example, if you've heard about, like, people running tests against the, the TSA, like the guys who do security at airports, right where they like, sneaky, try to sneak a gun onto a plane. That's an example of this.
+
+44 "" (0)
+00:07:10.699 --> 00:07:16.859
+Or they're effectively like, there's a known attack that's being carried out on purpose but the watchers don't know.
+
+45 "" (0)
+00:07:16.859 --> 00:07:25.529
+Right and then the question is just, does security catch you with the gun when you try to walk through if you're 1 of these, like, special people who test security right?
+
+46 "" (0)
+00:07:25.529 --> 00:07:32.519
+And so this is the sort of the core idea behind this sort of general technique for solving these sort of problems.
+
+47 "" (0)
+00:07:32.519 --> 00:07:36.659
+And so the idea is that we want to see whether the waters actually detect the known problems.
+
+48 "" (0)
+00:07:36.659 --> 00:07:47.039
+And, of course, this general technique can also be applied recursively. Right we can add some fake known problems. Right? And see if, uh, our testers are being honest and say all right.
+
+49 "" (0)
+00:07:47.039 --> 00:08:02.909
+And this is nice, but it it is generally very expensive. Right? We always need to add another level if we want to make sure everyone's being honest. And so we need an infinitely large structure of people watching. Right? And so this is not ideal, right?
+
+50 "" (0)
+00:08:02.909 --> 00:08:09.269
+But this is the sort of the same sort of style of defense that mutation testing it's.
+
+51 "" (0)
+00:08:09.269 --> 00:08:12.779
+So, how can we apply this technique to test it? Well.
+
+52 "" (0)
+00:08:12.779 --> 00:08:17.039
+Uh, in this analogy, tests are the watchers and they're watching for.
+
+53 "" (0)
+00:08:17.039 --> 00:08:21.029
+What what are tests watching for.
+
+54 "" (0)
+00:08:21.029 --> 00:08:41.029
+Bugs bugs yes, definitely. Bugs, right they're watching for bugs right and then, in the analogy, then what are, what are the fake things that we're going to? So, as you apply this general technique, right? We need to introduce intentionally introduce some known problems in the system and see if the waters detect them. So, what that means then, is that in the analogy here to the general technique, um, the known problems here are going to be.
+
+55 "" (0)
+00:08:41.029 --> 00:08:50.099
+Big box, we're going to introduce a set of fake bugs and see whether the test detect them. Right? And this is the core of the mutation testing in general.
+
+56 "" (0)
+00:08:50.099 --> 00:09:06.059
+The core idea of the technique, right? And if you just remember, uh, you know, what 1 thing about mutation testing this is it right that mutation testing is introducing fake bugs and seeing whether the test detect them that's the most important like, high level bit. If you want to explain it to your grandmother, that's what it is.
+
+57 "" (0)
+00:09:06.059 --> 00:09:13.289
+Okay, so we intentionally introduce some changes to the program, and we expect them to cause the test to fail. Right? And what we're going to measure is.
+
+58 "" (0)
+00:09:13.289 --> 00:09:18.119
+Do the tests actually fail when we expect them to? That is the, that is the core idea.
+
+59 "" (0)
+00:09:18.119 --> 00:09:27.719
+Okay, any questions so far on this sorry to hit you with the, like, aggressive liberal arts, uh, reason for why we care.
+
+60 "" (0)
+00:09:27.719 --> 00:09:31.439
+I had it's too much fun to put light at the beginning of the class.
+
+61 "" (0)
+00:09:31.439 --> 00:09:36.359
+All right, moving on then this is the idea this idea is the essence and this is the core.
+
+62 "" (0)
+00:09:36.359 --> 00:09:50.999
+All right, so I think we've seen this definition before, but here it is again, mutation testing limitation analysis is a test suite adequacy metric in which the quality of a test suite is related to the number of intentionally added defects that it finds. All right, this is the, the core technique that we're looking at here.
+
+63 "" (0)
+00:09:50.999 --> 00:09:58.469
+Right so informally if you claim your test is really good at finding security bugs, then I will just intentionally introduce a buffer overflow and see if you find it.
+
+64 "" (0)
+00:09:58.469 --> 00:10:06.929
+All right, that is the core idea. And if you recall, I used a truffle sniffing peg analogy to introduce this.
+
+65 "" (0)
+00:10:06.929 --> 00:10:10.109
+A couple of weeks ago, right? I remember the trouble sniffing pigs.
+
+66 "" (0)
+00:10:10.109 --> 00:10:22.619
+Yes, hopefully it was insane enough that it stuck out in a few people's minds. Right, and the idea here was that, like, you have some trouble standing pigs, and you want to see if you had some troubles in your backyard. And then the best thing is the 1 that find the most of these products.
+
+67 "" (0)
+00:10:22.619 --> 00:10:29.549
+All right, and, uh, this is the same kind of thing that we're doing the mutation testing, just with bugs and tests.
+
+68 "" (0)
+00:10:29.549 --> 00:10:34.319
+The key 1 of the key problems that are going to immediately have to confront here, though, is.
+
+69 "" (0)
+00:10:34.319 --> 00:10:39.659
+Are the bugs were introducing realistic? That is to say very similitude. I know this word.
+
+70 "" (0)
+00:10:39.659 --> 00:10:43.529
+Verisimilitude part of this before it just means like.
+
+71 "" (0)
+00:10:43.529 --> 00:10:47.129
+Relationship to reality, or how close to the truth is right.
+
+72 "" (0)
+00:10:47.129 --> 00:10:55.409
+So, in this trouble, stuffing pig analogy, right? If I hide every truffle in my backyard next to a smelling red flower.
+
+73 "" (0)
+00:10:55.409 --> 00:11:00.659
+I picked it finds all of those might actually not do well in the real world. Why.
+
+74 "" (0)
+00:11:00.659 --> 00:11:08.039
+What's wrong with this situation? Let us know the cloud.
+
+75 "" (0)
+00:11:08.039 --> 00:11:17.129
+Right. There's a CO founder. I know the word Co founder right? I've heard of that this, like, within, like, statistical analysis, or doing science in general.
+
+76 "" (0)
+00:11:17.129 --> 00:11:23.369
+A few people. Okay, so, let me just briefly. Explain so that, uh, we're on on the same page, right?
+
+77 "" (0)
+00:11:23.369 --> 00:11:27.269
+If you're going to do, like a scientific experiment, right?
+
+78 "" (0)
+00:11:27.269 --> 00:11:31.199
+Um, 1 of the things you really have to worry about is controlling for possible. Confounds.
+
+79 "" (0)
+00:11:31.199 --> 00:11:36.029
+What that is to say, like, if you're trying to measure, you know, whether, uh.
+
+80 "" (0)
+00:11:36.029 --> 00:11:40.949
+The temperature changes, because you do a funny ritual, right?
+
+81 "" (0)
+00:11:40.949 --> 00:11:59.789
+But you happen, you happen to do this during, like, right in the middle of spring, when it's getting warmer every day, it will be the case that you will observe that, as you do the ritual more if you do the ritual more each day, the temperature doesn't fact, go up and you'll say, oh, it worked, right? I can you can draw a statistical correlation. Everything looks great.
+
+82 "" (0)
+00:11:59.789 --> 00:12:18.389
+The bad news of course, for this is that there is a compound it is spring and the temperature is going up every day by chance right? Because of time not because of the thing that you did, right? You did the same experiment in the fall. You would get exactly the opposite affection and so the, the presence of time not being controlled for properly it's called a compound within the.
+
+83 "" (0)
+00:12:18.389 --> 00:12:24.329
+The literature on experimental design. Okay. Any questions about that? Does that make that idea? Make sense?
+
+84 "" (0)
+00:12:24.329 --> 00:12:30.929
+So, the compound here, is this not a red flag right? The pig is noticing the smaller red flower and not actually the truffles.
+
+85 "" (0)
+00:12:30.929 --> 00:12:36.299
+Then it's being, you're measuring the wrong thing, basically. Right? Your, uh.
+
+86 "" (0)
+00:12:36.299 --> 00:12:45.419
+You're you are, uh, being confused by this, this contract. Okay. So how is this related to the idea of, like, testing whether you're, you're testifying fake bugs?
+
+87 "" (0)
+00:12:45.419 --> 00:12:52.499
+Does anyone see the connection? I see some sort of maybe.
+
+88 "" (0)
+00:12:52.499 --> 00:13:04.289
+Paychex.
+
+89 "" (0)
+00:13:04.289 --> 00:13:14.879
+Yeah, so, uh, this is going in the right direction, right? Like.
+
+90 "" (0)
+00:13:14.879 --> 00:13:18.599
+So, in this analogy, right? The, the troubles are the bonds, right?
+
+91 "" (0)
+00:13:18.599 --> 00:13:22.679
+And the pages are tests what is the smelly red flower that.
+
+92 "" (0)
+00:13:22.679 --> 00:13:27.329
+Well, it's some other property of the code that might cause the test to fail or.
+
+93 "" (0)
+00:13:27.329 --> 00:13:30.839
+When cause the test to fail when you go back to right?
+
+94 "" (0)
+00:13:30.839 --> 00:13:49.739
+Um, and basically, the idea here is that the trouble placements that you make up might, or might not actually be indicative of real world truffles, right? That's another way of framing this. Right. That is to say where I put the truffles in my backyard, when I'm hiding them on purpose is not necessarily the same as where I'd find them in real life right out in the woods. Similarly.
+
+95 "" (0)
+00:13:49.739 --> 00:13:53.159
+When I edit the program to introduce fake bugs.
+
+96 "" (0)
+00:13:53.159 --> 00:13:59.399
+Well, I always put them in the same places that bugs would actually crop up in the wild.
+
+97 "" (0)
+00:13:59.399 --> 00:14:07.739
+Well, obviously, I can't right, because if I knew where bugs were going to appear, I would simply fix them. Right? So, the key question then is, uh.
+
+98 "" (0)
+00:14:07.739 --> 00:14:18.509
+If I add a button, like, how do I add big bugs to the software in such a way that they're it's actually informative, right? It actually corresponds to how, uh, humans would make mistakes right?
+
+99 "" (0)
+00:14:18.509 --> 00:14:24.239
+And so if I add folks to my software that are not indicative of real world.
+
+100 "" (0)
+00:14:24.239 --> 00:14:33.269
+Bugs the humans with right then the result of mutation testing wouldn't be very helpful. Right? We might be able to find all the fake bugs, but none of the real ones.
+
+101 "" (0)
+00:14:33.269 --> 00:14:43.739
+And so, as we go through, I want you to keep this in mind, especially when we start talking about things like mutation operators. Right? And as you're thinking about homework, 6 as well, like, once you start working on homework, 6, um.
+
+102 "" (0)
+00:14:43.739 --> 00:14:51.539
+In homework since you're going to be asked to build a mutation testing tool right? A very simple 1, but a mutation testing tool you're going to have to choose the mutation operators, right?
+
+103 "" (0)
+00:14:51.539 --> 00:15:06.359
+When you choose mutation operators, try to think about how close this mutation operator actually is to the kind of bug that you might write. Is it closed or not? Right? I mean, you're probably like whether or not it is, it's not going to necessarily change how well you do on the assignment.
+
+104 "" (0)
+00:15:06.359 --> 00:15:12.419
+All right, but that's the sort of thing that we're going to be looking for you to reflect on in the right.
+
+105 "" (0)
+00:15:12.419 --> 00:15:23.939
+Okay, so the implication here is that mutation testing requires us to know what robots actually look like. And how good of a model do you think we, as, like, the software engineering community? Have of what real bugs in the world actually look like.
+
+106 "" (0)
+00:15:29.309 --> 00:15:44.459
+Like, if you had to guess pretty high meeting sorry is it good model or bad model? Let us just say, like, do we have a good understanding of what kinds of bugs show up.
+
+107 "" (0)
+00:15:44.459 --> 00:15:49.319
+I think you're overestimating the strength of our discipline at this point. Yeah.
+
+108 "" (0)
+00:15:49.319 --> 00:16:09.319
+Um, so thank you for actually being brave enough to answer, but I would generally argue we don't really have that good of an idea. Right? The kinds of bugs that show up in real life are difficult to characterize each 1 seems to be unique. Right? I mean, of course there are categories that we can talk about, like, buffer overflow or resource leaks or the, like right but the root cause, like, why did he like.
+
+109 "" (0)
+00:16:09.319 --> 00:16:19.679
+How did a human make that mistake is not well understood right? And so that's the core problem here, right? To do mutation testing effectively. We have to make the same kinds of mistakes that humans would.
+
+110 "" (0)
+00:16:19.679 --> 00:16:33.089
+But we don't fundamentally know why humans make the mistakes that they do. Right this is sort of a like, we need to understand how human brains work problem right? Which is just something we don't really understand yet. Right? And so, um.
+
+111 "" (0)
+00:16:33.089 --> 00:16:40.529
+What our best guess here is going to be what we can do right? And so this is, this is why, in part the mutation testing is both quite effective.
+
+112 "" (0)
+00:16:40.529 --> 00:16:44.459
+All right, like, it can be quite effective, but when done poorly, it can.
+
+113 "" (0)
+00:16:44.459 --> 00:16:51.509
+Really be misleading right? And so you have to be very careful about exactly sorry to be very careful about the mutation operators you're using.
+
+114 "" (0)
+00:16:51.509 --> 00:16:59.039
+Be very careful about how you interpret the results. Yep. All right. Any questions about that does that make sense?
+
+115 "" (0)
+00:16:59.039 --> 00:17:02.219
+I wish I had a better answer for, like, why do humans write bugs?
+
+116 "" (0)
+00:17:02.219 --> 00:17:08.519
+But if we knew, we would simply teach you not to write bugs anymore and then we wouldn't have to have this conversation about testing.
+
+117 "" (0)
+00:17:11.819 --> 00:17:25.289
+All right. Okay so then we're going to call it defects seeding the process of intentionally introducing a defect into a program. Right? Um, and typically what we're gonna do is we're gonna try to make it similar to the defects that are introduced by real developers. But, uh, like.
+
+118 "" (0)
+00:17:25.289 --> 00:17:28.979
+This typically here typically unintentionally or doing a lot of work in the sentence.
+
+119 "" (0)
+00:17:28.979 --> 00:17:33.059
+All right, because this is what we are trying to be as similar as possible to us.
+
+120 "" (0)
+00:17:33.059 --> 00:17:36.809
+But whether or not, we're succeeding is very hard to to.
+
+121 "" (0)
+00:17:36.809 --> 00:17:56.809
+All right. Okay. Um, so, typically, we're gonna we're gonna do seating by changing the source code. Uh, that's what they're doing homework 6. um, it's also possible to do mutation testing say at the bite code level, right? And instead of writing a mutate that targets see, programs, you write mutate, that targets assembly programs. Right? The problem with doing that, is that the assembly.
+
+122 "" (0)
+00:17:56.809 --> 00:18:07.169
+Programs are typically much more brittle and so any single change to them tends to make them much worse. Right? By contrast if you, like, make a small change to a C program often, you can still compile it into something sensible.
+
+123 "" (0)
+00:18:07.169 --> 00:18:17.699
+And then, uh, typically, what we're going to do here is, uh, doing defects hitting automatically. Right? So, the, the tool you're writing homework, 6 is a tool that automatically does mutation testing.
+
+124 "" (0)
+00:18:17.699 --> 00:18:26.879
+Um, and so we give it a model of what human bugs look like, in this case, you're going to write some mutation operators right? And give them some probabilities right about when to apply them.
+
+125 "" (0)
+00:18:26.879 --> 00:18:34.499
+And, you know, that will be that's how it will work. However, you, you can still do lightweight mutation testing yourself.
+
+126 "" (0)
+00:18:34.499 --> 00:18:53.429
+And so, for example, you can think of both regression testing and test driven development as forms of manual mutation testing. So think to understand this think about, why is it, the case that in test driven development when we were discussing it? I said, you must always write the test 1st and ensure that it fails.
+
+127 "" (0)
+00:18:53.429 --> 00:19:02.219
+The reason is that we want to show that the problem that you're introducing there, the problem that you're, you're writing a test for, and that you're going to then fix actually exists.
+
+128 "" (0)
+00:19:02.219 --> 00:19:14.099
+Right. And so that is to say that the test is actually a good model of that problem. And so you can view these things as a sort of lightweight forms of manual mutation testing. But when we talk about mutation testing, this is not what we need.
+
+129 "" (0)
+00:19:14.099 --> 00:19:19.739
+I want to be clear, right when we were talking about mutation testing, we mean, this automated version that does it at scale.
+
+130 "" (0)
+00:19:19.739 --> 00:19:22.859
+Any questions about this.
+
+131 "" (0)
+00:19:26.309 --> 00:19:31.859
+All right, so then I've said the word mutation operator, a number of times, let's talk a little bit about mutation operators, right?
+
+132 "" (0)
+00:19:31.859 --> 00:19:37.469
+So, mutation operator is a way of systematically changing a program, right?
+
+133 "" (0)
+00:19:37.469 --> 00:19:56.459
+Um, typically an invitation testing what we try to do is model them on historical human defects, but I say this, but I, I, I'm not even sure I really believe it. Right. Fundamentally, like historical human defects are hard to collect and hard to reason about. And so the examples I'm about to show, you are not really modeled on historical human defects.
+
+134 "" (0)
+00:19:56.459 --> 00:19:59.459
+They're really modeled on, like, typos.
+
+135 "" (0)
+00:19:59.459 --> 00:20:06.929
+All right, and so I want to be careful with this. This is this is the operational what they're supposed to be.
+
+136 "" (0)
+00:20:06.929 --> 00:20:23.249
+Right. And then the bottom of the slide is going to be like, what you actually see in practice and what you're actually probably going to do in homework 6 right and homework. 6, if you can find a list of historical human defects, and then manage to, like, make mutation operators out of them, Bravo to, you'll probably do better than everyone else in the assignment. Right?
+
+137 "" (0)
+00:20:23.249 --> 00:20:27.089
+Probably though you'll write a D, right. Mutation operators like this.
+
+138 "" (0)
+00:20:27.089 --> 00:20:30.929
+I changed a lesson into a lesson rebuild and equal to.
+
+139 "" (0)
+00:20:30.929 --> 00:20:34.409
+Well, swim lanes, et cetera. Reimbursing functions.
+
+140 "" (0)
+00:20:34.409 --> 00:20:37.409
+I change technical wise, I think. What's that?
+
+141 "" (0)
+00:20:37.409 --> 00:20:40.739
+Um, what is what do all of these things happen, huh?
+
+142 "" (0)
+00:20:44.969 --> 00:20:53.579
+Yeah, they're really simple, right? They're simple mistakes, right? They're they're basically typos, right? If I write less than less than or equal or vice versa like.
+
+143 "" (0)
+00:20:53.579 --> 00:21:08.489
+That's probably not like a, it's not a logic, but in the sense that it's not like, I have the wrong model of the world, and I wrote the wrong program. Right it's like, I have a decent idea of what I'm doing. And, uh, you know, I got 1 edge case wrong.
+
+144 "" (0)
+00:21:08.489 --> 00:21:15.029
+Um, and so in practice, a lot of the things that mutation testing is doing is like.
+
+145 "" (0)
+00:21:15.029 --> 00:21:29.549
+Making these little changes, right? And we'll talk later about what's called the competent program or hypothesis. Right um, and, you know, I'll have I have a whole several slides on that later, but the reason that we think that this is okay, is the competent program or hypothesis.
+
+146 "" (0)
+00:21:29.549 --> 00:21:35.189
+And as we talk about the competence program or hypothesis, uh, hopefully, it will become clear that this is like, not.
+
+147 "" (0)
+00:21:35.189 --> 00:21:39.659
+Necessarily true that these are actually good models of historical human defects.
+
+148 "" (0)
+00:21:39.659 --> 00:21:47.639
+And just to give you a sense of, like, how far we have, or have not come, this is the list of mutation operators in from.
+
+149 "" (0)
+00:21:47.639 --> 00:21:53.129
+Opera this was 1 of the 1st mutation testing systems that was actually made practical. I think it targeted. I want to say 4 trend.
+
+150 "" (0)
+00:21:53.129 --> 00:22:02.999
+Anyway, it doesn't matter. Right um, but these are the, uh, what the invitation operators were, right? And as you can see here, uh, if you read through these briefly.
+
+151 "" (0)
+00:22:02.999 --> 00:22:10.919
+They're not that different from the ones I showed here right? They're very simple. You know, like replacing 1 constant with another. Right?
+
+152 "" (0)
+00:22:10.919 --> 00:22:21.359
+Uh, you know, changing the label on I go to right these are all basically, like, 1 statement alterations to the program.
+
+153 "" (0)
+00:22:21.359 --> 00:22:25.379
+So, why do you think it is that people prefer when writing mutation testing system?
+
+154 "" (0)
+00:22:25.379 --> 00:22:31.409
+To choose mutation operators like this, instead of like, trying to model the kind of mistake that a human would actually make.
+
+155 "" (0)
+00:22:31.409 --> 00:22:39.029
+In reasoning that our program, what are these things all have in common.
+
+156 "" (0)
+00:22:39.029 --> 00:22:46.169
+Besides being, like, looking like, typos, what might motivate the designer of mutation testers.
+
+157 "" (0)
+00:22:46.169 --> 00:23:00.119
+Yes, that is exactly right they are simple. Right? They're easy to come up with and more importantly, they're relatively easy to implement. Right? Like, if you wanted to do if you want to automatically replace every constant in the program with a different constant.
+
+158 "" (0)
+00:23:00.119 --> 00:23:04.049
+Like, as you'll see in homework, 6, that's not that hard, right?
+
+159 "" (0)
+00:23:04.049 --> 00:23:23.729
+If you want to rearrange the entire program to imagine that a human had written in a totally different way using a different set of data structures, like good luck, like, even an outlet, I don't think can do that now. And that's the best system we have for arbitrary rearrangement of programs. Right? You know, people haven't actually, this is a total aside, but like.
+
+160 "" (0)
+00:23:23.729 --> 00:23:43.729
+There is a feeling, let's say, among the research community that LMS might actually be a huge benefit from mutation testing. Right just because the mutation operator of call the and ask it to mess this up is way better than any of this. All right. And so we'll see whether how that.
+
+161 "" (0)
+00:23:43.729 --> 00:23:49.799
+That goes, but I've talked to a few people who are expert, like, true experts in mutation testing, as opposed to me. Uh, you know, who is.
+
+162 "" (0)
+00:23:49.799 --> 00:23:53.039
+Was way too much, but it's mostly a novice. Um.
+
+163 "" (0)
+00:23:53.039 --> 00:24:02.159
+And they seem very excited about this prospect. So that's something to look out for coming down the pike. Maybe we'll be better than these kind of mutation operators. We'll see.
+
+164 "" (0)
+00:24:02.159 --> 00:24:10.289
+Right so that aside, does anyone have any questions about these operators? Does it make sense why these are the ones that historically have generally been used.
+
+165 "" (0)
+00:24:16.409 --> 00:24:30.359
+Also, by the way, and just because I think it's fun in homework 6, when you're doing mutation operators, if you want to, you're welcome to include a call the, and ask it to mess up this program component. That is totally, totally allowed.
+
+166 "" (0)
+00:24:30.359 --> 00:24:36.749
+All right, it's up to you if you want to try anything and saying like that. But if you do, we'd love to hear about it.
+
+167 "" (0)
+00:24:36.749 --> 00:24:43.829
+Okay um, yeah, so the key questions here in mutation testing about these operators are what operators you use.
+
+168 "" (0)
+00:24:43.829 --> 00:24:50.639
+And how often do you use each? 1 and I'm not, I mean, you intentionally not really discuss these because these are what homework is supposed to teach you.
+
+169 "" (0)
+00:24:50.639 --> 00:25:10.639
+Right the main, the main pedagogical goal of homework 6 is not, like, learn how the library and Python works. It's instead to figure a to get a feeling for the like, how effective these operators actually are, and when to apply them. Right? And so I'm, I'm not going to give you, uh, too many details on the, the core ideas there. Instead I want you to figure it out.
+
+170 "" (0)
+00:25:10.639 --> 00:25:16.259
+That's right, because I think you'll learn it better that way. All right.
+
+171 "" (0)
+00:25:16.259 --> 00:25:36.259
+So then we've talked a lot about, um, mutants. Right? But here's the official definition. Right? I'm muting is when we run a mutation operator against the program, and get a new program out. Right? Um, and I think I gave this definition before as well, like, the order of the number of, uh, mutations that are applied to.
+
+172 "" (0)
+00:25:36.259 --> 00:25:42.419
+In this order, and a quote unquote, higher order we need is 1 that has 2 or more orders. Sorry order 2 more.
+
+173 "" (0)
+00:25:42.419 --> 00:25:55.469
+So, for example, if we make 2 changes to this, uh, this original here, right we switched the less than 2 less than equal and we switched the, uh, the plus minus. Right? That would be a 2nd order of hierarchy, right?
+
+174 "" (0)
+00:25:55.469 --> 00:26:00.299
+All right hopefully this is a relatively straightforward definition.
+
+175 "" (0)
+00:26:00.299 --> 00:26:07.979
+Yeah, so I'm going to use this definition a bunch of times, which is why I wanted to put it up again, just to make sure it's in ever in the forefront of everyone's fine.
+
+176 "" (0)
+00:26:07.979 --> 00:26:17.999
+Okay, so then next piece of terminology here is that a test suite is set to kill or detect, or reveal a mutant. If the union fails attached to the original program passes.
+
+177 "" (0)
+00:26:17.999 --> 00:26:22.499
+What happens if the mutant passes, the test that the original program fails.
+
+178 "" (0)
+00:26:29.129 --> 00:26:36.029
+If the if the original fails, the program, sorry if the original fails and the, the meeting.
+
+179 "" (0)
+00:26:36.029 --> 00:26:44.459
+If both of them pass, then yes, we're going to come back to equivalent meetings in a bit and, uh, we'll it's a good thought like, hold that 1.
+
+180 "" (0)
+00:26:44.459 --> 00:26:51.119
+Possible right yes. Uh, so, yes, that's exactly. Uh, uh.
+
+181 "" (0)
+00:26:51.119 --> 00:27:06.329
+That's exactly right. And that is the intuition behind an entire research area called automated program repair. That doesn't really work. All right so, there's a lot of work that's gone into trying to make this happen, but it doesn't usually happen. The key problem is basically the tests are not indicative enough of, uh.
+
+182 "" (0)
+00:27:06.329 --> 00:27:25.379
+Whether or not the program is correct, and it's easy to pass the tests while breaking the program and exciting ways by applying mutation operators in in ways. That would surprise you. Okay. So that was a total of total digression. Apologies. Right? But we were killing used by immune failure and the original ask.
+
+183 "" (0)
+00:27:25.379 --> 00:27:32.159
+So, killing maintenance is generally considered good, right? And mutation testing proceeds by making a lot of making a bunch of mutants.
+
+184 "" (0)
+00:27:32.159 --> 00:27:46.649
+And then measuring the fraction of them that a test suite kills right? And this is called mutation adequacy score or just mutations score. And that's the main outcome of mutation testing generally is a rating of 2 different test suites based on their mutation adequately score.
+
+185 "" (0)
+00:27:46.649 --> 00:28:06.649
+Right. Um, as we'll see as we get into practicality, though, we can also use this technique to just derive new tests right? Or by, like, telling humans like, maybe you should write a test for this. And, in fact, like, as you may have seen from the paper, that's the main way that, for example, Google uses mutation mutation testing. They don't primarily use.
+
+186 "" (0)
+00:28:06.649 --> 00:28:12.299
+For the mutation adequacy score, which is traditionally what it's thought of as the most useful thing that comes out of mutation testing.
+
+187 "" (0)
+00:28:12.299 --> 00:28:21.719
+They use it as a way to bully developers into writing better tests. Right? But the mutation out of practice score is sort of the traditional traditional output metric mutation test.
+
+188 "" (0)
+00:28:21.719 --> 00:28:25.079
+All right, so then the idea is that it has to meet with a higher score is better.
+
+189 "" (0)
+00:28:25.079 --> 00:28:35.519
+And as I said, sorry, for all the vocabulary, this is not quite the end of the vocabulary. But at least this is the end of the only vocabulary section of this talk. So I apologize.
+
+190 "" (0)
+00:28:35.519 --> 00:28:41.129
+All right any questions here, right?
+
+191 "" (0)
+00:28:41.129 --> 00:29:00.809
+So then let's get into assumptions and implications here so suppose that I have 2 programs and each of, which has its own test suites these are 2 different programs from a test suite. We do mutation testing them to determine if it has an 80% mutation score and program B's test suite, we test with mutation testing and we determine has a 50% mutation score.
+
+192 "" (0)
+00:29:00.809 --> 00:29:15.449
+Yes, yes.
+
+193 "" (0)
+00:29:15.449 --> 00:29:18.809
+Yes, in general, right? Because.
+
+194 "" (0)
+00:29:18.809 --> 00:29:31.079
+So, it depends on the situation, right that that doesn't actually come up in most deployments mutation testing. Right? And the reason is that you typically only have passing tests for a program.
+
+195 "" (0)
+00:29:31.079 --> 00:29:37.259
+If you have a feeling test for a program, probably you're going to fix bugs rather than test where the test suite is good.
+
+196 "" (0)
+00:29:37.259 --> 00:29:43.469
+That said, um, you know, if you do happen to have a program with failing tests, then yeah, you would you like.
+
+197 "" (0)
+00:29:43.469 --> 00:29:59.069
+If for whatever reason you're doing mutation testing on it, the way that most mutation testing tooling would work is it would count it as a, a mute and kill. If the output of any test is different. Think about it this way the mutation testing system has no idea what the correct answer is.
+
+198 "" (0)
+00:29:59.069 --> 00:30:05.099
+It doesn't know whether the mute got the right answer or the original program got the right answer. So it just assumes the original program is right all the time.
+
+199 "" (0)
+00:30:05.099 --> 00:30:11.219
+And so anytime it differs, it's called.
+
+200 "" (0)
+00:30:11.219 --> 00:30:17.759
+Good question though. All right so coming back to the slide.
+
+201 "" (0)
+00:30:17.759 --> 00:30:25.589
+Suppose that we have these 2 programs programmatic front of me. Um, can we say anything about the 2 test suites which program has a better test for Airbnb?
+
+202 "" (0)
+00:30:34.499 --> 00:30:41.189
+Yeah, okay.
+
+203 "" (0)
+00:30:45.689 --> 00:30:55.949
+No, no, not particularly, but it doesn't really matter right? Where the this question is really about, uh, like, are these values compatible right? Is this 80% better.
+
+204 "" (0)
+00:30:55.949 --> 00:31:02.639
+50% wasn't compatible. Yeah. Why not?
+
+205 "" (0)
+00:31:08.579 --> 00:31:22.019
+Yes, that's exactly right. It's because the programs are different, right? So these test suites are not related to each other. Right? So, um, the answer is, we don't know. Right and the important thing here is that mutations work are not comparable across different programs.
+
+206 "" (0)
+00:31:22.019 --> 00:31:28.979
+Right similarly, like, uh, coverage scores are not directly comparable across different programs. We want to remember why.
+
+207 "" (0)
+00:31:33.059 --> 00:31:43.979
+Think about P. G. and the number, the amount of coverage we're getting on that in that homework versus, uh, like the for your homework that we did at the beginning of the the course and how much coverage you could achieve there.
+
+208 "" (0)
+00:31:43.979 --> 00:31:48.689
+Right wasn't the case that the had better testing because, uh.
+
+209 "" (0)
+00:31:48.689 --> 00:31:54.209
+You could get 90% coverage on it.
+
+210 "" (0)
+00:31:54.209 --> 00:32:14.209
+Not really like, you couldn't really say that the true was better tested, because they're just different right? And similarly, here with mutation testing has the same problem. Right? The score is not directly comparable across programs. If anyone ever tries to convince you to compare mutation scores across programs, you just tell them they're wrong. Right? It's an easy fallacy or easy mistake to make. And so I would just want to get it out here. 1st, and.
+
+211 "" (0)
+00:32:14.209 --> 00:32:22.499
+Headed off of the pass never compare mutation scores. Right? And if, uh, if you see someone doing it, you have to tell them they're wrong. Yeah. So, um.
+
+212 "" (0)
+00:32:22.499 --> 00:32:26.759
+The standard setting here is that what we want is the same program.
+
+213 "" (0)
+00:32:26.759 --> 00:32:30.029
+A different passwords, right? If we have 2 tests fits for program.
+
+214 "" (0)
+00:32:30.029 --> 00:32:34.439
+But it's the same program, then we can actually use mutation tester.
+
+215 "" (0)
+00:32:34.439 --> 00:32:41.309
+And that's the case where the higher mutation score is better but mutation score is not like an absolute measure that we can compare.
+
+216 "" (0)
+00:32:41.309 --> 00:32:48.449
+Uh, across different programs, right? Yes.
+
+217 "" (0)
+00:32:48.449 --> 00:32:54.119
+Is the, uh, it's exactly this the fraction of meetings that are killed by the test suite.
+
+218 "" (0)
+00:32:54.119 --> 00:32:58.889
+Hi, Hello?
+
+219 "" (0)
+00:32:58.889 --> 00:33:02.489
+Yes, yeah, yeah. Uh, the divided by total number of meetings.
+
+220 "" (0)
+00:33:02.489 --> 00:33:08.459
+Yeah, so in particular, like, suppose we generate 10 meetings and the test suite. Uh.
+
+221 "" (0)
+00:33:08.459 --> 00:33:23.309
+Kills 5 of them, that is to say that for 5 of the meetings, the test suite, uh, the test fails right? But for the other 5, all at the same test pass, in that case, then the mutation score would be 50% because half of the meetings were killed because of the tests.
+
+222 "" (0)
+00:33:23.309 --> 00:33:27.389
+For these different answers, and half the mutants survive, because it has produce the same answer.
+
+223 "" (0)
+00:33:30.689 --> 00:33:34.469
+Okay, any more questions here does this all make sense? Yeah, yes.
+
+224 "" (0)
+00:33:40.889 --> 00:33:43.919
+My situation.
+
+225 "" (0)
+00:33:48.629 --> 00:33:57.239
+So, we can do something like that. So, this is a good, good intuition right? You can do something like communication center where you flip the same indifferent and this, uh.
+
+226 "" (0)
+00:33:57.239 --> 00:34:07.319
+Uh, statements here, right? If you have different programs that are trying to achieve the same thing, and you had 1 test capability done, right?
+
+227 "" (0)
+00:34:07.319 --> 00:34:15.119
+Then you could try and mute hitting the password and seeing which of the programs actually is more like, you know, breaks more often. When you pass a different tests.
+
+228 "" (0)
+00:34:15.119 --> 00:34:23.819
+This is not a standard technique. Unfortunately, the closest thing among what we've talked about is differential asset right? And differential testing in that setting is going to be much more effective.
+
+229 "" (0)
+00:34:30.179 --> 00:34:33.989
+If anyone has not received candidate just by speaking today, uh, just.
+
+230 "" (0)
+00:34:33.989 --> 00:34:42.269
+Start waving at some point tonight. I'll talk to that to you. I'm very easy with the candy. All right any other questions here before we move on.
+
+231 "" (0)
+00:34:42.269 --> 00:35:02.269
+All right, so then I mentioned the competent program or hypothesis, there's 1 other important 1 that, uh, this whole notion of mutation testing relies on for its effectiveness, and it's called the coupling effect hypothesis and I'd like to go into both of them in some detail here. Uh, to give you a sense of, like, how true they actually are right? And also the implications.
+
+232 "" (0)
+00:35:02.269 --> 00:35:10.109
+For that, or the implications of these, these assumptions for how to interpret mutation testing scores, mutation source. So.
+
+233 "" (0)
+00:35:10.109 --> 00:35:30.109
+I just want to also give a hint here, which is that, uh, like, uh, I'll mention at the end, the exam is coming up in just a few weeks. Right? And a common style of exam questions will highlight task is consider some assumption that we discussed. But some technique that we have talked about at length, uh, assumes what would happen if that assumption wasn't true. Right tell me about.
+
+234 "" (0)
+00:35:30.109 --> 00:35:39.239
+Examine that, and that's that's a common style of question that I would like to ask generally when writing an exam because it makes you think about, like.
+
+235 "" (0)
+00:35:39.239 --> 00:35:46.559
+Both, how true is that assumption and also demonstrate, like, makes you demonstrate that, you know, how the technique actually works.
+
+236 "" (0)
+00:35:46.559 --> 00:35:58.949
+Okay, so, 1st, the competition program or hypothesis so the competition program or hypothesis holds that program faults that is to say bugs are syntactically small and can typically be corrected with just a few keystrokes.
+
+237 "" (0)
+00:35:58.949 --> 00:36:03.479
+All right, so this is the reason.
+
+238 "" (0)
+00:36:03.479 --> 00:36:09.119
+Like, this is the idea that if we change, you know this to this, that's actually fixing a real box.
+
+239 "" (0)
+00:36:09.119 --> 00:36:24.059
+So, um, the idea then I like the underlying argument is the programmers generally wrote programs that are mostly correct programmers, get their higher, like the high level idea, right right. And then when they're when they're making mistakes, because they miss edge cases, basically.
+
+240 "" (0)
+00:36:24.059 --> 00:36:37.559
+Right. They, they, they should have thought of even less than than we did less than, or equal to or they just forgot to test a case and they type equals equals instead of not equals. Right? They meant equals equals, but, you know, their fingers left and they were not equals instead. Okay.
+
+241 "" (0)
+00:36:37.559 --> 00:36:47.699
+So, if the test suite is good at catching artificial meetings that simulate these kind of keystroke mistakes, smoky strokes, it will also be good at catching a unknown, but real false.
+
+242 "" (0)
+00:36:47.699 --> 00:37:04.439
+That actually will exist out in the wild. Right and so this is the way this is the formalization maybe of why using these kind of small operators like mutation operators might actually be good at catching bucks in the wild right? Or it might actually be a useful measure of.
+
+243 "" (0)
+00:37:04.439 --> 00:37:08.369
+How good a test suite is so, how true. Do we think this is.
+
+244 "" (0)
+00:37:15.299 --> 00:37:21.629
+True. Very true. Why do you say that?
+
+245 "" (0)
+00:37:21.629 --> 00:37:32.909
+That's true. Yeah, I made plenty of typos. Right. Uh, so that's a great point. Right? Um, it is the case that, uh, almost always when you're programming, you are going to make at least some type of.
+
+246 "" (0)
+00:37:32.909 --> 00:37:40.799
+Right. Does anyone, uh, like, want to make a counterpoint about that?
+
+247 "" (0)
+00:37:40.799 --> 00:37:44.429
+I think there is an excellent 1 in particular like.
+
+248 "" (0)
+00:37:44.429 --> 00:37:56.039
+When you're programming in the modern world, are you doing it in a plain text editor? Or is there a spell checker or auto correct? Or something looking over your shoulder all the time?
+
+249 "" (0)
+00:37:56.039 --> 00:38:09.509
+It's more like the latter situation, right? Like, there is an ID if you say something like that, obviously isn't correct like, if you write, you know, how many how many of you have written something? Like, if X equals equals novel.
+
+250 "" (0)
+00:38:09.509 --> 00:38:16.080
+X dot do something. All right. We've all written this before. Right how many of you actually executed this code?
+
+251 "" (0)
+00:38:16.080 --> 00:38:36.080
+I mean, I have, but that's because I grew up in time before IDs and also, like, at some point, I was made to, like, program in a place where I couldn't use an ID, just a terminal. Right? And so I have made this mistake directly. However, most of the time, if you're programming an ID, it will immediately say, are you sure are you sure you didn't mean not equals here? Like, I mean, surely, if you're referencing.
+
+252 "" (0)
+00:38:36.080 --> 00:38:41.670
+It right away like this is supposed to be a null check right? Like, this is these are backwards.
+
+253 "" (0)
+00:38:41.670 --> 00:38:47.850
+You get the little you get a little squiggly line here. All right. Actually, I think this squiggly line usually is going to be here, but.
+
+254 "" (0)
+00:38:47.850 --> 00:38:51.900
+Regardless you get the little red squiggly line and then you say oh, yeah oops. And you fix it.
+
+255 "" (0)
+00:38:51.900 --> 00:39:00.930
+So, in the modern world, many of the kinds of defects that mutation operators simulate.
+
+256 "" (0)
+00:39:00.930 --> 00:39:07.950
+Are unlikely to make it into production programs right? But even more than that, it's not just that they're unlikely to make into production programs. Right?
+
+257 "" (0)
+00:39:07.950 --> 00:39:11.400
+If we're doing mutation testing, what does that suggest about.
+
+258 "" (0)
+00:39:11.400 --> 00:39:18.570
+Our dedication to testing, let's say, would you say that if we're doing mutation testing our dedication to testing is.
+
+259 "" (0)
+00:39:18.570 --> 00:39:24.390
+Below average, average, or probably above average.
+
+260 "" (0)
+00:39:24.390 --> 00:39:34.620
+Above average, right probably mutation testing is considered a relatively advanced technique still. Right? It's relatively expensive to apply. Most places aren't going to be doing it. Right?
+
+261 "" (0)
+00:39:34.620 --> 00:39:38.310
+Maybe they should, but you can definitely get away without it. Right?
+
+262 "" (0)
+00:39:38.310 --> 00:39:44.490
+So, that has a an implication, but implication is that we probably already have a decent test suite.
+
+263 "" (0)
+00:39:44.490 --> 00:39:50.880
+If we ever execute this line, what will happen.
+
+264 "" (0)
+00:39:50.880 --> 00:39:58.560
+The program will immediately crash. Yes. And so we don't even need an Oracle to know that this is wrong, right? If we even cover this, we'll detect the problem.
+
+265 "" (0)
+00:39:58.560 --> 00:40:08.400
+Right. And so this kind of simple mistake is unlikely to actually make it any further than the test suite executes. If you have even remotely reasonable coverage.
+
+266 "" (0)
+00:40:08.400 --> 00:40:15.600
+All right, and so mutation testing isn't really like, this is not a particularly useful fault to simulate for mutation testing. Right?
+
+267 "" (0)
+00:40:15.600 --> 00:40:27.450
+And when we start talking about detectable versus productive mutants and getting into, sort of some of the details from the Google paper later on today, like, this is, this is the point that they're getting at.
+
+268 "" (0)
+00:40:27.450 --> 00:40:31.950
+That this is a mistake that you basically wouldn't make in real life right now right?
+
+269 "" (0)
+00:40:31.950 --> 00:40:35.790
+My contrast though, if I write something like.
+
+270 "" (0)
+00:40:35.790 --> 00:40:39.510
+If X greater than 0 do something with X.
+
+271 "" (0)
+00:40:39.510 --> 00:40:46.620
+All right, what are the odds that I accidentally should have written that.
+
+272 "" (0)
+00:40:46.620 --> 00:41:00.420
+Will I detected less likely? Right? Unless I write a test case that specifically checks, whether X is like, X equals equal 0, it goes 1 way or the other. And so, 1, uh, there's a good argument that this is a much more realistic buck.
+
+273 "" (0)
+00:41:00.420 --> 00:41:08.970
+Have like going from greater than greater than or equal right then going from equals equals and all to non external.
+
+274 "" (0)
+00:41:08.970 --> 00:41:16.830
+So, the conclusion here, what I want you to take away from this is that is this is this hypothesis true.
+
+275 "" (0)
+00:41:16.830 --> 00:41:29.040
+Well, sort of, right um, so, yes and no, right? So it is true that humans often make simple mistakes and some of those use filter, right? And some of them do lead to really serious bugs right?
+
+276 "" (0)
+00:41:29.040 --> 00:41:32.910
+But humans also made much more complicated mistakes and.
+
+277 "" (0)
+00:41:32.910 --> 00:41:52.910
+Those complicated mistakes are not always, uh, something that is easy to tie back to a simple mistake like this. Right? So, for example, um, there are a number of famous bugs related to, uh, converting between units. Right? So, for example, I think there's a famous spacecraft loss. I want to say this was the Mars Polar orbiter spacecraft that was supposed to be.
+
+278 "" (0)
+00:41:52.910 --> 00:42:00.390
+Sending to some foreign planet's surface right? And 1 of the components reported the altitude, I think in feet.
+
+279 "" (0)
+00:42:00.390 --> 00:42:11.760
+And the other was expecting it in meters or vice versa and so it failed to deploy parachuted the appropriate time and crashed into the surface of Mars and exploded. Right? And everyone was very sad.
+
+280 "" (0)
+00:42:11.760 --> 00:42:18.840
+Put a mutation testing system have detected that, or that there was no test to check for that situation.
+
+281 "" (0)
+00:42:18.840 --> 00:42:26.280
+Is that a bug that's due to a simple typo? Like, not really it's really a bug that's about, like, the specification of different components.
+
+282 "" (0)
+00:42:26.280 --> 00:42:33.660
+Right. It's at a higher level than the kind of little small bugs that mutation testing is simulator. Right?
+
+283 "" (0)
+00:42:33.660 --> 00:42:44.370
+How could you simulate such a bot it'd be difficult to do, right? Because you, you sort of need to imagine, like, different different implementations of components. Right? Uh, and.
+
+284 "" (0)
+00:42:44.370 --> 00:42:49.140
+It turns out that, like, implementing entire components is very expensive and you can't really do it automatically.
+
+285 "" (0)
+00:42:49.140 --> 00:43:04.920
+If you could, we wouldn't need programmers. Right? And so that's not really possible. So, um, the, the thing about the, the competent have our, uh, program, our hypothesis here is that we kind of have to believe it to think the mutation testing is useful right? Like, mutation, testing's usefulness relies on this being true.
+
+286 "" (0)
+00:43:04.920 --> 00:43:11.400
+But we all kind of know that it isn't true right? And so this, this limits, the usability or the usefulness of mutation testing.
+
+287 "" (0)
+00:43:11.400 --> 00:43:17.670
+Intention testing is quite good at simulating these kind of small mistakes and it can be very useful for finding like.
+
+288 "" (0)
+00:43:17.670 --> 00:43:28.530
+Edge cases that you failed the test, right? But it's not a panacea. It's not going to fix all of your problems. There are still plenty of bugs that mutation testing is not going to be able to detect.
+
+289 "" (0)
+00:43:28.530 --> 00:43:33.090
+And this brings us to the other of these hypotheses, which is the coupling effect hypothesis.
+
+290 "" (0)
+00:43:33.090 --> 00:43:41.400
+Which couple of effective as the claim is that complicated faults are quote, unquote, couple, simple vaults in such a way that it last week they will take all simple bots.
+
+291 "" (0)
+00:43:41.400 --> 00:43:44.850
+Uh, would also detect all the complicated ones and.
+
+292 "" (0)
+00:43:44.850 --> 00:43:52.770
+As I was just explaining at length, this is not really true. Right. Um, so I say, is this true? Um.
+
+293 "" (0)
+00:43:52.770 --> 00:44:04.620
+That said many people claim that it is, and they use evidence like this. Like, for example, that's the defect. Simple mutants. We're also able to take over 99% of 2nd and 3rd or review historically. Right? This is a big study that was done.
+
+294 "" (0)
+00:44:04.620 --> 00:44:10.950
+Does this make us believe that the coupling effect of processes is true?
+
+295 "" (0)
+00:44:10.950 --> 00:44:18.540
+Why, or why not it is it possible to do something.
+
+296 "" (0)
+00:44:18.540 --> 00:44:21.630
+Not as because I.
+
+297 "" (0)
+00:44:21.630 --> 00:44:26.820
+Yeah, well they're also just a 2nd or 3rd or mute is just.
+
+298 "" (0)
+00:44:26.820 --> 00:44:32.340
+2 or 3 small changes right? Is that it's 2 or 3 small changes the same as.
+
+299 "" (0)
+00:44:32.340 --> 00:44:35.580
+1, complicated change, like, 1, specification bug.
+
+300 "" (0)
+00:44:35.580 --> 00:44:44.760
+Well, we still don't know that. Right? This doesn't actually address that question at all this answer the question. Do we need to do 2 mutations or is 1 and now.
+
+301 "" (0)
+00:44:44.760 --> 00:44:51.660
+Right but it doesn't answer the question. Like, can we just have complicated bucks? Right but this is the best evidence that we have for something like this.
+
+302 "" (0)
+00:44:51.660 --> 00:44:56.190
+And that's why I'm going to argue that. I don't think this is true.
+
+303 "" (0)
+00:44:56.190 --> 00:45:13.770
+I don't think that the coupling effect hypothesis is true. This is a controversial position that you can find, like, professors at eminent universities, who will disagree with me about right? But I find this evidence on convincing. And the reason is that I don't think that a 3rd room is particularly close.
+
+304 "" (0)
+00:45:13.770 --> 00:45:19.680
+To the kind of real fault that mutation testing is going to miss anyway.
+
+305 "" (0)
+00:45:19.680 --> 00:45:24.210
+Yeah, sorry just.
+
+306 "" (0)
+00:45:24.210 --> 00:45:28.440
+It's great. What what what you say it again or.
+
+307 "" (0)
+00:45:28.440 --> 00:45:33.930
+Yeah, uh, the of the coupling effects hypothesis or of this.
+
+308 "" (0)
+00:45:33.930 --> 00:45:41.160
+Well, okay, so the problem of hypotheses is arguing that it, uh, mutants, like, simple.
+
+309 "" (0)
+00:45:41.160 --> 00:45:46.080
+Are going to if you can select all of them, you should be able to check all the complicated bugs to.
+
+310 "" (0)
+00:45:46.080 --> 00:45:57.090
+Basically that, um, for every complicated bug in the world, there's some small mutants that if you could detect it, you would also detect the complicated book. That is to say, if you write a test that detects the small mistake.
+
+311 "" (0)
+00:45:57.090 --> 00:46:00.780
+That test would also fail if the complicated mistake was made.
+
+312 "" (0)
+00:46:00.780 --> 00:46:14.280
+All right, this is the argument that is made by components of this, uh, this hypothesis that because, uh, higher order meetings can be detected, uh, by the same test that can detect low order meetings.
+
+313 "" (0)
+00:46:14.280 --> 00:46:18.780
+This must be correct. Okay.
+
+314 "" (0)
+00:46:18.780 --> 00:46:22.260
+I am arguing right now that, uh.
+
+315 "" (0)
+00:46:22.260 --> 00:46:35.700
+Detecting 3rd or Newton's is not sufficient, right? Yes. This means that it's not necessary to test for our meetings. We can test single remittance instead, but this doesn't tell us anything about bugs that are so complicated. We can't express them in terms of meetings.
+
+316 "" (0)
+00:46:35.700 --> 00:46:41.370
+And depending on how big a percentage of the bug is in the real world, you believe that is.
+
+317 "" (0)
+00:46:41.370 --> 00:46:46.740
+That should change your belief in how, how much this matters right?
+
+318 "" (0)
+00:46:46.740 --> 00:47:01.500
+If most of the bugs in the world are so complicated that no combination of mutations of these sort of small mutations that we're talking about, could ever produce them. Right? They're more like the, uh, I give you, uh, the altitude and feet and you expected meters kind of bugs, right?
+
+319 "" (0)
+00:47:01.500 --> 00:47:07.740
+You think that's the most bugs then mutation testing but this is this is false. And mutation testing might not be as useful.
+
+320 "" (0)
+00:47:07.740 --> 00:47:12.240
+All right, if you believe that very few bugs are like that and most bugs are typos.
+
+321 "" (0)
+00:47:12.240 --> 00:47:18.390
+The mutation testing is likely to do. Well, right and so, uh, like again, I'm, I'm.
+
+322 "" (0)
+00:47:18.390 --> 00:47:23.460
+Being clear that this is like a point of debate within the community and so I don't want to like.
+
+323 "" (0)
+00:47:23.460 --> 00:47:36.750
+Tell you that, like, 1 of the answers is correct, because I don't know. Right but I, I am not a believer in this, because I believe that more bugs are like like a complicated thing that involves a specification mistake or like, human miscommunication.
+
+324 "" (0)
+00:47:36.750 --> 00:47:47.220
+The bugs that actually matter in the real world, I should say, right? Rather than typos yes. For a type of bugs and mutation testing is excellent for finding them. Right? But it's limited to just that.
+
+325 "" (0)
+00:47:47.220 --> 00:47:50.430
+So, yeah.
+
+326 "" (0)
+00:47:50.430 --> 00:47:54.180
+Our, uh, depending on the hypothesis.
+
+327 "" (0)
+00:47:54.180 --> 00:48:08.130
+Yes, yes, so, in in particular, uh, if you read the extremely tiny, uh, uh, citation down here, right? The title of the paper here is investigations in the software testing coupling effects.
+
+328 "" (0)
+00:48:08.130 --> 00:48:12.330
+Right. Which is exactly this couple of weeks head office. All right.
+
+329 "" (0)
+00:48:12.330 --> 00:48:19.650
+Um, and that that's the claim that this is evidence that that is true.
+
+330 "" (0)
+00:48:19.650 --> 00:48:24.780
+Sure, yeah. Mm. Hmm.
+
+331 "" (0)
+00:48:24.780 --> 00:48:31.380
+Uh, I think because they still believe in mutation, like, they still believe that this is true, right?
+
+332 "" (0)
+00:48:31.380 --> 00:48:36.270
+I would say, I mean, I haven't specifically asked Jeff offered about that, but I suspect that he would say, yes.
+
+333 "" (0)
+00:48:36.270 --> 00:48:54.150
+Yeah, that he believes mutation testing. He continues to publish it now. You don't have to be, right? Yeah. Well, I mean, I think I think it's it's it, this is a genuine point of of of debate right? Like, this is the, uh, the evidence that I know. But I'm not I want to be clear I'm not the expert in this field, right? Like.
+
+334 "" (0)
+00:48:54.150 --> 00:49:06.060
+In particular Jeff office, the guy who publish this, right? And who, as I said continues to work mutation testing is a professor, a senior professor at George Mason in Virginia. Okay. Um, I suspect that he probably has better evidence than this right now.
+
+335 "" (0)
+00:49:06.060 --> 00:49:12.570
+But I have not seen him or anyone else who's depending this make a convincing argument better than this 1.
+
+336 "" (0)
+00:49:12.570 --> 00:49:16.410
+That's, uh, the couplings effective. This is true.
+
+337 "" (0)
+00:49:20.610 --> 00:49:38.370
+I also want to be clear here, though, that this does not mean the mutation testing is useless. Right? And that's an important takeaway here. Right? You shouldn't think that just because the coupling effects hypothesis is not necessarily. True. Does not mean that mutation testing is useless. It just limits its applicability. Right? Jason testing can still be useful for finding small mistakes.
+
+338 "" (0)
+00:49:38.370 --> 00:49:46.080
+But it's not going to uncover, like, bigger and more complicated faults. Right? At some point, a human has to be responsible for writing this specification.
+
+339 "" (0)
+00:49:50.310 --> 00:50:04.020
+Okay, any other questions here I think I have 1 more note here. Yeah. Yeah. So, uh, this is basically the argument that I've been making our hire, or maybe it's a good proxy for real complex bugs. I argue. No 1 could argue. Yes.
+
+340 "" (0)
+00:50:04.020 --> 00:50:18.150
+I know the word proxy, by the way surprisingly a few of you. Okay. Um, so just, uh, for anyone in the room who doesn't know this word, a proxy is a, a measure for something that we know is not necessarily a perfect match, right?
+
+341 "" (0)
+00:50:18.150 --> 00:50:22.200
+So, for example, I know about right.
+
+342 "" (0)
+00:50:22.200 --> 00:50:25.470
+Is a good measure of whether someone is healthy or not.
+
+343 "" (0)
+00:50:25.470 --> 00:50:45.470
+Not particularly right, but but it does have some correlation. Right? And so, like, BMI is a good example of a proxy for how, uh, how healthy you are, you can have a BMI that suggests that you're very unhealthy and still be healthy. Right? You are a big weight lifter and so you're gigantic on top right? Um, but you can also if you have a very high BMI, it might mean.
+
+344 "" (0)
+00:50:45.470 --> 00:50:57.540
+You're very overweight, right? So, like, some of the time, it's good. Not all of the time. If you go to the doctor and you are a weight lifter and then they, they tell you that because your BMI is high you need to eat less.
+
+345 "" (0)
+00:50:57.540 --> 00:51:03.480
+You should say you're not a very good doctor, because you don't understand that this is only a proxy and not the underlying truth.
+
+346 "" (0)
+00:51:03.480 --> 00:51:11.430
+All right. Okay. So, yeah, so this, this, uh, measure is proxy measure, right?
+
+347 "" (0)
+00:51:11.430 --> 00:51:15.330
+And real complex faults are the real truth.
+
+348 "" (0)
+00:51:15.330 --> 00:51:28.020
+But as I said earlier, like, we don't really understand what all the real complex bots are, we don't really know or we don't have a great model for them because it's still an open area of research. Right? People are still working on this. So.
+
+349 "" (0)
+00:51:28.020 --> 00:51:33.330
+Anyway, this is the fun part of being in an, in an area that has a.
+
+350 "" (0)
+00:51:33.330 --> 00:51:40.500
+Ongoing active research. Okay. Any questions on this slide before I move on.
+
+351 "" (0)
+00:51:40.500 --> 00:51:48.840
+And to double check the time okay, we're doing fine. All right so then, uh, yeah, jury is still left. Okay.
+
+352 "" (0)
+00:51:48.840 --> 00:51:56.130
+Mm, hmm.
+
+353 "" (0)
+00:51:56.130 --> 00:52:11.310
+So, I, I might, but I wouldn't expect you to, like, give, uh, I like as as good of an answer as, for example, I would expect myself to give given a day of time. Right? Um.
+
+354 "" (0)
+00:52:11.310 --> 00:52:15.960
+I might ask you, like, did you believe me when I made this argument in class.
+
+355 "" (0)
+00:52:15.960 --> 00:52:21.570
+All right about this specific argument, like, or was there a point that resonated with you or not? Right?
+
+356 "" (0)
+00:52:21.570 --> 00:52:25.710
+But I probably wouldn't ask that as an exam question if only because it's an opinion.
+
+357 "" (0)
+00:52:25.710 --> 00:52:29.460
+Right I would ask you to, like.
+
+358 "" (0)
+00:52:29.460 --> 00:52:42.120
+Like, about an assumption and say, like, do you believe this, like, justify why or why not but I'm not asking for you to come up with, like, a citation in order to defend your position right? Then I will be basically, like.
+
+359 "" (0)
+00:52:42.120 --> 00:52:46.920
+I will evaluate an answer basically only on your understanding of.
+
+360 "" (0)
+00:52:46.920 --> 00:52:52.770
+Like, the thing you were arguing for.
+
+361 "" (0)
+00:52:52.770 --> 00:53:10.350
+Like, for example, if I say, like, imagine, the coupling effect is false, and then you give an answer, that's totally not about mutation testing at all. Like, that's not a good answer. Right? If you have an answer, that's like that says, well, the coupling effective process is important for mutation testing. So so mutation testing will change in the following ways.
+
+362 "" (0)
+00:53:10.350 --> 00:53:18.240
+And those are reasonable ways that make sense given what we know about the effect hypothesis, then you'll get a good score. That's the sort of question that I'm talking about.
+
+363 "" (0)
+00:53:23.700 --> 00:53:28.770
+All right, so we've talked a lot about theory here. Yes.
+
+364 "" (0)
+00:53:32.640 --> 00:53:37.080
+Yeah, so a 4th quarter mutant means that we've applied to mutation operators to it.
+
+365 "" (0)
+00:53:37.080 --> 00:53:42.300
+So, for example, um, if we have, uh.
+
+366 "" (0)
+00:53:42.300 --> 00:53:53.370
+If something like, if X is greater than 0, um, Y, equals X +5 right? A 1st, sort of meeting might be changing this to greater than equal to. Right. A 2nd order meeting is then.
+
+367 "" (0)
+00:53:53.370 --> 00:54:03.030
+Making 1 additional change so, for example, we might change this, this 5 to 1, right? And now it's a 2nd order meeting and then we might change, uh, this, uh.
+
+368 "" (0)
+00:54:03.030 --> 00:54:07.650
+This 0 to 3, and now it's a 3rd meeting because we made 3 changes.
+
+369 "" (0)
+00:54:07.650 --> 00:54:11.640
+And so on, and so the order is just the number of mutations that we've applied.
+
+370 "" (0)
+00:54:11.640 --> 00:54:17.640
+How would the sentence to me? That's.
+
+371 "" (0)
+00:54:17.640 --> 00:54:23.670
+Well, uh, the argument here is that, uh, if you can detect a single, a single order mutation.
+
+372 "" (0)
+00:54:23.670 --> 00:54:32.670
+At the same time, we'll detect, uh, 1 orientation and orientation and the priority mutation. And if we imagine the fall bugs are made of many mutations.
+
+373 "" (0)
+00:54:32.670 --> 00:54:38.970
+Then, maybe this argument extends indefinitely and so any bug that's made of 100 mutations will also be detected by 1 that.
+
+374 "" (0)
+00:54:38.970 --> 00:54:49.770
+Detects just 1 yeah, I mean, and to some extent, that has to be true. Right? Any bug is made of some number of mutations. The question is, are they the kind of mutations that.
+
+375 "" (0)
+00:54:49.770 --> 00:54:54.300
+Mutation testing tool will will produce and also, uh.
+
+376 "" (0)
+00:54:54.300 --> 00:55:01.410
+Is there ever a break in that chain? Good question.
+
+377 "" (0)
+00:55:04.650 --> 00:55:24.650
+All right. Okay so, um, we, we've talked a lot about theory and I want to before we go too much further. I want to talk about a specific concrete example here. The reason I didn't do the concrete example a little bit earlier was that there are a couple of more complex things that I'm going to talk about inner leave with this example, right? Including.
+
+378 "" (0)
+00:55:24.650 --> 00:55:38.370
+I believe equivalent meetings, which you mentioned earlier right? So consider this program. We have a minimum a minimum program, right? This is written in Java. It takes 2 and B, and it returns a is listen B and B otherwise.
+
+379 "" (0)
+00:55:38.370 --> 00:55:44.940
+All right, everyone understands this in this, uh, customer call on the syntax.
+
+380 "" (0)
+00:55:44.940 --> 00:55:48.540
+This is a front of a printer operators. It's just basically an ancient statement form.
+
+381 "" (0)
+00:55:48.540 --> 00:56:00.810
+Okay, so, um, well suppose that we have this original program, let's further suppose that we're going to make some mutants right? So suppose that our 1st meeting deletes the less than B, part here, and just returns a all the time. Right? So that's more than 1.
+
+382 "" (0)
+00:56:00.810 --> 00:56:05.820
+We have mutant too that I also just returns. B, right?
+
+383 "" (0)
+00:56:05.820 --> 00:56:09.810
+We have 3 which switches the less than to a greater than or equal to.
+
+384 "" (0)
+00:56:09.810 --> 00:56:18.780
+All right, so, uh, the effect here is that basically it's going to return a, when we originally were trying to be and return D when the original word would return.
+
+385 "" (0)
+00:56:18.780 --> 00:56:27.030
+All right, and then we have this 1, uh, which changes the less than 2 a less than or equal to.
+
+386 "" (0)
+00:56:27.030 --> 00:56:37.620
+Okay, so, um, we have these 4 meetings, right? And now, um, I want you all, uh, to, uh, turn to someone scenario and take 5 minutes or so.
+
+387 "" (0)
+00:56:37.620 --> 00:56:41.310
+And provide a test case that detects each of these meetings.
+
+388 "" (0)
+00:56:45.870 --> 00:56:48.990
+Hello.
+
+389 "" (0)
+00:56:48.990 --> 00:56:53.760
+And this is an excellent excuse for me to run to the bathroom.
+
+390 "" (0)
+00:56:53.760 --> 00:56:57.900
+Okay.
+
+391 "" (0)
+00:57:46.380 --> 00:58:01.380
+Hello.
+
+392 "" (0)
+00:58:20.340 --> 00:58:23.580
+All right, I have a test case that can detect and 1.
+
+393 "" (0)
+00:58:26.850 --> 00:58:32.520
+Surely some of you at this point no.
+
+394 "" (0)
+00:58:32.520 --> 00:58:38.640
+To any test case to detect.
+
+395 "" (0)
+00:58:43.230 --> 00:58:49.770
+I think we've given it enough time, so let's let's go ahead and, uh, and start considering it.
+
+396 "" (0)
+00:58:49.770 --> 00:58:56.730
+All right, so, um, here are, uh, let's let's fill in some, some test cases here, right?
+
+397 "" (0)
+00:58:56.730 --> 00:59:00.660
+Ah, darker color here we go.
+
+398 "" (0)
+00:59:00.660 --> 00:59:03.960
+All right, so if someone's in goes to me.
+
+399 "" (0)
+00:59:03.960 --> 00:59:07.650
+Values for Andy that was the title is 1 thing.
+
+400 "" (0)
+00:59:12.900 --> 00:59:19.890
+Phase 1 phase 2 sounds good. All right. What is the original compute? And 1.
+
+401 "" (0)
+00:59:19.890 --> 00:59:24.900
+Right so what how does.
+
+402 "" (0)
+00:59:24.900 --> 00:59:29.430
+1, it returns a, but does computer.
+
+403 "" (0)
+00:59:29.430 --> 00:59:37.170
+2, and we're trying to see what does compute recall and the 3 is.
+
+404 "" (0)
+00:59:37.170 --> 00:59:41.700
+Right so to, and then 4.
+
+405 "" (0)
+00:59:41.700 --> 00:59:49.530
+Wow, okay. So which means that we detected well, which means different from the original.
+
+406 "" (0)
+00:59:49.530 --> 00:59:58.140
+Yes, so if you take to them to detect them 3. excellent, good work. Right? So, uh, if this is our entire test date, what's our mutation score?
+
+407 "" (0)
+00:59:58.140 --> 01:00:03.930
+Which means it's probably worth it, so.
+
+408 "" (0)
+01:00:03.930 --> 01:00:16.470
+We'll get that yes, our mutation score here at 50%, but just this test this just this test case. Right? And the question was, is that does that mean it's a good reason or a bad view. This is a good test case or a bad test case right?
+
+409 "" (0)
+01:00:16.470 --> 01:00:36.180
+Well, it doesn't, it's hard to say, right and, uh, we're gonna go into, like, through this in quite a bit of detail, like, further on in the lecture when we talk about actually using this in practice. Right? But I would argue that, at least right now, uh, this the fact that these 2 meetings are killed was probably a good thing. Right? This test is doing something useful.
+
+410 "" (0)
+01:00:36.180 --> 01:00:46.350
+All right, you sold them 1 of them 4 left. Did anyone think of a test case that will kill? Em, 1 around 4.
+
+411 "" (0)
+01:00:46.350 --> 01:00:51.180
+I still wasn't 1 to 1:1:okay. Let's try 1 1.
+
+412 "" (0)
+01:00:51.180 --> 01:00:55.260
+All right, so on 1:1:uh, what is the original? Do.
+
+413 "" (0)
+01:00:55.260 --> 01:00:58.290
+Mm, hmm.
+
+414 "" (0)
+01:00:58.290 --> 01:01:01.800
+1 from 1, right? 1.
+
+415 "" (0)
+01:01:01.800 --> 01:01:09.510
+What does that morning? Yep, cause it records I, what does that mean? If you do? 1 again? What about.
+
+416 "" (0)
+01:01:09.510 --> 01:01:16.890
+1, also 1 yes, so this, this detect any minutes.
+
+417 "" (0)
+01:01:16.890 --> 01:01:30.900
+Yeah, right and, uh, this is, uh, this kind of thing is quite common right? So, uh, when I saw this table in a minute, you'll see that the 1st customer I have here is just 1:1:example. Right? This 1:1:example is a good 1, because it doesn't actually fill anything.
+
+418 "" (0)
+01:01:30.900 --> 01:01:40.740
+All right, um, it doesn't mean it's a bad pass necessarily, but it's not a useful test in terms of mutation, cluster mutation customers that the value of this.
+
+419 "" (0)
+01:01:40.740 --> 01:01:49.560
+Again, that doesn't mean it's times, but at least here, we're not seeing any value from it. So it depends a lot on what the meetings are. Right? Whether they are the same data center.
+
+420 "" (0)
+01:01:49.560 --> 01:01:57.660
+Alright, I heard some other suggestions. What is the technical kill either for.
+
+421 "" (0)
+01:01:57.660 --> 01:02:03.750
+2 and 1. good. Okay. So, uh, in this case, we're going to get what.
+
+422 "" (0)
+01:02:03.750 --> 01:02:08.940
+1 error right and 1 is going to return 2.
+
+423 "" (0)
+01:02:08.940 --> 01:02:13.230
+Right. And then we know these are dead. But, uh, what about this? 1.
+
+424 "" (0)
+01:02:13.230 --> 01:02:18.390
+1.
+
+425 "" (0)
+01:02:18.390 --> 01:02:29.520
+So, it's less than or equal to itself. Okay. Um, so, uh, in this case, uh, we can kill them 1. all right but we still felt the California.
+
+426 "" (0)
+01:02:29.520 --> 01:02:35.130
+Why is it that we keep failing to for?
+
+427 "" (0)
+01:02:35.130 --> 01:02:38.400
+When number sequel.
+
+428 "" (0)
+01:02:38.400 --> 01:02:44.220
+Please please stop so.
+
+429 "" (0)
+01:02:44.220 --> 01:02:51.360
+Yes, you're getting close to the answer, but you're giving an argument for the answer rather than saying the answer directly.
+
+430 "" (0)
+01:02:51.360 --> 01:03:11.360
+So, why is it why, what is what is wrong with him for? What is the problem with him for here? Yes, it's equivalent, right? That's right. Yeah. It's semantically equivalent because the technical term, right? That is to say, uh, it's meaning it's always the same output will never get from the original, right? Because we're either returning a, or B and the only case for this.
+
+431 "" (0)
+01:03:11.360 --> 01:03:17.850
+1st, is when a is equal to be, and so as, uh, with being on here, I'm.
+
+432 "" (0)
+01:03:17.850 --> 01:03:24.300
+The answer here is never going to different and so this is an equivalent and it's semantically equivalent to the right.
+
+433 "" (0)
+01:03:24.300 --> 01:03:28.680
+I'm going to race, or I have here, but I'm going to spend fill it in using the, uh.
+
+434 "" (0)
+01:03:28.680 --> 01:03:31.890
+The slides and it will be the same set of test cases.
+
+435 "" (0)
+01:03:31.890 --> 01:03:36.720
+Because I correctly predicted those 3 type case would be the ones that we discussed.
+
+436 "" (0)
+01:03:36.720 --> 01:03:48.150
+All right, so, 1st, the all one's test case doesn't kill any meetings right then 1:2:all right? And you can see that it will kill, em, 2 and 3, right? That's the 1st 1 we showed.
+
+437 "" (0)
+01:03:48.150 --> 01:03:54.780
+And then 2:1:which will kill and 1 and 3, but will not kill, right?
+
+438 "" (0)
+01:03:54.780 --> 01:04:00.390
+So, did anyone find a test case that can affect them for? Does such a test case even exist?
+
+439 "" (0)
+01:04:00.390 --> 01:04:09.990
+No, all right and this is what's called the equivalent mutant problem. This is 1 of the key problems in mutation testing in general is.
+
+440 "" (0)
+01:04:09.990 --> 01:04:17.130
+The problem equivalent means so suppose you have and why, and you swap those 2.
+
+441 "" (0)
+01:04:17.130 --> 01:04:26.580
+What does that do to the the program's output? Sorry? No. You smoke both the swap the 2 statements.
+
+442 "" (0)
+01:04:26.580 --> 01:04:32.190
+Right so 1st, you do why it was and then you do.
+
+443 "" (0)
+01:04:32.190 --> 01:04:40.200
+Perfect right if you just reordered the, the order of operations, but they're the same operations. And so the result is the same at the end all the registers have the same values, right?
+
+444 "" (0)
+01:04:40.200 --> 01:04:53.220
+Yes, so this is an excellent example of an equivalent mutation, right? And there are many it is very easy to accidentally mutate a program in such a way that its output does not change. Right?
+
+445 "" (0)
+01:04:53.220 --> 01:05:00.030
+So the resulting program would be immune, but it's semantically equivalent to the original and therefore cannot be killed.
+
+446 "" (0)
+01:05:00.030 --> 01:05:08.880
+Right it is. It is immortal. No test case can kill it because it by construction, it will always have the same result as the original.
+
+447 "" (0)
+01:05:08.880 --> 01:05:12.360
+Like, we can construct a proof that it does the same thing, right?
+
+448 "" (0)
+01:05:12.360 --> 01:05:32.360
+And 4, in the previous example, was also like this, right? And when you all are building your mutation tester for homework, 6, this is something you should definitely be on the watch for you will certainly create some right? And you have a limited budget of mutants to deploy against the, the grading server. And if you spend them all on equivalent meetings, you.
+
+449 "" (0)
+01:05:32.360 --> 01:05:36.750
+Not make very much progress at distinguishing the test suites, right?
+
+450 "" (0)
+01:05:36.750 --> 01:05:49.530
+So, um, effectively what this does is it dilutes the mutation score, right? Um, if we look back at the previous example, right? Our mutation score here with these 3 test cases, or even just is 2 is 75%.
+
+451 "" (0)
+01:05:49.530 --> 01:06:00.180
+Right. We can kill 75% of these minutes, but there's that's actually the top limits that the upper back we can't do better than that. There's no task for killer for. Right?
+
+452 "" (0)
+01:06:00.180 --> 01:06:07.920
+So that means that, like, just achieving 75% like that, that sounds not so good, right? But it's actually impossible to do better.
+
+453 "" (0)
+01:06:07.920 --> 01:06:14.370
+So a priority you don't know what the upper bound of mutation score is.
+
+454 "" (0)
+01:06:14.370 --> 01:06:24.150
+All right, if you're just looking at a program, right? And you're thinking about mutation testing, there's no way for you to know whether you've actually achieve the best you can without, like.
+
+455 "" (0)
+01:06:24.150 --> 01:06:27.840
+Carefully reasoning about each of the mutants and checking, whether it's equivalent to the original.
+
+456 "" (0)
+01:06:27.840 --> 01:06:38.130
+Because you don't know whether each each meeting is an equivalent, or whether it's a meeting that you just haven't been clever enough to kill yet.
+
+457 "" (0)
+01:06:38.130 --> 01:06:48.840
+Yeah, so for the assignment, you're going to be creating buttons, right? The assignment this week. Uh, is that, uh.
+
+458 "" (0)
+01:06:48.840 --> 01:06:54.210
+I have a, you are given a simple, a Python program, right? And I have 5 test suites for it.
+
+459 "" (0)
+01:06:54.210 --> 01:07:04.470
+You will see you receive full marks if you create a mutation testing tool that, uh, gives different mutation scores to the 5 test suites in the correct order based on how good. I think they are.
+
+460 "" (0)
+01:07:04.470 --> 01:07:08.280
+In particular, the 5 test suites are subsets of each other. Right? So.
+
+461 "" (0)
+01:07:08.280 --> 01:07:15.330
+Test a is strictly larger contains strictly more tests than test suite B and so on, right? For.
+
+462 "" (0)
+01:07:15.330 --> 01:07:25.140
+And so, basically, the way the scoring works is that if you're if you say, for example, that you say that, uh, your, your mutation, uh, things does this.
+
+463 "" (0)
+01:07:29.670 --> 01:07:43.500
+Something like, uh, you know, 80 for, like, you give mutations for 82 tests, a mutation score 70 that has to be mutations for 62 tests with C mutation score or 50 to and 42 8 you would get full marks. So, the challenge is.
+
+464 "" (0)
+01:07:43.500 --> 01:07:54.450
+Great test cases. Oh, no. So these are these are test suites. They contain test cases, right? So your challenge is to to figure out mutation operators that will.
+
+465 "" (0)
+01:07:54.450 --> 01:08:00.060
+Show that these tests are different. Yeah, yeah. Yeah.
+
+466 "" (0)
+01:08:00.060 --> 01:08:06.330
+No, you're going to write a program Yeah Yeah, you will write a program and, uh, in particular these test suites are held out.
+
+467 "" (0)
+01:08:06.330 --> 01:08:12.540
+So you don't get to see what's in them, right? So you have to build a mutation testing system. That's effective in general. All right.
+
+468 "" (0)
+01:08:16.950 --> 01:08:26.040
+Okay, so this dilutes the mutations for right? Uh, we don't know whether 80% is the best we can do. Or if we write better tests, we could get higher. Right?
+
+469 "" (0)
+01:08:26.040 --> 01:08:31.680
+And I understand the confusion here. Right? I'm talking about both tests and.
+
+470 "" (0)
+01:08:31.680 --> 01:08:43.740
+Like, building better mutation testing, right? And both are valid goals. Right. Uh, so 1 reason you mind you mutation testing is that you want to distinguish test today from let's just say you have and you're not sure which 1 is better.
+
+471 "" (0)
+01:08:43.740 --> 01:08:47.100
+Right. Then you might care about building better mutation operators and so on. Right?
+
+472 "" (0)
+01:08:47.100 --> 01:08:54.870
+Or you might be in a situation where you have only 1 test suite and then you'd like to write a test to increase your mutation score because you want your test suite to be better.
+
+473 "" (0)
+01:08:54.870 --> 01:08:59.130
+All right, and that's the situation I'm talking about when I say it, they lose the mutation score.
+
+474 "" (0)
+01:08:59.130 --> 01:09:06.000
+If you just have 1 test lead, and again, this is not this this is not what's going on in the homework. Right? But if you just have 1 test suite.
+
+475 "" (0)
+01:09:06.000 --> 01:09:10.470
+And it has 80% mutation score. Is that good?
+
+476 "" (0)
+01:09:10.470 --> 01:09:13.620
+Because of equivalent mutinous, there's no way to know right?
+
+477 "" (0)
+01:09:16.680 --> 01:09:20.070
+All right does that distinction make sense? Mm. Hmm.
+
+478 "" (0)
+01:09:20.070 --> 01:09:28.560
+Yep, okay. I'm sorry for the confusing terminology I know that mutation testing is like this that's.
+
+479 "" (0)
+01:09:28.560 --> 01:09:33.030
+Any questions on mutation scored dilution for a move on.
+
+480 "" (0)
+01:09:33.030 --> 01:09:43.620
+Yeah. Okay. All right. So detecting these equivalent means is a big deal, right? We would like to avoid the invitations for our possible, but if we can, we'd like to remove our equivalent meetings and not count them.
+
+481 "" (0)
+01:09:43.620 --> 01:09:49.410
+All right, if we could just say, oh, notice that these meetings are equivalent, remove, remove them from the denominator, then this would be a problem.
+
+482 "" (0)
+01:09:49.410 --> 01:09:52.740
+Right. So, uh, how hard is this.
+
+483 "" (0)
+01:09:52.740 --> 01:09:58.470
+Quite hard why.
+
+484 "" (0)
+01:10:01.620 --> 01:10:08.070
+Or put another way, how would you demonstrate that? It was hard?
+
+485 "" (0)
+01:10:08.070 --> 01:10:16.140
+So, 1 option would be that you could go off and try to do it and then you could come back to me and say, well, I spent 6 hours and I didn't succeed. Right? But let's consider plans. That will take less time.
+
+486 "" (0)
+01:10:16.140 --> 01:10:19.170
+Is there a way you can demonstrate that this is hard.
+
+487 "" (0)
+01:10:30.810 --> 01:10:38.250
+So, we could run the test suite and we could see whether it gives the same result. Right? But that's a.
+
+488 "" (0)
+01:10:38.250 --> 01:10:41.580
+That's not going to tell us the equivalent means all the time.
+
+489 "" (0)
+01:10:41.580 --> 01:10:56.970
+All right, that's the best in approximation. Right because for the same reason, that testing can only show the presence of bugs, not their absence, right? There could be some other test that would distinguish them and we wouldn't know. Right so I'm, I'm thinking about this in the sort of formal sense of this problem, detecting equivalent meetings.
+
+490 "" (0)
+01:10:56.970 --> 01:11:06.030
+How hard is it if we know the program you think.
+
+491 "" (0)
+01:11:06.030 --> 01:11:09.390
+I would put it to you that that is not knowing the program is not going to be sufficient.
+
+492 "" (0)
+01:11:09.390 --> 01:11:18.510
+Right and here's why so I've mentioned reductions in a few of our previous classes. Right? This is an excellent time to do 1. anytime you see a question.
+
+493 "" (0)
+01:11:18.510 --> 01:11:26.490
+How hard is this problem should be a hint, but the thing that you should be doing is thinking about other problems, and trying to figure out which of them, you could solve if you could solve this 1.
+
+494 "" (0)
+01:11:26.490 --> 01:11:31.890
+So imagine that I give you a machine that can automatically tell whether to mute sorry? Equivalent.
+
+495 "" (0)
+01:11:31.890 --> 01:11:36.180
+Sorry, the other 1 is equivalent to it's original program. Right? Mutation is equivalent.
+
+496 "" (0)
+01:11:36.180 --> 01:11:42.150
+How how could you use it to? How could you use that machine to solve some other problem? You know, to be hard.
+
+497 "" (0)
+01:11:50.130 --> 01:11:56.640
+So the answer is that is undesirable, right? I'm just going to give you that. Right? There's no algorithm for. It will always. They'll always give the correct answer. Okay.
+
+498 "" (0)
+01:11:56.640 --> 01:12:00.480
+The way that we prove this is with a reduction to some problems that we know is undecidable.
+
+499 "" (0)
+01:12:00.480 --> 01:12:13.440
+What problems do we know that are? undecidable? Sorry?
+
+500 "" (0)
+01:12:13.440 --> 01:12:22.860
+Yeah, so you're suggesting Boolean satisfiability right? Yeah. Willing. satisfiability is computable though. It is.
+
+501 "" (0)
+01:12:22.860 --> 01:12:28.890
+Exponentially hard, but it is computable. It's going to be complete.
+
+502 "" (0)
+01:12:28.890 --> 01:12:40.980
+What's the most famous undecidable problem it involves? Whether to pro or whether a program does something whether it's the program.
+
+503 "" (0)
+01:12:40.980 --> 01:12:50.580
+Related to this yes, whether the program terminates or not the whole thing problem right? So we can do this by direct productions to the whole thing problem right?
+
+504 "" (0)
+01:12:50.580 --> 01:13:00.600
+So, consider that we have a magic machine that will always return, whether P1 is equal to right this is our promotion assessment. We then right? The following program, right?
+
+505 "" (0)
+01:13:00.600 --> 01:13:08.010
+Uh, we can find if you want us, uh, in both, then we return otherwise we call ourselves again, right?
+
+506 "" (0)
+01:13:08.010 --> 01:13:11.310
+This program holds exactly when our equivalents tester returns. True.
+
+507 "" (0)
+01:13:11.310 --> 01:13:15.630
+Right. And so this is a, uh, like this.
+
+508 "" (0)
+01:13:15.630 --> 01:13:21.960
+Little program, it is a proof that, uh, this is equivalent to the whole problem.
+
+509 "" (0)
+01:13:21.960 --> 01:13:32.970
+Right because I, if we could, if we could solve this problem, this, this bot, the problem, right? You could tell when this is going to be true. We know whether this program hotspot.
+
+510 "" (0)
+01:13:32.970 --> 01:13:38.850
+Okay, I, I, I understood that.
+
+511 "" (0)
+01:13:38.850 --> 01:13:45.570
+Basically nobody. All right, so, uh, can someone asks me a question that will hopefully, uh, push us in the right direction here?
+
+512 "" (0)
+01:13:52.020 --> 01:13:55.470
+Every time with you, what is it.
+
+513 "" (0)
+01:13:55.470 --> 01:14:00.270
+Right, so the whole thing problem is, uh, given a program, uh, does it hot.
+
+514 "" (0)
+01:14:00.270 --> 01:14:05.550
+Right or does it run forever? You have to tell me my quick as he can.
+
+515 "" (0)
+01:14:05.550 --> 01:14:08.760
+Right so it does this program hold or not.
+
+516 "" (0)
+01:14:08.760 --> 01:14:28.760
+Right, well, it depends like so the reason the corner is interesting is because whether it's filtering on depends exactly on whether we know the, whether P1 is equal to P2. Right? And so, if we have a secret machine, that can prove that is equal to P2 all the time, or not instantly, then we will solve the question question right? By simply client.
+
+517 "" (0)
+01:14:28.760 --> 01:14:37.260
+Here, when you say, oh, well, we know if you want is equal to and so this will work from 0 or we know that is not able to be to. And therefore this will look forever.
+
+518 "" (0)
+01:14:37.260 --> 01:14:44.940
+So, we could instantly solve this problem. We can certainly solve the whole problem on this program and therefore.
+
+519 "" (0)
+01:14:44.940 --> 01:14:50.460
+We know that this problem, the equivalent of problem of telling her.
+
+520 "" (0)
+01:14:50.460 --> 01:14:56.070
+1 mutant is semantically equivalent to the original program right? Is undecidable. Right? Let's just say it is.
+
+521 "" (0)
+01:14:56.070 --> 01:15:01.440
+Uh, it it is as hard as solving.
+
+522 "" (0)
+01:15:01.440 --> 01:15:08.640
+I mentioned you're also, um, this is a, uh, something that will come up later, uh, quite a few times when we talk about static analysis, right?
+
+523 "" (0)
+01:15:08.640 --> 01:15:18.120
+Racist theorum says that any non trivial semantic property of a program. Right? That is to say it's true of some programs and false of others. That's what non trivial means.
+
+524 "" (0)
+01:15:18.120 --> 01:15:23.940
+And semantic means it's about what the program does not about, like, whether it's text contains a particular string.
+
+525 "" (0)
+01:15:23.940 --> 01:15:33.420
+All right. Um, so is there any program or any property that satisfies those 2 properties, uh, that programs? It's statically undecidable just to say without running the program, you can't figure it out.
+
+526 "" (0)
+01:15:33.420 --> 01:15:39.120
+Without, uh, he also being able to solve the whole day problem in all instance.
+
+527 "" (0)
+01:15:39.120 --> 01:15:49.770
+The, the, the proof of is basically exactly this, but if you put whatever the, uh, the property that you're interested in, in this in this position.
+
+528 "" (0)
+01:15:49.770 --> 01:15:59.790
+So, when we start talking about, like, does this program have no point or exceptions we want to get an answer? Yes. Or no, the reason that that is hard is.
+
+529 "" (0)
+01:15:59.790 --> 01:16:04.980
+That is also a non trivial semantic property for program. Just like, is this program equal to this other program?
+
+530 "" (0)
+01:16:09.990 --> 01:16:29.730
+Okay, so this was a deep cut on program analysis theory, but this is important. Right? So, the 2nd, equivalent means is very hard, right? In particular, like, theoretically, it's just as hard as doing the whole thing problem and so we're not going to be able to solve it easily. Right there not be an algorithm. We can just run that will tell us like yes. Is this a new news equivalent or not?
+
+531 "" (0)
+01:16:29.730 --> 01:16:36.300
+So, um, we still would like to know right? And there, in fact, many times to detect equivalent meetings.
+
+532 "" (0)
+01:16:36.300 --> 01:16:43.710
+These are all going to be approximations. Right? They're all going to detect some equivalent mutants, but they're not going to promise to detect all of them.
+
+533 "" (0)
+01:16:43.710 --> 01:16:51.510
+Or something like this right? And this is a, I think, a good time to bring up that this is like, um.
+
+534 "" (0)
+01:16:51.510 --> 01:17:05.430
+A problem that's undecidable is to software engineering or programming languages researcher like me. Exactly. Like a pot of honey sitting on the table in the summertime is to a bunch of flies right? They immediately appear. Right? So, um.
+
+535 "" (0)
+01:17:05.430 --> 01:17:25.430
+Undesirable problems, attract software engineering researchers are researchers who are trying to find a good approximations. Right this is the key. Currency of our research area is finding undecidable problem and then get as close to it as we can, uh, while still giving some promises about the result. And W, when we get into static analysis, it will become clear why I say this.
+
+536 "" (0)
+01:17:25.430 --> 01:17:30.150
+This is a sort of a hint about what the 2nd, half of the course will be about. Right?
+
+537 "" (0)
+01:17:30.150 --> 01:17:37.590
+So, I'm going to I'm going to discuss 2 here for the equivalent muting problem, just to give you a sense of the space. The 1st is called.
+
+538 "" (0)
+01:17:37.590 --> 01:17:51.120
+Uh, trivial compiler equivalence, which is a rough. Approximation is very cheap to compute and the 2nd is a more precise, but more expensive, uh, approximation that you can do the introduction to because we'll have some stuff in common with the discussion. We had a symbolic execution a few weeks ago.
+
+539 "" (0)
+01:17:51.120 --> 01:17:56.580
+Um, so 1st, uh, actually, so before I go on, uh, does this, like.
+
+540 "" (0)
+01:17:56.580 --> 01:18:03.750
+High level thing about what software engineering or programming languages researchers like to do make sense.
+
+541 "" (0)
+01:18:03.750 --> 01:18:07.380
+This is, this is the thing that we do, the coin of the route.
+
+542 "" (0)
+01:18:12.660 --> 01:18:25.050
+Okay, so then let's talk about right so, uh, TC, is an equivalent detection, uh, technique, uh, that shows the 2 programs are equivalent, uh, by, uh, running an Optimizer compiling on both of them and then getting the, uh, the minor.
+
+543 "" (0)
+01:18:25.050 --> 01:18:29.130
+So, uh, if we have if I have an original and I have a.
+
+544 "" (0)
+01:18:29.130 --> 01:18:32.490
+And then I pass them both 2 with Dash or 3 flags.
+
+545 "" (0)
+01:18:32.490 --> 01:18:37.380
+Jesus is going to try its best to remove any extraneous computation that that program does.
+
+546 "" (0)
+01:18:37.380 --> 01:18:44.280
+And then produce a fast binary right? But has had many years of engineering put into it.
+
+547 "" (0)
+01:18:44.280 --> 01:18:49.350
+So that when you run it with Dash 3, the binaries, it produces are semantically equivalent to the input program.
+
+548 "" (0)
+01:18:49.350 --> 01:18:55.440
+All right, and so if we take say 2 C programs, 1 of which is a mutant of the other.
+
+549 "" (0)
+01:18:55.440 --> 01:19:01.380
+And then we run them both through GCC with the dash 3 flag and we get the same binary out. What does that mean?
+
+550 "" (0)
+01:19:01.380 --> 01:19:10.260
+It means that prove they were equivalent. Right? And so that's basically how, uh, works right? If the compiler optimizes the way the difference you introduce.
+
+551 "" (0)
+01:19:10.260 --> 01:19:26.130
+In the meeting, then those programs must be the same, they must be semantically equivalent, because it must be the case that the compiler has proved it under the hood. Some clever program analysis researcher did all of your work for you, and you don't have to do anything right? Um, embarrassingly this was invented in 2015.
+
+552 "" (0)
+01:19:26.130 --> 01:19:33.390
+Right. Um, like, this is what I mean, by like, uh, program analysis, like, is a, uh.
+
+553 "" (0)
+01:19:33.390 --> 01:19:53.390
+It's a fun domain to work in, because surprisingly easy things have not been tried. So this is the key idea of a trivial compiler equivalence. Right? And this is taking advantage of existing analyses that are built into compilers means. It's cheap. Right? All you have to do is from pilot programs, which if you're going to execute the test against these Newtons, you must have already have done. You already have to be planning to compile.
+
+554 "" (0)
+01:19:53.390 --> 01:20:03.300
+If you were going to suppose, you have a mute and you're about to run the test suite on that meeting, right? If it's a C program, you need to compile it 1st before you can execute it. So you're going to compile it anyway.
+
+555 "" (0)
+01:20:03.300 --> 01:20:06.450
+So you may as well while they're added.
+
+556 "" (0)
+01:20:06.450 --> 01:20:26.450
+Check, whether the binary that produces is the same as the, uh, the input program's binary or, uh, any of the other binaries that you've produced before for any of the other meetings you've looked at. And and this is the embarrassing part in in experiments tcp detects about 30% of all equivalent means right in a controlled.
+
+557 "" (0)
+01:20:26.450 --> 01:20:31.110
+Experiment where someone did approve for each of the equivalent mutants right? And looked at every meeting that was produced.
+
+558 "" (0)
+01:20:31.110 --> 01:20:42.300
+This is a shockingly large number, at least to me, right. Uh, that something as simple as as TC will detect 30% of the equivalent meetings. It's pretty good. Right? It shaves off a pretty large portion of them.
+
+559 "" (0)
+01:20:42.300 --> 01:20:48.450
+Yep um, and this will also detect for on meetings and when we come back for redundant meetings.
+
+560 "" (0)
+01:20:48.450 --> 01:20:57.120
+Should keep in mind like, how would you say you detect that? Does it make sense?
+
+561 "" (0)
+01:20:57.120 --> 01:21:04.680
+Yeah, I would say that this is the, uh, the state of the practice in mutation equivalent meeting detection in the sense that, uh.
+
+562 "" (0)
+01:21:04.680 --> 01:21:10.260
+Like, if you are going to do mutation testing in in real life, like, it would be foolish not to do this.
+
+563 "" (0)
+01:21:10.260 --> 01:21:14.010
+Right. Everyone does it the stuff that we're going to talk about on the next slide.
+
+564 "" (0)
+01:21:14.010 --> 01:21:17.490
+Is much more sort of speculative, right? I, you know.
+
+565 "" (0)
+01:21:17.490 --> 01:21:24.180
+People doing research, because they think it might work out rather than like, what a company would do right now.
+
+566 "" (0)
+01:21:24.180 --> 01:21:37.650
+Okay, so another option here is that we could try to prove that meetings are equivalent by doing reduction to satisfiability module experience, right. To say we're going to try to call a soul. Right? We talked about solvers.
+
+567 "" (0)
+01:21:37.650 --> 01:21:47.010
+We did, yes. Okay. We should. We did right but as a brief reminder and solve our solves bully and satisfiability, even in the presence of a.
+
+568 "" (0)
+01:21:47.010 --> 01:21:53.130
+Things like linear arc MTech or a bit vector or or something like this right?
+
+569 "" (0)
+01:21:53.130 --> 01:22:07.320
+Okay, so how would we do that all this is similar in spiritual symbolic execution right? Like symbolic execution we, uh, we also were doing mostly by reduction, right? But instead of asking this over, like, is an input is there an input that lets us reach this particular branch?
+
+570 "" (0)
+01:22:07.320 --> 01:22:11.640
+We ask, is there an input that causes these 2 related programs to divert? Right?
+
+571 "" (0)
+01:22:11.640 --> 01:22:19.620
+So imagine that we have a, we have something like again something like if X greater than 0 dot dot dot.
+
+572 "" (0)
+01:22:19.620 --> 01:22:23.880
+All right, and then we changed that great. I greater than to a greater than or equal to.
+
+573 "" (0)
+01:22:23.880 --> 01:22:32.100
+Uh, basically, what we're going to do here is we're going to take, uh, the kind of path constraints that we would have used to, uh, generate an input that would reach this branch.
+
+574 "" (0)
+01:22:32.100 --> 01:22:42.870
+And we're going to pass them to a solver along with this, uh, constraint and say, is there 1 that would work for this 1? But not for that 1.
+
+575 "" (0)
+01:22:42.870 --> 01:23:02.010
+Does that high level idea makes sense so, in particular suppose that we have these 2 this example right? We have X rated 0 expert and equal to 0, right?
+
+576 "" (0)
+01:23:02.010 --> 01:23:05.700
+The solver is going to have to come up with some input that causes X to be 0.
+
+577 "" (0)
+01:23:05.700 --> 01:23:18.570
+Right. That's the only way it can force these 2 to diverge. Right but effectively what we're going to do is solve for the path constraint of both of these together right with the additional constraints that it has to go into the 1st, 1 without the 2nd.
+
+578 "" (0)
+01:23:18.570 --> 01:23:34.470
+Or vice versa, right? And again, like, this is via the same conversion process that we used, when calling the solver in smart execution, right? We'll talk about exactly what the details of that conversion process like, in, like, week.
+
+579 "" (0)
+01:23:34.470 --> 01:23:38.130
+The 2nd, to last week of the semester and then, I guess, okay.
+
+580 "" (0)
+01:23:38.130 --> 01:23:49.500
+But, for now, just understand that, like, what we're, what we'd be doing here is we are just trying to force this over to take us down 1, but not the other of the of the 2 paths, right?
+
+581 "" (0)
+01:23:49.500 --> 01:24:01.140
+Okay, so the key problems with this 1st applicability, right? Many mutations are difficult to reduce to, in particular things like modifications to the heat. Like, if the mutant instead of writing to a field, uh.
+
+582 "" (0)
+01:24:01.140 --> 01:24:05.520
+Like, chooses not to write to that field. How do you, uh.
+
+583 "" (0)
+01:24:05.520 --> 01:24:10.020
+Encode that in all right? You can't really encode that as a constraint easily.
+
+584 "" (0)
+01:24:10.020 --> 01:24:26.820
+If the mutant is modifying a like a conditioning statement, it's pretty easy to encode it as a path constraint. If the mutant is modifying, like some value that's stored by the program that's very far to include as a path constraint, because it's actually not path related at all. It has nothing to do with control flow. Right? And so this is.
+
+585 "" (0)
+01:24:26.820 --> 01:24:31.650
+This is a key problem here. Right? And this is a problem that has basically not been solved yet.
+
+586 "" (0)
+01:24:31.650 --> 01:24:45.870
+So this works well, for certain kinds of mutation operators, like, for example, uh, changing greater than integrated or equal to inside mid statements, it works great. Uh, very easy works every time right? But for other kinds of mutations, like delete a statement, it works basically never.
+
+587 "" (0)
+01:24:45.870 --> 01:24:50.190
+And secondly, I s, T solvers are slow.
+
+588 "" (0)
+01:24:50.190 --> 01:25:10.190
+Uh, solving is not, uh, like, they're fast on most examples, but this is a pretty complicated example. Right? Effectively what we're doing is double, the amount of of clauses. That you get in symbolic execution plus some. Right? Because we need, uh, the path constraints for X, greater than 0. we need the path constraints for.
+
+589 "" (0)
+01:25:10.190 --> 01:25:18.570
+Or equal to 0, and we need a constraint that says the result, the answer of these 2 can't be the same. Right? So, it's about 2:2:times 2+a constant.
+
+590 "" (0)
+01:25:18.570 --> 01:25:23.640
+For how much how expensive is relative? Sorry? For how expensive? Symbolic execution would be.
+
+591 "" (0)
+01:25:23.640 --> 01:25:30.030
+Right that means since we know that some more execution is too slow. Sometimes.
+
+592 "" (0)
+01:25:30.030 --> 01:25:34.290
+That this will be too slow about price is off right which is not great.
+
+593 "" (0)
+01:25:34.290 --> 01:25:52.050
+Um, fortunately though, there is a, there is a trick, uh, and that's the citation here is this trick. Uh, that will allow us to to get around this at least some of the time, which is, uh, uh, these 2 sets of constraints. The, if X is greater than 0 and FX is greater than or equal to 0, have a lot in common, they share many pauses.
+
+594 "" (0)
+01:25:52.050 --> 01:25:59.220
+And so it's possible to do some clever stuff with the, like ahead of time before you pass it to the silver to eliminate duplication.
+
+595 "" (0)
+01:25:59.220 --> 01:26:08.010
+It's still very slow though. All right any questions on this does this high level strategy make sense?
+
+596 "" (0)
+01:26:08.010 --> 01:26:27.330
+Make a make a math solve, or do the problem for you. Okay. Um, as I said, this is still an area of active research. Um, I know for a fact that there are people working on this as far as I know. This problem has not yet been solved.
+
+597 "" (0)
+01:26:27.330 --> 01:26:45.570
+So, um, let's return to our example, and I've now crossed off. Right? I would assume that either or, uh, an solver or some other massive MySQL magic machine has told us that is equivalent and we're no longer going to consider.
+
+598 "" (0)
+01:26:45.570 --> 01:26:59.760
+I want us to say, is there a different question are all of equally useful right? In other words, is it possible to predict if any of them will be killed based on whether the others are.
+
+599 "" (0)
+01:26:59.760 --> 01:27:02.910
+And because it's cover up here, we're called for 20.
+
+600 "" (0)
+01:27:20.370 --> 01:27:30.690
+It was possible, obviously doing that number.
+
+601 "" (0)
+01:27:30.690 --> 01:27:40.470
+So, yes, all right. Um, so in particular, her returns always exactly the opposite of that.
+
+602 "" (0)
+01:27:40.470 --> 01:27:46.140
+So, if it's greater than the for friends, hey, uh, which is exactly the opposite of what, uh.
+
+603 "" (0)
+01:27:46.140 --> 01:27:50.190
+And 1 return alright, thanks. Everybody. Uh, the original 1.
+
+604 "" (0)
+01:27:50.190 --> 01:27:53.550
+But that's not quite the relationship between the 3 meetings.
+
+605 "" (0)
+01:27:53.550 --> 01:27:59.160
+In particular the relationship here is that everyone always reference a new models.
+
+606 "" (0)
+01:27:59.160 --> 01:28:04.830
+In a matter of time, and we can actually just ignore this condition.
+
+607 "" (0)
+01:28:04.830 --> 01:28:08.490
+And 3 always returns either a, or B.
+
+608 "" (0)
+01:28:08.490 --> 01:28:14.610
+Right. So, for any input, either a, was returned by, or B was.
+
+609 "" (0)
+01:28:14.610 --> 01:28:18.900
+Yeah, because we know that I'm 1 return day and to recurring fee.
+
+610 "" (0)
+01:28:18.900 --> 01:28:24.210
+So, if a process, if if returning a causes that can be built, then.
+
+611 "" (0)
+01:28:24.210 --> 01:28:28.170
+And the, for turning be positive, they needed to be held and.
+
+612 "" (0)
+01:28:28.170 --> 01:28:32.190
+And so is actually what's called redundant with.
+
+613 "" (0)
+01:28:32.190 --> 01:28:40.500
+Right that is to say any test case that kills and 3 must also kill either and.
+
+614 "" (0)
+01:28:40.500 --> 01:28:46.560
+Does that make sense to everybody? This is extremely important to graph before we move on because we're going to get into some.
+
+615 "" (0)
+01:28:46.560 --> 01:28:50.190
+Kind of like, more complicated things that are built on top of it.
+
+616 "" (0)
+01:28:50.190 --> 01:28:53.790
+Okay, so 1st, let's give the definition.
+
+617 "" (0)
+01:28:53.790 --> 01:28:58.980
+All right, so I said to be redundant, if its outcome can be predicted based on the outcomes of other meetings.
+
+618 "" (0)
+01:28:58.980 --> 01:29:09.120
+So, if it's possible for us to predict, that will always be killed, because everyone was killed or who was killed and we don't need them 3. we can just run, em, on an empty.
+
+619 "" (0)
+01:29:09.120 --> 01:29:21.330
+Redundant means tend to inflate the mutant detection ratio or mutation score. Right? That is to say, they make you make it look like we're doing better than we actually are. Right? If we go back to this original example here.
+
+620 "" (0)
+01:29:21.330 --> 01:29:26.910
+Right. Original mutations for here was 75%, but actually, and was, uh.
+
+621 "" (0)
+01:29:26.910 --> 01:29:33.150
+Equivalent so if we remove them for, then now, it looks like our mutation detection ratio is 100.
+
+622 "" (0)
+01:29:33.150 --> 01:29:38.250
+But if we go back again, and we don't know that I'm for equipment, right? At 75%.
+
+623 "" (0)
+01:29:38.250 --> 01:29:46.650
+Well, also is detected anytime that we have to detect either in 1 or 2 so we don't really need a 3 so we can get rid of them 3.
+
+624 "" (0)
+01:29:46.650 --> 01:29:51.270
+And then our mutation detection score, actually, if we include them before, it looks like 2 thirds.
+
+625 "" (0)
+01:29:51.270 --> 01:29:56.910
+All right or done for, it looks like 3 quarters which 1 is right?
+
+626 "" (0)
+01:29:56.910 --> 01:30:05.040
+Well, it's hard to say, right isn't actually providing any value, but it does raise the mutation score in the presence of equivalent of.
+
+627 "" (0)
+01:30:05.040 --> 01:30:17.610
+Um, so it makes it look like we're doing better than we are. Right um, and they make it hard to assess progress, right? Like, it might look like your mutation score is going up, but.
+
+628 "" (0)
+01:30:17.610 --> 01:30:23.940
+Actually, it, it, it's not making a difference, right? Because, uh, like it just because you like it if you.
+
+629 "" (0)
+01:30:23.940 --> 01:30:31.950
+For example, you write a new test like, let's suppose here we have just, uh, just this, uh, uh.
+
+630 "" (0)
+01:30:31.950 --> 01:30:37.050
+It's supposed to be done none of these tests. We had just the 1st 1, right? The 2nd 1 here and we kill 2 minutes.
+
+631 "" (0)
+01:30:37.050 --> 01:30:40.530
+We feel like we're doing very well. Okay. But actually.
+
+632 "" (0)
+01:30:40.530 --> 01:30:44.220
+Are we, we really only killed 1. interesting.
+
+633 "" (0)
+01:30:44.220 --> 01:30:53.040
+But it seems like we've killed it right? And so it's a deceptive it's deceiving us a bit about whether it's useful or not and we're wasting resources on it.
+
+634 "" (0)
+01:30:53.040 --> 01:31:09.840
+All right, so it's bad in 2 ways. Um, and so the, the question is, can we formalize this notion? Right um, and the hint here is that, of course, we can, uh, otherwise I would not be asking so let's do it right? The way that we formalize this notion of redundancy is with, uh, what's called mutants assumption, right?
+
+635 "" (0)
+01:31:09.840 --> 01:31:18.720
+So, uh, I'm muting. Em, 1, is that just assume another meeting if, and only if some test skills and all the tests that kill, em, 1 also kill em, too.
+
+636 "" (0)
+01:31:18.720 --> 01:31:23.880
+All right, actually, before we do, we know what this means.
+
+637 "" (0)
+01:31:23.880 --> 01:31:32.700
+Definitely, yes, yeah. Math words. Okay. So, um, what's wrong with this definition?
+
+638 "" (0)
+01:31:32.700 --> 01:31:40.170
+Well, okay, let me rephrase like, this is a fine definition, but what's going to make it difficult to tell whether its assumption is true between 1 and M2 and practice.
+
+639 "" (0)
+01:31:51.930 --> 01:31:55.169
+So, for example, to get it, why this is hard. I claimed.
+
+640 "" (0)
+01:31:55.169 --> 01:32:00.869
+That, uh, M1, and together in the the example here.
+
+641 "" (0)
+01:32:00.869 --> 01:32:05.309
+Subsume all right. How did I demonstrate that to you?
+
+642 "" (0)
+01:32:05.309 --> 01:32:15.989
+What did I argue.
+
+643 "" (0)
+01:32:15.989 --> 01:32:22.829
+But think about the argument I had to make, I, I came over here my main an argument that.
+
+644 "" (0)
+01:32:22.829 --> 01:32:32.429
+Well, uh, this part doesn't this part of the program doesn't matter the recurring values are in some set and then like, this, these 2 cover that whole set, right?
+
+645 "" (0)
+01:32:32.429 --> 01:32:38.549
+Importantly, it was an argument about program semantics. There's an argument about the meaning of the program.
+
+646 "" (0)
+01:32:38.549 --> 01:32:42.509
+And that should be a big hint and this is going to be a very hard problem.
+
+647 "" (0)
+01:32:42.509 --> 01:32:56.039
+Well, exactly the reason that we saw before we, the equivalent meetings, right? This is obviously going to be another case of that is to say, like, whether or not, uh, a particular moon is, uh, subsumed by other means.
+
+648 "" (0)
+01:32:56.039 --> 01:33:00.359
+And, uh, going to be a, and also an undesirable.
+
+649 "" (0)
+01:33:00.359 --> 01:33:03.479
+It's going to be just as hard as technical meetings are equivalent.
+
+650 "" (0)
+01:33:03.479 --> 01:33:11.399
+So this is this is going to end up being difficult. Um, and in particular, the hint that this is true is this all tests here?
+
+651 "" (0)
+01:33:11.399 --> 01:33:17.309
+Related to the right what are the, all the tests, man.
+
+652 "" (0)
+01:33:17.309 --> 01:33:21.269
+All possible inputs yes, exactly. And we know that that's not going to work out.
+
+653 "" (0)
+01:33:21.269 --> 01:33:28.379
+For us, right this is the extract coming back and saying, remember testing can only show the presence of logs, not the analysis, because we can't write all the tests.
+
+654 "" (0)
+01:33:28.379 --> 01:33:32.309
+All right, but this definition requires us to know all of the tests in advance.
+
+655 "" (0)
+01:33:32.309 --> 01:33:36.749
+So this is what we call a quote unquote. True assumption. There it is.
+
+656 "" (0)
+01:33:36.749 --> 01:33:53.579
+Um, true assumption is difficult to check in practice, whether there's another why we've already talked about it. Right? It is also undecidable right? All test means the set of all tests that could possibly, uh, exist and this set is usually infinite. When is it? Not infinite.
+
+657 "" (0)
+01:33:53.579 --> 01:34:04.049
+We've talked about some examples in particular. I'm kind of looking for a key word here. There's a phrase we gave to the situation when this is not infinite.
+
+658 "" (0)
+01:34:12.299 --> 01:34:16.829
+I'm starting to write it on the board. Yes. Hello.
+
+659 "" (0)
+01:34:16.829 --> 01:34:23.519
+Sample it's an age. Sorry oh.
+
+660 "" (0)
+01:34:23.519 --> 01:34:35.639
+It's he goes to Austin, exhaustive testing. Oh, Josh exhaustive testing is the answer yes. It's exhaustive testing, right? If there's a finite number of possible inputs, then we can test all of them.
+
+661 "" (0)
+01:34:35.639 --> 01:34:42.479
+All right, so, for example, if we have a function that takes 2 billions and returns something, right we can simply test all 4 combinations of 2, billions.
+
+662 "" (0)
+01:34:42.479 --> 01:34:52.679
+Very easy, barely inconvenience. Right. Uh, but, um, Internet, as it usually is right in practice, the steps are either inputted or still orders to be infinite. Right?
+
+663 "" (0)
+01:34:52.679 --> 01:34:57.209
+Then we're not going to be able to easily Checker. Right? We won't be able to do exhaustive testing.
+
+664 "" (0)
+01:34:57.209 --> 01:35:09.209
+Okay, so can we can we still make use of this idea of assumption in practice? Of course, the answer is going to be yes, right. So what do we do when we face undecidable problems.
+
+665 "" (0)
+01:35:09.209 --> 01:35:18.989
+Recall as a software engineering researcher, what am I going to do? I'm going to go straight attic. Right immediately. I'm going to jump straight for the undecidable problem. And what am I going to do?
+
+666 "" (0)
+01:35:18.989 --> 01:35:30.539
+Closest to the answer correct I'm going to try to approximate right and try to get as close as we can. So, what can we do instead? Um, so the technique that we usually use is what's called dynamics assumptions. So given a finite set of tasks.
+
+667 "" (0)
+01:35:30.539 --> 01:35:41.189
+The new 1 is set to dynamically subsumed another meeting number 2 with respect to see definitely some testing kill them 1 and all the test and T to kill and 1 also kill them too.
+
+668 "" (0)
+01:35:41.189 --> 01:35:46.649
+All right, what did we do here? Well, we just restricted the universe and possible test for some finite set.
+
+669 "" (0)
+01:35:46.649 --> 01:35:51.059
+And in practice, what do we usually have a finite set of tests.
+
+670 "" (0)
+01:35:51.059 --> 01:35:54.209
+We have that it's the test the test. Okay.
+
+671 "" (0)
+01:35:54.209 --> 01:36:00.989
+So this is quite useful, right? This allows us to keep track as we go of, whether our mutant has been subsumed so far.
+
+672 "" (0)
+01:36:00.989 --> 01:36:10.439
+All right, among all the tests that we've run right? And if we have a fixed test suite, we know that we're not going to add any test to it. Then this is good enough.
+
+673 "" (0)
+01:36:10.439 --> 01:36:18.389
+All right, it's a good enough for approximation and it turns out to be quite useful in practice. Right? So, um.
+
+674 "" (0)
+01:36:18.389 --> 01:36:29.189
+This is exactly a true assumption if, and only if, uh, T contains all possible tests again, that can occur only if you're testing exhaustively. Right? So we said, previously.
+
+675 "" (0)
+01:36:29.189 --> 01:36:32.219
+And here's a graphical representation of this, right?
+
+676 "" (0)
+01:36:32.219 --> 01:36:36.899
+So, if we have this, uh, a more of a set of all tests that we can't possibly get to right?
+
+677 "" (0)
+01:36:36.899 --> 01:36:43.109
+And then we have some tests that kill somebody named Jay and some testing meeting decline and some test to kill somebody with them.
+
+678 "" (0)
+01:36:43.109 --> 01:36:51.629
+What did we miss assumed by which other meeting in this example?
+
+679 "" (0)
+01:36:51.629 --> 01:37:05.369
+Yes, that's right. Um, actually, that might be exactly backwards. Uh, M. J. here's the right that is to say, if you can detect always hold the tax deadline.
+
+680 "" (0)
+01:37:05.369 --> 01:37:17.879
+Because every test it, uh, the other 1 yes, you are, right? Yes, if you can detect, we definitely are impacting that bit. Right? The smaller side. It's the 1 we want that's totally contained inside the app.
+
+681 "" (0)
+01:37:17.879 --> 01:37:21.779
+Confusing myself yes. So that's exactly right here.
+
+682 "" (0)
+01:37:21.779 --> 01:37:27.149
+We're correcting, not that anyone needs any more candy at this point, but, you know.
+
+683 "" (0)
+01:37:27.149 --> 01:37:34.919
+Well, we have plenty, so okay, so we can model this idea of meetings assumption with with a graph, which is called the mutants assumption.
+
+684 "" (0)
+01:37:34.919 --> 01:37:45.389
+So, the nodes in this graph, represent a maximum set of quote, unquote, undistinguished mutants that is to say mutants, we can't get Tele part right? And the edges represent this assumption relationship.
+
+685 "" (0)
+01:37:45.389 --> 01:37:51.059
+So, for example, if M1 s, uh, which then systems we could represent using this.
+
+686 "" (0)
+01:37:51.059 --> 01:38:01.799
+And 1 there, uh, and then since entry, and so if we're going to, uh, choose 1, new thing that we actually want, which 1 is it.
+
+687 "" (0)
+01:38:01.799 --> 01:38:21.799
+That's right. Yeah. All right so then a mutation testing tool as it runs, can then maintain what's called a dynamic maintenance assumption graph, or that keeps track of are actually subsumed or undistinguished over the test suite that's of interest. Right? So, if you're testing a particular test suite, you can check which mutants were actually.
+
+688 "" (0)
+01:38:21.799 --> 01:38:28.469
+Consumed over that test suite. Right? And the idea here then is that, uh, you can keep the ones that aren't subsumed.
+
+689 "" (0)
+01:38:28.469 --> 01:38:33.239
+And you can, uh, throw away the others right? And so this is an optimization. Okay.
+
+690 "" (0)
+01:38:33.239 --> 01:38:53.099
+I want to be clear here before we go deeper into this that I have no expectation that you're going to maintain a, as you build your mutation testing tool for homework. 6, it should not be necessary, right? If you do want to, you're welcome to. Right, but homework should easily be solvable without this optimization.
+
+691 "" (0)
+01:38:53.099 --> 01:39:02.369
+Okay, so Newton's here occupy node with any with in degree greater than 0. do we know what means when referring to the graph?
+
+692 "" (0)
+01:39:02.369 --> 01:39:06.839
+Yep, yeah, it's the number of edges that come in. Right? So this note has integration.
+
+693 "" (0)
+01:39:06.839 --> 01:39:09.839
+Yep, and then I.
+
+694 "" (0)
+01:39:09.839 --> 01:39:13.319
+In distribution Newton's would occupy the same note.
+
+695 "" (0)
+01:39:13.319 --> 01:39:20.759
+So, if we have 2 meetings that we can't yet distinguish or that, we can't distinguish over our test suite. They would just be merged into a single node. And we just choose 1 of them.
+
+696 "" (0)
+01:39:20.759 --> 01:39:28.109
+All right, so then, um, here is an example, I've stolen this figure directly out of another person's talk. So, sorry about that.
+
+697 "" (0)
+01:39:28.109 --> 01:39:38.099
+Um, we're proposing that we have a matrix over here, uh, using this on the top and 1 down 5 and tests, uh, test cases here. T1 2:3:4.
+
+698 "" (0)
+01:39:38.099 --> 01:39:43.889
+Right, and these check marks are suggesting, uh, which, uh, tests skill, which means.
+
+699 "" (0)
+01:39:43.889 --> 01:39:52.649
+All right, so, for example, a has been killed by both 252 has been built by teams, et cetera.
+
+700 "" (0)
+01:39:52.649 --> 01:39:58.679
+All right in that case, we would get the following, uh, dynamic meetings, assumption brand here right?
+
+701 "" (0)
+01:39:58.679 --> 01:40:03.359
+In particular, I want to point out a couple of things. 1st, I'm just going down 5 or indistinguishable.
+
+702 "" (0)
+01:40:03.359 --> 01:40:08.879
+I have the same behavior on every test base right? But they're useful for, uh.
+
+703 "" (0)
+01:40:08.879 --> 01:40:16.859
+Going around, because they allow us to point like, uh, we don't have these, this, this meeting in the 1st week then we might.
+
+704 "" (0)
+01:40:16.859 --> 01:40:20.249
+I'm sorry, we don't have these tests in the test week and we wouldn't be able to check this.
+
+705 "" (0)
+01:40:20.249 --> 01:40:25.649
+But we only need 1 of them to it very effectively. The same from our perspective, right?
+
+706 "" (0)
+01:40:25.649 --> 01:40:29.279
+Similarly is only detected by, right?
+
+707 "" (0)
+01:40:29.279 --> 01:40:32.309
+Um, and so, uh, it, uh.
+
+708 "" (0)
+01:40:32.309 --> 01:40:38.939
+Is this, uh, and, uh, tentatively for.
+
+709 "" (0)
+01:40:38.939 --> 01:40:46.529
+Does this all make sense? And so this is the technique that's used in practice to detect for abundance.
+
+710 "" (0)
+01:40:46.529 --> 01:40:56.129
+I wonder if that's the reason we're talking about this, this is how, uh, in practice, when we're building mutation testing tool, that rules out with 1 of the meetings and get rid of them, right? As VMs.
+
+711 "" (0)
+01:40:56.129 --> 01:41:01.589
+Build this draft and then only pay attention to the instead of parodies, outward notes, right?
+
+712 "" (0)
+01:41:01.589 --> 01:41:10.019
+These written notes are called the quote, unquote, minimal mutants. Right? These are the only ones that the mutation testing tool needs to keep around.
+
+713 "" (0)
+01:41:10.019 --> 01:41:14.519
+All the others are guaranteed redundant. Right? So this is a redundancy detection technique.
+
+714 "" (0)
+01:41:14.519 --> 01:41:18.389
+All right any questions on the dynamic maintenance assumption graph.
+
+715 "" (0)
+01:41:22.919 --> 01:41:33.359
+Sorry, uh, as far as I'm aware, uh, I okay I can't I can't say for sure. I'm pretty sure that, uh, like.
+
+716 "" (0)
+01:41:33.359 --> 01:41:41.639
+Pit and major probably both implement this. Those are 2 mutation testing tools for Java. I would guess that most of the existing like.
+
+717 "" (0)
+01:41:41.639 --> 01:41:45.059
+Modern mutation testing tools do under the hood.
+
+718 "" (0)
+01:41:45.059 --> 01:41:49.709
+All right um, but, uh, I don't directly work on them, so I can't say for sure.
+
+719 "" (0)
+01:41:52.859 --> 01:41:56.309
+At least in the literature, this is very prominent, so I.
+
+720 "" (0)
+01:41:56.309 --> 01:42:02.789
+People believe it is important. Lots of paper is published on this topic.
+
+721 "" (0)
+01:42:07.919 --> 01:42:15.419
+Sorry uh, so it's, it's based on which ones are the, the roots in scratch, right? So anything would integrate here.
+
+722 "" (0)
+01:42:15.419 --> 01:42:26.099
+Alright, so, uh, if the industry is 0, that has to say there are no edges into it in this graph. Then it's, uh, minimal.
+
+723 "" (0)
+01:42:26.099 --> 01:42:33.989
+When you have more than 1 reason in the same node for this particular interesting web share, uh, you would just cheap 1, right? Because the test, we can't tell these 2 apart.
+
+724 "" (0)
+01:42:33.989 --> 01:42:39.569
+From the test to be protected, at least 2.
+
+725 "" (0)
+01:42:39.569 --> 01:42:44.489
+Yeah, or with the circle and.
+
+726 "" (0)
+01:42:44.489 --> 01:42:50.339
+Yeah, so.
+
+727 "" (0)
+01:42:50.339 --> 01:42:56.249
+Oh, oh, you want me to draw something like this for that graph? Yes, we can try.
+
+728 "" (0)
+01:42:56.249 --> 01:43:01.019
+Uh, let's let's do it over here. Okay, so, um.
+
+729 "" (0)
+01:43:01.019 --> 01:43:06.449
+We have, uh, the the smallest things are going to be.
+
+730 "" (0)
+01:43:06.449 --> 01:43:10.859
+5 and 3, which are separate, right?
+
+731 "" (0)
+01:43:10.859 --> 01:43:16.019
+Then we know that is going to be going to fully contain him. 3.
+
+732 "" (0)
+01:43:16.019 --> 01:43:24.329
+Right. So let's lead this 1. M1 right and then we know the, the test, the detective are going to fully contain both.
+
+733 "" (0)
+01:43:24.329 --> 01:43:28.499
+This 1 and that, so it would look like this.
+
+734 "" (0)
+01:43:34.259 --> 01:43:49.979
+So, just to to explain what I did there a little bit more, right? Like, I derived this structure directly from the structure of this graph. Right? So, um, if we detect here, right this graph means that any test that detects in 3 will also detect. M1, and.
+
+735 "" (0)
+01:43:49.979 --> 01:43:56.369
+Right. And so that means that needs to be, uh, inside, but, and.
+
+736 "" (0)
+01:43:56.369 --> 01:44:01.649
+All right, so these are the universe of all tests that detect the maintenance labeled with right?
+
+737 "" (0)
+01:44:01.649 --> 01:44:10.229
+And all the tests that detect include some of the tech only on for some of the tech and 1 and them for, and some of the detect and M4.
+
+738 "" (0)
+01:44:10.229 --> 01:44:25.589
+And so, the idea basically, is that if you want to keep around the smallest number of meetings, but still detect as many as possible, what you would do is, you'd select say on the 2 and 3 here and then you'd cover these spaces.
+
+739 "" (0)
+01:44:25.589 --> 01:44:31.559
+Which would guarantee detection of 1 small identify sequel at 1 time too.
+
+740 "" (0)
+01:44:35.879 --> 01:44:41.219
+So this is, I want to be clear and approximate. This is an approximation technique, right?
+
+741 "" (0)
+01:44:41.219 --> 01:44:48.059
+Like, this is also, uh, nothing in particular the.
+
+742 "" (0)
+01:44:48.059 --> 01:44:52.349
+Oh, here yeah, so these are these are just double circle because they're in the middle of.
+
+743 "" (0)
+01:44:52.349 --> 01:44:55.889
+Right there was a, uh, I was mentioned office that I didn't include.
+
+744 "" (0)
+01:44:55.889 --> 01:45:08.879
+Sorry, so I, I want to be clear. This is an approximation checking right? Um.
+
+745 "" (0)
+01:45:08.879 --> 01:45:13.769
+If this only works, if we have a fixed universe of finance universe of tests.
+
+746 "" (0)
+01:45:13.769 --> 01:45:17.579
+We need to consider all the possible tests. This technique stops working.
+
+747 "" (0)
+01:45:17.579 --> 01:45:23.249
+Right, yeah, she those are the points. Yes.
+
+748 "" (0)
+01:45:23.249 --> 01:45:29.909
+Yeah, so I've shaded the written notes in this now and the double circle ones, uh, in the Sprint.
+
+749 "" (0)
+01:45:29.909 --> 01:45:38.099
+What was the reason that service and then yes, that's right. Yeah. They don't have other smaller circles inside. Yep.
+
+750 "" (0)
+01:45:42.119 --> 01:45:45.119
+Any other questions here is this.
+
+751 "" (0)
+01:45:45.119 --> 01:45:57.119
+So that I can put more slides. All right.
+
+752 "" (0)
+01:45:57.119 --> 01:46:08.699
+All right, so that's all I'm going to say on the theory of mutation testing, and we're going to spend the remainder of the lecture today and oh, okay. Well, we're, we're doing worse on time than I had hoped.
+
+753 "" (0)
+01:46:08.699 --> 01:46:18.449
+So, possibly the remainder of class today on the practicality of mutation testing, and how these, like, how these ideas are are useful in practice and what we might do with them. Okay.
+
+754 "" (0)
+01:46:18.449 --> 01:46:27.239
+So, the 1st, and most important thing here is a question of deductibility versus whether a mutant is actually useful or productive. Right?
+
+755 "" (0)
+01:46:27.239 --> 01:46:47.239
+Historically, and in the theory that I've talked about so far, we've basically been arguing that the technical meetings are good, because we can re, create a test to kill. So, and equivalent meetings are back. We cannot create a test that kills them. And therefore they're going to mess with our, our numbers. Right? But this is a a very black and white, let's say view. Right? It's a very.
+
+756 "" (0)
+01:46:47.239 --> 01:47:03.329
+Absolute view and in practice, it is more nuanced than that. Right? This is a bit too simplistic. Right? Um, deploying mutation testing in the real world makes it clear that detectable versus equivalent is too simplistic of a definition and we need something that.
+
+757 "" (0)
+01:47:03.329 --> 01:47:11.489
+Uh, is, uh, takes into account how useful the, the test it, it'll list it is, uh, limits it, right?
+
+758 "" (0)
+01:47:11.489 --> 01:47:31.489
+To say there are detectable, detectable mutants that can be useless. Remember my example of if X equals equals now do something with X at the beginning of class right? And their equivalent new mutants that can be useful right? They might not be detectable, but they still might be useful to a programmer. Right? If we show them to the programmer and ask them write a test that detects this, they'll think about.
+
+759 "" (0)
+01:47:31.489 --> 01:47:34.799
+1 thing that's interesting.
+
+760 "" (0)
+01:47:34.799 --> 01:47:41.699
+And so, and we need a better and more developer centric definition of usefulness. Right? And this is the core argument of the paper that you all read today.
+
+761 "" (0)
+01:47:41.699 --> 01:47:56.999
+Right. Was that a developer centric, um, definition of usefulness in particular they call this productive versus unproductive mutants? Um, is, uh, is better than this sort of traditional, detectable and equivalent, uh, dichotomy.
+
+762 "" (0)
+01:47:56.999 --> 01:48:01.679
+And I'll try not to spend too much time on these slides that we have a list a little bit of time to talk about homework.
+
+763 "" (0)
+01:48:01.679 --> 01:48:20.849
+All right, so this core question here is going to be is concerning technical utility and really this is possible. Like, we can have this argument about any test equity criteria. Right? So we can have this argument about coverage. We can have this argument about whatever anything we're, we're measuring test suites. Any number is going to be a bit too simplistic, right?
+
+764 "" (0)
+01:48:20.849 --> 01:48:24.539
+And the, the core question is always about.
+
+765 "" (0)
+01:48:24.539 --> 01:48:28.799
+Whether it's actually useful to developers or there, it actually convinces developers to do something useful.
+
+766 "" (0)
+01:48:28.799 --> 01:48:40.019
+So then, um, the definition of of productive, uh, then is 1 that improves the quality of the software under, uh, under test, or of the test suite, right?
+
+767 "" (0)
+01:48:40.019 --> 01:48:56.309
+By eliciting some behavior from the developer. Right? So this is a very human centered approach. Right? But this notion is very like, this is a very fuzzy and subjective notion. Right? Quality here is very, very hard to define. Right we don't have a, a.
+
+768 "" (0)
+01:48:56.309 --> 01:48:59.909
+Like, Chris definition for it, because it's, it's.
+
+769 "" (0)
+01:48:59.909 --> 01:49:09.659
+Fundamentally, all of the things we've been talking about for the most part are measures of quality, but imperfect ones, which is to say they are.
+
+770 "" (0)
+01:49:09.659 --> 01:49:15.809
+A word that we just we defined earlier today.
+
+771 "" (0)
+01:49:15.809 --> 01:49:20.339
+They are proxies, right?
+
+772 "" (0)
+01:49:20.339 --> 01:49:28.619
+Mutation adequacy score coverage, et cetera are all proxies for test suite quality. Right? Testing quality is some unknowable like.
+
+773 "" (0)
+01:49:28.619 --> 01:49:38.639
+Truth that we can't really get at. Right exactly. All right. All these things we're discussing our ways to approximate it. Right? And, you know, if we allow.
+
+774 "" (0)
+01:49:38.639 --> 01:49:53.849
+Any particular metric to become our goal, and we lose sight of the sort of more subjective, fuzzy notion the reason why we care about that metric. It's easy to become focused on only the metric and not and lose sight of the main goal. Right? And so, um.
+
+775 "" (0)
+01:49:53.849 --> 01:50:02.009
+What we're really going to be talking about in this section of this lecture is how not to lose sight of that with respect to mutation testing.
+
+776 "" (0)
+01:50:02.009 --> 01:50:13.439
+So, the, uh, the Google folks claim that it is going to be productive if either it is detectable and it elicits an effective test. That is to say, uh, there is a test that can detect it.
+
+777 "" (0)
+01:50:13.439 --> 01:50:22.109
+The test suite doesn't currently contain that test and, uh, the developer decides to actually write that test because it's actually a useful test to have.
+
+778 "" (0)
+01:50:22.109 --> 01:50:36.449
+Right. Or the meeting is equivalent, and it advances code quality or or knowledge of the code in some way. Right? That is to say it has some other side effects on the developer themselves that is actually beneficial. Right?
+
+779 "" (0)
+01:50:36.449 --> 01:50:42.689
+All right, and so what I want to do next is kind of go through a series of examples of meetings.
+
+780 "" (0)
+01:50:42.689 --> 01:50:56.849
+Right and discuss whether they're detectable and whether or not, they're actually useful, right as I want you to be, like, put yourselves in the shoes of an engineer who was asked to try to detect each of these mutants and think can it be 1st can it be done.
+
+781 "" (0)
+01:50:56.849 --> 01:51:02.699
+And 2nd, if it could be done, is it actually going to be useful to do so.
+
+782 "" (0)
+01:51:02.699 --> 01:51:06.149
+So, let's start with this 1. right? So, let's take a minute to think about this.
+
+783 "" (0)
+01:51:06.149 --> 01:51:14.759
+And read over it, read over this program and, uh, write down an answer right? Is it detectable? 1st, like, can you detect it? And 2nd, is it useful to detect.
+
+784 "" (0)
+01:51:21.449 --> 01:51:41.449
+Okay.
+
+785 "" (0)
+01:52:01.449 --> 01:52:15.959
+Yes, and feel free to discuss with those near, you.
+
+786 "" (0)
+01:52:15.959 --> 01:52:20.099
+Be good to try to reach consensus here before we get to it together.
+
+787 "" (0)
+01:52:38.729 --> 01:52:48.899
+Yes, yeah, yeah. And so to be clear detectable here means, like, we can find a test that kills that.
+
+788 "" (0)
+01:52:48.899 --> 01:52:52.709
+There exists a test that kills it is not equivalent.
+
+789 "" (0)
+01:52:56.909 --> 01:53:05.909
+So, in particular, uh, when I ask you all a, in a moment, whether this is detectable, uh, I will expect those of you who say, yes. To provide me, like 1 of you to provide me with a test case.
+
+790 "" (0)
+01:53:05.909 --> 01:53:09.149
+So you should have 1, if you want to claim it's deductible.
+
+791 "" (0)
+01:53:09.149 --> 01:53:13.829
+By contrast, if you claim, it's not detectable. I'll ask you to provide me with a proof.
+
+792 "" (0)
+01:53:13.829 --> 01:53:18.179
+That might be harder to come by.
+
+793 "" (0)
+01:53:18.179 --> 01:53:22.409
+Sorry, the, uh, the way.
+
+794 "" (0)
+01:53:25.829 --> 01:53:34.649
+Yes, that's true. Right. Yeah. So for sure. So, um, this is definitely detectable, right? And we know that, because if we choose a a.
+
+795 "" (0)
+01:53:34.649 --> 01:53:46.109
+Uh, an array that contains a 0 part way through right? 1:2:3 00:4:or 5, right? That will have very different behavior. Uh, if we, uh, use the 1 on the right then the 1 on the left.
+
+796 "" (0)
+01:53:46.109 --> 01:53:49.109
+All right I think some stores 0. mm. Hmm.
+
+797 "" (0)
+01:53:49.109 --> 01:53:55.619
+Oh, yeah, great point. So, keep it.
+
+798 "" (0)
+01:53:55.619 --> 01:54:00.029
+You know, there is.
+
+799 "" (0)
+01:54:00.029 --> 01:54:09.209
+So like any non 0 input yeah. Great point. Yeah.
+
+800 "" (0)
+01:54:09.209 --> 01:54:17.729
+You're right so, yeah, so this is very easy to detect. Right? So, the question then, is it productive? Is it useful to have a test case that distinguishes these 2?
+
+801 "" (0)
+01:54:20.909 --> 01:54:25.259
+So, if so, for example, suppose that you're an engineer at Google.
+
+802 "" (0)
+01:54:25.259 --> 01:54:28.649
+And you are trying to commit the code on the left. All right.
+
+803 "" (0)
+01:54:28.649 --> 01:54:34.499
+You've written this program and during code review, the mutation testing system says.
+
+804 "" (0)
+01:54:34.499 --> 01:54:39.089
+This test, or this muting was not killed by any of your tests.
+
+805 "" (0)
+01:54:39.089 --> 01:54:46.799
+Is that a useful piece of information for you to have? Why not?
+
+806 "" (0)
+01:54:46.799 --> 01:54:53.009
+Well, that's true but.
+
+807 "" (0)
+01:54:53.009 --> 01:54:57.569
+Status the same guy.
+
+808 "" (0)
+01:54:57.569 --> 01:55:06.389
+Yeah, so the 1 on the right does the meeting does return the same value no matter what. Right so, if this isn't killed by your test suite, what does that say about your testing?
+
+809 "" (0)
+01:55:06.389 --> 01:55:13.739
+So, it must be really awful. Yeah, it must be really, really bad. So, actually, this meeting is quite productive.
+
+810 "" (0)
+01:55:13.739 --> 01:55:27.209
+Because, uh, if if this is if the case that this meeting didn't get killed, then you, as a developer have really messed up, right? Like, you should have not, like, written any tests that actually exercises that your program doesn't correctly.
+
+811 "" (0)
+01:55:27.209 --> 01:55:41.129
+Any tests, so, in fact, this is a useful mute shop, right? If you, as the designer of mutation testing system are trying to elicit useful tests from the developer. This is a good example of 1 that you should surface.
+
+812 "" (0)
+01:55:41.129 --> 01:55:54.179
+Because it's almost instantly available. All right so if they'd written any tests, they should have done this and you want you want to actually write tests. So yeah, this 1 is definitely productive. Right? And this is what we're getting at here when we say, like.
+
+813 "" (0)
+01:55:54.179 --> 01:56:01.169
+Like, the difference between, like, de, like, detectable and productive is actually quite, like, subtle. All right. Um.
+
+814 "" (0)
+01:56:01.169 --> 01:56:06.509
+This is so easy to detect. All right it's so easy to detect.
+
+815 "" (0)
+01:56:06.509 --> 01:56:10.469
+But the fact that it wasn't detected is very interesting.
+
+816 "" (0)
+01:56:10.469 --> 01:56:30.469
+All right, it's very useful information to the developer and so, uh, this is the sort of subtlety that, uh, the Google folks are getting at when they talk about this notion of productive versus unproductive. So some of you can actually, like, if they're not detected are quite interesting and ought to be surfaced, even though they seem like they're not very interesting on, like, on the the sort of traditional.
+
+817 "" (0)
+01:56:30.469 --> 01:56:36.539
+Detectable versus not like, is this 1 detectable or equivalent? Well, easily detectable done right? Not very interesting.
+
+818 "" (0)
+01:56:36.539 --> 01:56:39.659
+But the Google folks that aren't need this one's very good. Okay.
+
+819 "" (0)
+01:56:39.659 --> 01:56:48.899
+By country, let's let's look at a different example, though. Like, so this one's quite similar, right? But instead we're dividing by Lynn at every stage.
+
+820 "" (0)
+01:56:48.899 --> 01:57:08.899
+Okay, so is this 1 detectable.
+
+821 "" (0)
+01:57:08.899 --> 01:57:14.279
+Yeah, that's right. You're not returning that.
+
+822 "" (0)
+01:57:14.279 --> 01:57:17.999
+So, it's not detectable, right? There's no way to check this 1.
+
+823 "" (0)
+01:57:17.999 --> 01:57:22.499
+However, is it productive? Right? This one's definitely equivalent.
+
+824 "" (0)
+01:57:22.499 --> 01:57:28.859
+I want to be clear. I mean, well, it's equivalent in the sense that there's no, there's no way for this change to affect the output.
+
+825 "" (0)
+01:57:28.859 --> 01:57:42.929
+But is it productive? What's the point of this variable.
+
+826 "" (0)
+01:57:47.309 --> 01:57:54.449
+I couldn't hear you all. Mm. Hmm. Yeah.
+
+827 "" (0)
+01:57:54.449 --> 01:58:01.019
+Yeah, but but for what I heard, it does not do anything that sounds promising. Mm. Hmm.
+
+828 "" (0)
+01:58:01.019 --> 01:58:05.519
+Yeah, yeah, well we're returning some of our lives, right?
+
+829 "" (0)
+01:58:05.519 --> 01:58:09.659
+And so this average variable is only ever used in computing itself.
+
+830 "" (0)
+01:58:09.659 --> 01:58:14.939
+Right. It never flows into some and therefore never flows into the output.
+
+831 "" (0)
+01:58:14.939 --> 01:58:19.799
+And so the fact that this Newton can't be detected is a hint that this is dead code.
+
+832 "" (0)
+01:58:19.799 --> 01:58:24.179
+Right and that the developers should look at this and say, oh.
+
+833 "" (0)
+01:58:24.179 --> 01:58:34.379
+Well, in that case, like, let me just backspace this entire line and also that right? I don't need anything all. I guess this is the original. I don't need this. I don't need that.
+
+834 "" (0)
+01:58:34.379 --> 01:58:40.349
+Those will be the lead or if you need any on the call.
+
+835 "" (0)
+01:58:40.349 --> 01:58:46.439
+This is the whole purpose. This is the whole function and this is a all right well, yeah, but if you're doing, like, a.
+
+836 "" (0)
+01:58:46.439 --> 01:58:52.319
+Continuously like every part of program then.
+
+837 "" (0)
+01:58:52.319 --> 01:58:55.679
+You know, later iteration, you might need it.
+
+838 "" (0)
+01:58:55.679 --> 01:58:59.489
+So, 1 of the beautiful things about sourcing roles that you can always go back to the other day.
+
+839 "" (0)
+01:58:59.489 --> 01:59:04.559
+All right, so, yeah, we have like, simple all that. Yeah, but, um.
+
+840 "" (0)
+01:59:04.559 --> 01:59:17.819
+So, this is getting into a non testing based quality or a software engineering, hot topic, but it is generally agreed among professional engineers but that should never be committed. And well, or should not be committed anymore should always be a room.
+
+841 "" (0)
+01:59:17.819 --> 01:59:23.249
+Because this is wasted competition. That's fair. Great. How are we gonna address.
+
+842 "" (0)
+01:59:23.249 --> 01:59:33.299
+Yes, but, uh, in general, uh, another, like, good rule is don't leave commented our code and, uh, in in the country.
+
+843 "" (0)
+01:59:33.299 --> 01:59:39.359
+Delete it, you can go over here in the source control system later if you need it. Right? But it usually it turns out that they've done.
+
+844 "" (0)
+01:59:39.359 --> 01:59:44.909
+And this is like an empirical, a empirical observation that.
+
+845 "" (0)
+01:59:44.909 --> 01:59:51.059
+Engineers now, pretty much all agree on is that you should not comment out this code. You should definitely believe it.
+
+846 "" (0)
+01:59:51.059 --> 01:59:58.319
+And so this, this product, this meeting is quite rough, because it, it points out the fact that this code can be deleted properly. Right?
+
+847 "" (0)
+01:59:58.319 --> 02:00:01.439
+And, uh, 1 of the, uh.
+
+848 "" (0)
+02:00:01.439 --> 02:00:15.029
+Uh, 1 of the things that engineering often are happy about, uh, when, you know, working on very large systems, it's making the system smaller because each line of code that you delete is 1 fewer line of code that might cause a bug.
+
+849 "" (0)
+02:00:15.029 --> 02:00:20.549
+Right. Um, let me give you an example of this. Okay. Actually. Sorry let me ask this question.
+
+850 "" (0)
+02:00:20.549 --> 02:00:24.869
+Oh, are we supposed to find close those data?
+
+851 "" (0)
+02:00:24.869 --> 02:00:29.729
+I would argue that decode is above because, uh.
+
+852 "" (0)
+02:00:29.729 --> 02:00:34.709
+Engineers would like to remove it, right?
+
+853 "" (0)
+02:00:34.709 --> 02:00:39.449
+It's considered a bad practice to how they voted in. You're in the system it's better to get rid of it.
+
+854 "" (0)
+02:00:39.449 --> 02:00:44.579
+So, no, it's not a bug per se, right? In the sense that it's not going to cause a well.
+
+855 "" (0)
+02:00:44.579 --> 02:00:48.329
+Hold up on, it probably is not going to cause a problem with that.
+
+856 "" (0)
+02:00:48.329 --> 02:00:54.059
+Time right but, uh, we still don't need it. It's a total waste. It's at least the performance though.
+
+857 "" (0)
+02:00:54.059 --> 02:00:58.409
+So, when we run the same program is the output.
+
+858 "" (0)
+02:00:58.409 --> 02:01:04.979
+Of the program gotta be output into, or is the fact that that code is probably going to be done.
+
+859 "" (0)
+02:01:04.979 --> 02:01:14.939
+Neither right, so, um, when we're running mutation testing here, what we're going to get is we're going to get the output that this meeting hasn't been killed.
+
+860 "" (0)
+02:01:14.939 --> 02:01:18.599
+All right, and then we're going to ask the developer to think about Y.
+
+861 "" (0)
+02:01:18.599 --> 02:01:25.859
+And when the developer thinks about why the outcome of that process is going to be that.
+
+862 "" (0)
+02:01:25.859 --> 02:01:29.429
+And then the developer can improve the code we're moving.
+
+863 "" (0)
+02:01:35.069 --> 02:01:40.529
+I understand this requirement. I get 1 level. Yeah, but but when you're doing religion, you already have to think about this.
+
+864 "" (0)
+02:01:40.529 --> 02:01:44.009
+Yeah, however I also philosophy.
+
+865 "" (0)
+02:01:44.009 --> 02:02:04.009
+We never want to waste any time, right? Yeah. So we don't want to waste time on computers. Right? If we compute this variable, and then, for a way to resolve, that is a definite performance but it's also the case that, uh, if we have that code like this and in practice, we can have some pretty serious problems that resolved.
+
+866 "" (0)
+02:02:04.009 --> 02:02:15.839
+Think it was the European Space Agency, the Boston rockets, because they had a computation that, uh, rent like overflow and pause their machines shut down for a variable that wasn't being used.
+
+867 "" (0)
+02:02:15.839 --> 02:02:19.109
+Because they had reuse the flight controller on the override.
+
+868 "" (0)
+02:02:19.109 --> 02:02:23.489
+And so if this overflows, it causes this whole thing to crash.
+
+869 "" (0)
+02:02:23.489 --> 02:02:27.029
+We're gonna be very upset because we're not going to use it as a result.
+
+870 "" (0)
+02:02:27.029 --> 02:02:30.929
+To be very embarrassing for us when somebody's like, why it is you're wrong.
+
+871 "" (0)
+02:02:30.929 --> 02:02:36.539
+So, we definitely want to get rid of the stuff. I think that's very important, but I don't see it.
+
+872 "" (0)
+02:02:36.539 --> 02:02:40.889
+Yeah, do we have to at least from.
+
+873 "" (0)
+02:02:40.889 --> 02:02:51.959
+Sorry uh, so we don't we don't need to remove comments. Right? I think the the only thing I was saying there was that, uh, it is better to delete this code then to commented out.
+
+874 "" (0)
+02:02:51.959 --> 02:02:57.419
+Because there's no, like, commenting it out is the same as deleting it accepted clutters the code.
+
+875 "" (0)
+02:02:57.419 --> 02:03:04.439
+Uh, I mean, no comments don't affect anything, right? Or this they shouldn't.
+
+876 "" (0)
+02:03:04.439 --> 02:03:08.519
+When because we want to be able to.
+
+877 "" (0)
+02:03:08.519 --> 02:03:21.659
+Yes, yes. So if we did, we didn't imagine that we do this. We see this and we say, okay, we don't want to engage you anymore. Right? We've decided that is dead. We're not going to include it in the code. Right? We have 2 choices either. We can delete it or we can comment it up right?
+
+878 "" (0)
+02:03:21.659 --> 02:03:25.889
+We delete it, then it might be harder to retrieve it later. If we do end up meeting.
+
+879 "" (0)
+02:03:25.889 --> 02:03:32.699
+Right, but if we commented out, then every time we look at this code, we have to look at that comment and say, why is that there?
+
+880 "" (0)
+02:03:32.699 --> 02:03:40.409
+And it turns out that that 2nd cost is much more expensive than the occasional need to dig into the source control history and find the code that you deleted.
+
+881 "" (0)
+02:03:40.409 --> 02:03:47.519
+So, it's purely a Readability is like human time optimization question.
+
+882 "" (0)
+02:03:47.519 --> 02:03:55.049
+Yep, okay. So the, the answer for is this productive the answer is like, actually, yes, it is despite the fact that this.
+
+883 "" (0)
+02:03:55.049 --> 02:04:01.079
+Uh, meeting is not detectable, right? There's no, no test that could kill it.
+
+884 "" (0)
+02:04:01.079 --> 02:04:18.899
+All right, finally here's the 3rd example. What do you think this detectable.
+
+885 "" (0)
+02:04:22.919 --> 02:04:28.649
+Uh, it is going to be a different size.
+
+886 "" (0)
+02:04:28.649 --> 02:04:39.719
+Um, but this gets, uh, okay, so, uh, there was a topic that I had intended not to cover, but I'm going to cover now because, uh, I, it is relevant here, which is the, the notion of a week versus strong mutation.
+
+887 "" (0)
+02:04:44.369 --> 02:04:55.529
+We've been basically exclusively talking so far about we are sorry strong mutation, right? Strong mutation is, uh, our strong mutation testing. It's only looking at the outputs of the program, right?
+
+888 "" (0)
+02:04:55.529 --> 02:05:00.899
+Week mutation, the testing is looking at both the outputs of the program and its internal state.
+
+889 "" (0)
+02:05:00.899 --> 02:05:07.949
+All right, so effectively, if at any point during the program, like any variable state changes, then the maintenance considered killed.
+
+890 "" (0)
+02:05:07.949 --> 02:05:15.179
+Versus instead in strong mutation testing we've been talking about the meeting is only considered killed if the output is different.
+
+891 "" (0)
+02:05:15.179 --> 02:05:18.569
+All right, um, in this case, I.
+
+892 "" (0)
+02:05:18.569 --> 02:05:31.859
+It is, I think impossible for asset, I think does not let you even the chart, like, determined capacity here without reflection. Like, you need to, like, break the in order to get this piece of information back from the.
+
+893 "" (0)
+02:05:31.859 --> 02:05:39.329
+This is purely a performance number, right? If you put the right number here, then the hashtag will perform a bit better, but the wrong number nothing particularly bad happens.
+
+894 "" (0)
+02:05:39.329 --> 02:05:55.529
+And so I don't think this meeting is too technical, right? At least not without, like, deep introspection into exactly the layout of the, the memory of the machine, right? There's certainly no, no possible way that this should well, this should never affect the output right?
+
+895 "" (0)
+02:05:55.529 --> 02:05:59.639
+Well, I mean, okay, so it is detectable, right? As you said.
+
+896 "" (0)
+02:05:59.639 --> 02:06:07.379
+But it's not very interesting. So, is it productive?
+
+897 "" (0)
+02:06:07.379 --> 02:06:10.679
+Is it useful to know that no test detects this output?
+
+898 "" (0)
+02:06:14.219 --> 02:06:23.519
+So, we are, we can, we can deeply introspecting the machine and tell it apart, as we said, right if we're very careful about our Oracle, we can see that these 2 program executions are slightly different.
+
+899 "" (0)
+02:06:23.519 --> 02:06:30.539
+Does that matter would you want to be shown that your test suite doesn't kill this? This test.
+
+900 "" (0)
+02:06:30.539 --> 02:06:40.409
+Your test doesn't kill this me. Yeah.
+
+901 "" (0)
+02:06:40.409 --> 02:06:44.369
+But, yeah, I mean, it's, it's technically detectable, but it's like.
+
+902 "" (0)
+02:06:44.369 --> 02:06:48.059
+It's not very interesting, right? So this 1 in particular is not not.
+
+903 "" (0)
+02:06:48.059 --> 02:06:52.619
+Not productive. It would be very annoying. If you were bothered with this 1.
+
+904 "" (0)
+02:06:52.619 --> 02:07:02.549
+And, okay, so the summary of all of this is that, like, when you're doing this kind of mutation testing and practice, you know, I'm trying to elicit good tests from developers.
+
+905 "" (0)
+02:07:02.549 --> 02:07:12.239
+Like, just whether a mutant is equivalent or a detectable or not is not sufficient. Right? You need another set of heuristics and the, the whole point of the paper that we read.
+
+906 "" (0)
+02:07:12.239 --> 02:07:19.649
+Uh, for today's class was google's discussion of the logistics that they actually use. So we look at.
+
+907 "" (0)
+02:07:19.649 --> 02:07:24.479
+Like, what what it looks like at Google, when you're doing mutation testing, it looks something like this.
+
+908 "" (0)
+02:07:24.479 --> 02:07:28.499
+Like, you have written some code, like, on this run me uh.
+
+909 "" (0)
+02:07:28.499 --> 02:07:33.749
+Right, and you made a code review comment that looks something like this that says.
+
+910 "" (0)
+02:07:33.749 --> 02:07:42.719
+If you change it, this 1 line to not equal to be here, this does not cause any tasks Japan right consider adding a test and, you know.
+
+911 "" (0)
+02:07:42.719 --> 02:07:47.399
+Like, here's the reason why we did it. Right? And so note here that this, this shows you, the mutant.
+
+912 "" (0)
+02:07:47.399 --> 02:07:50.669
+Right. And then it also has 2 buttons at the bottom.
+
+913 "" (0)
+02:07:50.669 --> 02:07:55.259
+All right, uh, please fix and not useful. Does anyone know these 2 buttons? Do.
+
+914 "" (0)
+02:07:55.259 --> 02:07:59.129
+What would happen if you press the please pay.
+
+915 "" (0)
+02:07:59.129 --> 02:08:16.319
+Or who launching? Yeah, that's what it means, right? Isn't the button is intended for the, uh, the code review.
+
+916 "" (0)
+02:08:16.319 --> 02:08:22.829
+Owner of your press this button if they want this to not be dismissible until a new test case is.
+
+917 "" (0)
+02:08:22.829 --> 02:08:31.439
+All right, so this is feedback about the original program. This is a, to the dev who's coded under review that this is a good mutant that they need to pay attention to.
+
+918 "" (0)
+02:08:31.439 --> 02:08:36.959
+All right, by contrast the not useful button, you would press if this is a bad mutant, right?
+
+919 "" (0)
+02:08:36.959 --> 02:08:44.789
+And so this is feedback to the mutation testing tool developers that this meeting was not productive in this situation. Right? And in particular.
+
+920 "" (0)
+02:08:44.789 --> 02:08:52.649
+The, uh, for each location operator, what Google does under the hood is that they're computing the ratio please fixes to, uh.
+
+921 "" (0)
+02:08:52.649 --> 02:08:56.399
+Not useful and making sure that that ratio was as high as they can get it.
+
+922 "" (0)
+02:08:56.399 --> 02:09:03.629
+All right, and that's the, the ratio that they care about internally when determining whether a mutation operator is a good idea or not right?
+
+923 "" (0)
+02:09:03.629 --> 02:09:07.049
+Okay, so does this does this make sense in terms of, like.
+
+924 "" (0)
+02:09:07.049 --> 02:09:19.889
+How this is actually deployed as far as I know Google is the only like large company that's deployed this at scale, but also don't have like, there's certainly the only ones we've talked about it in public. Um.
+
+925 "" (0)
+02:09:19.889 --> 02:09:25.109
+But it's possible that others are using it as well. Yeah.
+
+926 "" (0)
+02:09:25.109 --> 02:09:36.149
+Okay, so Google didn't counter some interesting problems when they deployed when they did this deployment. And this is the point where I want to mention this idea of, of which I think is also an interesting 1.
+
+927 "" (0)
+02:09:36.149 --> 02:09:41.489
+So, for example, isn't a good idea to mutate logging statements right? Um, I understand what logging is.
+
+928 "" (0)
+02:09:41.489 --> 02:10:01.489
+I've encountered it in daily life, so at a very high level, right? When you're writing a program right? Especially a long running service that's going to be deployed on 100,000 machines in the cloud. You want to keep track of what's going on right? At some point that that service is going to go down and you're going to be paged at 3 in the morning because you're doing dev ops and you're going to.
+
+929 "" (0)
+02:10:01.489 --> 02:10:08.039
+We asked to figure out what's wrong with it and you're going to be very happy if the logs contain some information that's useful.
+
+930 "" (0)
+02:10:08.039 --> 02:10:13.499
+All right however, is it useful for our mutation testing tool?
+
+931 "" (0)
+02:10:13.499 --> 02:10:29.669
+Mutate the logs no right no, because we're not going to test the output of logs right? Probably not. Anyway. I mean, maybe the well, but that's like, not that's their problem. Not ours, right as developers. So, uh, we probably don't want to mutate the logging statements.
+
+932 "" (0)
+02:10:29.669 --> 02:10:34.409
+Similarly, then suppose that we write something like this.
+
+933 "" (0)
+02:10:34.409 --> 02:10:42.599
+If Eva or dot blah, blah, blah.
+
+934 "" (0)
+02:10:42.599 --> 02:10:46.679
+Do we think we want to mutate this debug thing and make it if not debug.
+
+935 "" (0)
+02:10:46.679 --> 02:10:54.299
+Then do the login also. No right and so the idea of, uh, of is that it, it populates up.
+
+936 "" (0)
+02:10:54.299 --> 02:11:04.229
+Right so any if statement that only contains error things is also itself Eric and so on and they have a like, if you go back to the paper, you'll see they have a whole sequence of these rules. Right?
+
+937 "" (0)
+02:11:04.229 --> 02:11:16.949
+But they're basically common sense, right there they're basically rules for things that are always unproductive from the, from their engineers perspective. Right? And so an error code statement is a statement that if mutated, we'll always lead to unproductive meetings.
+
+938 "" (0)
+02:11:16.949 --> 02:11:27.179
+And Google basically has a list of these internally. Right? And then their tools are designed to avoid creating these meetings in the 1st place. They try very hard to avoid this.
+
+939 "" (0)
+02:11:27.179 --> 02:11:33.029
+And this is the sort of thing that 1 has to deal with 1:1:is actually trying to deploy these tools in real life.
+
+940 "" (0)
+02:11:33.029 --> 02:11:41.819
+And so we can be thankful that the Google people are willing to publish this because now, if you want to go off and deploy such a thing, you won't have to worry about it either, because you can just do this. Yeah.
+
+941 "" (0)
+02:11:45.989 --> 02:11:49.199
+It doesn't matter right? I mean, so, for for, like.
+
+942 "" (0)
+02:11:49.199 --> 02:11:56.609
+Like, this, if not debug, like, yes, it's easy to detect it. Right because if you're just consider the, the, the log part of the output.
+
+943 "" (0)
+02:11:56.609 --> 02:12:04.679
+Then not logging at that thing that you would be or logging a new thing would definitely be a change in observable behavior.
+
+944 "" (0)
+02:12:04.679 --> 02:12:12.869
+Right. But, uh, mutating the logging statements is not the developers will not be happy with you if that's what you do. Right? If we go back and look at the previous slide.
+
+945 "" (0)
+02:12:12.869 --> 02:12:22.349
+Like, they're very pressing is not useful 1 all the time. It was here like, blah, blah, blah, blah.
+
+946 "" (0)
+02:12:22.349 --> 02:12:27.929
+In fact that that's basically never going to be used.
+
+947 "" (0)
+02:12:27.929 --> 02:12:35.489
+Okay, so any questions on on before we move on.
+
+948 "" (0)
+02:12:35.489 --> 02:12:55.489
+So, um, just to summarize, uh, let's talk through some of the pros and cons of mutation testing, just to make sure that, uh, you all like, I know we went very into the weeds here so I want to just step back up a level and talk about this like at a very high level, what are the pros and cons mutation testing? So, 1st, it has the potential to subsume other test adequacy criteria, but it's just.
+
+949 "" (0)
+02:12:55.489 --> 02:13:02.669
+It can be very, very good. All right it is quite good at telling apart test suites a well designed mutation, testing system.
+
+950 "" (0)
+02:13:02.669 --> 02:13:07.079
+Is 1 of the best ways to determine whether 1 test suite is better than the other all right.
+
+951 "" (0)
+02:13:07.079 --> 02:13:14.639
+However, it's difficult to do. Well, right? You need to answer questions like, which mutation operator do we use? Where do you apply that? How often do it by them?
+
+952 "" (0)
+02:13:14.639 --> 02:13:17.909
+You do that at random like, do you buy the randomness like.
+
+953 "" (0)
+02:13:17.909 --> 02:13:29.369
+Well, it means to be productive or not right? And so on right? And these are the questions that you're going to be answering it from workspace, right? Or you're going to try to answer on how it works it's on a relatively small example, right?
+
+954 "" (0)
+02:13:29.369 --> 02:13:40.769
+Finally mutation testing is also very expensive. It costs a lot of machine time. Right? And the reason is, if you make a 1000 reasons, you not need to run your test suite a 1000 times. Typically your test, which is pretty slow.
+
+955 "" (0)
+02:13:40.769 --> 02:13:48.269
+Especially if it's large. Right? And so every meeting you make basically adds 1 more run of the tests that you used to do.
+
+956 "" (0)
+02:13:48.269 --> 02:13:53.639
+And so mutation testing is the sort of thing that can, as I said, can be quite effective.
+
+957 "" (0)
+02:13:53.639 --> 02:14:02.639
+But it typically is pretty machine intensive and so you probably aren't going to be doing it unless you happen to have a lot of machines with spare capacity often.
+
+958 "" (0)
+02:14:02.639 --> 02:14:08.729
+When are you in a situation where you have a lot of machines with spare capacity often?
+
+959 "" (0)
+02:14:08.729 --> 02:14:16.889
+Yeah, if you're Google or Amazon or Microsoft or the like, and you have, you are, you are a cloud provider, right? Or you otherwise have a like a large service.
+
+960 "" (0)
+02:14:16.889 --> 02:14:23.729
+That it has a peaks and valleys of demand right? So if you have a ton of machines, and sometimes you need them, because.
+
+961 "" (0)
+02:14:23.729 --> 02:14:28.289
+Everyone is trying to watch Netflix at the same time, but sometimes you don't need them.
+
+962 "" (0)
+02:14:28.289 --> 02:14:35.819
+And you physically own the machines right? Mutation testing is often for you right? If you don't physically on the machines, instead you run them from Amazon.
+
+963 "" (0)
+02:14:35.819 --> 02:14:45.119
+Mutation testing might be for Amazon, but probably is not for you. So, mutation testing is most effective when you have either otherwise idle machines.
+
+964 "" (0)
+02:14:45.119 --> 02:14:55.619
+All right, any questions about these high level pros and cons. All right. So then, um, with that, uh, I wouldn't go through, uh, 2 announcements and a discussion with.
+
+965 "" (0)
+02:14:55.619 --> 02:15:15.619
+So, 1st, I recall that there was an exam, uh, during the 1st class after spring break. Right. Um, and I want to announce something that, uh, you know, you could have known already if you were looking at the website. But I think it's important to put it in front of all of you, you are permitted to bring 1 letter sized piece of paper with handwritten only notes. And, uh, I'm excited that you are permitted to if you take notes on an iPad of the.
+
+966 "" (0)
+02:15:15.619 --> 02:15:18.809
+To print those out as the answer, right?
+
+967 "" (0)
+02:15:18.809 --> 02:15:30.299
+The only thing that's important is that your handwriting must match what you do on the exam so if you type them out, that's not permitted. Right? Because you're going to be turning in the notes and we will look at your note sheet and check that. It's similar to the handwriting on your exam.
+
+968 "" (0)
+02:15:30.299 --> 02:15:33.929
+So that also means you can't use someone else's note sheet that you photocopied.
+
+969 "" (0)
+02:15:33.929 --> 02:15:38.489
+That is also cheating right? You must write it out yourself. That is the important thing, right?
+
+970 "" (0)
+02:15:38.489 --> 02:15:50.129
+We'll also note I will also note that you, you are expected to prepare this by yourself right or at least in small groups. Right? And, you know, you certainly welcome to discuss it but I do expect that everyone's note sheet will be different.
+
+971 "" (0)
+02:15:50.129 --> 02:15:59.039
+Right, if you're noticing is exactly identical to someone else's, both of you will be have a discussion with me. Right? They should not be exactly identical. They should at least be somewhat different.
+
+972 "" (0)
+02:15:59.039 --> 02:16:05.039
+Say you, you're welcome to discuss amongst yourselves about what's important what you want to put on it. That's fine.
+
+973 "" (0)
+02:16:05.039 --> 02:16:08.789
+But you shouldn't copy anything someone else's you exactly. Copy it. He'll be in trouble.
+
+974 "" (0)
+02:16:08.789 --> 02:16:19.589
+Any questions about that frequently if you ask me, why am I making you? Do this.
+
+975 "" (0)
+02:16:19.589 --> 02:16:31.979
+Good there you go, you spoke, um, I'm making you do this because I have found that this is 1 of the most effective ways to force students to study for exams and students who write a note sheet tend to do better. That is the purpose.
+
+976 "" (0)
+02:16:31.979 --> 02:16:40.889
+All right, um, if I ask you a question, it also means that I feel not so bad if I just included a definition as an implicit part of a question.
+
+977 "" (0)
+02:16:40.889 --> 02:16:45.899
+For example, I ask you to say something about the competent program or hypothesis.
+
+978 "" (0)
+02:16:45.899 --> 02:16:54.899
+I don't have to worry about like, this this question will punish those who don't remember what the competent program or hypothesis is, is because if you're struggling to remember that you will simply write it on your note sheet.
+
+979 "" (0)
+02:16:54.899 --> 02:17:00.089
+All right the definition, right? So you should have the definition of product, or you should remember your review.
+
+980 "" (0)
+02:17:00.089 --> 02:17:13.229
+Will it be a review? I will typically hold a review session, but only if there is sufficient demand. Right? And, uh, when I hold a review session, it will be like, I will prepare nothing. I will just stand in front of the whiteboard and answer answer questions until I stop being asked.
+
+981 "" (0)
+02:17:13.229 --> 02:17:24.179
+Before I would plan to do it, uh, probably 1 of the evenings after the break in the week, leading up to the exam.
+
+982 "" (0)
+02:17:24.179 --> 02:17:29.429
+I will survey the class.
+
+983 "" (0)
+02:17:29.429 --> 02:17:35.849
+Probably, I would prefer to do it in person, but is extraordinarily annoying to as our classrooms.
+
+984 "" (0)
+02:17:35.849 --> 02:17:39.989
+The, uh, open ended verbal.
+
+985 "" (0)
+02:17:39.989 --> 02:17:50.489
+The exam mix yeah, you can take a look at the exams that I gave in my undergraduate software engineering class over the last couple semesters. The format will be broadly the same.
+
+986 "" (0)
+02:17:50.489 --> 02:17:54.059
+Yep, those are linked on the exams page or the course Web site.
+
+987 "" (0)
+02:17:54.059 --> 02:18:05.429
+Uh, so there's no textbook for this course, but, yeah, it will be. It will only yeah, so it will only cover the material before spring break.
+
+988 "" (0)
+02:18:05.429 --> 02:18:14.939
+Yep, I will expect that you have read the readings and so I might reference them, but you won't be like, directly asked the reading.
+
+989 "" (0)
+02:18:14.939 --> 02:18:28.259
+Yeah, so like, for example, I might say, like, you know, like Google says this about, uh, you know, mutation testing, like like, why did they argue that like, uh, what, what was their evidence right? That? Or like, you know.
+
+990 "" (0)
+02:18:28.259 --> 02:18:47.429
+I might also say something like, you know, considering google's opinion about how to do mutation testing, argue that error statements are a bad idea. Right? Something about this right? Like, something like that is allowed. Right? But in general, I'm mostly I'm going to draw design the questions based on the content of lecture and the stuff you were supposed to learn from the hallmarks.
+
+991 "" (0)
+02:18:47.429 --> 02:18:52.109
+So, things that, that will cover like that you did in the homework.
+
+992 "" (0)
+02:18:52.109 --> 02:19:02.039
+Expect to be emphasized more uh, I will, uh, an hour and a half at 90 minutes, right? I will design it to be done in 60 minutes.
+
+993 "" (0)
+02:19:02.039 --> 02:19:11.609
+But I will give you 90 minutes for it. The reason for that is that I am very bad at designing exams and they always take longer than I expect.
+
+994 "" (0)
+02:19:11.609 --> 02:19:15.329
+So, just multiply 1 and a half yeah.
+
+995 "" (0)
+02:19:15.329 --> 02:19:26.129
+We voted on this at the beginning of the semester, and I don't remember the result. It will be either 6 to 7:30:or 7:30:to 9, depending on what people said in the.
+
+996 "" (0)
+02:19:26.129 --> 02:19:31.739
+The background survey at the beginning of class, There'll be a lecture in the other section, the other half.
+
+997 "" (0)
+02:19:31.739 --> 02:19:38.009
+I'll do a lecture for the other half of the, uh, at the time.
+
+998 "" (0)
+02:19:38.009 --> 02:19:44.309
+Yeah, no, it will be the introduction to the 2nd, half of the class.
+
+999 "" (0)
+02:19:47.879 --> 02:19:51.719
+No, no, it will almost certainly end early. Yeah.
+
+1000 "" (0)
+02:19:51.719 --> 02:19:55.079
+It will probably be only about 45 minutes if I had to guess. Right? And then.
+
+1001 "" (0)
+02:19:55.079 --> 02:19:59.969
+I will do 90 minutes for the exam, and then you can will be done early and it'll be fine.
+
+1002 "" (0)
+02:19:59.969 --> 02:20:06.959
+Any other questions. All right. Um, and then, uh.
+
+1003 "" (0)
+02:20:06.959 --> 02:20:26.959
+So you have 2, uh, another announcements, you have 2 weeks for the next homework homework 6, right? Uh, the reason for that is that it requires quite a bit more programming in particular, um, you should get started on it this week. Right? It requires a fair bit of programming, and it may require you to interact with programming concepts that you might not have encountered before and we want to be able to help you with those. Right? So.
+
+1004 "" (0)
+02:20:26.959 --> 02:20:36.449
+Next week's lecture will be relatively short. I will not continue talking until 8:30:it will probably only go for an hour and a half because I expect most of you will have questions about homework. 6.
+
+1005 "" (0)
+02:20:36.449 --> 02:20:39.959
+All right, and that we will spend most of the next hour and a half. Uh.
+
+1006 "" (0)
+02:20:39.959 --> 02:20:59.339
+Helping you with those, right? So, that means that you should definitely get started on it this week. All right. And then when you encounter the fact that you don't know what a visitor pattern is, or you're confused about or whatever, right prep those questions and bring them to bring them to class next week. And we'll, we'll go through them all together.
+
+1007 "" (0)
+02:20:59.339 --> 02:21:06.899
+Yeah, there's a free service. Yes, you want to use that.
+
+1008 "" (0)
+02:21:06.899 --> 02:21:24.089
+You can do whatever you want, right I provide that information as a courtesy to you. Right. So if you are getting weird behavior, like, your when you do it locally, everything seems to work fine, but on the grading server or something like it, you never get results. Right? It always says that your system crashed that might be because, like, there's some version difference or something that does.
+
+1009 "" (0)
+02:21:24.089 --> 02:21:28.529
+Yeah, please. All right.
+
+1010 "" (0)
+02:21:28.529 --> 02:21:33.449
+5 times today. Yeah, so that rolls over the next.
+
+1011 "" (0)
+02:21:33.449 --> 02:21:43.379
+Yeah, so that's intended as a soft limit, right? So, I'm not going to enforce it directly in the sense that, like, there's nothing in the that stopped you from submitting too many times.
+
+1012 "" (0)
+02:21:43.379 --> 02:21:48.989
+However, this is an assignment that reward can be beaten by, like.
+
+1013 "" (0)
+02:21:48.989 --> 02:21:54.599
+Trying the same thing repeatedly, like hundreds or thousands of times and getting lucky right? If you do that.
+
+1014 "" (0)
+02:21:54.599 --> 02:22:02.969
+You will automatically fail right? So, the idea is that you probably, if you're working on it, like a reasonable amount, you shouldn't need to submit more than 5 times a day.
+
+1015 "" (0)
+02:22:02.969 --> 02:22:06.239
+If you need to submit 8 times, it's not the end of the world, but like.
+
+1016 "" (0)
+02:22:06.239 --> 02:22:09.959
+Try to keep your don't use the as your.
+
+1017 "" (0)
+02:22:09.959 --> 02:22:13.079
+Primary metric for that you're succeeding.
+
+1018 "" (0)
+02:22:13.079 --> 02:22:18.119
+Instead, like, test yourself and when you think you've made a serious improvement, then call the auditor.
+
+1019 "" (0)
+02:22:18.119 --> 02:22:32.909
+Yeah, so basically what we're gonna do is we're going to just look at, like, after when we're grading these, we'll look at your submission history. If there's hundreds or thousands of submissions, we'll be upset. If there are like, we're not going to count, like, we're there 5 or 6 in this 24 hour period.
+
+1020 "" (0)
+02:22:32.909 --> 02:22:37.619
+Other questions.
+
+1021 "" (0)
+02:22:42.929 --> 02:22:47.549
+Sorry.
+
+1022 "" (0)
+02:22:47.549 --> 02:23:05.729
+So, the short answer is, no, the longer answer is that I've already done so, uh, which is to say that, um, I've already posted the, uh, the exams I gave my undergraduate software engineering. Course it covered some of the same material. So, for example, there are questions on some of those exams about, uh.
+
+1023 "" (0)
+02:23:05.729 --> 02:23:16.049
+Like coverage, or mutation testing or the like right and yes, it doesn't it covers other things as well and it doesn't cover some of the.
+
+1024 "" (0)
+02:23:16.049 --> 02:23:26.639
+Uh, the questions, like some of the topics that we covered in this course, but there's enough of an overlap that I think you should be able to get a sense of what kind of questions I might ask and that's all you're going to get from practice questions. Anyway.
+
+1025 "" (0)
+02:23:26.639 --> 02:23:31.259
+So, I'm not going to prepare a separate practice exam for for this course.
+
+1026 "" (0)
+02:23:31.259 --> 02:23:37.469
+But that's why, so I urge you to review those exams and pick out the questions that are relevant to this course.
+
+1027 "" (0)
+02:23:37.469 --> 02:23:45.719
+Basically, anything about testing any other questions.
+
+1028 "" (0)
+02:23:45.719 --> 02:24:02.189
+All right, 1 last announcement, which is that causes office hours this week will be slightly shorter than usual. They will end at 4:30:because. I have made causes to do something else at that time. In particular. We have a faculty candidate who's meeting with students, and I think it's important for causing in particular to talk to that faculty candidate because they have research interests in common.
+
+1029 "" (0)
+02:24:02.189 --> 02:24:08.129
+All right any other questions here before we end.
+
+1030 "" (0)
+02:24:08.129 --> 02:24:19.559
+Alright, I urge you just to use the next half hour to get started on homework 6, and, uh, you know, ask us any or at least read this back and ask us any questions you have about the speck. The speck is quite long. Uh.
+
+1031 "" (0)
+02:24:19.559 --> 02:24:24.419
+So, you know, spending next half hour reading it and asking us any questions you have about it is a good way to resolve those.
+
+1032 "" (0)
+02:24:24.419 --> 02:24:27.659
+Um, if not, I I will see you on next week.

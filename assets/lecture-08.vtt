@@ -1,0 +1,4221 @@
+WEBVTT
+
+1 "" (0)
+00:00:00.000 --> 00:00:05.670
+Is 6 o'clock so we will go ahead and get started. Um.
+
+2 "" (0)
+00:00:05.670 --> 00:00:13.259
+As usual, we'll start with the reading quiz here is today's reading quiz.
+
+3 "" (0)
+00:00:13.259 --> 00:00:26.700
+2 minutes on the clock pencils down.
+
+4 "" (0)
+00:00:26.700 --> 00:00:35.310
+All right question 1 true? Yes. True is exactly correct. You said that.
+
+5 "" (0)
+00:00:35.310 --> 00:00:40.530
+All right question too as well. Okay so question 1, this is a direct quote from the, uh.
+
+6 "" (0)
+00:00:40.530 --> 00:00:44.430
+Uh, from the paper, um, but since we're definitely true.
+
+7 "" (0)
+00:00:44.430 --> 00:00:49.860
+This is 1 of the important things that Ches enables it allows you to single step. The debugger.
+
+8 "" (0)
+00:00:49.860 --> 00:00:58.830
+I know what single stuff in debugger means is anyone.
+
+9 "" (0)
+00:00:58.830 --> 00:01:02.640
+Yes.
+
+10 "" (0)
+00:01:02.640 --> 00:01:09.240
+Yeah, so if you're thinking about something like a gdb, right? It has a command to skip forward 1 step or 1 1.
+
+11 "" (0)
+00:01:09.240 --> 00:01:12.960
+Instruction right that's what that's what the single stepping needs.
+
+12 "" (0)
+00:01:12.960 --> 00:01:22.110
+All right question too. True. False. The authors describe an infinite loop that just detected in a research operating system. They talked about this singularity system, they applied it to.
+
+13 "" (0)
+00:01:22.110 --> 00:01:26.970
+Did they find an infinite loop? Is it true?
+
+14 "" (0)
+00:01:26.970 --> 00:01:39.090
+unfortunately it is false so they did find a loop that wasn't doing anything but it was not infinite right so in particular this question is asking you about what you understood what this thing is 
+
+15 "" (0)
+00:01:39.090 --> 00:01:49.590
+A spin loop is a loop that spins it's like doing something, or it's just going around and around, but it does eventually act. Right? So, in particular.
+
+16 "" (0)
+00:01:49.590 --> 00:02:02.670
+They had a thread that was looping infinitely, but then was killed right? So they were able to detect that. So it was not actually an infinite loop. It was in fact, the operating system did eventually deal with it. It was just a performance for a bug, right?
+
+17 "" (0)
+00:02:02.670 --> 00:02:12.090
+So, it was not, in fact, infinite this 1 was intended to be a little bit tricky to make sure that to see if you'd understood the, the actual thing that was happening that bug right?
+
+18 "" (0)
+00:02:12.090 --> 00:02:29.700
+Any questions about that all right so then with that, then let's dive into today's topic, which is dynamic analysis, other than testing. Right? And so, um, what we're gonna do is we're going to start by talking about, uh, like, sort of a high level idea of what dynamic analysis is. Right?
+
+19 "" (0)
+00:02:29.700 --> 00:02:43.530
+And then we'll get into some of the nitty gritty details of how 1 does instrumentation, which I think I promised you in a previous lecture. Then we'll talk about some of the sort of common property properties, that dynamic analysis share. And then I'll go through a series of real example analysis at the end.
+
+20 "" (0)
+00:02:43.530 --> 00:03:01.110
+my hope is that this will all be done by about eight o'clock so you'll have some time to ask us any questions that you have about homework six which you should hopefully have made some progress on although when i last checked the auto greater which was at about two zero pm today no one had successfully submitted something that got an zero score 
+
+21 "" (0)
+00:03:01.110 --> 00:03:10.650
+So, I'm a little bit worried about how you all are doing given that. So please do use the time at the end to talk to us about how it's going.
+
+22 "" (0)
+00:03:10.650 --> 00:03:16.890
+All right, so then let's dive into dynamic analysis. So, a generic analysis is.
+
+23 "" (0)
+00:03:16.890 --> 00:03:36.890
+Uh, any analysis that runs an instrument program in a controlled manner to collect information, which you can then later analyze to learn about a property of interest, the important thing here and the sort of key bit here, is that a dynamic analysis runs the program right? This is in contrast to a static analysis, which is going to be the focus of the rest of the class.
+
+24 "" (0)
+00:03:36.890 --> 00:03:48.270
+Break after the midterm, which does not run the program. So, like, a static analysis involves looking at the program and trying to figure out what it does a dynamic analysis involves running the program and actually observing what it does. Okay.
+
+25 "" (0)
+00:03:48.270 --> 00:03:54.510
+So, we've discussed a number of a number of dynamic analysis already this semester. Can anyone think of 1.
+
+26 "" (0)
+00:04:07.620 --> 00:04:15.900
+What things have we discussed this semester that that meets the definition.
+
+27 "" (0)
+00:04:15.900 --> 00:04:21.300
+There are a large number most of them yes, that's a good answer because it's correct right?
+
+28 "" (0)
+00:04:21.300 --> 00:04:31.889
+Yeah, almost everything we've discussed in particular, uh, testing is the best, uh, best answer here, because it's the thing we talked about the most right? I think it's all into the mimic analysis.
+
+29 "" (0)
+00:04:31.889 --> 00:04:37.379
+Running any test, uh, involves executing a program in a controlled environment and checking whether it did the right thing.
+
+30 "" (0)
+00:04:37.379 --> 00:04:57.379
+Doing things, like, completely covered for, uh, detecting the variance like, uh, the tool that we discussed are also examples and almost everything else that we've discussed is a dynamic analysis. So far. Right? So put another way. Today's topic is, uh, kind of zooming out a little bit. And talking about dynamic analysis more broadly than testing, right?
+
+31 "" (0)
+00:04:57.379 --> 00:05:04.169
+Thing is like 1 example of a dynamic analysis. And so for this semester we've been focused in on testing itself.
+
+32 "" (0)
+00:05:04.169 --> 00:05:08.669
+And sort of the tools and techniques that we have to support it.
+
+33 "" (0)
+00:05:08.669 --> 00:05:27.179
+Right without sort of thinking about it in a broader context. And so the goal today is to sort of zoom out a little bit and think about other dynamic analyses, besides testing. And also what brings dynamic analysis together what are the commonalities between dynamic analysis? What kind of properties do they all.
+
+34 "" (0)
+00:05:27.179 --> 00:05:31.379
+Okay, so the key questions for today, uh, basically what.
+
+35 "" (0)
+00:05:31.379 --> 00:05:44.549
+I just said, what are the common features of dynamic analysis and what else can we do with the dynamic analysis besides just straightforward testing or things that are directly in support of testing? Can we do other sorts of things find other sorts of bucks.
+
+36 "" (0)
+00:05:44.549 --> 00:05:51.119
+All right, so Here's an example. Um, I have heard of the 25 bug.
+
+37 "" (0)
+00:05:51.119 --> 00:06:08.759
+I may have mentioned it at the beginning of the course. Yeah. So the 3rd, 25 was this radiation machine for treating cancer basically, it shoots a bunch of radiation at the cancer and kills it off. Right? So it's supposed to fire a very small beam of radiation. That's targeted directly the part of a person that has cancer in it. Right and the idea is that kills the cancer.
+
+38 "" (0)
+00:06:08.759 --> 00:06:28.759
+There were at least 6 serious accidents between 19 8,587 in which patients were given massive overdoses of radiation by this particular machine. Obviously that's very bad. And in particular these were caused by concurrent programming errors, let's just say race conditions. Um, and so this, this was really bad. There were a few people who died.
+
+39 "" (0)
+00:06:28.759 --> 00:06:35.849
+And a number of serious injuries resulting from this, right? And the root cause was risk conditions.
+
+40 "" (0)
+00:06:35.849 --> 00:06:39.089
+So, what is a race condition? Does anyone know what a race condition is?
+
+41 "" (0)
+00:06:47.999 --> 00:06:58.469
+Yeah, so it's when there are 2 threads that are attempting to access the same resource in some kind and the interleaving of the, the threads execution order actually does matter. Right?
+
+42 "" (0)
+00:06:58.469 --> 00:07:13.439
+So, in general risk condition is that any behavior of the system of any system where the output is dependent on the sequence, or timing of other uncontrollable event? So, in general, for software, this is sorry and more specifically for software, as opposed to more generally, which is the high level definition here.
+
+43 "" (0)
+00:07:13.439 --> 00:07:33.439
+All right, um, this is going to usually happen with threads when there's not a mutual exclusion, like locking. Right um, and 1 of them does, in fact, write to the state right? So usually, the way this is gonna occur is that, uh, you have, uh, at least 1, right? Uh, from 1 thread and, uh, at least 1 other thread that's.
+
+44 "" (0)
+00:07:33.439 --> 00:07:41.759
+To access the variable at the same time. So, for example, um, you could have a, uh, quote, unquote, uh, write, read read, right?
+
+45 "" (0)
+00:07:41.759 --> 00:07:46.139
+A race condition where there's 1 thread that's writing and 1 bread that's reading, right?
+
+46 "" (0)
+00:07:46.139 --> 00:07:56.579
+Can imagine that a thread 1 uh, they're trying to execute the right goes. 1st, then thread 2 will read the version it's written right? But if Fred 1 goes 2nd, then.
+
+47 "" (0)
+00:07:56.579 --> 00:08:00.059
+The version before the right occurs will be read by Fred too. Okay.
+
+48 "" (0)
+00:08:00.059 --> 00:08:05.309
+Similarly, if you have a double, right? Right both rights are trying to write. Then I.
+
+49 "" (0)
+00:08:05.309 --> 00:08:11.939
+Which threat goes 1st, we'll decide, uh, which version of, like, which threads.
+
+50 "" (0)
+00:08:11.939 --> 00:08:20.429
+Version of the the value is actually the 1 that's persisted. If red 1 goes 1st then thread. two's value is persistent and vice versa right?
+
+51 "" (0)
+00:08:20.429 --> 00:08:31.439
+These kind of bugs are generally very inconvenient. All right there are very difficult to track down and as we saw, they can have very serious consequences if they happen in the wrong place. Right?
+
+52 "" (0)
+00:08:31.439 --> 00:08:37.889
+Right. So how would we detect it? A race condition? Right? How would we test for 1?
+
+53 "" (0)
+00:08:37.889 --> 00:08:41.639
+I don't know how many ideas about how you might write a test to detect your resignation.
+
+54 "" (0)
+00:08:45.599 --> 00:08:50.249
+Yeah.
+
+55 "" (0)
+00:08:56.609 --> 00:09:06.539
+I'm sorry. Okay. Apparently my blood sugar is low. It seems to always happen around this time because I always eat dinner in an hour before. So maybe I should change that.
+
+56 "" (0)
+00:09:06.539 --> 00:09:18.179
+All right, I'm going to eat candy again as we continue this. Sorry can you repeat what you said? Well, I was distracted by my medical computer.
+
+57 "" (0)
+00:09:18.179 --> 00:09:25.379
+Alfred, uh, comparing threads access to C squared.
+
+58 "" (0)
+00:09:25.379 --> 00:09:31.199
+Yeah, you could right and I think that's basically boils down to the suggestion here. Right?
+
+59 "" (0)
+00:09:31.199 --> 00:09:36.209
+But you need to keep track of what's what's happening with the scheduler, right? What the schedule is.
+
+60 "" (0)
+00:09:36.209 --> 00:09:39.899
+Uh, you want to actually track for.
+
+61 "" (0)
+00:09:39.899 --> 00:09:44.069
+As such a bug, when you need to have the controller is the schedule.
+
+62 "" (0)
+00:09:44.069 --> 00:09:53.189
+Ideally, well, I already raised it, but you would try both schedules book right? Reads and both right? So where the right happens version where the read happens 1st.
+
+63 "" (0)
+00:09:53.189 --> 00:09:58.349
+In other words, that's for our buck. Like, that's what you need to do.
+
+64 "" (0)
+00:09:58.349 --> 00:10:03.899
+You need to check all the internal leavings of various access to.
+
+65 "" (0)
+00:10:03.899 --> 00:10:08.639
+Share variables, which is basically what chess does, right?
+
+66 "" (0)
+00:10:08.639 --> 00:10:14.459
+So, the paper were that were red for today the tool it's proposing, Charles.
+
+67 "" (0)
+00:10:14.459 --> 00:10:17.909
+Which we'll talk about in more detail towards the end of the lecture.
+
+68 "" (0)
+00:10:17.909 --> 00:10:23.249
+It's trying to solve this problem. Okay. Did I give you a candy?
+
+69 "" (0)
+00:10:23.249 --> 00:10:31.199
+Right. Oh, okay. That was excellent. Bowling by me. Um, sorry about that.
+
+70 "" (0)
+00:10:31.199 --> 00:10:51.199
+Okay, so this is sort of the key idea here is that what we want to do to detect a race condition is we're going to try to control how the schedule it works. We're going to control the environment and this is the sort of core idea in dynamic analysis right? Required and dynamic analysis. What we're going to try to be doing is run the.
+
+71 "" (0)
+00:10:51.199 --> 00:10:58.739
+And controlled conditions somehow, right as well allow us to answer a number of difficult questions. Not just. Is there a race condition.
+
+72 "" (0)
+00:10:58.739 --> 00:11:03.179
+But all sorts of questions about the program, we can ask questions like.
+
+73 "" (0)
+00:11:03.179 --> 00:11:09.629
+Uh, you know, does the program run fast enough? How much memory is the program using? Uh, is this predicated in variance with this program?
+
+74 "" (0)
+00:11:09.629 --> 00:11:20.129
+What does that? Correct? Icon? Right? Does the test we cover all the program that's coverage right?
+
+75 "" (0)
+00:11:20.129 --> 00:11:28.259
+Advertisers input control the variable, et cetera, all these sorts of things we could just run the program in a controlled environment and check a 3rd crew. Right?
+
+76 "" (0)
+00:11:28.259 --> 00:11:34.109
+This is the core idea of dynamic analysis, right?
+
+77 "" (0)
+00:11:34.109 --> 00:11:38.939
+I'm gonna stop here for a minute and actually finish eating this candy. Right? If you have any questions, please ask them.
+
+78 "" (0)
+00:11:51.569 --> 00:11:57.299
+Sorry, there is input what causes, but.
+
+79 "" (0)
+00:11:57.299 --> 00:12:07.529
+Good question. So the question is, uh, what is what is an adversary's input, right?
+
+80 "" (0)
+00:12:07.529 --> 00:12:13.829
+This is this sort of question that you might hear in a security class, or in a security context right?
+
+81 "" (0)
+00:12:13.829 --> 00:12:26.129
+What's the budget for this? There's no, from an adversary it's typically used in what's called a threat model, which is if you're not thinking about the security of a system, he's a threat model to decide whether you believe the system is safe.
+
+82 "" (0)
+00:12:26.129 --> 00:12:29.459
+Within the threat model, usually define a set of adversaries.
+
+83 "" (0)
+00:12:29.459 --> 00:12:36.509
+Adversaries for the adversaries are a potential attackers against the system that is to say, potentially malicious.
+
+84 "" (0)
+00:12:36.509 --> 00:12:39.899
+Agents within the system so, for example.
+
+85 "" (0)
+00:12:39.899 --> 00:12:59.899
+An adversary might be a user of your website, who is going to provide you with some input that you shouldn't trust. Right? So, for example, it might be like a disgruntled, uh, imagine, like grade scope for example, where, where we run the auto greater right? An adversary in that case might be like a student who's trying to.
+
+86 "" (0)
+00:12:59.899 --> 00:13:14.669
+Take over the auto rare, right? By intentionally submitting a copy of the assignment that is evil. Right? Instead of trying to actually do the assignment, the adversary student might instead tried to say, print out the source code of the interpreter.
+
+87 "" (0)
+00:13:14.669 --> 00:13:20.969
+I have tried this before you don't have to admit it. Some people have, you shouldn't do that.
+
+88 "" (0)
+00:13:20.969 --> 00:13:30.359
+And, in fact, a great scope in theory should protect my auto grid or against this in practice. It's believe that great scope is not particularly secure, but.
+
+89 "" (0)
+00:13:30.359 --> 00:13:37.259
+You know, uh, sad, that's the 1 that we were told to use in by and it is also by far the easiest for everybody.
+
+90 "" (0)
+00:13:37.259 --> 00:13:41.279
+Does that answer the question? Yeah. Okay.
+
+91 "" (0)
+00:13:41.279 --> 00:13:46.919
+This is a notion that would come out of, like, a out of the security literature.
+
+92 "" (0)
+00:13:46.919 --> 00:13:56.009
+Any other questions here, these difficult questions in general that we might try to answer with the dynamic analysis makes sense.
+
+93 "" (0)
+00:13:56.009 --> 00:14:05.519
+Alright, so let's let's see, uh, let's see an analogy of this right? I'm I'm familiar with a cardiac stress test. I've run on a treadmill or something like attached to me.
+
+94 "" (0)
+00:14:05.519 --> 00:14:17.909
+I actually have a few of you have okay, so suppose that you need like you, what there's some question about whether your heart is doing well, right? Um, we want to find out some information about it.
+
+95 "" (0)
+00:14:17.909 --> 00:14:21.029
+We don't want to actually like, uh, just.
+
+96 "" (0)
+00:14:21.029 --> 00:14:33.539
+We're worried that your heart might fail in some sort of real world scenario, but we can't like, have a doctor follow you around all the time. That's, uh, very expensive. Right? So instead what we might do.
+
+97 "" (0)
+00:14:33.539 --> 00:14:53.539
+Okay, so stepping back, just looking at, you just having you step into the doctor's office might not be sufficient. If the doctor just looks at you under, like, sort of normal exam room conditions. That might be not that helpful because your heart isn't really in danger there. And there's no sort of obvious marker for example, it's suppose that there's.
+
+98 "" (0)
+00:14:53.539 --> 00:14:55.679
+Obvious marker. Okay.
+
+99 "" (0)
+00:14:55.679 --> 00:15:14.459
+Um, instead what a doctor would do is, they would have you, like, run on a treadmill on, like, under our control condition, right? What they would do is they use, like, a blood pressure cop and, uh, sort of electrodes, like, in this very silly diagram, right? To keep track of how you do when you're asked to, like, run on a treadmill, right?
+
+100 "" (0)
+00:15:14.459 --> 00:15:28.589
+And this is the same kind of thing that we're doing in dynamic analysis, but in this analogy, in a dynamic analysis, what we do is we run the program right? Rather than running on the treadmill, we run the program in a systemic matter. Right?
+
+101 "" (0)
+00:15:28.589 --> 00:15:33.839
+That is to say on some control inputs for, uh, you know, some regulatory and input, but.
+
+102 "" (0)
+00:15:33.839 --> 00:15:43.979
+In an environment that we control right? And we monitor the internal state of the program at run time. Right? So what we're doing is we're instrumenting the program like.
+
+103 "" (0)
+00:15:43.979 --> 00:15:50.999
+Just like, uh, in the analogy to the cardiac stress test, we've attached some electrodes or attach to blood pressure cuff. We're attacked.
+
+104 "" (0)
+00:15:50.999 --> 00:15:57.509
+We've W, we somehow modify the programs that we can capture about, uh, data about how it's doing. Right?
+
+105 "" (0)
+00:15:57.509 --> 00:16:03.209
+And then we analyze the results. Right? And so, in the analogy here, the software is the person.
+
+106 "" (0)
+00:16:03.209 --> 00:16:15.869
+So, the program is being tested is like, the person, the controlled input environment is like, the treadmill. This is not like asking, like, we're not taking the person out into the woods and seeing how they do. If we ask them to run a.
+
+107 "" (0)
+00:16:15.869 --> 00:16:30.629
+That's not a controlled environment. Anything can happen in 5. K. a bear might come up and attack. We don't want that. Obviously that's unlikely to happen but we don't want any questions. This is a tightly controlled environment. We've removed the calendars, right?
+
+108 "" (0)
+00:16:30.629 --> 00:16:36.509
+The instrumentation in this analogy would be the blood pressure, coffee, electrodes, et cetera, right?
+
+109 "" (0)
+00:16:36.509 --> 00:16:48.179
+And the analysis is actually quite important too right? We have an EKG monitor or something over here. And there's you can see there's a technician over here. Who's actually figuring out like, is this going? Well, right someone's taking care of this.
+
+110 "" (0)
+00:16:48.179 --> 00:17:00.959
+All of these parts are the same kinds of parts that we're going to need to use to build a dynamic analysis. So all of our dynamic analyses are going to have all of these ingredients. So, does this analogy make sense to everybody?
+
+111 "" (0)
+00:17:07.439 --> 00:17:13.169
+Some water on my notes. All right. Um, okay. All right so, then moving on. All right.
+
+112 "" (0)
+00:17:13.169 --> 00:17:24.029
+Instrumentation is 1 of the core pieces of how we do dynamic analysis. Right? We've mentioned instrumentation before in this class. Right? I remember when we mentioned instrumentation in this class.
+
+113 "" (0)
+00:17:27.149 --> 00:17:34.739
+Yeah, sorry you do do you remember when.
+
+114 "" (0)
+00:17:34.739 --> 00:17:40.709
+Yes, it was closer to the beginning. It was 1 of our 1st, 3 lectures.
+
+115 "" (0)
+00:17:48.179 --> 00:17:56.279
+Not quite, um, but it was the lecture before that the main place where I mentioned this before was in the, uh, the context of coverage, right?
+
+116 "" (0)
+00:17:56.279 --> 00:18:08.249
+In that case, I told you don't really worry about instrumentation, right? For coverage. It's a solve problem. I think those were my actual words, right in the slides. It probably says something exactly like that.
+
+117 "" (0)
+00:18:08.249 --> 00:18:13.169
+Today, we're not going to treat it as a a sole problem today. 1 of the things we're going to talk about is.
+
+118 "" (0)
+00:18:13.169 --> 00:18:24.089
+How does instrumentation actually happen? I'm sorry about the need to just eat candy in the middle of lecture. I know. It's very annoying for you. All as listeners.
+
+119 "" (0)
+00:18:24.089 --> 00:18:34.019
+Alright, I apologize. Okay. Um, so, but that's better than me just passing out up here by the way. If that does happen, please actually call 9:1:1. that would be that.
+
+120 "" (0)
+00:18:34.019 --> 00:18:53.009
+Okay, so insurance program is going to be any process that we're going to use to modify, rewrite the program uh, either the source code to the binary to change this behavior. And usually, in the context of dynamic analysis, we're going to be doing this to record some additional information. That is usually our goal. So, if you think back to the coverage.
+
+121 "" (0)
+00:18:53.009 --> 00:19:02.669
+Example, what we're doing in coverage usually, is we're recording, did this statement to get executed, for example, by printing out that that statement was reached right?
+
+122 "" (0)
+00:19:02.669 --> 00:19:07.499
+However, we can do much more complex things, right?
+
+123 "" (0)
+00:19:07.499 --> 00:19:26.579
+So this is how coverage instrumentation works this is exactly the example that I just mentioned, right by printing we've reached line X on each line X, but we can do something more exciting. Right? So we can do it in a compile time. This is how, like, Jacob works, right? So why did we need to recompile with? Right?
+
+124 "" (0)
+00:19:26.579 --> 00:19:30.269
+It's so that we had coverage instrumentation, built into the binary.
+
+125 "" (0)
+00:19:30.269 --> 00:19:38.039
+All right, but you could also do it by running in a specialized VM. Right? I've heard of.
+
+126 "" (0)
+00:19:38.039 --> 00:19:43.589
+Nobody okay. Very useful tool. We'll come back to it and discuss it. It's a little bit more.
+
+127 "" (0)
+00:19:43.589 --> 00:19:51.269
+And at least a little bit more detail later in lecture, but at a very high level outline is a tool for monitoring the memory consumption of a process.
+
+128 "" (0)
+00:19:51.269 --> 00:19:58.919
+Right the core reason that you'd want to use now grind when analyzing something like a C program is to try to detect whether you're leaking memory.
+
+129 "" (0)
+00:19:58.919 --> 00:20:05.279
+That is to say what you've forgotten to call free on some point or did those words make sense?
+
+130 "" (0)
+00:20:05.279 --> 00:20:09.959
+I know what a memory leak is, I have written a C program.
+
+131 "" (0)
+00:20:09.959 --> 00:20:18.359
+Hopefully most of you, right? If you have not, you should make sure that you take a course that forces you to do. So it is a very useful.
+
+132 "" (0)
+00:20:18.359 --> 00:20:24.209
+Learning experience, let's say, for understanding, like, how programs actually like, how their computer actually works right?
+
+133 "" (0)
+00:20:24.209 --> 00:20:30.419
+The process of actually learning how to allocate and free memory, I think is something that all students should definitely do. All right.
+
+134 "" (0)
+00:20:30.419 --> 00:20:50.419
+okay the key idea there though is that you don't want to actually lose any of the memory that you allocate because it will be wasted right and so you as the programmer would be responsible for actually keeping track of all of that right it's way harder and you should never write see programs in like real life unless you have to right for performance reasons because you're likely to make a mistake 
+
+135 "" (0)
+00:20:50.419 --> 00:21:08.489
+Right and, uh, you know, allocating and free memory. But, um, Brian, basically, it's like a, a later on your operating system that's going to tell you, like, as it's executing this program how much memory is being used and so you can keep an eye on it. You run it for a long time. The memory just goes up and up and up and never comes back down. That could be bad.
+
+136 "" (0)
+00:21:08.489 --> 00:21:17.069
+Similarly, you could run your Java program and a special right uh, that keeps track of, like, uh, for example, you know, how many like.
+
+137 "" (0)
+00:21:17.069 --> 00:21:31.139
+How much again how much memory it's allocating right? If you want to figure out why your Java program's performance is so bad and why it's constantly calling the garbage collector you might use a specialized gvm for that. I know what a garbage collector is.
+
+138 "" (0)
+00:21:31.139 --> 00:21:36.029
+Relatively a few of you. Um, so, let me briefly explain garbage collector. Um.
+
+139 "" (0)
+00:21:36.029 --> 00:21:39.659
+Is solving basically the same problem as the memory like.
+
+140 "" (0)
+00:21:39.659 --> 00:21:54.209
+Um, uh, the, the memory example, I just, uh, described for right and see, you have to allocate your memory by hand and then freight yourself right in our language like Java, the reason that you don't have to free your memory. Uh, yourself, is that, uh, uh, uh.
+
+141 "" (0)
+00:21:54.209 --> 00:22:05.129
+A process called the garbage collector is running, right? And the garbage collector in general is a dynamic analysis. We're not going to cover it in much detail today, but it is an example of a dynamic analysis. And it's the sort of thing that, uh.
+
+142 "" (0)
+00:22:05.129 --> 00:22:12.929
+Actually, as an example, this is the sort of thing that I might introduce on an exam is give you a bunch of information about it dynamic analysis. You haven't seen.
+
+143 "" (0)
+00:22:12.929 --> 00:22:21.119
+All right, and ask you to relate it to the, the sort of core ideas that we talked about today, right? That's the sort of test question I might like to write for this lecture.
+
+144 "" (0)
+00:22:21.119 --> 00:22:27.689
+And a garbage cluster would be 1 of the sorts of things I would consider there, because it's not something we mentioned in this lecture. Okay. So.
+
+145 "" (0)
+00:22:27.689 --> 00:22:43.919
+With that assigned, what is the garbage collector? Right? Basically, what it's doing is it's keeping track of whether there are still pointers to a piece of a location of memory that are alive in the program. Right? And when the last, the last of those pointers goes out of scope, the goal of the garbage collectors to free that memory.
+
+146 "" (0)
+00:22:43.919 --> 00:22:52.409
+All right, if you're, for example, running a Java program, that is using most of the memory that's available in the system, it's going to call the garbage collector a lot.
+
+147 "" (0)
+00:22:52.409 --> 00:22:57.869
+Because it's like, the garbage collector basically gets called anytime that there isn't enough memory available.
+
+148 "" (0)
+00:22:57.869 --> 00:23:01.799
+Right and the garbage collector is basically keeping a list of like, here's all the things I can.
+
+149 "" (0)
+00:23:01.799 --> 00:23:20.489
+And then it actually executes framework. Right? And so updating that list can be quite expensive if you have a lot of objects. So, a common performance hiccups that you'll see in languages that have garbage collection, like Java or go or some others right? Uh, is that, uh, you'll see big spikes in latency as the language stops, executing your program and instead runs the garbage collector.
+
+150 "" (0)
+00:23:20.489 --> 00:23:26.189
+And if it's running the garbage collector, like every 2nd or so, like, you will see, uh.
+
+151 "" (0)
+00:23:26.189 --> 00:23:34.469
+Like, most of your execution time being taken up by garbage collection, right? And really the problem is that you need to provide more memory. Like, you need to, like, download more.
+
+152 "" (0)
+00:23:34.469 --> 00:23:37.799
+That's not actually possible. You need to use a bigger machine, right?
+
+153 "" (0)
+00:23:37.799 --> 00:23:45.959
+But, uh, so the, the garbage collectors job basically is supposed to do that.
+
+154 "" (0)
+00:23:45.959 --> 00:23:51.299
+Did that explain that? Well enough? I feel more confused than I was before.
+
+155 "" (0)
+00:23:51.299 --> 00:23:55.889
+I mentioned this, I'm afraid that I'm like.
+
+156 "" (0)
+00:23:55.889 --> 00:24:05.819
+Rambling a little bit. He's the low blood sugar so I'm going to eat the rest of this other piece of candy before I go on. If anyone has any questions about garbage collectors. Please direct them to causee. Sorry to put you on the spot.
+
+157 "" (0)
+00:24:41.489 --> 00:24:45.899
+Okay, sorry about that. So, um, going back to the topic of instrumentation.
+
+158 "" (0)
+00:24:45.899 --> 00:24:49.889
+Let's move forward here in the slides, so a common student pitfall here.
+
+159 "" (0)
+00:24:49.889 --> 00:25:00.239
+It's confusing compile time and run time and I want to just dispel that now and make sure that we're all on the same page relative to this, because it's, it's easy to make this mistake. Right?
+
+160 "" (0)
+00:25:00.239 --> 00:25:10.319
+So, at compile time, we instrument the program by preparing it to collect information. Right? That is to say, for example, uh, we look at the example here on coverage, right?
+
+161 "" (0)
+00:25:10.319 --> 00:25:17.279
+Adding these Sprint statements is a compiled time operation, right? We do it. Like, suppose we're adding.
+
+162 "" (0)
+00:25:17.279 --> 00:25:24.749
+Presenting it to the program, right? We're changing the program before it starts executing. Right? And it's just saying we do a static.
+
+163 "" (0)
+00:25:24.749 --> 00:25:30.839
+Just 1 time, similarly, if we were adding the Python, right? We're going to do that to the source, though. Mm. Hmm.
+
+164 "" (0)
+00:25:30.839 --> 00:25:36.629
+However, the print statement actually executes at 1 time, right? It actually records the information at run time.
+
+165 "" (0)
+00:25:36.629 --> 00:25:47.129
+And so you inserted the program before, running it, and then the instrumentation actually runs at runtime just like the rest of the program. Right? And so, um, keeping this distinction.
+
+166 "" (0)
+00:25:47.129 --> 00:25:55.139
+In mind, it is important as we go forward here. Right? And it's an easy thing to get confused with that. So I just want to make sure that we're all clear on.
+
+167 "" (0)
+00:25:55.139 --> 00:26:14.759
+On this and that what I, what I mean by instrumentation, like, instrumentation unfortunately is 1 of those words that's a little bit ambiguous and can kind of mean both. Right? So, usually, when I say, instrumenting the program, I'm referring to the compile time activity of adding instrumentation but when I say instrumentation usually, I mean, the actual print statements that are going to be executed at 1 time.
+
+168 "" (0)
+00:26:14.759 --> 00:26:24.329
+I have a question anyone to have a question about that. Yes.
+
+169 "" (0)
+00:26:24.329 --> 00:26:37.409
+Fair enough. Yeah. So, um, the key thing to keep in mind here is that, um, the process of instrumenting a program to record information and dynamic analysis has to happen before we start the program.
+
+170 "" (0)
+00:26:37.409 --> 00:26:46.499
+All right, and so there is a, uh, like a step before execution that you have to do in dynamic analysis, or you won't be able to learn anything.
+
+171 "" (0)
+00:26:46.499 --> 00:26:52.979
+Right but is to say, you need to modify the program in some way. So that when it actually does start running, you'll be able to tell what it's doing.
+
+172 "" (0)
+00:26:52.979 --> 00:26:57.209
+Okay, that's a compile time process. That's called instrumenting the program.
+
+173 "" (0)
+00:26:57.209 --> 00:27:05.879
+Okay, but the thing you're actually putting in the program is called instrumentation and that actually executes with the program as it's running. That's what makes the analysis dynamic.
+
+174 "" (0)
+00:27:05.879 --> 00:27:11.429
+So, again, I think of the example of coverage is useful, right? When you compute statement coverage.
+
+175 "" (0)
+00:27:11.429 --> 00:27:24.809
+How do you do that? Well, 1st, what you have to do, like, say, live from the homework, right? 1st, what you have to do is compile it in a special way. You have to like, call the compiler a set of special flags. Right? Why do you have to do that? Well, it's to insert all those print statements.
+
+176 "" (0)
+00:27:24.809 --> 00:27:35.789
+Right. Then you have to actually run the program and in a special way right that actually collects all the information you want and then you use it like g cups to actually look at the results. All right.
+
+177 "" (0)
+00:27:35.789 --> 00:27:48.209
+And so, uh, the the point I want to make here is, like, that you have to keep in mind there's a distinction here. They're not this, like, yes, it's a dynamic analysis is a, uh, an analysis that involves running the program, but it's not exclusively running the program.
+
+178 "" (0)
+00:27:48.209 --> 00:27:51.569
+It's allowed to do other things too and and in fact.
+
+179 "" (0)
+00:27:51.569 --> 00:28:02.189
+Useful dynamic analysis, almost always must do some work at compile time or before the program starts executing in order to be able to collect the information they need.
+
+180 "" (0)
+00:28:02.189 --> 00:28:07.649
+Does that clear it up any other questions before we move on?
+
+181 "" (0)
+00:28:11.009 --> 00:28:16.469
+All right. Okay so let's let's go through an example here. All right. Um.
+
+182 "" (0)
+00:28:16.469 --> 00:28:20.039
+So, consider I.
+
+183 "" (0)
+00:28:20.039 --> 00:28:32.399
+Half coverage, right? Computing path coverage. So this is something we talked about briefly when we cover coverage, but I want to go through actually how we would do it. Right? So you wanted to determine how many times each basic path, and a method is executed on a given test input.
+
+184 "" (0)
+00:28:32.399 --> 00:28:35.999
+How would you change the program to record this information?
+
+185 "" (0)
+00:28:35.999 --> 00:28:43.319
+All right, so, uh, let's do an in class exercise here, so I can get more candy. Um.
+
+186 "" (0)
+00:28:43.319 --> 00:28:50.759
+For this example, right I turn to your neighbor and write down the instrumentation that you would add in order to collect this information.
+
+187 "" (0)
+00:28:50.759 --> 00:29:00.989
+Okay, so your goal is assume that I want to say assume that this is like, in a loop somewhere right? It's, it's going to probably be executed many times with different values of a. B. C and D.
+
+188 "" (0)
+00:29:00.989 --> 00:29:03.989
+Right, and the question is how many times has you've packed it yet?
+
+189 "" (0)
+00:29:17.369 --> 00:29:22.169
+Hmm.
+
+190 "" (0)
+00:29:26.549 --> 00:29:30.959
+So.
+
+191 "" (0)
+00:29:36.089 --> 00:29:46.859
+Hello.
+
+192 "" (0)
+00:29:46.859 --> 00:29:53.699
+Yes.
+
+193 "" (0)
+00:29:53.699 --> 00:29:57.779
+Is.
+
+194 "" (0)
+00:30:06.659 --> 00:30:13.649
+Uh.
+
+195 "" (0)
+00:30:30.239 --> 00:30:36.179
+Hello.
+
+196 "" (0)
+00:30:36.179 --> 00:30:39.539
+So.
+
+197 "" (0)
+00:30:48.779 --> 00:30:54.059
+I think I know what instrumentation needs to be added.
+
+198 "" (0)
+00:31:00.719 --> 00:31:05.579
+Give it another 30 seconds or so and then we'll go through it together.
+
+199 "" (0)
+00:31:18.809 --> 00:31:22.679
+All right does anyone have a suggestion for where we will need to add instrumentation?
+
+200 "" (0)
+00:31:27.869 --> 00:31:33.449
+Sure, yeah, that sounds reasonable. So, uh, say, then at the beginning of the blocks, right?
+
+201 "" (0)
+00:31:33.449 --> 00:31:37.439
+Okay uh, so in these locations, right?
+
+202 "" (0)
+00:31:37.439 --> 00:31:43.319
+What instrumentation should be at counter okay. Do you want 1 counter or more than 1?
+
+203 "" (0)
+00:31:48.509 --> 00:31:54.899
+Sure, so let's, uh, let's make, em, Ray, right we'll say that the count of, uh.
+
+204 "" (0)
+00:31:54.899 --> 00:32:00.329
+This is counter 0, this is top of 1. this is 2 and that's kind of free. Right? So, Council.
+
+205 "" (0)
+00:32:00.329 --> 00:32:06.239
+Is a more valued correct, right? Like this right? And then this would be account.
+
+206 "" (0)
+00:32:06.239 --> 00:32:09.989
+0+plus right and so.
+
+207 "" (0)
+00:32:09.989 --> 00:32:15.689
+Okay, this whole thing for everything, right? Does anyone I.
+
+208 "" (0)
+00:32:15.689 --> 00:32:23.009
+Did anyone have an answer that was not this? There are other reasonable things to do it.
+
+209 "" (0)
+00:32:23.009 --> 00:32:28.439
+But, okay all right great. So, this is what's on the next slide so, this is great, right?
+
+210 "" (0)
+00:32:28.439 --> 00:32:35.999
+And let's look into it in detail, so I'm just I'm going to raise that so that I can pull up the next slide. Right? The next line is this.
+
+211 "" (0)
+00:32:35.999 --> 00:32:40.889
+All right, um, this is basically what we had, right? Except that I labeled the agents.
+
+212 "" (0)
+00:32:40.889 --> 00:32:44.339
+All right, so you'll see here that I've labeled, uh.
+
+213 "" (0)
+00:32:44.339 --> 00:32:52.139
+P. Q. R. S. T. A. you right for these different places in the program right? And then I'm using this a, like.
+
+214 "" (0)
+00:32:52.139 --> 00:32:57.029
+Half name our indexing team here and different.
+
+215 "" (0)
+00:32:57.029 --> 00:33:01.859
+Hi, everyone agree that this is the same solution.
+
+216 "" (0)
+00:33:01.859 --> 00:33:10.349
+All right, so how, how will this actually go in practice? All right so suppose that we have, uh.
+
+217 "" (0)
+00:33:10.349 --> 00:33:18.539
+Peter Q. is 2 P2 R's for and right so we've, we've run this, right? And these are the results we got.
+
+218 "" (0)
+00:33:18.539 --> 00:33:30.629
+How many times does P to Q2 take a moment and turn back to, uh, whoever you were talking to about the previous 1, right? And I think this throat.
+
+219 "" (0)
+00:34:17.969 --> 00:34:24.989
+I think I know the answer. All right. What do you think.
+
+220 "" (0)
+00:34:24.989 --> 00:34:31.529
+0, why.
+
+221 "" (0)
+00:34:31.529 --> 00:34:37.259
+Steve.
+
+222 "" (0)
+00:34:37.259 --> 00:34:42.959
+Okay, looking at the program again I I think we do know right because.
+
+223 "" (0)
+00:34:42.959 --> 00:34:47.639
+Uh, quite honestly after this call, right we're going to go after this.
+
+224 "" (0)
+00:34:47.639 --> 00:34:51.089
+All right, so it's going to be 1 of the ads for sure.
+
+225 "" (0)
+00:34:51.089 --> 00:34:55.439
+Right.
+
+226 "" (0)
+00:34:55.439 --> 00:35:02.189
+So, I mean, this is straight line code, right? So you yeah, so so you're, you're changing your answer to 4.
+
+227 "" (0)
+00:35:08.729 --> 00:35:15.239
+Uh, so.
+
+228 "" (0)
+00:35:15.239 --> 00:35:35.239
+I I don't want to put you on, like, too much on the spot here because, uh, actually, this is under specified. There are multiple correct answers. Right? The problem with this approach. This, 900 implementation approach would be put up. Right? Which you all came up with it. When I asked you to do it, right? And this is immediately the thing that everyone would think of. Right? There's nothing wrong with.
+
+229 "" (0)
+00:35:35.239 --> 00:35:42.209
+We're thinking of this, the point of doing this exercise is really to show that this is a little bit trickier than it's right so we'll look at some examples right?
+
+230 "" (0)
+00:35:42.209 --> 00:35:48.479
+I'm putting it to you that there are multiple possible ways to get this number, but these numbers.
+
+231 "" (0)
+00:35:48.479 --> 00:35:53.789
+With different values for this in particular, consider this schedule.
+
+232 "" (0)
+00:35:53.789 --> 00:35:59.789
+Right, but I think is the 1 you are thinking of 2 times, right? In this case we've got, uh.
+
+233 "" (0)
+00:35:59.789 --> 00:36:09.179
+1st, we do, um, uh, and D right and, uh, right, right. And then again, and then we switch the other way, right? And then this last 1 is different. Yes.
+
+234 "" (0)
+00:36:09.179 --> 00:36:14.069
+But this does produce exactly the schedule take a moment and convince yourself of it.
+
+235 "" (0)
+00:36:14.069 --> 00:36:26.249
+Okay.
+
+236 "" (0)
+00:36:32.429 --> 00:36:37.559
+We all agree. Nod your head when you're, you're convinced right?
+
+237 "" (0)
+00:36:37.559 --> 00:36:41.009
+Right. So then instead consider this other schedule.
+
+238 "" (0)
+00:36:41.009 --> 00:36:46.079
+That only positive to go around 1 or it only causes, uh, to to be taken 1.
+
+239 "" (0)
+00:36:58.079 --> 00:37:18.079
+Do you think we could achieve? I, I'm actually not sure. I haven't actually thought about it too hard. I think it's probably possible to get other numbers here. Right? So the 4 is probably also. Correct? There's probably a schedule that leads to 4. right? The point here is that, um, there are many possible ways to achieve, like, different values of these, uh, these individual, uh, edges.
+
+240 "" (0)
+00:37:18.079 --> 00:37:28.739
+Right so this sort of this style of it is not sufficient to actually determine the thing that we care about. Right and the point I'm trying to make here at the higher level point.
+
+241 "" (0)
+00:37:28.739 --> 00:37:42.929
+Is that this is 1 of the hard things about dynamic analysis, right? In the statement coverage case, it's not it's easy to negatively print that you're at a statement, and then just read those logs and you get the right answer. Right. The math involved is not too hard.
+
+242 "" (0)
+00:37:42.929 --> 00:38:02.929
+But when attempting to reason about anything, even slightly more complex, like, Path coverage, you often end up needing to do some reasoning, like, often, complicated reasoning in order to make sure that the information you're collecting actually allows you to reconstruct the information. You care about the information. We care about here is.
+
+243 "" (0)
+00:38:02.929 --> 00:38:11.280
+How many times does each of these sequences? Each of these sequences appear, right? Cause we care about paths, which are of arbitrary life right?
+
+244 "" (0)
+00:38:11.280 --> 00:38:15.300
+But the information we pointed were was not enough to drive it.
+
+245 "" (0)
+00:38:15.300 --> 00:38:19.980
+Right. It's ambiguous. Yes, we'll send this thing with the video.
+
+246 "" (0)
+00:38:19.980 --> 00:38:39.690
+Yeah, so these are these are the values of the variables on a particular iteration right? So we're imagining that this is like, inside a loop and we're running it in this case. Uh, what is this? 1:2:3 4 or 5:6:times right? And on each iteration, the loop, these are the values. The variables to the ones in blue are this path.
+
+247 "" (0)
+00:38:39.690 --> 00:38:51.750
+Okay, so, um, in this case, we've got, uh, 2, in this case we have 1, right? But then the numbers here, I'll make these, this, this, this stuff work out.
+
+248 "" (0)
+00:38:51.750 --> 00:38:59.400
+Okay, okay. Does this make sense to everybody?
+
+249 "" (0)
+00:38:59.400 --> 00:39:02.880
+All right, so what might be doing step? I don't have an idea.
+
+250 "" (0)
+00:39:02.880 --> 00:39:06.300
+Can we just not compute path coverage?
+
+251 "" (0)
+00:39:16.230 --> 00:39:25.470
+But another way here, what I'm really asking is, what went wrong right? Why is it the case that just knowing these numbers what we've put in.
+
+252 "" (0)
+00:39:25.470 --> 00:39:32.580
+Our implementation here with this, this count is not sufficient. Why is it not sufficient?
+
+253 "" (0)
+00:39:32.580 --> 00:39:46.230
+What could we have done differently?
+
+254 "" (0)
+00:39:46.230 --> 00:39:50.220
+The next Tuesday, uh, take a look at that.
+
+255 "" (0)
+00:39:50.220 --> 00:39:56.340
+Sorry, so exclusively, so.
+
+256 "" (0)
+00:39:56.340 --> 00:40:01.830
+Ones that are taken so, if we just take a prospect is then we.
+
+257 "" (0)
+00:40:01.830 --> 00:40:07.950
+Also, consider this where C. D. screen.
+
+258 "" (0)
+00:40:07.950 --> 00:40:13.710
+So, what you're saying is that we need to, like, somehow keep track of which.
+
+259 "" (0)
+00:40:13.710 --> 00:40:17.580
+Which path we took the last time through. Mm. Hmm.
+
+260 "" (0)
+00:40:17.580 --> 00:40:31.980
+So, I think we could do it for this, but I'm worried that this will create a state explosion problem in the amount of instrumentation we need to add right? For each if statement, what we'll need is we'll need to have a check, the previous hit statement. So we know which thing to.
+
+261 "" (0)
+00:40:31.980 --> 00:40:41.160
+To automatically yes and so that means that, like, in this to a statement program, we'll need to merely add 1 new statement next to each of these. Right?
+
+262 "" (0)
+00:40:41.160 --> 00:40:49.530
+But imagine a program with tenant statements in a row. How many students do we need to need to add in the 10th? 1.
+
+263 "" (0)
+00:40:49.530 --> 00:40:56.790
+During the 10, right? It would get out of control very quickly. Um, we could do this, I think, but.
+
+264 "" (0)
+00:40:56.790 --> 00:41:00.990
+We'd be in danger of exponential increase in code size, which.
+
+265 "" (0)
+00:41:00.990 --> 00:41:07.170
+I mean, that's not a good thing. Dangerous, but it's a good idea. It would solve the problem. I think.
+
+266 "" (0)
+00:41:15.570 --> 00:41:35.570
+All right, so, um, here is a real example of this problem is from the 90 s but, uh, this is a real paper that was published in the 90. S, right and it's the same problem that they're trying to solve, right? This is another, uh, an example. Uh, similar to the 1 that we just looked at where the edge count, they've collected.
+
+267 "" (0)
+00:41:35.570 --> 00:41:46.050
+Right and they show that the 2 profiles are different than just to say, like, as you pass through this program, uh, if you just collect the edges, the number of countries ethicacy issues.
+
+268 "" (0)
+00:41:46.050 --> 00:41:49.800
+You will be confused about which of the.
+
+269 "" (0)
+00:41:49.800 --> 00:42:09.800
+And in particular in this paper, uh, they this is the paper where they posted, it basically boils down to the correct answer. So I want to be clear that this is not obvious, right? If you control the 90 s for people to figure this out. So the fact that you're, like, you all are struggling to come up with the right answer, like, sitting here in class it's not surprising. So, don't feel bad.
+
+270 "" (0)
+00:42:09.800 --> 00:42:15.030
+Okay, so this is the bigger from their paper, right?
+
+271 "" (0)
+00:42:15.030 --> 00:42:18.480
+So, what are they going to do differently?
+
+272 "" (0)
+00:42:18.480 --> 00:42:25.590
+So, what they're going to do is they're going to create encodings for the different paths right? And the encodings.
+
+273 "" (0)
+00:42:25.590 --> 00:42:33.210
+Will, uh, tell us which cap we're on right? And that will allow us to, uh, keep track of, uh.
+
+274 "" (0)
+00:42:33.210 --> 00:42:37.680
+Uh, which has were actually taken with relatively little space. Okay.
+
+275 "" (0)
+00:42:37.680 --> 00:42:43.080
+So, I think you just shared this figure for a moment and think about it, right? And then we'll talk about it.
+
+276 "" (0)
+00:43:00.210 --> 00:43:16.740
+The poor thing that they've done differently here right? Cause that they're not keeping track of account for each ad. Right? Instead what they're doing is they're, uh, setting a certain fit. Like, they're setting a variable to, uh.
+
+277 "" (0)
+00:43:16.740 --> 00:43:24.030
+It's a different values that language it's taken right? I notice this, like, our plus equals 1 that happens, right?
+
+278 "" (0)
+00:43:24.030 --> 00:43:27.030
+This art plus, what does that do it?
+
+279 "" (0)
+00:43:27.030 --> 00:43:32.790
+Well, what it's doing is, it is, uh.
+
+280 "" (0)
+00:43:32.790 --> 00:43:37.620
+Allowing us to differentiate between different paths that were taking in the past.
+
+281 "" (0)
+00:43:37.620 --> 00:43:48.300
+All right, so, um, think about like, how, uh, uh, goes rather than a right uh, D. E. F.
+
+282 "" (0)
+00:43:48.300 --> 00:43:59.130
+Uh, is encoded, uh, at 5 here, right? An app is included as 4 and so then whether it's 4 or 5, right? Um.
+
+283 "" (0)
+00:43:59.130 --> 00:44:06.150
+Or will be like, regardless this always goes, I feel like this tech crunch has gone off the rest.
+
+284 "" (0)
+00:44:09.180 --> 00:44:12.330
+Let me start up because I think that was confusing.
+
+285 "" (0)
+00:44:12.330 --> 00:44:17.310
+Once again, they are using the account system, right? So they have an array, right?
+
+286 "" (0)
+00:44:17.310 --> 00:44:21.690
+And the array is indexed by accounts, right? So.
+
+287 "" (0)
+00:44:21.690 --> 00:44:26.130
+It's 0 entry is the path, right?
+
+288 "" (0)
+00:44:26.130 --> 00:44:33.570
+So this is the council it's 1 entry is a.
+
+289 "" (0)
+00:44:33.570 --> 00:44:38.730
+All right et cetera, right? And that's what this happened in quoting thing means over here.
+
+290 "" (0)
+00:44:38.730 --> 00:44:47.970
+All right, and the key trick that they've used is that they figured out a way to make it the case that whether or not you take this, uh.
+
+291 "" (0)
+00:44:47.970 --> 00:44:52.440
+Is included into.
+
+292 "" (0)
+00:44:52.440 --> 00:44:56.010
+The arrangement of the pads in the.
+
+293 "" (0)
+00:44:56.010 --> 00:45:00.690
+All right, so, um, regardless of how you got to be.
+
+294 "" (0)
+00:45:00.690 --> 00:45:06.900
+Alright, there are like, okay, like, basically each place where there's a D, right?
+
+295 "" (0)
+00:45:06.900 --> 00:45:14.400
+The D, can we followed by either an f or an? Right? And in each case, it's always a D and then.
+
+296 "" (0)
+00:45:14.400 --> 00:45:22.680
+the sorry and then the yeah right yeah the uh the 
+
+297 "" (0)
+00:45:22.680 --> 00:45:28.500
+And because they've arranged the array like this, regardless of how you got here.
+
+298 "" (0)
+00:45:28.500 --> 00:45:35.700
+Adding 1, when you have to repeat, will always take you to the, uh, the correct other path.
+
+299 "" (0)
+00:45:35.700 --> 00:45:46.470
+Does that make sense? Not seeing anyone shape like nod their head? Yes. So that makes me.
+
+300 "" (0)
+00:45:52.980 --> 00:46:01.410
+So, let's imagine, let's imagine going through this right? Um, let's just choose some, uh.
+
+301 "" (0)
+00:46:01.410 --> 00:46:05.460
+Well, let's just put some guards on this. Right? And then started.
+
+302 "" (0)
+00:46:05.460 --> 00:46:13.470
+Choosing some values, right? So as opposed that, this is a greater than be and this is a less than equal for some little a will be right?
+
+303 "" (0)
+00:46:13.470 --> 00:46:32.340
+And then, what are their choices? This is a statement, right? So we can say that this is secret D and this is, uh, see less than are able to date. Right? And then we have this other 1. right? So we can make this 1 easier than app. And this 1 be less than that. Does everyone see what I'm saying? Here?
+
+304 "" (0)
+00:46:32.340 --> 00:46:36.780
+Each of these, uh, places where there are 2 outgoing address, and it gets in that.
+
+305 "" (0)
+00:46:36.780 --> 00:46:43.530
+Yes, and so I'm just putting some guards on this somebody gives me values for a. B. C. D. E. F.
+
+306 "" (0)
+00:46:43.530 --> 00:46:46.830
+Yes.
+
+307 "" (0)
+00:46:46.830 --> 00:46:54.360
+one two three four five six okay yes 
+
+308 "" (0)
+00:46:54.360 --> 00:46:57.900
+Now, let's step through what will happen so he's.
+
+309 "" (0)
+00:47:00.960 --> 00:47:10.950
+right so we're going to go down this path right so we have our so we know we're gonna hit a of the passwords a day and then we're gonna hit c right and now what we have is already 
+
+310 "" (0)
+00:47:10.950 --> 00:47:18.150
+Right. Okay. And then after C there's no choice we always go to D next. Right? Because there's only 1 error app.
+
+311 "" (0)
+00:47:18.150 --> 00:47:22.260
+All right, and then we have to check E, rather than f is Eva. Good enough.
+
+312 "" (0)
+00:47:22.260 --> 00:47:28.560
+No, right so then we go to f, right? So the path is a C. D. F.
+
+313 "" (0)
+00:47:28.560 --> 00:47:37.020
+And look at that are, is 0, why? Because the only part, uh, our assignment that we got was the article 00:1:we missed all of the others.
+
+314 "" (0)
+00:47:37.020 --> 00:47:44.430
+right effectively what they've done here is they've designed and encoding so that whichever have you take 
+
+315 "" (0)
+00:47:44.430 --> 00:47:49.560
+The last assignments to R will be the 1 that corresponds to that.
+
+316 "" (0)
+00:47:52.650 --> 00:47:55.770
+All right does that make sense?
+
+317 "" (0)
+00:47:59.700 --> 00:48:09.300
+So each part the value of power will be different for. Exactly. Right. And so, um, the, the key contribution of this paper was that they, uh.
+
+318 "" (0)
+00:48:09.300 --> 00:48:19.830
+They showed a way to do this, right? They showed a way to automatically figure out from the, from the graph how to choose the values of the right but it's not accurate that complicated. We're not going to go through the output.
+
+319 "" (0)
+00:48:19.830 --> 00:48:25.050
+Uh, because there's not really time, right? But I want you all to understand, like.
+
+320 "" (0)
+00:48:25.050 --> 00:48:36.720
+Well, hey, this is actually relatively hard to come up with these kind of algorithms and B, to understand like, what's the difference between this technique and the naive approach that we can.
+
+321 "" (0)
+00:48:43.740 --> 00:48:46.950
+I'm going to start erasing on the whiteboard.
+
+322 "" (0)
+00:48:46.950 --> 00:48:55.800
+Unless anybody has a question for the last time, we had the question of how many times that bot was actually.
+
+323 "" (0)
+00:48:55.800 --> 00:49:15.800
+Yeah, so we're solving the same question here, right? So, I mean, effectively what we're doing here, when I say we got the info, like, we got an article 0, what that means is that we're going to go and we're going to augment like, we're storing accounts over here for how many times is and this count of our + plus is going to take that from 0 to 1 right? And then if we go.
+
+324 "" (0)
+00:49:15.800 --> 00:49:25.980
+On the loop again, we will, uh, and then change the values right? Well, once again gets a counter with our plus boss every time with indirect value bar.
+
+325 "" (0)
+00:49:25.980 --> 00:49:31.680
+Okay.
+
+326 "" (0)
+00:49:35.040 --> 00:49:42.270
+Just to give you some intuition for, like, why this works. Right? Their core trick basically, is that they're a.
+
+327 "" (0)
+00:49:42.270 --> 00:49:50.430
+There's 1 assignment like that is that equals right? Along each possible path here right?
+
+328 "" (0)
+00:49:50.430 --> 00:49:56.490
+And then when you have a branch like this, it's always a.
+
+329 "" (0)
+00:49:56.490 --> 00:50:11.010
+And it might not always be plus equals 1. right? So, if we had like, a more complicated structure here with, like, more possible branches, there might be somewhere. It's like, plus equals 3 in somewhere. It's plus equals 1 or something like that.
+
+330 "" (0)
+00:50:11.010 --> 00:50:16.080
+Yeah.
+
+331 "" (0)
+00:50:16.080 --> 00:50:27.930
+It's very similar to be talking about it. Yes. That's a great connection. Right? This is the same kind of technique. Right? It is. This is fundamentally in the code strategy, but doesn't include a strategy.
+
+332 "" (0)
+00:50:27.930 --> 00:50:38.250
+Rather than data, but this actually gets at an important point that we're going to come back to later in this lecture, which is that, uh, code is actually also just data.
+
+333 "" (0)
+00:50:38.250 --> 00:50:45.000
+Alright, and so the same kind of tricks that tends to work on data also tend to work on code.
+
+334 "" (0)
+00:50:45.000 --> 00:50:50.970
+Okay, so Huffman coding is a way to encode, uh, you know, data and a way that compresses it.
+
+335 "" (0)
+00:50:50.970 --> 00:50:54.330
+Basically, what we've done here is we've compressed the amount of information here.
+
+336 "" (0)
+00:50:54.330 --> 00:50:57.750
+All right. Yeah.
+
+337 "" (0)
+00:50:57.750 --> 00:51:04.440
+Is there any other questions.
+
+338 "" (0)
+00:51:04.440 --> 00:51:07.470
+Let me grab my eraser.
+
+339 "" (0)
+00:51:13.770 --> 00:51:20.820
+Yes.
+
+340 "" (0)
+00:51:20.820 --> 00:51:26.400
+To move on, right? So, um, I also want to point out. I.
+
+341 "" (0)
+00:51:26.400 --> 00:51:37.770
+This is true. All the best research is just my opinion, but I've heard a lot of other people who are better research than me say, as well. Right? The best research makes sense in hindsight, but it's very hard to come up with.
+
+342 "" (0)
+00:51:37.770 --> 00:51:42.060
+All right, this is an example of that where this work, like.
+
+343 "" (0)
+00:51:42.060 --> 00:51:46.950
+Do doing some coding, but once you realize that this is the answer, it it does make sense.
+
+344 "" (0)
+00:51:46.950 --> 00:52:06.950
+All right, it's a very sensible way to approach the problem, but almost everyone not usually attempts the count of counter each edge + plus strategy that everyone came up with at the start. I want to be clear. Like, I didn't come up with this the 1st, time. I looked at this problem either. Right? I was tricked exactly the same way that you all were the very 1st time. I saw these.
+
+345 "" (0)
+00:52:06.950 --> 00:52:18.030
+Right. Or solve this problem and that's standard right? Almost everyone is touched by it the 1st time so don't don't feel bad. All right. Um.
+
+346 "" (0)
+00:52:18.030 --> 00:52:27.090
+The cool thing about this kind of work is that, like, once you, once you, once you understand it, like, it's so obvious that this is the right approach right?
+
+347 "" (0)
+00:52:27.090 --> 00:52:33.390
+Okay, so, um, do you think we could do better than this?
+
+348 "" (0)
+00:52:33.390 --> 00:52:37.200
+Like, I'm not asking you to come up with an answer in the sense of.
+
+349 "" (0)
+00:52:37.200 --> 00:52:41.640
+Uh, come up with a way to do better. I'm asking. Do you think anyone has come up with a way to do better.
+
+350 "" (0)
+00:52:41.640 --> 00:52:47.940
+And if you are thinking of the analogy to Huffman coding, that's actually a good way to answer this question.
+
+351 "" (0)
+00:52:47.940 --> 00:52:52.500
+Huffman coding is the thing that we teach in data structures, right?
+
+352 "" (0)
+00:52:52.500 --> 00:52:58.410
+Do you think that there are more efficient in coating algorithms than Hoffman coding?
+
+353 "" (0)
+00:52:58.410 --> 00:53:11.460
+For compression yeah not just probably definitely. Right. They're definitely more efficient inputting than I have been coding for, uh, for compression. You can do some much clever things. All right.
+
+354 "" (0)
+00:53:11.460 --> 00:53:16.800
+They don't all work on every circumstance. Right? Encoding and decoding is easy in the sense of like.
+
+355 "" (0)
+00:53:16.800 --> 00:53:23.400
+You can learn it in 1 lecture, right? If you go and look at the source code for Jesus, it's much more complicated than just hop encoding. Right?
+
+356 "" (0)
+00:53:23.400 --> 00:53:27.990
+So, with that in mind, do you think we could do better than this better than this?
+
+357 "" (0)
+00:53:32.910 --> 00:53:51.360
+Seeing some nods and the answer is yes, right of course, this immediately becomes a research problem. Right? As soon as somebody sees this, they're like, Ah, I'm sure I can do a better encoding strategy. Right? And so there's been lots of lots of follow up work right? So, instead you could do something like this. So, here, what we have is, uh.
+
+358 "" (0)
+00:53:51.360 --> 00:53:54.780
+We've, we've got a bunch of different variables, right?
+
+359 "" (0)
+00:53:54.780 --> 00:54:08.100
+Uh, augmented it every time to go over an edge and arrange them in such a way that we can derive the, the answers, uh, to each of the paths right? From, uh, some linear combination of these variables.
+
+360 "" (0)
+00:54:08.100 --> 00:54:20.820
+All right, we're not going to go through the details here. Right? But this, these kind of techniques can be about 3 X, faster, blah, blah, blah, right. Lots of research about this. But the sort of core contribution here is realizing that.
+
+361 "" (0)
+00:54:20.820 --> 00:54:25.020
+Uh, there's ambiguity in doing edge counts, and that you can do something better, right?
+
+362 "" (0)
+00:54:25.020 --> 00:54:29.670
+Okay, this was an extended example, but, uh, like.
+
+363 "" (0)
+00:54:29.670 --> 00:54:35.880
+I think we're about the yeah, I think we're ready to move on, right? Unless anyone has any more questions.
+
+364 "" (0)
+00:54:40.560 --> 00:55:00.560
+I hope this gives you an idea of the flavor of the kind of stuff we're talking about today. Right? The point of the sort of overall point of this lecture is to show that statement coverage, for example, like, it's very easy to see how to do the instrumentation and how to compute statement coverage from all those print statements. But for most interesting problems.
+
+365 "" (0)
+00:55:00.560 --> 00:55:04.410
+A little bit trickier.
+
+366 "" (0)
+00:55:04.410 --> 00:55:24.410
+There are no more questions, let's think of another example right? So, we asked about evil adversaries before right now. Let me know what evil adversaries are. Right? Uh, let's talk about information for the primary and the key question information flow tracking is 10 data that's controlled by some evil adversary. Like, say, a user accessing our website over the.
+
+367 "" (0)
+00:55:24.410 --> 00:55:31.230
+Influence sensitive computations. So natively how do you think uh, 1 might, uh.
+
+368 "" (0)
+00:55:31.230 --> 00:55:51.230
+Check if this is happening.
+
+369 "" (0)
+00:55:51.230 --> 00:55:54.660
+So, if I asked you to develop a website.
+
+370 "" (0)
+00:55:54.660 --> 00:56:06.390
+All right, that we knew some, some people would access who are going to enter some data into a form that is not to be trusted right? Because it might secretly try to do like a cross site scripting attack or something.
+
+371 "" (0)
+00:56:06.390 --> 00:56:13.830
+How would you defend against that? I know what any of those words mean.
+
+372 "" (0)
+00:56:13.830 --> 00:56:20.430
+Some of you yeah. Can somebody define cross eyed scripting for me? Yep.
+
+373 "" (0)
+00:56:20.430 --> 00:56:37.920
+Yeah, yeah, yeah. So the idea is that the user is able to input some data into a form and if you accidentally allow the user to, like.
+
+374 "" (0)
+00:56:37.920 --> 00:56:48.690
+Uh, insert say, like an end quote, or something like this, they might be able to actually modify the, the text of your program right? If your, if your code is done incorrectly.
+
+375 "" (0)
+00:56:48.690 --> 00:56:53.490
+Javascript makes us for some reason way too easy right?
+
+376 "" (0)
+00:56:53.490 --> 00:56:57.450
+Okay, so how how, how does 1 defend against such an attack.
+
+377 "" (0)
+00:56:57.450 --> 00:57:02.340
+At a very high level. How would you approach it? Yeah.
+
+378 "" (0)
+00:57:02.340 --> 00:57:06.030
+Yeah, sanitize your input, right but how do you know what to sanitize?
+
+379 "" (0)
+00:57:21.870 --> 00:57:35.610
+Yes, no, that's exactly right. Right. You restrict to think what you can do with it. Right? So, 1:1:way to do this is you, you're like, you could attach a tag to data supplied by user right? You put it into an object that isn't treated the same as every other object, right?
+
+380 "" (0)
+00:57:35.610 --> 00:57:55.610
+But there are a lot of ways that we could do this, so, you know, we're trying to answer questions, like, kind of user password, ever be displayed clear or Ken network data, or ever enter it. These are just other examples besides cross side scripting. So there are 2 important definitions we need in order to formalize this notion. The 1st is a quote unquote source, right?
+
+381 "" (0)
+00:57:55.610 --> 00:58:10.290
+Versus a place where sensitive information comes from right? So, for example, input from the network, uh, user passwords, at the time of the day, I think this could all the sources it depends on the problem, right? Which of these things, we actually care which sources we actually care about right?
+
+382 "" (0)
+00:58:10.290 --> 00:58:16.740
+And then we also need syncs. Syncs are untrusted. Uh, things are places we don't want, uh.
+
+383 "" (0)
+00:58:16.740 --> 00:58:20.190
+We don't want the data to go. Right? So, um.
+
+384 "" (0)
+00:58:20.190 --> 00:58:29.850
+They can either be sensitive computations. Like, we're going to execute a sequel command and we need to sanitize it. 1st, right. Or we're going to run some code and we need to make sure that it's not malicious. 1st. Right?
+
+385 "" (0)
+00:58:29.850 --> 00:58:35.160
+Or they could be like, text display in the clear like, we're going to print this out to the screen and it, it must not be a password.
+
+386 "" (0)
+00:58:35.160 --> 00:58:40.890
+All right, or we're going to store this to death, and it needs to not be a clear tax password, something like this. All right.
+
+387 "" (0)
+00:58:40.890 --> 00:58:46.860
+And, uh, for any of these things, what we're going to do is we're going to keep track of what is a source.
+
+388 "" (0)
+00:58:46.860 --> 00:58:50.340
+All right, we're going to instrument the programs that we know when something's the source.
+
+389 "" (0)
+00:58:50.340 --> 00:58:56.670
+And then we're going to keep track of what's a sync, and we're just going to check if at any point anything that's supposed to be a source.
+
+390 "" (0)
+00:58:56.670 --> 00:59:01.860
+Uh, ever passes intuition. All right. Does this plan make sense?
+
+391 "" (0)
+00:59:01.860 --> 00:59:20.880
+How far do we think this is can you imagine implementing a system that would track sources and see if they hit syncs.
+
+392 "" (0)
+00:59:20.880 --> 00:59:30.960
+So, for.
+
+393 "" (0)
+00:59:30.960 --> 00:59:34.380
+Let's see.
+
+394 "" (0)
+00:59:34.380 --> 00:59:37.800
+Data 1.
+
+395 "" (0)
+00:59:37.800 --> 00:59:52.050
+Yeah, so we can definitely do that, right? We can pass special data into the, into all the things we think, our sources, and then ever like, check all of our syncs and see if they ever contain that special data. Right that's an extremely effective technique. Very good idea. All right.
+
+396 "" (0)
+00:59:52.050 --> 01:00:03.540
+Oh, there it is. I mean, the other thing, I think I already mentioned a bit, which is like, we need to, but we can, um.
+
+397 "" (0)
+01:00:03.540 --> 01:00:16.950
+Do like, add a special standardization routine or spectral versions of the various input channels. All of a sudden separate versions of the sources that instead of producing, just like a string produce a special string that has a like, a.
+
+398 "" (0)
+01:00:16.950 --> 01:00:24.480
+Like, a marker in it somehow that we can recover right? Like, for example, we could have our.
+
+399 "" (0)
+01:00:24.480 --> 01:00:35.280
+Our network input from the network, uh, always attach a special header, right? Uh, while we're running in our testing mode, right? And then we, we, uh, we can then check all of our things for that header.
+
+400 "" (0)
+01:00:35.280 --> 01:00:39.360
+All right does that technique make sense? All right.
+
+401 "" (0)
+01:00:39.360 --> 01:00:43.560
+Yeah.
+
+402 "" (0)
+01:00:43.560 --> 01:00:50.850
+Sorry like, uh, Jason I checked them. Yes. Yeah. That's another way that we can get. Yes, it's very similar.
+
+403 "" (0)
+01:00:50.850 --> 01:00:56.250
+Similar experience does everyone know to check? Some is.
+
+404 "" (0)
+01:00:56.250 --> 01:01:02.880
+Okay, it seems like pretty much everyone. Does anyone not know what to checks on it?
+
+405 "" (0)
+01:01:02.880 --> 01:01:06.000
+Seems like now. All right, we'll move on. Um, okay.
+
+406 "" (0)
+01:01:06.000 --> 01:01:11.370
+And so let's, let's look at an example of this, consider this program.
+
+407 "" (0)
+01:01:11.370 --> 01:01:18.330
+All right, so this is, uh, fairly, fairly straightforward, uh.
+
+408 "" (0)
+01:01:18.330 --> 01:01:23.490
+A bit of code, right? So what here do we think would be the sources.
+
+409 "" (0)
+01:01:31.080 --> 01:01:34.440
+Yeah, 1st, 2 lines. Yes. Why are those 2.
+
+410 "" (0)
+01:01:38.100 --> 01:01:43.020
+Number 2, that username and password, right? These 2 things are getting something that's probably important.
+
+411 "" (0)
+01:01:43.020 --> 01:01:46.800
+All right, and then, uh, what what do we think are the things.
+
+412 "" (0)
+01:01:53.190 --> 01:01:57.420
+Yeah, last line yes, totally correct. Why the last line.
+
+413 "" (0)
+01:02:02.370 --> 01:02:06.930
+Yeah, I mean, um, and it's also kind of spaces that are evil dotcom.
+
+414 "" (0)
+01:02:06.930 --> 01:02:19.770
+Um, yeah, so I, I got to the point here, this, like, this is a fairly straightforward to do as a human right? And you could imagine writing an analysis, but also does this.
+
+415 "" (0)
+01:02:19.770 --> 01:02:23.880
+All right, so any questions about this, like high level example.
+
+416 "" (0)
+01:02:23.880 --> 01:02:33.450
+I'm going to go much faster through these last couple because we spent so long on the previous 1. the 1st 1. okay. So Here's another another example of something we could do with dynamic analysis.
+
+417 "" (0)
+01:02:33.450 --> 01:02:38.730
+We could try to determine how much time a program is spending in each of its components like each method, for example.
+
+418 "" (0)
+01:02:38.730 --> 01:02:53.640
+Why might we want to do that? Yes, yes. We want to. We might want to do performance bottleneck. We want to know where the program is.
+
+419 "" (0)
+01:02:53.640 --> 01:03:02.880
+Right if we are concerned that our program is taking too long, we might want to know that. Like, we're actually spending 90% of our time and some computation. We don't really care about and we don't want to go and optimize that.
+
+420 "" (0)
+01:03:02.880 --> 01:03:21.090
+All right, so conceptually, what we would do here is, 1st, we'd record the time at the entry and exit of each method, right? Just put those in a side file and then we would subtract 1 from the other. All right, and then we would update some global table right? Does this make sense as a high level plan for how we would figure out how much time we're spending in each method?
+
+421 "" (0)
+01:03:21.090 --> 01:03:25.920
+Can anyone think of anything that might possibly go wrong with this?
+
+422 "" (0)
+01:03:32.580 --> 01:03:36.150
+We've talked about at least 2 things today that could cause this to be wrong.
+
+423 "" (0)
+01:03:36.150 --> 01:03:51.060
+Yeah, race conditions for sure. So this is going to be asking asking to create a 1 to erase conditions, right? If we're not careful right? We have multiple threads running with 1, global table. That could be 1 problem, but also, just in general here.
+
+424 "" (0)
+01:03:51.060 --> 01:04:11.060
+Scheduling is going to matter a lot, right? If we are preempted in the middle of executing a method, are we going to accurately estimate how much time we spent on that method? No, we're going to wildly inaccurate. We can make it a wildly inaccurate estimate. So, we need like, a per thread o'clock or not? No no per process clock. So, like, this gets way more.
+
+425 "" (0)
+01:04:11.060 --> 01:04:26.160
+Complicated I want to be clear. Another thing that could happen here, is that the garbage collector could run. Right? That's the other thing that we definitely talked about today. That could go wrong here, but there are so many others and this is actually extraordinarily complicated topic. Right? In practice building a profile, or is like.
+
+426 "" (0)
+01:04:26.160 --> 01:04:37.410
+Quite far, um, and so it's way complicated enough to merit probably at least 1 lecture possibly more than 1. so we're not going to go into the details here. Right?
+
+427 "" (0)
+01:04:37.410 --> 01:04:51.510
+But, um, yeah, we don't, we do not have time to cover, uh, any of this in detail, but again feel free to ask me about it at some point in the future. But my goal here is just to give you a sense for the kinds of things that we can do, uh, with the, like, these kind of dynamic analysis right?
+
+428 "" (0)
+01:04:51.510 --> 01:05:04.470
+So then, the real question is, what do they have in common? Right? So, we've talked about edge coverage, Path, coverage, information, flow, tracking execution, time profiling, and, you know, a bunch of others, like dynamic variant detection or computing statement coverage.
+
+429 "" (0)
+01:05:04.470 --> 01:05:20.700
+What do these things have in common.
+
+430 "" (0)
+01:05:20.700 --> 01:05:30.240
+Yes, yeah, you always have to instrument the code. 1st right? What else do they have in common.
+
+431 "" (0)
+01:05:40.620 --> 01:05:47.250
+And we based on the title of this lecture on the front page dynamic analysis there right? We know that they all involve running the program.
+
+432 "" (0)
+01:05:47.250 --> 01:05:51.720
+All right are there any other things that we, we've noticed that they have in common.
+
+433 "" (0)
+01:05:57.960 --> 01:06:15.630
+Certainly, they all involve, like, doing some kind of analysis afterwards. Right? Um, they also often have this sort of like, possible way that things can go wrong, like, related to things like data races or preemption, or have something like, we have to be thinking part about how the operating system is working. Right?
+
+434 "" (0)
+01:06:15.630 --> 01:06:27.780
+Um, yeah, so there's a lot of things that they haven't caught. Okay. And so, um, my goal then yeah, so they all involve recording a subset of all the information about the program's execution as well. Right? So, all of this, uh.
+
+435 "" (0)
+01:06:27.780 --> 01:06:30.990
+All these things allow us to, like, sort of.
+
+436 "" (0)
+01:06:30.990 --> 01:06:42.300
+Give a pattern for how dynamic analyses are built before I show that that pattern I want to talk about this, this notion of recording a subset. Right? And why am I mentioning it? A subset here?
+
+437 "" (0)
+01:06:42.300 --> 01:06:45.720
+None of these things are recording every.
+
+438 "" (0)
+01:06:45.720 --> 01:06:50.640
+About the program, right? They don't allow us to recover the entire state of the program.
+
+439 "" (0)
+01:06:50.640 --> 01:06:55.020
+And I want to just briefly answer the question of why not just do that.
+
+440 "" (0)
+01:06:55.020 --> 01:06:59.610
+Why not just save what the program? Everything the program is doing all the time.
+
+441 "" (0)
+01:06:59.610 --> 01:07:03.330
+The answer basically is like.
+
+442 "" (0)
+01:07:03.330 --> 01:07:22.380
+It cost right? Like, in theory you could do that if you had a very big computer, but in practice you cannot. Right so suppose that we have a 4 gigahertz computer, this is a sort of standard processor speed these days. Right? Suppose our program, we have a program that runs for 1 minute right? And suppose further.
+
+443 "" (0)
+01:07:22.380 --> 01:07:26.190
+Suppose that we, we record just 1 bite for every instruction. That's wrong.
+
+444 "" (0)
+01:07:26.190 --> 01:07:31.110
+All right, like for example, like which instruction we're running, right? How much data are we recording?
+
+445 "" (0)
+01:07:31.110 --> 01:07:49.980
+Paper and, like, do the math.
+
+446 "" (0)
+01:08:16.500 --> 01:08:24.300
+You know, raise your hand when you think, you know, I have a close estimate at least.
+
+447 "" (0)
+01:08:24.300 --> 01:08:34.260
+All right, what do we think about 40? Yeah. A lot. Right? So this is this is just based for properties about 246. I think that's right.
+
+448 "" (0)
+01:08:34.260 --> 01:08:37.500
+Yeah, 140 gigs for a minute, right? Um.
+
+449 "" (0)
+01:08:37.500 --> 01:08:43.200
+That's all not right. It's 4,000. megabytes. Every 2nd. Right? Um.
+
+450 "" (0)
+01:08:43.200 --> 01:08:53.760
+If we just consider, like, how fast are modern SSDs we're almost hitting the limit of them just with this right? Does anyone know how fast monitor instances are.
+
+451 "" (0)
+01:08:53.760 --> 01:08:57.240
+No reason for you to the, the fastest.
+
+452 "" (0)
+01:08:57.240 --> 01:09:03.090
+Oh, we know that's why right? Yeah. So on a hard drive, we couldn't do this.
+
+453 "" (0)
+01:09:03.090 --> 01:09:09.150
+Right like a traditional hardest can't write this fast. Right? So we need to use.
+
+454 "" (0)
+01:09:09.150 --> 01:09:27.360
+Um, modern necessity. So, uh, this said as of January 22, but I also checked again. That's what I'm these slides for me, but I checked this morning and the answer was still about 7,000. it hasn't significantly changed in the last couple of years. So, about 7,000 megabytes per 2nd, is the best on the market.
+
+455 "" (0)
+01:09:27.360 --> 01:09:37.890
+Uh, there are actually a number of them now that can hit this, uh, Benchmark, but, like, we're, we're basically, like, pushing up against the limit just with 1 bite for instruction right?
+
+456 "" (0)
+01:09:37.890 --> 01:09:52.470
+So, we record everything the program is doing, like, physically impossible for us to record all that information, right? We just won't be able to. Right? And this is going to fill up your hard drive stupid fast. Right? I mean, 240 gigabytes is a lot.
+
+457 "" (0)
+01:09:52.470 --> 01:09:57.690
+All right, like this is basically all copying data right? And then doesn't leave it before.
+
+458 "" (0)
+01:09:57.690 --> 01:10:03.030
+Uh, right in 4,000 megabytes per. 2nd here it doesn't leave a whole lot of resources for the program. We're actually executing. Does it.
+
+459 "" (0)
+01:10:03.030 --> 01:10:06.390
+All right, this is an extra would be extraordinarily expensive.
+
+460 "" (0)
+01:10:06.390 --> 01:10:10.500
+So, the point here is that, like.
+
+461 "" (0)
+01:10:10.500 --> 01:10:19.920
+It's critically important in designing a dynamic analysis to decide what we are going to actually record and, like, think carefully about that if we record everything. Well, we can't.
+
+462 "" (0)
+01:10:19.920 --> 01:10:26.700
+Okay, so we cannot record it all. So that means that we have to do some kind of implementation, right?
+
+463 "" (0)
+01:10:26.700 --> 01:10:34.530
+And so, with with massive compression, if we're very good, we can maybe record about half a megabyte for mega instruction there, which is the.
+
+464 "" (0)
+01:10:34.530 --> 01:10:40.320
+Uh, like a, that's a made up unit, but, like, this is about the feasible limit.
+
+465 "" (0)
+01:10:40.320 --> 01:10:55.410
+That we found in practice right? But of course, there's also instrumentation overhead involved here. Right? So the more instrumentation overhead we have, the more we're going to affect the running of the program itself, right?
+
+466 "" (0)
+01:10:55.410 --> 01:11:06.480
+And so, the relevant information here depends on the problem that we're trying to solve. Right? And so we, when we are designing a dynamic analysis, or thinking about how to use it and analysis how to, like, how to deployed analysis.
+
+467 "" (0)
+01:11:06.480 --> 01:11:09.900
+We need to make sure that we've chosen to record the right information.
+
+468 "" (0)
+01:11:09.900 --> 01:11:15.900
+And so 1 of the core questions, uh, designing, this kind of tool is always like, what are you going to record.
+
+469 "" (0)
+01:11:15.900 --> 01:11:35.900
+If you need to compute information, you're trying to do information flow tracking, versus you're trying to compute path coverage. You need very different kinds of information. Right? The 2 basically don't share information at all. And so you need to do different sorts of instrumentation ahead of time, in order to actually record that information, right? There's no sort of like.
+
+470 "" (0)
+01:11:35.900 --> 01:11:41.760
+Bullet for instrumentation, it's a per problem kind of thing that you have to solve you to decide.
+
+471 "" (0)
+01:11:41.760 --> 01:11:50.700
+What do I need to record in order to figure out the answer to the question about the program that I want to know the answer to.
+
+472 "" (0)
+01:11:50.700 --> 01:11:54.480
+All right does that does that make sense to everybody? Good.
+
+473 "" (0)
+01:11:54.480 --> 01:12:13.560
+So basically, what this means is that we have to focus in our particular problem, right? We must be focused. Right? We must be like, we have to think about it. I think that's the core thing. I want to get across here so that you have to think about what you're doing when you when you're dealing with this kind of analysis, it is not just run the program and hope for the best. Right?
+
+474 "" (0)
+01:12:13.560 --> 01:12:18.450
+So, yeah, I, I always love this, uh.
+
+475 "" (0)
+01:12:18.450 --> 01:12:23.880
+This this quote of most problems in computer science can be solved by adding either a layer of abstraction or a.
+
+476 "" (0)
+01:12:23.880 --> 01:12:32.280
+Basically, what we're doing here is we need to we need to figure out an abstract property that we care about. Right this is a add a layer of abstraction kind of situation.
+
+477 "" (0)
+01:12:32.280 --> 01:12:40.530
+Okay, so this puts us in a position then to talk about all the components that we actually would need in order to build in a dynamic analysis. So, um.
+
+478 "" (0)
+01:12:40.530 --> 01:12:46.350
+What I'm going to do here is sort of explain all of these parts and then we'll go through some examples.
+
+479 "" (0)
+01:12:46.350 --> 01:12:55.590
+So, 1st, we need the property of interest we need to decide what we're trying to learn about and why right? And so we have to we have to make a decision here. We can't learn about every property.
+
+480 "" (0)
+01:12:55.590 --> 01:13:03.600
+Then we need to define what information related to the property of interest we care about. Right? How are we going to actually learn about it? Okay.
+
+481 "" (0)
+01:13:03.600 --> 01:13:06.630
+What is the information we want to collect? Right? Mm. Hmm.
+
+482 "" (0)
+01:13:06.630 --> 01:13:13.980
+Then we need a mechanism for collecting that information. Right? Which is to say, how does our instrumentation actually work right?
+
+483 "" (0)
+01:13:13.980 --> 01:13:29.520
+Then we need actual input data, right? We need to decide how we're what input we're going to use to drive the program. Right? And then finally we need a mechanism for learning about the property of interest from the information that actually gets collected. Right? And so.
+
+484 "" (0)
+01:13:29.520 --> 01:13:43.890
+Like, thinking back to the question of past coverage, right? This was where, uh, we went wrong in our initial attempt at path coverage right? We recorded some information right? Um, we had a mechanism for collecting that information.
+
+485 "" (0)
+01:13:43.890 --> 01:13:55.320
+But we weren't able to get from that information to the actual property of interest, which was half coverage because what we recorded was edge counts. Right? And edge accounts do not unambiguously, uh, differentiate, uh, paths.
+
+486 "" (0)
+01:13:55.320 --> 01:13:59.640
+So, we need to then we need to be able to answer to this last question as well.
+
+487 "" (0)
+01:13:59.640 --> 01:14:04.440
+All right, so does this high level high level structure makes sense to everybody.
+
+488 "" (0)
+01:14:04.440 --> 01:14:09.540
+For how dynamic analysis works. Okay. So then let's look at an example that we know. Well.
+
+489 "" (0)
+01:14:09.540 --> 01:14:16.980
+Branch coverage, right we talked about branch coverage when we did coverage. Right? So let's go through this. So, what's the property of interest here?
+
+490 "" (0)
+01:14:24.000 --> 01:14:33.060
+Yeah, it's branch coverage right? More specifically it's the, uh, whether or not each branch was taken right? So, uh, I mean, it's just yeah, it is just rent coverage, right?
+
+491 "" (0)
+01:14:33.060 --> 01:14:38.670
+Okay, um, what is the information related to the property of interest that we're going to going to collect?
+
+492 "" (0)
+01:14:38.670 --> 01:14:48.420
+All right, so well, the property is a percent, right? This is like the output here is going to be like, 95% branch.
+
+493 "" (0)
+01:14:48.420 --> 01:14:59.220
+But we need to collect some specific information from the program that we're going to use to compute. Right? So what what, what information do we think in.
+
+494 "" (0)
+01:14:59.220 --> 01:15:03.720
+This is actually quite yes. Sorry.
+
+495 "" (0)
+01:15:03.720 --> 01:15:18.810
+Yeah, it's it's, uh, like, uh, just taking yeah. Branches taking. Yeah, that's a good way to say it. Right? Like, which which branch was executed, when that's how I have it in the slides here. But, like, the question is like pretty Frank, did we go down it or not? Right we're gonna collect that information.
+
+496 "" (0)
+01:15:18.810 --> 01:15:29.760
+That will allow us, we hope to compute this 95%. That's fantastic. Then we need a mechanism for collecting that information. How will we instrument the program to collect? Which branch was executed? When.
+
+497 "" (0)
+01:15:37.770 --> 01:15:42.870
+Print statements yeah print statement should work right? Just add a print statement and each branch. Yep.
+
+498 "" (0)
+01:15:42.870 --> 01:15:48.030
+All right, then we need test input data. What testing? What are we going to? What's happening? What are we gonna use here?
+
+499 "" (0)
+01:15:51.480 --> 01:16:04.650
+Yeah, well it's, it's this right this test, right? Whatever tests we, we're trying to compute branch coverage for and so that's relatively easy but we could also do something like, uh, use test input data. We generate earlier in class. There's many options here.
+
+500 "" (0)
+01:16:04.650 --> 01:16:14.070
+Okay, and then we know mechanism for learning about the property of interest from the information we collected. So, how will we get to 95% from these logging statements?
+
+501 "" (0)
+01:16:14.070 --> 01:16:19.020
+We have a list of logins, uh, of print print outs from the program. Highly compute. The branch cover.
+
+502 "" (0)
+01:16:23.730 --> 01:16:38.940
+Exactly number of prints that happened divided by the total number of branches. There are right and, you know, maybe there's some like, we need to do uniqueness checking. Right in case we hit the same branch twice some things like this. Right? But in general, like, this is for brand coverage place, this isn't too hard, right?
+
+503 "" (0)
+01:16:38.940 --> 01:16:46.560
+So, we have to do some post processing, we have to discard the duplicates and then we divide observe number by serial number, which is what we said.
+
+504 "" (0)
+01:16:46.560 --> 01:16:54.090
+All right does this make sense? Do you feel like you could do this with for some other analysis if I asked you to.
+
+505 "" (0)
+01:16:57.540 --> 01:17:01.650
+Like say, I asked you to do this for icon do we feel confident? We could.
+
+506 "" (0)
+01:17:07.860 --> 01:17:16.920
+I would suggest that by the time of the exam next week, or sorry in 2 weeks, uh, you should feel confident to be able to do this sort of thing for any of the analysis we've discussed.
+
+507 "" (0)
+01:17:16.920 --> 01:17:21.690
+Right, because this is the sort of question I think it would be perfectly fair to ask on the on the exam. Yes.
+
+508 "" (0)
+01:17:21.690 --> 01:17:25.440
+I think you read from the data.
+
+509 "" (0)
+01:17:25.440 --> 01:17:45.440
+Yeah, so it depends right it depends on the analysis like, in this case, um, we're, we're, I guess we set up here, uh, branch coverage of the test suite. But, um, I guess I didn't well define in this particular example like, what we're getting the branch corporate job, right? If we want the branch coverage of any specific test suite and the answer here is like.
+
+510 "" (0)
+01:17:45.440 --> 01:17:52.230
+That specific test suite if the answer, the question is, we want to get branch coverage in general.
+
+511 "" (0)
+01:17:52.230 --> 01:18:00.930
+For some test suite, then you need to make a test case, right? So, you know, uh, it, it really depends on the context. Right? But, um.
+
+512 "" (0)
+01:18:00.930 --> 01:18:13.650
+Where this has input data, it's gonna come from matters a lot for most dynamic analysis because most dynamic analyses tell you something about the program with respect to this input.
+
+513 "" (0)
+01:18:13.650 --> 01:18:22.050
+All right, we'll come back to this. I have a few points later in the deck on, uh, input dependence right? And I'll talk about more of that.
+
+514 "" (0)
+01:18:22.050 --> 01:18:28.530
+Does that answer the question? Well, enough for now? Yeah. Yeah.
+
+515 "" (0)
+01:18:28.530 --> 01:18:35.250
+Any other questions here? Yes. Um, so this is a.
+
+516 "" (0)
+01:18:35.250 --> 01:18:42.030
+Like, for brand coverage, especially, um, like, if you got a bunch of print statements, you need to like, uh, like.
+
+517 "" (0)
+01:18:42.030 --> 01:18:45.060
+Get them out of wherever they are, and.
+
+518 "" (0)
+01:18:45.060 --> 01:18:51.630
+Separate them from the program's actual output, things like that. Right? So, for example.
+
+519 "" (0)
+01:18:51.630 --> 01:19:01.410
+Consider a program that also Princeton standard app if you print all your branch coverage information to standard out, right? Then you need to split that apart somehow. Right?
+
+520 "" (0)
+01:19:01.410 --> 01:19:09.900
+Instead you printed all of the branch coverage information to a particular file, then you need to go and open that file and make sure that they're not duplicates and stuff like this.
+
+521 "" (0)
+01:19:09.900 --> 01:19:16.800
+But in general, like, there's always going to be some kind of growth properties that in almost every, uh.
+
+522 "" (0)
+01:19:16.800 --> 01:19:21.120
+Like, actual practical implementation of some dynamic analysis. Yeah.
+
+523 "" (0)
+01:19:26.370 --> 01:19:31.320
+Other questions here before I move on. Okay.
+
+524 "" (0)
+01:19:31.320 --> 01:19:35.640
+All right, so that was the end of our overview. How are we on time.
+
+525 "" (0)
+01:19:35.640 --> 01:19:48.540
+Ooh, not so good. Okay so I now want to talk a bit about instrumentation, right? And then we'll jump into properties, but 1st, with respect to instrumentation here. Um, my goal here is to like, not.
+
+526 "" (0)
+01:19:48.540 --> 01:19:56.430
+To allow you to go build, go out and build your own instrumentation right now it's to give you a sense of what would be involved if you did. Right?
+
+527 "" (0)
+01:19:56.430 --> 01:20:10.260
+Okay, so the question here is, how would you actually instrument a program to collect information about a property of interest? We've talked about, like, adding print statements and so on. But, like, how would you add print statements to a program automatically?
+
+528 "" (0)
+01:20:10.260 --> 01:20:30.260
+Like, serious question like, how would you do that? There are some, some options, right? We could do a source of source transformation right? That is to say, we take the program source and we modify it somehow. Right? And we could do that by hand for example, right? Like, 1 way to compute coverage information for our program is that you could go into that.
+
+529 "" (0)
+01:20:30.260 --> 01:20:32.670
+Program and right. Print after every line.
+
+530 "" (0)
+01:20:32.670 --> 01:20:52.670
+Do you want to do that? I don't think so for even anything, anything, but the smallest program doing it by hand is probably not going to be feasible, but you've done print line debugging. Probably. I know what what is meant by front line debugging. Right. That's where, you know, you know, that there's a problem at a particular line and you like, print out and you just right.
+
+531 "" (0)
+01:20:52.670 --> 01:21:00.150
+French blah, blah. That is instrumentation, right? It's very specific tailored instrumentation at your too lazy to automate.
+
+532 "" (0)
+01:21:00.150 --> 01:21:06.540
+Most of the time, right but it is a form of instrumentation so the kind of instrumentation that you would do by hand, right?
+
+533 "" (0)
+01:21:06.540 --> 01:21:11.820
+For these kind of automated dynamic analyses, though, we're going to want to do something smarter than go by hand right?
+
+534 "" (0)
+01:21:11.820 --> 01:21:16.050
+Um, so, uh, yeah, so, like this, this 1, we did by hand, I made you to do this 1, right here.
+
+535 "" (0)
+01:21:16.050 --> 01:21:21.360
+Another thing you could try and a regular expressions. All right. I'm familiar with regular expressions.
+
+536 "" (0)
+01:21:21.360 --> 01:21:24.420
+Does anybody know what this means?
+
+537 "" (0)
+01:21:32.880 --> 01:21:36.750
+Or even maybe it means is wrong, because I don't know what is what is for.
+
+538 "" (0)
+01:21:40.500 --> 01:21:51.270
+Huh.
+
+539 "" (0)
+01:21:51.270 --> 01:22:00.420
+Um, not quite so this, like, s, slash slash something, Flash something slack g, uh, format um.
+
+540 "" (0)
+01:22:00.420 --> 01:22:05.070
+Format is said, which is a Linux utility, right? Oh.
+
+541 "" (0)
+01:22:05.070 --> 01:22:08.160
+um so what this is going to do is it's a search 
+
+542 "" (0)
+01:22:08.160 --> 01:22:21.000
+It finds everything between this 1st, slide from this next slide, replaces it with everything in between these next Paris office and then this g means do it globally in the whole file, right? Don't just do it once.
+
+543 "" (0)
+01:22:21.000 --> 01:22:29.070
+What's happening here is that we're searching for, like, any line that has a semi colon at the end, right?
+
+544 "" (0)
+01:22:29.070 --> 01:22:32.340
+And then we are, uh, adding a, a.
+
+545 "" (0)
+01:22:32.340 --> 01:22:47.610
+uh they compute the time run that line and then print the time the current time minus what the time was in the start right so what this is doing is checking how long each uh each line takes six 
+
+546 "" (0)
+01:22:47.610 --> 01:22:53.940
+All right. Um, okay, so what, what can go wrong with regular expressions?
+
+547 "" (0)
+01:22:53.940 --> 01:23:09.540
+Like, just in general here. Yeah. Okay. Uh, so, yes, this, this would probably be expensive, right? In the sense of, like, uh, actually applying it to a large code base might take some time. But, like, programs aren't that day to be honest.
+
+548 "" (0)
+01:23:09.540 --> 01:23:18.090
+Right like, regular friends are relatively fast to it. Why compared to some of the other prices we're going to discuss in just a minute? So that sounds like a key problem like this.
+
+549 "" (0)
+01:23:18.090 --> 01:23:22.740
+They tend to be slow, but this would probably be fast enough. Right?
+
+550 "" (0)
+01:23:22.740 --> 01:23:27.120
+But even on, like, a small program, where this will be fast enough, there's something that could go wrong.
+
+551 "" (0)
+01:23:27.120 --> 01:23:30.390
+My transcription is worse.
+
+552 "" (0)
+01:23:30.390 --> 01:23:35.490
+Yes, they can go. That is correct. Right? The key problem that we're going to start to run into here is.
+
+553 "" (0)
+01:23:35.490 --> 01:23:39.780
+uh this is looking for lines that have a semi bullet in the seventy four right 
+
+554 "" (0)
+01:23:39.780 --> 01:23:46.590
+What, if there's something in the program that I like, it should not actually match this right?
+
+555 "" (0)
+01:23:46.590 --> 01:23:54.840
+So, for example, we have, uh, align, like, this is a comment.
+
+556 "" (0)
+01:23:54.840 --> 01:24:01.380
+Semi colon why is this on here? That line? I don't know, but we need to interrupt this line to check. I wanted to start skip.
+
+557 "" (0)
+01:24:01.380 --> 01:24:21.380
+No, probably not right so that would be a bad idea, right? Um, where else could like it and in general, like, uh, the, the key problem with right is that writing a Reg for code is going to be too hot right? That's not going to have any false positives or false negatives, right? In the sense that we're going to discuss in this 10 minutes, right? Cause it's getting right right, right.
+
+558 "" (0)
+01:24:21.380 --> 01:24:32.670
+They're going to be basically impossible in general. If someone suggest that you write a right next to, uh, anything more complicated than necessary. Certainly replace info. You probably shouldn't do that.
+
+559 "" (0)
+01:24:32.670 --> 01:24:37.290
+Probably about so what can we do instead? Right?
+
+560 "" (0)
+01:24:37.290 --> 01:24:44.730
+So, we're going to we probably want to do something else. Right? And this is the point where we're going to have to turn to, uh.
+
+561 "" (0)
+01:24:44.730 --> 01:24:49.830
+Like, something more complex than regular expressions, which usually means, uh, compiler.
+
+562 "" (0)
+01:24:49.830 --> 01:24:56.100
+We're probably going to have to either modify the compiler or modify the run.
+
+563 "" (0)
+01:24:56.100 --> 01:25:03.270
+So, how easy is modifying compiler? I have personally modify the compile before.
+
+564 "" (0)
+01:25:03.270 --> 01:25:15.270
+Surprising that's known in room except me. All right so it is hard, right? In general like, this is like, for example, the reason that you need, like, well, why do you think AFL needs to have its own version of.
+
+565 "" (0)
+01:25:15.270 --> 01:25:22.890
+Well, it's computing coverage for your program, right? And so AFL, its job is to insert insert the instrumentation that AFL needs.
+
+566 "" (0)
+01:25:22.890 --> 01:25:36.000
+Right that's the reason you have to compile like, when we did the AFL lab, right? While you had to compile with AFL, instead of just regular, if you can compiled it with regular GCC, it wouldn't work.
+
+567 "" (0)
+01:25:36.000 --> 01:25:42.210
+Okay um, so, uh, you know, if you actually want to write your own instrumentation for this.
+
+568 "" (0)
+01:25:42.210 --> 01:26:02.210
+You're probably gonna need to modify a compiler in some way. Right but, uh, you know, that that may not be as bad as you think. Okay, so here's the sort of general way that this might work, right? If you can do a source of sort of transformation, right? If you can write a regular expression or some other relatively straightforward way to do it, you can get Internet source, which you can then compile that's easy. Or you can just.
+
+569 "" (0)
+01:26:02.210 --> 01:26:12.720
+For our client, who is an instructor, compile it directly so in order to actually instrument something with a compiler, we're going to need to parse some code. Right? I know about parsing.
+
+570 "" (0)
+01:26:12.720 --> 01:26:32.720
+Hopefully most of you, right? All right. So parsing trends program text into some intermediate representation like an abstract syntax tree and pretty printing is the reverse of that. So if we have something like 3+items, 1, parsing would turn it into an like this 1, right? And pretty printing actually note that this is an, like, the ones you're using for homework, sex and.
+
+571 "" (0)
+01:26:32.720 --> 01:26:41.160
+Printing turns it back into, uh, this are you, we're, we're all familiar with these terms.
+
+572 "" (0)
+01:26:41.160 --> 01:26:51.570
+Okay, so, uh, in this representation modifications to the program are actually relatively straightforward. In fact, what you're doing in homework 6.
+
+573 "" (0)
+01:26:51.570 --> 01:26:57.510
+Writing mutation operators is really fundamentally not any different than what you need to do in order to, uh.
+
+574 "" (0)
+01:26:57.510 --> 01:27:11.280
+Add in print statements automatically. Right adding in print statements automatically would also be a modification to the that you then need to print back out. And so part of the reason that homework 6 is covering this week. In addition to being relatively hard. Is that.
+
+575 "" (0)
+01:27:11.280 --> 01:27:19.410
+what you're doing in homework six is not that different than what you need to do if you wanted to implement your own dynamic analysis of some kind right 
+
+576 "" (0)
+01:27:19.410 --> 01:27:23.280
+Fundamentally homework is about a dynamic analysis. Okay.
+
+577 "" (0)
+01:27:23.280 --> 01:27:31.740
+So this is a pretty standard technology you usually do not you usually should not write your own parser as a general rule, right?
+
+578 "" (0)
+01:27:31.740 --> 01:27:35.010
+Did you write your own parser for homework? 6? No.
+
+579 "" (0)
+01:27:35.010 --> 01:27:44.940
+I hope you did not instead you're using the Python library, right? And it should be doing that for you right? Often Pre printers are written separately right?
+
+580 "" (0)
+01:27:44.940 --> 01:27:57.900
+There are standard ones for most languages, but, you know, it's actually not that hard to write a pretty printer. It's just recursive to send over the and print it out the way that you want. Right? And you can like.
+
+581 "" (0)
+01:27:57.900 --> 01:28:01.590
+For most practical languages so we think it's white visitors pattern measures that you.
+
+582 "" (0)
+01:28:01.590 --> 01:28:21.590
+I feel relatively easily modifying. Right? That's the sort of libraries that you're using for homework 6 right now right? Uh, for Python but for other languages, you'll you'll, you'll encounter the same kind of ecosystem. Right? Uh, they might be more annoying like, for example, Java, Java parser is note, like, notably terrible at actually representing the semantics of.
+
+583 "" (0)
+01:28:21.590 --> 01:28:27.000
+It has bugs everywhere, but, you know, sucks right?
+
+584 "" (0)
+01:28:27.000 --> 01:28:31.500
+That that's trivial. You don't need to know it. Right? The point is that, um.
+
+585 "" (0)
+01:28:31.500 --> 01:28:41.160
+In general, like, this is a standard tax that you should be able to get for any language. You're actually interested in most of the time if you're building your own language totally different but you probably will never be in that situation.
+
+586 "" (0)
+01:28:41.160 --> 01:28:47.370
+No, Java has a, uh, its own grammar that is not the best.
+
+587 "" (0)
+01:28:47.370 --> 01:28:53.970
+Yeah, um, so the parser in, uh, Java is fine right? So, uh, it's, I mean.
+
+588 "" (0)
+01:28:53.970 --> 01:29:00.000
+It basically is the language definition. The problem is that it's not easy to access. Like, it's intentionally like.
+
+589 "" (0)
+01:29:00.000 --> 01:29:18.030
+Jarvis is designed intentionally to make it hard for you to extract the, and the reason for this is a mystery that is only known to the people who originally wrote Java in the nineties. Right but the language itself makes that really hard for some reason. And so people have built some open source alternatives. The most famous of which is Java parser, which is a buggy mess.
+
+590 "" (0)
+01:29:18.030 --> 01:29:25.650
+You know, it's an open source project that people do in their spare time. Right? So that's why it's bugging us.
+
+591 "" (0)
+01:29:25.650 --> 01:29:35.640
+I'm being a bit harsh to the, the project. That's not really fair. I should be nicer. I've just been frustrated with it like, in the last 2 weeks.
+
+592 "" (0)
+01:29:35.640 --> 01:29:44.580
+All right, so you should basically never have to write a parser. Right? Even if you want to do this kind of dynamic instrumentation as you're seeing, and hopefully hopefully seeing in homework 6.
+
+593 "" (0)
+01:29:44.580 --> 01:29:47.820
+It's very tractable. You can definitely do it right?
+
+594 "" (0)
+01:29:47.820 --> 01:30:00.270
+And so, as I said, you are already doing it for homework 6, the basic concepts, you instrumentation is exactly the same, right? If you wanted to instrument the Python program to compute statement coverage, you could easily write that code. And I could have.
+
+595 "" (0)
+01:30:00.270 --> 01:30:07.860
+Quite frankly, I could have given you that as the assignment instead of mutation testing instead. I just think mutation testing is much more interesting.
+
+596 "" (0)
+01:30:07.860 --> 01:30:15.750
+Because you actually have to be a little bit creative to do well, whereas for statement coverage, you would just have to do the monitoring, right?
+
+597 "" (0)
+01:30:15.750 --> 01:30:19.140
+Mutation testing, there's a more to it than just a monitoring.
+
+598 "" (0)
+01:30:19.140 --> 01:30:24.000
+All right, any questions about this does it does the commonality between these 2 make sense.
+
+599 "" (0)
+01:30:29.730 --> 01:30:44.850
+Alright, great. Okay. So another possible option here, rather than instrumenting the compiler is to rewrite the binary, right? It's to say to go into the binary or class file or the, like, and make a change to it directly.
+
+600 "" (0)
+01:30:44.850 --> 01:31:02.580
+Um, this sounds insane, but it's actually more common than you think for a dynamic analysis. Right? So, for example, this is the standard technique for doing dynamic analysis in Java. Right? Instead, what you would do is you modify the, the, you modify the Java byte code that the is going to execute. I'm familiar with Java code.
+
+601 "" (0)
+01:31:02.580 --> 01:31:10.680
+In the sense of not like, I could interpreted Java by code program, but in the sense of I know it exists and, you know, it could give a definition.
+
+602 "" (0)
+01:31:10.680 --> 01:31:20.310
+So, basically, the core technology of Java, the thing that makes it interesting relative to other programming languages is that, uh, Java does not produce executables.
+
+603 "" (0)
+01:31:20.310 --> 01:31:27.870
+You don't get an executable out. You also need to have a quote, unquote job runtime environment, or in order to actually execute a Java program.
+
+604 "" (0)
+01:31:27.870 --> 01:31:44.640
+Why is that? It's because Java converts your program from Java into quote, unquote Java bytecode right? Which is this stack machine? Right that? Uh, it looks a lot like, I say, this assembly and, in fact, it's very easy to convert from Java by put into activities assembly. There's a reason for that to make the gbm fast.
+
+605 "" (0)
+01:31:44.640 --> 01:31:53.550
+Right. Um, and, uh, this job site code is portable, right? You have a different for each, uh, architecture right? So, you know, if.
+
+606 "" (0)
+01:31:53.550 --> 01:31:59.099
+You're running on 86. you you have a for equity 6 you're running on a phone you have a, for the phone.
+
+607 "" (0)
+01:31:59.099 --> 01:32:09.299
+All right, uh, it's an arm processor, and you can basically what this means is, you can compile your job program, wants to Java by code, and you can execute that program anywhere that you have a Java interpreter.
+
+608 "" (0)
+01:32:09.299 --> 01:32:18.269
+All right, I'm in this sort of 2 stage compilation process was like, the big invention of Java. It's like the thing that that made Java famous, or made it popular.
+
+609 "" (0)
+01:32:18.269 --> 01:32:27.029
+Um, so the idea then is that you can, uh, transform back and forth between John and right, right. It's not very hard.
+
+610 "" (0)
+01:32:27.029 --> 01:32:30.389
+There are libraries that will allow you to do this. And so what do you want to do?
+
+611 "" (0)
+01:32:30.389 --> 01:32:40.979
+If you were going to, like, do dynamic analysis of Java, like, say, you want to compute half coverage or something for a Java program if you're going to just take the Java bite code, convert it into an address orientation, and then convert it back.
+
+612 "" (0)
+01:32:40.979 --> 01:32:46.229
+All right, and this will allow you to relatively easily instrument, drop a company.
+
+613 "" (0)
+01:32:46.229 --> 01:32:55.379
+And so this is the sort of standard technique, and a lot of a lot of programming languages, right? It's just go straight through the binary.
+
+614 "" (0)
+01:32:55.379 --> 01:33:02.339
+Um, so, yeah, this is just briefly, this is like, what Java bite could actually looks like, uh.
+
+615 "" (0)
+01:33:02.339 --> 01:33:11.579
+Can anybody read this? Not surprising again I just want to be clear that this should look a lot like, assembly to, you.
+
+616 "" (0)
+01:33:11.579 --> 01:33:20.999
+Right, yeah, like, download by code is kind of it's like a special version of assembly that Java interpreters know how to read right? Or Java or how to read it. Right?
+
+617 "" (0)
+01:33:20.999 --> 01:33:30.179
+So, what does the like, how does the actually work? I just want to give a brief idea of how this, and make it clear. This is actually not that complicated.
+
+618 "" (0)
+01:33:30.179 --> 01:33:50.179
+So, like, there's a, there's a spec for this, right of how the Java code works right? It's fairly straightforward. Um, and you can go. See, you can go look at the byte code from Java process. It's it's quite simple. If you have Java, you also have Java, which if you run Java P on some cost file, it will print it all print out all the backups.
+
+619 "" (0)
+01:33:50.179 --> 01:34:09.419
+Look at it, it's not that hard to read. Right? So, if you want to do that, you totally can. There are lots of analysis and rewrite frameworks for these kinds of things. Right? And so, for example, there's this like, uh, there's the Apache B cell is what I would call it, but the by code engineering library, right?
+
+620 "" (0)
+01:34:09.419 --> 01:34:19.289
+It allows people a, allows you to relatively easily do this kind of work, right? And there are other tools as well. Right? So the again, the point here is just like.
+
+621 "" (0)
+01:34:19.289 --> 01:34:39.289
+the tooling here is standard right for every language the tooling is relatively straightforward like you're seeing what it looks like in python but i want to emphasize that this is not super hard right if you want to instrument drug programs like someone who's done all the hard work for you right you will just have to interact with it in a relatively straightforward way and so if you want to deploy a new dynamic analysis 
+
+622 "" (0)
+01:34:39.289 --> 01:34:42.629
+It's often not that hard to build 1 if you can get them, like.
+
+623 "" (0)
+01:34:42.629 --> 01:35:00.599
+Define the correct information that you're collecting right right. The hard part is usually making sure that you collect the right information. Not like the part where you actually modified the job by code modifying. The Java by code is straightforward. Right? Like, yeah, you might have to spend the day learning how to use this library but like, once you do it, once, it will not be too hard.
+
+624 "" (0)
+01:35:00.599 --> 01:35:03.629
+Does anyone have any questions about that high level point?
+
+625 "" (0)
+01:35:07.109 --> 01:35:11.459
+Okay, moving on then. All right. Yeah. Okay. So yeah.
+
+626 "" (0)
+01:35:11.459 --> 01:35:15.989
+Again, I want to come back to this point about quote is data, right?
+
+627 "" (0)
+01:35:15.989 --> 01:35:22.499
+This all of this is just treating the code is another piece of data and modifying it. Right? The same way that you would modify like.
+
+628 "" (0)
+01:35:22.499 --> 01:35:26.909
+A graph, right? And if you're doing a graph library, right? Ummm.
+
+629 "" (0)
+01:35:26.909 --> 01:35:46.909
+You compile in real time, or just like other libraries you can write code against them, you can modify code and rerun it and it's modified form. It's not too hard. Right it's not all that fundamentally different than other kinds of programming. Right? And I think there's this sort of nathi reputation that like, compilers have in general for being really hard to work with. And that is somewhat deserved.
+
+630 "" (0)
+01:35:46.909 --> 01:36:05.279
+For, like GCC, right for most other languages, if not true right and these kind of libraries make it relatively easy to do at least this level of, of, uh, of change to programs in an automated way. And I know I complain about Java parser but, like, it's honestly not that bad. And the thing is, you don't usually need it because.
+
+631 "" (0)
+01:36:05.279 --> 01:36:10.649
+Apache cell is so much better, right? You just modify the by code and stuff.
+
+632 "" (0)
+01:36:10.649 --> 01:36:14.939
+All right, so, um.
+
+633 "" (0)
+01:36:14.939 --> 01:36:27.539
+Just as a like, just to give you a sense of, like, what, what is possible here right? The kinds of rewrites that you can do are all there's all sorts of stuff. Right? So you could, for example, it's pretty easy to rewrite. Uh.
+
+634 "" (0)
+01:36:27.539 --> 01:36:31.409
+Your program, so that at the beginning of each method, you check these parameters not at all.
+
+635 "" (0)
+01:36:31.409 --> 01:36:51.409
+Quite straightforward, right? It's a pretty simple track. Alright. Um, you could, uh, you know, performance your overflows you can do profiling, uh, you can, uh, like music, like, do some fancy stuff with the database. And now we're using database connections you can add encounters, uh, to keep track of path for branch coverage. Like, this is exactly how works.
+
+636 "" (0)
+01:36:51.409 --> 01:36:54.059
+Like, this stuff is not too hard.
+
+637 "" (0)
+01:36:54.059 --> 01:37:14.059
+That's again, the emphasis I want to make here. Okay so there are also some other techniques that we could use for inspiration, besides the ones I've talked about I just didn't talk about these relatively quickly, just to give you a sense of what other options are available. Right. The 1st is using a or emulator. Right this is a valid grind works.
+
+638 "" (0)
+01:37:14.059 --> 01:37:17.879
+You.
+
+639 "" (0)
+01:37:17.879 --> 01:37:25.769
+So, do you use the same standard, Eva, or you probably learned, uh, when you use, like, more of the program and see.
+
+640 "" (0)
+01:37:25.769 --> 01:37:30.479
+All right. Um, so the, the key idea here is basically, is that you like.
+
+641 "" (0)
+01:37:30.479 --> 01:37:50.479
+You rewrite the code as it's running right? Um, the, the like, the, the VM takes care of this for you right? This is how breakpoints actually work right? Um, if you've ever wondered how actually does this break points are sort of a special case, because, uh, they require operating system support. Like, the operating system specifically gives permission to, to.
+
+642 "" (0)
+01:37:50.479 --> 01:38:00.209
+Things that would be crimes for other programs that would get them help. Right but you can also turn that on for your program too. If you want it just requires you. Okay.
+
+643 "" (0)
+01:38:00.209 --> 01:38:05.309
+Um, so this is also how that works there are other tools that work like this.
+
+644 "" (0)
+01:38:05.309 --> 01:38:11.129
+Another option is meta programming. All right, so I've heard of monkey patching.
+
+645 "" (0)
+01:38:11.129 --> 01:38:22.859
+Okay, so basically, the idea of monkey patching is that you're running a Python program, right? You realize that you've made a mistake, but you're like, halfway through training machine, learning model and, you know, it's going to crash from the, the training phase.
+
+646 "" (0)
+01:38:22.859 --> 01:38:29.849
+You have 2 options 1 is you could just kill the program, fix the bug and then start over, but then you'd waste half the training, right?
+
+647 "" (0)
+01:38:29.849 --> 01:38:43.319
+So, instead Python permits you to change the text of the program as it's running. All right so, instead, what you do is you, like, you tell the interpreter actually, like, I meant this other thing, please replace this part of the file with this other text.
+
+648 "" (0)
+01:38:43.319 --> 01:38:46.559
+There are security implications for this.
+
+649 "" (0)
+01:38:46.559 --> 01:39:04.769
+All right, it means that, like, doing this is very dangerous if you don't trust the source of the new patch. Right? But if you are, like, in this situation, like, with the machine learning and all that, I think has been extremely useful, a few other, like, many other dynamic, dynamically type languages also support this like, Ruby also has this property. Right? Um, and it can be quite nice.
+
+650 "" (0)
+01:39:04.769 --> 01:39:11.879
+see macros are also like this right there are form of meta programming i know to c macros 
+
+651 "" (0)
+01:39:11.879 --> 01:39:18.119
+Very few of you. Okay. Um, I've seen something like pound if.
+
+652 "" (0)
+01:39:18.119 --> 01:39:22.409
+At the start of a header file before.
+
+653 "" (0)
+01:39:22.409 --> 01:39:39.959
+Yeah, okay a couple of you. So basically what this is is it's a directive to this guy. Surprisingly do, uh, it's a director to the C. compiler telling it to go look up some variable, that's decided to compile time. Right? So, in particular this pound, if in depth here is used to not include the same header file multiple times.
+
+654 "" (0)
+01:39:39.959 --> 01:39:42.989
+So, it means that you can compile, like, many programs that are.
+
+655 "" (0)
+01:39:42.989 --> 01:39:48.629
+I have many many like libraries and only include 1 copy of each header file. They all depend on.
+
+656 "" (0)
+01:39:48.629 --> 01:39:58.829
+all right um so it's you know you if you write c basically have to do this if you're and interacting with other people's code right um 
+
+657 "" (0)
+01:39:58.829 --> 01:40:05.249
+I kind of expected this to be something that you all relate to something that kind of move past it since it doesn't seem like anybody really knows.
+
+658 "" (0)
+01:40:05.249 --> 01:40:13.619
+But these also, unlike unlike monthly, Patrick, I would just say these get resolved at compile time instead of 1 time. Right? And so they, uh.
+
+659 "" (0)
+01:40:13.619 --> 01:40:20.459
+They allow you to, like, sort of modify the program when you compile it, but not as it's running right?
+
+660 "" (0)
+01:40:20.459 --> 01:40:24.359
+But you could imagine doing something like this in order to, uh.
+
+661 "" (0)
+01:40:24.359 --> 01:40:40.589
+Or using a macro, for example, to turn on and off coverage instrumentation by hiding it behind a macro guard. Right? So that it would be included. If you were running in coverage mode, and not included in the, the object file if you're not running a coverage.
+
+662 "" (0)
+01:40:40.589 --> 01:40:47.279
+Finally, they're also sort of generic instrumentation tools. I've heard of apps aspect oriented programming before.
+
+663 "" (0)
+01:40:47.279 --> 01:40:50.369
+Couple of people yeah. Okay.
+
+664 "" (0)
+01:40:50.369 --> 01:40:58.139
+So this was a, uh, this technique after Kareem programming is super popular for a while. Um, I would say, like, the thousands day.
+
+665 "" (0)
+01:40:58.139 --> 01:41:10.469
+The idea basically is that, uh, there are quote, unquote cut points in the program where you can, uh, sort of, you say, I want to do a thing of of type X. right? And then that type X is left undefined.
+
+666 "" (0)
+01:41:10.469 --> 01:41:20.189
+And then you define X later, right? And then everywhere you've said, I want to do a thing of type X, you insert the X. so, for example, uh, this are classic example of this is a login.
+
+667 "" (0)
+01:41:20.189 --> 01:41:24.539
+Right. So if you, uh, you say, I want you to log some information, but I'm not sure how much.
+
+668 "" (0)
+01:41:24.539 --> 01:41:41.219
+All right, and so you write down, like, here's the information that needs to get logged and, like, here's how how to decide whether to actually log it or not. Right and then what you can do is when you start the program, you can say, like, log at the info level or log into debug level or log at the non level. Right? Whatever.
+
+669 "" (0)
+01:41:41.219 --> 01:41:47.609
+And then, like, the aspect of running programing tool will automatically do that for, you.
+
+670 "" (0)
+01:41:47.609 --> 01:41:55.229
+All right. Um, so there are a number, as I said, there are a bunch of other ways that we can do this. Um, all of these, I would say are probably less popular if it maybe.
+
+671 "" (0)
+01:41:55.229 --> 01:42:05.939
+The 1st, 1 then, like, the, the techniques that we talked about before, right? But any of them are perfectly valid ways to implement your dynamic analysis. If you want to.
+
+672 "" (0)
+01:42:05.939 --> 01:42:13.469
+Any any questions about this before we move on actually any questions about instrumentation in general I think this is the last slide I have on this presentation.
+
+673 "" (0)
+01:42:19.379 --> 01:42:31.769
+Alright, moving on so I now want to talk about some properties that dynamic analysis sort of have in common right? What are the sorts of things that we can do with dynamic analysis? Or what are the sort of like how, how do they tend to behave right?
+
+674 "" (0)
+01:42:31.769 --> 01:42:47.159
+so first let's talk a little bit about cost and limitations first one of the big things that uh like big costs of dynamic analysis is that there's always going to be some performance overhead for recording right you're recording some extra information as the program runs right 
+
+675 "" (0)
+01:42:47.159 --> 01:42:58.649
+And that means that the program will run slower right? Maybe it's acceptable for use in testing right? Like that the program is a bit slow, but is it acceptable in production? Right? That is to say 1 user.
+
+676 "" (0)
+01:42:58.649 --> 01:43:04.499
+It depends on exactly how much overhead, right? If it's a very negligible overhead maybe it is. Okay.
+
+677 "" (0)
+01:43:04.499 --> 01:43:13.109
+But usually, in most situations, you do care about performance and so, uh, dynamic analysis can be unpleasant for that reason. Right?
+
+678 "" (0)
+01:43:13.109 --> 01:43:20.849
+It's best deployed in a situation where, like, during testing, for example, where you care, but some dynamic analysis have very high overhead.
+
+679 "" (0)
+01:43:20.849 --> 01:43:25.019
+When we talked about a racer and a bit, like, keep that in mind.
+
+680 "" (0)
+01:43:25.019 --> 01:43:30.959
+You also there's going to be some computational effort for the analysis itself that's happening, right? Like.
+
+681 "" (0)
+01:43:30.959 --> 01:43:39.419
+After after you're done, and if you record some information, and then you want to compute something like computing, that thing might also be hard. Right?
+
+682 "" (0)
+01:43:39.419 --> 01:43:43.979
+As most of the examples we've looked at today have been relatively simple things that we've computed like.
+
+683 "" (0)
+01:43:43.979 --> 01:43:55.499
+Branch coverage involves doing some division, right that's easy but you could imagine a dynamic analysis that records, like a few small pieces of information and then, like, compute some complicated thing from it. So that can get large.
+
+684 "" (0)
+01:43:55.499 --> 01:44:10.799
+You also have transparency limits of your instrumentation. Right? And what I mean, by this is that instrumentation can change program behavior. Right? That is, I think about the observer effect in physics. I know what the observer effect is.
+
+685 "" (0)
+01:44:10.799 --> 01:44:18.689
+Few people right? What is it? Yeah, like the property changes when you use.
+
+686 "" (0)
+01:44:18.689 --> 01:44:23.819
+That's exactly right. So if you, if you, if you look at a, uh.
+
+687 "" (0)
+01:44:23.819 --> 01:44:29.279
+Where does this actually, uh, current physics like a cork or something to? Yeah too carefully shooting his cat. Sure.
+
+688 "" (0)
+01:44:29.279 --> 01:44:37.529
+Yeah, so the key question here is, uh, do you want to do you want to ship the thing in your timeframe?
+
+689 "" (0)
+01:44:37.529 --> 01:44:44.309
+Or are you willing to accept like that is to say, are you willing to pay the performance overhead for, uh.
+
+690 "" (0)
+01:44:44.309 --> 01:44:52.859
+Using your implementation for, in production, right? Or are you going to put yourself in danger? High devices? We'll cover in a minute but bugs are are.
+
+691 "" (0)
+01:44:52.859 --> 01:45:00.869
+At a high level bugs that are caused by instrumentation or caused by the lack of instrumentation. They're not observable with that.
+
+692 "" (0)
+01:45:00.869 --> 01:45:06.359
+And then there's also a question of accuracy, right? Do these techniques have false positives or false negatives? Right?
+
+693 "" (0)
+01:45:06.359 --> 01:45:14.609
+And I realized that I have not actually, formally defined the terms false positive and false negative for you all. So I'm going to just briefly as an aside go into that right?
+
+694 "" (0)
+01:45:14.609 --> 01:45:20.009
+So the idea of false positives and false negatives is based on an idea 10 X actually happened.
+
+695 "" (0)
+01:45:20.009 --> 01:45:25.799
+2 possibilities like this is the ground truth is excellent actually happen or not but for now.
+
+696 "" (0)
+01:45:25.799 --> 01:45:32.429
+And then there's another question, right? Another access, which is did a tool warn us about X or I did, did.
+
+697 "" (0)
+01:45:32.429 --> 01:45:42.689
+Uh, we think that X was going to happen for whatever reason, right? And usually, when we're talking about false positives, false negative reason to talk about, in terms of, like, a false positives or hospital.
+
+698 "" (0)
+01:45:42.689 --> 01:45:50.669
+So, false positive occurs when, or actually, I should say, like, what's in the yes, yes. Corner here.
+
+699 "" (0)
+01:45:50.669 --> 01:46:04.439
+True. Positive. Yes. That's right. So the reason it's true. Positive right? Is that, uh, it's true right? The yes. Is match and it's positive because the thing did actually happen. Right? So then what's in the? Yes, no corner in the top, right?
+
+700 "" (0)
+01:46:08.639 --> 01:46:11.729
+False positive. That's correct. Right because the tools that it would happen.
+
+701 "" (0)
+01:46:11.729 --> 01:46:24.239
+Right. So we, the positive here means it's a warning right of the tool warned, but it's false because it's not correct. The tool is wrong about it. Right? So then what goes into the other or the bottom left corner.
+
+702 "" (0)
+01:46:24.239 --> 01:46:29.189
+A false negative, right? Because the tool incorrectly said that nothing would happen and something that.
+
+703 "" (0)
+01:46:29.189 --> 01:46:38.399
+And then finally true negative goes in the bottom. Right right. And so a tool is doing well, if it's in the top left or bottom, right? And poorly in the other 2 categories, right?
+
+704 "" (0)
+01:46:38.399 --> 01:46:48.359
+All right, so this is a useful tool for thinking about anything that might want us about problems in general, right? And I'm going to use this a lot. I realized I used it a bunch in prior.
+
+705 "" (0)
+01:46:48.359 --> 01:46:55.229
+Like, prior lectures, but never defined it. So, does anyone have any questions about this? Does this all make sense.
+
+706 "" (0)
+01:46:55.229 --> 01:46:59.669
+I want to be clear about what I mean. Okay. So, um.
+
+707 "" (0)
+01:46:59.669 --> 01:47:02.699
+Before we can really think about how.
+
+708 "" (0)
+01:47:02.699 --> 01:47:22.699
+That analysis generally behave, I want to define 2 other terms related to false positives and false negatives. Right the 1st is soundness, right or sound analysis. A sound analysis is 1 that reports all defects, and therefore it has no false negatives. Right? So, typically, this will over approximate the possible behaviors of the program. Right? That is to say, it includes all possible program behaviors and.
+
+709 "" (0)
+01:47:22.699 --> 01:47:31.169
+Also some others, right? And that means that they're generally going to be quote, unquote, conservative with respect to safety. So, if if the answer is, I don't know.
+
+710 "" (0)
+01:47:31.169 --> 01:47:36.719
+Then a sound analysis is going to say it's not safe right?
+
+711 "" (0)
+01:47:36.719 --> 01:47:56.719
+by contrast uh we also have a a notion of completeness right so a complete analysis is one where every reported defect is an actual defect that is to say there are no false positives right and this will typically be done by under approximating possible behavior of the program right and so it will be conservative with respect to reporting right it will not report unless 
+
+712 "" (0)
+01:47:56.719 --> 01:47:59.069
+Sure.
+
+713 "" (0)
+01:47:59.069 --> 01:48:17.009
+Do these 2 concepts make sense? No one's asking questions I'm going to move on, right? But, let me just, uh, sorry for the J, Peggy quality of this, uh, this, uh, figure, but I like to figure a lot and I couldn't find a better version of it. Right? So, uh.
+
+714 "" (0)
+01:48:17.009 --> 01:48:26.279
+I just want to give intuition for this. Right? If someone says you can trust me when I say that your radiation dosing software, like running your 3rd, 25 is safe.
+
+715 "" (0)
+01:48:26.279 --> 01:48:32.369
+Where where do you hope that they are? What kind of tool are they using?
+
+716 "" (0)
+01:48:32.369 --> 01:48:52.369
+yeah you want them to choose tool a right soundness it's under approximating program behavior right the idea here for over approximate right if if tool a uh soundly says that your your code is like that the code is safe it means it actually it right it means that there's no behavior that the program could possibly do there'll be unsafe because it 
+
+717 "" (0)
+01:48:52.369 --> 01:48:57.779
+Approximately the behavior, so it checked all the actual behaviors and it checks some other ones, right?
+
+718 "" (0)
+01:48:57.779 --> 01:49:01.289
+So, it will only certified programs that never have an.
+
+719 "" (0)
+01:49:01.289 --> 01:49:09.269
+that is to say the programs in britain by contrast your tool b will certify some programs with errors and also some programs with no errors 
+
+720 "" (0)
+01:49:09.269 --> 01:49:16.379
+Usually, I such a tool will do better right? In the sense of it will sort of buy more programs with no errors.
+
+721 "" (0)
+01:49:16.379 --> 01:49:20.999
+But at some cost, right? It will make a mistake occasionally. Okay.
+
+722 "" (0)
+01:49:20.999 --> 01:49:24.869
+By contrast a complete tool here, uh, would.
+
+723 "" (0)
+01:49:24.869 --> 01:49:31.859
+Certify every program with no error. Right? That is to say it never warns about a program. That is correct.
+
+724 "" (0)
+01:49:31.859 --> 01:49:34.949
+But it will sometimes warn about, uh.
+
+725 "" (0)
+01:49:34.949 --> 01:49:44.039
+But it will warn about as many programs with with an actual error as it can, it will miss some. Right? But in general, there's nothing over here that's saying, like, we'll find all the programs with errors.
+
+726 "" (0)
+01:49:44.039 --> 01:49:49.949
+Well, well, there's nothing over here that's sort of by all the programs that architecture.
+
+727 "" (0)
+01:49:49.949 --> 01:49:53.129
+Well, we'll find them all by rejecting them.
+
+728 "" (0)
+01:49:53.129 --> 01:50:04.619
+All right does that make sense? Let me just give a couple more things here. Right? So some sound analysis like a says, you want to say, it means that he want actually is safe.
+
+729 "" (0)
+01:50:04.619 --> 01:50:13.469
+Right, that's what it means. That's what soundness means, but I might be safe is safe there, but tool a, a says it's unsafe.
+
+730 "" (0)
+01:50:13.469 --> 01:50:21.269
+Right. So that's a false positive. So sound analysis almost always will have false positives. Right? By contrast is, in fact, safe.
+
+731 "" (0)
+01:50:21.269 --> 01:50:26.159
+But, uh, the complete analysis, there's like.
+
+732 "" (0)
+01:50:26.159 --> 01:50:34.649
+Uh, all right, I maybe I've missed drawn see here. Um, but, uh.
+
+733 "" (0)
+01:50:34.649 --> 01:50:39.479
+Oh, yeah now, hang on, if you want is actually safe and the complete analysis. See, does it say.
+
+734 "" (0)
+01:50:39.479 --> 01:50:45.839
+Right, but see may say that program 5, which is unsafe actually, is that.
+
+735 "" (0)
+01:50:45.839 --> 01:50:52.349
+It's going to have false names. It might miss things. Okay. I'm sorry for it. I hope this is, uh.
+
+736 "" (0)
+01:50:52.349 --> 01:50:56.039
+Not confusing, but that looks on your face. I suggest that it is.
+
+737 "" (0)
+01:51:03.149 --> 01:51:16.649
+Does the intuition here makes sense? No. Okay. Yeah. So, um, the core intuition is that soundness means only certified programs that are definitely 100. definitely safe. Right? So, if you say, like.
+
+738 "" (0)
+01:51:16.649 --> 01:51:25.469
+If you say that I have a sound tool for preventing no point or exceptions, then, uh, if that sound tool says that the code is safe. No, no pointer exception can actually occur.
+
+739 "" (0)
+01:51:25.469 --> 01:51:40.979
+By contrast a complete tool for no point or exceptions is promising that every time it does warn about an old pointer exception, it's possible for that D reference to actually be occur on a no value at run time. Like, there is some execution of the program that will actually cause an old pointer exception.
+
+740 "" (0)
+01:51:40.979 --> 01:51:45.509
+The sound tool is some of the time going to warn about programs.
+
+741 "" (0)
+01:51:45.509 --> 01:51:50.519
+That are actually safe because it's over approximating the possible things that could happen.
+
+742 "" (0)
+01:51:50.519 --> 01:51:56.039
+It thinks a pointer can possibly be an, all on some execution, but really that's infeasible. For some reason.
+
+743 "" (0)
+01:51:56.039 --> 01:52:06.539
+Right. By contrast the complete tool might miss a real problem because it's only going to warn if it can truly certify the thing. And if it can't find that.
+
+744 "" (0)
+01:52:06.539 --> 01:52:25.139
+a set of inputs that causes the thing to actually occur no point or exception say like for example because the the value that's actually null requires us to solve some formula that's very hard right then it won't it won't warn about that even though that thing might actually fail at runtime 
+
+745 "" (0)
+01:52:25.139 --> 01:52:31.769
+So, complete tools, every time they warn you should take action because if they if they've warned, it means that there's something definitely wrong.
+
+746 "" (0)
+01:52:31.769 --> 01:52:35.969
+Sound tools if they don't warn, then you have a proof.
+
+747 "" (0)
+01:52:35.969 --> 01:52:47.459
+Right that is to say, you can trust them and under the hood, the way that you build a sound tool is you do approve right? You build up, you use a different broker.
+
+748 "" (0)
+01:52:47.459 --> 01:52:50.969
+The tools are useful for different things, right?
+
+749 "" (0)
+01:52:50.969 --> 01:52:55.049
+So here's a question is it possible to have a tool that can be both.
+
+750 "" (0)
+01:53:00.209 --> 01:53:05.609
+Why do you think that.
+
+751 "" (0)
+01:53:09.329 --> 01:53:18.749
+So so being both really requires us to get the right answer all the time.
+
+752 "" (0)
+01:53:18.749 --> 01:53:24.749
+All right, and so for some properties, this is doable right? Like, if I ask you, what's what's, uh, like.
+
+753 "" (0)
+01:53:24.749 --> 01:53:39.179
+please provide me with a tool that satisfies whether my certifies whether i'm doing addition correctly right you can do that you can completely and soundly tell me every time i'm doing edition wrong right over say 
+
+754 "" (0)
+01:53:39.179 --> 01:53:42.299
+It's not very hard, right? However.
+
+755 "" (0)
+01:53:42.299 --> 01:53:46.229
+Uh, for programs in general.
+
+756 "" (0)
+01:53:46.229 --> 01:53:55.319
+We know that there are going to be some limitations here. Right? In particular like, the bad news is that every interesting analysis of programs.
+
+757 "" (0)
+01:53:55.319 --> 01:54:12.209
+Is either on sound or incomplete or both, and the reason is again rice's theorem, right? Which we saw in the last lecture, which says that any non trivial semantic program of a property is undesirable. That is to say anything that is semantic. Here means it's about the meeting, right? And not about the text.
+
+758 "" (0)
+01:54:12.209 --> 01:54:18.299
+And non trivial means that it's not it's true of some programs and false of others.
+
+759 "" (0)
+01:54:18.299 --> 01:54:23.729
+All right, so, like, is this a program is a trivial property over programs because it is always true.
+
+760 "" (0)
+01:54:23.729 --> 01:54:34.469
+Right. Um, and, uh, like, does this programs text contain the spring? Fu, is, it's, it's not a semantic property. It's a syntactic property. We can simply search the program for it.
+
+761 "" (0)
+01:54:34.469 --> 01:54:41.519
+Right, but if we ask there was any variable in the program ever contain the value quotes food.
+
+762 "" (0)
+01:54:41.519 --> 01:54:45.749
+That's a semantic property, because it's asking about what the program actually does.
+
+763 "" (0)
+01:54:45.749 --> 01:54:50.189
+It's something about the program's actual meaning or the program's actual run time behavior.
+
+764 "" (0)
+01:54:50.189 --> 01:54:55.949
+And so why is this a corollary devices? Let's just step through the proof, right?
+
+765 "" (0)
+01:54:55.949 --> 01:54:59.399
+So, our program analyses are decidable, right? Because they run on that computer.
+
+766 "" (0)
+01:54:59.399 --> 01:55:08.309
+You're going to execute them on a computer and therefore they must be decidable. That is a that's what desirability means. It means that there was an algorithm for them. They're going to execute in finite non exponential time.
+
+767 "" (0)
+01:55:08.309 --> 01:55:11.459
+So they must be approximate in some way, right?
+
+768 "" (0)
+01:55:11.459 --> 01:55:15.479
+Uh, because they cannot possibly.
+
+769 "" (0)
+01:55:15.479 --> 01:55:24.059
+Compute the value exactly right. Properties of programs because of the presence of loops, and are not, uh, able to be checked directly.
+
+770 "" (0)
+01:55:24.059 --> 01:55:31.079
+Alright, we can't get a, we can't always track them. Exactly. There's no algorithm for that. That's what rises there and tells us right?
+
+771 "" (0)
+01:55:31.079 --> 01:55:39.299
+And so if they're approximate, in some way, they have to be approximately in, at least 1 of the 2 directions right? Either they must over approximate or they must under approximate.
+
+772 "" (0)
+01:55:39.299 --> 01:55:48.359
+And so soundness requires that you only over approximate, you never under approximate and completeness requires that you only under approximate. You never over approximate.
+
+773 "" (0)
+01:55:48.359 --> 01:55:53.579
+And so, because because of that, you can't have both right for any any interesting program analysis.
+
+774 "" (0)
+01:55:53.579 --> 01:55:59.249
+So, the bad news is that every analysis you're going to encounter in real life is limited in 1 of these 2 ways, right?
+
+775 "" (0)
+01:55:59.249 --> 01:56:10.529
+Does this make sense? Okay. So then what should do do you think it's easier to achieve for dynamic analysis? Soundness are completeness.
+
+776 "" (0)
+01:56:16.259 --> 01:56:28.469
+Yeah, so, um.
+
+777 "" (0)
+01:56:28.469 --> 01:56:34.649
+Soundness is going to be easier to achieve right when we can reason about all the possible executions. All right.
+
+778 "" (0)
+01:56:34.649 --> 01:56:39.659
+The problem with dynamic analyses in general is that they're driven by some input data.
+
+779 "" (0)
+01:56:39.659 --> 01:56:44.579
+Right. And so that means that they're going to like any information we compute using the dynamic analysis.
+
+780 "" (0)
+01:56:44.579 --> 01:56:49.049
+It's going to be conditioned on the input data that we choose.
+
+781 "" (0)
+01:56:49.049 --> 01:56:55.169
+All right, so that's actually going to mean that soundness is going to be hard to achieve because we need to generalize from, uh.
+
+782 "" (0)
+01:56:55.169 --> 01:57:14.249
+The executions, we do see to all possible executions. Right? And this is like, dextra back again with testing can show the presence of bugs, but not their absence. Right? And so in in practice. Actually it's going to be completeness. That's easier to achieve for dynamic analysis. Because if the dynamic analysis actually demonstrates a problem.
+
+783 "" (0)
+01:57:14.249 --> 01:57:27.479
+Then it must have actually occurred, right? I mean, and of course there are, there are sources of approximation and dynamic analyses that can make it wrong. But, like, in general, like, if we observe a problem, then we're going to be able to, to.
+
+784 "" (0)
+01:57:27.479 --> 01:57:40.019
+Dynamic analysis allows us to observe the problem directly. So completeness is the answer, right? So generally dynamic analyses are under approximating because they're reasoning only about the program actually executions. They are actually absorbing right?
+
+785 "" (0)
+01:57:40.019 --> 01:57:43.799
+Um, it's hard to generalize from, like.
+
+786 "" (0)
+01:57:43.799 --> 01:57:48.419
+The number of tests that you have to all possible executions.
+
+787 "" (0)
+01:57:48.419 --> 01:57:54.929
+By contrast when we come back to static analysis, static analysis is traditionally at least, uh.
+
+788 "" (0)
+01:57:54.929 --> 01:58:03.989
+Designed to be sound right it is actually possible. It's been embarrassingly recently shown possible to build stack analyses that are also complete.
+
+789 "" (0)
+01:58:03.989 --> 01:58:14.849
+Um, and in fact, that means it's probably possible to build a sound dynamic analysis too, but I don't think anyone's ever shown us down a sound dynamic analysis in practice. So we're reaching the.
+
+790 "" (0)
+01:58:14.849 --> 01:58:21.029
+The edge of like, what's possible in the current research literature I mean.
+
+791 "" (0)
+01:58:21.029 --> 01:58:26.219
+The, the 1st, like, proved complete sounded a static analysis was like, 2019.
+
+792 "" (0)
+01:58:26.219 --> 01:58:29.609
+All right, so.
+
+793 "" (0)
+01:58:29.609 --> 01:58:40.199
+Okay, so we'll come back to that after spring break, but when thinking about dynamic analysis, you should be thinking, like, completeness if it's either of these. But in practice, like, most analysis are both.
+
+794 "" (0)
+01:58:40.199 --> 01:58:52.109
+Unsound and incomplete. All right, let's think about testing it's possible to get false positives from tests. Right? We talked about like, flaky tests that failed because of non determinism, for example, right that's definitely a false positive.
+
+795 "" (0)
+01:58:52.109 --> 01:58:57.809
+And so, even if you are trying to write test carefully, it's easy to accidentally get it wrong.
+
+796 "" (0)
+01:58:57.809 --> 01:59:05.999
+So, like, testing in general is not going to give us a proof of completeness. Some, some dynamic analysis.
+
+797 "" (0)
+01:59:05.999 --> 01:59:25.999
+Okay, another thing that's important about dynamic analysis and the dynamic analysis all share and this is related to the notion of why they're complete but not sound is that they're very dependent on the inputs that you give them. Right? Whichever inputs you choose to exercise the program is going to have a big effect on what actually you learned from your dynamic analysis. So that is to say.
+
+798 "" (0)
+01:59:25.999 --> 01:59:29.309
+Fullness of the analysis depends a lot on the quality of the test input data.
+
+799 "" (0)
+01:59:29.309 --> 01:59:34.439
+And as we've discussed in this class, how hard is it to make quality test input data.
+
+800 "" (0)
+01:59:34.439 --> 01:59:41.039
+Or, to tell whether testing, but data as a high quality, it can be difficult. Right? So.
+
+801 "" (0)
+01:59:41.039 --> 01:59:47.849
+This means that in sort of an arbitrary setting, if you were just asked, like, run this dynamic analysis on this program.
+
+802 "" (0)
+01:59:47.849 --> 02:00:04.109
+It's hard to tell whether you've got good answers, right? Or whether the answers are representative of what the program would look like under different conditions. Right? And so you must reason about the test suite as well. And that's part of why we're talking about this now. And why we didn't cover this on day. 1 right is because the test input data.
+
+803 "" (0)
+02:00:04.109 --> 02:00:12.119
+You already have to have a way to tell if it's good in order to evaluate whether the results of a generic analysis are actually actionable or a useful.
+
+804 "" (0)
+02:00:12.119 --> 02:00:27.929
+All right, so this is great if you have lots of tests and they're really good. Right? So in practice, the sort of received wisdom is that whole system tests are often better for, uh, dynamic analysis. Then, like, unit testing is, um, the reason is basically that, uh.
+
+805 "" (0)
+02:00:27.929 --> 02:00:40.679
+Many unit tests are not super indicative of the way that the system actually behaves in practice. Right? And in most dynamic analysis, you want to learn something about how the system actually behaves in practice.
+
+806 "" (0)
+02:00:40.679 --> 02:00:43.979
+Um, this does this, this is definitely like.
+
+807 "" (0)
+02:00:43.979 --> 02:00:52.679
+Advice for the general case, but can be wrong in specific cases though. Right? And like, when considering specific analysis or programs.
+
+808 "" (0)
+02:00:52.679 --> 02:00:57.779
+Another important question here is, are the tests indicative of normal use and is that what you want.
+
+809 "" (0)
+02:00:57.779 --> 02:01:09.359
+All right, often the case that we write tests in such a way that they are like, regression tests, for example, and therefore specific input to replicate known defects scenarios to say, like.
+
+810 "" (0)
+02:01:09.359 --> 02:01:18.299
+Your regression tests, they might specifically trying to, uh, trigger things like memory, leaks or race conditions right? Is that representative normal use.
+
+811 "" (0)
+02:01:18.299 --> 02:01:25.199
+No, almost certainly right most progression test suites are not representative of how the program is used in real life. Right?
+
+812 "" (0)
+02:01:25.199 --> 02:01:32.789
+And so, uh, the usefulness of the output of dynamic analysis on a particular set of inputs definitely also depends on like, Where'd you get the inputs.
+
+813 "" (0)
+02:01:32.789 --> 02:01:44.429
+If they're a regression test suite that tells you something about how the program behaves on the regression tests, right? In bad scenarios. But that might not be what you want to know. Right? If you're asking questions about, for example, execution time.
+
+814 "" (0)
+02:01:44.429 --> 02:01:51.239
+You're probably doing it wrong if you're doing it using the regression test suite because the regression testing is probably not representative of, like.
+
+815 "" (0)
+02:01:51.239 --> 02:02:02.309
+Where a user is actually are spending their time, you're trying to optimize, like, the speed of the program. You probably want something that's more indicative of, of how users actually use the program.
+
+816 "" (0)
+02:02:02.309 --> 02:02:07.439
+Yeah, what are the.
+
+817 "" (0)
+02:02:07.439 --> 02:02:12.479
+In the real static analysis.
+
+818 "" (0)
+02:02:12.479 --> 02:02:25.199
+People that multiple people often ladies it's definitely it's a good question. Yeah. So, um.
+
+819 "" (0)
+02:02:25.199 --> 02:02:29.759
+The 1st thing I would say is that the most common dynamic analysis is definitely just write tests.
+
+820 "" (0)
+02:02:29.759 --> 02:02:32.819
+And everyone uses that right?
+
+821 "" (0)
+02:02:32.819 --> 02:02:38.399
+Some of the other dynamic analyses we've discussed, like, fuzzy, for example, are quite common as well. Right?
+
+822 "" (0)
+02:02:38.399 --> 02:02:55.829
+Yeah, profiling yeah. Memory. Yeah. Collecting like, memory, profiling time profiling. All of these are pretty common. Yeah, I would say probably. Yeah so, for that reason yeah. Dynamic analysis is more common in terms of, like, looking for complex bugs right or like, trying to do.
+
+823 "" (0)
+02:02:55.829 --> 02:03:04.049
+Difficult automated reasoning the state of the, the state of the art is much stronger in the static analysis side. Right? That is to say, like.
+
+824 "" (0)
+02:03:04.049 --> 02:03:16.439
+More effort has been paid by the research community, I would say to the static analysis side and so if you want to do complicated reasoning, it's often like an automated way. You can often do more with static analysis.
+
+825 "" (0)
+02:03:16.439 --> 02:03:23.099
+But with dynamic analysis, like, it's often more actionable the results are often more actionable.
+
+826 "" (0)
+02:03:23.099 --> 02:03:33.479
+And this is probably a weakness of this research community generally right has been like, historically program analysis comes out of compilers, which.
+
+827 "" (0)
+02:03:33.479 --> 02:03:41.159
+A static analysis, and so much more attention has been paid to static analysis.
+
+828 "" (0)
+02:03:41.159 --> 02:03:48.719
+Good question. Okay. Um, moving on since we are, uh, already at 805 um.
+
+829 "" (0)
+02:03:48.719 --> 02:04:08.719
+Another thing that dynamic analysis has to contend with is the observer effect, slash highs and bugs right? Which I mentioned before. So, Heisenberg is a fault. There's some kind of problem. That occurs during execution. That only occurs either with or without some kind of instrumentation. Right? And what I mean, by with, or without here, is that what I mean, is it dependent on the presence or.
+
+830 "" (0)
+02:04:08.719 --> 02:04:18.809
+The instrumentation, right? If you have instrumentation and a bug doesn't occur, but if you take the instrumentation away and the bug occurs, then it's a hyphen bug, right? Or vice versa.
+
+831 "" (0)
+02:04:18.809 --> 02:04:25.439
+Does that make sense? So, I think I just said this out loud, so I'm not going to say it again.
+
+832 "" (0)
+02:04:25.439 --> 02:04:32.519
+This is caused by these artifacts, like, in physics right? Instrumenting and monitoring the program changes its behavior.
+
+833 "" (0)
+02:04:32.519 --> 02:04:39.599
+Right. The program might be slower the program might be using more memory, et cetera. Right. Um, and so, uh, you know, when you're.
+
+834 "" (0)
+02:04:39.599 --> 02:04:45.689
+Like, looking at a dynamic analysis, we're looking at the results of a dynamic analysis you often have to deal with these kinds of things, right?
+
+835 "" (0)
+02:04:45.689 --> 02:04:52.169
+And this is like, yeah, it's very, very inconvenient. Let's say when.
+
+836 "" (0)
+02:04:52.169 --> 02:04:58.319
+Trying to figure out what's going on if you encounter a problem. And then when you attach it, there's a problem in production.
+
+837 "" (0)
+02:04:58.319 --> 02:05:03.359
+And then you attach to B*** and the problem goes away that's going to make you very frustrating.
+
+838 "" (0)
+02:05:03.359 --> 02:05:16.799
+So there are sort of 2 key considerations that you keep in mind when you're designing instrumentation, or thinking about debugging a horizon bug. The 1st is Canon, showed you deploy the instrumentation live, right? If you can.
+
+839 "" (0)
+02:05:16.799 --> 02:05:32.939
+Uh, that makes your life way easier, right? If it's possible for you to run the with the instrumentation in production, then you have the sort of ship what you test that I mentioned before, right? A situation where if something goes wrong in production, you'll have all the same instrumentation that you would have in the test scenario and it will be easy to reproduce.
+
+840 "" (0)
+02:05:32.939 --> 02:05:40.709
+Right. So if you can do this, you often want to the downside of course, is that the performance overhead might be too expensive right?
+
+841 "" (0)
+02:05:40.709 --> 02:05:50.669
+So that's a difficult trade off. Like, the choice not to deploy with implementation is a choice to probably encounter highs and bug. Eventually.
+
+842 "" (0)
+02:05:50.669 --> 02:06:04.019
+The 2nd thing is consideration is will instrumentation meaningfully change the program's behavior right? Um, and this is, uh, this is a question more for you as an analysis designer, rather than it is for you as someone deploying the analysis.
+
+843 "" (0)
+02:06:04.019 --> 02:06:19.949
+But when you are trying to debug or Eisenberg, this is also a useful thing to think, like, because if you have a high bug, it means the instrumentation is having an effect. Right? And so, uh, the bug is probably in some way related to something that's similar to the instrumentation.
+
+844 "" (0)
+02:06:19.949 --> 02:06:24.539
+Right. So for example, if you have a bug, uh, that's, um.
+
+845 "" (0)
+02:06:24.539 --> 02:06:29.069
+Goes away like, when you try to run in.
+
+846 "" (0)
+02:06:29.069 --> 02:06:33.239
+Right then probably the bug is somehow related to memory.
+
+847 "" (0)
+02:06:33.239 --> 02:06:37.409
+Because what is the algorithm doing? It's instrumenting your memories.
+
+848 "" (0)
+02:06:37.409 --> 02:06:49.709
+Right. It's keeping track of what what what you're freeing and what you're allocating. And so if your bug goes away, when you change, how you free and allocate, that suggests that there's something wrong with something that you're doing, relate to free free and allocating. Right?
+
+849 "" (0)
+02:06:49.709 --> 02:06:54.599
+And so this is a useful sort of line of reasoning to follow if you're trying to debug something like this.
+
+850 "" (0)
+02:06:54.599 --> 02:06:58.799
+Any questions on the does it make sense?
+
+851 "" (0)
+02:07:01.979 --> 02:07:06.959
+So, uh, instrumented with so.
+
+852 "" (0)
+02:07:06.959 --> 02:07:26.959
+Yes, so usually, uh, it, it relates to instrumentation, but, like, it's, it's rarely caused directly by the instrumentation. In my experience. These kind of bugs are often caused by, like, a side effect of the instrumentation. Like, the program is dependent on timing, or the program is dependent on, like, scheduling or.
+
+853 "" (0)
+02:07:26.959 --> 02:07:34.709
+Program is dependent on, like, how much memory is available at a certain time, or something like this or is that.
+
+854 "" (0)
+02:07:34.709 --> 02:07:37.859
+All execution. Okay.
+
+855 "" (0)
+02:07:37.859 --> 02:07:44.249
+Yeah, so that's more like that's more like standard non determinism rather than the bug. Right? Um.
+
+856 "" (0)
+02:07:44.249 --> 02:07:55.919
+Various conditions can be highs and bugs though, like, if you observe the race condition in practice, but then when you try to, like, control the scheduler, the instrument, the bug goes away.
+
+857 "" (0)
+02:07:55.919 --> 02:08:00.449
+Your deterministic schedule does not exhibit that suggests that it's a scheduling book.
+
+858 "" (0)
+02:08:00.449 --> 02:08:03.719
+And that would be a hazard bug in that case, right?
+
+859 "" (0)
+02:08:03.719 --> 02:08:09.119
+The instrumentation to change the schedule and force the schedule to be deterministic, makes the by go away.
+
+860 "" (0)
+02:08:09.119 --> 02:08:16.919
+So, it's the other questions here.
+
+861 "" (0)
+02:08:16.919 --> 02:08:36.919
+All right moving on. So I now want to just go through a couple of examples, fairly quickly of a few, real example analysis. Right? That are practical analyses that have been deployed in practice and I think I've got 4 examples here. Yes. So, for examples these are all from companies that you either.
+
+862 "" (0)
+02:08:36.919 --> 02:08:44.759
+Or have died, but we're famous at a time. Right. D. C. used to be a big deal and.
+
+863 "" (0)
+02:08:44.759 --> 02:08:50.699
+Then I got bought by somebody, I want to say, maybe sun back in the day, right? Like.
+
+864 "" (0)
+02:08:50.699 --> 02:08:54.959
+So this is a company basically like, it's, uh.
+
+865 "" (0)
+02:08:54.959 --> 02:08:59.009
+Dot com, boom. All right, but Netflix in Microsoft you probably heard of it.
+
+866 "" (0)
+02:08:59.009 --> 02:09:19.009
+All right, so we're going to go through all 4 of these, and I'm just going to briefly explain what their key innovation was and how they actually worked. Right? And the goal here is again, to give you a flavor, right? Most of the well, actually, all of these are historical. All right but I know for a fact that at least chaos, monkey and driver verify are still in use. I'm fairly confident that chess is too.
+
+867 "" (0)
+02:09:19.009 --> 02:09:27.389
+I'm not actually sure. All right, so, let's start with eraser. So, erasers question. The question is trying to ask and this is.
+
+868 "" (0)
+02:09:27.389 --> 02:09:33.929
+Like, eraser is a joke, because it has the, like, it sounds like it has race in it. Right? Is there a race condition in the program? Like this.
+
+869 "" (0)
+02:09:33.929 --> 02:09:53.189
+Is our recommendation here? I think there is a risk condition.
+
+870 "" (0)
+02:09:53.189 --> 02:09:57.209
+I think there is not a race condition. We have.
+
+871 "" (0)
+02:09:57.209 --> 02:10:02.819
+2 votes to 0 There is not right and why isn't there a race condition here?
+
+872 "" (0)
+02:10:02.819 --> 02:10:11.879
+Yes, yes, because they're always locking before they unlock it. Right? So every access to the is definitely bargain. Right?
+
+873 "" (0)
+02:10:11.879 --> 02:10:15.389
+So this is, this is, in fact safe, we protected.
+
+874 "" (0)
+02:10:15.389 --> 02:10:21.209
+Right. Okay now let's consider this a slightly different variant of the program.
+
+875 "" (0)
+02:10:21.209 --> 02:10:28.229
+Right in this variant we have, uh, 2 different access to spread and each 1 is guarded by its own.
+
+876 "" (0)
+02:10:28.229 --> 02:10:36.059
+So, a race condition in this program.
+
+877 "" (0)
+02:10:36.059 --> 02:10:44.849
+I don't remember why I put it in the slide.
+
+878 "" (0)
+02:10:44.849 --> 02:10:48.689
+I remember why I put it in a slide. This example is taken directly from the paper.
+
+879 "" (0)
+02:10:48.689 --> 02:10:53.129
+And I have a screenshot from the paper and a few, a few slides.
+
+880 "" (0)
+02:10:53.129 --> 02:10:57.209
+And I didn't want it to be different than what's here.
+
+881 "" (0)
+02:10:57.209 --> 02:11:02.489
+In the paper, they make another separate points about why that we're just ignoring.
+
+882 "" (0)
+02:11:02.489 --> 02:11:15.899
+Yes, yes, the, the 2 logs are fair, right? So if if this the right 1 is holding a new 1 then, uh, thread 2 will will span until, uh, becomes available. Right?
+
+883 "" (0)
+02:11:20.279 --> 02:11:25.469
+In the block work once I.
+
+884 "" (0)
+02:11:25.469 --> 02:11:28.979
+Um, so.
+
+885 "" (0)
+02:11:28.979 --> 02:11:39.659
+That is a very tempting idea. All right. Um, but in fact, this program does have a lot a race condition. There's a way to schedule the threads in such a way that, uh.
+
+886 "" (0)
+02:11:39.659 --> 02:11:53.249
+There's a database on ve, right. The reason is consider what happens if red 1, Holt, and and then thread to holds and they both try to write to be at the same time. So.
+
+887 "" (0)
+02:11:53.249 --> 02:11:57.899
+Right so the key insight in eraser was that if.
+
+888 "" (0)
+02:11:57.899 --> 02:12:08.159
+There's ever a case where there are 2 different locks that can be used to acquire the same variable. Then that leads to a possible race condition right?
+
+889 "" (0)
+02:12:08.159 --> 02:12:13.109
+And so the, uh, the key idea then of their, uh, technique is what's called a lock set algorithm.
+
+890 "" (0)
+02:12:13.109 --> 02:12:18.719
+Right. So the locks that algorithm keeps track of the set of locks that possibly can guard something. Right?
+
+891 "" (0)
+02:12:18.719 --> 02:12:26.219
+So the way that this works, right? Sorry the, the idea is each are variable must be governed by exactly. 1 lock.
+
+892 "" (0)
+02:12:26.219 --> 02:12:38.189
+Right if it's if there's a shared variable discarded by 0 locks, I mean, okay, then databases are certainly happening there. That's easy. But, um, uh, shared variable guarded by 2 or more locks is also dangerous.
+
+893 "" (0)
+02:12:38.189 --> 02:12:42.269
+All right, we don't want that and so that's what eraser was able to determine. Yeah.
+
+894 "" (0)
+02:12:42.269 --> 02:12:50.789
+So, basically, the algorithm is start with all the locks that could possibly protect me. Right? So, you know, looking at this, like, there are 2 locks.
+
+895 "" (0)
+02:12:50.789 --> 02:12:59.969
+You want me to right? If you observed that M is not held when you access V you remove that lock right? From the set of locks that could possibly guard V.
+
+896 "" (0)
+02:12:59.969 --> 02:13:03.569
+And if they set of of locks that could possibly Garvey is ever empty.
+
+897 "" (0)
+02:13:03.569 --> 02:13:20.519
+The nuance and you definitely have a risk condition, right? Even if you didn't actually see the race in this particular execution. The nice thing about eraser is that it allows you to know their race is possible. Even if you didn't actually observe it with the way that your threads were scheduled, right?
+
+898 "" (0)
+02:13:20.519 --> 02:13:28.859
+So here's the bit from the paper that I was talking about, right? If we look at, I guess this new 1 is either. I don't know why, but why in there that was.
+
+899 "" (0)
+02:13:28.859 --> 02:13:33.749
+I might have been halfway through making the that that figure I changed my mind.
+
+900 "" (0)
+02:13:33.749 --> 02:13:37.709
+So, sorry, uh, I'll, I'll remove that before I post this lines.
+
+901 "" (0)
+02:13:37.709 --> 02:13:51.089
+cause it's confusing alright so um here's an example right this is exactly the same example but uh we saw before that this one doesn't have like um and you can see here that um the the locks being held uh goes down to zero 
+
+902 "" (0)
+02:13:51.089 --> 02:13:55.469
+Right. And so then I.
+
+903 "" (0)
+02:13:55.469 --> 02:14:02.099
+Eraser would warn about this. I thought I think I saw a hand a minute ago, because I have a question.
+
+904 "" (0)
+02:14:02.099 --> 02:14:07.379
+Yeah, okay. I'm just imagining things. All right so then does this work, right?
+
+905 "" (0)
+02:14:07.379 --> 02:14:15.209
+So, uh, yes, but, uh, it it is not perfect, right? The overhead is by a factor or 10 to 30.
+
+906 "" (0)
+02:14:15.209 --> 02:14:19.379
+All right, that's quite a lot of overhead. Should you run a racer in production?
+
+907 "" (0)
+02:14:19.379 --> 02:14:28.469
+No, definitely not, but it can be a useful testing tool and it Henry false alarms. All right. Good. Sometimes pretty false alarms.
+
+908 "" (0)
+02:14:28.469 --> 02:14:48.469
+However, um, you know, they applied it to a bunch of, uh, you know, relatively, uh, well, at the time important software is ultimately the ultimately so important software now. No, but this was the 90. S, right. Um, and, uh, they found, uh, some serious data races, right? Um, so, uh, this technique was, at the time, it's quite effective for data.
+
+909 "" (0)
+02:14:48.469 --> 02:14:53.369
+Detection, um, you know, we can do better. Now, you all read chess.
+
+910 "" (0)
+02:14:53.369 --> 02:14:56.669
+But, uh, you know, this was, uh.
+
+911 "" (0)
+02:14:56.669 --> 02:15:02.369
+Fairly fairly successful for the time. And the nice thing about it is that the algorithm is extremely simple.
+
+912 "" (0)
+02:15:02.369 --> 02:15:22.369
+Any questions on eraser. All right let's look at another example I want to talk about Netflix is chaos. Monkey tool. Right? So what is chaos? Monkey right? So this is a tool that Netflix invented in the early 2000 tends to test the resilience of their their I. T, infrastructure that is to say of their data centers.
+
+913 "" (0)
+02:15:22.369 --> 02:15:26.039
+Right so this is a tool primarily designed for the purposes of dev Ops.
+
+914 "" (0)
+02:15:26.039 --> 02:15:30.809
+Uh, basically the, uh, the problem it's trying to solve is well.
+
+915 "" (0)
+02:15:30.809 --> 02:15:35.999
+Hard drives do fail sometimes. Right? How often have you personally experienced a hard drive failure?
+
+916 "" (0)
+02:15:35.999 --> 02:15:42.149
+Quite possibly never right but the, the average hard drive lasts for about 5:6:years.
+
+917 "" (0)
+02:15:42.149 --> 02:15:51.179
+Before it goes out, right? If it's in continuous use. So if you have a data center with 10,000 machines, right? How many hard drive failure should you expect per day?
+
+918 "" (0)
+02:15:51.179 --> 02:15:54.329
+Like, on the order of, like, 3 to 5, right?
+
+919 "" (0)
+02:15:54.329 --> 02:16:14.329
+And so what that means is that hardware failures in sort of like large data center situation are basically guaranteed, they're going to happen at some point. And so, if you don't test your service for resilience to going down to hard drive failures, you're gonna have a bad time, right? When the hard drive that sort of 1 of the machines and services all is running on does inevitably fail.
+
+920 "" (0)
+02:16:14.329 --> 02:16:34.609
+So, chaos monkey is a really a high level technique for trying to solve these kinds of problems like the hard drive example. I just gave right and trying to test for them. So, basically the, the reason they have, they named it. This is that is a quote from 1 of the, uh, the authors of it imagine a monkey.
+
+921 "" (0)
+02:16:34.609 --> 02:16:40.409
+Data Center, right the forms of servers that host all the critical function of all the online, like this data center, right?
+
+922 "" (0)
+02:16:40.409 --> 02:16:51.779
+A big old computer, lots of racks, right? The monkey randomly runs up to machines and rips out cables, uh, or destroys devices by, uh, hitting them with a hammer or, uh, you know, I just.
+
+923 "" (0)
+02:16:51.779 --> 02:16:57.749
+Just as much damage as possible. Right? The monkey's job is just wander around the data center and cause problems. Right?
+
+924 "" (0)
+02:16:57.749 --> 02:17:02.399
+The challenge then is designing a system that is.
+
+925 "" (0)
+02:17:02.399 --> 02:17:06.329
+Dealing with the fact that it works, even though there are monkeys.
+
+926 "" (0)
+02:17:06.329 --> 02:17:26.329
+Right, the way that the core philosophy of chaos monkey is, you need to be able to defend your system against such random failures, because they're going to happen because equipment, whereas at, or, uh, you know, like somebody trips on a cable and pulls it out of the back of the server or whatever right? Bad things do happen occasionally at scale and so all.
+
+927 "" (0)
+02:17:26.329 --> 02:17:29.579
+All of their services need to be able to withstand that happening. Sometimes.
+
+928 "" (0)
+02:17:29.579 --> 02:17:42.899
+So, that's the philosophy, right? Um, another way of looking at this is that the actual practice practicality here? What does it say? Oh, it randomly choose the server and disables it.
+
+929 "" (0)
+02:17:42.899 --> 02:17:51.959
+And that's basically all this. This is not a complicated Albert. I mean, there are various ways to do this better or worse, but basically all it's doing is doing and randomly doing bad stuff. Right?
+
+930 "" (0)
+02:17:51.959 --> 02:17:59.849
+But they argue that, like, yes, it sounds insane but actually, this is the best way to tell whether the system it's actually resilient.
+
+931 "" (0)
+02:17:59.849 --> 02:18:08.999
+All right, and so knowing that this happens frequently, it creates a strong incentive for engineers to actually build systems that are defended against it.
+
+932 "" (0)
+02:18:08.999 --> 02:18:14.939
+All right, and so this incentive alignment here is as part of their goals, right? They want to make sure that if, you know.
+
+933 "" (0)
+02:18:14.939 --> 02:18:20.909
+A hard drive does fail, or, you know, power goes out from a particular server or something like this.
+
+934 "" (0)
+02:18:20.909 --> 02:18:31.589
+You know, nobody has their, uh, they're moving interrupted or whatever it is that people do on Netflix and so this gives the engineers an incentive to pass the chaos monkey tests.
+
+935 "" (0)
+02:18:31.589 --> 02:18:50.459
+to actually to deal with these problems so yeah they claim that chaos monkey is one of the most effective tools to improve the actual user experience of services right and i believe them like this is a very effective testing technique right this is kind of like fuzzy in your data center 
+
+936 "" (0)
+02:18:50.459 --> 02:18:58.109
+You can think of it that way. Yep. Any questions about this idea.
+
+937 "" (0)
+02:18:58.109 --> 02:19:01.739
+I think this is insane. I do.
+
+938 "" (0)
+02:19:01.739 --> 02:19:08.999
+Like, it sounds insane on on on its face, right? And they, they kind of lean into that with the name, but.
+
+939 "" (0)
+02:19:08.999 --> 02:19:14.399
+It does actually work, so.
+
+940 "" (0)
+02:19:14.399 --> 02:19:20.189
+Yes, this started.
+
+941 "" (0)
+02:19:20.189 --> 02:19:26.129
+Yes.
+
+942 "" (0)
+02:19:26.129 --> 02:19:41.189
+That was an example to to explain right? I'm about to show what they actually do. Yeah. So that that's not that's not a real example in the sense of, like, that's problem, not theirs, right? But it's also the case that they want to be, uh.
+
+943 "" (0)
+02:19:41.189 --> 02:19:46.799
+Defended against that and like at that time in, you basically always just got bare metal.
+
+944 "" (0)
+02:19:46.799 --> 02:20:06.799
+All right, so in 2011, say, if you rented an server, like, physically you were renting a server, right? And you weren't like, renting, like, 3 servers across 3 different availability zones that if 1 of them goes down, your data is already replicated and you don't have to worry about it. Right? Like, Amazon has kind of brought that into their own area. Right? But.
+
+945 "" (0)
+02:20:06.799 --> 02:20:18.119
+At this time was not did not have that kind of support. So let's look at some examples of the sort of like, these are specific, real examples of chaos monkey. Uh.
+
+946 "" (0)
+02:20:18.119 --> 02:20:38.119
+Um, uh, agents, I think, yeah. Um, they call them, like, so send me an army Simian just means Monkey, right? So, uh, latency monkey is 1 of them, it induces artificial delays, right? Into the communication layer. And so the idea here is that they're simulating that other services are under heavy load, right? By making the, uh, like.
+
+947 "" (0)
+02:20:38.119 --> 02:20:42.239
+It's like, slowed down delivered a minute later or something like this. Right?
+
+948 "" (0)
+02:20:42.239 --> 02:20:56.489
+So this is that's 1 thing that they do another is quote, unquote, conformity Monkey, right? And its job is basically go around and look for instances that fail some best practices check like, not be part of an auto scaling group and just turns it off.
+
+949 "" (0)
+02:20:56.489 --> 02:21:01.349
+Straightforward enough right? Um, another 1 of these is the quote unquote. Dr monkey right?
+
+950 "" (0)
+02:21:01.349 --> 02:21:11.879
+And so, what it does is, it looks at, like, external signs of health, like CPU load and if it sees a machine that's running at 99.9% CPU, it turns it off.
+
+951 "" (0)
+02:21:11.879 --> 02:21:21.449
+All right again, like, that's the whole idea of this is just like, random random, shutting, like, randomly shopping things down and making sure that you can deal with that. Right?
+
+952 "" (0)
+02:21:21.449 --> 02:21:28.379
+Um, and then, uh, localization, international monkey detects, uh, like.
+
+953 "" (0)
+02:21:28.379 --> 02:21:33.809
+Basically, it's like, uh, mixes up, uh, like languages and things like this.
+
+954 "" (0)
+02:21:33.809 --> 02:21:52.319
+Asking for things in the wrong character set, asking for things, like, it chooses at random, like a, a language to request, and then makes the request in a different, uh, country that usually doesn't have that that language associated with it and things like this. Right?
+
+955 "" (0)
+02:21:52.319 --> 02:21:59.639
+So these are some real examples any questions about these does that make sense?
+
+956 "" (0)
+02:21:59.639 --> 02:22:08.099
+There are also plenty of others. Right? The whole idea of chaos monkey really is that it's a philosophy really? Rather than a specific tool. These are specific tools.
+
+957 "" (0)
+02:22:08.099 --> 02:22:15.509
+These individual ones, but there are there are a bunch more, right?
+
+958 "" (0)
+02:22:15.509 --> 02:22:31.889
+So, continuing on our parade through analysis, let's talk a little bit about chess, which is the tool that you all read about for today. All right, so just the core intuition of chess is the coupling effect hypothesis, which we discussed before, because I want to remember what the coupling effect hypothesis was.
+
+959 "" (0)
+02:22:31.889 --> 02:22:44.969
+We had a long discussion about it again. This is program for the exam. I test suite that detects a simple fault.
+
+960 "" (0)
+02:22:44.969 --> 02:22:54.149
+Will also likely detect more complicated faults right? That's what the coupling effect hypothesis does. I think I made an argument that I didn't believe this with respect to mutation testing right?
+
+961 "" (0)
+02:22:54.149 --> 02:23:12.179
+However, for scheduling, there's much better evidence. Right? And in particular chess actually crushes it here. Right? So, the, I, I said this is the, the coupling of this again right? You're balancing code a free balancing well, there's some big percentage of of the bug. Yeah, he has that they're probably also a small tree.
+
+962 "" (0)
+02:23:12.179 --> 02:23:25.889
+Right when we talked about a couple of different type offices before we were talking about it in the context of mutation operators, right? I argued that mutation like small mutations are unlikely to boil up this sort of big bugs that actually happened in practice.
+
+963 "" (0)
+02:23:25.889 --> 02:23:38.729
+This example, though is the input data, and in the case of input data, it really depends on the program for. I totally believe this. Right? And similarly for chess works, because for schedules.
+
+964 "" (0)
+02:23:38.729 --> 02:23:45.869
+The coupling effect to hypothesis is true. Right? And so part of the reason I wanted to bring this up again was just to make clear that.
+
+965 "" (0)
+02:23:45.869 --> 02:23:54.419
+I was arguing specifically about mutation testing when we talked about this last time and not about coupling effect hypotheses in general, right? You can have them for lots of different things.
+
+966 "" (0)
+02:23:54.419 --> 02:24:08.369
+Okay, so the idea of Chaz, suppose you have some concurrency bug that you can show off with a complicated sequence of 16 threatened or leavings and perceptions. Is there also a sequence with just a few presumptions that also shows off the same bug? Probably.
+
+967 "" (0)
+02:24:08.369 --> 02:24:28.369
+All right, usually there's not really a reason for most scheduling problems to require a 16 thread and generally there aren't that many locks in programs. There aren't that many shared variables. Programmers are very scared of using them. Right? And so if there is a problem, it probably means that you can, it's, like, caused by a small number of interactions.
+
+968 "" (0)
+02:24:28.369 --> 02:24:38.699
+and so the theory of chess basically is that most concurrency bugs are caused by a small number of interactions the fact that just works suggested that that is in fact true right 
+
+969 "" (0)
+02:24:38.699 --> 02:24:47.339
+So, chess is a tool for finding and reproducing highs and bugs you all read the chest paper. So I don't feel the need to read this back to, you.
+
+970 "" (0)
+02:24:47.339 --> 02:24:56.249
+Does everyone feel like they understand trust from the paper? Did anyone notice who, uh, like, uh, the authors were.
+
+971 "" (0)
+02:24:56.249 --> 02:25:07.259
+Purchase yeah, so 1 of the authors of is who is a professor in the sales department?
+
+972 "" (0)
+02:25:07.259 --> 02:25:12.509
+Here yeah, so.
+
+973 "" (0)
+02:25:12.509 --> 02:25:20.339
+I think he has taught this class in the past. Yeah. And he's primarily a program analysis person. So I think it was 65.
+
+974 "" (0)
+02:25:20.339 --> 02:25:28.559
+Yeah, he's currently teaching, I think, a PhD level program analysis. Course.
+
+975 "" (0)
+02:25:28.559 --> 02:25:36.569
+Yep all right anyway so he's 1 of the authors of trust, which is just kind of cool fun fact fact.
+
+976 "" (0)
+02:25:36.569 --> 02:25:45.119
+And so if you ever want to know more things about chess, I'm sure you really would love it. If you wander into his office and started asking specific questions about it. Genuinely, I think you would like that.
+
+977 "" (0)
+02:25:45.119 --> 02:26:05.119
+All right, um, does chess work, right? Um, so, chess is pretty lightweight, right? Um, it's oblivious to synchronization protocols, such as locking discipline. It doesn't care how you're doing locking, which is convenient. Unlike say eraser, which does need to reason about what is a lock and what is an unlock, right? It needs to know to do that in order to compete the locks. Right? And this is.
+
+978 "" (0)
+02:26:05.119 --> 02:26:08.279
+It's important for low level, carnal code.
+
+979 "" (0)
+02:26:08.279 --> 02:26:28.279
+To not have to worry about, like, what the exact locking discipline is, because for low level, colonel code, the logging discipline is often very, very complicated. Right? Because there's a lot of interacting. Sure, sure. It's runtime overhead. It randomly samples a small percentage. Right? So, that means that that allows it to.
+
+980 "" (0)
+02:26:28.279 --> 02:26:33.629
+Be relatively cheap, right? Um.
+
+981 "" (0)
+02:26:33.629 --> 02:26:53.629
+It already it reuses Breakpoint facilities that are already supported by the hardware. Right? So this is also, um, a useful thing to do right? In general. If you deeply understand how the hardware works, or what the operating system provides, you can often really reduce the overhead of dynamic analysis by taking advantage of things that exist, but are not currently being used. Right?
+
+982 "" (0)
+02:26:53.629 --> 02:26:57.689
+So, 1 of the key tricks for making a dynamic analysis, have negligible runtime overhead.
+
+983 "" (0)
+02:26:57.689 --> 02:27:04.379
+As you think about the kind of thing you're trying to do, and what kind of program it is, and then things are there, any free registers all the time.
+
+984 "" (0)
+02:27:04.379 --> 02:27:24.379
+Can we use that if you can do that? Right? If you can cleverly take advantage of the hardware that you have available right? For utilize cores that aren't currently being used or utilize as I said, registers that are being used for utilize the fact that there's break point facilities are already there. Right? And you can set hardware break points and most modern architectures.
+
+985 "" (0)
+02:27:24.379 --> 02:27:32.429
+All right, that allows you to do much more with less. Right? This is an analysis design question, though.
+
+986 "" (0)
+02:27:32.429 --> 02:27:39.869
+Um, and it was effective, right? It found a bunch of colonel. Sorry a bunch of data races in the Windows colonel.
+
+987 "" (0)
+02:27:39.869 --> 02:27:44.219
+And, you know, prevented them so it was, it was effective.
+
+988 "" (0)
+02:27:48.029 --> 02:27:52.139
+Any questions there on tests on, like, how, and why it worked.
+
+989 "" (0)
+02:27:55.169 --> 02:28:05.549
+All right, um, let's let's hurry through this last 1, right? The last 1 I want to talk about is the driver verifier. This is a rather old, but still supported Microsoft technique, right?
+
+990 "" (0)
+02:28:05.549 --> 02:28:13.949
+The key idea of the driver verifier is that, um, when you, uh, when you call, oh, instead of calling open, you make a special my open, right?
+
+991 "" (0)
+02:28:13.949 --> 02:28:21.599
+And, uh, with the salt probability, it raises some, and with some other small probability, it raises and operating system, right?
+
+992 "" (0)
+02:28:21.599 --> 02:28:26.489
+The idea here, basically, it's to do a chaos monkey thing for the operating system.
+
+993 "" (0)
+02:28:26.489 --> 02:28:30.449
+All right, this is making the operating system fails sometimes at random right?
+
+994 "" (0)
+02:28:30.449 --> 02:28:34.799
+Why do we care about this in the context of drivers? They don't know what a driver is.
+
+995 "" (0)
+02:28:34.799 --> 02:28:54.799
+I know drivers some of you. Yeah, so the, the key idea of, uh, uh, uh, uh, driver is basically, is that if you have, like, uh, an open, uh, computing ecosystem, like we do, right? Uh, it's often the case that you want to, like, go to the store and.
+
+996 "" (0)
+02:28:54.799 --> 02:29:03.119
+I like a mouse, for example, from a 3rd party vendor, right? Microsoft doesn't know about the 3rd party vendor or about the maps.
+
+997 "" (0)
+02:29:03.119 --> 02:29:06.179
+So, what software actually controls the maps.
+
+998 "" (0)
+02:29:06.179 --> 02:29:15.389
+Right. The driver yes and that's supplied by the mouse's, uh, vendor. Right? So, like, some person who works at the mouse company.
+
+999 "" (0)
+02:29:15.389 --> 02:29:24.089
+I realize now, sounds amusing. Makes it sound like I'm talking about Disney. I'm not whoever makes the mouse, right? Provide some code, uh, that run like.
+
+1000 "" (0)
+02:29:24.089 --> 02:29:34.379
+Effectively is the software for the maps, right? That allows the malice to interact with the operating system. And, like, when you click the mouse and operating system, events gets generated that says, like, I'm asking a card right?
+
+1001 "" (0)
+02:29:34.379 --> 02:29:51.839
+That code needs to be plugged directly into the carnal because, like, clicking the mouse needs to be a fast operation, right? It needs to be the case, like, because we're playing StarCraft or whatever then when we click the mouse that then happens very fast. Right? It can't be the case that that has to go through a bunch of layers of, like, special protection to make sure it's safe. Right?
+
+1002 "" (0)
+02:29:51.839 --> 02:29:55.829
+The problem with this is that 3rd parties who are writing.
+
+1003 "" (0)
+02:29:55.829 --> 02:30:15.689
+Uh, driver code, or not trustworthy, they often make mistakes, right? Because it's just code and it's easy to make it, uh, make a mistake in it. Right? And it's easy to, in particular ignore the possibility that things can go wrong right often when writing something like mouse, click code, you think, okay, I click the mouse and then it works right? But what if the operating system says like, no.
+
+1004 "" (0)
+02:30:15.689 --> 02:30:22.589
+I'm busy right now, because I've been preempted by something else. Right? What are the operating system? Just stalls for a 2nd, like, it does happen right?
+
+1005 "" (0)
+02:30:22.589 --> 02:30:31.949
+And in practice, what happens, then if your mouse code doesn't handle that case, is that, uh, you get the, the famous old Windows thing of blue screen of death.
+
+1006 "" (0)
+02:30:31.949 --> 02:30:45.059
+The blue screen of death, basically on most of the time and Windows back in the day. Like, back in, like, 2000 ourselves happened all day, all the time extremely annoying. And 2, most of the time it was caused by 3rd party drivers.
+
+1007 "" (0)
+02:30:45.059 --> 02:31:00.869
+Being just wrong, because the state of the world was that most drivers were incorrect, right? That's still kind of true. But driver verifier helped us move in the right direction. Right. Um, so, uh, it's a, you know, tool included in Microsoft Windows that replaces the default operating system. Subroutines.
+
+1008 "" (0)
+02:31:00.869 --> 02:31:06.869
+Right and it monitors and stresses drivers. Right? So its job is just to pretend to fail. So, the driver is, uh.
+
+1009 "" (0)
+02:31:06.869 --> 02:31:16.319
+Like that don't do the right thing get caught, not doing the right thing. Right? And so the key idea here basically is that Microsoft will go off and.
+
+1010 "" (0)
+02:31:16.319 --> 02:31:29.189
+Like, run in the background of this thing on anything that you plug in when you're not using your computer. Right? So, if you, if you plugged like a mouse into your computer, like at 1st, it's just running untrusted. Right? It it hasn't been verified yet. But then when you like.
+
+1011 "" (0)
+02:31:29.189 --> 02:31:42.689
+Turn your computer off for a moment, right? Or, you know, like, you leave it to sleep. Microsoft will be like, okay, the operating system spins this up and just test that mouse and checks that its driver is. Okay. And if it's not, it sends a report back to Microsoft that says, like, go call up this company. They suck.
+
+1012 "" (0)
+02:31:42.689 --> 02:31:52.679
+Right. That's basically the technique, right? And this was deployed and I believe that, like, maybe around 9092001 something of this. Right? Um.
+
+1013 "" (0)
+02:31:52.679 --> 02:31:59.879
+And it works, it worked very well, right? Yeah. So it simulates a bunch of this, these kinds of problems.
+
+1014 "" (0)
+02:31:59.879 --> 02:32:19.499
+Yep, yep. Okay there we go. Uh, it's included in every version of Windows since Windows 2000. um, Microsoft claims still over 70% of blue screen of death are caused by, uh, 3rd party drivers, even in the modern world. Right? Um, rubric hazards. The number was higher. Uh, in general, um, Microsoft is actually pretty, uh.
+
+1015 "" (0)
+02:32:19.499 --> 02:32:28.049
+Tight lipped about how often a blue screen of death occur. So, like, we only really have an anecdotal data here, but like.
+
+1016 "" (0)
+02:32:28.049 --> 02:32:31.589
+Uh, I have heard from people who would know that.
+
+1017 "" (0)
+02:32:31.589 --> 02:32:45.329
+Driver verifier is 1 of the reasons for this, there's 1 other important project, which is the quote, unquote, static driver verifier, which is a model Checker. Uh, that also was extremely instrumental that happened around the same time between those 2. Uh.
+
+1018 "" (0)
+02:32:45.329 --> 02:32:54.719
+The number of blue screen of death apparently dropped really precipitously, uh, around the, like, between, like, 2001 and like, 2008.
+
+1019 "" (0)
+02:32:54.719 --> 02:32:58.289
+Again, Microsoft doesn't publish numbers about this, so I can't.
+
+1020 "" (0)
+02:32:58.289 --> 02:33:01.679
+Give you any, but I search.
+
+1021 "" (0)
+02:33:01.679 --> 02:33:06.539
+That, uh, this technique and slam were really important, right?
+
+1022 "" (0)
+02:33:06.539 --> 02:33:11.549
+Okay, any questions about this driver verify everything.
+
+1023 "" (0)
+02:33:11.549 --> 02:33:19.109
+Still included in any copy of Windows that you have, because it works.
+
+1024 "" (0)
+02:33:19.109 --> 02:33:27.779
+All right, so that's, uh, that's all the examples I wanted to go over. I'm just going to briefly summarize and then give a few announcements. I'm sorry that I have run.
+
+1025 "" (0)
+02:33:27.779 --> 02:33:42.269
+Quite longer than I had expected to, but there's a lot of fun things to talk about in dynamic analysis. So, 1st dynamic analysis runs an instrument program and a control banner to collect information that we can analyze to learn about a property of interest. These 5 things are the core ingredients of dynamic analysis, right?
+
+1026 "" (0)
+02:33:42.269 --> 02:33:47.489
+When thinking about dynamic analysis, you should be thinking about these 5 things, right?
+
+1027 "" (0)
+02:33:47.489 --> 02:33:59.820
+Testing itself is a dynamic analysis, but so are most of the other things that we've discussed in this class so far? Right and so the stuff that we're talking about today is, like, generally applicable to most of the things that we have covered in class.
+
+1028 "" (0)
+02:33:59.820 --> 02:34:08.160
+Instrumentation like, you can do it at the source code level or a binary writing, and there are other things as well. Right?
+
+1029 "" (0)
+02:34:08.160 --> 02:34:12.030
+You should have at least a decent understanding of the details there. Right?
+
+1030 "" (0)
+02:34:12.030 --> 02:34:20.880
+And dynamic analysis, limitations include overhead, right efficiency, but also they can have false positives and false negatives.
+
+1031 "" (0)
+02:34:20.880 --> 02:34:25.560
+Uh, it is possible to create complete, dynamic analyses, but most are not.
+
+1032 "" (0)
+02:34:25.560 --> 02:34:32.970
+And finally, lots of companies use dynamic analysis, especially for hard to test bugs, like concurrency problems or memory leaks or drivers.
+
+1033 "" (0)
+02:34:32.970 --> 02:34:42.900
+Right places where it's difficult to just sit down and do the testing yourself dynamic analysis are often the next the next thing that people reach for, and before they reach for static analysis.
+
+1034 "" (0)
+02:34:42.900 --> 02:34:50.640
+All right, any questions on dynamic analysis before I do a few brief announcements.
+
+1035 "" (0)
+02:34:50.640 --> 02:35:10.640
+All right, brief announcements 1st recall that there is an exam during the next class there's no class next week at the spring break after that we will have an exam. So you'll recall you'll be permitted to bring 1 letter sized piece of paper with handwritten notes, double sided before next time that you're here, you should prepare that. Right? Um, recall also that you will have to turn that in.
+
+1036 "" (0)
+02:35:10.640 --> 02:35:27.150
+Along with your exam, we will compare your handwriting and we might compare it against other people's notes sheets. So don't copy each others, make your own right? Um, for the exam itself. Um, so, uh, what, we're actually what we're going to do at 1st, I will do a lecture, right? There'll be.
+
+1037 "" (0)
+02:35:27.150 --> 02:35:34.260
+I will actually time it ahead of time so that it does not go beyond 7, but it will probably under 145. that's what I'm going to aim for. Right?
+
+1038 "" (0)
+02:35:34.260 --> 02:35:43.680
+Then we'll have a 45 minutes, a half hour review session, right before the exam starts, right? And then we'll have the exam for an hour and a half starting at exactly. At 7:30:right.
+
+1039 "" (0)
+02:35:43.680 --> 02:35:46.950
+Why are we using this schedule? Um, the reason is that, uh.
+
+1040 "" (0)
+02:35:46.950 --> 02:36:01.290
+Uh, the exam is during Ramadan and so between daylight savings and when, like, sunset, getting later since that's at about 7:10:on that day. So I want to delay the exam until after that, because some of, uh.
+
+1041 "" (0)
+02:36:01.290 --> 02:36:04.590
+The people in the class are going to want to break the fast right?
+
+1042 "" (0)
+02:36:04.590 --> 02:36:21.210
+Okay, if this exam schedule is a problem for you please let me know as soon as possible. So that we can try to find an alternative arrangement, I will design the exam to be done in about 60 minutes. But I'm going to give you the full 90 minutes, because I'm very bad at designing exams and it will probably be too long. So, sorry in advance.
+
+1043 "" (0)
+02:36:21.210 --> 02:36:26.400
+All right, um, finally, um, for the rest of today's class, what little is left.
+
+1044 "" (0)
+02:36:26.400 --> 02:36:31.710
+Um, and I will hang around to answer any questions that you have on homework. 6. all right. Um.
+
+1045 "" (0)
+02:36:31.710 --> 02:36:41.250
+I am concerned that there have been very few submissions. Right? So, if you are not, like, making real progress by now, you are going to.
+
+1046 "" (0)
+02:36:41.250 --> 02:36:59.910
+Probably struggle a bit because the 1st, time you submit a grade scope. It is unlikely. You'll get a high score. Right? Homework 6, especially requires you to be a bit creative with choosing good mutation operators and doing some experiments on your own to figure out, like, what mutations are actually useful and what aren't right.
+
+1047 "" (0)
+02:36:59.910 --> 02:37:17.310
+And I am concerned that no, 1 is scoring badly yet, because it means that you may not have time to score. Well, all right. So please get started on that. As soon as possible. It is due end of day anywhere on earth on Wednesday, next week, right? Based on the class vote that was taken at the beginning of the semester.
+
+1048 "" (0)
+02:37:17.310 --> 02:37:21.810
+All right any questions on any of this.
+
+1049 "" (0)
+02:37:21.810 --> 02:37:27.750
+Yes, by I mean, like 8 and a half by 11 metrics.
+
+1050 "" (0)
+02:37:27.750 --> 02:37:33.210
+Like, a princess? Yeah, Princess sized paper. Yeah.
+
+1051 "" (0)
+02:37:33.210 --> 02:37:36.720
+Right.
+
+1052 "" (0)
+02:37:36.720 --> 02:37:41.670
+All right, um, if that's it, uh, then, uh, I will see you all, uh, next week.
+
+1053 "" (0)
+02:37:41.670 --> 02:37:47.280
+No, not next week the week after next yeah.
+
+1054 "" (0)
+02:37:47.280 --> 02:37:50.790
+So, sorry, I can't hear you.
+
+1055 "" (0)
+02:37:50.790 --> 02:37:55.290
+Okay, and.

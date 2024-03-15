@@ -1,0 +1,4017 @@
+WEBVTT
+
+1 "" (0)
+00:00:00.000 --> 00:00:07.380
+2 minutes on the clock and whoever has sound on please for now.
+
+2 "" (0)
+00:00:07.380 --> 00:00:15.509
+1, true or false C Smith users, both diagnosis and runtime checks to avoid undefined or unspecified behaviors and the programs that it generates.
+
+3 "" (0)
+00:00:15.509 --> 00:00:21.450
+True. False. True. Yes. True is correct. Uh, so, yeah, uh.
+
+4 "" (0)
+00:00:21.450 --> 00:00:27.180
+Much of the paper was about these 2 topics. So, uh, hopefully it's fairly easy. 2nd question.
+
+5 "" (0)
+00:00:27.180 --> 00:00:31.230
+Uh, the main example in section 2, the icon paper, uh, was, uh, which of these.
+
+6 "" (0)
+00:00:31.230 --> 00:00:37.830
+A stack. That's correct. Yeah. It was a stack. Uh, it was not a C program. It was a Java program.
+
+7 "" (0)
+00:00:37.830 --> 00:00:42.060
+All right, any questions on either of these before we jump into it.
+
+8 "" (0)
+00:00:42.060 --> 00:00:53.610
+Okay, so today's topic is Oracles and we're going to go into a fair amount of detail about several techniques for Oracle generation, but I want to start out with some high level motivation.
+
+9 "" (0)
+00:00:53.610 --> 00:01:00.810
+So, we've been talking about generating input for the most part over the last few weeks. We've talked about fuzzy and we've talked about.
+
+10 "" (0)
+00:01:00.810 --> 00:01:05.640
+Uh, other input generation techniques, like symbolic execution, but generally input is only of.
+
+11 "" (0)
+00:01:05.640 --> 00:01:13.170
+You know, limited value if we don't know what the program is supposed to do with that input. Right. Fosters can detect crashes, but they're gonna struggle to detect anything more. Interesting.
+
+12 "" (0)
+00:01:13.170 --> 00:01:17.940
+And our topic today basically is how do we get them to detect something more interesting?
+
+13 "" (0)
+00:01:17.940 --> 00:01:28.560
+And so the key question, if we can generate and input for a given path, like, for example, using the techniques we talked about last week, how do we tell if the program actually behaved correctly when that path was executed? Right?
+
+14 "" (0)
+00:01:28.560 --> 00:01:36.000
+And in general, this is hard. This is a very hard problem, including for humans right? So.
+
+15 "" (0)
+00:01:36.000 --> 00:01:42.600
+Many people believe that formally writing down what the program to do is just as hard as writing it. Right I've heard this claim before.
+
+16 "" (0)
+00:01:42.600 --> 00:01:48.690
+Okay, I've tried to write a formal specification for any program.
+
+17 "" (0)
+00:01:48.690 --> 00:01:57.180
+A couple of you. Yeah. Um, it it is very hard, uh, when we get into the static analysis later this semester, um, you will see exactly how hard it is.
+
+18 "" (0)
+00:01:57.180 --> 00:02:00.510
+All right, so to formally specify, even a relatively small program.
+
+19 "" (0)
+00:02:00.510 --> 00:02:09.690
+It is genuinely, very hard programs. Have a lot of behavior. Modern computers are very complicated. Um, there's a famous, uh.
+
+20 "" (0)
+00:02:09.690 --> 00:02:19.350
+Famous, I guess paper is the right word, but really more like like 960 s blog post from a famous computer scientist named Tony W***. I've heard of Tony hor.
+
+21 "" (0)
+00:02:19.350 --> 00:02:39.350
+No, 1, okay. He's a really famous person in compile, like, early compilers, but he wrote this paper, which, as I said more like a 160 blog post, where he went through all the work, he did in order to prove a very simple program. Correct? And it's like, 10:15:pages, I considered making you all read it for this lecture because it's useful for.
+
+22 "" (0)
+00:02:39.350 --> 00:02:48.780
+Depending a lot of this stuff, but it's actually like a nightmare to read. So we're not we're not going to actually do that. But if you want to see the detail there that.
+
+23 "" (0)
+00:02:48.780 --> 00:02:54.630
+Uh, that paper is called, uh, I believe proof of a program find right? But it's for a very simple program.
+
+24 "" (0)
+00:02:54.630 --> 00:03:12.750
+And, you know, he spends 10 or 15 pages telling you all about that and that's for our program written in the sixties. So it's not a very complicated program. Right? Proving something about a modern program is much harder. Okay. So formally written down what the program should do people often like many people believe is as hard as writing the program in the 1st place.
+
+25 "" (0)
+00:03:12.750 --> 00:03:23.730
+This is called the Oracle problem in general and so if we refer to the Oracle problem, what we're talking about is the difficulty and cost of determining what should a program do for some given input.
+
+26 "" (0)
+00:03:23.730 --> 00:03:38.760
+So, the key question, what should the program do and so, what we're going to talk about today are various ways that we can try to, uh, especially paired with random input generation, or, uh, improve our ability to detect bugs that are beyond just.
+
+27 "" (0)
+00:03:38.760 --> 00:03:49.110
+Uh, crashes and this is expensive for both humans and permissions. Right? You know, you've probably had to spend some time thinking about what a program has done is supposed to do at some point in the past.
+
+28 "" (0)
+00:03:49.110 --> 00:04:09.110
+And you probably have a good sense that it's a pain. Computers are not particularly better at it than humans. In fact, in general computers are much worse. Right? So humans struggle a bit to come up with test inputs to computers are very good at choosing test templates. Mostly at random we talked about and we talked about other techniques for this. However, computers are generally not any better than humans. Really?
+
+29 "" (0)
+00:04:09.110 --> 00:04:20.460
+Uh, finding oracles, they can be good at enforcing oracles, so we can provide them and that's mostly what we're going to be talking about today is how do we find Oracles to make a computer enforced because almost all of this is gonna have to be done by humans.
+
+30 "" (0)
+00:04:20.460 --> 00:04:29.459
+Although the last technique we're going to talk about, but you all read a paper about icon dynamic. Conversion detection is a, a technique that's mostly automated.
+
+31 "" (0)
+00:04:29.459 --> 00:04:41.279
+All right, so, yeah, and for machines, this is sometimes impossible at some point a human needs to decide what the program is intended to do. All right, there's, there's no way for a machine to make that judgment on. So.
+
+32 "" (0)
+00:04:41.279 --> 00:05:01.109
+Okay, so we've already seen 1 kind of important Oracle when we talked about, which is what's called an implicit Oracle and the observation that motivates these is that there are some things that programs definitely should not do given any input. There's no input on which these things should occur. Right? And these are things like crashes or sag vaults buffer overflow.
+
+33 "" (0)
+00:05:01.109 --> 00:05:04.799
+A loop forever, right? I never terminate.
+
+34 "" (0)
+00:05:04.799 --> 00:05:14.669
+And these sort of implicit oracles are what fussers use we've talked about them before. Right? And so the key idea here is run the program and check if it doesn't any of these definitely bad things.
+
+35 "" (0)
+00:05:14.669 --> 00:05:23.969
+Um, and we can have a whole definition American historical, right? It's an Oracle that's associated with the language or the architecture and not with a specific program.
+
+36 "" (0)
+00:05:23.969 --> 00:05:36.179
+So, the way that we find implicit Oracles is we go and look at like, what should what, what must be true for all of this to, uh, for this to possibly work don't ever crash. No program should do that.
+
+37 "" (0)
+00:05:36.179 --> 00:05:41.819
+Okay, so these, these are useful, right?
+
+38 "" (0)
+00:05:41.819 --> 00:05:46.769
+But the key question we're going to be trying to address today is, like, can we do any better.
+
+39 "" (0)
+00:05:46.769 --> 00:05:59.789
+So, and this is what most is actually using the real world, right? You saw AFL, for example, right? Afl uses instead of implicit oracles. Right? But our goal today, as I said, is to try to look at what we can do, that's a little bit better.
+
+40 "" (0)
+00:05:59.789 --> 00:06:03.629
+And the reason that we care about this is the implicit oracles have a key weakness.
+
+41 "" (0)
+00:06:03.629 --> 00:06:07.259
+Anyone have an idea of what that is based on what I've said so far.
+
+42 "" (0)
+00:06:10.559 --> 00:06:19.769
+What's wrong with implicit oracles? Yeah, they're they're, they're not going to detect program specific bucks.
+
+43 "" (0)
+00:06:19.769 --> 00:06:23.879
+If you had to guess, like, just rough percentage.
+
+44 "" (0)
+00:06:23.879 --> 00:06:28.019
+How many bugs in real systems do you think are program specific?
+
+45 "" (0)
+00:06:28.019 --> 00:06:32.789
+Like, have a program specific Oracle is it.
+
+46 "" (0)
+00:06:32.789 --> 00:06:38.219
+Approximately non approximately all or approximately something.
+
+47 "" (0)
+00:06:38.219 --> 00:06:47.039
+Approximately all approximately some, it's somewhere between approximately 7 approximately. All right definitely. Um, certainly not none. Um.
+
+48 "" (0)
+00:06:47.039 --> 00:06:50.999
+Yes, programs do crash in the real world, but crashes are often detected pretty quickly.
+
+49 "" (0)
+00:06:50.999 --> 00:06:54.059
+All right, uh, they're often fixed, much easier to fix because.
+
+50 "" (0)
+00:06:54.059 --> 00:06:57.419
+I mean, it's easy to, uh, it's easy to observe for them right?
+
+51 "" (0)
+00:06:57.419 --> 00:07:17.419
+When the program is doing something subtly wrong, when it's producing the wrong output, it's often much harder. Right? And these are the kinds of cases that implicit Oracles are going to do very poorly at detecting, and that's why we're going to want the techniques that we're going to talk about today. All right. So, implicit oracles, the key weaknesses that they're limited to facts that are true about all programs. They cannot.
+
+52 "" (0)
+00:07:17.419 --> 00:07:26.399
+They cannot find a program specific box, right? Or in particular, uh, bugs that don't manifest practice for, uh, bugs or the program just does look like, get the wrong answer.
+
+53 "" (0)
+00:07:26.399 --> 00:07:35.639
+We're never going to do to get the wrong answer bugs, using implicit oracles, unless getting the wrong answer. Actually causes the program to crash or not terminate or something that we can actually detect.
+
+54 "" (0)
+00:07:35.639 --> 00:07:47.549
+Alright, so compare this to the way that a human would write a test like, think about how YouTube, how you write a test, you select an input, you select an Oracle and then you compare the 2.
+
+55 "" (0)
+00:07:47.549 --> 00:07:57.299
+And I want us to view this, uh, this technique as a form of sampling right we're selecting an input and an Oracle and, uh.
+
+56 "" (0)
+00:07:57.299 --> 00:08:03.959
+When we do this, we're doing it for it concrete specific examples. That's what humans are good at doing.
+
+57 "" (0)
+00:08:03.959 --> 00:08:17.039
+So, human testing, generally, when we write tests, what we do is, we usually sample the concrete behaviors of a program. We look at exactly what it does on some particular input and we say, yes, that's right. Or no, it's not right.
+
+58 "" (0)
+00:08:17.039 --> 00:08:27.629
+The question then, is can we do any better than this? Because like the obvious Oracle generation I'm very sorry.
+
+59 "" (0)
+00:08:27.629 --> 00:08:34.049
+My blood sugar is low, so we're gonna have a little snack as we continue this. I apologize.
+
+60 "" (0)
+00:08:34.049 --> 00:08:38.879
+We're all going to keep handy. So, the key the key question here is, can we do any better than sampling.
+
+61 "" (0)
+00:08:42.419 --> 00:08:45.989
+And, of course, the answer, or wouldn't be talking about this is yes.
+
+62 "" (0)
+00:08:45.989 --> 00:08:51.629
+All right, so the key idea behind all the techniques for producing better oracles that we're going to discuss today.
+
+63 "" (0)
+00:08:51.629 --> 00:08:58.619
+Is that each of those give each of them is going to give us a more general way to discuss what our program should do than a single concrete output.
+
+64 "" (0)
+00:08:58.619 --> 00:09:02.429
+These are called words, these are called partial oracles.
+
+65 "" (0)
+00:09:02.429 --> 00:09:06.149
+What are less specific about exactly what the program should do?
+
+66 "" (0)
+00:09:06.149 --> 00:09:13.049
+In a traditional human written article 1st of all human written articles. That's something like, give an input, uh, 5 produce output 3.
+
+67 "" (0)
+00:09:13.049 --> 00:09:20.249
+All right, these kind of oracles are going to be more abstract. They're going to say something like the output must be positive for any positive input.
+
+68 "" (0)
+00:09:20.249 --> 00:09:26.279
+And you can do with partial Oracles like, this is an abstraction over top of testing, right?
+
+69 "" (0)
+00:09:26.279 --> 00:09:30.779
+Um, the concrete traditional Oracle or something like that should be fine.
+
+70 "" (0)
+00:09:36.569 --> 00:09:43.109
+And a, a partial Oracle is an abstract version of this so it might say something like, for all X actually be greater than 0. all right.
+
+71 "" (0)
+00:09:43.109 --> 00:09:46.439
+And in general, this is what we're going to be talking about, we're going to be talking mostly about.
+
+72 "" (0)
+00:09:46.439 --> 00:09:53.969
+Formulas about what the program should be. Right almost everything that we're going to talk about today is related to this.
+
+73 "" (0)
+00:09:53.969 --> 00:10:07.679
+So there's going to be a fair amount of math in this lecture so I'm just going to warn you all ahead of time. This is going to be a fairly like, we're gonna be testing your your math background a little bit today because, like, this sort of partial Oracle is all about finding a way to.
+
+74 "" (0)
+00:10:07.679 --> 00:10:11.129
+You know, sort of symbolically represent what the program is supposed to do.
+
+75 "" (0)
+00:10:11.129 --> 00:10:25.589
+Right. And so if at any point, I mentioned, like a math word that you don't know, please do stop me. I'm happy to go to the whiteboard and to find them I've included at least a couple of places in the lecture where I'm, like, actually put a definition in there, but I might have missed some things that you might you all might know not might not know.
+
+76 "" (0)
+00:10:25.589 --> 00:10:31.229
+So, if so I apologize it, but please do please do stop me.
+
+77 "" (0)
+00:10:31.229 --> 00:10:37.439
+All right, so today's key theme is that we're going to combine random testing, put generation, like, buzzing.
+
+78 "" (0)
+00:10:37.439 --> 00:10:42.329
+With these kind of abstract, partial Oracles right? We know that.
+
+79 "" (0)
+00:10:42.329 --> 00:10:46.199
+For all program executions, extra, be greater than 0.
+
+80 "" (0)
+00:10:46.199 --> 00:10:50.609
+And if we run the father and ever produces something, where actually is not very in 0, we found about.
+
+81 "" (0)
+00:10:50.609 --> 00:10:58.259
+That's the key idea. All right so where can we get? Partial oracles? Does anyone have an idea.
+
+82 "" (0)
+00:11:03.629 --> 00:11:08.849
+Not by using the output. Um, so.
+
+83 "" (0)
+00:11:08.849 --> 00:11:11.909
+I think you're referring to something like icon.
+
+84 "" (0)
+00:11:11.909 --> 00:11:17.039
+Like, the, the tool we wrote about in 1 of the papers today. Yeah.
+
+85 "" (0)
+00:11:17.039 --> 00:11:21.749
+That's 1 option any other ideas.
+
+86 "" (0)
+00:11:25.769 --> 00:11:29.309
+Have you ever considered writing an article like this for a test that you've written?
+
+87 "" (0)
+00:11:29.309 --> 00:11:42.419
+Yeah, yeah, so, um, 1st, option here is definitely just ask a human right? So, certainly it turns out that humans are actually surprisingly good. This, like, asking human to do it here is going to turn out to be a reasonable like, reasonable plan.
+
+88 "" (0)
+00:11:42.419 --> 00:11:46.439
+And this leads, so it's called property based testing, which is the 1st thing that we're going to cover today.
+
+89 "" (0)
+00:11:46.439 --> 00:11:52.469
+Uh, the idea of property based testing basically, is that you're going to write a partial Oracle and then the system's going to enforce it. Right?
+
+90 "" (0)
+00:11:52.469 --> 00:11:59.609
+And surprising yeah, I think it is it is maybe a bit counterintuitive though, but humans actually do generally turn out to be pretty good at.
+
+91 "" (0)
+00:11:59.609 --> 00:12:08.909
+Like, this was not obvious, like, before people invented property based testing um, but it turns out that it actually works quite well to ask humans, direct partial oracles instead of concrete ones.
+
+92 "" (0)
+00:12:08.909 --> 00:12:16.469
+It's about as hard, uh, and, you know, anecdotally, uh, for a human to write a a quick check kind of a style, uh, parcel.
+
+93 "" (0)
+00:12:16.469 --> 00:12:30.569
+A partner Oracle using a property based testing, uh, tool as it is to just choose a concrete output. Like, usually, humans are only slightly harder, maybe, uh, to write the partial Oracle, but you get a lot more out of it because you can then fuzzy against it.
+
+94 "" (0)
+00:12:30.569 --> 00:12:45.389
+Um, okay, so that's option. 1 option 2 here is to, uh, exploit known relationships between different inputs or programs. This leads to what's called Metamorphic testing. And, uh, a subset of Metamorphic testing is the kind of differential testing that you read about in the other paper. Uh.
+
+95 "" (0)
+00:12:45.389 --> 00:12:52.199
+For this week, this is an example of a differential testing technique. All right. And differential testing is 1 kind of Metamorphic testing.
+
+96 "" (0)
+00:12:52.199 --> 00:12:56.069
+In particular C Smith is exploring the relationship between different compilers.
+
+97 "" (0)
+00:12:56.069 --> 00:13:08.969
+All CI, compiler should produce valid code. Right? And in fact, they should probably produce the same code. Right? If you give it the same executable code from the same C program if you give 3 C compilers the same CI program.
+
+98 "" (0)
+00:13:08.969 --> 00:13:21.839
+You get out 3 programs that do the same thing, right? If that's not the case, there's definitely a bug and that's differential testing, but we'll go through a bunch of other kinds of, or at least 1 other kind of anamorphic testing as well. Right? So.
+
+99 "" (0)
+00:13:21.839 --> 00:13:27.719
+Um, the, the difficult part about Metamorphic testing and general, I think human, you're gonna have to provide these relationships.
+
+100 "" (0)
+00:13:27.719 --> 00:13:32.669
+All right, it's relatively easy when you're talking about compilers and we know exactly that they should behave the same. All right.
+
+101 "" (0)
+00:13:32.669 --> 00:13:37.799
+But even see was pretty hard, right? You all saw all the work that they had to do in order to, like.
+
+102 "" (0)
+00:13:37.799 --> 00:13:45.929
+Build a buzzer that didn't trigger undefined behavior. Right. Um, and that is, I think emblematic of the general difficulty of Metamorphic testing.
+
+103 "" (0)
+00:13:45.929 --> 00:13:56.759
+Metamorphic testing is extraordinarily effective, but it's also a ton of work right? And it requires you to think deeply about exactly what the program is doing, or how different inputs or programs relate to each other. Right?
+
+104 "" (0)
+00:13:56.759 --> 00:14:13.949
+Okay, and then the 3rd option is icon right? Which is to say, run the program and automatically absorb what happens to be true, uh, about the program as it runs on a bunch of tests, and then try to enforce those on, uh, by the right. So, observe some invariants that happened to be strong human written tests.
+
+105 "" (0)
+00:14:13.949 --> 00:14:17.219
+And then, uh, let the father, uh, try to break those, right?
+
+106 "" (0)
+00:14:17.219 --> 00:14:22.979
+And if if something's true on all the human written tests for, and icon were generally assuming that it's true in real life.
+
+107 "" (0)
+00:14:22.979 --> 00:14:31.019
+And that leads to, as I said, dynamic in very in detection or icon, which is our example of dynamic conversion detection there are other dynamic. And, uh.
+
+108 "" (0)
+00:14:31.019 --> 00:14:35.609
+Other dynamic and variant detection techniques out there, but I'm not going to cover them. Um.
+
+109 "" (0)
+00:14:35.609 --> 00:14:41.909
+You know, I think icon is by far the most usable system that exists and also is by far the most famous.
+
+110 "" (0)
+00:14:41.909 --> 00:14:48.149
+Okay, so this is basically our agenda for this, uh, this lecture, right? We're going to cover these 3 key things.
+
+111 "" (0)
+00:14:48.149 --> 00:14:53.009
+Property based testing Metamorphic, testing and dynamic and very introduction. Right? So these 3 options.
+
+112 "" (0)
+00:14:53.009 --> 00:14:57.209
+All right any questions here before I proceed into property based testing.
+
+113 "" (0)
+00:14:57.209 --> 00:15:00.329
+I'll give you a chance to the rest of this candy.
+
+114 "" (0)
+00:15:03.569 --> 00:15:13.619
+I'll run it on the board.
+
+115 "" (0)
+00:15:13.619 --> 00:15:20.699
+D, a, I say, oh.
+
+116 "" (0)
+00:15:20.699 --> 00:15:27.329
+Oh, no, let me look for it. I don't know what I mean.
+
+117 "" (0)
+00:15:27.329 --> 00:15:32.549
+Uh, probably, I don't know if you know.
+
+118 "" (0)
+00:15:32.549 --> 00:15:35.609
+And so vegetable.
+
+119 "" (0)
+00:15:35.609 --> 00:15:43.859
+Say something yeah. Um, I have heard it compared to a carrot.
+
+120 "" (0)
+00:15:43.859 --> 00:15:49.019
+It's it's named after a particular vegetable. I genuinely don't know why.
+
+121 "" (0)
+00:15:49.019 --> 00:15:57.629
+I I, I know the person who is the main author of this tool, and I've never asked him and I probably should next time I talk to you maybe I will be able to report back later this semester.
+
+122 "" (0)
+00:15:57.629 --> 00:16:03.599
+All right any other questions before we move on.
+
+123 "" (0)
+00:16:03.599 --> 00:16:07.199
+All right, so then let's, uh, let's dive into property based testing.
+
+124 "" (0)
+00:16:07.199 --> 00:16:12.989
+So, I'm gonna refer to property was testing for the most part is here just especially in the slides. So, keep it short but.
+
+125 "" (0)
+00:16:12.989 --> 00:16:18.569
+Testing testing technique for a human rights of personal Oracle that is specific to the system under test.
+
+126 "" (0)
+00:16:18.569 --> 00:16:24.389
+And this bit about being specific to the system under test is key, right? It's not properly based testing. If you're writing, like.
+
+127 "" (0)
+00:16:24.389 --> 00:16:32.369
+The program shouldn't crash. All right, that is not properly based testing. That's just a fact that's true. Of all programs. Right? So we want, uh.
+
+128 "" (0)
+00:16:32.369 --> 00:16:41.099
+You can think of this as, like, blessing, but instead of using an implicit Oracle, like dumb crash, use it a human written program, specific Oracle instead.
+
+129 "" (0)
+00:16:41.099 --> 00:16:51.389
+Um, and I like this is basically how this works, right? The most effective variants of property based testing is pretty much. You write an, an environment like.
+
+130 "" (0)
+00:16:51.389 --> 00:17:11.039
+My stack should always have a positive number of items in it. Right and then you fuzz it. And if it ever has negative items or negative size, then you report a buck. You write, you write down whatever property you think should be true about your system. Plus the system and see if that property is in factor on all inputs are all the inputs that the files are generated.
+
+131 "" (0)
+00:17:11.039 --> 00:17:31.039
+Um, and I want to note here this does require that you have knowledge about the system being tested like this is in general hard, right? So, if you can, if you can apply some part for Oracle to any system under test, it's it's actually an implicit Oracle. Right? So the key difference here between implicit Oracles and property based testing is that property based testing you have to sit down and think about the system.
+
+132 "" (0)
+00:17:31.039 --> 00:17:34.799
+So, what it is that it's supposed to do, right? And that is the hard part.
+
+133 "" (0)
+00:17:34.799 --> 00:17:41.729
+Writing a property bit, like using property based testing, requires you to sort of formalize what knowledge you have about the system.
+
+134 "" (0)
+00:17:41.729 --> 00:17:44.789
+I, um, you know, it's, uh.
+
+135 "" (0)
+00:17:44.789 --> 00:17:52.709
+There there are many invariants that are true about programs in general. Like, there are many facts that that ought to be true and probably based testing basically is like.
+
+136 "" (0)
+00:17:52.709 --> 00:18:05.399
+Force you to write them down and probably be assessing is interesting, because it actually come. I'll get to this in a minute, but historically it comes out of the PL community, not the software engineering or testing community, or from industry right? It's been widely adopted in industry. Now.
+
+137 "" (0)
+00:18:05.399 --> 00:18:22.769
+Uh, but this, this comes from, like, thinking about how to write proofs about programs and effectively the, uh, the history here is that, at some point, someone was like, well, we're writing all of these proof techniques but, no, 1 is using them. What? If we just pair it with testing, how will that go? And the answer is very well, right?
+
+138 "" (0)
+00:18:22.769 --> 00:18:32.219
+All right, so what are the benefits of doing this? Actually, before I give a list, what do you all think are the benefits of property based testing.
+
+139 "" (0)
+00:18:32.219 --> 00:18:38.879
+Like, why would you do this instead of just writing a concrete Oracle staff?
+
+140 "" (0)
+00:18:38.879 --> 00:18:51.869
+Yeah, it gives you like some more flexibility. That's true. Right um, that can be both an advantage and the disadvantage, right? If you write something like X should be greater than 0, rather than X equals 5. all right.
+
+141 "" (0)
+00:18:51.869 --> 00:19:02.219
+As the example of from a previous slide showed that will constrain the outputs last. Right? But it's more useful in terms of finding like, it's useful in, um.
+
+142 "" (0)
+00:19:02.219 --> 00:19:06.059
+Giving you the flexibility to test many inputs. All right.
+
+143 "" (0)
+00:19:06.059 --> 00:19:15.329
+So so, yes, that flexibility can be a benefit, but it can also be a downside. Right? If it's the case that X really does actually, like, really should be 5 on this particular input. And that really matters.
+
+144 "" (0)
+00:19:15.329 --> 00:19:18.959
+Uh, then that partial Oracle isn't going to catch up that X changes to 4.
+
+145 "" (0)
+00:19:18.959 --> 00:19:22.469
+All right. Okay. Um, others.
+
+146 "" (0)
+00:19:22.469 --> 00:19:42.469
+Other ideas yes. And this is really important. That's a really excellent. Yeah. And in general, this is a big advantage of formally reasoning about programs in general. Like, if you formally reason about what your program to do, you're going to have a better understanding of it. Right. It's a forcing function for making you understand what your program's actually supposed to be doing.
+
+147 "" (0)
+00:19:42.469 --> 00:19:57.869
+All right, and yes, that is a very important benefit of property based testing. It's also an important benefit of using a Skype system or using a verification technique right? As we'll talk about when we go further into static analysis and the 2nd, half of this course.
+
+148 "" (0)
+00:19:57.869 --> 00:20:02.519
+Um, this is 1 of the most important benefits that you can get out a formula for, isn't it?
+
+149 "" (0)
+00:20:02.519 --> 00:20:08.789
+You get a better understanding of what's going on other ideas.
+
+150 "" (0)
+00:20:08.789 --> 00:20:13.769
+It should, uh, yeah.
+
+151 "" (0)
+00:20:13.769 --> 00:20:16.919
+Check with.
+
+152 "" (0)
+00:20:16.919 --> 00:20:19.919
+Let's see.
+
+153 "" (0)
+00:20:19.919 --> 00:20:39.119
+Yes, yes, and that's excellent. Yeah. So, um, this is a great idea, right? Um, concrete Oracles can be 2 strips right? If you, I, you know, I think a web page is a great example if you, like, take a screenshot of the webpage and it's just the, uh, the webpage muscles always look exactly like this.
+
+154 "" (0)
+00:20:39.119 --> 00:20:46.619
+Then if the user is on it, like, you tested on a different device that has a different size shape of screen, you might end up with something different.
+
+155 "" (0)
+00:20:46.619 --> 00:20:52.079
+Or some library, you're depending on changes and move some buttons around like, maybe that doesn't matter.
+
+156 "" (0)
+00:20:52.079 --> 00:20:57.389
+What matters is that the button is visible right? And checking the visibility of the button might be a good powerful Oracle.
+
+157 "" (0)
+00:20:57.389 --> 00:21:04.079
+All right yes. Excellent idea. Any other thoughts.
+
+158 "" (0)
+00:21:04.079 --> 00:21:21.029
+All right, these are all these were all excellent. Right? I have a few on here, and I think they correspond pretty neatly to the ones that we talked about, but let's go through them. Right? So 1st, um, tests can have a clear mathematical presentation. And this is both good for you, like, in writing them, as was suggested, uh, right about, uh, by.
+
+159 "" (0)
+00:21:21.029 --> 00:21:26.399
+I don't know your name. I'm sorry, Michael by Michael I, that's not, uh.
+
+160 "" (0)
+00:21:26.399 --> 00:21:36.059
+You know, it, it helps you understand the program better, right? But it also is going to make it easier for future developers to understand what you need. Right? If you write down the like, this thing should always be positive.
+
+161 "" (0)
+00:21:36.059 --> 00:21:47.969
+Uh, that's much more clear to a human then, like the output on this specific example it should be 5 right? That's the specific example. Being 5 doesn't communicate the fact that you expect the output to always be positive.
+
+162 "" (0)
+00:21:47.969 --> 00:22:03.959
+That more mathematical definition is something that is sort of a form of documentation that then your your testing is going to enforce right? So a future developer can actually trust that. It's true. As opposed to like a comment that you wrote, which may, or may not be true now.
+
+163 "" (0)
+00:22:03.959 --> 00:22:11.309
+Um, another advantage is that, uh, you can avoid, uh, finding and writing a case for each property right? Effectively you don't need to, like.
+
+164 "" (0)
+00:22:11.309 --> 00:22:15.809
+Uh, worry about the specific inputs, uh, that you're going to use, right? You don't have to worry about, like.
+
+165 "" (0)
+00:22:15.809 --> 00:22:27.479
+Uh, you know, choose X equals 5 or 6, you just write down the property you want to enforce and then the buzzer will use both. Right? And so this allows you to focus on what you actually want to test and not the specifics of how you're going to test that.
+
+166 "" (0)
+00:22:27.479 --> 00:22:31.889
+All right um, and this is also good for maintenance, uh, because.
+
+167 "" (0)
+00:22:31.889 --> 00:22:41.489
+Like, it turns out that, uh, the partitions that you imagine, when you write a software component in the beginning and you, if you're doing partition testing, someone remind you of partition testing is.
+
+168 "" (0)
+00:22:41.489 --> 00:22:47.159
+We talked about it earlier in this class.
+
+169 "" (0)
+00:22:47.159 --> 00:22:59.489
+Yeah, yeah defining the input into groups and, uh, right like writing 1 example test case for each. Yeah so this is a very common technique for humans. Humans often do this when writing test cases by hand, right?
+
+170 "" (0)
+00:22:59.489 --> 00:23:11.579
+The problem with doing it is that, like, as the software changes, those partitions that you originally imagined might not be true anymore and so you might end up with either redundant test cases, or parts of the code that aren't really well covered. Right?
+
+171 "" (0)
+00:23:11.579 --> 00:23:20.309
+By contract with property, based testing, you're you're, you're writing down what the partitions you're imagining are. Right that's effectively what you're doing when you're writing 1 of these.
+
+172 "" (0)
+00:23:20.309 --> 00:23:24.389
+Property is down, is you're saying, like, this is what I think the.
+
+173 "" (0)
+00:23:24.389 --> 00:23:36.509
+Uh, this kind of input should produce. Right? This is a fact that should be true about this program and, uh, that will remain true right? So you don't have to worry about the specific, like, choosing specific examples and worrying about. Will they become redundant later?
+
+174 "" (0)
+00:23:36.509 --> 00:23:49.769
+And so that's another advantage and finally, I mean, Ken decrease maintenance maintenance costs like that is to say, like, you're not going to have to worry about things like the, uh, the gooey testing example where, like, the web page moves a little bit and you have to update the test case.
+
+175 "" (0)
+00:23:49.769 --> 00:24:07.259
+Right, because the property, uh, will still be enforced. Yes, you occasionally you have to change the properties themselves, right? Because, you know, you might actually change what the program is supposed to do that does happen, but these are sort of tests tend to be much less brittle. Right, and the fact in the sense that they break less often for silly reasons.
+
+176 "" (0)
+00:24:07.259 --> 00:24:13.469
+Alright, alright. Do all of these benefits make sense to people.
+
+177 "" (0)
+00:24:13.469 --> 00:24:21.299
+I don't have a slide on this, but what do you think is the biggest cost of using property based testing? What are some we're continually think of a downside.
+
+178 "" (0)
+00:24:27.119 --> 00:24:33.479
+Yeah, I mean, especially if you're not used to writing this, uh, writing test this way, it can be harder. Right? It's a skill.
+
+179 "" (0)
+00:24:33.479 --> 00:24:37.829
+And so if you don't practice doing property based testing, it will take you longer.
+
+180 "" (0)
+00:24:37.829 --> 00:24:53.939
+In my experience, I would say that writing property based test is not really any harder than writing concrete test. Once you get the hang of it. But it takes some time to get the hang of it. Like, maybe for the 1st, month or 2 that you're using, this kind of technique is probably start a little bit, but once you, once you get going on it.
+
+181 "" (0)
+00:24:53.939 --> 00:25:07.619
+Most people can get the hang of it pretty quickly. I would say, though, that it does require you to be like, a bit stronger in math then concrete testing does right in particular. It's going to require you to be able to think about, like.
+
+182 "" (0)
+00:25:07.619 --> 00:25:18.719
+Quantifiers or formulas, or like, statements that involve for all executions of the program, blah, blah right it must be true. But, you know, if you have a computer science degree in theory, that's something you should be good at anyway.
+
+183 "" (0)
+00:25:18.719 --> 00:25:23.219
+Uh, any other costs that no, 1 can think of.
+
+184 "" (0)
+00:25:26.549 --> 00:25:30.479
+Okay, as I said, I don't have a slide on this, but I probably should.
+
+185 "" (0)
+00:25:30.479 --> 00:25:34.169
+All right. Okay so, then in practice, I think so. I mentioned that.
+
+186 "" (0)
+00:25:34.169 --> 00:25:41.009
+Property based testing him out of the PR community in particular was developed for hospital. I know hospital or no other possible.
+
+187 "" (0)
+00:25:41.009 --> 00:26:00.689
+Some people yeah. Okay so it's a functional language for the various types of stuff that, like, people would love to write, like, new versions of the compiler for. Um, and it was developed around 2000. it has the same kind of like, mathematical vibe that you get out of the hospital community. Right? Where, like, the expectation here is that you're always going to write a test in the form of what for all X dot dot dot.
+
+188 "" (0)
+00:26:00.689 --> 00:26:07.379
+Right, and this is the same kind of feeling that you would get from writing a half ago program too. I actually I've written a whole program.
+
+189 "" (0)
+00:26:07.379 --> 00:26:11.489
+I've written a program and any functional language.
+
+190 "" (0)
+00:26:11.489 --> 00:26:18.089
+Almost like, surprising a few of you um, I would strongly recommend at some point before you like.
+
+191 "" (0)
+00:26:18.089 --> 00:26:32.789
+Get a real job, try to sit down and write some non trivial programming and functional language. It is a very useful like mental exercise. You will see programming in a bit of a different way. Like, maybe it'll actually we'll say, no.
+
+192 "" (0)
+00:26:32.789 --> 00:26:41.999
+I wouldn't it's not quite the same, right? Like, try to write a traditional program, like a, you know, sort of standard algorithm like.
+
+193 "" (0)
+00:26:41.999 --> 00:26:50.489
+Some kind of Graph search or something like this in high school, or okay rather than writing it and see or Java or Python or whatever and you'll get a.
+
+194 "" (0)
+00:26:50.489 --> 00:26:53.939
+It it's different. Let me just say all right. Um.
+
+195 "" (0)
+00:26:53.939 --> 00:27:02.459
+So, I, I strongly recommend doing this at some point. Okay. And, as I said property based testing is the same kind of mathematical 5. and for a while, it was a very.
+
+196 "" (0)
+00:27:02.459 --> 00:27:22.459
+Niche thing, or maybe, like, 10 years or so I was really, really popular in the functional program in community and nowhere else. Nobody else had heard of it. And people talked about it as if it was something that was unique to functional languages. And, in fact, at the beginning, people thought it was right that you needed to be doing functional programming in order to get the benefits of property based testing.
+
+197 "" (0)
+00:27:22.459 --> 00:27:32.099
+But it turns out that that's just not true. All right, that was a misconception that people had and over the last, like, 10 or 15 years, a number of frameworks have been built for mainstream program.
+
+198 "" (0)
+00:27:32.099 --> 00:27:37.349
+I think the most fit to the 2 most payments are hypothesis that I've actually.
+
+199 "" (0)
+00:27:37.349 --> 00:27:50.819
+And Tuesday, but both of these are, uh, still like relatively modern inventions. I'd say hypothesis became, like, usable around, like, 2015 or so. And deep state, I think is even more recent than that. Um.
+
+200 "" (0)
+00:27:50.819 --> 00:27:58.139
+But, you know, these tools exist and you can use them and in fact, I would recommend that you do, right? If you're writing programs in these languages.
+
+201 "" (0)
+00:27:58.139 --> 00:28:06.059
+Uh, like, this kind of is is a great technique, right? Um, we're not going to directly use either of these in the homework.
+
+202 "" (0)
+00:28:06.059 --> 00:28:10.379
+So today's homework is going to involve using icon and using, uh.
+
+203 "" (0)
+00:28:10.379 --> 00:28:27.119
+A minimum for testing right? But manual for testing is sort of like the evolved form of a stronger form of so you'll, you'll get the, the, er, the, the chance to actually attempt this kind of thing. At least once in the works.
+
+204 "" (0)
+00:28:27.119 --> 00:28:33.719
+Are any questions here on, like the fact that these techniques exist or their history.
+
+205 "" (0)
+00:28:33.719 --> 00:28:42.869
+These tools taking that session, we.
+
+206 "" (0)
+00:28:42.869 --> 00:28:48.869
+He's a member of the.
+
+207 "" (0)
+00:28:48.869 --> 00:29:03.389
+Yeah, so that's true. All right. Um, it has some theoretical background, but it's not, uh, it's not so much that there's like a strong theory behind it. It's that it came out of the partitions.
+
+208 "" (0)
+00:29:03.389 --> 00:29:10.109
+All right, so it's the, it's the sort of thing that a theoreticians would think of that's maybe the right way to think of it. Right. Um, so.
+
+209 "" (0)
+00:29:10.109 --> 00:29:18.929
+Uh, the yeah, so property based testing does not provide any formal guarantees, right? It certainly can't because it's a form of file.
+
+210 "" (0)
+00:29:18.929 --> 00:29:38.929
+All right, and in test can only show the presence of bugs, not their absence, right? It's not going to provide guarantees even about the properties you write down. Right? Even if you write, you know, for all x X is greater than 0. right? Property based testing will never tell you. That's actually true. Right what it will tell you is that we ran a buzzer for 1 minute and try to violate that property and we couldn't violate it with any inputs.
+
+211 "" (0)
+00:29:38.929 --> 00:29:42.419
+All right, and that gives you some confidence just like testing does.
+
+212 "" (0)
+00:29:42.419 --> 00:29:58.739
+But it doesn't prove it. Right? However, um, the reason that, like, property based testing exists at all, is that there are a bunch of mathematicians basically who were writing actual programs and, like, in high school. And we're like, writing tests is really dumb. I'd rather write down a function instead.
+
+213 "" (0)
+00:29:58.739 --> 00:30:05.189
+All right, concrete testing, very boring for mathematicians 0 interest in doing it and instead they invented property based testing.
+
+214 "" (0)
+00:30:05.189 --> 00:30:13.529
+Because they would rather write down for all X, blah, blah, blah, then write down, like, actually be 5 on this input. Right? And that's what I mean, by it came out of.
+
+215 "" (0)
+00:30:13.529 --> 00:30:19.169
+Uh, like the theoretical community, but but it's it's as I, as a.
+
+216 "" (0)
+00:30:19.169 --> 00:30:22.469
+Pointed out here, like, this is fairly mainstream now and like.
+
+217 "" (0)
+00:30:22.469 --> 00:30:29.789
+You can use it on real programs and it's quite effective. Okay.
+
+218 "" (0)
+00:30:29.789 --> 00:30:35.489
+Any other questions. All right.
+
+219 "" (0)
+00:30:35.489 --> 00:30:45.629
+So, that's all, I'm going to say on poverty, based testing directly, and now we're going to switch into the Metamorphic testing. But Metamorphic testing is actually a form of property based testing the more specific for.
+
+220 "" (0)
+00:30:45.629 --> 00:31:03.239
+So this is a property based testing technique in which the Oracles are defined, what are called Metamorphic relations, which are going to be the, the, the subject of most of our discussion here, uh, between related inputs or programs, and these Metamorphic relations or relations in the math sense um, so I know what a relation is in the mass sense.
+
+221 "" (0)
+00:31:03.239 --> 00:31:23.239
+Can someone to find it for me? Yeah. So it's a property over sets. So this is a set theoretic concept right? And here's the formal definition that.
+
+222 "" (0)
+00:31:23.239 --> 00:31:32.879
+Pda this afternoon um, but basically the the way that a relation works is that it's telling you how, like, elements of 2 sets are related to each other.
+
+223 "" (0)
+00:31:32.879 --> 00:31:41.399
+All right, so, for example, or, I mean, or in elements of the same side okay. Um, but formally up to officially a few sets, right? Um.
+
+224 "" (0)
+00:31:41.399 --> 00:32:01.399
+For example, like, less than as a relationship, a relation, I should say over, uh, like the natural numbers right 1 is less than 2:3:is less than 4 right? But 4 is not less than 3 and the formal way that we define that math is generally that, like, there's a set of numbers that are, like, less than is true. And there's a.
+
+225 "" (0)
+00:32:01.399 --> 00:32:11.069
+Of that set is all the numbers where less than is not true. Right? So, the less than set would include like, 1 comma 2, but not 2 common 1.
+
+226 "" (0)
+00:32:11.069 --> 00:32:24.239
+Similarly, when we're talking about, uh, more Metamorphic relations, we're going to be talking about, uh, relations between either between inputs or between programs. Right? Um, and in particular we're looking for here is is, uh.
+
+227 "" (0)
+00:32:24.239 --> 00:32:30.419
+The reason this is going to matter is what we're going to want to do is we're going to want to find find either inputs or programs.
+
+228 "" (0)
+00:32:30.419 --> 00:32:44.189
+Uh, where we can relate their outputs to each other and the differential testing that you all saw in C. C. C Smith paper is an example of this. Um, and also, I guess, uh.
+
+229 "" (0)
+00:32:44.189 --> 00:32:59.489
+Yeah, a historical note here is that there are multiple names for this concept. Um, data diversity is another 1, uh, that was actually actually came. 1st, but minimum for testing, I think is, uh, a better word for explaining what this means or what this is. And it has a better formulas behind it.
+
+230 "" (0)
+00:32:59.489 --> 00:33:08.039
+Also, I know what the word Metamorphic means occurs to me that probably very few of you. Okay. So.
+
+231 "" (0)
+00:33:08.039 --> 00:33:13.589
+Does anyone know what the morphing departments break it down? Changes? Yeah.
+
+232 "" (0)
+00:33:13.589 --> 00:33:27.929
+Meta means it changes it. Yeah. Yeah. So, um, that's that's basically correct right? Um, yeah minimal thing. Basically, I, at least in this context means, like, we're, uh, we're talking about relations that, uh.
+
+233 "" (0)
+00:33:27.929 --> 00:33:34.349
+Allow us to relate something to itself or to something very similar to it. Right. Okay.
+
+234 "" (0)
+00:33:34.349 --> 00:33:51.449
+Okay, moving forward here. We're going to cover 2 kinds of Metamorphic testing. Right? In particular we're going to cover Metamorphic testing, over 2 related programs on the same input. All right, this is traditionally called the parental testing, and you read these minutes, which is a good example of this right?
+
+235 "" (0)
+00:33:51.449 --> 00:33:56.999
+And then we're also going to talk about 2 our programs where there were 2 related inputs.
+
+236 "" (0)
+00:33:56.999 --> 00:34:03.119
+I have some Metamorphic relationship I was going to say where the outputs, uh, of the program.
+
+237 "" (0)
+00:34:03.119 --> 00:34:07.049
+Uh, unrelated inputs should also be related, right?
+
+238 "" (0)
+00:34:07.049 --> 00:34:12.329
+And this is usually, this is where, like, Metamorphic testing was 1st, coined, describe this.
+
+239 "" (0)
+00:34:12.329 --> 00:34:16.109
+Uh, but, uh, I am arguing here and this is.
+
+240 "" (0)
+00:34:16.109 --> 00:34:36.109
+A slightly heterodox tick that these are actually the same thing, just over 2 different abstractions right? Whether it's the program or the input, all of these, I think, are Metamorphic testing, but I suspect you can find some computer science professors who would disagree with me about this. Right? So, I want to be clear here that at this point, we're getting into the, uh, the realm of, like, this is.
+
+241 "" (0)
+00:34:36.109 --> 00:34:42.329
+Research now right so, probably based testing as I just described it before is like, well, established.
+
+242 "" (0)
+00:34:42.329 --> 00:34:50.579
+Standard technique now, but like, relatively recent this stuff for the most part. I mean, different from testing also is I want to be clear. Like, you should always do differential testing.
+
+243 "" (0)
+00:34:50.579 --> 00:35:00.809
+But most of this other stuff, like the, the broader relationship here that I'm talking about, or the way that I'm explaining it is like, not, you're not going to find it in a textbook because, uh, this area is not fully settled yet. Okay.
+
+244 "" (0)
+00:35:00.809 --> 00:35:06.929
+Okay, any questions about that I also want to be clear that all the things I'm going to talk about are like.
+
+245 "" (0)
+00:35:06.929 --> 00:35:11.549
+Well, established as I showed them a previous slide like, a lot of this stuff was invented in the 90 s.
+
+246 "" (0)
+00:35:11.549 --> 00:35:16.109
+But, like, the relationship between them, like, isn't fully formalized.
+
+247 "" (0)
+00:35:16.109 --> 00:35:19.559
+That's the bit that is my editorializing.
+
+248 "" (0)
+00:35:22.979 --> 00:35:31.169
+Okay, so we're going to talk about these 2 in in sequence we'll start with differential testing and then we're going to talk about this sort of traditional Metamorphic testing. All right.
+
+249 "" (0)
+00:35:31.169 --> 00:35:37.649
+So, starting with differential testing, right? Can somebody tell me what differential testing is based on your reading of the paper?
+
+250 "" (0)
+00:35:37.649 --> 00:35:51.719
+But or what you think it is yeah so that's that's.
+
+251 "" (0)
+00:35:51.719 --> 00:35:57.239
+Basically correct, right. I differential testing is.
+
+252 "" (0)
+00:35:57.239 --> 00:36:09.149
+Testing multiple versions of a program that are supposed to be the same against each other. Right. Um, and so the observation here that motivates differential testing is that there are many programs that have similar or identical specifications.
+
+253 "" (0)
+00:36:09.149 --> 00:36:12.449
+Like, all see, compilers should produce the same.
+
+254 "" (0)
+00:36:12.449 --> 00:36:17.549
+Executable code for the same C program right? Can anyone else think of an example.
+
+255 "" (0)
+00:36:17.549 --> 00:36:22.619
+Thus, there are many.
+
+256 "" (0)
+00:36:30.929 --> 00:36:37.349
+So, I suspect many of you have a web browser open right now suppose that we're going to consider Chrome and Firefox.
+
+257 "" (0)
+00:36:37.349 --> 00:36:43.469
+Do you think that Chrome Firefox should display the same thing when you open the same webpage?
+
+258 "" (0)
+00:36:43.469 --> 00:37:03.469
+Yes, probably yes right. So of course, anything like a pair of web browsers you can differentiate test. All right and this is actually true for any pair of programs where they're supposed to do the same thing. Right? And, in fact, any, any situation where you have competing things that are officially doing the same kind of thing, you can usually do some kind of differential testing. You might need to adapt the.
+
+259 "" (0)
+00:37:03.469 --> 00:37:12.779
+To each other, or do something like this, but in general, you can almost always do differential testing if you have a 2nd implementation that, in theory is doing the same stuff as what you're doing. Right?
+
+260 "" (0)
+00:37:12.779 --> 00:37:20.699
+So, if we're building such a program, we can use the other implementation as the Oracle. Right? And you might think, well, you know.
+
+261 "" (0)
+00:37:20.699 --> 00:37:24.869
+I'm certainly not going to build another web browser there. There are plenty.
+
+262 "" (0)
+00:37:24.869 --> 00:37:36.959
+Uh, but in fact, it's often the case that you, you might be doing this, even if you don't realize it. So, you know, if you're writing a C, compiler, you can compare output to GTC but, like, we're not going to write a C. compiler. There are plenty, um.
+
+263 "" (0)
+00:37:36.959 --> 00:37:43.619
+Okay, so differential testing then, uh, officially is a technique for testing 2 related programs by comparing your output right? On generate test inputs.
+
+264 "" (0)
+00:37:43.619 --> 00:37:55.169
+Um, any difference in, uh, indicates nonperformance in 1 of the 2, right? This is the key bit, right? If there's any input that we can find for, which to see compilers produce different output, it means that 1 of them must have a bug.
+
+265 "" (0)
+00:37:55.169 --> 00:37:58.829
+All right, there's no reason for them to do that right?
+
+266 "" (0)
+00:37:58.829 --> 00:38:14.430
+So this is the idea behind differential testing right? So what what are the advantages and disadvantages of this technique? So it's only applicable unlimited situations. You need another implementation. How often do you think this is the case.
+
+267 "" (0)
+00:38:25.650 --> 00:38:31.920
+Let's go with the, uh, the traditional all the time none of the time, or only some of the time, uh, style of voting.
+
+268 "" (0)
+00:38:31.920 --> 00:38:38.340
+None of the time clearly not or we wouldn't be talking about it all the time.
+
+269 "" (0)
+00:38:38.340 --> 00:38:58.340
+Also reasonable, right? But some of the time, yes. All right. So it's only going to be the case some of the time, but surprisingly more than you might think right it's closer to half than it is to none. And in particular, um, you're often doing something like writing a fast version of routine because you're optimizing it um, or you're refactoring, right? Or your.
+
+270 "" (0)
+00:38:58.340 --> 00:39:02.040
+Doing something else so I know what refactoring is.
+
+271 "" (0)
+00:39:02.040 --> 00:39:08.340
+Hopefully most of you yeah, I'm just going to write this part on the board because it's an important 1 to know, and I will freely use it on exams.
+
+272 "" (0)
+00:39:08.340 --> 00:39:22.410
+Because I know what it means, and I think you should too. All right so if you don't know what it means, you should go look it up a refactoring means, like, changing a program to improve some nonfunctional quality while attempting to keep its outputs all the same.
+
+273 "" (0)
+00:39:22.410 --> 00:39:42.410
+Right. And so if you are doing some refactoring, like, let's say, like, changing a class hierarchy or, you know, improving the program and some other way, right? You want to keep the programs. Exactly. The same. So you can, you can differentially tests like the program before you make your refactoring and then the program after. Right? It's a perfectly valid thing to do to.
+
+274 "" (0)
+00:39:42.410 --> 00:39:50.580
+And then check that the outputs are exactly the same on all the input the Pfizer generates it is, in fact a well known technique for validating refactoring.
+
+275 "" (0)
+00:39:50.580 --> 00:39:55.140
+Right. So even if you're working on something that you think.
+
+276 "" (0)
+00:39:55.140 --> 00:40:01.350
+You don't have another implementation for it. You often do if even if it's just a different version of the same program, you're working on.
+
+277 "" (0)
+00:40:01.350 --> 00:40:10.170
+Okay, 1 of the other down or 1 downside here, is that a human is also needs to decide which of the 2 is correct?
+
+278 "" (0)
+00:40:10.170 --> 00:40:30.170
+Um, so C Smith sort of solves this problem by using more than 2 C compilers and voting amongst them. And this is a plausible technique that you can use, but it's very rare to have 3 implementations. Right? I would say, like, only in sort of comments that are important spaces. See, compilers do you actually have more than 3 implementations of the same.
+
+279 "" (0)
+00:40:30.170 --> 00:40:34.470
+Program it's very common to have 2 very rare to have 3.
+
+280 "" (0)
+00:40:34.470 --> 00:40:39.000
+And sometimes neither of them is correct. This happens a lot actually. Mm. Hmm.
+
+281 "" (0)
+00:40:39.000 --> 00:40:45.180
+If you can locate the input on which something like like, say, 2 C, compilers emerge, it's often the case that both of them are wrong.
+
+282 "" (0)
+00:40:45.180 --> 00:41:05.180
+Right and this can get very tricky if as a human trying to, like, look at these. So, if you're differentially tastic, like, again, to come back to the C Smith example, like I know for a fact that some of the bugs that they found in GCC, and all of them were present in both, and they found them, because both GCC, and did the wrong thing, but they did it differently. And in particular most of those bugs.
+
+283 "" (0)
+00:41:05.180 --> 00:41:10.650
+Were caused by ambiguity in the specification, right? Where the C specification is written in English.
+
+284 "" (0)
+00:41:10.650 --> 00:41:13.890
+And include, like, someone wrote an ambiguous phrase there like.
+
+285 "" (0)
+00:41:13.890 --> 00:41:33.890
+Uh, you know, there's some weasel work or something. That's a little confusing in terms of the wording. And so the Implementers of BCC interpreted it 1 way and the Implementers of interpreted a different way. And then when everyone was brought into the same room, and I, like, argued about what should actually be done, the decision was made that both of them were wrong and then they were going to rewrite this back. Right? And that happened.
+
+286 "" (0)
+00:41:33.890 --> 00:41:47.790
+Times because of C Smith, and continues to occasionally happen because of C Smith and related projects to this day I mean, C Smith and, you know, it's now a successor. I mean, it sees these papers published 15 years ago, but its successors are still being run on all the sea compilers.
+
+287 "" (0)
+00:41:47.790 --> 00:41:54.600
+Right like, I think Google pays for this just constantly right? Because it's fuzzy and it does occasionally turn up box.
+
+288 "" (0)
+00:41:54.600 --> 00:42:01.470
+Uh, but, yeah, so figuring out which of them is right is 1 of the most expensive parts of this technique.
+
+289 "" (0)
+00:42:01.470 --> 00:42:06.150
+All right, you can just differentiate test programs all day, but eventually, when you find a problem.
+
+290 "" (0)
+00:42:06.150 --> 00:42:11.490
+A human is going to have to interpret that. There's no real effective automated way to do. So.
+
+291 "" (0)
+00:42:11.490 --> 00:42:17.910
+Okay, do these actually drive? Yeah. Um, do these 2 things make sense?
+
+292 "" (0)
+00:42:17.910 --> 00:42:23.310
+Any questions here before I show the next bullet.
+
+293 "" (0)
+00:42:23.310 --> 00:42:29.310
+So, in general, uh, differential testing, though is a good idea. It provides it much stronger Oracle than most of the other techniques.
+
+294 "" (0)
+00:42:29.310 --> 00:42:40.800
+This is generally for Metamorphic testing all the minority testing techniques that we're gonna talk about here are generally much better than the alternatives. But are going to be hard to implement are only applicable in the limited situations.
+
+295 "" (0)
+00:42:40.800 --> 00:42:47.760
+Okay, um, I know what, uh, is meant by a stronger Oracle.
+
+296 "" (0)
+00:42:47.760 --> 00:42:55.020
+Okay, so let's let's take a quick assign to talk about strong versus weak with respect to particles. Right?
+
+297 "" (0)
+00:42:55.020 --> 00:42:59.640
+So, okay.
+
+298 "" (0)
+00:42:59.640 --> 00:43:05.340
+So, um, in general, what we're talking about, like.
+
+299 "" (0)
+00:43:05.340 --> 00:43:16.110
+Math math, formulas, math properties, right? We'll often we use the terms of strong week or stronger or weaker, but to describe the relationship between different credits.
+
+300 "" (0)
+00:43:16.110 --> 00:43:25.800
+All right, so for example, for all x X is greater than 0 and for all x X is greater than or equal to 0. I don't have a relationship.
+
+301 "" (0)
+00:43:25.800 --> 00:43:30.810
+Which ones do you think you would call stronger on screen?
+
+302 "" (0)
+00:43:30.810 --> 00:43:35.520
+Sorry, the bottom 1? Yes, the bottom 1 is per X. Y.
+
+303 "" (0)
+00:43:40.020 --> 00:43:44.460
+It covers more, it covers more. Um, so that's, I.
+
+304 "" (0)
+00:43:44.460 --> 00:44:03.450
+Intuitively are informally. That's correct. Right. But the technical reason is that the cardinality of the set described by this property is smaller. Right? That is to say that there are strictly fewer elements of the set that set of all editors that, uh, satisfy access greater than equal to 0, then satisfy extroverted particular. There's 1 more.
+
+305 "" (0)
+00:44:03.450 --> 00:44:09.810
+I like.
+
+306 "" (0)
+00:44:09.810 --> 00:44:16.050
+Okay, yeah, I got this. Exactly backward. So that was very embarrassing. Okay.
+
+307 "" (0)
+00:44:16.050 --> 00:44:22.320
+So, no, this is the stronger 1. why? Because this set includes 0 on this 1 that's not.
+
+308 "" (0)
+00:44:22.320 --> 00:44:41.190
+Right. So if we draw, we imagine the sets, right? Like, this is for all x x greater than 0 and this is for all ex, uh, expert in the equals. 0, right 0 is in this sense, but 0 is not an element of this stuff. Right? And so that means that this set is bigger.
+
+309 "" (0)
+00:44:41.190 --> 00:44:54.570
+Right, and what the reason that we use it from from this week here, is that a stronger Oracle makes the set smaller, right? It forces us to purchase the program to behave.
+
+310 "" (0)
+00:44:54.570 --> 00:45:07.410
+In a more limited way, right? There's fewer things they do. So concrete that particular output is a very strong model. Right? It says that, uh, the, uh, the output must be exactly this out right?
+
+311 "" (0)
+00:45:07.410 --> 00:45:15.900
+Um, but I know we're calling. This is a little bit weaker, right? So strong oracles are often good, but you don't want them to be too strong.
+
+312 "" (0)
+00:45:15.900 --> 00:45:25.950
+Right like the gooey testing example that was given earlier is another like a good example of why you don't want to go work with you too strong. Right? So, strong is not necessarily always good.
+
+313 "" (0)
+00:45:25.950 --> 00:45:34.110
+Right. Too strong can be a problem but, uh, 2, we can definitely be a problem too. Right? Implicit oracles. On the other hand are typically quite weak.
+
+314 "" (0)
+00:45:34.110 --> 00:45:37.500
+All right, because they're not actually filtering out that meeting.
+
+315 "" (0)
+00:45:37.500 --> 00:45:46.620
+Okay, sorry for the very poor explanation of the library of that is anyone confused? Yes, I just saw your question. I don't know what makes sense. All right.
+
+316 "" (0)
+00:45:46.620 --> 00:45:58.290
+Yes, yeah. Or maybe we can take that as a strictly quality information. The quality of just normal people does not come back the data team.
+
+317 "" (0)
+00:45:58.290 --> 00:46:01.410
+So, then that's related, but, uh, uh.
+
+318 "" (0)
+00:46:01.410 --> 00:46:04.830
+I would say that that's more like a like a.
+
+319 "" (0)
+00:46:04.830 --> 00:46:12.060
+What kind of Oracle right? Rather than something that pushed related to it directly to the definitions of stronger a weaker.
+
+320 "" (0)
+00:46:12.060 --> 00:46:17.910
+Right, but that is a like, those 2, the the 2 checks you're talking about 1 of the days from Virginia.
+
+321 "" (0)
+00:46:21.450 --> 00:46:28.500
+All right any other questions there. Okay.
+
+322 "" (0)
+00:46:28.500 --> 00:46:32.010
+All right, so then moving on.
+
+323 "" (0)
+00:46:32.010 --> 00:46:46.890
+So, what let's, let's talk about Metamorphic relations now a little bit. Alright. So what what is the Metamorphic relation that's happening in differential testing right? And as a hint here think about how the outputs, for example, to see, compilers should be related.
+
+324 "" (0)
+00:46:46.890 --> 00:46:52.380
+So, I don't know if your relationship for a call is a relation so it's gonna be a function of some kind of.
+
+325 "" (0)
+00:46:52.380 --> 00:46:55.680
+So, what what is the Metamorphic relation here?
+
+326 "" (0)
+00:47:00.390 --> 00:47:05.160
+Equality right. Or, um, maybe, uh, put more, uh.
+
+327 "" (0)
+00:47:05.160 --> 00:47:18.030
+Slightly math here um, it's it's the identity function, right? In particular, right? We're checking of 2 programs. Have exactly the same output right? So, the, the relation between the output of C compiler number 1 and see compiler number 2 is that they're the same.
+
+328 "" (0)
+00:47:18.030 --> 00:47:22.530
+Right. That's the identity. All right so they shouldn't they shouldn't differ at all. Right?
+
+329 "" (0)
+00:47:22.530 --> 00:47:40.470
+And this is by far the most common Metamorphic relation when you look at the homework for today, you'll see that. You're asked to generate some Metamorphic relations and there's a limit on how many times you can use the identity function. You're allowed to use at once. But after that, you have to come up with something a little bit clever. Right? Um, and so.
+
+330 "" (0)
+00:47:40.470 --> 00:47:48.870
+For differential testing this is by far the most common, minimal population, but it's also the most common minimal for the relation. Just in general that it's, uh, the case that.
+
+331 "" (0)
+00:47:48.870 --> 00:47:55.560
+Uh, we want these outlets to be the same, right? That's by far the easiest 1. but there are others that we can come up with.
+
+332 "" (0)
+00:47:55.560 --> 00:48:04.980
+So, what other kinds of Metamorphic relations do you think we could use for differential testing? Can you think of an example where there's a non identity relationship between 2 programs? Outputs.
+
+333 "" (0)
+00:48:21.000 --> 00:48:33.990
+Targeting different platform.
+
+334 "" (0)
+00:48:33.990 --> 00:48:38.460
+It would have some yes.
+
+335 "" (0)
+00:48:38.460 --> 00:48:43.770
+Yeah, so you could imagine defining, like, say a mapping over how.
+
+336 "" (0)
+00:48:43.770 --> 00:48:55.080
+Different architectures are related to each other. Right? Like, say, like, this instruction means the same thing as these 2 instructions right? So, like, this 1 arm instruction means the same thing as these 2 x86 instructions or something like this.
+
+337 "" (0)
+00:48:55.080 --> 00:49:01.890
+That would be a different Metamorphic relationship. Yes. Um, that would be a.
+
+338 "" (0)
+00:49:01.890 --> 00:49:07.350
+It's not the identity function, but it is a transformer inequality.
+
+339 "" (0)
+00:49:07.350 --> 00:49:15.960
+All right yeah, so I don't actually have that as 1 of my examples that's about to show up. Um, which are what, strictly non quality functions.
+
+340 "" (0)
+00:49:15.960 --> 00:49:20.640
+Uh, or at least, you know, like something, something a bit different than equality, but that's a very good example.
+
+341 "" (0)
+00:49:25.050 --> 00:49:30.630
+Any other thoughts what about.
+
+342 "" (0)
+00:49:30.630 --> 00:49:33.690
+As an example here, uh, the relationship.
+
+343 "" (0)
+00:49:33.690 --> 00:49:43.170
+In, uh, zip and I know it does depend on.
+
+344 "" (0)
+00:49:43.170 --> 00:49:51.270
+Yeah, they're universes, right? So it's an unzip, right? So zip up. Some file creates a file unzip. It.
+
+345 "" (0)
+00:49:51.270 --> 00:49:55.050
+Um, this is that file and gets it gives you back the original bio.
+
+346 "" (0)
+00:49:55.050 --> 00:50:00.960
+So, if you do, I'm sorry.
+
+347 "" (0)
+00:50:00.960 --> 00:50:04.740
+Of any acts, right?
+
+348 "" (0)
+00:50:04.740 --> 00:50:09.030
+All acts that should be asked.
+
+349 "" (0)
+00:50:09.030 --> 00:50:12.360
+And so this is 1 example. Mm. Hmm. Um.
+
+350 "" (0)
+00:50:12.360 --> 00:50:25.200
+Hopefully I did this correctly. Oh, no, I did not. Okay. Well, well, we'll just see the other example now. So this is the 1st inversion right is the technical term for this, but, uh, yeah, so for all X, uh, zip, uh, zip of extra.
+
+351 "" (0)
+00:50:25.200 --> 00:50:30.300
+All right, another example is, I am potency. I know the word.
+
+352 "" (0)
+00:50:30.300 --> 00:50:35.610
+Almost no, 1. okay. This is an important math word that I will definitely use it some other point in the future. So I'd like you to learn it.
+
+353 "" (0)
+00:50:41.130 --> 00:50:49.680
+So, item potent is a word that applies to functions a function is item potent if I, if applying it more than once, uh, doesn't have any effect.
+
+354 "" (0)
+00:50:49.680 --> 00:50:52.980
+So that is to say if f. F. X.
+
+355 "" (0)
+00:50:52.980 --> 00:50:56.550
+It's always equal to for all apps.
+
+356 "" (0)
+00:50:56.550 --> 00:51:02.250
+That's item potency. All right. And this is a very, very useful.
+
+357 "" (0)
+00:51:02.250 --> 00:51:07.950
+Property to have of functions, and a surprisingly large numbers and have it.
+
+358 "" (0)
+00:51:07.950 --> 00:51:15.570
+All right, that are actually relevant in the real world. Um, the best example here is sorting right for all X sort of sort of X should be sort of X.
+
+359 "" (0)
+00:51:15.570 --> 00:51:20.040
+All right, certainly it should not be the case that sorting something a 2nd time ever changes it.
+
+360 "" (0)
+00:51:20.040 --> 00:51:39.870
+If that was the case, that would be very bad right? In particular, though most programs have properties like this. Right? Because most things, like, the outputs of most programs are deterministic. So really anything where who's domain range are the same right? Like, sorting takes an array versus another right is usually item potent if it's deterministic.
+
+361 "" (0)
+00:51:39.870 --> 00:51:45.930
+Okay, and this, this may also be the case. I like.
+
+362 "" (0)
+00:51:45.930 --> 00:52:03.420
+You may get converted because not item pregnancy like, uh, if you apply, uh, some function, like an arbitrary number of times, and then apply, like, 1 more time after that, then it should have eventually conversely and there's some minimum limit. That's also pretty common.
+
+363 "" (0)
+00:52:03.420 --> 00:52:10.260
+Do these 2 properties make sense? We see how these are Metamorphic relationships that we could use to test programs.
+
+364 "" (0)
+00:52:10.260 --> 00:52:18.690
+I don't see how we could find as a sort program or a zip an unzip program using this technique.
+
+365 "" (0)
+00:52:18.690 --> 00:52:24.180
+Good okay. I'm as an aside here. Um.
+
+366 "" (0)
+00:52:24.180 --> 00:52:37.260
+This is a also a points to bring up about program design. Right? So this is more of a software engineering rather than testing question or a discussion. But I want I want to bring it up here because, um, often is the case that, uh.
+
+367 "" (0)
+00:52:37.260 --> 00:52:45.150
+You are going to be asked to write a program and that program is doing some kind of data transformation. Right? Transferring data from 1 format to another.
+
+368 "" (0)
+00:52:45.150 --> 00:52:50.550
+When you were writing, such a program, like, if you're implementing a function with a similar domain and range in particular.
+
+369 "" (0)
+00:52:50.550 --> 00:53:01.830
+Uh, you can often get good tests for free by composing the program with itself, right? Like, we showed with the zip zip and zip example right? But for many, many programs, uh, this is the case.
+
+370 "" (0)
+00:53:01.830 --> 00:53:09.690
+It's often the case that you can run the program twice and you get some good or in in different modes and the results should.
+
+371 "" (0)
+00:53:09.690 --> 00:53:18.360
+Converge in some way, right there should be some Metamorphic relationship that you can get relatively cheaply. Okay. This is great. If you can design your program. So that this is the case.
+
+372 "" (0)
+00:53:18.360 --> 00:53:31.890
+Uh, then you're unlocking the potential Metamorphic testing right often, though you have to make some intentional design choices to allow this, like so, for example, you, you need to require that you have both and unzip. Your zip program doesn't go in only 1 direction.
+
+373 "" (0)
+00:53:31.890 --> 00:53:45.180
+But if you're able to get that design property, then you're gonna have a much easier time, writing tests. And so it's often worth it. Like, for example, if you need to implement it, it might be worth it to implement unzip as well. Just. So that you can do this.
+
+374 "" (0)
+00:53:45.180 --> 00:53:52.740
+Because it will allow you to test way better. All right so if possible you should design your program so that, uh.
+
+375 "" (0)
+00:53:52.740 --> 00:53:58.470
+So that this is possible want to do this again. Any questions about this, does this make sense for everybody?
+
+376 "" (0)
+00:53:58.470 --> 00:54:09.090
+As, like general advice, if you see if you see a situation, you feel you're in a situation where this might be possible, you should explore it. Right? Because, uh, if you can do this kind of composition.
+
+377 "" (0)
+00:54:09.090 --> 00:54:14.100
+You're going to get way better testing than you would get by writing test by hand, right?
+
+378 "" (0)
+00:54:17.880 --> 00:54:27.210
+All right. Okay so any questions on differential testing or minimal for testing with programs before we move on.
+
+379 "" (0)
+00:54:27.210 --> 00:54:30.360
+Check, how are we doing on time? What not so bad.
+
+380 "" (0)
+00:54:35.280 --> 00:54:55.280
+Okay, so then we're now going to move on and talk about Metamorphic testing with respect to inputs of the same program that have a relationship as opposed to programs that have really who's outputs, have a relationship to each other with the same input. And I think before I go too deeply into this, it is also going like it is possible to do both of these kinds of.
+
+381 "" (0)
+00:54:55.280 --> 00:55:01.440
+Testing at the same time, but it's often I mean, that's that's just going to be like a little bit confusing. So you'll probably want to write down what you're doing.
+
+382 "" (0)
+00:55:01.440 --> 00:55:17.550
+Okay, so the simple case here is that we have related inputs with identical output outcomes that, but just to say, we don't need to know the expected output for a given input in order to check if it's correct because we know that these 2 inputs should be the same and if they're ever different, then we have a problem. Okay.
+
+383 "" (0)
+00:55:17.550 --> 00:55:22.500
+So, a good example of this is like, absolute value.
+
+384 "" (0)
+00:55:22.500 --> 00:55:29.580
+Right. So if you have 1 absolute value function, then for all, actually should be the case that, uh, absolute value events is equal to absolute value. Megabytes.
+
+385 "" (0)
+00:55:29.580 --> 00:55:34.350
+Right, but they're actually quite a few programs, uh, with properties like this.
+
+386 "" (0)
+00:55:34.350 --> 00:55:54.350
+And this is the sort of case that we're going to be dealing with here. Right? Of course, this is this is a very simple relationship. Right? But we can do much more complicated ones, and I'll show some examples in a moment, but 1st, I want to give a sort of mathematical definition of what we're doing here or, like, a generalization of this, this idea right?
+
+387 "" (0)
+00:55:54.350 --> 00:56:10.920
+So my goal with this formalism is to generalize this idea of related inputs and outputs and formalize this notion of minimum. Fantastic. So, 1st, what we need is, we need some input i1 yields some unknown. We don't care what 1 is and in particular, we don't know. Work here with our own. 1 is correct.
+
+388 "" (0)
+00:56:10.920 --> 00:56:23.700
+We're not going to check that this is called the new formula, right? And then we're going to need a relationship, uh, or relation and our eye relates our i1 to some other input. I too right?
+
+389 "" (0)
+00:56:23.700 --> 00:56:31.440
+And this is what's called the follow up input relation right? And this is what allows us to generate another input from the 1st, 1, uh.
+
+390 "" (0)
+00:56:31.440 --> 00:56:40.350
+You know, we're able to get a, uh, a relationship about right? So, for example, in this, for all X, absolute value of X equals absolute value of negative X.
+
+391 "" (0)
+00:56:40.350 --> 00:56:47.640
+Our initial input here with X right? And then our follow up input function or relation here is, uh.
+
+392 "" (0)
+00:56:47.640 --> 00:56:51.420
+Right. We're multiplying by negative 1 and that gives us the ball of info. Okay.
+
+393 "" (0)
+00:56:51.420 --> 00:57:04.320
+And then we need the quote, unquote, necessary condition relation, right? Which is the relationship between and right. And so, for the absolute value example, this is just the identity function.
+
+394 "" (0)
+00:57:04.320 --> 00:57:14.070
+Right it's the case that, uh, the output should be the same. It should be equal. Right? But, uh, like these, these, from both the arbitrary relations.
+
+395 "" (0)
+00:57:14.070 --> 00:57:21.750
+And so, um, as we'll see in some of the real world examples that I'll show interest a bit, like, these are going to be these can be sort of arbitrarily complicated.
+
+396 "" (0)
+00:57:21.750 --> 00:57:26.850
+Right and you can write very complicated ones, um, that.
+
+397 "" (0)
+00:57:26.850 --> 00:57:39.930
+And then enforce them and you'll get surprisingly good results. Okay. So is this mathematical formulas and make sense to everybody? It's not that complex. Sorry it's not that complicated of mathematical formulas. And I hope.
+
+398 "" (0)
+00:57:39.930 --> 00:57:43.260
+Actually, let me rephrase that. Any. Does anyone have any questions.
+
+399 "" (0)
+00:57:47.040 --> 00:57:52.290
+All right, so then, uh, let's see an example, right? So, this is an example of a quote, unquote online service.
+
+400 "" (0)
+00:57:52.290 --> 00:57:57.840
+You may not use this example if you choose variant fee of homework 5 part 2.
+
+401 "" (0)
+00:57:57.840 --> 00:58:03.210
+All right, but you can use other online services. Right? Um, and in this case, uh, what, what online services is.
+
+402 "" (0)
+00:58:03.210 --> 00:58:08.220
+Yeah, Google search. All right so we're, we're searching for testing and Metamorphic testing.
+
+403 "" (0)
+00:58:08.220 --> 00:58:28.220
+And metomorphic testing and testing are related inputs. All right, they have a relationship that we understand in particular. We believe that testing is more general than Metamorphic testing and therefore we should expect that the outputs are related in particular. The testing is going to produce more. Certain queries are more for approvals and probably take longer than Metamorphic testing.
+
+404 "" (0)
+00:58:28.220 --> 00:58:38.430
+Right, so the, the generalization here is that what we're doing here is if we add in a like, a more specific version of the company start with testing.
+
+405 "" (0)
+00:58:38.430 --> 00:58:53.760
+That are full of input relation is, like, add on the word metadata, right? Or add on another we're related we're testing that we know is gonna be a smaller staff. Right? And then you look at how many results are it was the case, the Metamorphic testing would produce more results.
+
+406 "" (0)
+00:58:53.760 --> 00:59:00.450
+Then we'd be surprised by that that would be a red flag for Google search and they'd be concerned.
+
+407 "" (0)
+00:59:00.450 --> 00:59:04.200
+I want to understand this example. Okay.
+
+408 "" (0)
+00:59:04.200 --> 00:59:08.820
+Or something.
+
+409 "" (0)
+00:59:08.820 --> 00:59:26.130
+Yeah, so it's a, it's a, it will vary, depending on the program right? This requires us to have specific knowledge of the program. We need to know that, like, searching for a more specific term should result in fewer fewer results. That is a fact. That is true. About Google search, or about search in general, but that is not true about other programs.
+
+410 "" (0)
+00:59:26.130 --> 00:59:33.090
+Right if in fact, if instead of when you typed in, uh, like testing into this bar, you instead got like.
+
+411 "" (0)
+00:59:33.090 --> 00:59:37.350
+Uh, and outputs that was proportional to the number of characters that you checked in.
+
+412 "" (0)
+00:59:37.350 --> 00:59:41.970
+All right, then this revelation would be totally wrong. Right? We have to shoot a totally different relation for that.
+
+413 "" (0)
+00:59:41.970 --> 00:59:46.980
+All right.
+
+414 "" (0)
+00:59:46.980 --> 01:00:06.980
+So, this is an online service example I'm now going to give another example that is much more complicated. So, I'm very sorry in advance, but I think this is a good 1 because it allows me to demonstrate the sort of Metamorphic relationships that are actually very exciting in the real world. Right? All right. So, does anyone know to discrete discrete wavelet transform.
+
+415 "" (0)
+01:00:06.980 --> 01:00:14.730
+In particular in the context of image processing.
+
+416 "" (0)
+01:00:14.730 --> 01:00:34.730
+Battery law. Okay, that's fine. Um, for the purposes of this example, you don't really need to. Right but at a very high level, um, what this is doing is this isn't a demonizing technique for images. Right? So, what we're going to do here is we're gonna try to take an an input image and break it up to remove a noise that is like.
+
+417 "" (0)
+01:00:34.730 --> 01:00:37.950
+I like the camera lines or something like this. Right?
+
+418 "" (0)
+01:00:37.950 --> 01:00:43.410
+So, for example, so we're going to focus on this part. So just a single application that I just, uh.
+
+419 "" (0)
+01:00:43.410 --> 01:00:54.270
+We will transform the team here right? And it's going to split up into 4 dimensions or 4 boxes. Right? Uh, which, uh, this 1 is going to be the most important. This one's gonna be the output image.
+
+420 "" (0)
+01:00:54.270 --> 01:01:12.900
+And then these are going to be the components that are noise. Right and the underlying mathematical technique here, as I said, does not matter. Right. Don't worry too much about it, but know that this is something that is like, in a real, uh, image processing system. Like, the 1 that is running on your phone when you take a photo, right? And then it before it actually shows you the photo, it's running something like this.
+
+421 "" (0)
+01:01:12.900 --> 01:01:17.730
+To remove, like, noise from, like, the camera being moved or something like this. Right? Um.
+
+422 "" (0)
+01:01:17.730 --> 01:01:30.240
+This is how it happens. So, then the output, or like, what what this actually looks like it's like, suppose we have this picture of this ship right? This part is the ship again right? And then these parts are noise.
+
+423 "" (0)
+01:01:30.240 --> 01:01:35.580
+Right. So it's splitting it up into these bits and then the next step is going to be that you're going to remove.
+
+424 "" (0)
+01:01:35.580 --> 01:01:41.490
+Uh, like those bits of noise, and instead of take this this output. Right? So this is, uh, uh.
+
+425 "" (0)
+01:01:41.490 --> 01:01:46.320
+A transformation that, you know, involves manipulating this image.
+
+426 "" (0)
+01:01:46.320 --> 01:01:55.170
+Okay, so, uh, can anyone think of a Metamorphic relationship that might need to be true about this, uh, this technique?
+
+427 "" (0)
+01:02:31.980 --> 01:02:38.460
+Sure, yeah, that's true. Um, that's that's quite reasonable. Like, in particular, you'd expect it to be more stuff in the noise parts.
+
+428 "" (0)
+01:02:38.460 --> 01:02:49.740
+All right, so, if you know that 1 photo is worse than another, or needs to be noise more has more noise, uh, then you could check to see that. The noise actually is more in that photo, right?
+
+429 "" (0)
+01:02:49.740 --> 01:02:53.700
+And, yeah, if you had a way to add noise, that could be your follow up input.
+
+430 "" (0)
+01:02:53.700 --> 01:03:00.270
+Relationship right. I don't think that's 1 of the examples I have later on here, but.
+
+431 "" (0)
+01:03:00.270 --> 01:03:04.620
+It's okay. That's a good 1. yeah.
+
+432 "" (0)
+01:03:09.060 --> 01:03:15.870
+Yes, yeah, uh, it should be, um, so if if if this is the, in fact, in order to completely, you should definitely I agree. I agree.
+
+433 "" (0)
+01:03:15.870 --> 01:03:35.870
+I think that's also not in my list to follow up once. So there are many right? And this is actually, a good takeaway here is that if you just sit down and think about it for a minute, you're going to start to come up with something. But actually, there are a lot there are many things. That would be true. The ones that I have here are based on not my personal knowledge of discreet wave transforms, but of the person who originally made this example, and who I stole it from. All right.
+
+434 "" (0)
+01:03:35.870 --> 01:03:45.570
+Who is an expert, right? But like, for any program, at which you're an expert, if you start, like, really digging into it, you're going to be able to come up with more and more Metamorphic relations.
+
+435 "" (0)
+01:03:45.570 --> 01:03:55.320
+Okay, so the actual program that we would, we would see something like this end. It's something like a J peg. Right? I know that, uh, encoder is or an image encoder.
+
+436 "" (0)
+01:03:55.320 --> 01:03:59.490
+Few people yeah, somebody want to explain to the class.
+
+437 "" (0)
+01:04:03.480 --> 01:04:11.490
+It looks sort of like this, this is, uh, an abstraction of of what we're talking about here, but.
+
+438 "" (0)
+01:04:11.490 --> 01:04:17.880
+I just wanted to say is given to different record. Yeah. Yeah. That's exactly right.
+
+439 "" (0)
+01:04:17.880 --> 01:04:28.530
+All right, so, and then part of this is going to be the wave of transformation, right? So the program we're going to be looking at here, or the example here is a program that does this sort of encoding. Right? So, it's, it's actually converting something into a. J. peg.
+
+440 "" (0)
+01:04:28.530 --> 01:04:36.420
+Um, okay, so Metamorphic testing has 3 requirements right? What were the 3 requirements.
+
+441 "" (0)
+01:04:36.420 --> 01:04:41.430
+We talked about them a few minutes ago. What 3 things do we need here?
+
+442 "" (0)
+01:04:41.430 --> 01:04:54.990
+Initial input and then there's 2 relations, right? So we need the set of initial inputs right? We need a relation. I can generate followup inputs and we need a relation r0 that gives us a necessary correctness condition right?
+
+443 "" (0)
+01:04:54.990 --> 01:05:01.530
+Okay, so how are we going to get a set of initial inputs to a program that may be less images?
+
+444 "" (0)
+01:05:01.530 --> 01:05:21.530
+You all have done this homework, assignments, AFL, or something similar right? Like homework too or homework free. Alright. Um, well are there are many techniques that we can use not too hard. And then what about our, our eye and our oh, well, we're gonna have a ton of options for this. We, you all mentioned too, right?
+
+445 "" (0)
+01:05:21.530 --> 01:05:28.950
+Uh, but there are many others, so, as 1 example, suppose that are I, uh, turns the image by 90 degrees.
+
+446 "" (0)
+01:05:28.950 --> 01:05:33.570
+Pass it to the, uh, some kind of this, uh, some other text.
+
+447 "" (0)
+01:05:33.570 --> 01:05:45.390
+It can be answered output should look like yes, it should also be turned by 90 degrees in particular. The top left corner should also be turned around any degrees. Right? The noise might change.
+
+448 "" (0)
+01:05:45.390 --> 01:05:57.780
+But that's fine. All right so, uh, in particular, we want the output to look like that. Right? So that's 1 example. Right? Uh, that's a, a sort of transpose operation, right? Transpose the input image. The output components muscle should be transposed right?
+
+449 "" (0)
+01:05:57.780 --> 01:06:03.150
+Um, but there are many others that we can come up with right here is an incomplete list, right?
+
+450 "" (0)
+01:06:03.150 --> 01:06:09.660
+Uh, we can add a constant tool called and this is like a fact about inputting, like encoding. Right? You don't need to understand that any of these.
+
+451 "" (0)
+01:06:09.660 --> 01:06:20.190
+But the point I'm trying to make here is that these are, like, you can get quite a deep in here about what exactly these things should do. Right? And this is just a mostly arbitrary example.
+
+452 "" (0)
+01:06:20.190 --> 01:06:23.490
+All right for any program, uh.
+
+453 "" (0)
+01:06:23.490 --> 01:06:41.130
+You're probably gonna be able to come up with some kind of Metamorphic relationships here. Right? So, for example, like our, uh, the 3rd 1 here, like, converting the color values should also cause the output to be inverted. Um, like, only the BC. I don't even know what this means. Right? It doesn't matter. Right? The point though, is that these things are.
+
+454 "" (0)
+01:06:41.130 --> 01:06:55.920
+Sort of arbitrarily complex and require real domain expertise. Right? And so if you're working on a program with which you have domain expertise, you understand what it's supposed to be doing deeply as you might if for example, it's your full time job to work on that program. Right.
+
+455 "" (0)
+01:06:55.920 --> 01:07:00.150
+Metamorphic relationship. Alright. So our Metamorphic testing might be a good idea.
+
+456 "" (0)
+01:07:00.150 --> 01:07:09.060
+Okay, so some notes about this, like, as I said, these are very programs with it I said, I don't expect you to understand. It's like, if you're, you know, studying for the exam, like.
+
+457 "" (0)
+01:07:09.060 --> 01:07:29.060
+Don't study these study in this box, so the, the minority relationship relations are very program specific. They require domain knowledge with to write and to really to understand, right? Like, I had to go and read, like, read the Wikipedia page. I'm just freed. wavelet transforms just to give this lecture, even though I'm not definitely not an expert right? But it's a good example.
+
+458 "" (0)
+01:07:29.060 --> 01:07:47.160
+And that's why I'm using it here and I didn't want to write my own. But but you need real domain knowledge in order to do this effectively. I couldn't have come up with us. Right that's why I told them from someone else's slides. Because, like, my expertise is in other things, and I've already used the compiler several times as an example today. So I didn't want to do that again. Right?
+
+459 "" (0)
+01:07:47.160 --> 01:07:54.390
+It's also the case that some of these Metamorphic relations have interesting properties, like, interesting mathematical problems.
+
+460 "" (0)
+01:07:54.390 --> 01:07:59.640
+For example, minority relation 1 here, transpose, uh, is, uh, community, right?
+
+461 "" (0)
+01:07:59.640 --> 01:08:04.290
+Uh, I remember what community means running the class.
+
+462 "" (0)
+01:08:04.290 --> 01:08:11.070
+Like can do it with A's and B's and c's.
+
+463 "" (0)
+01:08:11.070 --> 01:08:17.580
+Finds C. B. .
+
+464 "" (0)
+01:08:17.580 --> 01:08:20.730
+See that that's associated. Oh, my goodness.
+
+465 "" (0)
+01:08:20.730 --> 01:08:30.750
+Say it again? Yeah, I may have said the wrong 1, uh, or may have written the wrong 1 on the board say it again close uh, we've got this E .
+
+466 "" (0)
+01:08:30.750 --> 01:08:42.420
+Oh, uh, parentheses seamlessly. Wait, is it like 8000+see? Like outside of France?
+
+467 "" (0)
+01:08:42.420 --> 01:08:47.970
+Is it just, like, change the order? Let's just change the works yeah. Well.
+
+468 "" (0)
+01:08:47.970 --> 01:08:53.190
+Don't worry about it. All right. Thank you for taking the hit there.
+
+469 "" (0)
+01:08:53.190 --> 01:08:58.380
+When do you have your need? I would like that. Oh, you don't right? You don't.
+
+470 "" (0)
+01:08:58.380 --> 01:09:18.380
+Um, but well, I guess to understand this lecture, but you don't in real life. Right? But community has, uh, has some useful properties right? This is a standard relation that we know about right? And you can go look it up. And if you recognize it here, then you might be able to use this in more interesting ways. And in particular, uh, you might be able to combine it with.
+
+471 "" (0)
+01:09:18.380 --> 01:09:26.760
+Other right, so in practice, it is the case, the composition of Metamorphic relations, uh, tend to be even more effective than the Metamorphic relations themselves.
+
+472 "" (0)
+01:09:26.760 --> 01:09:30.870
+So, you have multiple of these, and you can use them all at the same time.
+
+473 "" (0)
+01:09:30.870 --> 01:09:34.050
+Right. Especially if you know that, for example, there community. Okay.
+
+474 "" (0)
+01:09:34.050 --> 01:09:54.050
+Um, and this is like this, this is quite nice. Alright, what this means is that if you do Metamorphic testing, if you're able to understand the domain of the application deeply enough and write out what the Metamorphic relations actually are and build generators and so on and automate all of this, you're going to get a testing infrastructure that's very, very effective.
+
+475 "" (0)
+01:09:54.050 --> 01:09:57.120
+Right. Um, and, uh, like.
+
+476 "" (0)
+01:09:57.120 --> 01:10:00.960
+The literature suggests that I.
+
+477 "" (0)
+01:10:00.960 --> 01:10:15.660
+This is 1 of the best ways to do testing right? In terms of like, getting good results in terms of finding bugs. Um, but it is quite expensive. Right? So, in terms of practicality yeah.
+
+478 "" (0)
+01:10:15.660 --> 01:10:21.030
+Sorry uh, because I okay, so.
+
+479 "" (0)
+01:10:21.030 --> 01:10:24.210
+Let me think about it for a 2nd.
+
+480 "" (0)
+01:10:24.210 --> 01:10:27.810
+All right, so M1 is transposed. Right. Uh, so it's.
+
+481 "" (0)
+01:10:27.810 --> 01:10:33.900
+This sort of trend, uh, this sort of like operation, right?
+
+482 "" (0)
+01:10:33.900 --> 01:10:43.350
+Um, creativity is reordering. Right so, um, let us to say that if you, uh, like.
+
+483 "" (0)
+01:10:43.350 --> 01:10:53.820
+Due to reordering. All right and you switch the order of them, uh, 2 rotation 2 rotations, for example, and you switch the order in which you apply them. You should get the same result.
+
+484 "" (0)
+01:10:53.820 --> 01:11:08.940
+Sorry, I had to think about that for a minute. Um, yeah, so this, this stuff is is tricky, as I said, it is, it is requiring us to to actually use the math part of our brands, which is always a little bit tricky.
+
+485 "" (0)
+01:11:08.940 --> 01:11:12.330
+All right, any other questions here before I move on and talk about, uh.
+
+486 "" (0)
+01:11:12.330 --> 01:11:17.610
+The practicality of this technique in practice. Okay.
+
+487 "" (0)
+01:11:17.610 --> 01:11:20.700
+So, um, do we think this is practical? What do you all think.
+
+488 "" (0)
+01:11:26.280 --> 01:11:36.420
+It's going to be hard, right? Like, I think so. The right way to be the practicality here is that this is, uh, this is the sort of technique that you should use if you like, very much care about correctness, right? It's, um.
+
+489 "" (0)
+01:11:36.420 --> 01:11:44.910
+It's 1 of the most effective ways to test real systems. Right? And it appears very nicely with fuzzy. Right? Which is known to be very effective and only costs machine time.
+
+490 "" (0)
+01:11:44.910 --> 01:11:55.140
+All right, so if you do the work to set it up, it's extremely capable and you can just let, like, throw machines at it for as long as you would like. Right. And so it will just keep finding right?
+
+491 "" (0)
+01:11:55.140 --> 01:12:12.360
+Um, however, it is hard, right? That is the key problem, right? It's difficult to apply designing. Metamorphic relations generally requires you to have domain expertise right? And it's easier for some kind of systems and others. Right? So, for some sorts of systems, that might be quite easy. Like, it was very easy for us to come up with a Google search example.
+
+492 "" (0)
+01:12:12.360 --> 01:12:22.020
+Right. That 1 was easy to understand by contrast the discreet wavelet transform 1 that we just went through required me to think about it every time that I said something because it was like, it's quite a complicated thing.
+
+493 "" (0)
+01:12:22.020 --> 01:12:26.490
+All right. Um, so for some kinds of systems, it'll be a little easier.
+
+494 "" (0)
+01:12:26.490 --> 01:12:44.820
+But in general, we're going to need some amount of domain expertise and I'll talk about the homework at the end, but I just want to mention 1 thing here, which is that this homework gives you you all a lot of freedom on exactly. Like, what system you're going to target there's no prescribed like subject program and this is the main reason.
+
+495 "" (0)
+01:12:44.820 --> 01:12:50.370
+Right, but you need your expertise to do a good job with this. And I don't know what domain domains you all are experts at.
+
+496 "" (0)
+01:12:50.370 --> 01:13:00.030
+Right. So when you're choosing subject programs to write Metamorphic relation relations for when you're doing homework, 5, try to choose ones where you have domain expertise, choose something that you understand. Well.
+
+497 "" (0)
+01:13:00.030 --> 01:13:03.270
+All right and that's true for both parts. Really but.
+
+498 "" (0)
+01:13:03.270 --> 01:13:15.480
+In general you the reason we're giving you freedom in this assignment is because you will have a much easier time, and you will learn more if you choose programs that you deeply understand. Right?
+
+499 "" (0)
+01:13:15.480 --> 01:13:33.330
+All right, so my advice here is always be on the lookout for opportunities to carry this out, right? It is a great value in terms of increasing your confidence versus the effort you need to put in. If it is relatively cheap if you understand the relations already. Right? If you need to develop domain expertise in order to do it, maybe don't.
+
+500 "" (0)
+01:13:33.330 --> 01:13:39.000
+It's probably going to be too expensive, but if you already have domain expertise, this sort of technique is quite effective.
+
+501 "" (0)
+01:13:39.000 --> 01:13:42.960
+Okay, any questions on any of this.
+
+502 "" (0)
+01:13:51.120 --> 01:13:54.690
+All right, so that is all I'm going to say about Metamorphic testing.
+
+503 "" (0)
+01:13:54.690 --> 01:14:04.020
+Before we move on, does anyone have any questions about minimum for testing broadly construed, or property based testing, or any of this kind of stuff? Because we're not going to move into something quite different.
+
+504 "" (0)
+01:14:04.020 --> 01:14:17.730
+All right, in that case, I'll let's start talking about dynamic and variant detection. Right? So the intuition behind dynamic and variance detection is that programs usually behave correctly.
+
+505 "" (0)
+01:14:17.730 --> 01:14:24.630
+Most execution trace says do not lead to failure right? Especially if you have a test suite and a human wrote that test suite.
+
+506 "" (0)
+01:14:24.630 --> 01:14:32.340
+All right, most of those tests are probably correct. And so, uh, if I have a human written test suite with, uh, some number of tasks.
+
+507 "" (0)
+01:14:32.340 --> 01:14:46.230
+And you have some facts, like, the index is always people who randomly from -1, uh, and every single 1 of those tests on every, every execution. Then it might just be the case that, uh, the Oracle here, is that all the time.
+
+508 "" (0)
+01:14:46.230 --> 01:14:57.060
+Index equals red line -1 all the time and this is the key intuition behind, uh, dynamic and very introduction in general. We're gonna run some tests. We're gonna observe what facts are. True.
+
+509 "" (0)
+01:14:57.060 --> 01:15:02.280
+And then we're going to, like, fuzz against those facts and see if they remain through an arbitrary.
+
+510 "" (0)
+01:15:02.280 --> 01:15:08.310
+Does that intuition make sense to folks? All right.
+
+511 "" (0)
+01:15:08.310 --> 01:15:17.070
+So, and before I go further, I want to give some definitions here in particular. I know the word in variant.
+
+512 "" (0)
+01:15:17.070 --> 01:15:27.570
+Few of you right? You've seen it before. So, new variant is a predicate or program expressions that have thrown every, uh, every execution right? That is to say it's a fact, like, or a credit card right? Back over from variable.
+
+513 "" (0)
+01:15:27.570 --> 01:15:30.570
+All right, that is always the case, right?
+
+514 "" (0)
+01:15:30.570 --> 01:15:35.640
+So, when you're writing doing property, based testing, usually what you're doing is writing down in variance.
+
+515 "" (0)
+01:15:35.640 --> 01:15:41.520
+Right, if you're, uh, writing or a partial Oracle as part of property based testing and variance is what you're writing.
+
+516 "" (0)
+01:15:41.520 --> 01:16:01.520
+Almost always. Okay, so the key idea here is that if we have high quality and variants within variants that are actually supposed to be true, right? Then they can serve as test oracles. And so the idea is, if we think back to property based testing effectively, what we're doing then is we're as a human writing down some variance and we're going to use.
+
+517 "" (0)
+01:16:01.520 --> 01:16:08.370
+Them as oracle's. Right the idea in dynamic and variance detection is that we're going to try to automate this process.
+
+518 "" (0)
+01:16:08.370 --> 01:16:28.370
+All right before we explain how this works, I want to do a little bit of background here about program analysis. This will also come in handy later in the class when we talk about static analysis. And in particular, I just want to give some definitions and build some intuition here. Right? So there are 2 ways for us to reason about what a program does in general, right?
+
+519 "" (0)
+01:16:28.370 --> 01:16:40.110
+Quote, unquote forward or backward reasoning forward reasoning works by knowing the fact that it's true before the program runs. Right? And then reasoning about what needs to be true after the program is done executing.
+
+520 "" (0)
+01:16:40.110 --> 01:16:45.540
+All right, and this is called, like, this is so given a precondition what post conditions are for.
+
+521 "" (0)
+01:16:45.540 --> 01:17:05.540
+In other words, precondition and post condition no, 1. good. So this next line is appropriate. So what are Pre and post conditions? This is part of the thing. We need to know these words in order to understand, like, how works right? So precondition to a function. Uh, is a condition that must be true when entering the function, right? So, it might, uh.
+
+522 "" (0)
+01:17:05.540 --> 01:17:16.500
+Include expectations about the arguments, right? But in general, this is like some requirement that must be the case before the function executes. Right? So, for example.
+
+523 "" (0)
+01:17:16.500 --> 01:17:22.980
+Suppose that I have function like this.
+
+524 "" (0)
+01:17:22.980 --> 01:17:28.140
+The C programs with Fu, we've got a voice.
+
+525 "" (0)
+01:17:28.140 --> 01:17:33.510
+And we do a p dot something we call the meta.
+
+526 "" (0)
+01:17:33.510 --> 01:17:39.210
+What must be true here okay.
+
+527 "" (0)
+01:17:39.210 --> 01:17:44.250
+Yeah, so he should be defined. Yeah, well, in particular, when we call the school function.
+
+528 "" (0)
+01:17:44.250 --> 01:17:48.600
+Has to be a notch no pointer. He is a no pointer. Then this is going to stop call.
+
+529 "" (0)
+01:17:48.600 --> 01:17:56.640
+All right, so, uh, the precondition here is that, uh, he is no, not.
+
+530 "" (0)
+01:17:56.640 --> 01:18:03.300
+And that's just not right it's a fact that lead on the recently department. Correct?
+
+531 "" (0)
+01:18:03.300 --> 01:18:06.360
+You're used to doing this almost like a.
+
+532 "" (0)
+01:18:06.360 --> 01:18:11.820
+Taking this way, all this of what your program, which probably having to formalize this intuition.
+
+533 "" (0)
+01:18:11.820 --> 01:18:15.870
+Another example, this is, uh.
+
+534 "" (0)
+01:18:15.870 --> 01:18:23.580
+Let's take, um, what's that? Just imagine like a, it's app. This is a silly a function.
+
+535 "" (0)
+01:18:23.580 --> 01:18:30.030
+Takes 2 minutes, X, X and Y, and then returns X plus Y.
+
+536 "" (0)
+01:18:30.030 --> 01:18:37.140
+What are the premium? Is this function? Yeah.
+
+537 "" (0)
+01:18:37.140 --> 01:18:42.690
+Yeah, they're written right here. Right? The static types, static types of parameters for preconditioners.
+
+538 "" (0)
+01:18:42.690 --> 01:18:50.400
+In particular, they're saying that, like, if X is not an event, like, this is going to go, go forward, right? If you push, uh.
+
+539 "" (0)
+01:18:50.400 --> 01:18:53.970
+Like, a float value here, we're gonna get sort of nonsensical results.
+
+540 "" (0)
+01:18:53.970 --> 01:19:00.090
+Right even worse if you put a pointer here, or even like worse than that, you've put some other thing in there.
+
+541 "" (0)
+01:19:00.090 --> 01:19:14.430
+Again, the results will not be appropriate and so you can think of Pre and post conditions here as the promises that are made, uh, the requirements of the function before it's called. It's a precondition. And then the promises of the function makes about the results. Right?
+
+542 "" (0)
+01:19:14.430 --> 01:19:17.610
+So, in particular, the record type here, as opposed condition.
+
+543 "" (0)
+01:19:17.610 --> 01:19:22.080
+Right this function is promising that if you give it to end. So we'll get an impact.
+
+544 "" (0)
+01:19:22.080 --> 01:19:28.260
+Alright, you give it to other things. It's not promising it.
+
+545 "" (0)
+01:19:28.260 --> 01:19:31.260
+Of course.
+
+546 "" (0)
+01:19:31.260 --> 01:19:34.440
+Like, as I said here, I.
+
+547 "" (0)
+01:19:34.440 --> 01:19:50.310
+In this definition, you don't these do not need to be about the arguments, but they often are right the the preconditions that you're usually thinking about for functions are, like, requirements over the arguments, but that's not necessarily the case, like, imagine that you have a method that references a field without checking if it's not.
+
+548 "" (0)
+01:19:50.310 --> 01:19:54.300
+That that's a precondition that involves the field and not an argument, right?
+
+549 "" (0)
+01:19:54.300 --> 01:20:03.930
+You can also have things like preconditions over, like, the properties of the file system. Like this file needs to exist for this program is not going to work, right or something like this. Okay.
+
+550 "" (0)
+01:20:03.930 --> 01:20:14.010
+And post conditions, as I said, are implied, I guess there is some, some credit that are going to be true when you're leaving the function, right? It's the promise that the function makes right?
+
+551 "" (0)
+01:20:14.010 --> 01:20:17.490
+Uh, or, uh, put another way it's, uh, what what.
+
+552 "" (0)
+01:20:17.490 --> 01:20:21.750
+Uh, what will be true after the functioning finished executing.
+
+553 "" (0)
+01:20:21.750 --> 01:20:36.150
+And again, it often does, but may not have, doesn't have to include expectations about the return value. So, the simplest examples of these, the ones that you've almost certainly seen our argument or sorry parameter types and return types.
+
+554 "" (0)
+01:20:36.150 --> 01:20:41.250
+Right. Uh, respectively for these 2, but there are many many authors that you can imagine. Right?
+
+555 "" (0)
+01:20:41.250 --> 01:20:48.510
+All right any questions about these definitions, do these 2 concepts make sense?
+
+556 "" (0)
+01:20:48.510 --> 01:20:53.580
+I feel like, I've probably reason using Pre and post conditions before without realizing it.
+
+557 "" (0)
+01:20:53.580 --> 01:21:00.450
+Yeah, almost everybody. Good. Yeah, so the, the goal here is to formalize the notion that you hopefully already have.
+
+558 "" (0)
+01:21:00.450 --> 01:21:08.550
+Okay, so, um, coming back to this notion of forward and backwards reasoning right? So, uh, for reasoning is saying, like, okay, we know a precondition.
+
+559 "" (0)
+01:21:08.550 --> 01:21:17.850
+And we're trying to figure out like, what post condition is true based on the precondition and the program. Right? So, if, you know, for example, I raise this.
+
+560 "" (0)
+01:21:17.850 --> 01:21:23.550
+We're 25 things here, you know, that X, isn't it? Do you know why isn't it.
+
+561 "" (0)
+01:21:23.550 --> 01:21:27.960
+You know what? Plus does, can you tell me what the are from Texas?
+
+562 "" (0)
+01:21:27.960 --> 01:21:38.280
+Right. It's easy enough to right here. Right? And that's an example of for reasoning for taking these 3 conditions and you're taking on the program does and you're figuring out that there should be.
+
+563 "" (0)
+01:21:38.280 --> 01:21:57.210
+Backwards reasoning is exactly the opposite. Right? The idea of backwards reasoning is that if, you know a fact, that must be true after execution right then you can reason about 1 must be true beforehand. Right? So, if, you know, for example, again, taking this, well, we know.
+
+564 "" (0)
+01:21:57.210 --> 01:22:01.230
+We have 2 arbitrary X and Y, here, like, we don't know anything about those.
+
+565 "" (0)
+01:22:01.230 --> 01:22:05.940
+We know that this for X, plus Y, and we know that we were from the audience.
+
+566 "" (0)
+01:22:05.940 --> 01:22:13.110
+What must be true about X and Y, also have to be in right? Otherwise the program doesn't make sense.
+
+567 "" (0)
+01:22:13.110 --> 01:22:24.060
+And so I'm back, the reasoning is just going the other direction, right? It's reasoning from what actually has occurred and what, you know, afterwards, and figuring out what the inputs must have been. Right? Yes.
+
+568 "" (0)
+01:22:32.220 --> 01:22:41.970
+It depends on the semantics of the language and, I mean, I'm imagining like, a seat program here or something. Right? I think program this must be true what I said, but I.
+
+569 "" (0)
+01:22:41.970 --> 01:22:46.740
+Yes, I'm I'm definitely abstracting here.
+
+570 "" (0)
+01:22:46.740 --> 01:22:54.780
+And this is also kind of a bad example, I probably should have put a more complicated example in the slides. That was exactly correct.
+
+571 "" (0)
+01:22:54.780 --> 01:22:59.580
+All right, and so, in other words, backwards reasoning is given a post condition. What preconditions must be true.
+
+572 "" (0)
+01:22:59.580 --> 01:23:08.640
+Right. And so these 2 things are effectively allowing us give it for reasoning and back our reason each allow us to reason about a program.
+
+573 "" (0)
+01:23:08.640 --> 01:23:14.010
+And get from either the preconditioners to the post conditions, or from the post conditions to the conditions.
+
+574 "" (0)
+01:23:14.010 --> 01:23:18.570
+So, if you know, uh, a precondition, um, and, you know, the program.
+
+575 "" (0)
+01:23:18.570 --> 01:23:23.580
+And you have some kind of analysis, you can usually compute a post condition and vice versa, right?
+
+576 "" (0)
+01:23:23.580 --> 01:23:26.970
+Um, by using 1 of these 2 kinds of reasoning.
+
+577 "" (0)
+01:23:26.970 --> 01:23:36.360
+Okay, so what do you think what what are the pros and cons of these 2 ways of reasoning about programs.
+
+578 "" (0)
+01:23:36.360 --> 01:23:42.570
+Why don't we take say 3 minutes or so you can turn to someone next to you and discuss this.
+
+579 "" (0)
+01:23:42.570 --> 01:23:48.990
+And then we'll come back together.
+
+580 "" (0)
+01:23:57.510 --> 01:24:02.970
+Hello.
+
+581 "" (0)
+01:24:20.730 --> 01:24:29.040
+We're ready.
+
+582 "" (0)
+01:24:29.040 --> 01:24:32.970
+So.
+
+583 "" (0)
+01:24:32.970 --> 01:24:37.350
+Unfortunately, you need to understand the program is probably a kind of both.
+
+584 "" (0)
+01:24:37.350 --> 01:24:44.700
+That's a more of a kind of reasoning about programs in general, but I do see your point about backward reasoning.
+
+585 "" (0)
+01:24:44.700 --> 01:24:52.440
+Being a little harder maybe right um, in, uh, like, when you, when you discuss this for, we're like, when we run studies.
+
+586 "" (0)
+01:24:52.440 --> 01:24:58.320
+It is the case that people find most people find easier to do for reasoning backward reason. It.
+
+587 "" (0)
+01:24:58.320 --> 01:25:03.060
+Yeah, uh, I guess a pro for that, for the reason, it is.
+
+588 "" (0)
+01:25:03.060 --> 01:25:07.470
+When you're writing the program, usually have like.
+
+589 "" (0)
+01:25:07.470 --> 01:25:10.560
+Some kind of desired output.
+
+590 "" (0)
+01:25:10.560 --> 01:25:15.450
+In mine yeah, especially with, like, specific ones.
+
+591 "" (0)
+01:25:19.290 --> 01:25:27.270
+Yeah, so you do you have desired outputs in mind you know, what the behavior should be and so if you're doing backwards reasons, you can figure out what you need to do in order to achieve that.
+
+592 "" (0)
+01:25:27.270 --> 01:25:30.810
+Yeah, other ideas.
+
+593 "" (0)
+01:25:48.030 --> 01:25:52.620
+Uh, my boss, it's like.
+
+594 "" (0)
+01:25:52.620 --> 01:25:58.620
+Uh, without it sure. Um.
+
+595 "" (0)
+01:25:58.620 --> 01:26:09.180
+So, that's definitely the case for both kinds of reasoning right? For large programs is going to be hard. Right? That's just a fact about program like, raising about programs in general.
+
+596 "" (0)
+01:26:09.180 --> 01:26:12.660
+I'm not sure I understand your point about.
+
+597 "" (0)
+01:26:12.660 --> 01:26:16.080
+Being particularly like this being a particular problem in backward, reasonable.
+
+598 "" (0)
+01:26:16.080 --> 01:26:23.400
+It's certainly the case that, for reasoning has a tendency to produce, like, overly large sets of facts.
+
+599 "" (0)
+01:26:23.400 --> 01:26:27.390
+Um, we just to say, like a.
+
+600 "" (0)
+01:26:27.390 --> 01:26:39.660
+When you do for reasoning, you often end up, like we're using about lots of things that are actually relevancy that we care about. Right the nice thing of 1. nice thing about backwards reasoning is that people do it in a relatively targeted way.
+
+601 "" (0)
+01:26:39.660 --> 01:26:49.050
+Usually using backwards reasoning it's possible to say I suggested over here that, uh, you know, we have a particular output that we care about.
+
+602 "" (0)
+01:26:49.050 --> 01:26:52.050
+And we need to figure out what we need in order to do that. Right?
+
+603 "" (0)
+01:26:52.050 --> 01:26:59.220
+The reason we have to accumulate all the true things and then eventually figure out, like, do all these 2 things at what I care about.
+
+604 "" (0)
+01:26:59.220 --> 01:27:04.260
+So, for really kind of the sales force.
+
+605 "" (0)
+01:27:04.260 --> 01:27:09.120
+But again, this is analysis dependent.
+
+606 "" (0)
+01:27:09.120 --> 01:27:13.740
+We have now look at.
+
+607 "" (0)
+01:27:13.740 --> 01:27:16.770
+Isn't that? So.
+
+608 "" (0)
+01:27:16.770 --> 01:27:20.400
+I think the options that.
+
+609 "" (0)
+01:27:20.400 --> 01:27:24.240
+It will be stage, so it might be.
+
+610 "" (0)
+01:27:24.240 --> 01:27:29.640
+Overview is this applicable.
+
+611 "" (0)
+01:27:29.640 --> 01:27:36.390
+So, when you're doing for reasoning, uh.
+
+612 "" (0)
+01:27:36.390 --> 01:27:41.250
+I I think at least my intuition is to be sort of the opposite way, right?
+
+613 "" (0)
+01:27:41.250 --> 01:27:50.070
+That for reasoning is more likely to be hard to, uh, to figure out exactly what's going on again. This large sets of facts problem.
+
+614 "" (0)
+01:27:50.070 --> 01:27:57.390
+Alright, board reasoning when you're when you're listening forward, you're finding on all the proposed conditions that are true. Given a set of Pre conditions.
+
+615 "" (0)
+01:27:57.390 --> 01:28:02.100
+You're going backwards racing, you're home. Like, you can start with just the most initiative you care about.
+
+616 "" (0)
+01:28:02.100 --> 01:28:05.400
+And then you only find the preconditions that are relevant to it.
+
+617 "" (0)
+01:28:05.400 --> 01:28:10.260
+And so backwards reasoning allows you to find like, a more relevant set of facts.
+
+618 "" (0)
+01:28:10.260 --> 01:28:16.440
+For a score reasoning, allows you to find like, all the facts that exist like, where all the facts that are that.
+
+619 "" (0)
+01:28:16.440 --> 01:28:19.980
+Uh, so what I was kind of saying is, like, some option.
+
+620 "" (0)
+01:28:19.980 --> 01:28:24.210
+Uh, 1 request, so that it can be really on.
+
+621 "" (0)
+01:28:24.210 --> 01:28:29.490
+Yeah, I'm not sure. Yes so like, what, what do you think we can.
+
+622 "" (0)
+01:28:29.490 --> 01:28:34.500
+And same on the phone with, uh, maybe.
+
+623 "" (0)
+01:28:34.500 --> 01:28:39.540
+Feedback for reasoning, it's, uh, it's the same maybe to, uh.
+
+624 "" (0)
+01:28:39.540 --> 01:28:43.290
+But it's hard to, uh.
+
+625 "" (0)
+01:28:43.290 --> 01:28:47.850
+Okay, I understand your point now. Yeah, so I.
+
+626 "" (0)
+01:28:47.850 --> 01:28:56.100
+Certainly, it is a case that for specific kinds of functions and many to 1 functions are much more common 1:2:main functions. So, this is a great point.
+
+627 "" (0)
+01:28:56.100 --> 01:29:06.510
+Um, Ford reason is going to be more efficient. Right? I think you're going to think that's what you're saying, right then backwards backward reason it's going to have to consider many things and they split all this apart.
+
+628 "" (0)
+01:29:06.510 --> 01:29:18.810
+Right so the, the, the run time of analysis, let's say that's running a backup reasoning is likely to be longer than a board analysis and the examination.
+
+629 "" (0)
+01:29:18.810 --> 01:29:24.960
+I have a list here as well, and I want to just put those on the screen and let's let's go through them together. Right?
+
+630 "" (0)
+01:29:24.960 --> 01:29:30.390
+So, um, the key top line takeaways on, uh.
+
+631 "" (0)
+01:29:30.390 --> 01:29:37.890
+Once you all to remember about this, is that for reasoning is usually more intuitive. Like, when your reasoning about a program, you're usually doing for a reason implicitly.
+
+632 "" (0)
+01:29:37.890 --> 01:29:52.230
+When you're thinking about, you know, what this program does, but backward reasoning is often more helpful right? In particular, uh, usually, uh, if you want to understand a particular, like, why a particular outcome happens, backward reasoning is going to be how you run to achieve that.
+
+633 "" (0)
+01:29:52.230 --> 01:30:06.000
+All right, so, um, yeah, so so for everything, it's like, understanding what will happen and backward reasoning is, like, understanding what did happen right and, uh, or what should happen, or, you know.
+
+634 "" (0)
+01:30:06.000 --> 01:30:13.260
+Like, what the desire like the desire is right it's better for thinking through, uh.
+
+635 "" (0)
+01:30:13.260 --> 01:30:18.660
+Like, what the spec should be as opposed to imagining how the implementation will actually be here.
+
+636 "" (0)
+01:30:18.660 --> 01:30:33.750
+Right. And thinking about the spec is often much more useful, especially when doing something like property, based testing or thinking about in variance. Right? We usually care more about what the specification is supposed to be, just to say what the program is supposed to do, as opposed to what it actually does it. Right? Um.
+
+637 "" (0)
+01:30:33.750 --> 01:30:46.860
+So, uh, foreigners in these regional impacts, maybe are all relevant to the goal and the side effects may get large. This is this point. I was, I made several times right? Um, and that the reasoning is better uh, ideally specific. All right.
+
+638 "" (0)
+01:30:46.860 --> 01:31:00.330
+Um, it also is the case that it's, uh, much, it's often hard to realize the court reasoning and not going to work. Right? You can spend a long time simulating what the code is doing before you realize that oh, actually, this path is not going to lead to where we need to go.
+
+639 "" (0)
+01:31:00.330 --> 01:31:04.650
+So, hopefully not by contrast, um.
+
+640 "" (0)
+01:31:04.650 --> 01:31:12.240
+Back the reasoning is great if you know, where you, you know, where the problem is and you're trying to figure out why it occurs.
+
+641 "" (0)
+01:31:12.240 --> 01:31:16.920
+Okay, does anyone have any questions about this.
+
+642 "" (0)
+01:31:16.920 --> 01:31:25.950
+You can think of it that way. Yes. Yeah. And we're going to come back to this notion a number of times as we discuss various analysis. All right.
+
+643 "" (0)
+01:31:25.950 --> 01:31:28.980
+Especially as we get into the sort of like.
+
+644 "" (0)
+01:31:28.980 --> 01:31:44.460
+I start discussing dynamic analyses that rely on abstract reasoning, which is icon as an example of what we're gonna talk about more as we go forward. And as we get into this tech analysis, part of this, this class.
+
+645 "" (0)
+01:31:44.460 --> 01:32:00.479
+Okay, so why are we talking about all of this? So, going back to dynamic and variant detection the key insight here is that if we have some program location, and we can infer and invariant for that location, that is to say, we can figure out what what facts might need to be true.
+
+646 "" (0)
+01:32:00.479 --> 01:32:03.959
+And we could produce post conditions and Pre conditions.
+
+647 "" (0)
+01:32:03.959 --> 01:32:07.739
+Right. Which are the things that we're actually going to need in order to reason about the program.
+
+648 "" (0)
+01:32:07.739 --> 01:32:13.889
+The key the really nice thing about dynamic in varying detection is it? It's not just a test Oracle production technique.
+
+649 "" (0)
+01:32:13.889 --> 01:32:17.459
+But it's a technique that's going to produce function Pre and post conditions.
+
+650 "" (0)
+01:32:17.459 --> 01:32:30.629
+And, uh, as we'll maybe discuss slightly loop in variance as well. All right and this means it's going to be very useful for static analysis as well. Like, these are the sorts of things that a static analysis tool is going to be able to take advantage of right because these are facts about what the program is supposed to do.
+
+651 "" (0)
+01:32:30.629 --> 01:32:36.179
+And as I said, Luke, Luke and variants here, I've heard of loop and variants.
+
+652 "" (0)
+01:32:36.179 --> 01:32:48.359
+I'm guessing almost. No. 1, right? That's fine. All right. Um, this is not something you need to know yet. Uh, in particular, this will not appear on the midterm, but we will discuss it in the 2nd, half of the class.
+
+653 "" (0)
+01:32:48.359 --> 01:32:52.559
+So, libertarianism, invariant, it used to hold up at the start and end of each iteration of a loop.
+
+654 "" (0)
+01:32:52.559 --> 01:32:56.909
+And it's extremely important for, uh, a number of verification techniques.
+
+655 "" (0)
+01:32:56.909 --> 01:32:59.999
+Uh, or, uh, doing proofs about programs, right?
+
+656 "" (0)
+01:32:59.999 --> 01:33:11.849
+In general, if you want to do it for for better program for each function, you need a precondition in a post condition and for each loop you need to loop and variant. And if you have all 3 of those things, then you're usually able to produce a proof.
+
+657 "" (0)
+01:33:11.849 --> 01:33:26.249
+Entirely mechanically, these are the 3 things that typically a human, uh, to give you before you can invoke an automated for checking. Right? And so, 1 of the really nice things about something like icon is, is going to allow us to automatically produce these things.
+
+658 "" (0)
+01:33:26.249 --> 01:33:38.309
+Now, they might not be correct as we'll see. Uh, but, um, you know, in theory if we had a great test suite, uh, Dotcom would allow us to, uh, you know, sort of scale that test suite into verification.
+
+659 "" (0)
+01:33:38.309 --> 01:33:48.089
+Okay, so, as I said, we'll come back to this concept later in the semester, but for now, don't worry too much about it, but I want to introduce it here because again, these things right?
+
+660 "" (0)
+01:33:48.089 --> 01:33:51.389
+Okay, so the key question is, can we do this automatically right?
+
+661 "" (0)
+01:33:51.389 --> 01:34:03.479
+And there are 2 insights that allow us to do. So right. 2 insights that lead to, that are kind of algorithm. The 1st, is that, uh, invariant by definition always holds on every execution.
+
+662 "" (0)
+01:34:03.479 --> 01:34:09.749
+Surely right it has to. And 2nd, that we can easily detect spurious false in variance. Have.
+
+663 "" (0)
+01:34:13.049 --> 01:34:33.049
+How can we why is it easy to detect false environments? Yeah just run the program. Yeah, if you run the program and the variance is ever false, then it's definitely the case that it's not an investment. Right? The quote unquote investment.
+
+664 "" (0)
+01:34:33.049 --> 01:34:38.759
+So, if you, if you run the program and you ever observe that, the predicate that you think might be in the variant is false.
+
+665 "" (0)
+01:34:38.759 --> 01:34:47.789
+Then it must not be by definition, like, in variance, as we said, always hold on every execution. And so if you ever observe it being false.
+
+666 "" (0)
+01:34:47.789 --> 01:35:01.169
+Then it must not be an environment, and this is the key insight that leads to icon. Right? So, if we, if we require the program comes equipped with inputs, like an addictive workload or high coverage test cases, which, as we know, is very easy to produce.
+
+667 "" (0)
+01:35:01.169 --> 01:35:09.419
+Then, since the invariant would hold on every execution by definition, any candidate invariant that is false, even once can be rejected.
+
+668 "" (0)
+01:35:09.419 --> 01:35:12.599
+All right, and so this is the key, as I said, this is the side.
+
+669 "" (0)
+01:35:12.599 --> 01:35:18.179
+This is how works so, the plan then, is we generate many candidate in variance.
+
+670 "" (0)
+01:35:18.179 --> 01:35:25.409
+Pretty so large set of them and then we filter out the false ones by running the tests. This is the basic idea of dynamic and variant detection.
+
+671 "" (0)
+01:35:25.409 --> 01:35:31.109
+All right, so let's consider them a naive approach to this. Right? So here is a program while.
+
+672 "" (0)
+01:35:31.109 --> 01:35:46.019
+Right. It's we're bullying condition and see some command then we can instrument it to 3 times and very warm and very intuitive. Right? Uh, at the beginning of the loop.
+
+673 "" (0)
+01:35:46.019 --> 01:35:53.879
+And then we can run the tests, and we can see whether, uh, very 1 variant 2, very important so on our true or false. Right? And we just remove all the ones that are false.
+
+674 "" (0)
+01:35:53.879 --> 01:35:58.109
+And then we do the same thing for each task. Right? This seems fine.
+
+675 "" (0)
+01:35:58.109 --> 01:36:05.579
+Or does it all right so we run the test and filter out those that are false. So what is wrong with this plan?
+
+676 "" (0)
+01:36:05.579 --> 01:36:11.009
+I've left out something very important. This is a, the slide title says naive approach for reason.
+
+677 "" (0)
+01:36:11.009 --> 01:36:18.539
+What is wrong? Here does a hint where do the variance come from?
+
+678 "" (0)
+01:36:49.319 --> 01:36:56.849
+Sorry, what is true.
+
+679 "" (0)
+01:36:56.849 --> 01:36:59.969
+The variance, or B or something.
+
+680 "" (0)
+01:36:59.969 --> 01:37:11.819
+What is the condition results? Yeah, that's true. Um, but we're interested in. Let's let's suppose that we're only interested in the case for expert.
+
+681 "" (0)
+01:37:11.819 --> 01:37:26.459
+This is still not going to work right? And the reason we haven't defined where these variants come from. Right? So, let's, let's think through what are all the possible candidate variances in particular. How many of them are there?
+
+682 "" (0)
+01:37:26.459 --> 01:37:30.569
+But another way how many Boolean expressions might might be true?
+
+683 "" (0)
+01:37:35.189 --> 01:37:48.059
+Which ones are we checking? We haven't said all right and implicitly here, uh, like, what what we're suggesting is that we're going to try all the candidate in variance.
+
+684 "" (0)
+01:37:48.059 --> 01:37:58.589
+All right, we're trying variant 1 and variant 2, et cetera until we're done. Right? But it turns out that there are infinitely many candidates, right? Oh, yeah. Well, hint. Um, there are infinitely many candidates.
+
+685 "" (0)
+01:37:58.589 --> 01:38:14.009
+In general, if we're looking at Boolean expressions, right we can keep making more complicated ones forever. Right? And so a naive approach like this, if we don't do something clever in order to define the space of invariants that we care about, obviously cannot work.
+
+686 "" (0)
+01:38:14.009 --> 01:38:20.849
+All right, and so, um, this is the, uh, this was the key problem that needed to be solved, um, in a, uh.
+
+687 "" (0)
+01:38:20.849 --> 01:38:25.079
+A useful way in order to make dynamic in varying detection practical.
+
+688 "" (0)
+01:38:25.079 --> 01:38:32.699
+Alright, so icons key contribution is not so much the idea of dynamic and variance detection, which people have thought of before, but had never figured out how to do.
+
+689 "" (0)
+01:38:32.699 --> 01:38:37.409
+All right, the icons primary contribution was the idea of templates.
+
+690 "" (0)
+01:38:37.409 --> 01:38:49.799
+All right, the key idea here is to choose a set of finite useful in variance. Right? And that will actually turn out to be good oracles. Right? And, you know, do some science to figure out which ones actually are good.
+
+691 "" (0)
+01:38:49.799 --> 01:38:59.579
+So, uh, the set I, so, for example, given some program variables, X, Y, Z, you might consider these 7 sets of variance, right?
+
+692 "" (0)
+01:38:59.579 --> 01:39:08.099
+Uh, with these names, and these are directly from icon right? So, for example, um, dot com, we'll consider whether, uh, a variable is constant, right?
+
+693 "" (0)
+01:39:08.099 --> 01:39:13.829
+But, uh, uh, Eric was not 0, right? Or that it's free of variables in the concept uh, bad right?
+
+694 "" (0)
+01:39:13.829 --> 01:39:18.059
+Or there's no linear combination with 1 other variable or 2 other areas.
+
+695 "" (0)
+01:39:18.059 --> 01:39:23.129
+All right, but it's not going to consider, like, a quadratic relation. The icon would never try.
+
+696 "" (0)
+01:39:23.129 --> 01:39:28.589
+Something like, uh, is that equals a square? Sorry? A X squared.
+
+697 "" (0)
+01:39:28.589 --> 01:39:33.809
+Uh, plus B, Y, plus a quadratic equation is out entirely out, right?
+
+698 "" (0)
+01:39:33.809 --> 01:39:36.929
+The reason for this is that this kind of.
+
+699 "" (0)
+01:39:36.929 --> 01:39:40.619
+Equation is rarely useful in practice in real programs.
+
+700 "" (0)
+01:39:40.619 --> 01:39:51.059
+The reason that these, uh, specific is this specific set of, uh, templates is chosen by dot com, because they actually tend to work well in practice and tend to be useful.
+
+701 "" (0)
+01:39:51.059 --> 01:40:11.059
+Right. And so in order to actually do practical dynamic in variance detection, you have to have a good set of templates and which those templates is good does very amplify program. Right? So comes with a pretty good, like, sort of generic set, but, like, the most effective use of icon requires you to go and think hard about what, uh, what sorts of templates might be useful.
+
+702 "" (0)
+01:40:11.059 --> 01:40:16.229
+Your kind of program and so then it kind of turns into property based testing. Yes.
+
+703 "" (0)
+01:40:16.229 --> 01:40:29.609
+Yeah, so great point. Right? So, in that kind of code, you probably do need a different step. Right? So, that's a, that's a great example of a case for, like, this default set, which is for, like.
+
+704 "" (0)
+01:40:29.609 --> 01:40:36.239
+Data structures, it's probably not a good choice, right? Um, yeah, so.
+
+705 "" (0)
+01:40:36.239 --> 01:40:44.909
+Base set of templates is based on, like, the idea that you're writing, like, some kind of data manipulation, like simple data manipulation program, like, of the kind that you would see in, like.
+
+706 "" (0)
+01:40:44.909 --> 01:40:50.819
+An undergraduate like a high level undergraduate software engineering class, right? You're doing something yeah.
+
+707 "" (0)
+01:40:50.819 --> 01:40:55.289
+Data munging of some time moving moving objects around.
+
+708 "" (0)
+01:40:55.289 --> 01:41:04.979
+But for, you know, physics simulation, you definitely care about other kinds of things, right? Certainly, you probably do want X square or something, right? For machine learning like.
+
+709 "" (0)
+01:41:04.979 --> 01:41:23.309
+Something something went around, I don't know how to do machine learning, so, but you need different kinds of various templates and 1 of the things that is nice about icon as a system is that, like, it builds in support for changing the set of templates. Very easily. Right. It's pretty easy to do.
+
+710 "" (0)
+01:41:23.309 --> 01:41:32.759
+And, yeah, so the idea here, the other important idea is that dot com is strictly limited to 3 variables and therefore there's a finite number of these and variance.
+
+711 "" (0)
+01:41:32.759 --> 01:41:43.319
+So the number of ingredients we need to check is where we're kind of what we have at times, the number of ways, we can instantiate them. Right? But or with 3 variables, which is a finite number, it is no longer infinite.
+
+712 "" (0)
+01:41:43.319 --> 01:41:50.879
+Right and in in particular, like, the number 3 here, 3 variables was chosen because that's a good balance between.
+
+713 "" (0)
+01:41:50.879 --> 01:41:54.659
+Uh, being too expensive and not producing enough in variance that are useful.
+
+714 "" (0)
+01:41:57.959 --> 01:42:07.679
+So, there's our Parrot, that's the, that's a icon. So then the actual detection algorithm for, is it a.
+
+715 "" (0)
+01:42:07.679 --> 01:42:15.509
+It's a radish. Okay. Yeah. Wow. That's all right. Sorry. I don't actually know what I'm talking about when it comes to vegetables it turns out. So my apologies.
+
+716 "" (0)
+01:42:15.509 --> 01:42:35.509
+But you're not here for vegetable class. So, um, yeah, so the various detection algorithm that icon uses is the following so, for every program location for all the triples of indigo variables, instantiate all the templates to obtain a set of candidate in variance and then instrument the program to print to, to check them. Basically right, and then for every test case, run the instrumented program.
+
+717 "" (0)
+01:42:35.509 --> 01:42:45.599
+And filter out any falsify candidate in variance right? So anything that was false removed right? And in particular, um, also, I believe, uh, reduce the instrumentation.
+
+718 "" (0)
+01:42:45.599 --> 01:42:48.599
+Repeatedly in order to remove false candidates.
+
+719 "" (0)
+01:42:48.599 --> 01:42:54.389
+Uh, to make it faster, and then at the end report, the surviving variance to the user.
+
+720 "" (0)
+01:42:54.389 --> 01:42:57.809
+Yep. All right so any questions about this high level algorithm.
+
+721 "" (0)
+01:43:04.079 --> 01:43:09.839
+Alright, so then, uh, what's this running time?
+
+722 "" (0)
+01:43:09.839 --> 01:43:12.989
+I'm looking for answer in, like, big on a patient.
+
+723 "" (0)
+01:43:12.989 --> 01:43:32.309
+What does it depend on? What's.
+
+724 "" (0)
+01:43:38.789 --> 01:43:42.869
+Okay, so, uh, where did my racer go? There? It is.
+
+725 "" (0)
+01:43:42.869 --> 01:43:46.349
+So, the suggestion is build and where it is, the number of variables.
+
+726 "" (0)
+01:43:53.879 --> 01:44:03.569
+So, why do we think it's big of and in the number of variables? What operations? Linear that's the most expensive 1.
+
+727 "" (0)
+01:44:03.569 --> 01:44:06.899
+Maybe put another, what is the most expensive operation here?
+
+728 "" (0)
+01:44:06.899 --> 01:44:13.349
+That's true.
+
+729 "" (0)
+01:44:13.349 --> 01:44:17.549
+So, uh, okay, let's just just looking at this, right?
+
+730 "" (0)
+01:44:17.549 --> 01:44:23.459
+Um, this is like all of this work is linear in the number of test cases for sure.
+
+731 "" (0)
+01:44:23.459 --> 01:44:27.149
+All right, this work will be this about the same regardless of how many.
+
+732 "" (0)
+01:44:27.149 --> 01:44:32.429
+Test cases we have right but it will get larger depending on how many candidates variance there are.
+
+733 "" (0)
+01:44:32.429 --> 01:44:37.559
+Okay, this work, right? Choosing candidate a candidate templates.
+
+734 "" (0)
+01:44:37.559 --> 01:44:44.099
+Is going to be not linear in number of program variables and because we're looking at all triples of program variables.
+
+735 "" (0)
+01:44:44.099 --> 01:44:49.499
+How many triples of program variables? Are there any program variables? How many triples of them are there?
+
+736 "" (0)
+01:44:49.499 --> 01:45:01.199
+Yes, and cute. Right? So, in fact, icon is N, t0 N cube in the number of program variables. Right? And that is definitely the dominant term, right? So, it's, uh.
+
+737 "" (0)
+01:45:01.199 --> 01:45:04.799
+Cubic and scope variables and then linear anticipating program size.
+
+738 "" (0)
+01:45:04.799 --> 01:45:12.029
+Right. But, uh, this cubic of variables is brutal. Right? Icon is very slow. There are many in scope variables.
+
+739 "" (0)
+01:45:12.029 --> 01:45:18.089
+Which is weird. It's a very weird behavior because often most programs have only a few variables in scope in most places.
+
+740 "" (0)
+01:45:18.089 --> 01:45:23.549
+But do you have, like, a method that has many many variables in it? Really slow?
+
+741 "" (0)
+01:45:23.549 --> 01:45:27.869
+All right, um, and this is a warning to you about homework 5.
+
+742 "" (0)
+01:45:27.869 --> 01:45:31.469
+You get to pick the program you run the icon on. This is a track.
+
+743 "" (0)
+01:45:31.469 --> 01:45:38.129
+All right, if you choose a program that has, like, 17 in scope variables don't be surprised when icon is very slow.
+
+744 "" (0)
+01:45:38.129 --> 01:45:47.069
+All right, choose a program that has, you know, it's reasonably well written in terms of the number of variables at a time is fairly low. Right?
+
+745 "" (0)
+01:45:47.069 --> 01:45:56.939
+All right, and this is a choice, right? This all triples was definitely a choice. We go back and we look at this example, right? The icon made the choice to do it most 3 variables right?
+
+746 "" (0)
+01:45:56.939 --> 01:46:02.069
+And that reason was because, like, the, the number, like this number 3, here is the reason that it's.
+
+747 "" (0)
+01:46:02.069 --> 01:46:05.849
+If we did, and most 2 variables would only be end square. Uh.
+
+748 "" (0)
+01:46:05.849 --> 01:46:19.499
+Uh, and the number of installed variables, right? If we chose at least add most 4, it'd be end to the 4. right? And so, like, this choice of 3 is the dominant term in the running time of the algorithm.
+
+749 "" (0)
+01:46:19.499 --> 01:46:22.709
+Okay, any questions here does this make sense?
+
+750 "" (0)
+01:46:29.549 --> 01:46:34.979
+Yeah, so we'll check every combination of the 3. yeah, that so if we're looking at these in variance, right?
+
+751 "" (0)
+01:46:34.979 --> 01:46:40.049
+Like, if we look at, like, this kind of linear environment, you know, produce 1 here for each, like.
+
+752 "" (0)
+01:46:40.049 --> 01:46:50.789
+Each possibility of com, combination of 3 any other questions.
+
+753 "" (0)
+01:46:53.999 --> 01:47:13.999
+Right so moving on, we're going to do a quick in class exercise here. I want you to again, like, talk to someone nearby and in 1st unlikely invariants for a relatively simple program. Right? So, what I'm asking you to do here is to reason as if you're like, as if your icon, right or reason in the way, the same way that icon would write about it.
+
+754 "" (0)
+01:47:13.999 --> 01:47:18.389
+Simple program here right? And I've given you a precondition and is always greater than 0.
+
+755 "" (0)
+01:47:18.389 --> 01:47:30.539
+All right, and that program hopefully will be quite easy for you to reason about, I hope. Right and then here is a set of candidate in variance right? And your goal is evaluate all all of these invariants.
+
+756 "" (0)
+01:47:30.539 --> 01:47:33.929
+Uh, at, uh, all the locations that.
+
+757 "" (0)
+01:47:33.929 --> 01:47:39.839
+Say, I would imagine this is important.
+
+758 "" (0)
+01:47:39.839 --> 01:47:44.789
+At the function entry function, things it and at the beginning of the end of the.
+
+759 "" (0)
+01:47:44.789 --> 01:47:52.859
+So that sit here and here, and, uh, then we will, uh, cross all the ones that, uh.
+
+760 "" (0)
+01:47:52.859 --> 01:47:57.329
+All right, so, uh, say 3 or 4 minutes.
+
+761 "" (0)
+01:48:00.719 --> 01:48:20.719
+Okay.
+
+762 "" (0)
+01:48:20.719 --> 01:48:39.839
+Right.
+
+763 "" (0)
+01:48:39.839 --> 01:48:59.839
+Okay.
+
+764 "" (0)
+01:49:19.839 --> 01:49:39.839
+Okay.
+
+765 "" (0)
+01:51:23.339 --> 01:51:31.019
+We feel like we have, uh, basically solved this problem.
+
+766 "" (0)
+01:51:31.019 --> 01:51:34.469
+Approximately 1 group, so let's take another minute or 2.
+
+767 "" (0)
+01:53:43.409 --> 01:53:46.769
+Sure.
+
+768 "" (0)
+01:53:46.769 --> 01:53:55.889
+Security is being paid for the looking variable. Sorry?
+
+769 "" (0)
+01:53:55.889 --> 01:53:59.399
+For this, so the working date is that.
+
+770 "" (0)
+01:53:59.399 --> 01:54:09.059
+Yeah, so I mean, what I'm asking for you to do here is just, we're just mentioned there are 4 places what we're going to change.
+
+771 "" (0)
+01:54:09.059 --> 01:54:16.769
+I'm not asking you to set up properly, so that's it.
+
+772 "" (0)
+01:54:16.769 --> 01:54:20.909
+You could Bruce yeah.
+
+773 "" (0)
+01:54:20.909 --> 01:54:23.909
+I was just checking.
+
+774 "" (0)
+01:54:23.909 --> 01:54:28.709
+That's the 2nd thing I can share this with some.
+
+775 "" (0)
+01:54:34.019 --> 01:54:40.529
+All right, who is feeling ready to go through this.
+
+776 "" (0)
+01:54:40.529 --> 01:54:47.339
+Who would like to keep working? Okay no, 1 is voting. So that's, uh, I think it's, it's time for us to move.
+
+777 "" (0)
+01:54:47.339 --> 01:54:51.869
+All right, so our goal here is for each of these possible and.
+
+778 "" (0)
+01:54:51.869 --> 01:54:57.599
+I would like to decide at each of these 4 locations, I should say entry the, the function.
+
+779 "" (0)
+01:54:57.599 --> 01:55:01.199
+Entry to the loop exit from the loop and exit from the function.
+
+780 "" (0)
+01:55:01.199 --> 01:55:07.529
+Whether this candidate in variance is true or false. All right, let's start with, uh, entry to the phone.
+
+781 "" (0)
+01:55:07.529 --> 01:55:15.239
+We can start with 0, right? Is it the case that is 0, mentioned to the phone?
+
+782 "" (0)
+01:55:15.239 --> 01:55:20.339
+Yes, all right. Wait. Are we talking about? What what are the functioning starts?
+
+783 "" (0)
+01:55:20.339 --> 01:55:25.049
+As I isn't even said, well, we can't falsify though.
+
+784 "" (0)
+01:55:25.049 --> 01:55:34.589
+Oh, it is uh, I mean, that's that's a fair point, right? In fact, the icon is not gonna print anything about I, as a function of recognition, because it's not in scope.
+
+785 "" (0)
+01:55:34.589 --> 01:55:46.259
+Right but let's imagine that in that case, uh, well, we don't know what it said to you before it's going to be sent to 0 anyway. Right? So all the ones about, I are kind of irrelevant.
+
+786 "" (0)
+01:55:46.259 --> 01:55:51.299
+All right at precondition time and so we can, we can basically that's the correct thing to do.
+
+787 "" (0)
+01:55:51.299 --> 01:55:56.609
+It's ultimately with all the ones that end so is any goes to 0.
+
+788 "" (0)
+01:55:56.609 --> 01:56:07.169
+No, false how do you know it does? So we can do that any greater than 0, uh, uh, confidence right? So, uh, this is not a free condition.
+
+789 "" (0)
+01:56:07.169 --> 01:56:10.709
+Oh, how should I mark that? Let's just say.
+
+790 "" (0)
+01:56:10.709 --> 01:56:14.759
+Uh, 3.
+
+791 "" (0)
+01:56:14.759 --> 01:56:21.869
+All right what about? And less than 0 same thing. Okay and less than or equal to 0.
+
+792 "" (0)
+01:56:21.869 --> 01:56:26.249
+Not a free condition and greater than equal to 0.
+
+793 "" (0)
+01:56:26.249 --> 01:56:36.419
+Oh, no, it's true. That is true. It's definitely greater than or equals. Yes. Yeah. It's greater than so.
+
+794 "" (0)
+01:56:36.419 --> 01:56:41.429
+That is exactly the correct explanation. Right? Yes. So so this 1 is a Pre condition.
+
+795 "" (0)
+01:56:41.429 --> 01:56:48.989
+Right because, uh, and very 0 at 5.
+
+796 "" (0)
+01:56:48.989 --> 01:57:07.529
+All right, and grid 0, which we have, we know is already as a precondition. We don't need to worry about that. 1. right? High profile involves with ignore it and the same for directions. Right? So, uh, the correct answer for preconditions is these 2 are free conditions and the rest of them are not right or I is not considered. And so the islands, you can imagine all.
+
+797 "" (0)
+01:57:07.529 --> 01:57:11.069
+All right let's do loop entry.
+
+798 "" (0)
+01:57:11.069 --> 01:57:18.059
+I'm going to abbreviate as all. Right? All right. So, at loop entry is equal. 0.
+
+799 "" (0)
+01:57:18.059 --> 01:57:23.939
+Yes, it is.
+
+800 "" (0)
+01:57:23.939 --> 01:57:32.159
+I submit to you any, I or sorry for any, any greater greater than 2. I believe this is definitely not the case.
+
+801 "" (0)
+01:57:35.429 --> 01:57:44.129
+So, in particular, right? Yes, I is 0, the 1st time you entered the loop.
+
+802 "" (0)
+01:57:44.129 --> 01:57:51.029
+But it's not this the 2nd. Oh, yeah. Right. Yeah. So, entry here is, is the beginning of the loop body.
+
+803 "" (0)
+01:57:51.029 --> 01:58:00.209
+Right. So it's not before like, this, this spot doesn't matter. So it's not privileged. Right? So, if any, every time we go around this is where, the spot that we're interested in.
+
+804 "" (0)
+01:58:00.209 --> 01:58:06.539
+Why do we know that? I'm sorry? Why did they ignore? I think it's out of scope.
+
+805 "" (0)
+01:58:06.539 --> 01:58:15.659
+I as a local variable here, so it's not, uh, like these, these, uh, like, I agree with 0 is meaningless because I hasn't been defined.
+
+806 "" (0)
+01:58:15.659 --> 01:58:19.469
+So, the precondition is is visible outside of the function.
+
+807 "" (0)
+01:58:19.469 --> 01:58:23.999
+All right, so it only can talk about. And because end is the only problem.
+
+808 "" (0)
+01:58:23.999 --> 01:58:27.029
+I is in prod, so.
+
+809 "" (0)
+01:58:27.029 --> 01:58:30.569
+It has been something sorry it has to be the thing.
+
+810 "" (0)
+01:58:30.569 --> 01:58:35.489
+So, when we were discussing preconditions in particular.
+
+811 "" (0)
+01:58:35.489 --> 01:58:40.619
+We can't discuss, uh, hi, because I hasn't doesn't have a value for you yet.
+
+812 "" (0)
+01:58:40.619 --> 01:58:50.039
+Say the function, but inside the function it does so at the loop entry point, right here I have been set to the value, right? It's either or 0 or it was set to buy this assignment. Right?
+
+813 "" (0)
+01:58:50.039 --> 01:58:54.509
+And so, at this point, like, we're, we're in the function so is, is installed.
+
+814 "" (0)
+01:58:54.509 --> 01:58:59.309
+Okay, okay so this is not.
+
+815 "" (0)
+01:58:59.309 --> 01:59:02.519
+A loop entry and because, uh.
+
+816 "" (0)
+01:59:02.519 --> 01:59:05.819
+If you go around the loop a 2nd time, then it will not be for it.
+
+817 "" (0)
+01:59:05.819 --> 01:59:10.019
+Right, yeah.
+
+818 "" (0)
+01:59:10.019 --> 01:59:26.279
+What happened? Yes. Oh, wait no. Yeah, definitely not. Right I believe that's actually false on all all executions, right? And the same for less than or equal to 0, right? Mm. Hmm. Because these 2 are balls so it's definitely false.
+
+819 "" (0)
+01:59:26.279 --> 01:59:34.829
+I agree with 0 loss, but not in subsequent.
+
+820 "" (0)
+01:59:34.829 --> 01:59:42.149
+Well, it's true in every iteration after the sort of stuff. Yes. Yeah. So the 1st iteration is false.
+
+821 "" (0)
+01:59:42.149 --> 01:59:47.939
+And so we're going to just right, because it was ever a point. There was ever point. It was false. We get started.
+
+822 "" (0)
+01:59:47.939 --> 01:59:52.199
+Alright, alright what are the? I agree with the right.
+
+823 "" (0)
+01:59:52.199 --> 01:59:57.029
+That 1 is actually a little bit a loop entry environment. Yes.
+
+824 "" (0)
+01:59:57.029 --> 02:00:07.379
+0, well, all the endpoints stay the same, except the ones that involved on this end was compensated.
+
+825 "" (0)
+02:00:07.379 --> 02:00:20.939
+Yep, that's a great observation. Right? Um, it is worth noting, though, the icon is going to, uh, evaluate the multiple right uh, every time, all the free ones. Right? And this is part of our dot com is expensive, because it's not able to do a brief like that.
+
+826 "" (0)
+02:00:20.939 --> 02:00:28.649
+You're implicitly using a fact about end here, which is that it's constant. The icon doesn't have access.
+
+827 "" (0)
+02:00:28.649 --> 02:00:44.849
+As a human conversion about that, but, yeah, the analysis not right so, yes, the icon will thrown out these ones that are not preconditions about, em, but it's going to evaluate both of these at every venture, right? And they're going to still be true because, as you said, and it's constant, right? And now we get to the excited ones.
+
+828 "" (0)
+02:00:44.849 --> 02:00:51.419
+Where we compare on it right? Okay. So equals equals that is that for the country?
+
+829 "" (0)
+02:00:51.419 --> 02:00:58.469
+No, and in fact that it's definitely false it's fault on every, uh.
+
+830 "" (0)
+02:00:58.469 --> 02:01:01.769
+Of execution, right? What do I less than that?
+
+831 "" (0)
+02:01:01.769 --> 02:01:05.339
+Yes, it's a requirement for a.
+
+832 "" (0)
+02:01:05.339 --> 02:01:12.389
+Sit there basically why there's a, basically in there, right?
+
+833 "" (0)
+02:01:12.389 --> 02:01:17.399
+Well, because it has to be greater than 0.
+
+834 "" (0)
+02:01:17.399 --> 02:01:26.069
+And and it can be like a half. Right? So we get over a few.
+
+835 "" (0)
+02:01:26.069 --> 02:01:36.749
+We are assuming these are intervals or right they're interval values and so, yes, this is true. Right? So, I mean, group of it is relatively complex.
+
+836 "" (0)
+02:01:36.749 --> 02:01:52.019
+By entering zoom don't you're not including like the evaluation of high it's not equal to it. Yeah. Yeah. So that's why I've drawn a little mark right here where we are actively with the guard has been evaluated. That is true. Right?
+
+837 "" (0)
+02:01:52.019 --> 02:01:55.919
+Because this is where I'm going to check, right right after we evaluate pick on.
+
+838 "" (0)
+02:01:55.919 --> 02:02:07.709
+And in particular, like, this, I, less than end is an excellent example of why dot com is effective right? Because the icon is going to is going to find that this is a loop entry in variance.
+
+839 "" (0)
+02:02:07.709 --> 02:02:15.419
+All right, because it is true, right? But the proof is relatively complicated in the sense that we need to use several facts in order to get to this.
+
+840 "" (0)
+02:02:15.419 --> 02:02:28.439
+Right. Actually doing a proof of the fact that I is less than in here requires us to reason about the fact that end is non 0 or not negative. I should say, right it's positive actually. Right and it requires us to reason about the fact that I is monotonically increasing.
+
+841 "" (0)
+02:02:28.439 --> 02:02:40.559
+And it requires the reason about the fact that I not able to, uh, N, and the fact this is monotonically increasing and the fact that I starts with something less than end means that we're not going to be able to get into a situation where that falls.
+
+842 "" (0)
+02:02:40.559 --> 02:02:47.969
+Right like that group can be done right? Like, that's the sort of proofing might've had given, like, say, just re, map boss and your undergraduate education.
+
+843 "" (0)
+02:02:47.969 --> 02:02:55.499
+But a program analysis systems, going after work relatively hard enough to do that for them, right? Like, it's not obvious.
+
+844 "" (0)
+02:02:55.499 --> 02:03:01.499
+I'll do it, but the icon is just going to observe the fact that on ever execution happened to be true. And then assume must be fair.
+
+845 "" (0)
+02:03:01.499 --> 02:03:11.999
+Okay, what am I less than realtime? Yeah, I mean, it's the same thing.
+
+846 "" (0)
+02:03:11.999 --> 02:03:20.699
+Yeah, so exactly the same reasoning applies. And in particular here we can take advantage of the fact that we have. We know that I lost in industry and this implies.
+
+847 "" (0)
+02:03:20.699 --> 02:03:25.349
+Yes all right. And so if this is true, this must be true as well.
+
+848 "" (0)
+02:03:25.349 --> 02:03:35.009
+All right, I agree with that fair stop and then last time we did.
+
+849 "" (0)
+02:03:35.009 --> 02:03:41.279
+Oh, no, wait no, why don't you don't enter the loop if, um.
+
+850 "" (0)
+02:03:41.279 --> 02:03:48.389
+Times greater than well. Yeah, but when I spoke to 1 that we increase the number, I.
+
+851 "" (0)
+02:03:48.389 --> 02:04:03.869
+And then it's not so, that's that's the case, uh, here, right that look like that, but not at the entrance. There's no new entry. Yes. So it's not a loop entry. Marianne.
+
+852 "" (0)
+02:04:03.869 --> 02:04:12.209
+That's right. The easy way to say to show. It's not here is to find an input for which it's false at this point.
+
+853 "" (0)
+02:04:12.209 --> 02:04:18.659
+Right and that's the right way to do it, because that's what the icon stuff right? So, I think if we just select, uh.
+
+854 "" (0)
+02:04:18.659 --> 02:04:28.709
+1, then this will work, right? Because then the 1st, time for the loop, I will be 0, and will be, and 0 is not created in 1. and so we're done.
+
+855 "" (0)
+02:04:28.709 --> 02:04:34.349
+And we found 1 time, for example, so it's definitely the case it's not a little better and better.
+
+856 "" (0)
+02:04:34.349 --> 02:04:42.809
+Okay, and then the same applies for the other ones. Okay. So now we've checked all the does anyone have any questions? We have a little better environments.
+
+857 "" (0)
+02:04:46.679 --> 02:04:50.429
+Right now we've gone through these 2.
+
+858 "" (0)
+02:04:50.429 --> 02:04:56.219
+Who thinks that they have all the right answers to the, the variants.
+
+859 "" (0)
+02:04:56.219 --> 02:04:59.999
+Yeah, why don't we take 1 minute to go.
+
+860 "" (0)
+02:04:59.999 --> 02:05:05.609
+Go through your answers that you wrote down to the database and the variance and double check them and then we'll come back to that.
+
+861 "" (0)
+02:05:25.609 --> 02:05:33.329
+Hello.
+
+862 "" (0)
+02:05:42.659 --> 02:05:48.449
+Okay.
+
+863 "" (0)
+02:05:48.449 --> 02:06:07.559
+Hey.
+
+864 "" (0)
+02:06:17.579 --> 02:06:37.319
+All right, so I would like to go through both, uh, the loop exit and the function I did at the same time, right? I'm going to call these, uh, this 1 is gonna be and this one's going to be, uh, key, which is the traditional post conditional notation. Because key is the precondition that he was in that slot, right?
+
+865 "" (0)
+02:06:37.319 --> 02:06:44.879
+So, uh, let's go through all of these, uh, like, candidate experience and check them in both of these locations right?
+
+866 "" (0)
+02:06:44.879 --> 02:06:53.189
+So, let's start with I, is 0 exit is like, do we have a counter example for.
+
+867 "" (0)
+02:06:53.189 --> 02:06:57.659
+Or, like.
+
+868 "" (0)
+02:06:57.659 --> 02:07:01.349
+An example of where it's not happening.
+
+869 "" (0)
+02:07:01.349 --> 02:07:07.259
+Yeah, so the, the thing that icon is doing here recall is it's fussing it and looking to see if there's anything that violates the property.
+
+870 "" (0)
+02:07:07.259 --> 02:07:15.059
+Right. So we can find an input for which this property cost equals more. Yeah, sure. So this is important. This one's definitely not true.
+
+871 "" (0)
+02:07:15.059 --> 02:07:18.479
+What about, uh, functionality? Okay, same thing.
+
+872 "" (0)
+02:07:18.479 --> 02:07:21.509
+Okay, I less than 0.
+
+873 "" (0)
+02:07:21.509 --> 02:07:27.449
+Yeah, also yeah, exactly. Yeah, definitely not true. Same same reason.
+
+874 "" (0)
+02:07:27.449 --> 02:07:33.389
+Less the wrinkles here. No.
+
+875 "" (0)
+02:07:33.389 --> 02:07:39.989
+All right I greater than 0.
+
+876 "" (0)
+02:07:39.989 --> 02:07:44.279
+So, I, I agree with for here, what do I.
+
+877 "" (0)
+02:07:44.279 --> 02:07:48.449
+Uh, well, it doesn't change, so mm. Hmm.
+
+878 "" (0)
+02:07:48.449 --> 02:07:54.569
+Well, does the loop have to have to have been executed?
+
+879 "" (0)
+02:07:54.569 --> 02:08:05.339
+By in general are allowed not to be executed. Right? So, conservatively, we have to consider at least the possibility that this loop will only go will not go around even once.
+
+880 "" (0)
+02:08:05.339 --> 02:08:09.929
+So, do we have a proof that we'll go around once.
+
+881 "" (0)
+02:08:09.929 --> 02:08:29.099
+Uh, yes, because and is, yes, because I is always 0 at the beginning, and it's always greater than 0 and therefore the, uh, this 1st test always is true. So, yes, I heard and 0 is the vaccine variant and it as opposed to initially.
+
+882 "" (0)
+02:08:29.099 --> 02:08:33.329
+Alright, greater than equal to 0. Oh, it's the same thing easily employed. Yes.
+
+883 "" (0)
+02:08:33.329 --> 02:08:37.139
+We're going to skip the ends again, right? Because then it's constant.
+
+884 "" (0)
+02:08:37.139 --> 02:08:40.769
+All right I equals equals that. True.
+
+885 "" (0)
+02:08:40.769 --> 02:08:46.289
+Exactly yeah. Okay. So at loop exit.
+
+886 "" (0)
+02:08:46.289 --> 02:08:49.559
+Is it true? Uh, I mean.
+
+887 "" (0)
+02:08:49.559 --> 02:09:08.369
+We're only working in space, right? We're only working in space and I think it's important to note here that what I mean, by loop exit is immediately after the last part of the body of the loop is executed. Right? And that means just like the entry 1, it's going to be evaluated for every time around loop.
+
+888 "" (0)
+02:09:08.369 --> 02:09:13.109
+All go into 1 thing. Yeah, there's only for 1 time. That's exactly right.
+
+889 "" (0)
+02:09:13.109 --> 02:09:26.429
+Only true when the Lucas about. Oh, right. Okay. So, uh, this 1 is not a loop exit in variance, but it is a post conditional function. Okay. Alright because, uh, it's implied by.
+
+890 "" (0)
+02:09:26.429 --> 02:09:29.609
+Yeah.
+
+891 "" (0)
+02:09:29.609 --> 02:09:35.039
+But it's not through every time, every exit if we only evaluate it for an equals 1.
+
+892 "" (0)
+02:09:35.039 --> 02:09:45.119
+All right, if we're only test case was equals 1 icon would report this will do bugs and variant incorrectly because then it would have been through every time because it was only about our at once. Okay.
+
+893 "" (0)
+02:09:45.119 --> 02:09:51.119
+But for if you have any other app, I will notice that this is as effective.
+
+894 "" (0)
+02:09:51.119 --> 02:09:58.379
+All right what about, uh, yes, you know.
+
+895 "" (0)
+02:09:58.379 --> 02:10:07.019
+All right, so it is a loop exit. It's not it's not going to go in the last 1. yeah so on the last 1 spots.
+
+896 "" (0)
+02:10:07.019 --> 02:10:14.279
+All right, but on the others, it is true, right? But there's 1 word false so not live exit and it's definitely not a best condition, right?
+
+897 "" (0)
+02:10:14.279 --> 02:10:20.279
+But I less than or equal time to.
+
+898 "" (0)
+02:10:20.279 --> 02:10:24.209
+Why is it true? I assume you mean for Rebecca.
+
+899 "" (0)
+02:10:24.209 --> 02:10:27.299
+Because the only time it's.
+
+900 "" (0)
+02:10:27.299 --> 02:10:32.819
+Not less than this. 1. it's low, so Yep. That's exactly right.
+
+901 "" (0)
+02:10:32.819 --> 02:10:52.139
+Yeah, so this is, in fact, a loop exit variant and it's a loop entry in variance, which, when we come back to the loop and variants later, you're going to see this and be like, oh, man, that's a loop in variant. That is the 1 loop in variant it's going to let us prove this program is correct right? So, this is the variable. This is the really nice thing about the icon is that it it is going to get this right answer.
+
+902 "" (0)
+02:10:52.139 --> 02:10:57.689
+Right. It might come up with multiple candidate loop and variance, but at least anything that proposal at least plausible.
+
+903 "" (0)
+02:10:57.689 --> 02:11:02.579
+And if it only finds 1, it's almost certainly the right.
+
+904 "" (0)
+02:11:02.579 --> 02:11:11.639
+Okay, is it a condition? Yes. Yeah. Yeah. It's a, it's a loop is the last thing, so I yeah, yeah.
+
+905 "" (0)
+02:11:11.639 --> 02:11:15.029
+Okay, what are the library for that?
+
+906 "" (0)
+02:11:15.029 --> 02:11:20.129
+On no, does that ever heard? No, no. So that's easy.
+
+907 "" (0)
+02:11:20.129 --> 02:11:23.339
+What about I greater than or equal then? Yes.
+
+908 "" (0)
+02:11:23.339 --> 02:11:32.579
+Equals okay, so, uh, yes, for the exit or yes, for those condition or yes, for post condition is definitely correct.
+
+909 "" (0)
+02:11:32.579 --> 02:11:36.839
+Around the fact, sometimes it's only the last 1. yeah.
+
+910 "" (0)
+02:11:36.839 --> 02:11:42.479
+All right, and there we go. Alright, anyone have any questions.
+
+911 "" (0)
+02:11:42.479 --> 02:11:47.939
+Yeah.
+
+912 "" (0)
+02:11:47.939 --> 02:12:01.109
+Yeah, so, uh, this 1 so is less than or equal and here is interesting because it is both a loop entry and variance and the loop exiting variance, which means it is actually, this is this is actually a would've been married.
+
+913 "" (0)
+02:12:01.109 --> 02:12:12.989
+And as I said, we're going to come back to those environments and we need to talk about site analysis later. Right? But, uh, this is 1 of the nice properties of icon is that it tends to fine with the variance with high probability.
+
+914 "" (0)
+02:12:12.989 --> 02:12:17.309
+They tend to be useful.
+
+915 "" (0)
+02:12:17.309 --> 02:12:23.249
+I.
+
+916 "" (0)
+02:12:23.249 --> 02:12:33.779
+Yeah, it is. That's also true. Yeah, that's a good point. Right? The reason I highlighted this 1, is that, uh, this is the 1 you actually in order to make interesting.
+
+917 "" (0)
+02:12:33.779 --> 02:12:42.749
+Um, and this 1 is not, uh, that's 1 of the things that icon is doing here is yeah, it, it has kind of both of these right? And that's why a human needs to interpret this.
+
+918 "" (0)
+02:12:42.749 --> 02:12:48.719
+So, good point, I didn't even think about that. Totally.
+
+919 "" (0)
+02:12:48.719 --> 02:12:57.419
+So those are the 2 little parents again only 1 of them is actually useful, but there are both.
+
+920 "" (0)
+02:12:57.419 --> 02:13:04.919
+All right, any other questions here last time, going to erase everything on this part of the white board.
+
+921 "" (0)
+02:13:04.919 --> 02:13:10.679
+If you have any questions about any of this, we're going to do this, then we're going to pass the slides.
+
+922 "" (0)
+02:13:15.209 --> 02:13:31.199
+All right, so moving forward, then let's talk a little bit about some limitations of of this technique. Right? So we've already, uh, hinted at some. All right, but there are the, the real question here is, does this produce.
+
+923 "" (0)
+02:13:31.199 --> 02:13:42.719
+Only true in variance, like, actually true ones or can it produce either false positives? Or can it miss real true in variance? That is to say it has false negatives.
+
+924 "" (0)
+02:13:42.719 --> 02:13:48.389
+So, the real quick the question I, I'm asking you all is, uh, icon, false positives, false negatives or both.
+
+925 "" (0)
+02:13:48.389 --> 02:13:57.209
+Or not oh, okay.
+
+926 "" (0)
+02:14:01.079 --> 02:14:04.769
+What kind of false positives would it produce? Well.
+
+927 "" (0)
+02:14:04.769 --> 02:14:11.489
+If that last 1, if the loophole yes. So ones.
+
+928 "" (0)
+02:14:11.489 --> 02:14:18.599
+It'll actually integration is sustainable. Passive conditions. Yep.
+
+929 "" (0)
+02:14:18.599 --> 02:14:29.969
+Yeah, so that's that's a great example. So it can definitely have spurious, false positive in variance because you have a insufficient number of tests, right? Yes, that's a that's a good example. Right?
+
+930 "" (0)
+02:14:29.969 --> 02:14:34.739
+Can it have false negatives that is to say, are there true and variants that it might not produce?
+
+931 "" (0)
+02:14:44.849 --> 02:14:57.719
+So, if it considered every possible variant, right then it would never miss it.
+
+932 "" (0)
+02:14:57.719 --> 02:15:06.029
+However, recall what we said about sort of a naive approach that considers every possible in variant there would be infinitely many of them.
+
+933 "" (0)
+02:15:06.029 --> 02:15:12.299
+All right, and so the icons certainly cannot consider all of them. It's only going to consider in variance that are in it set of templates.
+
+934 "" (0)
+02:15:12.299 --> 02:15:32.299
+If you run the icon without a particular template, that isn't the environment that you were looking for it will never find it. Right? And that is actually the most serious limitation of dot com, right? In particular. If your variance is not in a template, the icon will not find it. So, for example, the variant on the screen, there is the 1 that you need in order to prove binary searches. Correct? Which is, I think the example from the Tony.
+
+935 "" (0)
+02:15:32.299 --> 02:15:47.699
+Paper I mentioned at the beginning of the class, and you will com will never produce this. There is no chance of coming up with this. It's not in the standard templates and so it would not come up with it. Unless you added a template specifically for this, and in that case, you knew what you were looking for right?
+
+936 "" (0)
+02:15:47.699 --> 02:16:07.699
+Nothing prevents the icon, like algorithm from finding these in theory right? The problem is having the right template on hand, right? If you don't know the actual invariants that are, like, are important a priority, then how would, you know, which templates to run icon with right? You need to have some domain knowledge about the program in order to do this correctly. Right? And this is the really.
+
+937 "" (0)
+02:16:07.699 --> 02:16:17.039
+Running icon in the standard configuration comes with some, as I said, it comes to some template in variants that are pretty good for the sorts of programs that you might write in class.
+
+938 "" (0)
+02:16:17.039 --> 02:16:21.059
+All right, but for a physics simulation or machine learning code.
+
+939 "" (0)
+02:16:21.059 --> 02:16:29.789
+Maybe not, you need to choose some different ones right? And so you need to be aware of what you're doing in order to choose good templates in order to get to produce useful results.
+
+940 "" (0)
+02:16:29.789 --> 02:16:43.439
+So that said, templates are absolutely necessary in order to promote on the scale. The reason that you can run the icon on real programs, is that the template, like, the, the set of templates is actually quite small right? But that's also the reason that it misses. So many things.
+
+941 "" (0)
+02:16:43.439 --> 02:16:50.129
+All right, and this is a trade off, right? There's a direct trade off here between the, the kinds of environments and confined and the runtime.
+
+942 "" (0)
+02:16:50.129 --> 02:16:55.499
+That's why we've talked about how the run the run time is determined by this number of templates.
+
+943 "" (0)
+02:16:55.499 --> 02:17:00.869
+And by their complexity, right? And so is a direct trade off there.
+
+944 "" (0)
+02:17:00.869 --> 02:17:04.829
+So, if you have infinite resources, yes, you can find arbitrary and variance with icon.
+
+945 "" (0)
+02:17:04.829 --> 02:17:24.829
+But, in practice, you've got, and then as mentioned, there are also false positives. So there are 2:2:primary causes that are going to cause you problems in practice. 1 is limited input, which I think we mentioned right? So, if you only test your sorting program on, for example, the input 403, I kind of learn it helpful. If there is like the 1st element of the output.
+
+946 "" (0)
+02:17:24.829 --> 02:17:36.869
+Now, is that true? No, not for an arbitrary sorting program, but if you only use 1 input, then you would find it. This is like the example that we saw on, uh.
+
+947 "" (0)
+02:17:36.869 --> 02:17:40.139
+The 1 was on the whiteboard where, um.
+
+948 "" (0)
+02:17:40.139 --> 02:17:43.379
+If you only run the loop, once you get stories in variants.
+
+949 "" (0)
+02:17:43.379 --> 02:17:53.489
+Okay, and fortunately, as we've learned making high coverage, high adequacy test suites is easy. So surely you will be able to provide 1 to and therefore get.
+
+950 "" (0)
+02:17:53.489 --> 02:18:13.489
+Uh, good results. Of course, that's part of the whole thing that we were talking about in this entire class. Right? So, this is this is actually quite hard. Right? And so, therefore, like, the right balance here of when to actually start running the icon and enforcing its and variance and when to just, like, be writing new tests yourself. Uh, so that you can frame.
+
+951 "" (0)
+02:18:13.489 --> 02:18:26.339
+Basically, it's quite difficult and so it takes some practice maybe or skill in order to decide, like, is the current test was good enough in order to, like, start using icon and enforcing the variance is found or not.
+
+952 "" (0)
+02:18:26.339 --> 02:18:38.369
+I don't really have any particular advice for you here. Unfortunately, it varies a lot how much input like, how much coverage for example, you need in order to have icon produce good results across different programs, right?
+
+953 "" (0)
+02:18:38.369 --> 02:18:43.769
+Um, the general experience that I have heard from people who used icon is that.
+
+954 "" (0)
+02:18:43.769 --> 02:18:56.789
+Once you've done this a bunch of times, you kind of get a feel for it, but you all will run the icon as part of an extra work assignment. And so, you know, maybe on a hopefully small program but 1 of your choice.
+
+955 "" (0)
+02:18:56.789 --> 02:19:03.029
+And hopefully you will, you will start to get a feeling or an intuition for this as well. Okay.
+
+956 "" (0)
+02:19:03.029 --> 02:19:10.259
+The other thing is that you will get false positives from coincidence, basically, or facts that just happen to be true but are not about your program.
+
+957 "" (0)
+02:19:10.259 --> 02:19:16.289
+So, for example, you might has a tendency to learn facts like, X is less than or equal to Max and.
+
+958 "" (0)
+02:19:16.289 --> 02:19:20.219
+Uh, or, uh, point her at some point, or mod 4 is always 0.
+
+959 "" (0)
+02:19:20.219 --> 02:19:31.379
+Why is 4:00:their addresses, right? Yeah. Like, you can't address into the middle of a bite so.
+
+960 "" (0)
+02:19:31.379 --> 02:19:43.649
+Oh, yeah, they're all divisible by far they're all the visible that 8, right? Yeah, so they're all, they're all memory addresses. So they all end in 0 resonates and things like this and then they'll end in 1.
+
+961 "" (0)
+02:19:43.649 --> 02:19:55.139
+Back on, we'll learn this if you run an program, right? I think the icon has filters to filter out the obvious ones of these. But, you know, it's very easy to, uh.
+
+962 "" (0)
+02:19:55.139 --> 02:20:01.679
+Encounter more. Yeah so these are not false. They're true. Right? But there's not useful.
+
+963 "" (0)
+02:20:01.679 --> 02:20:07.949
+These will never be false in particular. They're always true for all programs and so they're boring. Right?
+
+964 "" (0)
+02:20:07.949 --> 02:20:11.759
+And icon, unfortunately, there's no generic way to filter these out.
+
+965 "" (0)
+02:20:11.759 --> 02:20:17.789
+Any questions about either of these false positive causes.
+
+966 "" (0)
+02:20:17.789 --> 02:20:23.519
+Okay. All right so this, this is all I'm going to say about icon. Does anyone have any other questions about dynamic detection?
+
+967 "" (0)
+02:20:23.519 --> 02:20:27.119
+Wrap up yeah.
+
+968 "" (0)
+02:20:33.509 --> 02:20:38.129
+Unfortunately, I already erased them. I don't have them written down on the slides.
+
+969 "" (0)
+02:20:38.129 --> 02:20:41.489
+Yeah, sorry you will have to redirect them. Can you go back.
+
+970 "" (0)
+02:20:41.489 --> 02:20:50.099
+Yeah, we can look again here there. So, uh, the most interesting ones are going to be, uh, this 1 and this 1.
+
+971 "" (0)
+02:20:50.099 --> 02:20:54.179
+Which are the loop in variance right? But I.
+
+972 "" (0)
+02:20:54.179 --> 02:21:04.709
+Yeah, I will go through the slides maybe tomorrow and update a copy that has the, uh, the answers on there you can speak to. Mm. Hmm.
+
+973 "" (0)
+02:21:04.709 --> 02:21:09.779
+It's fine. I'll just re, derive it in. Right? Like, write another slide here. It's not very hard.
+
+974 "" (0)
+02:21:09.779 --> 02:21:13.949
+I should have done that anyway, but I was being lazy. Yeah.
+
+975 "" (0)
+02:21:13.949 --> 02:21:19.019
+Is anything special about the variants that are true?
+
+976 "" (0)
+02:21:19.019 --> 02:21:26.159
+Well, the situation does, it was like, not particularly now. Uh.
+
+977 "" (0)
+02:21:26.159 --> 02:21:32.519
+Yeah, so the interesting thing about these 2 is that they're blue entry in blue pegs in variance, and therefore are going to be useful for proofs.
+
+978 "" (0)
+02:21:32.519 --> 02:21:37.829
+Essentially right, but the others, uh, they're independent.
+
+979 "" (0)
+02:21:37.829 --> 02:21:50.789
+Yeah, so these slides will go up. I'll put them up tonight, but, uh, they will be without the answers here and then I'll, I'll update them some time tomorrow.
+
+980 "" (0)
+02:21:50.789 --> 02:22:01.889
+Good question any other questions.
+
+981 "" (0)
+02:22:01.889 --> 02:22:06.599
+Take me to to.
+
+982 "" (0)
+02:22:10.589 --> 02:22:24.299
+Yeah, so the the basic plan here is that we're at some point going to start fussing against the variance. But the real question is when to treat the variances Oracles and when to treat them as well, like, when a violation of that means they shouldn't be in variance anymore. Right?
+
+983 "" (0)
+02:22:24.299 --> 02:22:39.569
+The traditional way that we do this for something like icon, is that we use a human written test suite to decide which invariant a candidate in variance are true true in variance. Right? And then we use a father and any invariant that is violated by the father is assumed to be a buck.
+
+984 "" (0)
+02:22:39.569 --> 02:22:46.889
+As opposed to a false invariant right now of course, this is a balance. Right? And this is what I was saying this is the point I was making about.
+
+985 "" (0)
+02:22:46.889 --> 02:22:51.329
+Uh, like, I think it was on the.
+
+986 "" (0)
+02:22:51.329 --> 02:23:02.609
+This this point, right? The, the balance here is very difficult. It requires skill to decide when you have a test suite. That's good enough that you can start running a, with a father.
+
+987 "" (0)
+02:23:02.609 --> 02:23:12.869
+All right, if you have a 2 week of a test suite here, then you will start to the buzzer will start reporting bugs that are actually in variants that were false and should have been treated as false dot com.
+
+988 "" (0)
+02:23:12.869 --> 02:23:20.939
+And, of course, you could add those to the test suite that you run icon with and then you could generate a new set of variance. And that would be fine. But.
+
+989 "" (0)
+02:23:20.939 --> 02:23:28.529
+Uh, you know, it's, uh, that that that is an unpleasant process in practice.
+
+990 "" (0)
+02:23:28.529 --> 02:23:32.969
+So, if you already have a good test suite, Dotcom is very useful. If you don't have 1 yet it's quite poor.
+
+991 "" (0)
+02:23:32.969 --> 02:23:39.809
+So, it's unfortunately a bit of a win more testing technique.
+
+992 "" (0)
+02:23:39.809 --> 02:23:45.539
+Other questions that's a good 1. all right.
+
+993 "" (0)
+02:23:45.539 --> 02:24:05.539
+In that case, I'm going to give a few notes about homework 5 and then we'll spend the rest of the time, like, pausing and I will hang around until 9 to help out with any homework 5 set of problems. So, uh, I'm more 5 has 2 parts. The 1st part is to run the icon on a data structure of your choice right? We strongly suggest that you select a data structure that you personally.
+
+994 "" (0)
+02:24:05.539 --> 02:24:06.149
+Right.
+
+995 "" (0)
+02:24:06.149 --> 02:24:26.149
+Perhaps for a previous class, you will, you will enjoy this more, and you will have a better time and it will be easier for you if you select the data structure that, you know, you did the implementation and therefore you understand it very well. Right. And then you have to design some Metamorphic relations for a real software system of your choice also. Right? The reason for the, your choice.
+
+996 "" (0)
+02:24:26.149 --> 02:24:39.839
+Here overall, is that, like, these things require you to have deep insight into how these programs should work right? And so you should make choices intentionally so that you already understand the programs you're analyzing.
+
+997 "" (0)
+02:24:39.839 --> 02:24:46.259
+All right, and so therefore you're going to be able to make good decisions with respect to the stuff we discussed today, right?
+
+998 "" (0)
+02:24:46.259 --> 02:25:03.419
+All of the both of these techniques require domain knowledge. So choose programs for which you have domain knowledge. Also I want to note if you get stuck because you're having a difficulty with some system that you've picked like, it's hard to run the icon in the system. Because it keeps crashing or something like this, pick a different system. Please.
+
+999 "" (0)
+02:25:03.419 --> 02:25:17.279
+Don't come to the course staff and say icon is crashing, because it will well, we can try to help you right? But it will take a long time and it will be unpleasant for everyone. You're better off just choosing a different system. Right? And that's the case too if you're really struggling with the Metamorphic relations for, uh.
+
+1000 "" (0)
+02:25:17.279 --> 02:25:27.449
+Like, like, you download some system and you're trying to, like, instrumented to do Metamorphic testing and it's really hard because the built system is insane. And, like, it's crazy. Just pick a different 1.
+
+1001 "" (0)
+02:25:27.449 --> 02:25:46.229
+All right, that's also part of the reason that there are 2 variants of, uh, part, uh, the Metamorphic relation part, right? There's a version for online systems like Google search, and there's a version for you downloaded the program. The Google search version are the online system version, requires you to come up with more and complicate more complicated Metamorphic relations because you don't have to actually run the program.
+
+1002 "" (0)
+02:25:46.229 --> 02:25:55.319
+Right but for the, the other 1, like, you have to do a little bit more work, but you can come up with fewer relations. So, 1 of them requires more math. The other 1 requires more programming.
+
+1003 "" (0)
+02:25:55.319 --> 02:26:01.649
+Okay, um, any questions about this about the homework.
+
+1004 "" (0)
+02:26:01.649 --> 02:26:07.584
+All right in that case, I am done, like, sharing for today. Um, as I said, pausing and I will hang around and we're happy to give.

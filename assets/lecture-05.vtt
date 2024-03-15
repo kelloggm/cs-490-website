@@ -1,0 +1,3093 @@
+WEBVTT
+
+1 "" (0)
+00:00:00.000 --> 00:00:01.285
+Uh.
+
+2 "Kellogg, Martin J" (1615754496)
+00:00:01.285 --> 00:00:06.630
+As usual, we'll start with the reading, Chris here is the quiz. You have 2 minutes to complete it.
+
+3 "Kellogg, Martin J" (1615754496)
+00:00:11.549 --> 00:00:21.270
+Is suite have a generic algorithm I see some nods. Yes, it does. Does AFL use a generic algorithm? Yes yes. All right. So then the answer is.
+
+4 "Kellogg, Martin J" (1615754496)
+00:00:21.270 --> 00:00:25.530
+Yes, today. Alright. All right. What about question? B.
+
+5 "Kellogg, Martin J" (1615754496)
+00:00:25.530 --> 00:00:31.080
+Isn't the case that both Sweden AFL derived boreholes using mutation testing?
+
+6 "Kellogg, Martin J" (1615754496)
+00:00:31.080 --> 00:00:37.530
+So, to start because we do this yes, definitely. Yes.
+
+7 "Kellogg, Martin J" (1615754496)
+00:00:37.530 --> 00:00:42.930
+Does AFL do that? It's not no no.
+
+8 "Kellogg, Martin J" (1615754496)
+00:00:42.930 --> 00:00:47.250
+Yes, so so, uh, be is false. So you can not circle date. Um.
+
+9 "Kellogg, Martin J" (1615754496)
+00:00:47.250 --> 00:01:01.470
+In particular, uh, the, what are the key distinctions between the 2 is that, uh, AFL does not use anything for deriving oracles. It just uses crashes as oracles. Right. Um, even though goes a step further and uses mutation testing to try to find oracles.
+
+10 "Kellogg, Martin J" (1615754496)
+00:01:01.470 --> 00:01:09.060
+All right, see, they can operate directly on the micro project without need to recompile the code. Is this true of AFL?
+
+11 "Kellogg, Martin J" (1615754496)
+00:01:09.060 --> 00:01:16.770
+You can all know the answer to this. We need to get it.
+
+12 "Kellogg, Martin J" (1615754496)
+00:01:16.770 --> 00:01:24.420
+Yes, you need to recompile the code to run AFL, right? That's why you have AFL, right? So it's not true. Afl. Is it true? It.
+
+13 "Kellogg, Martin J" (1615754496)
+00:01:24.420 --> 00:01:31.410
+Yes, trivial this week. So the correct answer here also false is false, right? You should not have so I can see.
+
+14 "Kellogg, Martin J" (1615754496)
+00:01:31.410 --> 00:01:44.670
+Okay, so the only 1 that applied is like, the other 2. this one's true. I should be able to vote on the trivia question too. Eva sweet treats the string class in Java and special way.
+
+15 "Kellogg, Martin J" (1615754496)
+00:01:50.790 --> 00:01:54.300
+True yes, true is correct. Do you know why.
+
+16 "Kellogg, Martin J" (1615754496)
+00:01:54.300 --> 00:01:59.940
+Good, yes, I just don't have, does anyone remember why.
+
+17 "Kellogg, Martin J" (1615754496)
+00:01:59.940 --> 00:02:09.600
+So, in particular, what it does is that it's, uh, it compares strings in a special way. It replaces the string comparison functions.
+
+18 "Kellogg, Martin J" (1615754496)
+00:02:09.600 --> 00:02:12.900
+So that it can compute the lunchtime distance between strings.
+
+19 "Kellogg, Martin J" (1615754496)
+00:02:12.900 --> 00:02:22.050
+Does anyone know what 11:5:distances okay so a string comparison simple string comparison metric right? That I'll, um.
+
+20 "Kellogg, Martin J" (1615754496)
+00:02:22.050 --> 00:02:30.030
+Allows you to effectively it's at an edit distance between strings. So, uh, like, if we look at, uh.
+
+21 "Kellogg, Martin J" (1615754496)
+00:02:30.030 --> 00:02:34.260
+Like, these 2 Springs are very different.
+
+22 "Kellogg, Martin J" (1615754496)
+00:02:34.260 --> 00:02:39.660
+All right, um, by contrast, these 2 strings are quite similar.
+
+23 "Kellogg, Martin J" (1615754496)
+00:02:39.660 --> 00:02:43.410
+All right, and so a, has a special, uh.
+
+24 "Kellogg, Martin J" (1615754496)
+00:02:43.410 --> 00:02:54.930
+A simple thing that it does for strings that allows it to keep track of this and, uh, evolve better string based tests. There was a whole paragraph about this, uh, towards the end of the paper.
+
+25 "Kellogg, Martin J" (1615754496)
+00:02:54.930 --> 00:03:11.760
+All right, any questions about any of these. All right all right. Then moving on. So, our agenda for today is basically to a grab bag of other topics and test input generation besides fussing. So we're going to cover a bunch of different things.
+
+26 "Kellogg, Martin J" (1615754496)
+00:03:11.760 --> 00:03:22.260
+Uh, so 1st, uh, we're gonna cover 2, uh, really 2 approaches to random testing that are not following, um, in particular we're gonna cover feedback right uh, directed random testing as evidence of what we're gonna do.
+
+27 "Kellogg, Martin J" (1615754496)
+00:03:22.260 --> 00:03:26.700
+And we're going for week, which is the, the paper you read about, and which we're using homework for.
+
+28 "Kellogg, Martin J" (1615754496)
+00:03:26.700 --> 00:03:33.600
+And in between what we've heard, introductions, mutation testing, so that you understand the things I'm talking about, when I start mentioning, how works.
+
+29 "Kellogg, Martin J" (1615754496)
+00:03:33.600 --> 00:03:45.000
+Then, after that, we're going to return to the thing that I see is last time about symbolic execution. Well, probably spend the bulk of our time today, talking about symbolic execution when the orange, if you call it testing at the end. Um.
+
+30 "Kellogg, Martin J" (1615754496)
+00:03:45.000 --> 00:03:49.110
+All right, so without further ado, then let's get started so we're going to start with.
+
+31 "Kellogg, Martin J" (1615754496)
+00:03:49.110 --> 00:03:55.440
+Feedback directed random testing. Right? So, um, pausing is not the only way to generate tests.
+
+32 "Kellogg, Martin J" (1615754496)
+00:03:55.440 --> 00:04:04.050
+In particular, it is probably the most popular form of random testing, but not the only 1 and random input generation is.
+
+33 "Kellogg, Martin J" (1615754496)
+00:04:04.050 --> 00:04:14.670
+Frankly, the best kind of input generation that there is in terms of industry, adoption and usefulness in practice. So today I want to cover, uh, 2 other kinds of.
+
+34 "Kellogg, Martin J" (1615754496)
+00:04:14.670 --> 00:04:29.579
+Random testing to other approaches to it, uh, to give you a flavor of what else is out there. I mean, the main thing we covered in this, uh, this class with respect to random input. Generation is fuzzy, but I want you to have a view of what else there is. So, um.
+
+35 "Kellogg, Martin J" (1615754496)
+00:04:29.579 --> 00:04:49.579
+Dupe is a good example of an alternative Randy uses a technique called quote, unquote feedback, directed, random testing and these next few slides are adapted from a presentation about Randy. Um, and so I'm just going to kind of go through these and give you a sense for how Randy works and how it differs from the kind of fuzzy that we discussed last.
+
+36 "Kellogg, Martin J" (1615754496)
+00:04:49.579 --> 00:04:58.019
+Randy is still a random input generation tool, but it's very different under the hood in terms of, like, how it actually achieves it.
+
+37 "Kellogg, Martin J" (1615754496)
+00:04:58.019 --> 00:05:14.729
+Okay, so, um, importantly, and this is the huge, the huge difference here and the reason I wanted to show you Randy, is that it does not use the genetic algorithm at all. Right? In fact, I mean, it does still have a seed pool, but the, there's no genetic component whatsoever. There's no fitness function here.
+
+38 "Kellogg, Martin J" (1615754496)
+00:05:14.729 --> 00:05:19.649
+The core idea though is still similar, as I said, it has a, a.
+
+39 "Kellogg, Martin J" (1615754496)
+00:05:19.649 --> 00:05:26.639
+A pool, and it builds test inputs incrementally. So the, uh, the new inputs it's testing are built out of old ones.
+
+40 "Kellogg, Martin J" (1615754496)
+00:05:26.639 --> 00:05:35.579
+But it doesn't in a different way and in particular, um, it's, uh, uh, it will execute each new input immediately and make make a decision about, right?
+
+41 "Kellogg, Martin J" (1615754496)
+00:05:35.579 --> 00:05:40.379
+So, there's no fitness function it's not a generic algorithm, but it's still doing a very similar sort of thing.
+
+42 "Kellogg, Martin J" (1615754496)
+00:05:40.379 --> 00:05:55.649
+And so, uh, part of my goal here is to give you a sense of, what what's different and what's the same between this, uh, sort of more, uh, a different style of random input generation and the sort of traditional genetic algorithms that you see, inside of modern browsers right.
+
+43 "Kellogg, Martin J" (1615754496)
+00:05:55.649 --> 00:06:02.819
+So, yeah, so basically, the core idea of is that the, it discards tests, if they don't discover new states.
+
+44 "Kellogg, Martin J" (1615754496)
+00:06:02.819 --> 00:06:19.169
+So, basically, what it's gonna do is keep track of what states it has explored in the program and just effectively keep keep varying tests until either you tell it to tell it to stop or until. Well, actually, that's it. It just keeps going until you tell it to stop, right?
+
+45 "Kellogg, Martin J" (1615754496)
+00:06:19.169 --> 00:06:36.839
+Okay, so let me give you an example of what it looks like here. So the input is going to be classes under test. So this is a tool that's going to target Java or an object oriented programming language. And in particular, the fact that it's object oriented is going to be somewhat important here. Because the way that Randy Randy works is.
+
+46 "Kellogg, Martin J" (1615754496)
+00:06:36.839 --> 00:06:42.449
+A bit tied to the, the general structure of object programming. I know what the term object oriented programming means.
+
+47 "Kellogg, Martin J" (1615754496)
+00:06:42.449 --> 00:06:56.219
+Can somebody to find it for me since almost all of your hands up can you define object joining programming?
+
+48 "Kellogg, Martin J" (1615754496)
+00:06:56.219 --> 00:07:02.849
+Is the.
+
+49 "Kellogg, Martin J" (1615754496)
+00:07:07.109 --> 00:07:11.639
+Uh, there are.
+
+50 "Kellogg, Martin J" (1615754496)
+00:07:11.639 --> 00:07:18.959
+Yeah, so these are all properties that I'll be running programs, right? Or the operating running programs around the house I'll be right languages.
+
+51 "Kellogg, Martin J" (1615754496)
+00:07:18.959 --> 00:07:31.259
+The key thing in object oriented programming, though, is that focus on objects right? The 1st class thing in an object running a program is the object state, right? And the other things that you described are implications of that.
+
+52 "Kellogg, Martin J" (1615754496)
+00:07:31.259 --> 00:07:36.899
+Right. And so this is in contrast with things like I know, but functional programming, for example.
+
+53 "Kellogg, Martin J" (1615754496)
+00:07:36.899 --> 00:07:41.069
+Yeah, so what's the what's the key thing and functional programming? It's in the name.
+
+54 "Kellogg, Martin J" (1615754496)
+00:07:41.069 --> 00:07:52.529
+Functions yes, so the, the main 1st class thing that the thing you design the program around in functional programming is functions by contrast and entrepreneurial programming. What you do is design the program around objects.
+
+55 "Kellogg, Martin J" (1615754496)
+00:07:52.529 --> 00:08:01.889
+Okay, so we're going to take his input some classes and then we're going to take a time limit or run until I run it like, just run forever. Also an option.
+
+56 "Kellogg, Martin J" (1615754496)
+00:08:01.889 --> 00:08:05.999
+And then, and this is important, instead of contracts that are going to use as oracles.
+
+57 "Kellogg, Martin J" (1615754496)
+00:08:05.999 --> 00:08:11.699
+And so this is, uh, this is gonna be key to Randy brand new is not particularly good at finding crashes.
+
+58 "Kellogg, Martin J" (1615754496)
+00:08:11.699 --> 00:08:15.329
+Instead it is better at finding violations of these kinds of contracts.
+
+59 "Kellogg, Martin J" (1615754496)
+00:08:15.329 --> 00:08:23.249
+These are things that must be true about every program. Like, if you call oh, you should get through back like, all objects are equals to themselves.
+
+60 "Kellogg, Martin J" (1615754496)
+00:08:23.249 --> 00:08:27.269
+Uh, this is like the reflected property to quality, right? Or.
+
+61 "Kellogg, Martin J" (1615754496)
+00:08:27.269 --> 00:08:30.539
+Uh, calling hash code on an object should never throw an exception.
+
+62 "Kellogg, Martin J" (1615754496)
+00:08:30.539 --> 00:08:37.559
+These are both examples of things that should generally be true in a job program. Right? And random shifts with a bunch of peace right?
+
+63 "Kellogg, Martin J" (1615754496)
+00:08:37.559 --> 00:08:48.269
+And also, as a, a few that you can turn on and off, like, for example, I think 1 of the ones that it shifts with it, you're not required to use is nominal inputs, never cause no point or exceptions.
+
+64 "Kellogg, Martin J" (1615754496)
+00:08:48.269 --> 00:08:52.019
+Right. So I mean, that that could be true, but.
+
+65 "Kellogg, Martin J" (1615754496)
+00:08:52.019 --> 00:08:55.019
+It's not as worthwhile to enforce. Okay.
+
+66 "Kellogg, Martin J" (1615754496)
+00:08:55.019 --> 00:09:15.019
+Um, okay, so then the output of, uh, of is going to be a sequence of method calls that cause a contract violation. And this notion of a sequence is really important. This is what this is what Randy was built around is the sequence of medical idea and in particular, as we get into the, the examples here, you'll see that. This is really a sequence of not just method calls, but.
+
+67 "Kellogg, Martin J" (1615754496)
+00:09:15.019 --> 00:09:30.569
+It's actually quite type directed, right? So, it's taking advantage of the type system that the object oriented programming language provides in order to effectively build up a set of objects that are varying types right and use those objects and combine them in new and interesting ways.
+
+68 "Kellogg, Martin J" (1615754496)
+00:09:30.569 --> 00:09:34.469
+To try to find a an object for which 1 of these contracts to pilot.
+
+69 "Kellogg, Martin J" (1615754496)
+00:09:34.469 --> 00:09:41.999
+So, it's effectively building more and more complicated objects as it goes. Right? So, Here's an example of the sort of thing that Randy would find.
+
+70 "Kellogg, Martin J" (1615754496)
+00:09:41.999 --> 00:09:54.809
+Alright, so what we have here is we create a new hash map and then we create a we call it values methods and data collection and then we call tool right on that, uh, and then we make a new link list and we put the, uh, that array that came from go right into the whitelist.
+
+71 "Kellogg, Martin J" (1615754496)
+00:09:54.809 --> 00:09:59.969
+And then we create a new Teresa, and then we create an unmodified whole set of that.
+
+72 "Kellogg, Martin J" (1615754496)
+00:09:59.969 --> 00:10:19.969
+And then we call you dot equals you, and this assert true actually is, uh, fails when executed, right? Or did I believe this was a bug that they found in, like, back in 2007 or 2008 when Randy was 1st invented in the right? So, this was a bug in the Java collections library and.
+
+73 "Kellogg, Martin J" (1615754496)
+00:10:19.969 --> 00:10:25.619
+Now, it has probably been fixed for 15 years, but this is the sort of problem that random identifies.
+
+74 "Kellogg, Martin J" (1615754496)
+00:10:25.619 --> 00:10:28.889
+Okay, okay. So does this example make sense to everybody?
+
+75 "Kellogg, Martin J" (1615754496)
+00:10:28.889 --> 00:10:36.179
+I mean, the test case itself is kind of nonsensical right? It's a sequence of seemingly random calls.
+
+76 "Kellogg, Martin J" (1615754496)
+00:10:36.179 --> 00:10:39.899
+That well, I mean, they're not just seeing the random like these were chosen at random.
+
+77 "Kellogg, Martin J" (1615754496)
+00:10:39.899 --> 00:10:43.949
+But eventually it leads to a state violation of 1 of these contracts.
+
+78 "Kellogg, Martin J" (1615754496)
+00:10:43.949 --> 00:11:03.949
+So, how does this actually work right? And it works view what I'm going to call type, directed synthesis. But this is a term that I'm applying here to it. The random authors would almost certainly not tell you that it was type directed synthesis. So, what they're doing is they start with a set of seed sequences of size 1, things like.
+
+79 "Kellogg, Martin J" (1615754496)
+00:11:03.949 --> 00:11:10.619
+Into equal 0 bullion vehicles false, et cetera right? Object. Oh, equals new object yes.
+
+80 "Kellogg, Martin J" (1615754496)
+00:11:10.619 --> 00:11:19.079
+So, these these slides will be online, right? But, yeah, a sequence of method calls that cause a contract violation.
+
+81 "Kellogg, Martin J" (1615754496)
+00:11:19.079 --> 00:11:25.894
+Okay, so start with this, uh, a set of sequences of size 1 and these, unlike an AFL, these are not.
+
+82 "Devansh" (141925120)
+00:11:25.894 --> 00:11:27.876
+Provide us by the user. Yeah. Yeah. Here is.
+
+83 "Kellogg, Martin J" (1615754496)
+00:11:27.876 --> 00:11:44.189
+These are the units of the, the Java type system like there's 1 for every primitive and there's 1 for objects and that's it. And maybe there's like, 1 for list if you were feeling, you know, a little, uh, excited. Right. Um, but in general, uh, these are very, very simple seed inputs, right?
+
+84 "Kellogg, Martin J" (1615754496)
+00:11:44.189 --> 00:11:57.269
+And then what, uh, Randy does, is it randomly select some method in the program, uh, like, which we can call, em, and which takes his input from where these keys are, the types of the inputs, right?
+
+85 "Kellogg, Martin J" (1615754496)
+00:11:57.269 --> 00:12:00.989
+As such that there is a sequence in the sequel I can see from the.
+
+86 "Kellogg, Martin J" (1615754496)
+00:12:00.989 --> 00:12:04.079
+Uh, the ends and all the.
+
+87 "Kellogg, Martin J" (1615754496)
+00:12:04.079 --> 00:12:08.429
+So that is to say, I, uh, for each of the parameters.
+
+88 "Kellogg, Martin J" (1615754496)
+00:12:08.429 --> 00:12:11.849
+Who knows about some object that has that type.
+
+89 "Kellogg, Martin J" (1615754496)
+00:12:11.849 --> 00:12:24.989
+Okay, so initially Randy was only going to be selecting methods that take either 0 parameters or only take, uh, integers or millions or other or objects or other things that Randy initially knows about. Right?
+
+90 "Kellogg, Martin J" (1615754496)
+00:12:24.989 --> 00:12:30.449
+And then it's going to create that and that thing, you return to something of type key. Rep, right.
+
+91 "Kellogg, Martin J" (1615754496)
+00:12:30.449 --> 00:12:40.349
+And then, for each, uh, it's going to choose some sequence in the pool that constructs an object called VI of.
+
+92 "Kellogg, Martin J" (1615754496)
+00:12:40.349 --> 00:12:56.459
+All right, so it's going to go look in the pool, and it's gonna find something that makes that all work. So, for example, if a, at our end that we choose, uh, takes us, uh, input a single integer can go to the pool it's gonna find invaluable. 0, and it's going to take 0 and put that in. Right? So, then we'll call, em, up here.
+
+93 "Kellogg, Martin J" (1615754496)
+00:12:56.459 --> 00:13:00.029
+Then it creates a new sequence and the new sequence is pretty straightforward.
+
+94 "Kellogg, Martin J" (1615754496)
+00:13:00.029 --> 00:13:03.719
+All right, it just calls the, uh, various parameters.
+
+95 "Kellogg, Martin J" (1615754496)
+00:13:03.719 --> 00:13:08.399
+1:2:3 4, right. Et cetera and then, uh, it has on.
+
+96 "Kellogg, Martin J" (1615754496)
+00:13:08.399 --> 00:13:13.019
+Right. Whatever ended right with those values. Right?
+
+97 "Kellogg, Martin J" (1615754496)
+00:13:13.019 --> 00:13:17.789
+And then, uh, it needs to evaluate that sequence, right? So it evaluates that sequence.
+
+98 "Kellogg, Martin J" (1615754496)
+00:13:17.789 --> 00:13:24.269
+Yep um, and it actually it does that by executing it, so it just immediately executes this. Right? And then if there are 3 possible outcomes.
+
+99 "Kellogg, Martin J" (1615754496)
+00:13:24.269 --> 00:13:32.249
+Either it can be discarded, uh, it can be output as a test case, or it can be added to this, the pool of sequences right? It only for.
+
+100 "Kellogg, Martin J" (1615754496)
+00:13:32.249 --> 00:13:37.919
+Okay, so did this high level idea makes sense? Does anybody have any questions about this?
+
+101 "Kellogg, Martin J" (1615754496)
+00:13:37.919 --> 00:13:41.849
+A strategy for.
+
+102 "Kellogg, Martin J" (1615754496)
+00:13:41.849 --> 00:13:59.159
+Yes, so this is the whole strategy, right? So, basically, the idea is that, um, like, this gives us a new thing of type T. rep. right. And so then if we do choose, uh, add it to the test, uh, add it to the sample now, in the future, we can call methods to take a T, right as input. Right? And so on.
+
+103 "Kellogg, Martin J" (1615754496)
+00:13:59.159 --> 00:14:07.139
+And so eventually, the idea is that it slowly expands out from just methods that take, like, images or objects as inputs.
+
+104 "Kellogg, Martin J" (1615754496)
+00:14:07.139 --> 00:14:11.129
+Uh, to cover other kinds of objects in the program by basically, like.
+
+105 "Kellogg, Martin J" (1615754496)
+00:14:11.129 --> 00:14:14.789
+By calling their constructors yes.
+
+106 "Kellogg, Martin J" (1615754496)
+00:14:20.639 --> 00:14:30.449
+Okay, um, so, uh, let's go through a couple more slides and then we can maybe do an example on the board we're solving. Is that okay?
+
+107 "Kellogg, Martin J" (1615754496)
+00:14:30.449 --> 00:14:39.749
+So, I want to talk before we, before we go into an example, I want to talk about how we classify the new sequence that I suspect that the next slide with the diagram will make this a little more clear.
+
+108 "Kellogg, Martin J" (1615754496)
+00:14:39.749 --> 00:14:49.439
+So, how do we classify a sequence? Right? This is the diagram. And so basically, the idea is that we have the new sequence, right? What do we do? So, 1st, we execute the sequence.
+
+109 "Kellogg, Martin J" (1615754496)
+00:14:49.439 --> 00:14:55.049
+Let me check contracts so if, uh, if there are any places in the sequence, or contract is violated.
+
+110 "Kellogg, Martin J" (1615754496)
+00:14:55.049 --> 00:15:02.459
+Um, then we're going to do something, right? So if the contract is violated, we just do mineralization and immediately output as a test case.
+
+111 "Kellogg, Martin J" (1615754496)
+00:15:02.459 --> 00:15:06.509
+So this is how random discovers tests, right? Um.
+
+112 "Kellogg, Martin J" (1615754496)
+00:15:06.509 --> 00:15:22.499
+Otherwise, right, then we will just check redundancy. Right? And Randy has a definition of redundancy, which we'll get to a couple of slides. Right? Um, if it's if it is redundant, that is to say it's equivalent to something already. Cool. It's gonna throw it away. But, if not, then it's gonna be immediately added to the.
+
+113 "Kellogg, Martin J" (1615754496)
+00:15:22.499 --> 00:15:26.129
+Front of the salsa components.
+
+114 "Kellogg, Martin J" (1615754496)
+00:15:26.129 --> 00:15:37.889
+Okay, does that make sense? I'm seeing no clarify. Uh, lots of people are looking confused still so let's let's just do an example on the white board.
+
+115 "Kellogg, Martin J" (1615754496)
+00:15:37.889 --> 00:15:47.519
+All right. Okay. So, uh, so we will have a, uh, a pool, right? But this is a full components are, uh, which are all sequences.
+
+116 "Kellogg, Martin J" (1615754496)
+00:15:47.519 --> 00:15:52.019
+So, for example, we'll start with something like, in 0.
+
+117 "Kellogg, Martin J" (1615754496)
+00:15:52.019 --> 00:15:55.769
+Boolean equals false.
+
+118 "Kellogg, Martin J" (1615754496)
+00:15:55.769 --> 00:15:59.009
+I need some other things for, for pregnancy.
+
+119 "Kellogg, Martin J" (1615754496)
+00:15:59.009 --> 00:16:10.499
+Right now, what we have to do is, we have to look at the, uh, look at the program and select a method that it has either 0 parameters, or only has parameters that we have something at that time. Right? So, the types of these things are intend rule.
+
+120 "Kellogg, Martin J" (1615754496)
+00:16:10.499 --> 00:16:13.919
+All right, so, for example, if we have the following things like.
+
+121 "Kellogg, Martin J" (1615754496)
+00:16:13.919 --> 00:16:19.229
+Object, uh, oh.
+
+122 "Kellogg, Martin J" (1615754496)
+00:16:19.229 --> 00:16:22.859
+Actually, this is a good example, right?
+
+123 "Kellogg, Martin J" (1615754496)
+00:16:22.859 --> 00:16:32.099
+This this symbol, the instructor symbol is and talking about, like, internally so, uh, this is like that object instructor, right? It takes 0 parameters right?
+
+124 "Kellogg, Martin J" (1615754496)
+00:16:32.099 --> 00:16:37.079
+Um, we might also have, like, uh, uh, like, a square root function.
+
+125 "Kellogg, Martin J" (1615754496)
+00:16:37.079 --> 00:16:43.289
+Alright, let's say that produces a double, but it only takes us input it. Right?
+
+126 "Kellogg, Martin J" (1615754496)
+00:16:43.289 --> 00:16:51.959
+Okay, so these 2 methods, both a fit for definition, right? Who we might also have something like, uh, let's say, um.
+
+127 "Kellogg, Martin J" (1615754496)
+00:16:51.959 --> 00:16:56.549
+Let's have a point of constructor.
+
+128 "Kellogg, Martin J" (1615754496)
+00:16:56.549 --> 00:17:03.389
+And the point of instructor takes 2 doubles.
+
+129 "Kellogg, Martin J" (1615754496)
+00:17:03.389 --> 00:17:07.799
+We have all all 3 of these is options for things that are.
+
+130 "Kellogg, Martin J" (1615754496)
+00:17:07.799 --> 00:17:19.379
+And random is actually a family 5 or 8, right? So then we've also nice and we select 1 of these at random that, uh, we have all the things for right? I think actually under the hood, what random does this.
+
+131 "Kellogg, Martin J" (1615754496)
+00:17:19.379 --> 00:17:25.559
+Nice for all of them and then just discard it if it doesn't actually have all the things in the pool but it doesn't it.
+
+132 "Kellogg, Martin J" (1615754496)
+00:17:25.559 --> 00:17:29.759
+Okay, so let's let's suppose that we roll this 1.
+
+133 "Kellogg, Martin J" (1615754496)
+00:17:29.759 --> 00:17:33.629
+That's where we're so, we're going to try to run the square.
+
+134 "Kellogg, Martin J" (1615754496)
+00:17:33.629 --> 00:17:39.269
+So, how are we going to do that? Oh, we need an end, right? And we have an incident report. It's 0.
+
+135 "Kellogg, Martin J" (1615754496)
+00:17:39.269 --> 00:17:42.419
+So, what we're going to do is we're going to run square of 0.
+
+136 "Kellogg, Martin J" (1615754496)
+00:17:42.419 --> 00:17:48.599
+Right. So we're going to have an invite for 0 and then this is going to be super to live.
+
+137 "Kellogg, Martin J" (1615754496)
+00:17:48.599 --> 00:17:53.159
+And this is our new sequence.
+
+138 "Kellogg, Martin J" (1615754496)
+00:17:53.159 --> 00:17:58.949
+So, uh, we'll export this and I'll tell you the violence contracts.
+
+139 "Kellogg, Martin J" (1615754496)
+00:17:58.949 --> 00:18:05.969
+let's assume it does not right in that case now we have left and this is like something like double 
+
+140 "Kellogg, Martin J" (1615754496)
+00:18:05.969 --> 00:18:09.509
+E, equals of 5.
+
+141 "Kellogg, Martin J" (1615754496)
+00:18:09.509 --> 00:18:15.359
+Right, right and then now this whole thing goes straight into the.
+
+142 "Kellogg, Martin J" (1615754496)
+00:18:15.359 --> 00:18:28.079
+And now we're repeat the process right? So, I suppose then now we, we now, from the point 1, we can actually now execute the point constructor because we have a double in the pool. So we're just going to choose di here once.
+
+143 "Kellogg, Martin J" (1615754496)
+00:18:28.079 --> 00:18:32.159
+And then the, the test that Randy was gonna, uh, output is.
+
+144 "Kellogg, Martin J" (1615754496)
+00:18:36.929 --> 00:18:41.249
+Something like this, uh.
+
+145 "Kellogg, Martin J" (1615754496)
+00:18:41.249 --> 00:18:45.419
+Hello.
+
+146 "Kellogg, Martin J" (1615754496)
+00:18:49.259 --> 00:19:02.309
+All right does that make sense? So, what it's doing here then is it's constructing a new point out of really D twice, right? Because they did de. All right that actually happened to be the same.
+
+147 "Kellogg, Martin J" (1615754496)
+00:19:02.309 --> 00:19:07.859
+But, uh, like, this is basically how the system works. All right.
+
+148 "Kellogg, Martin J" (1615754496)
+00:19:07.859 --> 00:19:13.859
+Does that clarify things? Good. Anyone have any questions here.
+
+149 "Kellogg, Martin J" (1615754496)
+00:19:13.859 --> 00:19:21.509
+What are the easiest for? I mean, that's that's all Randy who's doing right? Its goal is just make bigger sequences.
+
+150 "Kellogg, Martin J" (1615754496)
+00:19:21.509 --> 00:19:40.139
+Uh, effectively, like, WH, when it, uh, as soon as it makes 1, like this 1, it's going to execute it and it's going to run, uh, the contracts that we discussed before. So, it's going to do something like a search true P dot equals P and a search through or like a cert doesn't throw an exception, uh, P, dot hash code right? And things like this.
+
+151 "Kellogg, Martin J" (1615754496)
+00:19:40.139 --> 00:19:44.819
+So, it's just looking for, like, all these errors much like AFL. It's.
+
+152 "Kellogg, Martin J" (1615754496)
+00:19:44.819 --> 00:19:48.569
+But it has a slightly broader view of what an obvious error means.
+
+153 "Kellogg, Martin J" (1615754496)
+00:19:52.589 --> 00:20:02.189
+And if it finds 1, it's going to print the print out the sequence of the test case. And if it's, uh, if it does not find 1, then it will add this sequence back into the folder.
+
+154 "Kellogg, Martin J" (1615754496)
+00:20:02.189 --> 00:20:09.329
+Um, if we look again at this, uh, this thing, right you'll notice this, um, in my sequence there.
+
+155 "Kellogg, Martin J" (1615754496)
+00:20:09.329 --> 00:20:16.799
+The reason that's there is that if we look at this sequence again, it's kind of silly. We call square revive twice and then store it into 2 different doubles.
+
+156 "Kellogg, Martin J" (1615754496)
+00:20:16.799 --> 00:20:20.429
+So, Randy, you actually found a problem here. It would just.
+
+157 "Kellogg, Martin J" (1615754496)
+00:20:20.429 --> 00:20:24.479
+Erase this bed actually, and it would print out.
+
+158 "Kellogg, Martin J" (1615754496)
+00:20:24.479 --> 00:20:28.889
+This sequence.
+
+159 "Kellogg, Martin J" (1615754496)
+00:20:28.889 --> 00:20:35.069
+But that's not that's that's definitely not actually not complicated.
+
+160 "Kellogg, Martin J" (1615754496)
+00:20:35.069 --> 00:20:42.779
+Okay, um, any questions about this overall process that Randy is doing.
+
+161 "Kellogg, Martin J" (1615754496)
+00:20:42.779 --> 00:20:49.589
+Okay, so it is something which is not in the component that is currently we see that. Uh.
+
+162 "Kellogg, Martin J" (1615754496)
+00:20:49.589 --> 00:20:56.099
+Yeah, so, uh, what what it does is in general, what it's going to be doing is that if, uh.
+
+163 "Kellogg, Martin J" (1615754496)
+00:20:56.099 --> 00:21:00.989
+If the new sequence leads to our, uh, then it's going to like.
+
+164 "Kellogg, Martin J" (1615754496)
+00:21:00.989 --> 00:21:06.479
+Issue test case immediately it'll print that out to the user and if that's not the case, it's going to put it in the board.
+
+165 "Kellogg, Martin J" (1615754496)
+00:21:06.479 --> 00:21:11.939
+Right unless it's redundant and I haven't defined redundancy yet. I'll do that in a slide or 2.
+
+166 "Kellogg, Martin J" (1615754496)
+00:21:11.939 --> 00:21:15.809
+So, for the poster, the proposal I send a quick 2nd, 1.
+
+167 "Kellogg, Martin J" (1615754496)
+00:21:15.809 --> 00:21:19.319
+They won't be able to explain it there. Yeah, so then we'll just roll the deck.
+
+168 "Kellogg, Martin J" (1615754496)
+00:21:19.319 --> 00:21:24.389
+The 2nd 1 is not the starting point. No, no, no, no, no. When does the discount 1.
+
+169 "Kellogg, Martin J" (1615754496)
+00:21:24.389 --> 00:21:29.489
+Uh, it would never, we just keep it around as a possible thing until it actually is able to execute them.
+
+170 "Kellogg, Martin J" (1615754496)
+00:21:29.489 --> 00:21:42.569
+I mean, not even actually doing this does not guarantee that point. I don't think actually, ever lose anything from the pool of possible methods to call. Like, I think it could still even accurate. Uh.
+
+171 "Kellogg, Martin J" (1615754496)
+00:21:42.569 --> 00:21:46.859
+Creates the sequence it might still run the constructor again.
+
+172 "Kellogg, Martin J" (1615754496)
+00:21:46.859 --> 00:21:58.709
+I think it would only that's that's where redundancy comes in, but if it rolls point again decides to make another point and it happens for 1 thing and do the same point, then it will describe that.
+
+173 "Kellogg, Martin J" (1615754496)
+00:21:58.709 --> 00:22:05.099
+You credit for dominance right here is this so we can proceed it on. Now I hate this whiteboard.
+
+174 "Kellogg, Martin J" (1615754496)
+00:22:05.099 --> 00:22:13.229
+Right. So I'm terribly sorry about the fact that everything is going to be have a backup purple background from now on.
+
+175 "Kellogg, Martin J" (1615754496)
+00:22:13.229 --> 00:22:17.429
+All right. Okay. So.
+
+176 "Kellogg, Martin J" (1615754496)
+00:22:17.429 --> 00:22:22.409
+Okay, so we've got, uh, yeah, this again, right?
+
+177 "Kellogg, Martin J" (1615754496)
+00:22:22.409 --> 00:22:41.849
+Hi, again, we're getting in touch base. If not, we're usually getting a new component, but sometimes it just started getting redundant. I'm going to talk now about what, what redundant means to Randy right? So, renew discards redundant sequences as we've seen. And what it does is that during generation, it maintains a set of all the objects that has ever created. That is the pool.
+
+178 "Kellogg, Martin J" (1615754496)
+00:22:41.849 --> 00:22:52.289
+All right, that set is the pool, and then a sequence is considered redundant. If all of the objects that were created during this execution are members of that.
+
+179 "Kellogg, Martin J" (1615754496)
+00:22:52.289 --> 00:23:00.989
+Very simple, but it could use other stuff. So, um, this is not like any other reasonable definition of redundant not work.
+
+180 "Kellogg, Martin J" (1615754496)
+00:23:00.989 --> 00:23:14.039
+So, for example, if you did keep canonicalization, that could totally work, and it's like, um, if you wanted to use, uh, this straight point, very quality that would work, if you wanted to use some broader definition of equality, uh, that would be fine, too.
+
+181 "Kellogg, Martin J" (1615754496)
+00:23:14.039 --> 00:23:24.119
+I know to keep canonicalization is no 1. okay so this is a term from, uh, mobile checking anything primarily.
+
+182 "Kellogg, Martin J" (1615754496)
+00:23:24.119 --> 00:23:30.119
+But it's, uh, it comes up the question that that keep canonicalization is useful for answering.
+
+183 "Kellogg, Martin J" (1615754496)
+00:23:30.119 --> 00:23:34.199
+Is suppose that you have 2 execution traces of a program.
+
+184 "Kellogg, Martin J" (1615754496)
+00:23:34.199 --> 00:23:43.739
+And that program has some non deterministic behavior. So, for example, say it's a web server, right? You'd like to check. If that program, there's 2 traces ever reach the same speed.
+
+185 "Kellogg, Martin J" (1615754496)
+00:23:43.739 --> 00:23:48.779
+All right, that is to say, they have the same heat. Like, they have the same, like, internal structure.
+
+186 "Kellogg, Martin J" (1615754496)
+00:23:48.779 --> 00:24:02.729
+Like, all the memory that they've allocated is exactly the same. Well, um, you end up with problems based on non determinism here because, for example, if you have the 2 Web 2 traces of the web server that received the same set of packets, those packets might have arrived in different orders.
+
+187 "Kellogg, Martin J" (1615754496)
+00:24:02.729 --> 00:24:22.729
+So, they might have stored them in a different order. So, for example, as opposed to the web server receives, uh, you know, packet and Peggy B and the 1st trace comes 1st and then B, and the web server source and in that order. And the 2nd trace, if comes before a, it will look as if those 2 are different traces of the program, right? If you look at just the memory that they've added.
+
+188 "Kellogg, Martin J" (1615754496)
+00:24:22.729 --> 00:24:28.319
+You're trying to figure that out based on what what they've done, because, and B are switched.
+
+189 "Kellogg, Martin J" (1615754496)
+00:24:28.319 --> 00:24:40.199
+But, in fact, those are actually the same and so he canonicalization is a set of strategies that people use to try to disentangle that basically, by forcing things to behave in a particular way.
+
+190 "Kellogg, Martin J" (1615754496)
+00:24:40.199 --> 00:24:43.979
+Okay, this is a total side. You don't need to know it.
+
+191 "Kellogg, Martin J" (1615754496)
+00:24:43.979 --> 00:24:50.159
+But any questions all right.
+
+192 "Kellogg, Martin J" (1615754496)
+00:24:50.159 --> 00:25:02.939
+Moving on, right. So Randy, is it useful? Um, it has been used to find real bugs and, for example, the right it was extremely successful when it 1st came out at detecting bugs in libraries. Right? Especially in libraries ranking as effective.
+
+193 "Kellogg, Martin J" (1615754496)
+00:25:02.939 --> 00:25:14.069
+Has been deployed a bunch of companies. Microsoft is 1 example and the tool is actually still maintained so you could go and use it yourself. I happen to know. I have used it in classes and it still works quite well. Um.
+
+194 "Kellogg, Martin J" (1615754496)
+00:25:14.069 --> 00:25:22.769
+And, uh, it's often and part of the reason it's to maintain this is often used in research papers. So as what's called a baseline to say that if you propose a new testing technique.
+
+195 "Kellogg, Martin J" (1615754496)
+00:25:22.769 --> 00:25:35.759
+Then you basically need to beat Randy, because Randy is really easy to run and does pretty well. So, if you design a new testing technique, and you say, I have the world's best testing technique for Java, your paper will almost certainly be rejected if it does not be rendered.
+
+196 "Kellogg, Martin J" (1615754496)
+00:25:35.759 --> 00:25:40.049
+Right. And so the author is going to do maintains it for mostly for this purpose.
+
+197 "Kellogg, Martin J" (1615754496)
+00:25:40.049 --> 00:25:44.999
+Yeah, so random is a fact we need you to use, um.
+
+198 "Kellogg, Martin J" (1615754496)
+00:25:44.999 --> 00:26:04.999
+We're not using it in this. Course basically, because I haven't had an assignment written for it already, but, uh, it is not too hard to use and you could totally use it instead of for the assignment, uh, that we're doing a home report. Right? Uh, today, um, but I happen to have chosen instead. Okay. Any questions about, uh, Randy.
+
+199 "Kellogg, Martin J" (1615754496)
+00:26:04.999 --> 00:26:13.019
+Deployment and practice, or the idea of baselines and research papers.
+
+200 "Kellogg, Martin J" (1615754496)
+00:26:13.019 --> 00:26:20.999
+All right. Okay so, um, actually before then we move on, um, any questions about Randy whatsoever.
+
+201 "Kellogg, Martin J" (1615754496)
+00:26:20.999 --> 00:26:40.999
+All right, so, then, next, we're going to briefly discuss mutation testing with the goal of explaining some of the words that appeared in the paper. I had you read today, right? I'm making sure that you understand all of them. Right? And especially making sure you understand them before you encounter them, when trying to actually use Eva suite right?
+
+202 "Kellogg, Martin J" (1615754496)
+00:26:40.999 --> 00:27:00.999
+So, um, the key idea of mutation testing is looking at looking at testing, uh, through a lens of adversity right is that it that is to say it is derived from an adversarial, uh, mindset right? So suppose that we are, uh, we are going to evaluate the quality of 2 propose sniffing pigs. I know about.
+
+203 "Kellogg, Martin J" (1615754496)
+00:27:00.999 --> 00:27:04.139
+Trouble sniffing pigs I have any idea what's been talking about here. Okay.
+
+204 "Kellogg, Martin J" (1615754496)
+00:27:04.139 --> 00:27:11.579
+I I know what a truffle is. It's a a very weird mushroom that some people really like to eat, but it's very rare.
+
+205 "Kellogg, Martin J" (1615754496)
+00:27:11.579 --> 00:27:31.579
+Right, right. Um, in particular the reason I'm bringing up here is, because the traditional way to find couples is that you train pace to find them. Right? So suppose that, uh, you know, someone tells you that, uh, there are 2 trouble sniffing pigs and, you know, you want to tell which 1 is better, right? Maybe you're like a rich European, noodle Lord, and you want to decide which 1 to buy and bring to your house.
+
+206 "Kellogg, Martin J" (1615754496)
+00:27:31.579 --> 00:27:48.329
+Whatever, let's move past this example, the intuition here and this is the same as the intuition for the adversity idea is that what we can do is we can ask them to actually find some problems right? If we want to know, which pays better, just actually have them go off and do it. All right.
+
+207 "Kellogg, Martin J" (1615754496)
+00:27:48.329 --> 00:27:53.219
+So, uh, basically, what we're we're suggesting here is we're going to set up a test for these 2 pigs.
+
+208 "Kellogg, Martin J" (1615754496)
+00:27:53.219 --> 00:28:02.219
+So, what we're going to do is we're going to go into our backyard and we're going to hide some truffles and then we're going to let the pigs loose and we're going to see how many each funds.
+
+209 "Kellogg, Martin J" (1615754496)
+00:28:02.219 --> 00:28:18.689
+The 1 that finds more is probably better. Right um, so whichever whichever pig is better in your backyard is, is assumed to be better in the wild. Um, and like, now, let's try to transfer this this example to evaluating the quality of 2 test suites.
+
+210 "Kellogg, Martin J" (1615754496)
+00:28:18.689 --> 00:28:27.509
+So, we're trying to find, uh, evaluate the quality of 2 bug finding test weights. So what could we do? That's analogous to what we did what what I'm suggesting we would do with these pigs.
+
+211 "Kellogg, Martin J" (1615754496)
+00:28:27.509 --> 00:28:38.819
+Yes, exactly hide some bugs in some code and see which ones actually find the box. Right? So that is exactly how mutation testing works.
+
+212 "Kellogg, Martin J" (1615754496)
+00:28:38.819 --> 00:28:47.249
+There we go, so, mutation testing is it has to be an adequacy metric, which is quality testing is related to the number of potentially added defects that it costs.
+
+213 "Kellogg, Martin J" (1615754496)
+00:28:47.249 --> 00:28:52.649
+Here's what we're going to do. We're going to take a program and we're going to insert some bugs into it on purpose.
+
+214 "Kellogg, Martin J" (1615754496)
+00:28:52.649 --> 00:29:01.979
+And then we're going to see whether the testing would detect them just to say whether the test media data to figure out what those ones are there, or whether the test would still pass it despite the fact that we put bugs here.
+
+215 "Kellogg, Martin J" (1615754496)
+00:29:01.979 --> 00:29:14.639
+All right, um, and formally, the idea is that, you know, you claim your test suite is good at finding, for example, security bugs. Well, then I will just add a security bug to your program and see whether your test suite detects it.
+
+216 "Kellogg, Martin J" (1615754496)
+00:29:14.639 --> 00:29:20.909
+Alright, this is all right, so the, the, uh, does everyone see the intuition here?
+
+217 "Kellogg, Martin J" (1615754496)
+00:29:20.909 --> 00:29:39.479
+Okay, hopefully, intuition here is relatively clear. All right so then we need we need some vocabulary here before we can actually talk about mutation testing in the context of Eva. Sweet. So, I'm the next couple of minutes I'm sorry in advance, but it's just going to be vocabulary word after vocabulary word because mutation testing is a pretty old discipline was invented a long time ago.
+
+218 "Kellogg, Martin J" (1615754496)
+00:29:39.479 --> 00:29:42.659
+And has its own terminology for everything.
+
+219 "Kellogg, Martin J" (1615754496)
+00:29:42.659 --> 00:29:49.679
+So, is the terminal fusion mutation testing for intentionally introducing defects, or bugs into the product, right?
+
+220 "Kellogg, Martin J" (1615754496)
+00:29:49.679 --> 00:30:00.719
+And this is typically, the goal here is that we want the defects to be similar to the ones that are real developer would introduce. Right that is to say, we want mutation testing to.
+
+221 "Kellogg, Martin J" (1615754496)
+00:30:00.719 --> 00:30:04.829
+Check for bugs that a programmer would actually write.
+
+222 "Kellogg, Martin J" (1615754496)
+00:30:04.829 --> 00:30:12.839
+Um, typically, what we do is we do this by changing the source code, right? We go to the source code and we actually introduce the bug on purpose. Right? Um.
+
+223 "Kellogg, Martin J" (1615754496)
+00:30:12.839 --> 00:30:32.759
+In general, this is going to be done automatically like, we create some model of how, like, what kinds of mistakes human make humans make and then we, we automatically apply a bunch of those to the source code and then run the test suite many times. Right? And then what we're going to do is we're going to evaluate the test suite based on, like, how many out of 1000 bugs does it find.
+
+224 "Kellogg, Martin J" (1615754496)
+00:30:32.759 --> 00:30:36.959
+Okay, so the way that we're going to do this is via what's called mutation operators.
+
+225 "Kellogg, Martin J" (1615754496)
+00:30:36.959 --> 00:30:52.109
+A mutation operator since the change of the program in mutation testing, uh, these are usually model on historical human defects, but not always. And then so this usually here is maybe doing a lot of work. I'm not even sure there's usually a true like.
+
+226 "Kellogg, Martin J" (1615754496)
+00:30:52.109 --> 00:30:56.489
+In practice, I would say mutation operators, like computer their easiness of implementation.
+
+227 "Kellogg, Martin J" (1615754496)
+00:30:56.489 --> 00:31:03.899
+Um, but you will see more about this when we discuss mutation testing in detail in a few weeks. And also, when you do homework 6, which is just build mutation testing system.
+
+228 "Kellogg, Martin J" (1615754496)
+00:31:03.899 --> 00:31:20.909
+Okay, so examples of mutations, like the kinds of things we're talking about here, these are really simple ones right? But you might, for example, change the lesson to less than equal are changing equals, do not equals or add to the plus, or minus, uh, reorder functions. Uh, switch variables around things like this. Right?
+
+229 "Kellogg, Martin J" (1615754496)
+00:31:20.909 --> 00:31:26.969
+We're just like these are like, single character changes or or very small, small granular.
+
+230 "Kellogg, Martin J" (1615754496)
+00:31:26.969 --> 00:31:32.309
+I mean, these are the sorts of things that mutation testing usually it's something you could do right?
+
+231 "Kellogg, Martin J" (1615754496)
+00:31:32.309 --> 00:31:41.399
+All right, so then the term that we use in mutation testing for a variant of a program is called a mutant. Right? So you get a meeting by applying 1 of the mutation operators.
+
+232 "Kellogg, Martin J" (1615754496)
+00:31:41.399 --> 00:31:49.199
+Very straightforward and then there's also this term order and we've talked about, I think we've mentioned this before. Right? We have.
+
+233 "Kellogg, Martin J" (1615754496)
+00:31:49.199 --> 00:31:58.589
+Yes, yeah, good. So, the order of meeting then is the number of mutation operators have been applied. So, for example, we start with then.
+
+234 "Kellogg, Martin J" (1615754496)
+00:31:58.589 --> 00:32:07.049
+We changed it to a lesson rebuild to be. So the 1st thing, we change, uh, X, uh, equals it must be to expose. They might be a 2nd change. We only have a 2nd board meeting.
+
+235 "Kellogg, Martin J" (1615754496)
+00:32:07.049 --> 00:32:27.049
+Nothing hopefully too complicated here and then finally a, a test suite is said to kill or detect or reveal a mutant if the mutant fails attached to that the original program passes. Right? And so this, this notion of killing is actually quite important in suite and this is basically like, getting.
+
+236 "Kellogg, Martin J" (1615754496)
+00:32:27.049 --> 00:32:34.439
+To this point, and making sure that we understand what the work means in this context is extremely important for understanding how Eva works.
+
+237 "Kellogg, Martin J" (1615754496)
+00:32:34.439 --> 00:32:47.009
+So, um, basically, a mutant, uh, is is killed by the test suite. If the test suite detects it. I don't know why they use the word kill for this. It's not like a nice word, but mutation testing, as I said.
+
+238 "Kellogg, Martin J" (1615754496)
+00:32:47.009 --> 00:32:50.849
+Like, weird and biology inspired, so anyway.
+
+239 "Kellogg, Martin J" (1615754496)
+00:32:50.849 --> 00:33:00.959
+Okay, so generally test suites that kill more meetings are going to be considered better. Right? The idea is like, the larger the fraction of meetings that are killed, the higher quality, the test suite is imagined to be.
+
+240 "Kellogg, Martin J" (1615754496)
+00:33:00.959 --> 00:33:09.539
+Um, and sorry, sorry for all this vocabulary, but it is necessary to understand how this works. Okay before I proceed any questions on anything I just said.
+
+241 "Kellogg, Martin J" (1615754496)
+00:33:14.159 --> 00:33:23.309
+As I mentioned, almost all of this will cover and well, actually, no, all of this, we will cover in more detail. In a couple of weeks we have, we will have 1 whole lecture on mutation testing and we'll go into gory detail.
+
+242 "Kellogg, Martin J" (1615754496)
+00:33:23.309 --> 00:33:29.459
+Right this is just, uh, basically, my goal here is just to give you enough of an idea to understand how it works.
+
+243 "Kellogg, Martin J" (1615754496)
+00:33:29.459 --> 00:33:39.449
+Okay, yes, I guess that's my next slide right? Um, yeah, because eva's suite what you're using homework for relies on, um, and we will discuss it more. Okay.
+
+244 "Kellogg, Martin J" (1615754496)
+00:33:39.449 --> 00:33:58.829
+All right, so that's all I have a mutation testing so what we're going to next discuss is suite, which you all read about today how are we doing? Oh, that was very fast. So, I was expecting that to take at least 15 minutes, and I went through it in 5. so if, uh, if anybody feels like, I was going too fast there please do ask questions.
+
+245 "Kellogg, Martin J" (1615754496)
+00:33:58.829 --> 00:34:10.709
+Yes, uh.
+
+246 "Kellogg, Martin J" (1615754496)
+00:34:10.709 --> 00:34:23.189
+Yeah, so what about it okay. Uh, here.
+
+247 "Kellogg, Martin J" (1615754496)
+00:34:23.189 --> 00:34:29.099
+Here that's fine.
+
+248 "Kellogg, Martin J" (1615754496)
+00:34:29.099 --> 00:34:37.319
+Okay, I can't go through them all at at full speed. But, um, so this is an example of what right? So, the kind of thing that randomly generated. Right? So this is a sequence.
+
+249 "Kellogg, Martin J" (1615754496)
+00:34:37.319 --> 00:34:48.059
+And maybe just talking through this is the way to go. Right? So, um, this has like this. So this 1st, this 1st 1, right? This can be generated because the aftermath constructor takes no arguments.
+
+250 "Kellogg, Martin J" (1615754496)
+00:34:48.059 --> 00:34:56.969
+And so, uh, if we're a half map is, you know, in the program under test, so this is, this is hard thing. I believe the job of collections library, right?
+
+251 "Kellogg, Martin J" (1615754496)
+00:34:56.969 --> 00:35:08.309
+Then calling is fine so now we would have a pool that has, you know, end and boolean and so on. Right? The simple examples I gave and this map. H, right.
+
+252 "Kellogg, Martin J" (1615754496)
+00:35:08.309 --> 00:35:19.769
+Okay, um, then we can generate C because each doc values, uh, has no arguments and so we call value and that produces a collection. Right? So, this, then we have now, we have 2 sequences.
+
+253 "Kellogg, Martin J" (1615754496)
+00:35:19.769 --> 00:35:28.889
+We have the original map H sequence that produces the, and we have this question sequence that 1st does H and then create C.
+
+254 "Kellogg, Martin J" (1615754496)
+00:35:28.889 --> 00:35:39.059
+Right. And now, uh, the secret to array method has no arguments and so we can call back and the same way. Right? We send the sequence 3:3:things long. Now there's 3 sequences.
+
+255 "Kellogg, Martin J" (1615754496)
+00:35:39.059 --> 00:35:55.139
+Um, this list L equals new lead list this could have been called right away right? It takes no arguments again. Right? And it's a constructor, right? And so then this is added to the pool because we only have 4 sequences we have and L, right.
+
+256 "Kellogg, Martin J" (1615754496)
+00:35:55.139 --> 00:36:06.089
+And then there's this Amazon ad 1st day. So this is the void method that has no return type, right? But it takes us argument on optical right? And we have an object the right sequence, right? From this model.
+
+257 "Kellogg, Martin J" (1615754496)
+00:36:06.089 --> 00:36:17.399
+So, we create, we create a, and then now we're able to call this method. Yeah, so they depend on each other. Right? So effectively each sequence that we make unlocks new things that ran do contest.
+
+258 "Kellogg, Martin J" (1615754496)
+00:36:17.399 --> 00:36:24.239
+Right. So, like, we can't test this without, uh, having an object. Right? So we need a, and we can't test this about having a list.
+
+259 "Kellogg, Martin J" (1615754496)
+00:36:24.239 --> 00:36:28.529
+Because this ad 1st method, it requires a list, because it's a list method.
+
+260 "Kellogg, Martin J" (1615754496)
+00:36:28.529 --> 00:36:43.739
+Right. And so we need to create both need to be in the sequence pool for this method to be available for selection. But once they both are, then there's a chance that this method will get chosen, because all of those parameters, uh, the object array, and the receiver are are avail. Right?
+
+261 "Kellogg, Martin J" (1615754496)
+00:36:43.739 --> 00:36:48.239
+And then, uh, similarly, like, we can't call it Pre set until we have a list.
+
+262 "Kellogg, Martin J" (1615754496)
+00:36:48.239 --> 00:36:59.549
+New Teresa, we can't cultivate a list because it takes the list of input apparently. Right? And then similarly we can for collection installed on modifiable set until we have another set available, because this takes a step as input. Right?
+
+263 "Kellogg, Martin J" (1615754496)
+00:36:59.549 --> 00:37:02.939
+And then now we can call, uh.
+
+264 "Kellogg, Martin J" (1615754496)
+00:37:02.939 --> 00:37:09.659
+This is sort of true. You equals you, but actually Randy is going to be fine is on every single 1 of these things that have made.
+
+265 "Kellogg, Martin J" (1615754496)
+00:37:09.659 --> 00:37:14.849
+Right and if any of them don't are not true then it's going to immediately stop and say I kind of.
+
+266 "Kellogg, Martin J" (1615754496)
+00:37:14.849 --> 00:37:22.739
+Because this should be true for anything. All right does that make it a little clearer how it's working.
+
+267 "Kellogg, Martin J" (1615754496)
+00:37:22.739 --> 00:37:29.339
+We did not create the previous sequence and just.
+
+268 "Kellogg, Martin J" (1615754496)
+00:37:29.339 --> 00:37:36.419
+Uh, so let's create a set and then as a tool, which also fails that we've been building.
+
+269 "Kellogg, Martin J" (1615754496)
+00:37:36.419 --> 00:37:42.719
+Yeah, so, um, actually, no, uh, so, like, this particular bug requires us to have this array.
+
+270 "Kellogg, Martin J" (1615754496)
+00:37:42.719 --> 00:37:53.669
+Uh, inside the list inside the site, right? And that just that was the, the, the, the bug itself has something to do with all this. Maybe the equals update.
+
+271 "Kellogg, Martin J" (1615754496)
+00:37:53.669 --> 00:38:01.109
+Yeah, I don't remember the details that would help us actually worked. I mean, it's in the paper if you want to rebrand the brand new pay for.
+
+272 "Kellogg, Martin J" (1615754496)
+00:38:01.109 --> 00:38:09.479
+Yeah, I mean, in general, though, the idea here is that basically, like, random is just going to keep creating things like this until it finds.
+
+273 "Kellogg, Martin J" (1615754496)
+00:38:09.479 --> 00:38:13.260
+Uh, find something for which, but, like, these are sorts are not for.
+
+274 "Kellogg, Martin J" (1615754496)
+00:38:13.260 --> 00:38:21.330
+Sorry oops yeah. Yeah, so this, this, this was actually a bug in the, uh, the Java standard library.
+
+275 "Kellogg, Martin J" (1615754496)
+00:38:21.330 --> 00:38:25.860
+That random just got it. So if if.
+
+276 "Kellogg, Martin J" (1615754496)
+00:38:25.860 --> 00:38:31.470
+If this assert through it not is false. That's obviously all right.
+
+277 "Kellogg, Martin J" (1615754496)
+00:38:31.470 --> 00:38:45.090
+And so effectively what Randy is doing, uh, all the way along here is, it's saying, well, okay, so it would have inserted a search for a key, for example, but that, that 1 did turn out to be true. So, there was no reason for Randy to output. That, but that means that it goes back into the pool.
+
+278 "Kellogg, Martin J" (1615754496)
+00:38:45.090 --> 00:38:49.230
+And then it's available for selection, and then it gets selected run, modifiable set. And then that.
+
+279 "Kellogg, Martin J" (1615754496)
+00:38:49.230 --> 00:38:58.980
+So, it's an iterative process, right? Trying to build up new ingredients basically.
+
+280 "Kellogg, Martin J" (1615754496)
+00:39:02.190 --> 00:39:07.260
+Any other questions on on, on this.
+
+281 "Kellogg, Martin J" (1615754496)
+00:39:07.260 --> 00:39:12.900
+Is everyone feeling comfortable with it now? So it by the way, thank you for asking a question.
+
+282 "Kellogg, Martin J" (1615754496)
+00:39:12.900 --> 00:39:18.390
+All right.
+
+283 "Kellogg, Martin J" (1615754496)
+00:39:18.390 --> 00:39:22.980
+I'm going to jump back forward and get us back to you.
+
+284 "Kellogg, Martin J" (1615754496)
+00:39:22.980 --> 00:39:28.560
+Alrighty everywhere truffle, sniffing pigs vocabulary.
+
+285 "Kellogg, Martin J" (1615754496)
+00:39:28.560 --> 00:39:31.650
+And we were.
+
+286 "Kellogg, Martin J" (1615754496)
+00:39:31.650 --> 00:39:50.910
+Here, okay, so next we're going to talk about the subject of today's reading, which was suite right? And so much like, AFL or other folders, like the ones that we talked about last week, um, Eva sweet uses a generic algorithm. And so under the hood has a lot to a lot in common with something like AFL.
+
+287 "Kellogg, Martin J" (1615754496)
+00:39:50.910 --> 00:39:58.680
+But it has different goals, right? Um, in particular as we'll see as we get into this a little bit more, um.
+
+288 "Kellogg, Martin J" (1615754496)
+00:39:58.680 --> 00:40:06.090
+Afl goal is to find a bug that is not really Eva suites call. Eva suites call instead is to write tests, like a human way.
+
+289 "Kellogg, Martin J" (1615754496)
+00:40:06.090 --> 00:40:09.390
+All right and that leads to different design decisions.
+
+290 "Kellogg, Martin J" (1615754496)
+00:40:09.390 --> 00:40:29.390
+So 1 of the big differences is that we use the test suite itself as the individual, and the generic algorithm, rather than the individual test case. Right? So, in NFL, or the generic algorithm that we discussed last time for father's is for a generic 1, a fuzzy generally views like the input sequence of to the.
+
+291 "Kellogg, Martin J" (1615754496)
+00:40:29.390 --> 00:40:44.490
+Through the program as the, as the element of the population, the individual and a population, when it mutates an individual, it changes and input sequence. Right? By contrast view is that the entire test suite is.
+
+292 "Kellogg, Martin J" (1615754496)
+00:40:44.490 --> 00:40:58.350
+Uh, the individual and then individual tests are themselves like, uh, chromosomes or genes right? And so when it does mutation, it's just switching tests out usually. And so it, it generally has to start with a pool of existing tests.
+
+293 "Kellogg, Martin J" (1615754496)
+00:40:58.350 --> 00:41:03.570
+Right. Or it can use something like, or a father to generate more tests.
+
+294 "Kellogg, Martin J" (1615754496)
+00:41:03.570 --> 00:41:08.970
+That's right and so then the whole population here is made up of many test suites.
+
+295 "Kellogg, Martin J" (1615754496)
+00:41:08.970 --> 00:41:14.460
+Right and it's going to be trying to find the best test suite. Right? The best.
+
+296 "Kellogg, Martin J" (1615754496)
+00:41:14.460 --> 00:41:24.390
+Like, try to maximize coverage across the entire test suite, rather than finding an individual test that improves coverage. So, its goals are a little different. And this view actually.
+
+297 "Kellogg, Martin J" (1615754496)
+00:41:24.390 --> 00:41:28.710
+I mean, it's, uh, it's just kind of a different look at the same kind of thing, right? Like.
+
+298 "Kellogg, Martin J" (1615754496)
+00:41:28.710 --> 00:41:35.610
+These might seem as if they're very similar, but they, they lead kind of in diversion directions in terms of how the tools.
+
+299 "Kellogg, Martin J" (1615754496)
+00:41:35.610 --> 00:41:53.010
+Like, tend to evolve test suites and this this makes things like crossover or perentage much easier. Right? So if you have to test suites test a test B test C and test suite 1 and test C. D. E, and test suite too. If you want to do crossover, you just like switch B and D.
+
+300 "Kellogg, Martin J" (1615754496)
+00:41:53.010 --> 00:42:02.940
+Very easy, right by contrast for something like AFL, you have to be very careful with the choice of crossover mutation operators because you're looking at arbitrary bits.
+
+301 "Kellogg, Martin J" (1615754496)
+00:42:02.940 --> 00:42:11.370
+Right and so, like, what does it mean when you flip a bit in AFL like an input that AFL is looking at? Well, AFL has no idea.
+
+302 "Kellogg, Martin J" (1615754496)
+00:42:11.370 --> 00:42:18.360
+Right and, uh, what this means is that has a sort of a, a deeper view on, on what, uh, what a test actually needs.
+
+303 "Kellogg, Martin J" (1615754496)
+00:42:18.360 --> 00:42:36.510
+Okay, the other really important difference is oracles. Right? And in particular, we will use mutation testing to produce oracles. And so what it's going to do under the hood is it's going to create many mutations are the program that are under task and it's going to evaluate.
+
+304 "Kellogg, Martin J" (1615754496)
+00:42:36.510 --> 00:42:48.600
+Both assertions and tests based on their ability to distinguish mutants. Right so, part of the thing that Eva is going to do is it's going to try out different assertions.
+
+305 "Kellogg, Martin J" (1615754496)
+00:42:48.600 --> 00:42:55.110
+Uh, on at the end of tests and see whether those assertions distinguish between, uh, different mutants that it's created.
+
+306 "Kellogg, Martin J" (1615754496)
+00:42:55.110 --> 00:43:11.400
+All right, um, and this means that what it can do is it can produce full, quote, unquote, full test suites in the same way that human might be able to right. As you'll see, you know, when you do homework for those test, suites aren't always exactly what a human might do. Right? But they have a lot in common with the way a human might write tests.
+
+307 "Kellogg, Martin J" (1615754496)
+00:43:11.400 --> 00:43:20.550
+Right. And in particular, they quote unquote solved the Oracle problem at least a little bit because they allow Eva suite to have sort of arbitrarily complicated oracles.
+
+308 "Kellogg, Martin J" (1615754496)
+00:43:20.550 --> 00:43:32.070
+In the assumptions that it writes, unlike AFL, which is only looking for crashes or buffer overflows or even Randy, which is only looking for a set of oracles that have to be predefined. Right Randy doesn't like, try to.
+
+309 "Kellogg, Martin J" (1615754496)
+00:43:32.070 --> 00:43:41.370
+Evolve better oracles as it goes it has no idea about that. You have to tell it like that, you know oh, dot equals. Oh, should always be true. And it should always check for that.
+
+310 "Kellogg, Martin J" (1615754496)
+00:43:41.370 --> 00:43:47.430
+Okay, so does that distinct does that difference in terms of what it's trying to do? Make sense.
+
+311 "Kellogg, Martin J" (1615754496)
+00:43:52.260 --> 00:44:00.330
+No, um, so the key idea then is that, uh, assertions that kill mutants, make good Oracles and we will come back to this next week. So, this is not like.
+
+312 "Kellogg, Martin J" (1615754496)
+00:44:00.330 --> 00:44:18.630
+Um, this, this discussion about oracles, uh, part of the reason that, uh, I wanted to use Eva so, it doesn't it put so many of these ideas together, but it's kind of awkward to fit into the curriculum in terms of where to put the homework. So, that's why I'm introducing, like, uh, a couple of ideas that are going to come in the next couple of weeks now, because you're gonna use this week.
+
+313 "Kellogg, Martin J" (1615754496)
+00:44:18.630 --> 00:44:34.950
+But we'll come back to the things that you saw and homework for a couple of times, over the next couple of weeks. Right? So I have other homework assignments. That are also exciting for those weeks and not so much for this 1. so, sorry, that it kind of fits in in this grab bag of other test generation techniques lecture.
+
+314 "Kellogg, Martin J" (1615754496)
+00:44:34.950 --> 00:44:41.430
+Okay, um, actually any questions on this, does this idea make sense the core ideas of.
+
+315 "Kellogg, Martin J" (1615754496)
+00:44:41.430 --> 00:44:47.160
+I'm assuming you all actually did read the, the hallmarks or or the reading assignment for today. So I'm not covering this in that much detail.
+
+316 "Kellogg, Martin J" (1615754496)
+00:44:52.110 --> 00:45:01.620
+All right, so let's talk about what, what makes the most similar or different than AFL, or are in general as we discussed last time. So, um.
+
+317 "Kellogg, Martin J" (1615754496)
+00:45:01.620 --> 00:45:07.080
+1st, eva's suites goal. It's the reason it's raising the extra.
+
+318 "Kellogg, Martin J" (1615754496)
+00:45:07.080 --> 00:45:11.400
+My French is horrible. Sorry it emphasizes producing human, readable test.
+
+319 "Kellogg, Martin J" (1615754496)
+00:45:11.400 --> 00:45:19.020
+Right and this is an important distinction. So you all did homework free does AFL produced human readable tests?
+
+320 "Kellogg, Martin J" (1615754496)
+00:45:19.020 --> 00:45:28.020
+No, that's okay. Okay. Uh, well, let's let's hear a little more.
+
+321 "Kellogg, Martin J" (1615754496)
+00:45:28.020 --> 00:45:31.020
+So.
+
+322 "Kellogg, Martin J" (1615754496)
+00:45:31.020 --> 00:45:35.220
+Fair that's fair. Um.
+
+323 "Kellogg, Martin J" (1615754496)
+00:45:35.220 --> 00:45:43.260
+We were also targeting AFL at a, an image library right? Afl generally, though, like, under the hood, what it's doing is is manipulating bit strings.
+
+324 "Kellogg, Martin J" (1615754496)
+00:45:43.260 --> 00:45:52.560
+Right. And so it's very difficult generally to understand what an AFL test input is doing, because it's just some random bit string and AFL. Like, this one's interesting.
+
+325 "Kellogg, Martin J" (1615754496)
+00:45:52.560 --> 00:46:12.560
+All right, it doesn't like, make a suggestion about what's interesting about it, right? By contrast like, we will try to give names to things right inside the test it generates that are we'll at least try to be sensible about them. It will attempt to write assertions in the same way that a human would it is careful about how long it's tests are so that they don't.
+
+326 "Kellogg, Martin J" (1615754496)
+00:46:12.560 --> 00:46:20.100
+Like, exceed the length of this sort of test suite that a human would write. Right? It makes decisions like this. So it has a whole set of heuristics.
+
+327 "Kellogg, Martin J" (1615754496)
+00:46:20.100 --> 00:46:26.580
+Uh, under the hood about how how to match what a human would do right?
+
+328 "Kellogg, Martin J" (1615754496)
+00:46:26.580 --> 00:46:31.920
+Um, so, uh, the other thing here and this is part of the reason that suite, uh, does this.
+
+329 "Kellogg, Martin J" (1615754496)
+00:46:31.920 --> 00:46:39.810
+That Eva is designed, like, the imagined use case for Eva suite is that you're going to use it to develop a regression test suite for a program that you happen to have.
+
+330 "Kellogg, Martin J" (1615754496)
+00:46:39.810 --> 00:46:43.530
+Right by contrast AFL is there to find bugs.
+
+331 "Kellogg, Martin J" (1615754496)
+00:46:43.530 --> 00:47:03.530
+Alright, so AFL job is, you know, given a program that's probably already pretty well tested, uh, take the existing test as a seed and then try to evolve new tests that cause the program to crash. Right? That's goal. Um, Eva sweet though, the idea, the reason that the design, the way that they expect you to use it is given some programs.
+
+332 "Kellogg, Martin J" (1615754496)
+00:47:03.530 --> 00:47:10.560
+Black, so test suite, eva's suite will go and create a test suite. It's not too much worse than what a human would have written. If a human, and written a test.
+
+333 "Kellogg, Martin J" (1615754496)
+00:47:10.560 --> 00:47:15.690
+And that's that's basically why Eva would exist. That's its purpose.
+
+334 "Kellogg, Martin J" (1615754496)
+00:47:15.690 --> 00:47:18.900
+And these are the reasons for these different design decisions, right?
+
+335 "Kellogg, Martin J" (1615754496)
+00:47:18.900 --> 00:47:29.250
+This is why you mostly care so much about writing a human readable past, because they expect you to take those and then, like, commit them to the repository and then run them on or something. Right? That's that's the intended use case here.
+
+336 "Kellogg, Martin J" (1615754496)
+00:47:29.250 --> 00:47:36.930
+And so you should keep this in mind as you're doing homework because it's the reason that eva's suites output is quite different than.
+
+337 "Kellogg, Martin J" (1615754496)
+00:47:40.080 --> 00:47:47.220
+Okay um, any questions on this. All right.
+
+338 "Kellogg, Martin J" (1615754496)
+00:47:47.220 --> 00:48:03.750
+So, then homework for you're going to be asked to use to generate test, generate test suites for our Java library. And as you do, I want you to consider a couple of things. Right? 1st, how how suite differs from AFL right? There? There is a question in the homework for about that. So, keep that in mind as you're going.
+
+339 "Kellogg, Martin J" (1615754496)
+00:48:03.750 --> 00:48:09.180
+All right, but also, um, how does Eva, we compare to the sort of test that you might write by hand.
+
+340 "Kellogg, Martin J" (1615754496)
+00:48:09.180 --> 00:48:14.850
+Right. Uh, are the tests that Eva suite is generating? Like, actually as good as the ones you would write.
+
+341 "Kellogg, Martin J" (1615754496)
+00:48:14.850 --> 00:48:21.480
+Or are they, uh, uh, another question is, are they as good as the ones that come with the program that, uh.
+
+342 "Kellogg, Martin J" (1615754496)
+00:48:21.480 --> 00:48:25.230
+That you're targeting right for a framework for.
+
+343 "Kellogg, Martin J" (1615754496)
+00:48:25.230 --> 00:48:37.230
+Um, so reading through the tab, like, maybe unlike NFL, I really do expect you to read through all the tests that that, uh, uh, the University produces here and, like, try to understand what it was trying to achieve.
+
+344 "Kellogg, Martin J" (1615754496)
+00:48:37.230 --> 00:48:42.990
+By contrast, like, for AFL, when it finds a new image, like, it's hard to tell why.
+
+345 "Kellogg, Martin J" (1615754496)
+00:48:42.990 --> 00:48:46.830
+You have to kind of guess for Eva sweet like the.
+
+346 "Kellogg, Martin J" (1615754496)
+00:48:46.830 --> 00:48:52.140
+The design goal was for you to understand it. So, the question is, do you.
+
+347 "Kellogg, Martin J" (1615754496)
+00:48:52.140 --> 00:49:05.940
+And finally, yeah does it. I mean, I guess the the final question is, does it actually achieve its goal? Right? Is it actually creating regression tests that would be useful for finding bugs? Like, try to imagine, like, if you were writing this library, what kinds of bugs might you accidentally introduce?
+
+348 "Kellogg, Martin J" (1615754496)
+00:49:05.940 --> 00:49:13.620
+Would the suite tests have caught the sorts of bugs that you could imagine a developer would write or are they going to, or not catch those bugs? Right?
+
+349 "Kellogg, Martin J" (1615754496)
+00:49:13.620 --> 00:49:17.130
+Okay, any questions here before we move on.
+
+350 "Kellogg, Martin J" (1615754496)
+00:49:17.130 --> 00:49:27.960
+Does this homework for questions? Advice makes sense. Homework for is structured pretty similar to homework. 3. like, it's the same kind of idea. You're going to run eva's suite on a program and see what it does.
+
+351 "Kellogg, Martin J" (1615754496)
+00:49:27.960 --> 00:49:39.720
+All right, and it might take a while to run less. It's much faster than you last week, though. So sorry, it's much faster than AFL. So, if you manage homework for, you should be able to manage homework for and then you'll have to answer some questions about that. But.
+
+352 "Kellogg, Martin J" (1615754496)
+00:49:44.280 --> 00:49:51.810
+Last chance for questions. Any of us wait.
+
+353 "Kellogg, Martin J" (1615754496)
+00:49:56.400 --> 00:50:05.520
+Yes, yeah, so, uh, regression test suite in general is a, a test suite that you, uh, you.
+
+354 "Kellogg, Martin J" (1615754496)
+00:50:05.520 --> 00:50:15.510
+Accumulate as the program is built to try to rule out bugs that you've seen before right? However, it also has a sort of secondary meeting for, like.
+
+355 "Kellogg, Martin J" (1615754496)
+00:50:15.510 --> 00:50:18.720
+A test suite that encodes the program's current behavior.
+
+356 "Kellogg, Martin J" (1615754496)
+00:50:18.720 --> 00:50:34.530
+All right, and the reason for that is that usually those are the same, right? Each of the bugs that occurred before is some behavior the program used to have, but now it doesn't. Right? And so the sort of regression test suites that is pretty are producing are test suites that.
+
+357 "Kellogg, Martin J" (1615754496)
+00:50:34.530 --> 00:50:46.740
+Indicate what the program currently does. Right? If the program currently has a bug suite is probably going to encode write a test case that encodes that bug as a task. That should be true. Right? That is to say, like.
+
+358 "Kellogg, Martin J" (1615754496)
+00:50:46.740 --> 00:50:49.980
+If the program currently, it produces the wrong answer for some.
+
+359 "Kellogg, Martin J" (1615754496)
+00:50:49.980 --> 00:50:58.050
+Uh, like some method, right? Uh, Eva might well write that method a call to that method and the test suite and assert that the wrong answer is the right.
+
+360 "Kellogg, Martin J" (1615754496)
+00:50:58.050 --> 00:51:01.920
+And the test will pass and Eva will say I did it.
+
+361 "Kellogg, Martin J" (1615754496)
+00:51:01.920 --> 00:51:04.950
+All right, and, uh, you know, this is a.
+
+362 "Kellogg, Martin J" (1615754496)
+00:51:04.950 --> 00:51:11.100
+This is a problem with using Eva, right? But.
+
+363 "Kellogg, Martin J" (1615754496)
+00:51:11.100 --> 00:51:23.370
+Generally, no, yeah, I mean, so you almost, I mean, it might it might catch like, a crash bugs the way that AFL might, but no, its goal is not to create a test that will fail. Its goal is to create test that currently paths.
+
+364 "Kellogg, Martin J" (1615754496)
+00:51:28.740 --> 00:51:32.430
+Any other questions.
+
+365 "Kellogg, Martin J" (1615754496)
+00:51:37.080 --> 00:51:57.080
+All right, so, um, that's all I would like to say about suite and now we're going to move on to symbolic execution. This is going to be I want to be clear a bit of a, uh, left term we're going to talk about, uh, no longer. We're no longer going to be talking about random input generation and instead we're going to talk about a very different style of input generation. Right? But 1, that, I think you should.
+
+366 "Kellogg, Martin J" (1615754496)
+00:51:57.080 --> 00:52:10.440
+Also be familiar with all right and in particular, we're going to talk about symbolic execution. So, um, we've seen coverage be used as a fitness function for a father. Right? The father's generally are trying to achieve high coverage.
+
+367 "Kellogg, Martin J" (1615754496)
+00:52:10.440 --> 00:52:23.490
+And similarly, like, Eva suite would like to achieve high coverage, it uses coverage internally, as a metric for how good test suites are. Right. It's fitness function also includes coverage Randy, you could evaluate based on coverage. And in fact, the random paper does evaluate random it that way.
+
+368 "Kellogg, Martin J" (1615754496)
+00:52:23.490 --> 00:52:31.530
+All right, so, uh, you know, all of these random testing techniques are trying to achieve high coverage. Well, what's the point of randomness.
+
+369 "Kellogg, Martin J" (1615754496)
+00:52:31.530 --> 00:52:38.280
+That's the question that symbolic execution is asking us just to say, what did we just try to figure out which inputs would improve covers directly?
+
+370 "Kellogg, Martin J" (1615754496)
+00:52:38.280 --> 00:52:43.350
+Like, for each of these uncovered pieces of code, like, let's just.
+
+371 "Kellogg, Martin J" (1615754496)
+00:52:43.350 --> 00:52:53.400
+Figure it out, do the math, right? And that's the key idea behind symbolic execution driven test generation. Right? So, the idea then, is that we're going to do is we're going to.
+
+372 "Kellogg, Martin J" (1615754496)
+00:52:53.400 --> 00:53:13.400
+Symbolically execute the program in order to find inputs that will force the program to take a particular path. Right? And I'm going to define what all of those words mean over the next few minutes. But the key idea under the hood here, is that what we're gonna do is we're gonna be looking for input to improve coverage correctly. Right? We're always going to be trying to work our way backwards from someplace that.
+
+373 "Kellogg, Martin J" (1615754496)
+00:53:13.400 --> 00:53:21.660
+Like, to cover in the code and code right by finding input that will definitely take us there.
+
+374 "Kellogg, Martin J" (1615754496)
+00:53:21.660 --> 00:53:39.330
+Okay, so symbolic execution as a general thing, this is not just for the purposes of test generation and you can use some bulk execution for other reasons. Right? What it does? Is it abstractly executes the program? Well, computing a formula for each variable. So, let me give a brief example here. Right? So suppose that we have, like, if.
+
+375 "Kellogg, Martin J" (1615754496)
+00:53:39.330 --> 00:53:50.940
+A less than 10 friends. All right so, um, 1 thing that you could do, if you wanted to print out a here, is that you could select, like, 5, and then run the program with 5.
+
+376 "Kellogg, Martin J" (1615754496)
+00:53:50.940 --> 00:54:06.060
+And then it would print file. However, what symbolic execution is going to do is instead it's going to say, uh, well, okay at the beginning, a, like, a, it can be anything right? And then, as soon as it sees, this is less than 10. it's like, okay, is less than 10 and it's just keeping that as a fact.
+
+377 "Kellogg, Martin J" (1615754496)
+00:54:06.060 --> 00:54:16.740
+Right. And it doesn't actually evaluate a, it just keeps the mathematical formula that keeps track of what A's value must be. Right so then if we add in another condition here, like, if.
+
+378 "Kellogg, Martin J" (1615754496)
+00:54:16.740 --> 00:54:24.240
+A greater than 4 right now it's going to keep track it's gonna say, well, it's less than 10 and a is greater than 4 right? And so on.
+
+379 "Kellogg, Martin J" (1615754496)
+00:54:24.240 --> 00:54:34.200
+Um, this sounds, I mean, this is easy when you have very simple programs like this, and it immediately becomes very hard. Uh, if you, if you don't.
+
+380 "Kellogg, Martin J" (1615754496)
+00:54:34.200 --> 00:54:42.540
+So, we're going to keep track of a formula for every variable right? Effectively what we're doing then, is we're using math to figure out which values of each variable we'll call it the program to take particular paths.
+
+381 "Kellogg, Martin J" (1615754496)
+00:54:42.540 --> 00:54:47.970
+So, in other words, we're going to model the program's behavior in terms of mathematical formula.
+
+382 "Kellogg, Martin J" (1615754496)
+00:54:47.970 --> 00:55:01.920
+Okay, so our plan then for testing for generating test is that we're going to select some uncovered bit of codes, some code that we'd like to execute and then we're going to symbolically execute backwards from that code to figure out what values the input variables need to take on.
+
+383 "Kellogg, Martin J" (1615754496)
+00:55:01.920 --> 00:55:07.800
+In order to allow us to cover that. So, again, taking this example, if we have print a here.
+
+384 "Kellogg, Martin J" (1615754496)
+00:55:07.800 --> 00:55:21.180
+And we'd like to cover this, we don't generate a test of all apps to print this. Suppose that we choose uh, we do decide to use a random father, not even a coverage director 1, just pure random, random input generation. How long will it take us to select this?
+
+385 "Kellogg, Martin J" (1615754496)
+00:55:21.180 --> 00:55:25.320
+Alright, I hit this and 1 of our ons there are 6 out of.
+
+386 "Kellogg, Martin J" (1615754496)
+00:55:25.320 --> 00:55:38.700
+232 right, because there are 6 inputs that will cause this program's per day and there are, uh, 232-6 inputs that will cause that are either, uh, greater than or equal to 10 or less than equal to 4.
+
+387 "Kellogg, Martin J" (1615754496)
+00:55:38.700 --> 00:55:44.970
+Yes, do we agree? Am I wrong about how many numbers there are 210? Possibly there might only be fine. Um.
+
+388 "Kellogg, Martin J" (1615754496)
+00:55:44.970 --> 00:55:57.840
+So the idea, then, is that on a program, like this symbolic execution allows to do much better what we're going to do here is, we're gonna say, okay, well, we want to print a here 1st condition is that to be greater than 4? So, we write that down. Okay. It has to be graded for.
+
+389 "Kellogg, Martin J" (1615754496)
+00:55:57.840 --> 00:56:17.520
+I'm going to step backwards again for the partner and we see. Okay, this is statements has asked. We lost some time. Then what we do is what we've done is when we reach the point where we can provide a like, the input of the program. You say, okay at this point, now we know that a is greater than 4 and is less than 10 if we want to print that and so we just choosing a, that matches that. Right? So we say a 7 and then we're good.
+
+390 "Kellogg, Martin J" (1615754496)
+00:56:17.520 --> 00:56:24.780
+Alright, so I want to understand the intuition here for what we're doing.
+
+391 "Kellogg, Martin J" (1615754496)
+00:56:24.780 --> 00:56:28.050
+Who will, uh, once we have a number.
+
+392 "Kellogg, Martin J" (1615754496)
+00:56:28.050 --> 00:56:40.050
+Excellent question. All right so I suppose that we have a formula like this greater than 4 and a less than 10. uh, how hard is it to choose a, uh, value of a that makes this formula satisfiable.
+
+393 "Kellogg, Martin J" (1615754496)
+00:56:40.050 --> 00:56:45.960
+Hmm, yes, for a human is very easy. I agree. But what if this formula has a 1Billion clauses?
+
+394 "Kellogg, Martin J" (1615754496)
+00:56:45.960 --> 00:56:59.580
+Will you, will you be able to do this? No, probably not. Right so, um, yeah, we'll we'll come back to this, but the, the answer to this question is 1 of the key limitations of symbolic execution, right?
+
+395 "Kellogg, Martin J" (1615754496)
+00:56:59.580 --> 00:57:07.080
+Any other questions, as I said, we're going to go into a lot of detail here. This is just a very high level.
+
+396 "Kellogg, Martin J" (1615754496)
+00:57:07.080 --> 00:57:27.080
+All right, let's proceed. All right, so this is the lens of logic. All right so we want to maximize coverage. Let's consider a simple example. This is not too different than the 1 that I had on the, uh, on here, but I want to go into it in a little bit more detail. Right? So here's a pretty simple program where it takes us input 6:6:anything's numbers I guess. Um, and if it has lessened.
+
+397 "Kellogg, Martin J" (1615754496)
+00:57:27.080 --> 00:57:34.170
+Does this else that right? And then, you know, Foo, bar cause okay.
+
+398 "Kellogg, Martin J" (1615754496)
+00:57:34.170 --> 00:57:37.620
+So this is the control flow graph, right?
+
+399 "Kellogg, Martin J" (1615754496)
+00:57:37.620 --> 00:57:41.790
+For this program, we've talked about control photographs. We know we know what this is right?
+
+400 "Kellogg, Martin J" (1615754496)
+00:57:41.790 --> 00:57:47.040
+Do you all agree to this? The, for the program.
+
+401 "Kellogg, Martin J" (1615754496)
+00:57:47.040 --> 00:57:53.670
+All right now, uh, how would you choose inputs that would maximize line temperature.
+
+402 "Kellogg, Martin J" (1615754496)
+00:58:01.020 --> 00:58:06.600
+What would you do? What what's the what's the formula you need to solve to to maximize line coverage?
+
+403 "Kellogg, Martin J" (1615754496)
+00:58:12.180 --> 00:58:16.440
+Jealous.
+
+404 "Kellogg, Martin J" (1615754496)
+00:58:16.440 --> 00:58:20.340
+Yeah, so you're, what you're going to end up doing is you're going to basically, like, uh.
+
+405 "Kellogg, Martin J" (1615754496)
+00:58:20.340 --> 00:58:26.160
+1 side right of each, uh, because, uh, we need to cover on both sides of, you.
+
+406 "Kellogg, Martin J" (1615754496)
+00:58:26.160 --> 00:58:38.370
+And so what that that's going to mean is we're going to have to solve something like, uh, some formula, like a less than B and C less than D and, uh, E, less than f.
+
+407 "Kellogg, Martin J" (1615754496)
+00:58:38.370 --> 00:58:43.770
+Right. And then we'll also need to solve its direct inverse where, uh, each of these is flipped. Yep.
+
+408 "Kellogg, Martin J" (1615754496)
+00:58:43.770 --> 00:58:47.040
+Right. Okay. What if we consider instead branch coverage?
+
+409 "Kellogg, Martin J" (1615754496)
+00:58:47.040 --> 00:58:50.220
+How will that change the formula we're going to have to solve.
+
+410 "Kellogg, Martin J" (1615754496)
+00:59:04.080 --> 00:59:23.160
+So, can someone remind me just what branch? Yes, it means we need to go both ways from Egypt. Uh, Egypt right? Different all from statement coverage here.
+
+411 "Kellogg, Martin J" (1615754496)
+00:59:23.160 --> 00:59:27.690
+Here no, yes, exactly the same formula, correct right?
+
+412 "Kellogg, Martin J" (1615754496)
+00:59:27.690 --> 00:59:35.730
+All right now, what about path coverage? What does the.
+
+413 "Kellogg, Martin J" (1615754496)
+00:59:44.970 --> 00:59:52.080
+Yeah, we're going to need a lot more for me. Right? Uh, because we'll need when we both basically, uh, like here we'll need to do, uh.
+
+414 "Kellogg, Martin J" (1615754496)
+00:59:52.080 --> 00:59:59.520
+Well, uh, well, basically every combination here of this, that robar and that's awesome, right? But it's going to be too.
+
+415 "Kellogg, Martin J" (1615754496)
+00:59:59.520 --> 01:00:02.610
+So 8 different ones.
+
+416 "Kellogg, Martin J" (1615754496)
+01:00:02.610 --> 01:00:09.330
+All right, so in general, if we have any material sequential or serial, if statements, right as in this example.
+
+417 "Kellogg, Martin J" (1615754496)
+01:00:09.330 --> 01:00:19.620
+Uh, there there are 2 different branches. We can cover that in 2 tests. Right? That will give us both statement and branch coverage, but so, 1 goes the last 20 years, right? It's exactly this 1:1:that we said, right?
+
+418 "Kellogg, Martin J" (1615754496)
+01:00:19.620 --> 01:00:27.750
+But to achieve path coverage, we're gonna need to cover to the end pads. Right? So, in this case, that's 8 paths because we're going to need a.
+
+419 "Kellogg, Martin J" (1615754496)
+01:00:27.750 --> 01:00:34.560
+This, Foo, Baz, this food, cause this bar bar, this bar clause, et cetera, right?
+
+420 "Kellogg, Martin J" (1615754496)
+01:00:34.560 --> 01:00:42.570
+Um, and this means like, this is 1 of the key problems in symbolic execution, it scales poorly.
+
+421 "Kellogg, Martin J" (1615754496)
+01:00:42.570 --> 01:00:51.570
+Right, the number of paths that we need to, uh, uh, cover, like, the size of these formulas is going to increase exponentially with a number of if statements in the program.
+
+422 "Kellogg, Martin J" (1615754496)
+01:00:51.570 --> 01:00:59.400
+And many programs have a lot of statements. Right? And so this is going to, uh, this is what's called the, uh, the, the problem.
+
+423 "Kellogg, Martin J" (1615754496)
+01:00:59.400 --> 01:01:03.720
+All right, and it's probably 1 of the main reasons that this technique is hit.
+
+424 "Kellogg, Martin J" (1615754496)
+01:01:03.720 --> 01:01:11.250
+All right, when we talk about practicality here in a bit, right uh, I'm going to mention that this technique was invented in the seventies, but no, 1 used it.
+
+425 "Kellogg, Martin J" (1615754496)
+01:01:11.250 --> 01:01:17.130
+And this was the main reason, right? The number of pads got way too big way too fast. Even for 170 s programs.
+
+426 "Kellogg, Martin J" (1615754496)
+01:01:17.130 --> 01:01:23.790
+Uh, for 1970 s, computers to be able to reason about right? Uh, you know, this example is only 8, but.
+
+427 "Kellogg, Martin J" (1615754496)
+01:01:23.790 --> 01:01:32.250
+You can imagine the number of paths here is extremely large, very fast, right? For real estate programs. And so even for like a unique utility, it's a huge number.
+
+428 "Kellogg, Martin J" (1615754496)
+01:01:32.250 --> 01:01:38.730
+Modern computers though are faster and bigger and have grown exponentially. Right? So, uh.
+
+429 "Kellogg, Martin J" (1615754496)
+01:01:38.730 --> 01:01:46.260
+Yeah, so we'll come back to this event, right? So we need to then test to cover all of these. Right? And that means that we're, we're searching an exponential state space.
+
+430 "Kellogg, Martin J" (1615754496)
+01:01:46.260 --> 01:01:49.770
+And Passover tiers of student branch coverage. So.
+
+431 "Kellogg, Martin J" (1615754496)
+01:01:49.770 --> 01:01:58.980
+You know, if we achieve half coverage, we're going to get branch coverage. We don't have to worry about it, but in general symbolic execution is going to be dealing with paths.
+
+432 "Kellogg, Martin J" (1615754496)
+01:01:58.980 --> 01:02:10.200
+Okay, so consider generating a test input to cover a particular path. The strategy we're going to use also. Okay if we can do that getting branch coverage as easy, right? If we can like, given a particular path.
+
+433 "Kellogg, Martin J" (1615754496)
+01:02:10.200 --> 01:02:16.710
+If we're able to then find a an input that will cover it, it will be trivial for us to get to a 100 branch coverage.
+
+434 "Kellogg, Martin J" (1615754496)
+01:02:16.710 --> 01:02:26.280
+Okay, so the key idea is that we're going to solve the problem with math, right? We're going to do some math and we're going to figure out what inputs we need to choose in order to cover a particular path. Yep.
+
+435 "Kellogg, Martin J" (1615754496)
+01:02:26.280 --> 01:02:36.750
+All right, so, um, I've already informally defined a path credit card, but a path critical is a brilliant formula over program variables. That is true when the program executes a given path.
+
+436 "Kellogg, Martin J" (1615754496)
+01:02:36.750 --> 01:02:45.750
+And so, uh, you know, for example, for our print day, example, here, the path credit is a greater than 4 and a less than 10.
+
+437 "Kellogg, Martin J" (1615754496)
+01:02:45.750 --> 01:02:50.190
+All right, so does this, this idea makes sense.
+
+438 "Kellogg, Martin J" (1615754496)
+01:02:50.190 --> 01:02:58.560
+So, if we, we can compute a comp credit for a given path and then we're able to solve it.
+
+439 "Kellogg, Martin J" (1615754496)
+01:02:58.560 --> 01:03:09.030
+We should be good, we should be able to achieve coverage. Right? And of course this is going to be, let's say, part, but, you know, this is the formula we're going to use to try to achieve this.
+
+440 "Kellogg, Martin J" (1615754496)
+01:03:09.030 --> 01:03:18.390
+Okay, so consider yeah, let's just as another example, I consider the path highlighted in pink, which is false false true through here. So what is the path to market for this?
+
+441 "Kellogg, Martin J" (1615754496)
+01:03:27.450 --> 01:03:36.180
+I know I'm wait until about half of the room, have their hands up and then select someone around.
+
+442 "Kellogg, Martin J" (1615754496)
+01:04:00.660 --> 01:04:06.090
+I think under the password again now sure go for it.
+
+443 "Kellogg, Martin J" (1615754496)
+01:04:11.880 --> 01:04:23.520
+It's, um, no, not quite right so what we're looking for is a boolean formula over the program variables. Right? So what are the program variables here?
+
+444 "Kellogg, Martin J" (1615754496)
+01:04:23.520 --> 01:04:28.620
+Those are statements. Yes, it is. The is that the.
+
+445 "Kellogg, Martin J" (1615754496)
+01:04:28.620 --> 01:04:37.140
+The letters ABCD yeah. Okay. So it's got to be a bully formula over a, a draft.
+
+446 "Kellogg, Martin J" (1615754496)
+01:04:37.140 --> 01:04:41.640
+So, you can use, uh, less than greater than.
+
+447 "Kellogg, Martin J" (1615754496)
+01:04:41.640 --> 01:04:47.490
+Greater than or equal to less than equal to you can use not and you can use an order and you can use a throughout.
+
+448 "Kellogg, Martin J" (1615754496)
+01:04:51.210 --> 01:04:54.870
+So, it could it be like.
+
+449 "Kellogg, Martin J" (1615754496)
+01:04:54.870 --> 01:04:59.370
+A left than B or C less than or.
+
+450 "Kellogg, Martin J" (1615754496)
+01:04:59.370 --> 01:05:05.220
+So, we've got a less and B or C less than D4.
+
+451 "Kellogg, Martin J" (1615754496)
+01:05:05.220 --> 01:05:10.530
+Less than a less than that. Okay, so let's consider that.
+
+452 "Kellogg, Martin J" (1615754496)
+01:05:10.530 --> 01:05:20.970
+All right, so if we have a list and D, uh, let's suppose that, uh, let's select some, let's select a satisfying assignment to this. Right? And see whether this does guarantee the path.
+
+453 "Kellogg, Martin J" (1615754496)
+01:05:20.970 --> 01:05:29.400
+So, I, I put to you this is not correct because, uh, I select 1 and 2 for Andy and then we, uh, we take the left branch here.
+
+454 "Kellogg, Martin J" (1615754496)
+01:05:29.400 --> 01:05:36.180
+Yep, yeah, but we're trying to take the right French because the path is highlighted in pink. So it doesn't it doesn't do it.
+
+455 "Kellogg, Martin J" (1615754496)
+01:05:36.180 --> 01:05:39.360
+All right oh, like it's false.
+
+456 "Kellogg, Martin J" (1615754496)
+01:05:39.360 --> 01:05:48.600
+Uh, yes, yes so that's what business? Yeah. Sorry sorry about it. Yeah. Oh, yeah. Okay.
+
+457 "Kellogg, Martin J" (1615754496)
+01:05:48.600 --> 01:05:53.070
+These are the.
+
+458 "Kellogg, Martin J" (1615754496)
+01:05:53.070 --> 01:05:56.760
+Yeah, so it has to be, uh, not right.
+
+459 "Kellogg, Martin J" (1615754496)
+01:05:56.760 --> 01:06:00.420
+Uh, not as less than B, right for a.
+
+460 "Kellogg, Martin J" (1615754496)
+01:06:00.420 --> 01:06:08.370
+And then, is it Anders or and is exactly right? It must be and if it's or that's not going to work here, right it has to be hand.
+
+461 "Kellogg, Martin J" (1615754496)
+01:06:08.370 --> 01:06:12.540
+Hey, Cindy.
+
+462 "Kellogg, Martin J" (1615754496)
+01:06:12.540 --> 01:06:27.330
+And less than half right and now this will, in fact, forced us to follow this path, right? Because not a lesson D, guarantees that anything that satisfies this will force us to go that way in this branch will have to be false. Right?
+
+463 "Kellogg, Martin J" (1615754496)
+01:06:27.330 --> 01:06:33.060
+And CEO Cindy is the same, not similar situation that is forcing us to go this way.
+
+464 "Kellogg, Martin J" (1615754496)
+01:06:33.060 --> 01:06:42.390
+And and have to go that way, right? So, the path product is going to be built out of exactly. The guards and it together.
+
+465 "Kellogg, Martin J" (1615754496)
+01:06:42.390 --> 01:06:52.710
+All right, at least when we're thinking about if statements and I think I have 1 here.
+
+466 "Kellogg, Martin J" (1615754496)
+01:06:52.710 --> 01:06:56.910
+See, the lines of phone yeah. Yeah.
+
+467 "Kellogg, Martin J" (1615754496)
+01:06:56.910 --> 01:07:10.830
+Yes, yeah so, uh, we want true here because we're going to the this direction. Uh, right. So, uh, so the, the path here is that we're going to go false false. True, right? So.
+
+468 "Kellogg, Martin J" (1615754496)
+01:07:10.830 --> 01:07:27.330
+Environment engagement is that really? Honestly no. So this mitigation only applies to the yeah, so these sorry, I guess I should erase everything. That's not relevant here. Yeah so, uh, okay, so, uh, these knots are, uh, not distributing over the, the AMS.
+
+469 "Kellogg, Martin J" (1615754496)
+01:07:34.320 --> 01:07:42.360
+I've way too many of those, so I'm going to just start giving them away. Okay. Uh, so we know the path predicate here right? There it is.
+
+470 "Kellogg, Martin J" (1615754496)
+01:07:42.360 --> 01:07:46.020
+Uh, so I guess I've distributed the ends into these, uh.
+
+471 "Kellogg, Martin J" (1615754496)
+01:07:46.020 --> 01:07:51.600
+Uh, yeah, there's, there's less than so, but this is important. These are the same.
+
+472 "Kellogg, Martin J" (1615754496)
+01:07:51.600 --> 01:07:59.700
+Um, so when the past product, it is true. Uh, control flow definitely follows the given path, right? That's the point of having a path credit card.
+
+473 "Kellogg, Martin J" (1615754496)
+01:07:59.700 --> 01:08:04.140
+And so given a, a, how do we choose a test input that we'll cover that path?
+
+474 "Kellogg, Martin J" (1615754496)
+01:08:04.140 --> 01:08:09.990
+So, if I give you this, how would you use the test input?
+
+475 "Kellogg, Martin J" (1615754496)
+01:08:09.990 --> 01:08:14.070
+I mean, as a human, as we said, it's pretty easy. Um.
+
+476 "Kellogg, Martin J" (1615754496)
+01:08:14.070 --> 01:08:23.190
+The general thing that is called is what's called a satisfying assignment, right? So, it's satisfying. Assignment is a mapping from variables to values that make some credit card. That is to say, fully formula. True.
+
+477 "Kellogg, Martin J" (1615754496)
+01:08:23.190 --> 01:08:34.410
+All right, so, uh, satisfying center for this is easy, right? Uh, you know, we need not a less than B so we'd like to and 1 and 2 and 1 and 1 and 2, right? Yeah, very easy.
+
+478 "Kellogg, Martin J" (1615754496)
+01:08:34.410 --> 01:08:40.770
+So, okay, well, I just gave 1, but there are actually a ton, right? Many, many satisfying assignments.
+
+479 "Kellogg, Martin J" (1615754496)
+01:08:40.770 --> 01:08:45.240
+About how many of the assignments to this uh.
+
+480 "Kellogg, Martin J" (1615754496)
+01:08:45.240 --> 01:08:48.630
+Uh, to this actually satisfy, uh.
+
+481 "Kellogg, Martin J" (1615754496)
+01:08:48.630 --> 01:08:56.820
+This this formula I'm looking for, like, a ratio.
+
+482 "Kellogg, Martin J" (1615754496)
+01:08:56.820 --> 01:09:00.660
+Like, 0, half all.
+
+483 "Kellogg, Martin J" (1615754496)
+01:09:00.660 --> 01:09:05.040
+Have those sound right?
+
+484 "Kellogg, Martin J" (1615754496)
+01:09:05.040 --> 01:09:10.020
+86, because Mm hmm.
+
+485 "Kellogg, Martin J" (1615754496)
+01:09:10.020 --> 01:09:30.020
+Those conditions, so 1:6:is on the right track, but it's it's not correct right? Um, it is it is 50 50%. 50% 50% is exactly right, right. There are 3 volume conditions here. And each of them has a 50, 50 chance of being true. If you choose random things. Yeah. And then you multiply them together.
+
+486 "Kellogg, Martin J" (1615754496)
+01:09:30.020 --> 01:09:36.660
+So, the chance here is 1, right? So, 9th of all random randomly chosen assignments would would make this trip.
+
+487 "Kellogg, Martin J" (1615754496)
+01:09:36.660 --> 01:09:47.490
+Right another way of thinking about this is that this is 2 ends on each end means that both of these have to be satisfied.
+
+488 "Kellogg, Martin J" (1615754496)
+01:09:47.490 --> 01:09:56.640
+But there are a lot, right? They're quite dense in this space, right? If we choose at random, we're going to get 1 pretty fast. Like, how long does it take a computer to generate 6 numbers?
+
+489 "Kellogg, Martin J" (1615754496)
+01:09:56.640 --> 01:10:08.160
+At random, like, so, so short as as to be 0, right? And how many how much is 0 times 8 like, still 0 instance if we have to computer to do this.
+
+490 "Kellogg, Martin J" (1615754496)
+01:10:08.160 --> 01:10:11.610
+Okay, so how do we find these not kind of assignments in general? No.
+
+491 "Kellogg, Martin J" (1615754496)
+01:10:11.610 --> 01:10:31.610
+Um, 1, choice is that we can ask a human, but this is a terrible plan, right? It is slow. It is labor intensive uh, humans it turns out are pretty bad at this in general. Like, it takes us a long time, and also we tend to get it wrong. Sometimes. Right it requires you to do math, right? Any task that requires a human to do math suggest to you that a computer might be better at this.
+
+492 "Kellogg, Martin J" (1615754496)
+01:10:31.610 --> 01:10:32.310
+All right.
+
+493 "Kellogg, Martin J" (1615754496)
+01:10:32.310 --> 01:10:52.310
+Okay, so then, how else might we do this? Well, another choices we could repeatedly guess randomly. Right? This is what I was suggesting before when I asked you, like, how dense is this space and this works surprisingly well, when the answers are not particularly sparks. Right? So, for this example, this would work almost instantly and I think how fast computers can come up with random numbers.
+
+494 "Kellogg, Martin J" (1615754496)
+01:10:52.310 --> 01:11:03.780
+Like, if you had to guess how many random numbers didn't like the laptop sitting in front of when you come up with each each minute, say, or each 2nd, even how many random numbers for a 2nd would you guess?
+
+495 "Kellogg, Martin J" (1615754496)
+01:11:03.780 --> 01:11:13.020
+A lot is the right answer right? Like order of magnitude like, I'm not sure, but certainly more than a 1Million probably more than a 1Billion. Right? Like, we're talking, like.
+
+496 "Kellogg, Martin J" (1615754496)
+01:11:13.020 --> 01:11:26.280
+You know, we're, we're looking at the frequency of the processor is the main limiting factor right? Um, the, the number that we can so that, uh, our odds are pretty good as long as it's not very sparse. Right? However.
+
+497 "Kellogg, Martin J" (1615754496)
+01:11:26.280 --> 01:11:36.180
+Do we think that most path credit cards are this easy to solve? Good answer? Yeah. In fact, how far do we think solving this in general? Is.
+
+498 "Kellogg, Martin J" (1615754496)
+01:11:36.180 --> 01:11:39.630
+We'll do is have to watch.
+
+499 "Kellogg, Martin J" (1615754496)
+01:11:39.630 --> 01:11:42.840
+What else.
+
+500 "Kellogg, Martin J" (1615754496)
+01:11:42.840 --> 01:11:55.800
+Yes, okay. That's too big of an answer. I'm looking for an answer that relates it to, like, some classic problem.
+
+501 "Kellogg, Martin J" (1615754496)
+01:11:55.800 --> 01:12:05.430
+So, do we think that this is about as hard as say, uh, finding is satisfying? The timing for this is about as hard as, uh, like 1st search and a graph.
+
+502 "Kellogg, Martin J" (1615754496)
+01:12:05.430 --> 01:12:10.320
+In terms of like, algorithmic complexity like, what do you think the best algorithm for doing? This is.
+
+503 "Kellogg, Martin J" (1615754496)
+01:12:10.320 --> 01:12:18.360
+Like say a big oh, of of what in the number of, let's say, pause it.
+
+504 "Kellogg, Martin J" (1615754496)
+01:12:18.360 --> 01:12:24.600
+All right, so you're, you're going to ask any other guesses okay. Or something like that.
+
+505 "Kellogg, Martin J" (1615754496)
+01:12:24.600 --> 01:12:28.830
+Slightly slightly higher than end. Okay.
+
+506 "Kellogg, Martin J" (1615754496)
+01:12:28.830 --> 01:12:37.440
+And log in, right? This is the efficiency of what what famous thing is in.
+
+507 "Kellogg, Martin J" (1615754496)
+01:12:37.440 --> 01:12:43.140
+Yeah, or quick sort or any of the other fast sort of algorithms yes. Fast sorting out rooms are in 1.
+
+508 "Kellogg, Martin J" (1615754496)
+01:12:43.140 --> 01:12:50.250
+All right, so the suggestion is that this problem finding a satisfying assignment is as hard as sorting a list of their of numbers.
+
+509 "Kellogg, Martin J" (1615754496)
+01:12:50.250 --> 01:12:54.060
+Of this similar size, anyone else have a different guys.
+
+510 "Kellogg, Martin J" (1615754496)
+01:12:58.140 --> 01:13:03.570
+All right, I'm just going to put to you that it is harder than sorting a list of numbers of similar size.
+
+511 "Kellogg, Martin J" (1615754496)
+01:13:03.570 --> 01:13:06.840
+Oh, okay.
+
+512 "Kellogg, Martin J" (1615754496)
+01:13:06.840 --> 01:13:13.380
+Why to the 6, 600.
+
+513 "Kellogg, Martin J" (1615754496)
+01:13:13.380 --> 01:13:28.650
+Okay, uh, so then, I mean, so then we actually have 2 things here, then right? There's a number of variables, which let's call that V, and there's the number of closets right? Which has the number of, uh, like, in between the, and or so we have 3 clauses here and 6 variables.
+
+514 "Kellogg, Martin J" (1615754496)
+01:13:28.650 --> 01:13:33.690
+All right, so your suggestion is that instead it's 0 of end to the E or sorry end of the V.
+
+515 "Kellogg, Martin J" (1615754496)
+01:13:33.690 --> 01:13:36.900
+Yeah, all right. How fast do we think that grows?
+
+516 "Kellogg, Martin J" (1615754496)
+01:13:36.900 --> 01:13:42.210
+Really slow, but, I mean, there's not that many like.
+
+517 "Kellogg, Martin J" (1615754496)
+01:13:42.210 --> 01:13:45.480
+So well, not in this example for a minute.
+
+518 "Kellogg, Martin J" (1615754496)
+01:13:45.480 --> 01:13:51.360
+I mean, that, like, recall when we're thinking about big over, we're analyzing, like, worst cases right?
+
+519 "Kellogg, Martin J" (1615754496)
+01:13:51.360 --> 01:14:02.970
+So, uh, like, the worst case for sorting is that the list is immense it takes up the entire memory of, like, the biggest machine in the world, right? Or the entire hard disk is the biggest machine in the world. It's terabytes of numbers long right?
+
+520 "Kellogg, Martin J" (1615754496)
+01:14:02.970 --> 01:14:08.700
+The biggest problem here, the hard problems are going to have millions or billions of clauses and millions or billions of variables.
+
+521 "Kellogg, Martin J" (1615754496)
+01:14:08.700 --> 01:14:17.760
+So this is going to scale much worse than log in because unless V is very small, this is going to scale very fast. It's exponential.
+
+522 "Kellogg, Martin J" (1615754496)
+01:14:17.760 --> 01:14:26.550
+I actually think that this is wrong. It's also, it's it's actually too, it scales too badly. Right. Uh, so I'm, I'm going to suggest that it belongs in between these 2.
+
+523 "Kellogg, Martin J" (1615754496)
+01:14:26.550 --> 01:14:31.590
+Uh, oh, enter the V is too hard. Oh, and and log in is too easy. Yeah. Yeah.
+
+524 "Kellogg, Martin J" (1615754496)
+01:14:31.590 --> 01:14:38.130
+And square all right, here's another gas that is in between those 2. why? Oh, then Square.
+
+525 "Kellogg, Martin J" (1615754496)
+01:14:38.130 --> 01:14:50.340
+So, let's let's I want to dig into that idea more. Right? What's the naive solution to this?
+
+526 "Kellogg, Martin J" (1615754496)
+01:15:05.820 --> 01:15:13.920
+Yeah, so let's draw on the table for that. Right? Let's, uh, let's assign variables to these 3. all right, we'll call them. Uh, and right.
+
+527 "Kellogg, Martin J" (1615754496)
+01:15:13.920 --> 01:15:18.060
+And these are bullets. All right so then we've got a table that's a.
+
+528 "Kellogg, Martin J" (1615754496)
+01:15:18.060 --> 01:15:24.150
+P. Q. and R. P. Q. and R. right this is the kind of thing you're looking at.
+
+529 "Kellogg, Martin J" (1615754496)
+01:15:24.150 --> 01:15:29.790
+Anything anything? Yeah. Okay. So this is good. We need a truth table here. Right? But.
+
+530 "Kellogg, Martin J" (1615754496)
+01:15:29.790 --> 01:15:33.690
+I don't think that this table is big enough.
+
+531 "Kellogg, Martin J" (1615754496)
+01:15:33.690 --> 01:15:38.430
+All right in fact, I don't think that this should have 9 elements.
+
+532 "Kellogg, Martin J" (1615754496)
+01:15:38.430 --> 01:15:48.540
+I think you should have 8 because I think that each P. Q and R. S. a dimension.
+
+533 "Kellogg, Martin J" (1615754496)
+01:15:48.540 --> 01:15:54.540
+Because each of them can be true or false right? And we need to check all possible combinations of the truth and the pulses.
+
+534 "Kellogg, Martin J" (1615754496)
+01:15:54.540 --> 01:16:00.420
+You know, just to solve the Boolean part of this, that doesn't even answer the question of L. A. B. less than B.
+
+535 "Kellogg, Martin J" (1615754496)
+01:16:00.420 --> 01:16:08.190
+All right, that's just to solve the billing question right? And that's going to be exponential number of clauses in particular. It's 2 to the active.
+
+536 "Kellogg, Martin J" (1615754496)
+01:16:08.190 --> 01:16:16.140
+Or, and it's the number of clauses right? And the bad news for everyone here is that this is the best 1 algorithm.
+
+537 "Kellogg, Martin J" (1615754496)
+01:16:16.140 --> 01:16:34.080
+I mean, you know, you can do better than, like, check all combinations you can check them all in a, in a clever way, but no matter what you do, you will have to check all combinations in order to check up. The thing is satisfiable, this is a classic result in, and you should recognize bullying satisfiability right away. Right this is the complete problem.
+
+538 "Kellogg, Martin J" (1615754496)
+01:16:34.080 --> 01:16:38.280
+Like, the 1 that they proved was MP complete to make NP complete a class.
+
+539 "Kellogg, Martin J" (1615754496)
+01:16:38.280 --> 01:16:42.300
+Right. Uh, Boolean satisfiability is extremely, extremely famous.
+
+540 "Kellogg, Martin J" (1615754496)
+01:16:42.300 --> 01:16:58.410
+Right and it is known to be very, very hard. All right so this problem is hard right? And again, we we aren't even considering, like, if this problem is extremely hard, if we don't even consider the problem of solving C less than D. right. These are linear, linear equations and variables.
+
+541 "Kellogg, Martin J" (1615754496)
+01:16:58.410 --> 01:17:04.200
+But these could be arbitrary, arbitrarily complex program expressions too. Right? What's in? Here is whatever's in the.
+
+542 "Kellogg, Martin J" (1615754496)
+01:17:04.200 --> 01:17:24.200
+How hard is it to solve an garden in general surprised that's also William satisfiability. All right. Or at least as far as building satisfiability right? So we'll come back to this again but in general, this is going to be very difficult. We're like their entire branches of math dedicated to building faster, uh, ways of solving these kinds of things. And in particular that's what automated Huron prefers too, right?
+
+543 "Kellogg, Martin J" (1615754496)
+01:17:24.200 --> 01:17:34.560
+So, if you've ever heard of something like Matlab or well, from alpha or Mathematica, or, um, all of these are our care improvers right? Uh, under the hood, they are trying to solve problems approximately as difficult as this.
+
+544 "Kellogg, Martin J" (1615754496)
+01:17:34.560 --> 01:17:41.070
+Right that's what they all try to do. Okay so, uh, for restricted positive equations right? Uh, later, but not.
+
+545 "Kellogg, Martin J" (1615754496)
+01:17:41.070 --> 01:17:54.960
+We're calling them et cetera. Right? This is totally doable. Right? In practice like, something like, can solve, like, uh, say, a 1Billion clause formula and, uh, I mean, if you're lucky under 30 seconds, but, uh.
+
+546 "Kellogg, Martin J" (1615754496)
+01:17:54.960 --> 01:17:58.170
+Like, in general, this is actually an incredibly difficult problem.
+
+547 "Kellogg, Martin J" (1615754496)
+01:17:58.170 --> 01:18:02.220
+Okay, any questions.
+
+548 "Kellogg, Martin J" (1615754496)
+01:18:10.590 --> 01:18:29.130
+All right, we'll come back to this. Um, we're going to talk about, uh, your improvers and particularly part of, which is the kind of field that you used to solve a, an equation like this, um, in week, 14, which is, I think, the 2nd, to last week of the class. Um, I'll, I'll have a whole lecture on on what, like, how they work and how you might consider using them. Well, this is 1 of the reasons that you would use 1. now.
+
+549 "Kellogg, Martin J" (1615754496)
+01:18:29.130 --> 01:18:48.150
+These are the 3 answers we have, right? Because unfortunately, we can't really do better than guest randomly or use an automated their improver because the problem is so hard. Right? Guess randomly works. Okay. If answers are not sparse. If answers are sparse. Our best bet is a fear improver and if the therapy doesn't work, then bad news, there's not much we can do.
+
+550 "Kellogg, Martin J" (1615754496)
+01:18:48.150 --> 01:18:54.840
+Okay um, so let's move, let's move past that so I.
+
+551 "Kellogg, Martin J" (1615754496)
+01:18:54.840 --> 01:19:10.560
+Let's let's consider suppose that we can solve this problem. Our is going to do a good job. Right? And then consider generating hybrid coverage test for Amanda. How are we going to do it? Well, the high level plan is going to be enumerate all the paths in the method right then collects the path credit card.
+
+552 "Kellogg, Martin J" (1615754496)
+01:19:10.560 --> 01:19:17.520
+And then solve the path credit card and that gives us a test. Right? So this is a 3 tasks.
+
+553 "Kellogg, Martin J" (1615754496)
+01:19:17.520 --> 01:19:23.130
+I'm going to go through each of them in term. We've already talked about how hard it is to solve the path. Credit card. The answer is.
+
+554 "Kellogg, Martin J" (1615754496)
+01:19:23.130 --> 01:19:30.450
+Very hard to do. Is you, uh, do we think enumerated will pass or collecting? The pathway is going to be easy?
+
+555 "Kellogg, Martin J" (1615754496)
+01:19:35.940 --> 01:19:40.050
+What I asked the question if it was sorry go ahead.
+
+556 "Kellogg, Martin J" (1615754496)
+01:19:43.890 --> 01:19:50.250
+So so, for the, I've drawn so far, I think that's true. Right. Certainly the have drawn today, but as we'll see.
+
+557 "Kellogg, Martin J" (1615754496)
+01:19:50.250 --> 01:19:55.320
+Yeah, well it turns out that some programs that have infinitely many paths, right?
+
+558 "Kellogg, Martin J" (1615754496)
+01:19:55.320 --> 01:20:04.200
+Um, in particular, uh, loops exist and they're going to cause us all kinds of problems that we haven't yet dealt with.
+
+559 "Kellogg, Martin J" (1615754496)
+01:20:04.200 --> 01:20:09.690
+All right, so if we can do all of these things, then, uh, a solution, uh.
+
+560 "Kellogg, Martin J" (1615754496)
+01:20:09.690 --> 01:20:22.110
+To a temporary list, and it's the text input that will guarantee a lot to allow us to cover, uh, that path. We can enumerate all the paths. Then we have guaranteed 100% half coverage. Right? Totally going to work.
+
+561 "Kellogg, Martin J" (1615754496)
+01:20:22.110 --> 01:20:42.110
+And so this, this high level idea is the idea of what we're gonna do in symbolic execution right? The reason it's symbolic execution is not like the thing that everyone does all the time is that all of these steps are very difficult. And so we have to be approximate, we're approximating all the time and sometimes they fail. Right? And it's very expensive. So symbolic execution works very well.
+
+562 "Kellogg, Martin J" (1615754496)
+01:20:42.110 --> 01:20:52.890
+If you happen to be able to get past all the obstacles, right? Or you're in a situation where you can afford to get past all of the obstacles, because you can throw many machines at the problem. Right? But.
+
+563 "Kellogg, Martin J" (1615754496)
+01:20:52.890 --> 01:21:00.870
+It is not the, not used every day because these, these tasks are actually in practice extraordinarily difficult.
+
+564 "Kellogg, Martin J" (1615754496)
+01:21:00.870 --> 01:21:08.100
+Okay, so yeah um, if we don't find a satisfying assignment, there's a lot of possible reasons, right? It might be that the code couldn't be reached.
+
+565 "Kellogg, Martin J" (1615754496)
+01:21:08.100 --> 01:21:14.850
+Right like some pads and programs are infeasible, they could be dead code. The predicate could be too hard for your solver. Right? Um.
+
+566 "Kellogg, Martin J" (1615754496)
+01:21:14.850 --> 01:21:17.910
+And there are lots of other lots of other possibilities.
+
+567 "Kellogg, Martin J" (1615754496)
+01:21:17.910 --> 01:21:21.600
+In that case, um, yeah, so, uh.
+
+568 "Kellogg, Martin J" (1615754496)
+01:21:21.600 --> 01:21:25.500
+In that case, we're going to have to give up right? And that's where a symbolic execution is going to fill.
+
+569 "Kellogg, Martin J" (1615754496)
+01:21:25.500 --> 01:21:33.930
+All right, so, um, going back to the enumerate all pads, what could go wrong with enumerating all the Pats in a method we've already hinted at this.
+
+570 "Kellogg, Martin J" (1615754496)
+01:21:33.930 --> 01:21:38.640
+Uh, we could run out of memory because there are many yes.
+
+571 "Kellogg, Martin J" (1615754496)
+01:21:38.640 --> 01:21:42.990
+There could be infinite number. Yeah, so there could be infinite number is the core reason.
+
+572 "Kellogg, Martin J" (1615754496)
+01:21:42.990 --> 01:21:48.540
+I don't remember if I've started candy back there yet. If not give it your friend um.
+
+573 "Kellogg, Martin J" (1615754496)
+01:21:48.540 --> 01:21:56.970
+Yes, so there could be an infinite number and this is the key problem, right? So, if you look at, uh, you know, even a very simple control graph like this 1, and only have 3 edits.
+
+574 "Kellogg, Martin J" (1615754496)
+01:21:56.970 --> 01:22:16.970
+Uh, how many tabs are well, I can go over here and you are on this loop and then I move over here and then go around this list and, you know, I keep doing that all day you all will be tracking people, right? And if you are 90, we attempt to enumerate all the past that's what's going to happen. Right? Uh, if you just like, for all the, and then say, uh, go over all the paths, uh, you're going to run for.
+
+575 "Kellogg, Martin J" (1615754496)
+01:22:16.970 --> 01:22:21.420
+All right, the 1st loop your encounter, you will go around over and over again. Okay.
+
+576 "Kellogg, Martin J" (1615754496)
+01:22:21.420 --> 01:22:28.350
+Is this like, Justin in using things like that?
+
+577 "Kellogg, Martin J" (1615754496)
+01:22:28.350 --> 01:22:33.210
+Morning.
+
+578 "Kellogg, Martin J" (1615754496)
+01:22:33.210 --> 01:22:37.380
+If it was in a program.
+
+579 "Kellogg, Martin J" (1615754496)
+01:22:37.380 --> 01:22:40.650
+Uh, don't me, so.
+
+580 "Kellogg, Martin J" (1615754496)
+01:22:40.650 --> 01:22:52.500
+Over 5 that they prefer to go like, if a is like a mid, it's so, uh, eventually.
+
+581 "Kellogg, Martin J" (1615754496)
+01:22:52.500 --> 01:22:58.740
+That's a fair point if a, and B are certain registers, right? But you can construct data types that, uh.
+
+582 "Kellogg, Martin J" (1615754496)
+01:22:58.740 --> 01:23:06.090
+Store infinitely large values by allocating more and more memory. You're right that in principle, like, eventually you'll run out of memory and the computer will fall over.
+
+583 "Kellogg, Martin J" (1615754496)
+01:23:06.090 --> 01:23:16.050
+Right but if, you know, you could imagine a system that continues to add more memory as it runs out. So, but, yes, this is certainly an in theory problem, right? Like.
+
+584 "Kellogg, Martin J" (1615754496)
+01:23:16.050 --> 01:23:36.050
+It's in theory problem though, that has real world consequences. The real world consequences that a naive implementation of this strategy is not going to work. We're going to need to do something clever because otherwise we're going to explore even if we have to even if we look for 232 tabs here, I'll definitely be really boring. Right we're not going to find anything of that. Right? So we want to do something.
+
+585 "Kellogg, Martin J" (1615754496)
+01:23:36.050 --> 01:23:43.740
+Here because we don't want to have to do all of our analysis over, like, pads that are basically the same.
+
+586 "Kellogg, Martin J" (1615754496)
+01:23:43.740 --> 01:24:00.750
+Okay, so, yeah, so just to make this this concrete, like, 1 path corresponds to executing the loop once another twice, 3 times, et cetera right? Just over and over and over again. Yeah. Okay. So, what we're gonna do instead is we're going to do approximation. Right? We're going to in some way.
+
+587 "Kellogg, Martin J" (1615754496)
+01:24:00.750 --> 01:24:12.570
+Uh, estimate, uh, like, do do some kind of estimation that's going to not quite be correct right? It's going to skip some paths, but is going to get the most interesting ones. There are a couple of different approaches.
+
+588 "Kellogg, Martin J" (1615754496)
+01:24:12.570 --> 01:24:26.910
+So 1 thing that we could do is that we could consider only basic, like paths right? That is to say, uh, like, effectively for each loop, only considered, uh, like, if the guard is false, or if the guard is true and don't consider if the guard is true twice. Right?
+
+589 "Kellogg, Martin J" (1615754496)
+01:24:26.910 --> 01:24:36.510
+Um, we could consider only taking each loop at most K times for some Kay, this is a quite common choice. So it's actually quite common to choose case 3 or case.
+
+590 "Kellogg, Martin J" (1615754496)
+01:24:36.510 --> 01:24:43.320
+For a similar execution engine, right? Because that corresponds to like, 4 paths per loop, which is a pretty manageable amount. Right?
+
+591 "Kellogg, Martin J" (1615754496)
+01:24:43.320 --> 01:25:02.580
+We could also if this will, there we go. All right we could enumerate pads breadth or depth 1st and stop after some number number K of pads have been enumerated. This is generally considered a bad plan, because it will go around it around the same loop. If you're going depth. 1st right breath. 1st can work better.
+
+592 "Kellogg, Martin J" (1615754496)
+01:25:02.580 --> 01:25:12.030
+Um, or we could concretely execute the program and see what it does and we'll discuss this later today when we come back to their from testing, it has a, a way to solve.
+
+593 "Kellogg, Martin J" (1615754496)
+01:25:12.030 --> 01:25:18.330
+This problem in some block distribution. All right. Um, so.
+
+594 "Kellogg, Martin J" (1615754496)
+01:25:18.330 --> 01:25:23.520
+I, that's just enumerating pounds. Now. Let's consider the problem of collecting the path credit.
+
+595 "Kellogg, Martin J" (1615754496)
+01:25:23.520 --> 01:25:33.510
+Okay, so suppose then we, uh, we've selected a path where we've successfully enumerated all the pads and now we're salt we're going to try to collect the path part of it for 1.
+
+596 "Kellogg, Martin J" (1615754496)
+01:25:33.510 --> 01:25:46.290
+What could go wrong and for this program on the right it's pretty easy. Right? Can you imagine a situation in a more realistic program? We're collecting the path. Predicate might actually present some difficulty.
+
+597 "Kellogg, Martin J" (1615754496)
+01:25:57.240 --> 01:26:00.810
+If there's a loop, why would it make it hard to collect the path? Right again?
+
+598 "Kellogg, Martin J" (1615754496)
+01:26:14.310 --> 01:26:20.010
+I just got it.
+
+599 "Kellogg, Martin J" (1615754496)
+01:26:20.010 --> 01:26:36.090
+Yeah, so that will be more difficult, but in general, we're going to be able to get around that problem I think. All right. So don't don't get me wrong. Like loops caused a lot of problems for symbolic execution. But that is not really at least not 1 of the well known ones.
+
+600 "Kellogg, Martin J" (1615754496)
+01:26:36.090 --> 01:26:47.130
+I think, I mean, I haven't personally implemented a symbolic execution engine so I, I guess, I don't know it's possible that this is a tricky thing that everyone just easily solves but, uh.
+
+601 "Kellogg, Martin J" (1615754496)
+01:26:47.130 --> 01:26:50.520
+As far as I know this is not a known bottleneck.
+
+602 "Kellogg, Martin J" (1615754496)
+01:26:56.910 --> 01:27:02.190
+Think of it this way. Um, so far I've, I've told you that these are just input.
+
+603 "Kellogg, Martin J" (1615754496)
+01:27:02.190 --> 01:27:10.860
+The like c's and d's and A's and B's right? What if these are something that is difficult to control.
+
+604 "Kellogg, Martin J" (1615754496)
+01:27:10.860 --> 01:27:21.630
+Like, for example, what's what's something that's hard for you to control? Random excellent example? Like, if 1 of these is a coin flip, how are you going to produce a path product for it?
+
+605 "Kellogg, Martin J" (1615754496)
+01:27:21.630 --> 01:27:25.140
+Can you control the the way in which the coin lands?
+
+606 "Kellogg, Martin J" (1615754496)
+01:27:25.140 --> 01:27:39.150
+I mean, maybe maybe, right if it's a Super random number generator that the operating system controls, maybe you can, like, s, trace it and, you know, replace you dev, random with always 1 and something. Something something right but it's also possible for that to be like a call to some sensor.
+
+607 "Kellogg, Martin J" (1615754496)
+01:27:39.150 --> 01:27:50.040
+I like it calls the, that's, I mean, yes, you can again, you can s, trace it and you can go and you can replace the sensor with a deterministic thing and it's a yes, there are some things you can do that right?
+
+608 "Kellogg, Martin J" (1615754496)
+01:27:50.040 --> 01:28:01.260
+Oh, there are other stuff that might also be a pain, right? So, in general, the big problem here is going to be the path. Predicate might not be expressible in terms of inputs that we control. All right.
+
+609 "Kellogg, Martin J" (1615754496)
+01:28:01.260 --> 01:28:11.100
+And this is going to mean that if we want to do this effectively, we're going to need to control the operating system. And that is going to be a pain. All right when we discussed, uh.
+
+610 "Kellogg, Martin J" (1615754496)
+01:28:11.100 --> 01:28:15.600
+Tracing, and, like, how system calls or the, you know, sort of the core of.
+
+611 "Kellogg, Martin J" (1615754496)
+01:28:15.600 --> 01:28:27.600
+How to do this? Right? This is going to be you're gonna have to do that right? If you want to do symbolic execution, effectively, you're going to need to, like, have total control of the operating system and be in charge of the kernel and be able to replace colonel modules. It will.
+
+612 "Kellogg, Martin J" (1615754496)
+01:28:27.600 --> 01:28:44.610
+Right, yes, you can do that. Right but is it easy? No. Well, your employer founded it almost certainly. So, in general, this is going to be a practical problem for actually deploying a symbolic execution engine. Right? So that a classic example of this is like, we read these 2 things from a URL.
+
+613 "Kellogg, Martin J" (1615754496)
+01:28:44.610 --> 01:28:49.950
+Let me check with with this, right? We don't control it to the other end of the URL. Right?
+
+614 "Kellogg, Martin J" (1615754496)
+01:28:49.950 --> 01:28:54.570
+So, if we're going to actually, uh, express this, we're going to have to either.
+
+615 "Kellogg, Martin J" (1615754496)
+01:28:54.570 --> 01:29:04.800
+It control those URLs, unlikely to occur in the real world, or we're going to have to replace the network driver and make it instead respond with specific. Like, we're gonna have to mock it. Basically.
+
+616 "Kellogg, Martin J" (1615754496)
+01:29:04.800 --> 01:29:10.920
+All right, and, uh, we're gonna have to do that for everything in the program that is not accessible to this unblock execution engine.
+
+617 "Kellogg, Martin J" (1615754496)
+01:29:10.920 --> 01:29:25.650
+Does that mean to our symbolic execution engine if it wants to work on arbitrary programs, it's going to be extraordinarily complicated and it's also going to have, uh, have to have low level, uh, detailed but every little bit of the architecture of the system, which means it's gonna be very platform specific.
+
+618 "Kellogg, Martin J" (1615754496)
+01:29:25.650 --> 01:29:39.840
+Right. And so that's part of the reason that there is no homework assignment that requires you to run a symbolic execution tool because as much fun as it is to run AFL, most symbolic execution engines are about twice as long.
+
+619 "Kellogg, Martin J" (1615754496)
+01:29:39.840 --> 01:29:43.980
+For some value of funds. All right.
+
+620 "Kellogg, Martin J" (1615754496)
+01:29:43.980 --> 01:29:49.500
+Okay, so that's the choosing the path right? To get. All right yeah.
+
+621 "Kellogg, Martin J" (1615754496)
+01:29:49.500 --> 01:29:52.530
+Yeah, yeah, yeah yeah, this is the same thing that we've already set.
+
+622 "Kellogg, Martin J" (1615754496)
+01:29:52.530 --> 01:30:01.470
+Okay, so when we cannot solve for a particular path particle, what can we do instead?
+
+623 "Kellogg, Martin J" (1615754496)
+01:30:01.470 --> 01:30:05.460
+Is there anything that's in the.
+
+624 "Kellogg, Martin J" (1615754496)
+01:30:05.460 --> 01:30:09.690
+I mean, if we like.
+
+625 "Kellogg, Martin J" (1615754496)
+01:30:09.690 --> 01:30:21.720
+Uh, we don't know what the inputs are gonna be, right because we have, like, this is a path, right? It's let's, you know, an equation like this 1. we can't figure out what the answer is. We can't find an assignment to it. What do we do.
+
+626 "Kellogg, Martin J" (1615754496)
+01:30:21.720 --> 01:30:26.070
+Hey.
+
+627 "Kellogg, Martin J" (1615754496)
+01:30:26.070 --> 01:30:30.690
+Yeah, I mean, we could try that for a while. Suppose that doesn't work either.
+
+628 "Kellogg, Martin J" (1615754496)
+01:30:30.690 --> 01:30:36.180
+It's always false and.
+
+629 "Kellogg, Martin J" (1615754496)
+01:30:36.180 --> 01:30:40.800
+That's 1 technique right? Does that destroy any guarantees that we might otherwise have had.
+
+630 "Kellogg, Martin J" (1615754496)
+01:30:40.800 --> 01:30:46.830
+Yeah, well.
+
+631 "Kellogg, Martin J" (1615754496)
+01:30:46.830 --> 01:30:51.990
+Guarantee that you're.
+
+632 "Kellogg, Martin J" (1615754496)
+01:30:51.990 --> 01:31:04.020
+Yes, right so now we are not going to get to 100% pass coverage. However right? Let's keep in mind. We can, we can still ignore the problem. Right? Ignoring the problem is the standard strategy here. Right?
+
+633 "Kellogg, Martin J" (1615754496)
+01:31:04.020 --> 01:31:10.320
+Part of the reason that this is okay is this phrase from our friend.
+
+634 "Kellogg, Martin J" (1615754496)
+01:31:10.320 --> 01:31:14.520
+Hello uh, this picture no come on. Yeah, there he is.
+
+635 "Kellogg, Martin J" (1615754496)
+01:31:14.520 --> 01:31:24.570
+Yes, our friend extra, right? Let's go through the presence of bugs, but not their absence. Right? If we're doing test generation, we're not trying to actually cover all paths. We know it's feasible.
+
+636 "Kellogg, Martin J" (1615754496)
+01:31:24.570 --> 01:31:31.650
+Right, no, there's no way for us to actually achieve that. And this is like, really this path, critical problem. It's just another way of expressing with that.
+
+637 "Kellogg, Martin J" (1615754496)
+01:31:31.650 --> 01:31:37.170
+All right, if we're going to try to find input to cover everything to the program, we're not we're probably not going to be.
+
+638 "Kellogg, Martin J" (1615754496)
+01:31:37.170 --> 01:31:54.240
+Right like, yes effectively some block execution is like a generalization of trying to do exhaustive testing over the entire input space in the perfect. That's what it is. Right? So, like, execution fundamentally is there's like a, a way of formalizing, what testing means and doing exhaustive testing in an automated manner and it doesn't work.
+
+639 "Kellogg, Martin J" (1615754496)
+01:31:54.240 --> 01:31:59.009
+Right like, you can't always win, uh, doing it because it was right.
+
+640 "Kellogg, Martin J" (1615754496)
+01:31:59.009 --> 01:32:03.959
+Testing is not going to allow us to solve, like, to show the the.
+
+641 "Kellogg, Martin J" (1615754496)
+01:32:03.959 --> 01:32:16.139
+Absence of books, there's just, there's no way we're going to achieve that unless we're able to do exhaustive testing and symbolic execution demonstrates to us like the, the problems we encounter and symbolic execution to demonstrate to us. Exactly why.
+
+642 "Kellogg, Martin J" (1615754496)
+01:32:16.139 --> 01:32:20.369
+Right. Okay. Um, any questions about this.
+
+643 "Kellogg, Martin J" (1615754496)
+01:32:20.369 --> 01:32:31.229
+There's no guarantee sorry.
+
+644 "Kellogg, Martin J" (1615754496)
+01:32:31.229 --> 01:32:42.449
+Yeah, the typical strategy is just ignore the problem, right? Like, if if we attempt to solve a and we fail for whatever reason.
+
+645 "Kellogg, Martin J" (1615754496)
+01:32:42.449 --> 01:32:48.149
+Hey, we're not going to get a guarantee anyway.
+
+646 "Kellogg, Martin J" (1615754496)
+01:32:48.149 --> 01:32:56.219
+So, we're going to do something best effort, right? So we'll collect the path predicates as best as we can. And we will ask this over to find a solution in terms of the input variables.
+
+647 "Kellogg, Martin J" (1615754496)
+01:32:56.219 --> 01:33:00.749
+And if it can't, because the math is too hard, we don't control the input for whatever reason we give up.
+
+648 "Kellogg, Martin J" (1615754496)
+01:33:00.749 --> 01:33:19.319
+And this is in practice, how these kind of tools work, right? So, if you try it to, you know, if you break out clean or something, which I'll mentioned exactly what that means in a minute, I'm going to break it by. And I find I use it to generate test inputs. It's going to generate something for sure. And it's all somehow predicates and it's, you know, going to be able to do that.
+
+649 "Kellogg, Martin J" (1615754496)
+01:33:19.319 --> 01:33:23.729
+But it will never cover everything in practice for real programs.
+
+650 "Kellogg, Martin J" (1615754496)
+01:33:23.729 --> 01:33:35.399
+Because of the problems, and so it's all 1st, from the same, despite the very mathematical nature of this technique under the hood it suffers from the exact same kinds of problems that, uh.
+
+651 "Kellogg, Martin J" (1615754496)
+01:33:35.399 --> 01:33:39.359
+Other testing techniques cover from suffer from, which is that.
+
+652 "Kellogg, Martin J" (1615754496)
+01:33:39.359 --> 01:33:45.959
+Some of the times he misses problems, right? All right.
+
+653 "Kellogg, Martin J" (1615754496)
+01:33:45.959 --> 01:33:54.329
+All right, so once again, uh, this is the general test input, uh, generation plan for a single execution, right? We're not trying to integrate all the paths.
+
+654 "Kellogg, Martin J" (1615754496)
+01:33:54.329 --> 01:34:02.519
+Probably will not sometimes we will have to, uh, truncate moves or only go around 3 times or something like this. Right? And so then somehow that will not integrate.
+
+655 "Kellogg, Martin J" (1615754496)
+01:34:02.519 --> 01:34:07.649
+We're going to try to collect the path credit card, but some of the time we're going to fail, it's not expressible in terms of input variables.
+
+656 "Kellogg, Martin J" (1615754496)
+01:34:07.649 --> 01:34:14.729
+Or, uh, you know, we don't happen to have a way to control, you know, the network driver on this particular machine so we can come up right?
+
+657 "Kellogg, Martin J" (1615754496)
+01:34:14.729 --> 01:34:30.749
+Oh, and then we're going to try to solve the path. Right? But some of the time we're gonna fail to solve that pretty good. And, uh, we're not going to be able to express that. Right? And so if we find a satisfying to sign into credit card, then we know that we have a testing. Right? And that test input is useful right?
+
+658 "Kellogg, Martin J" (1615754496)
+01:34:30.749 --> 01:34:34.079
+But we don't find 1 we're going to give them.
+
+659 "Kellogg, Martin J" (1615754496)
+01:34:34.079 --> 01:34:42.809
+So, um, this technique overall, uh, does have some pretty important advantages. Um.
+
+660 "Kellogg, Martin J" (1615754496)
+01:34:42.809 --> 01:34:46.259
+Okay, so yeah, yeah. Okay. Stop.
+
+661 "Kellogg, Martin J" (1615754496)
+01:34:46.259 --> 01:34:57.809
+There we go. Yeah, so, actually, I should have gone on to this slide when I just got up to the whiteboard there, because it says exactly what I just said, right? Enumerate some pads, extract those path constraints as best. We can solve those path constraints and.
+
+662 "Kellogg, Martin J" (1615754496)
+01:34:57.809 --> 01:35:02.429
+Uh, give up if we fail right? So, that's that's what we're going to generally do. Yeah.
+
+663 "Kellogg, Martin J" (1615754496)
+01:35:02.429 --> 01:35:08.459
+Um, any questions about this general technique before I move on to talk about, like, it's practicality.
+
+664 "Kellogg, Martin J" (1615754496)
+01:35:13.139 --> 01:35:29.699
+Okay, so, then, uh, in practice, um, I mentioned earlier that some authentication wasn't mentioned in the seventies. Like, uh, you know, lots of good ideas were mentioned in the 70 s, most of them just not working in 70. S and many of them don't work out. But at the time gear, improvers could rarely solve credits in general. Like, they couldn't even solve, like, things like this in a reasonable amount of time.
+
+665 "Kellogg, Martin J" (1615754496)
+01:35:29.699 --> 01:35:48.269
+And then the available hardware connection, very, very few paths. Right. Um, but, uh, those 2 problems are generally no longer, uh, right. So monitoring to handle the 1st problem. Right? And, as I said, we'll talk in more detail about those in several weeks. So, I'm gonna go through it. I think I've been assigned in the slides here to talk about it a little bit.
+
+666 "Kellogg, Martin J" (1615754496)
+01:35:48.269 --> 01:35:52.289
+And the 2nd problem is less relevant Moore's law. I know Moore's laws.
+
+667 "Kellogg, Martin J" (1615754496)
+01:35:52.289 --> 01:36:06.569
+Most of you the thing, I have more slides on that as well. Okay. So then let's let's go through these 2 things. These 2 reasons that symbolic execution is more practical now. Right? So what is an folder? Right? So path predicates I've been using today are mostly Boolean formulas.
+
+668 "Kellogg, Martin J" (1615754496)
+01:36:06.569 --> 01:36:17.999
+We've already talked through a lot of this, because I stopped in the middle right. To discuss this, but I just want to go through here and, you know, formalized some of this and have it in the slides. Um, how hard is it to check the building formulas? satisfiable.
+
+669 "Kellogg, Martin J" (1615754496)
+01:36:17.999 --> 01:36:23.489
+We've already we've already gone over the answer today, but just remind us someone.
+
+670 "Kellogg, Martin J" (1615754496)
+01:36:23.489 --> 01:36:27.449
+Hard NP complete? Yes. Pardon? Completely over here?
+
+671 "Kellogg, Martin J" (1615754496)
+01:36:27.449 --> 01:36:39.449
+Yes, this NB complete. It is the classic MP complete problem. All right the original definition of MP completeness is that it's as hard as building and satisfiability and no harder.
+
+672 "Kellogg, Martin J" (1615754496)
+01:36:39.449 --> 01:36:49.769
+Okay, so, in practice path, predicates also include other kinds of expressions besides. Right these examples are emblematic. Like, when this is linear is less than B is some right.
+
+673 "Kellogg, Martin J" (1615754496)
+01:36:49.769 --> 01:36:56.879
+But also, uh, they're going to do things like, checking whether a pointer is NRL are checking with our particular array and hand in particular value or something else. Right?
+
+674 "Kellogg, Martin J" (1615754496)
+01:36:56.879 --> 01:37:00.389
+Doing a bit better map, right? There's all kinds of stuff right?
+
+675 "Kellogg, Martin J" (1615754496)
+01:37:00.389 --> 01:37:08.099
+And so just solving a set formula satisfying, but bullying satisfiability is actually not enough.
+
+676 "Kellogg, Martin J" (1615754496)
+01:37:08.099 --> 01:37:28.099
+Right and so, in the modern era, and s. M. T solvers the way that you would approach this and it's a generalization of a SaaS offer that is to say, it's a generalized generalization or a satisfiability solver that has a, a mix of a satisfiability solver. And then what are called, quote, unquote theory, specific solvers to solve equations like a less than B, or X is not able to.
+
+677 "Kellogg, Martin J" (1615754496)
+01:37:28.099 --> 01:37:30.959
+Or other things like this, right? Um.
+
+678 "Kellogg, Martin J" (1615754496)
+01:37:30.959 --> 01:37:50.959
+So, the classic theories are the theories of strings, theories of linear arthritic theories, not interpret what functions there is a bit vector arithmetic like things like this. The essence, essentially solver generally will build it in a bunch about this. As I said, we're going to talk about this in a lot more detail than me 14. the reading for that week is like, how to build 301. so you'll see.
+
+679 "Kellogg, Martin J" (1615754496)
+01:37:50.959 --> 01:38:00.179
+The sort of you'll see all of it. Right we'll go through it all and some gory detail about how you would actually build around these things.
+
+680 "Kellogg, Martin J" (1615754496)
+01:38:00.179 --> 01:38:10.139
+Okay. Um, so solvers make the 1st problem here. Uh, okay. Yeah, actually, modern solvers like Z3 and CVC for yeah, they made they made 5.
+
+681 "Kellogg, Martin J" (1615754496)
+01:38:10.139 --> 01:38:17.159
+are generally extraordinarily effective right so millions of millions of clauses in less than thirty seconds for most for some inputs they will never terminate 
+
+682 "Kellogg, Martin J" (1615754496)
+01:38:17.159 --> 01:38:24.659
+I never in the hit, like before the heat of the universe, right? At the scale and, uh, a priority. You basically don't know which.
+
+683 "Kellogg, Martin J" (1615754496)
+01:38:24.659 --> 01:38:37.919
+So, if you, if you're using solver, usually what you do is you just put the timeout right? At, like, 30 seconds or so if it doesn't finish in 30 seconds, I'll probably, it will never will never finish.
+
+684 "Kellogg, Martin J" (1615754496)
+01:38:37.919 --> 01:38:57.919
+But if it does, I usually tell me as quickly the reason for this is that, like, modern s, and T solver's, like tons and tons of engineering work by very, very smart people has gone into them. And so they have lots and lots of heuristics that allow them to cheat at various formulas and recognize patterns and so on and, you know, make guesses that are very profitable. And so on.
+
+685 "Kellogg, Martin J" (1615754496)
+01:38:57.919 --> 01:39:05.639
+Lots and lots of, uh, you know, very specific little tricks that the tend to work in the common cases. Yeah.
+
+686 "Kellogg, Martin J" (1615754496)
+01:39:05.639 --> 01:39:08.939
+So, um, all right, any questions on this.
+
+687 "Kellogg, Martin J" (1615754496)
+01:39:08.939 --> 01:39:21.089
+As I said, we'll come back to you later in the course. All right. Moving on then um, so already solved the 1st problem. The 2nd problem is is less relevant because of Moore's law.
+
+688 "Kellogg, Martin J" (1615754496)
+01:39:21.089 --> 01:39:38.849
+Um, just briefly, um, most of you raise your hand for a Moore's law so I'm just going to briefly show this. Right Moore's law says the available computing power for a given price increases exponentially. This has been true since the fifties and, uh, probably it's still true today right? And not a law an observation right? Just a, in fact, probably not a law of nature.
+
+689 "Kellogg, Martin J" (1615754496)
+01:39:38.849 --> 01:39:42.089
+More a lot of we haven't figured out how to, uh, like.
+
+690 "Kellogg, Martin J" (1615754496)
+01:39:42.089 --> 01:39:45.689
+We, we haven't figured out all the ways to figure out about how to build computers yet.
+
+691 "Kellogg, Martin J" (1615754496)
+01:39:45.689 --> 01:39:54.059
+Right. And so, uh, for a long time, we've been living in an era of increasing computing power and it seems like we're still in that era and that's always nice. Yeah.
+
+692 "Kellogg, Martin J" (1615754496)
+01:39:54.059 --> 01:40:14.059
+I might not lost forever so that would be sad. And the implication there is that the amount of computing power available today, compared to what was available in the 70 s, and symbolic execution was invented is massive, extraordinarily more, right? Like, my smartphone probably has more computing power than the entire world had in the early seventies.
+
+693 "Kellogg, Martin J" (1615754496)
+01:40:14.059 --> 01:40:22.529
+Okay, so the implication of those, these 2, uh, is that similar execution in practical since the early 2 thousand's, uh, has been widely important industries.
+
+694 "Kellogg, Martin J" (1615754496)
+01:40:22.529 --> 01:40:29.909
+So, um, like, there was a football prefix at Microsoft or 1000 s, uh, clarity is a helpful.
+
+695 "Kellogg, Martin J" (1615754496)
+01:40:29.909 --> 01:40:49.909
+Large company now, I bought by some other big company, as it was originally a symbolic distribution tool. Um, play. I mentioned before is a an open source 1 that works on programs, uh, on Linux right? Um, uh, these these tools have found lots of bugs and lots of systems. Uh, if you throw enough machines at them and you have a big enough server.
+
+696 "Kellogg, Martin J" (1615754496)
+01:40:49.909 --> 01:41:04.739
+You quiet right? And so are these kind of tools are deployed? Um, they're not deployed as widely as you might think, despite the fact that they've been sort of practical for 20 years now and that's largely because they also require a fair amount of expertise to operate.
+
+697 "Kellogg, Martin J" (1615754496)
+01:41:04.739 --> 01:41:20.759
+Any questions on this. All right so then, um, briefly, then I want to talk a little bit about the pros and cons of this general technique. Right? So the similar distribution has like, 1, really big advantage.
+
+698 "Kellogg, Martin J" (1615754496)
+01:41:20.759 --> 01:41:27.989
+Compared to other test generation techniques and that or other quality assurance techniques in general? Yeah.
+
+699 "Kellogg, Martin J" (1615754496)
+01:41:27.989 --> 01:41:47.989
+Which is that when it finds a problem, it never it's never wrong, right? If it produces a problem, that problem always exists. And the reason I like, it produces no false positives in that sense. The reason for this is that if it actually successfully solves a path credit card, it guarantees that it can hit that line of code. Right? So many other.
+
+700 "Kellogg, Martin J" (1615754496)
+01:41:47.989 --> 01:41:53.339
+Many other quality assurance techniques will say, like, this line of code might be bad.
+
+701 "Kellogg, Martin J" (1615754496)
+01:41:53.339 --> 01:41:57.809
+All right, um, some more clarification says this line of code is definitely bad.
+
+702 "Kellogg, Martin J" (1615754496)
+01:41:57.809 --> 01:42:06.089
+Right if, uh, given some policy, uh, it will always like, if it says that, uh, the policy is violated, that policy always is violated, it has executed the program unchecked.
+
+703 "Kellogg, Martin J" (1615754496)
+01:42:06.089 --> 01:42:14.279
+All right, so that is nice. Right? So, simple, like, tools like, uh, the ones I described on the previous slide, um, they can be very valuable for this reason.
+
+704 "Kellogg, Martin J" (1615754496)
+01:42:14.279 --> 01:42:17.849
+However, in practice, there are 2 serious downsides.
+
+705 "Kellogg, Martin J" (1615754496)
+01:42:17.849 --> 01:42:23.549
+Um, they're related to some of the stuff we've talked about. Can anyone guess what they are.
+
+706 "Kellogg, Martin J" (1615754496)
+01:42:23.549 --> 01:42:28.799
+Slow that is number 1. yes. Correct. It is extremely expensive.
+
+707 "Kellogg, Martin J" (1615754496)
+01:42:28.799 --> 01:42:36.719
+Don't be like this. There we go. It is expensive. Right recall. It relies on this solving and repeat complete problem repeatedly.
+
+708 "Kellogg, Martin J" (1615754496)
+01:42:36.719 --> 01:42:43.379
+Right. This is hard. Alright. S, and T folders, despite the fact that they are pretty fast for solving an empty complete problem are still really slow.
+
+709 "Kellogg, Martin J" (1615754496)
+01:42:43.379 --> 01:42:48.929
+Okay, what do you think the other downside is.
+
+710 "Kellogg, Martin J" (1615754496)
+01:42:48.929 --> 01:43:04.199
+It cannot solve our problems. That is exactly correct right. Uh, it, it will definitely miss bucks. Right? And so it is not able to in practice cover many parts of programs, because it, it can't solve things. Right? So, it's only pancreatic insufficiency completed for some, the solvable sometimes that.
+
+711 "Kellogg, Martin J" (1615754496)
+01:43:04.199 --> 01:43:18.959
+Um, and, uh, these 2 problems are still true of similar execution and probably will be true until the end of time. Right? I, I doubt some bulk execution will ever get past these 2 things in the sense that, like, there will always be cheaper approaches that, uh.
+
+712 "Kellogg, Martin J" (1615754496)
+01:43:18.959 --> 01:43:25.559
+Can cover, um, things that somebody's execution cannot, but for, like, when it's applicable symbolic confusion is very effective.
+
+713 "Kellogg, Martin J" (1615754496)
+01:43:25.559 --> 01:43:43.439
+And there are techniques, we can use to try to reduce the 2nd downside. Right? And that's, we're going to talk about 1 more thing today, can call it testing. And it is specifically a technique designed to solve this 2nd problem in symbolic execution or, I mean, solve a strong, but it's going to improve the situation.
+
+714 "Kellogg, Martin J" (1615754496)
+01:43:43.439 --> 01:43:49.859
+Okay, any questions on symbolic execution before I move on to call it testing.
+
+715 "Kellogg, Martin J" (1615754496)
+01:43:52.889 --> 01:44:00.479
+All right, so, um, recall this limitation, right? About, uh, trying to, uh, cover certain.
+
+716 "Kellogg, Martin J" (1615754496)
+01:44:00.479 --> 01:44:08.849
+Consider this, this, uh, relatively simple function to the right here. We'd like to cover this line that says error in big Labs. Right? Because if we hover it, we're going to get an hour.
+
+717 "Kellogg, Martin J" (1615754496)
+01:44:08.849 --> 01:44:17.729
+And that will be a success, uh, discover right? But let's suppose that's, uh, but the B box X here standing for black box.
+
+718 "Kellogg, Martin J" (1615754496)
+01:44:17.729 --> 01:44:28.409
+I just wanted horrible and this lock execution engine cannot solve it for whatever reason. Maybe it does a lot of well, maybe, uh, calls out to the network, right? We can't restart the network forever. Right? It's unintelligible for whatever reason.
+
+719 "Kellogg, Martin J" (1615754496)
+01:44:28.409 --> 01:44:36.809
+Then some of the constitution will never be able to get past this. Right? Well, never be able to find some, uh, some way to, to solve this thing.
+
+720 "Kellogg, Martin J" (1615754496)
+01:44:36.809 --> 01:44:40.709
+I will never change cause it doesn't know so the path, right? That will never resolved.
+
+721 "Kellogg, Martin J" (1615754496)
+01:44:40.709 --> 01:44:44.849
+So, what can we do? Yeah.
+
+722 "Kellogg, Martin J" (1615754496)
+01:44:44.849 --> 01:44:51.359
+Can we, like, redirect it? Just some other function we make that spits out like.
+
+723 "Kellogg, Martin J" (1615754496)
+01:44:51.359 --> 01:44:54.449
+False or whatever it needs.
+
+724 "Kellogg, Martin J" (1615754496)
+01:44:54.449 --> 01:45:01.649
+Uh, by redirect it, do you mean redirect, like, change the definition of the box.
+
+725 "Kellogg, Martin J" (1615754496)
+01:45:01.649 --> 01:45:05.999
+Yeah, I changed.
+
+726 "Kellogg, Martin J" (1615754496)
+01:45:05.999 --> 01:45:13.559
+Which, so we could, but the problem with doing that is that it would also.
+
+727 "Kellogg, Martin J" (1615754496)
+01:45:13.559 --> 01:45:20.459
+Like, Disrupt our guarantee of no false positives right? Because if we were wrong about what we implement the box as.
+
+728 "Kellogg, Martin J" (1615754496)
+01:45:20.459 --> 01:45:23.489
+Then it's going, we're, we're going to get the wrong answer, right? Yeah.
+
+729 "Kellogg, Martin J" (1615754496)
+01:45:23.489 --> 01:45:37.589
+So instead, yeah, so the key question here, how do we get around this limitation? So, instead what we're going to do is, we're going to use, can call it testing and what can call testing does is it combines a concrete execution of the program, or some other test generation techniques most commonly housing.
+
+730 "Kellogg, Martin J" (1615754496)
+01:45:37.589 --> 01:45:48.719
+We did some mock execution, so the tech and so there's this word kind of call, like, is entirely made up. It's a portmanteau of concrete and symbolic because the people who invented it were not particularly creative.
+
+731 "Kellogg, Martin J" (1615754496)
+01:45:48.719 --> 01:45:52.679
+Um, and the key idea here is that when symbolic execution gets stuck.
+
+732 "Kellogg, Martin J" (1615754496)
+01:45:52.679 --> 01:45:58.229
+Actually, execute the program and record whatever values the uninhabitable code produces just run it.
+
+733 "Kellogg, Martin J" (1615754496)
+01:45:58.229 --> 01:46:09.389
+And then solve the other input variables in terms of those outputs. So coming back to this example, right? Symbolic. I think you should determines the D box here is uncomfortable. What we do is we didn't use any value for X.
+
+734 "Kellogg, Martin J" (1615754496)
+01:46:09.389 --> 01:46:13.769
+Right. And then we instrument the program to record the value of box of X.
+
+735 "Kellogg, Martin J" (1615754496)
+01:46:13.769 --> 01:46:21.329
+Right and so then what we have here is we have, uh, some acts we put in, uh, extra D box and we get some number back.
+
+736 "Kellogg, Martin J" (1615754496)
+01:46:21.329 --> 01:46:29.279
+Right. And then we just write that number down right? What we do here suppose to be bought like you choose at random we choose 6 for X.
+
+737 "Kellogg, Martin J" (1615754496)
+01:46:29.279 --> 01:46:32.789
+Right. And then the loss of 6 happens to be.
+
+738 "Kellogg, Martin J" (1615754496)
+01:46:32.789 --> 01:46:41.609
+Hey, great for 10. we just cross this out and we write 10 there instead and then we go back to doing symbolic execution. And now how hard is it to solve? What.
+
+739 "Kellogg, Martin J" (1615754496)
+01:46:41.609 --> 01:46:45.389
+Perfect right. I mean, we just need 10, right?
+
+740 "Kellogg, Martin J" (1615754496)
+01:46:45.389 --> 01:46:53.099
+So, this technique actually is incredibly effective. Right? It's a very good way to get around the 2nd, limitation of their, our path predicates. We can't solve.
+
+741 "Kellogg, Martin J" (1615754496)
+01:46:53.099 --> 01:47:03.539
+Whenever we encounter 1, we simply execute the program with some input that hits that part at which this symbolic execution engine can provide us with. Right? And then we record what it does and then we try to solve in terms of that.
+
+742 "Kellogg, Martin J" (1615754496)
+01:47:03.539 --> 01:47:21.959
+Now, this works very well, for example, like simple examples like, this, um, it can be difficult, like, uh, this is more complicated like, this this equals equals is more complicated than that. Right if this is something like complex function, uh, then this, I mean, we'll have this problem repeatedly, but we can always just go back to doing execution again.
+
+743 "Kellogg, Martin J" (1615754496)
+01:47:21.959 --> 01:47:25.859
+So, like, unprofitable if.
+
+744 "Kellogg, Martin J" (1615754496)
+01:47:25.859 --> 01:47:28.889
+Doesn't mean that it can't be wrong.
+
+745 "Kellogg, Martin J" (1615754496)
+01:47:28.889 --> 01:47:32.669
+No, uninterruptible means the symbolic execution the path credit. It can't be solved.
+
+746 "Kellogg, Martin J" (1615754496)
+01:47:32.669 --> 01:47:38.939
+It doesn't like, but we have a program, right? We believe we can execute the program. Right? We're trying to generate test for it.
+
+747 "Kellogg, Martin J" (1615754496)
+01:47:38.939 --> 01:47:47.459
+So, we hope we are able to execute it. So, the assumption here is that the program is executable, but a path predicate can't be solved for summaries.
+
+748 "Kellogg, Martin J" (1615754496)
+01:47:47.459 --> 01:47:51.929
+And so this is a.
+
+749 "Kellogg, Martin J" (1615754496)
+01:47:51.929 --> 01:47:58.979
+This is the key idea. So we choose a random value for X and then execute the program. We record the value. Uh.
+
+750 "Kellogg, Martin J" (1615754496)
+01:47:58.979 --> 01:48:03.869
+Whatever returns and then we let some execution solve for why giving that value right?
+
+751 "Kellogg, Martin J" (1615754496)
+01:48:03.869 --> 01:48:07.499
+And this, uh, as I said, it does work quite well. So in practice.
+
+752 "Kellogg, Martin J" (1615754496)
+01:48:07.499 --> 01:48:13.199
+When you deploy symbolic execution for test generation, you basically always want to do this.
+
+753 "Kellogg, Martin J" (1615754496)
+01:48:13.199 --> 01:48:29.729
+Yeah, so this was also invented in, like, the early 2000. it's like, immediately after people started realizing some bulk execution was now practical and started using it for test generation within, like, 3 years. This was invented and, you know, has proven to be the right way to do it.
+
+754 "Kellogg, Martin J" (1615754496)
+01:48:29.729 --> 01:48:35.819
+All right, any questions on this, uh, this general, the, the general trick.
+
+755 "Kellogg, Martin J" (1615754496)
+01:48:35.819 --> 01:48:42.179
+Hmm.
+
+756 "Kellogg, Martin J" (1615754496)
+01:48:42.179 --> 01:48:49.079
+Okay, yeah. Um, so this is actually a really a poor, a poor person's definition. Uh, sorry. Um.
+
+757 "Kellogg, Martin J" (1615754496)
+01:48:49.079 --> 01:48:56.369
+But the key idea here is that we're going to combine, uh, we're going to combine some electrocution with, uh, some.
+
+758 "Kellogg, Martin J" (1615754496)
+01:48:56.369 --> 01:49:07.349
+Uh, some other test generation technique to get around functions or half credits that we cancel. Right? So, as soon as we discover that, uh, Path credit consulting is timing out.
+
+759 "Kellogg, Martin J" (1615754496)
+01:49:07.349 --> 01:49:11.159
+Or that the path predicates, uh, we don't control the inputs for them.
+
+760 "Kellogg, Martin J" (1615754496)
+01:49:11.159 --> 01:49:16.859
+All right, then we're going to instead just execute the program see what it produces and then try again.
+
+761 "Kellogg, Martin J" (1615754496)
+01:49:16.859 --> 01:49:26.129
+And so the way that these tools are actually built is that they have both like a concrete and symbolic modes that they switch back and forth between. Okay.
+
+762 "Kellogg, Martin J" (1615754496)
+01:49:26.129 --> 01:49:32.639
+Yeah, so I would say actually, this is the real definition this algorithm.
+
+763 "Kellogg, Martin J" (1615754496)
+01:49:32.639 --> 01:49:38.969
+Yeah, sorry, these slides are a bit informal. Any other questions on call like execution.
+
+764 "Kellogg, Martin J" (1615754496)
+01:49:38.969 --> 01:49:42.149
+Then click text can call it testing.
+
+765 "Kellogg, Martin J" (1615754496)
+01:49:42.149 --> 01:50:02.149
+All right, um, that's all I have for you today then. Um, so, uh, just briefly some notes again on homework for homework for is relatively easy, especially compared to homework 3, it should be pretty straightforward. It's basically an easier.
+
+766 "Kellogg, Martin J" (1615754496)
+01:50:02.149 --> 01:50:12.359
+Version of homework 3, but using different tools that are more complicated. So I expect it to be fairly a fair amount, less less time consuming, especially since you or you all have already done homework.
+
+767 "Kellogg, Martin J" (1615754496)
+01:50:12.359 --> 01:50:22.049
+Um, however, uh, there is a lot more reading for next week so I just wanna warn you about this. There are 2 polling papers, as opposed to this week when we were 4 pages 3, next week or 20.
+
+768 "Kellogg, Martin J" (1615754496)
+01:50:22.049 --> 01:50:25.199
+All right, and that is because homework for is much easier than homework for it.
+
+769 "Kellogg, Martin J" (1615754496)
+01:50:25.199 --> 01:50:28.769
+All right, uh, personally, 1, uh, maybe.
+
+770 "Kellogg, Martin J" (1615754496)
+01:50:28.769 --> 01:50:42.389
+I mean, no problem. Um, but so you will have plenty, plenty of homework to do, but it's mostly the reading homework. 4 should be relatively straightforward. But, uh, you know, again, you have the hour now, uh, with, and I, here, uh.
+
+771 "Kellogg, Martin J" (1615754496)
+01:50:42.389 --> 01:50:46.559
+Maybe some of you will get done for him. All right Thank you. All for your attention.
+
+772 "Kellogg, Martin J" (1615754496)
+01:50:46.559 --> 01:50:52.259
+Okay.
+
+773 "Kellogg, Martin J" (1615754496)
+01:50:52.259 --> 01:50:56.549
+So so to.
