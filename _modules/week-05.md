@@ -11,4 +11,4 @@ Feb 15
   
     **In-class**: start [HW4](../projects/hw4.html)
 
-    **Lecture recording**: [video (.mp4)](../assets/lecture-05.mp4), [transcript (.vtt)](../assets/lecture-05.vtt)
+    **Lecture recording**: [video (.mp4)](https://drive.google.com/file/d/1EznQcucPmP4SPzFk0N4CSf8LmxtchNk6/view?usp=drive_link), [transcript (.vtt)](../assets/lecture-05.vtt)

@@ -11,4 +11,4 @@ Feb 29
   
     **In-class**: start [HW6](../projects/hw6.html)
 
-    **Lecture recording**: [video (.mp4)](../assets/lecture-07.mp4), [transcript (.vtt)](../assets/lecture-07.vtt)
+    **Lecture recording**: [video (.mp4)](https://drive.google.com/file/d/1VaPUlUYpUyKKvCnhwaVKA6x5_wVjddtf/view?usp=drive_link), [transcript (.vtt)](../assets/lecture-07.vtt)

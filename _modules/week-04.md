@@ -11,5 +11,6 @@ Feb 8
   
     **In-class**: start [HW3](../projects/hw3.html)
 
+    **Lecture recording**: [video (.mp4)](https://drive.google.com/file/d/1kGY8J-valD0qyLRvDqMe4gOSIyC12gFS/view?usp=drive_link), [transcript (.vtt)](https://drive.google.com/file/d/1mzOKN8Awbb59ETYv3r8GW9EYfQ77nUoM/view?usp=drive_link)
 
 

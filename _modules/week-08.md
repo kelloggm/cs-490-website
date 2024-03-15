@@ -8,4 +8,4 @@ Mar 7
   
     **In-class**: continue working on [HW6](../projects/hw6.html)
 
-    **Lecture recording**: [video (.mp4)](../assets/lecture-08.mp4), [transcript (.vtt)](../assets/lecture-08.vtt)
+    **Lecture recording**: [video (.mp4)](https://drive.google.com/file/d/1o8uD5X7iQnMtunt_C8oVRfElaFeCPGFc/view?usp=drive_link), [transcript (.vtt)](../assets/lecture-08.vtt)
