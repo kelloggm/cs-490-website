@@ -36,3 +36,5 @@ the exams in 684 to follow the same general format).
 [CS 490 Au23 Midterm](../assets/au23-midterm.pdf) ([key](../assets/au23-midterm-key.pdf))
 
 [CS 490 Au23 Final](../assets/au23-final.pdf) ([key](../assets/au23-final-key.pdf))
+
+[CS 684 Sp24 Midterm](../assets/sp24-midterm.pdf) ([key](../assets/sp24-midterm-key.pdf))
