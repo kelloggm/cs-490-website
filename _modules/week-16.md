@@ -2,11 +2,11 @@
 title: Week 16
 ---
 
-Exam Slot (Dec 18, 11:30am, TIER 114)
+Exam Slot (TBD)
  : 
 
-Dec 18
+Dec TBD
  : **All group project final deliverables (re-submission) due**{: .label .label-red } 
 
-Dec 19
+Dec TBD+1
  : **Individual Reflection due**{: .label .label-red } 

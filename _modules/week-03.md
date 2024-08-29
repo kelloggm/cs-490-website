@@ -2,15 +2,17 @@
 title: Week 3
 ---
 
+Sep 18
+: [Testing (2)](../assets/lecture-testing2.pdf)
+  : **Mandatory reading**: Petrovic's [Mutation Testing](https://testing.googleblog.com/2021/04/mutation-testing.html)
+
+    **Your Choice reading**: Memon et al.'s [Taming Google-Scale Continuous Testing](../assets/googletest.pdf)
+
 Sep 20
-: [Testing (3)](../assets/lecture-05-testing3.pdf)
+: [Testing (3)](../assets/lecture-testing3.pdf)
   : **Mandatory reading**: SQLite's [How SQLite is Tested](https://www.sqlite.org/testing.html)
 
     **Your Choice reading**: Barr et al.'s [The Oracle Problem in Software Testing: A Survey](../assets/testoracles.pdf)
 
-Sep 22
-: [Version Control](../assets/lecture-06-version-control.pdf)
-  : **Mandatory reading**: Ernst's [Version control concepts and best practices](https://homes.cs.washington.edu/~mernst/advice/version-control.html)
-  
-    **Your Choice reading**: De Rosso et al.'s [Purposes, concepts, misfits, and a redesign of git](../assets/gitless.pdf)
+
 

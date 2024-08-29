@@ -2,18 +2,19 @@
 title: Week 6
 ---
 
-Oct 9
+Oct 7
  : **Project Plan due**{: .label .label-red } 
 
+Oct 9
+: [Working in Teams](../assets/lecture-teams.pdf)
+  : **Mandatory reading**: Jackson's [The Google Technical Interview](../assets/googleinterview.pdf) and the [Individual Project 2 Specification](../projects/ip2.html)
+  
+    **Your Choice reading**: Behroozi et al.'s [Hiring is Broken: What Do Developers Say About Technical Interviews?](../assets/hiring-is-broken.pdf)
+
 Oct 11
-: [Code Review](../assets/lecture-11-code-review.pdf)
+: [Code Review](../assets/lecture-code-review.pdf)
   : **Mandatory reading**: Google's [How to do a code review](https://google.github.io/eng-practices/review/reviewer/) (read all six linked sub-pages in the bulleted list)
 
     **Your Choice reading**: Bacchelli and Bird's [Expectations, Outcomes, and Challenges Of Modern Code Review](../assets/codereview.pdf)
 
-Oct 13
-: [Languages](../assets/lecture-12-languages.pdf)
-  : **Mandatory reading**: Howarth's [Why Discord is Switching from Go to Rust](https://discord.com/blog/why-discord-is-switching-from-go-to-rust)
-
-    **Your Choice reading**: Hoare's [Hints on Programming Language Design](../assets/hoarehints.pdf) (shorter than it looks!)
 
