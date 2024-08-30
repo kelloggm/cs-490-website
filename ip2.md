@@ -4,7 +4,7 @@ title: "Individual Project 2"
 permalink: /projects/ip2.html
 parent: Projects
 nav_order: 2
-due_date: "Monday, 16 October 2023, 23:59 AoE"
+due_date: "Monday, 14 October 2024, 23:59 AoE"
 submission_notes: Submit via Gradescope
 ---
 
@@ -311,7 +311,7 @@ The grading script will assign full marks for each implementation task if all of
 
 ## Submission Instructions
 
-Submit your assignment to [Gradescope](https://www.gradescope.com/courses/602493/assignments/3239300).
+Submit your assignment to [Gradescope](https://www.gradescope.com/courses/849273/assignments/4855052).
 Please contact the instructors immediately if you have difficulty accessing the course on Gradescope.
 If you were not on the course roster at the beginning of the semester, check Discord for the Gradescope entry code.
 

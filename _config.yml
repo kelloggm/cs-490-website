@@ -29,11 +29,11 @@ heading_anchors: true
 permalink: pretty
 aux_links:
   Canvas:
-    - 'https://njit.instructure.com/courses/29030'
+    - 'https://njit.instructure.com/courses/38748'
   Discord:
-    - 'https://discord.com/channels/1147225783987875950/1147225783987875953'
+    - 'https://discord.com/channels/1279147849291923617/1279147849291923619'
   Gradescope:
-    - 'https://www.gradescope.com/courses/602493'
+    - 'https://www.gradescope.com/courses/849273'
 footer_content: "&copy; 2022-2024 Martin Kellogg, Jonathan Bell, Adeel Bhutta and Mitch Wand. Released under the <a href=\"https://creativecommons.org/licenses/by-sa/4.0/\">CC BY-SA</a> license"
 
 # Collections for website data

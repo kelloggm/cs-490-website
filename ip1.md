@@ -4,7 +4,7 @@ title: "Individual Project 1"
 permalink: /projects/ip1.html
 parent: Projects
 nav_order: 1
-due_date: "Monday, 25 September 2023, 11:59PM AoE"
+due_date: "Monday, 23 September 2024, 11:59PM AoE"
 submission_notes: Submit via GradeScope
 ---
 Welcome aboard to the Covey.Town team! We're glad that you're here and ready to join our development team as a new software engineer.
@@ -283,7 +283,7 @@ Grading for implementation tasks:
 * Handling invalid commands: 1 point
 
 ## Submission Instructions
-Submit your assignment to [Gradescope](https://www.gradescope.com/courses/602493/assignments/3239300).
+Submit your assignment to [Gradescope](https://www.gradescope.com/courses/849273/assignments/4855050).
 Please contact the instructors immediately if you have difficulty accessing the course on Gradescope.
 If you were not on the course roster at the beginning of the semester, check Discord for the Gradescope entry code.
 

@@ -12,9 +12,14 @@ maintainable, testable, and usable. That is, this course will teach
 you about how to build software *well*.
 
 The course is structured around giving you experience in both the
-theory (through readings and lectures) and the practice (through
+_theory_ (through readings and lectures) and the _practice_ (through
 programming assignments and a large group project) of software
 engineering.
+However, this course has a strong emphasis on the practical: the assignments
+mirror real engineering activities, most readings are blog posts from
+engineers, etc. My overarching goal in this class is to expose you
+to how high-quality software engineering is done at the world's best
+software engineering firms.
 
 # Course Outcomes
 
@@ -26,7 +31,7 @@ Official course outcomes:
 
 My course design is based additionally on these unofficial outcomes:
 * Students will be able to assess the quality of software engineering being done at some future workplace
-* Students will be competent software engineers that I wouldn’t be worried about hiring
+* Students will be competent software engineers that I wouldn’t be worried about hiring as an engineering manager
 
 # Prerequisites
 
@@ -56,6 +61,15 @@ The first homework assignment is due right at the drop date,
 and is intended to let you check that you have the basic skills that
 will be needed for this course: it requires you to write a
 well-defined program in a language you’ve never seen before.
+
+However, software engineering is a broad topic that requires a synthesis
+of knowledge, and students will
+benefit from almost all of the rest of the undergraduate curriculum.
+We will use concepts from most other courses in the curriculum, including but
+not limited to: CS theory (CS 341), operating systems (CS 332), algorithms (CS 435), data structures (CS 114),
+security (CS 351), and databases (CS 331). You don't _need_ to have taken these courses before
+you take CS 490, but I'll bring up topics from them when they're relevant to the course, so you'll get more
+out of CS 490 if you have seen those classes first (or are taking them concurrently).
 
 # Topics
 
@@ -104,27 +118,29 @@ one before the mid-term, and another before the final.
 Most "Your Choice" readings are research papers from
 the software engineering literature: the idea is that you will do a
 deeper dive on two topics that interest you. The "Your Choice" readings
-will be checked on the exams with reading questions: see the ["Your Choice" reading page](../projects/optional-readings.html).
+will be checked on the exams: see the ["Your Choice" reading page](../projects/optional-readings.html).
 
 ## Participation & Professionalism
 
 Your participation & professionalism grade is composed of two scores. 
 
-First, your *Professionalism* score is based on the instructor’s
+First, your *Professionalism* score is based on the instructors (both the professor and TAs!)
 impression of how well you participated in class, with deductions for
 distracting other students and credit for asking and answering
 questions (either in person or on the course discussion board).
+Professionalism during the project (especially in interactions with your
+group's TA mentor) is also a major component.
 
 Second, your *Participation* score is based on reading quizzes (about topics from the mandatory
 readings only - quizzes will never cover "Your Choice" readings) at the
 beginning of most lectures. You get half credit on these quizzes just
 for being there, and half credit for answering the reading questions
-correctly (the questions will always be easy if you did the
+correctly (the questions are supposed to be easy if you did the
 reading). For full participation, you need to get at least a score of
-66.67% on all quizzes over the whole semester (this gives you space to
+70% on all quizzes over the whole semester (this gives you space to
 e.g., miss a reading quiz because you were sick or have a family
 emergency - there are no excuses for missing reading quizzes). Put
-another way, you can miss up to 1/3 of the reading quiz points and
+another way, you can miss up to 30% of the reading quiz points and
 still get full participation points.
 
 These policies are designed to encourage you to come to class. A big
@@ -146,7 +162,7 @@ to participate in a particular class remotely.
 
 ### Asking Questions
 
-There is a course [Discord server](https://discord.com/channels/1147225783987875950/1147225783987875953)
+There is a course [Discord server](https://discord.com/channels/1279147849291923617/1279147849291923619)
 which you can use to ask (and answer) questions about any of the course topics or for
 help with the homework. Participating on Discord is optional, but if you do
 participate in a productive manner (especially by answering other student's questions!), it will have a

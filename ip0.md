@@ -161,14 +161,14 @@ When we say "no errors reported by the linter", we mean the following:
 
 Submit your assignment in GradeScope. The easiest way to get into
 GradeScope the first time is to first [sign into
-Canvas](https://njit.instructure.com/courses/29030) and then
+Canvas](https://njit.instructure.com/courses/) and then
 click the link on our course for "GradeScope".  You should then also
 have the option to create an account on GradeScope (if you don't
 already have one) so that you can log in to GradeScope directly.
 Please contact the instructors immediately if you have difficulty
 accessing the course on GradeScope.
 
-Submit your solution to Gradescope in the form of exactly two files, `Venusian.ts` and `Ship.ts`. Before submitting, be sure your code passes the sanity tests included in the starter package. 
+Submit your solution to [Gradescope](https://www.gradescope.com/courses/849273/assignments/4855051) in the form of exactly two files, `Venusian.ts` and `Ship.ts`. Before submitting, be sure your code passes the sanity tests included in the starter package. 
 GradeScope will provide you with feedback on your submission, providing a numeric score between 0 and 20.
 
 You will be able to  view the complete output from running the tests and
