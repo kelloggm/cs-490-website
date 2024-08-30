@@ -10,7 +10,7 @@ Sep 18
 
 Sep 20
 : [Testing (3)](../assets/lecture-testing3.pdf)
-  : **Mandatory reading**: SQLite's [How SQLite is Tested](https://www.sqlite.org/testing.html)
+  : **Mandatory reading**: SQLite's [How SQLite is Tested](https://www.sqlite.org/testing.html) and 
 
     **Your Choice reading**: Barr et al.'s [The Oracle Problem in Software Testing: A Survey](../assets/testoracles.pdf)
 

@@ -28,13 +28,19 @@ understood multiple concepts that we covered in class will even be
 able to answer them in a reasonable way, and everything in between.
 
 To help you prepare for this semester's exams, below you can find
-links to two exams from last semester (a practice exam that I distributed
-before the final, and the actual final exam), both of which have
-solutions ("keys"). Both of these exams cover the whole course, so
-you'll want to be careful when studying for the mid-term---not everything
-on these exams will have been covered by then. Hopefully, these exams
-will give you a good idea of the sort of questions that I like to
-ask on exams.
+links to exams from previous semesters, all of which have
+solutions ("keys"). Some of these exams cover the whole course (anything labeled "final"), so
+you'll want to be careful when studying for the midterm---not everything
+on these exams will have been covered by then. In addition, keep in mind
+that the set of topics changes a bit semester-to-semester, so it's possible
+that these exams include some topics that we didn't cover, and that your exams
+this semester might include topics that these exams ignore. These exams are provided
+"as-is" to help you study, but please don't over-rely on them.
+
+I strongly recommend that before looking at a "key" for one of these exams, you sit down
+and attempt the exam yourself, under something like exam conditions (quiet room, no
+interruptions, etc.): this will help you more to prepare for this semester's exam than
+just reading the solutions.
 
 [Sp23 Practice Final](../assets/practice-sp23.pdf) ([key](../assets/practice-sp23-key.pdf))
 

@@ -4,7 +4,7 @@ title: Week 1
 
 Sep 4
 : [Introduction](../assets/lecture-intro.pdf)
-  : No reading, but you should come to class (even if you're on the waitlist) to do an in-class activity. If you're unable to come to class (e.g., you're sick), email me - the activity can also be completed remotely, and it's important that everyone does it.
+  : **Mandatory reading**: the [Individual Project 0 Specification](../projects/ip0.html) and the [syllabus](../about/) (No reading quiz today, but these are fair game for any subsequent reading quiz.)
 
 Sep 6
  : [Code-level Design](../assets/lecture-code-level-design.pdf)

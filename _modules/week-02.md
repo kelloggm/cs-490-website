@@ -7,7 +7,7 @@ Sep 9
 
 Sep 11
 : [Reading Code](../assets/lecture-reading-code.pdf)
-  : **Mandatory reading**: Atwood's [Learn to Read the Source, Luke](https://blog.codinghorror.com/learn-to-read-the-source-luke/) and Coleman's [How to quickly and effectively read other people’s code](https://selftaughtcoders.com/how-to-quickly-and-effectively-read-other-peoples-code/)
+  : **Mandatory reading**: Atwood's [Learn to Read the Source, Luke](https://blog.codinghorror.com/learn-to-read-the-source-luke/), Coleman's [How to quickly and effectively read other people’s code](https://selftaughtcoders.com/how-to-quickly-and-effectively-read-other-peoples-code/), and the [Individual Project 1 Specification](../projects/ip1.html)
 
     **Your Choice reading**: Endres et al.'s [Relating Reading, Visualization, and Coding for New Programmers: A Neuroimaging Study](https://web.eecs.umich.edu/~weimerw/p/weimer-icse2021-reading-preprint.pdf)
 

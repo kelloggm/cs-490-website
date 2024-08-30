@@ -7,7 +7,7 @@ Oct 7
 
 Oct 9
 : [Working in Teams](../assets/lecture-teams.pdf)
-  : **Mandatory reading**: Jackson's [The Google Technical Interview](../assets/googleinterview.pdf) and the [Individual Project 2 Specification](../projects/ip2.html)
+  : **Mandatory reading**: Fowler's [Two Pizza Team](https://martinfowler.com/bliki/TwoPizzaTeam.html) and Jackson's [The Google Technical Interview](../assets/googleinterview.pdf)
   
     **Your Choice reading**: Behroozi et al.'s [Hiring is Broken: What Do Developers Say About Technical Interviews?](../assets/hiring-is-broken.pdf)
 
