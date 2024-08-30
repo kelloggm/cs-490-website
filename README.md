@@ -19,13 +19,18 @@ maintainable, testable, and usable. That is, this course will teach
 you about how to build software *well*.
 
 The course is structured around giving you experience in both the
-theory (through readings and lectures) and the practice (through
+_theory_ (through readings and lectures) and the _practice_ (through
 programming assignments and a large group project) of software
 engineering.
+However, this course has a strong emphasis on the practical: the assignments
+mirror real engineering activities, most readings are blog posts from
+engineers, etc. My overarching goal in this class is to expose you
+to how high-quality software engineering is done at the world's best
+software engineering firms.
 
 On this course website, you can find:
 - the [syllabus](about.md),
-- a [course calendar](calendar.md) (which includes links to the required readings)),
+- a [course calendar](calendar.md) (which includes links to the required readings),
 - a [staff](staff.md) page,
 - links to all [assignments](./projects),
 - useful [tutorials](tutorials.md), and
