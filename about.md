@@ -229,8 +229,8 @@ See the [exams page](../exam) for more information.
 
 Collaboration is generally encouraged in this course, as is consulting
 online resources. You are permitted to copy small amounts of code
-from any source except another student’s copy of an assignment,
-*as long as you cite your source*. “Another student’s copy of an
+from any source except someone else's copy of an assignment,
+*as long as you cite your source*. “someone else's copy of an
 assignment” also includes students not currently enrolled in the
 course - e.g., students who took (or are taking - I am in contact with
 the instructors using covey.town at Northeastern and we will compare code submitted in both classes)
@@ -244,7 +244,7 @@ Acceptable collaborations:
 * Discuss problems/solutions/anything with any number of other students (as long as you don’t look at each other’s code).
 * Copy a short (about 10 lines or fewer - use your judgment) snippet from [stackoverflow.com](stackoverflow.com) or a similar source, as long as you include a comment with the source URL.
 * Copy code written by one of your teammates during the group project for another part of the group project.
-* Copy code from the output of a large language model such as ChatGPT that you prompted yourself,
+* Copy code from the output of a generative AI tool such as ChatGPT that you prompted yourself,
 if you include a link to a record of your interaction with the model (e.g., ChatGPT's "share" feature)
 as a code comment.
 
@@ -253,8 +253,8 @@ Unacceptable collaborations:
 * Copy code from another group on a group project.
 * Copy a significant portion (more than about 10 lines of code or a single method - use your judgment) of your assignment from the internet, even if you cite your source.
 * Copy a short snippet from the internet without citing your source.
-* Copy code from the output of a large language model (such as ChatGPT) without citing your source
-* Copy code from the output of a large language model prompted by someone other than you (or your teammates,
+* Copy code from the output of a generative AI tool (such as ChatGPT) without citing your source
+* Copy code from the output of a generative AI tool prompted by someone other than you (or your teammates,
 for the group project)
 
 These rules are intended to mimic what is acceptable in industry when
@@ -287,7 +287,7 @@ Class Demo, or the Group Project Final Submission (or resubmission).
 
 # Acknowledgments
 
-This course is heavily inspired by a number of other courses in software engineering at other universities, especially:
+This course is heavily indebted to a number of other courses in software engineering at other universities, especially:
 * [Jon Bell](https://www.jonbell.net/)’s [CS 4530](https://neu-se.github.io/CS4530-Fall-2022/) at Northeastern (special thanks to Jon and his colleagues for their permission to re-use the Covey.Town project materials.)
 * [Wes Weimer](https://web.eecs.umich.edu/~weimerw/)'s [EECS 481](https://web.eecs.umich.edu/~weimerw/481/index.html) at the University of Michigan
 * [Michael Ernst](https://homes.cs.washington.edu/~mernst/)'s [CSE 403](https://courses.cs.washington.edu/courses/cse403/19wi/) at the University of Washington

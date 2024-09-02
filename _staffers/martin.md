@@ -11,7 +11,7 @@ Office Hours: Fridays, 10-11am eastern, GITC 4314; or by appointment.
 To schedule an appointment with me, check [my
 calendar](https://calendar.google.com/calendar/u/0?cid=bWprNzZAbmppdC5lZHU)
 and add a calendar event in any open spot that works for you during
-regular business hours (Monday to Friday, 8:30-5:00). You must schedule
+regular business hours (Monday to Friday, 9:30-5:30). You must schedule
 meetings at least 24 hours in advance, or I will automatically decline
 them.
 
