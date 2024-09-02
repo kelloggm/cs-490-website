@@ -3,7 +3,7 @@ title: Week 8
 ---
 
 Oct 21
- : **Revised Project Plan due**{: .label .label-red } 
+ : **[Revised Project Plan](../projects/revised-project-plan.html) due**{: .label .label-red } 
 
 Oct 23
 : [Static Analysis](../assets/lecture-static-analysis.pdf)
@@ -16,3 +16,5 @@ Oct 25
   : **Mandatory reading**: Zeil's [Debugging – Using Hypotheses to Track Down the Culprit](https://www.cs.odu.edu/~zeil/cs333/s14/Public/debugging2/debugging2__html.html) and Taylor's [Debugging](https://airs.com/ian/essays/debug/debug.html)
 
     **Your Choice reading**: Ko and Myers' [Designing the WhyLine: A Debugging Interface for Asking Questions about Program Behavior](../assets/whyline.pdf)
+
+ : **Project [Deployment Demo](../projects/project-demos.html#deployment-demo-due) due**{: .label .label-red } 

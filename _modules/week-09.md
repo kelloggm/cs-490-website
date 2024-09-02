@@ -11,7 +11,3 @@ Oct 30
 Nov 1
 : Mid-term Exam (in-class)
   : see the [exams](../exam) page for old and practice exams (with keys)
-
-
-Nov 1
- : **Project Wizard-of-Oz Demo due**{: .label .label-red } 

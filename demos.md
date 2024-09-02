@@ -8,18 +8,49 @@ nav_order: 6
 
 # Demos
 
-Each group project team needs to do at least three demos during the semester: two
-for the instructor and your group project mentor, and one for the whole class.
+Each group project team must do at least four demos of various types during the semester.
+Some demos will be just your group project mentor, some may be
+for the instructor (and your group project mentor), and at least one will be for the whole class.
 
-## Wizard-of-Oz Demo **Due Friday 3 November 2023, 5:00pm EST**{: .label .label-red }
+## Deployment Demo
 
-The first demo is the ["Wizard-of-Oz"](https://en.wikipedia.org/wiki/Wizard_of_Oz_experiment) demo.
+**Due Friday 25 October 2024, 5:30pm EST**{: .label .label-red }
+
+In this demo, you'll show that you can build and deploy covey.town on a publicly-accessible
+server. You'll do this demo with just your group project mentor, during your regular standup
+meeting during the week of October 21-25.
+
+There are two requirements for this demo:
+* you provide your group project mentor with a link that they can follow that allows them to join a covey.town
+instance controlled by you.
+* that instance contains any one visible change from the starter code (e.g., text on the login page that says "hello world"
+or something equally simple), to show that this version really has been modified by your team.
+
+There are many ways to deploy covey.town so that it is remotely accessible. The easiest is probably to set up
+a free-tier AWS instance (by following [our guidelines](../tutorials/ubuntu.html)) and then set it to allow
+incoming traffic on the appropriate ports used by covey.town; see the covey.town documentation for more details.
+
+### Rubric (out of 10 points, 1% of final project grade)
+
+There are only two possible grades for this demo: 0 or 10.
+
+#### Meets minimum requirements:
+* Provided link leads to a running covey.town instance.
+* Running covey.town instance contains at least one modification that shows that your team controls it.
+
+## Wizard-of-Oz Demo
+
+**Due Friday 8 November 2024, 5:30pm EST**{: .label .label-red }
+
+The next demo is the ["Wizard-of-Oz"](https://en.wikipedia.org/wiki/Wizard_of_Oz_experiment) demo.
 In this demo, you'll show what your project will look like when it is finished. In this demo, you don't
 need to actually have any of your code working yet: instead, you'll "fake" working code to show off
 your vision for your finished project.
 
 How you fake your finished project is up to you, and will probably vary quite a bit between projects.
 Some options include:
+* using a professional design tool, such as [Figma](https://www.figma.com/). Figma will give you a
+[free license](https://www.figma.com/education/higher-education/) because you are a student.
 * using PowerPoint or a similar slideshow tool to build slides that look like your finished feature.
 You can use slide animations or transitions to show what your feature will look like in action.
 * doing the same using a professional animation tool, such as Adobe Animate or a similar tool
@@ -47,7 +78,9 @@ your project mentor, and the instructor can attend before the deadline.
 * Demo is between 3 and 7 minutes long
 * Demo showcases at least two user stories from the revised project proposal
 
-## Preliminary Demo  **Due Friday 1 December 2023, 5:00pm EST**{: .label .label-red }
+## Preliminary Demo
+
+**Due Friday 22 November 2024, 5:30pm EST**{: .label .label-red }
 
 By the preliminary demo, you should have a significant part of the coding for your
 feature completed. In this demo, you should show that at least one of the user
@@ -65,7 +98,7 @@ project mentor during the week that the demo is due, which the instructor will t
 you know the week beforehand, but it will be up to you to schedule an alternative slot that all of you,
 your project mentor, and the instructor can attend before the deadline.
 
-### Rubric (out of 50 points, 5% of final project grade)
+### Rubric (out of 40 points, 4% of final project grade)
 
 #### Satisfactory:
 * Demo shows a user story from the revised project proposal
@@ -80,3 +113,7 @@ is based on the quality of your code reviews up to this point)
 * Code is checked into your project GitHub, and no code was pushed directly to `main` without a review
 * Code is demonstrated in a running covey.town instance
 * Demo takes between 3 and 7 minutes
+
+## Final Demo
+
+See the [project deliverables](../projects/project-deliverable.html#10-final-demonstration) page.

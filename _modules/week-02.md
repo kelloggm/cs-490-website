@@ -3,7 +3,7 @@ title: Week 2
 ---
 
 Sep 9
- : **Individual Project 0 due**{: .label .label-red } 
+ : **[Individual Project 0](../projects/ip0.html) due**{: .label .label-red } 
 
 Sep 11
 : [Reading Code](../assets/lecture-reading-code.pdf)

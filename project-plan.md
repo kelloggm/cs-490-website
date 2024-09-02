@@ -5,7 +5,7 @@ permalink: /projects/project-plan.html
 parent: Projects
 nav_order: 4
 ---
-# Project Plan **Due Monday 9 October 2023, 11:59pm AoE**{: .label .label-red }
+# Project Plan **Due Monday 7 October 2024, 11:59pm AoE**{: .label .label-red }
 All projects will involve frontend and backend development of a new feature for Covey.Town.
 Once teams have been formed, you and your team will decide what kind of new feature you would like to build.
 Your feature should be something that can be implemented within the timeframe allotted (5 weeks, plus 2 weeks of planning), and will be implemented in a fork of the main Covey.Town codebase.
@@ -84,18 +84,18 @@ Each work item should contain the following information:
     * Large: Currently unable to provide a responsible estimate. 
 * A brief (1-2 sentence max) justification of how you reached the size estimate of the task 
 * Milestone for delivering the task, chosen from one of the following two-week sprints:
-  * Sprint 0: Oct 9 - Oct 20
-  * Sprint 1: Oct 23 - Nov 3
-  * Sprint 2: Nov 6 - Nov 17
-  * Sprint 3: Nov 20 - Dec 1
-  * Spring 4: Dec 4 - Dec 12 (note: this sprint is about 10 days, because the deadline is Dec 12. We don't recommend scheduling many tasks in this sprint, because of the likelihood that some tasks from prior sprints might not be done yet.)
+  * Sprint 0: Oct 7 - Oct 18
+  * Sprint 1: Oct 19 - Nov 1
+  * Sprint 2: Nov 2 - Nov 15
+  * Sprint 3: Nov 16 - Nov 29
+  * Sprint 4: Nov 30 - Dec 10 (note: this sprint is shorter than the other---only about 10 days. We don't recommend scheduling many tasks in this sprint, because of the likelihood that some tasks from prior sprints might not be done yet.)
 
 Your work breakdown should take the format of a simple textual list.
  
 ## Submission 
 Your project plan should be submitted as a single PDF in [Canvas](https://njit.instructure.com/courses/38748) to the assignment "Preliminary Project Plan."
 Each team submits a single document to Canvas: when uploading the submission, your teams should already be present in Canvas. Be sure to tag your team mates.
-The assignment is due by the end of October 9, AoE.
+The assignment is due by the end of October 7, AoE.
 
 ## Grading
 The project plan will account for 7.5% of your project grade, and will be graded out of 75 points. The grading of the project plan is further broken down as follows:
@@ -136,7 +136,7 @@ Receive full marks if each element on the work breakdown:
 * Has a size estimate (small, medium, or large) that is provided by the team member assigned the task.
 * Has a responsible justification for that estimation
 * Every "large" task:
-  * Is accompanied by a reasonable explanation of why the team is unnable to provide a responsible estimate
+  * Is accompanied by a reasonable explanation of why the team is unable to provide a responsible estimate
   * Is accompanied by at least one small or medium task, scheduled well-before the "large" task is due to be completed. We would expect that most of these research tasks are scheduled to sprint 0, or perhaps sprint 1.
 
 #### Scheduling of tasks (9 points):

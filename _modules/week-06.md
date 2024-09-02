@@ -3,7 +3,7 @@ title: Week 6
 ---
 
 Oct 7
- : **Project Plan due**{: .label .label-red } 
+ : **[Project Plan](../projects/project-plan.html) due**{: .label .label-red } 
 
 Oct 9
 : [Working in Teams](../assets/lecture-teams.pdf)

@@ -14,4 +14,5 @@ Nov 8
 
     **Your Choice reading**: Kellogg et al.'s [Verifying Object Construction](https://web.njit.edu/~mjk76/papers/ICSE2020-camera-ready.pdf)
 
+ : **Project [Wizard-of-Oz Demo](../projects/project-demos.html#wizard-of-oz-demo) due**{: .label .label-red } 
 

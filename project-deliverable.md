@@ -5,16 +5,17 @@ permalink: /projects/project-deliverable.html
 parent: Projects
 nav_order: 7
 ---
-# Project: Final Deliverable **Due 12 December 2023 11:59pm AoE**{: .label .label-red }
+# Project: Final Deliverable **Due 10 December 2024 11:59pm AoE**{: .label .label-red }
+
 The final project deliverable is the implementation (in GitHub) and the documentation turned in to Canvas. It also includes your final demo.
 
-# Project Implementation and Documentation
+## Project Implementation and Documentation
 
 Your final team deliverable will be a "release" of your new feature on GitHub (with tests), and will be accompanied by a demo.
 *Optionally,* you may also open a pull request to merge your feature into our main repository (submitting a pull request, or the pull request being merged into our
 codebase is independent of the grade you receive, but provides a platform for more visibility of your project). 
 
-## Contents
+### Contents
 
 Your final team deliverable will include:
 * The implementation of your new feature

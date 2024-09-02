@@ -11,5 +11,3 @@ Nov 27
 Nov 29
 : No class (Thanksgiving holiday)
     
-Dec 1
- : **Project Preliminary Demo due**{: .label .label-red } 

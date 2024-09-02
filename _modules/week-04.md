@@ -3,7 +3,7 @@ title: Week 4
 ---
 
 Sep 23
- : **Individual Project 1 due**{: .label .label-red } 
+ : **[Individual Project 1](../projects/ip1.html) due**{: .label .label-red } 
 
 Sep 25
 : [Requirements and Specifications (1)](../assets/lecture-specs1.pdf)

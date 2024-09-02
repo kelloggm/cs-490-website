@@ -5,7 +5,7 @@ permalink: /projects/revised-project-plan.html
 parent: Projects
 nav_order: 5
 ---
-# Revised Project Plan **Due Monday 23 October 2023 11:59pm AoE**{: .label .label-red }
+# Revised Project Plan **Due Monday 21 October 2024 11:59pm AoE**{: .label .label-red }
 You should use the feedback on your preliminary project plan to revise the scope of your project, and discuss any changes with your assigned mentor. The goal of this assignment is to finalize the intended scope of your project based on these discussions and to outline the tasks that you will need to accomplish in order to complete your project.
 
 Your mentor will review your project plan and provide you with feedback on the scope and details provided in your preliminary plan.
@@ -63,14 +63,11 @@ Each work item should contain the following information:
     * Large: Currently unable to provide a responsible estimate. 
 * A brief (1-2 sentence max) justification of how you reached the size estimate of the task
 * Milestone for delivering the task, chosen from one of the following two-week sprints:
-  * Sprint 0: Oct 9 - Oct 20
-  * Sprint 1: Oct 23 - Nov 3
-  * Sprint 2: Nov 6 - Nov 17
-  * Sprint 3: Nov 20 - Dec 1
-  * Spring 4: Dec 4 - Dec 12 (note: this sprint is about 10 days, because the deadline is Dec 12. We don't recommend scheduling many tasks in this sprint, because of the likelihood that some tasks from prior sprints might not be done yet.)
-
-(We leave some time between the end of the last sprint and the project showcase for slippage: there are always
-unexpected bugs, etc., that need to be ironed out. Padding your schedule like this is a good idea!)
+  * Sprint 0: Oct 7 - Oct 18
+  * Sprint 1: Oct 19 - Nov 1
+  * Sprint 2: Nov 2 - Nov 15
+  * Sprint 3: Nov 16 - Nov 29
+  * Sprint 4: Nov 30 - Dec 10 (note: this sprint is shorter than the other---only about 10 days. We don't recommend scheduling many tasks in this sprint, because of the likelihood that some tasks from prior sprints might not be done yet.)
 
 Your work breakdown should take the format of a simple textual list.
 
@@ -121,7 +118,7 @@ Receive full marks if each element on the work breakdown:
 * Has a size estimate (small, medium, or large) that is provided by the team member assigned the task.
 * Has a responsible justification for that estimation
 * Every "large" task:
-  * Is accompanied by a reasonable explanation of why the team is unnable to provide a responsible estimate
+  * Is accompanied by a reasonable explanation of why the team is unable to provide a responsible estimate
   * Is accompanied by at least one small or medium task, scheduled well-before the "large" task is due to be completed. We would expect that most of these research tasks are scheduled to sprint 0, or perhaps sprint 1.
 
 #### Scheduling of tasks (10 points):
@@ -129,5 +126,5 @@ Receive full marks if each element on the work breakdown:
 * Is assigned to a sprint
 * There are no obvious constraint violations (tasks that logically must happen before others should be scheduled before them)
 * There are no "Large" tasks scheduled in sprint 0
-* Tasks scheduled to be completed before 3/7 have an update as to their status, and the work breakdown is updated to reflect the result of these tasks.
+* Tasks scheduled to be completed before the revised plan is due have an update as to their status, and the work breakdown is updated to reflect the result of these tasks.
 

@@ -3,7 +3,7 @@ title: Week 7
 ---
 
 Oct 14
- : **Individual Project 2 due**{: .label .label-red } 
+ : **[Individual Project 2](../projects/ip2.html) due**{: .label .label-red } 
 
 Oct 16
 : [Languages](../assets/lecture-languages.pdf)
