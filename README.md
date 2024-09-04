@@ -5,10 +5,8 @@ nav_exclude: true
 permalink: /:path/
 seo:
   type: Course
-  name: CS 490 (Au24
+  name: CS 490 (Au24)
 ---
-
-<span style="color:red">This site is under construction. Any and all content may change before the start of the Fall 2024 semester.</span>
 
 # Welcome to CS 490!
 

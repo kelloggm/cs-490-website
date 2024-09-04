@@ -50,6 +50,8 @@ You should include three different user stories to describe how users will inter
 Your three user stories should cover the key behavior that your feature will provide.
 Do not provide more than three user stories. Your problem statement and description of user stories and conditions of satisfaction should be between 2-4 pages.
 
+We've provided a [tutorial](../tutorials/user-stories.html) on writing user stories to help with this part.
+
 ## Work Breakdown (max 10 pages)
 Given the project concept that you have chosen and the functionality that you expect to implement to satisfy your user stories, define a breakdown of the work that will be necessary to complete the project.
 
