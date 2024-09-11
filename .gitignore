@@ -8,3 +8,5 @@ _site/
 node_modules/
 vendor/
 *~
+
+.DS_Store
