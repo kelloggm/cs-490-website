@@ -2,7 +2,7 @@
 name: Martin Kellogg
 role: Instructor
 email: martin.kellogg@njit.edu
-website: https://web.njit.edu/~mjk76/
+website: https://kelloggm.github.io/martinjkellogg.com
 photo: martin.jpg
 pronouns: he/him
 ---

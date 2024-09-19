@@ -17,8 +17,8 @@ title: CS 490-001 (Au24)
 tagline: The course website for NJIT CS 490-001
 description: The course website for NJIT CS 490-001 in Fall 2024, as taught by Martin Kellogg
 author: Martin Kellogg
-baseurl: '/~mjk76/teaching/cs490-au24/' # the subpath of your site, e.g. /blog
-url: 'https://web.njit.edu' # the base hostname & protocol for your site, e.g. http://example.com
+baseurl: '/martinjkellogg.com/teaching/cs490-au24/' # the subpath of your site, e.g. /blog
+url: 'https://kelloggm.github.io' # the base hostname & protocol for your site, e.g. http://example.com
 exclude: ["Gemfile", "Gemfile.lock", "LICENSE"]
 
 # Theme settings
