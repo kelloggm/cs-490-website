@@ -12,7 +12,7 @@ Sep 25
     **Your Choice reading**: Ernst et al.'s [The Daikon system for dynamic detection of likely invariants](../assets/daikon.pdf)
 
 Sep 25
- : **[Project Formation survey]() due**{: .label .label-red } 
+ : **[Project Formation survey](https://forms.gle/mHmuXudJoem5iU7e8) due**{: .label .label-red } 
 
 Sep 27
 : [Requirements and Specifications (2)](../assets/lecture-specs2.pdf)
