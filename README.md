@@ -1,11 +1,11 @@
 ---
 layout: home
-title: CS 485: Compilers (Sp25)
+title: CS 485 Compilers (Sp25)
 nav_exclude: true
 permalink: /:path/
 seo:
   type: Course
-  name: CS 485: Compilers (sp25)
+  name: CS 485 Compilers (sp25)
 ---
 
 # Welcome to CS 485: Compilers
