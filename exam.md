@@ -11,14 +11,7 @@ we've covered in the course up to the point at
 which you take the exam is fair game. I may also
 include questions about assigned mandatory readings,
 homework assignments, or any other class content
-that you are supposed to have viewed. Notably,
-this does not generally include the "Your Choice"
-readings: I don't expect you to have read all of those,
-so questions about them will always offer you a choice
-of which reading to answer a question about.
-See the ["Your Choice" readings page](../projects/optional-readings.html)
-for more information about how the "Your Choice" readings will
-be assessed on the exams.
+that you are supposed to have viewed.
 
 My exam design philosophy is to aim for a wide range
 of question difficulties: I try to include both some questions
@@ -28,24 +21,16 @@ understood multiple concepts that we covered in class will even be
 able to answer them in a reasonable way, and everything in between.
 
 To help you prepare for this semester's exams, below you can find
-links to exams from previous semesters, all of which have
-solutions ("keys"). Some of these exams cover the whole course (anything labeled "final"), so
-you'll want to be careful when studying for the midterm---not everything
-on these exams will have been covered by then. In addition, keep in mind
-that the set of topics changes a bit semester-to-semester, so it's possible
-that these exams include some topics that we didn't cover, and that your exams
-this semester might include topics that these exams ignore. These exams are provided
-"as-is" to help you study, but please don't over-rely on them.
+links to exams from other courses that I've taught in previous semesters, all of which have
+solutions ("keys"). These exams are provided
+"as-is" to help you study, but please don't over-rely on them: this is a different course,
+so the topics will be different! However, I generally use the same exam format in every
+course.
 
-I strongly recommend that before looking at a "key" for one of these exams, you sit down
-and attempt the exam yourself, under something like exam conditions (quiet room, no
-interruptions, etc.): this will help you more to prepare for this semester's exam than
-just reading the solutions.
+[CS 490 Sp23 Practice Final](../assets/practice-sp23.pdf) ([key](../assets/practice-sp23-key.pdf))
 
-[Sp23 Practice Final](../assets/practice-sp23.pdf) ([key](../assets/practice-sp23-key.pdf))
+[CS 490 Sp23 Final](../assets/exam-sp23.pdf) ([key](../assets/exam-sp23-key.pdf))
 
-[Sp23 Final](../assets/exam-sp23.pdf) ([key](../assets/exam-sp23-key.pdf))
+[CS 490 Au23 Midterm](../assets/au23-midterm.pdf) ([key](../assets/au23-midterm-key.pdf))
 
-[Au23 Midterm](../assets/au23-midterm.pdf) ([key](../assets/au23-midterm-key.pdf))
-
-[Au23 Final](../assets/au23-final.pdf) ([key](../assets/au23-final-key.pdf))
+[CS 490 Au23 Final](../assets/au23-final.pdf) ([key](../assets/au23-final-key.pdf))

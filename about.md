@@ -5,97 +5,60 @@ layout: page
 
 # Syllabus
 
-Welcome to CS 490: Guided Design in Software Engineering! This is a
-course about building software that satisfies stronger properties than
-“it works”: it’s about building software that is correct, reliable,
-maintainable, testable, and usable. That is, this course will teach
-you about how to build software *well*.
+<span style="color:red">Note: this syllabus is a draft and is subject to change.</span>
 
-The course is structured around giving you experience in both the
-_theory_ (through readings and lectures) and the _practice_ (through
-programming assignments and a large group project) of software
-engineering.
-However, this course has a strong emphasis on the practical: the assignments
-mirror real engineering activities, most readings are blog posts from
-engineers, etc. My overarching goal in this class is to expose you
-to how high-quality software engineering is done at the world's best
-software engineering firms.
-
-# Course Outcomes
-
-Official course outcomes:
-* Students will be able to explain the major theories and methods applicable to professional software engineering.
-* Students will be able to design, implement and evaluate a computer based system to meet desired needs.
-* Students will be able to function effectively on a team to accomplish a goal.
-* Students will be able to use current techniques, skills and tools necessary for computing practice.
-
-My course design is based additionally on these unofficial outcomes:
-* Students will be able to assess the quality of software engineering being done at some future workplace
-* Students will be competent software engineers that I wouldn’t be worried about hiring as an engineering manager
+Welcome to CS 485: Compilers! This course teaches students how to
+build an optimizing compiler for a Java-like object-oriented
+programming language. Topics include program semantics, typechecking,
+intermediate representations like single static assignment (SSA) form,
+code generation, and classic compiler optimizations including register
+allocation via graph coloring, peephole optimizations, and dataflow
+analyses. Students will also be introduced to functional programming,
+and its advantages for transformation-based programs like compilers
+that have strict correctness requirements.
 
 # Prerequisites
 
-Technically this course requires CS 280 and CS 288, which are both
-courses about *how* to program. I will assume in this course that you
-know how to program: that is, that if I tell you to go write some
-code, you’ll be able to go do it. Since this course focuses on how to
-program **well** (i.e., how to engineer software!), you first need to know
-how to program at all. I’ll also assume some familiarity with command
-line tools, debugging, and using a search engine: I expect that if I
-ask you to go write code in some language you’ve never seen before,
-you’ll be able to find the necessary components online, find an online
-tutorial on the syntax, and figure out how to write that code. Put
-another way, I won’t teach you how to write a program: this course
-already assumes that you can do that.
-
-As an analogy to carpentry, classes like CS 113 teach you how to build
-the equivalent of a software cabinet. CS 280 and CS 288 teach you how
-to build something like a software shed: pretty big, but still small
-enough for one person to do on their own by combining the skills they
-learned building cabinets. CS 490 is about the equivalent of building
-a software high-rise: not only is it more than a single-person job,
-but also there’s lots of other things you need to worry about that
-don’t come up when you’re building a shed.
+As a special topics course, this class officially has no prerequisites, and you're signing up for it
+at your own risk. If this course were to be offered as a regular course, the prerequisite would
+be CS 280 with a grade of C or better, or the equivalent at another institution.
+Taking CS350 in the same semester as this course, or prior to it, is recommended but not required, provided students have some prior knowledge of assembly.
+Students will also benefit from taking CS 341 concurrently or before this course, because
+there are some relevant theory topics to optimization.
+Finally, this course includes a non-trivial programming project. Students who have taken
+a software engineering course (e.g., CS 490 with me) or otherwise have software engineering
+experience will probably have an easier time.
 
 The first homework assignment is due right at the drop date,
 and is intended to let you check that you have the basic skills that
-will be needed for this course: it requires you to write a
-well-defined program in a language you’ve never seen before.
-
-However, software engineering is a broad topic that requires a synthesis
-of knowledge, and students will
-benefit from almost all of the rest of the undergraduate curriculum.
-We will use concepts from most other courses in the curriculum, including but
-not limited to: CS theory (CS 341), operating systems (CS 332), algorithms (CS 435), data structures (CS 114),
-security (CS 351), and databases (CS 331). You don't _need_ to have taken these courses before
-you take CS 490, but I'll bring up topics from them when they're relevant to the course, so you'll get more
-out of CS 490 if you have seen those classes first (or are taking them concurrently).
+will be needed for this course.
 
 # Topics
 
-* What is Software Engineering?
-* Software Engineering process
-* Version control
-* Code review
-* Programming in teams
-* Testing, including coverage, continuous integration, test-driven development, mutation testing, and fuzzing
-* Requirements and specifications
-* Programming languages
-* Build systems
-* Static analysis
-* Debugging
-* Architecture and design, including design patterns, microservice design, designing for security, and designing for scale
-* Technical debt, refactoring, and maintenance
-* DevOps, logging and post-mortems
-* Open source software
+* Functional programming
+* Scoping
+* Typechecking
+* Operational Semantics
+* Abstract Interpretation
+* Intermediate Representations
+* Code Generation
+* Multi-language Projects
+* Dead Code Elimination and Other Dataflow Analyses
+* Local Optimizations
+* Peephole Optimizations
+* Global Optimizations
+* Register Allocation
+* Automatic Memory Management
+* Exceptions
+* Debuggers
+* Linking, Loading, and Shared Libraries
 
 # Grading and Assignments
 
 Your grade is composed of the following sub-scores (in no particular order):
-* 15%: Participation & Professionalism
-* 15%: Individual Projects
-* 45%: Group Project
+* 60%: Programming Projects (5% for PA1 (Rosetta Stone), 17.5% for PA2 (COOL Typechecker), 17.5% for PA3 (COOL Code Generator), 20% for PA4 (COOL Optimizing Compiler))
 * 25%: Exams (10% for the mid-term, 15% for the final)
+* 15%: Participation & Professionalism
 
 This class will be curved: when grading, I prefer to use the whole
 range available rather than scores in a tight range. That is, if an
@@ -107,46 +70,15 @@ distribution twice during the semester:
 
 You will be notified of your current projected class grade via email at each of these points.
 
-## Readings and Reading Responses
+## Textbook
 
-Each lecture has two kinds of readings: mandatory and "Your Choice"
-readings. I expect you to read mandatory readings before coming to
-class that day, and reading quizzes (see Participation &
-Professionalism, below) will cover the mandatory readings only. During
-the semester, you **must** complete **at least two** "Your Choice" readings:
-one before the mid-term, and another before the final.
-Most "Your Choice" readings are research papers from
-the software engineering literature: the idea is that you will do a
-deeper dive on two topics that interest you. The "Your Choice" readings
-will be checked on the exams: see the ["Your Choice" reading page](../projects/optional-readings.html).
+This course uses [_Engineering A Compiler, 2nd edition_](https://www.cs.rice.edu/~keith/Errata.html) as the primary
+textbook. NJIT's library has copies available online. This textbook will be supplemented by other readings.
 
 ## Participation & Professionalism
 
-Your participation & professionalism grade is composed of two scores. 
-
-First, your *Professionalism* score is based on the instructors (both the professor and TAs!)
-impression of how well you participated in class, with deductions for
-distracting other students and credit for asking and answering
-questions (either in person or on the course discussion board).
-Professionalism during the project (especially in interactions with your
-group's TA mentor) is also a major component.
-
-Second, your *Participation* score is based on reading quizzes (about topics from the mandatory
-readings only - quizzes will never cover "Your Choice" readings) at the
-beginning of most lectures. You get half credit on these quizzes just
-for being there, and half credit for answering the reading questions
-correctly (the questions are supposed to be easy if you did the
-reading). For full participation, you need to get at least a score of
-70% on all quizzes over the whole semester (this gives you space to
-e.g., miss a reading quiz because you were sick or have a family
-emergency - there are no excuses for missing reading quizzes). Put
-another way, you can miss up to 30% of the reading quiz points and
-still get full participation points.
-
-These policies are designed to encourage you to come to class. A big
-part of the goal of this class is to help you develop an intuition for
-what good software engineering looks like, and without coming to class
-you won’t get the full benefit of that intuition.
+Your participation & professionalism grade is based on your interactions with the instructors and TAs:
+in-class, on the course discussion forum, in office hours, etc.
 
 ### Remote Participation
 
@@ -162,52 +94,33 @@ to participate in a particular class remotely.
 
 ### Asking Questions
 
-There is a course [Discord server](https://discord.com/channels/1279147849291923617/1279147849291923619)
+There is a course [Discord server]()
 which you can use to ask (and answer) questions about any of the course topics or for
 help with the homework. Participating on Discord is optional, but if you do
 participate in a productive manner (especially by answering other student's questions!), it will have a
 positive impact on your participation score.
 
-## Course Project (both Individual and Group)
+## Programming Projects
 
-The assignments and project for this class are designed to mirror the
-experiences of a software engineer joining a new development team: you
-will be “onboarded” to our codebase, make several individual
-contributions, and then form a team to propose, develop and implement
-a new feature. The codebase that we’ll be developing on is a remote
-collaboration tool called [Covey.Town](https://www.covey.town/).
-Covey.Town provides a virtual
-meeting space where different groups of people can have simultaneous
-video calls, allowing participants to drift between different
-conversations, just like in real life. Covey.Town is inspired by
-existing products like [Gather.Town](https://gather.town/), [Sococo](https://www.sococo.com/), and [Gatherly.IO](https://www.gatherly.io/) — but it
-is an open source effort, and the features will be proposed and
-implemented by you! All implementation will take place in the
-TypeScript programming language, using React for the user interface.
+This course has four programming projects:
+* **PA1: the Rosetta Stone**: Students will implement the same program in four languages, one from
+each of the following buckets:
+    * _Bucket 1: Languages You Already Know_: Java, C, C++, or Python3
+    * _Bucket 2: Languages With An Unusual Type System_: Kotlin, Rust, or TypeScript
+    * _Bucket 3: Functional Languages_: OCaml or Haskell
+    * _Bucket 4: Project Language_: [Classroom Object-Oriented Language (COOL)](https://weimer.github.io/csci2320/crm/) (TODO: host this yourself)
+* **PA2: the COOL Typechecker**: the typechecker takes an AST (produced by a provided COOL parser)
+as input and produce either a type error or a special AST-related output format that serializes data structures produced during typechecking.
+* **PA3: the COOL Code Generator**: the code generator takes the typechecker's output and produces x86-64 assembly.
+This assignment does not require any optimization, only correctness.
+* **PA4: the COOL Optimizing Compiler**: the optimizing compiler is a modified version of PA3 that also optimizes the x86-64 code
+that it produces. This project is judged on the speed of the generated assembly code (in addition to correctness). Students are
+required to 1) implement some specific optimizations, including dead code elimination, and 2) match the performance of the COOL
+reference compiler's generated assembly. We will provide an anonymized leaderboard of student submissions (and reference implementations).
 
-At the end of the semester, the instructors and TAs will evaluate all
-of the student projects, and select the best (in terms of usability,
-code quality, test suite quality, and overall design) to merge into
-the [open source Covey.Town codebase on GitHub](https://github.com/neu-se/covey.town) repository. No
-additional course credit will be awarded to these teams, but these
-students will have the opportunity to receive public recognition for
-their project (in the form of a pull request merged into our
-repository and acknowledgments in the project’s contributors list).
+Each assignment includes at least one "checkpoint" to encourage you to start early.
 
-The project will provide hands-on experience to complement the skills taught in this class, requiring students to be able to:
-* Work effectively in a small team
-* Enumerate and prioritize development tasks
-* Propose, design, implement and test a new feature in an existing non-toy software application
-* Write code that their team members can read and review
-* Review teammates’ code
-* Analyze a proposed software architecture
-* Use relevant software tools, such as:
-    * TypeScript
-    * Visual Studio Code (or similar IDE)
-    * Git
-    * Mocha and Jest
-    * Twilio’s Programmable Video API
-    * Postman
+All assignments except PA1 may be completed in pairs (but working alone is also permitted).
 
 ## Exams
 
@@ -232,10 +145,9 @@ online resources. You are permitted to copy small amounts of code
 from any source except someone else's copy of an assignment,
 *as long as you cite your source*. “someone else's copy of an
 assignment” also includes students not currently enrolled in the
-course - e.g., students who took (or are taking - I am in contact with
-the instructors using covey.town at Northeastern and we will compare code submitted in both classes)
+course - e.g., students who took
 this class in previous semesters or
-took classes that used similar individual projects at other
+took classes that used similar projects at other
 institutions. To make this more clear, here are some examples of
 acceptable and unacceptable collaboration on a programming assignment
 in this course:
@@ -243,7 +155,7 @@ in this course:
 Acceptable collaborations:
 * Discuss problems/solutions/anything with any number of other students (as long as you don’t look at each other’s code).
 * Copy a short (about 10 lines or fewer - use your judgment) snippet from [stackoverflow.com](stackoverflow.com) or a similar source, as long as you include a comment with the source URL.
-* Copy code written by one of your teammates during the group project for another part of the group project.
+* Copy code written by one of your teammates during a group project for another part of the group project.
 * Copy code from the output of a generative AI tool such as ChatGPT that you prompted yourself,
 if you include a link to a record of your interaction with the model (e.g., ChatGPT's "share" feature)
 as a code comment.
@@ -255,7 +167,7 @@ Unacceptable collaborations:
 * Copy a short snippet from the internet without citing your source.
 * Copy code from the output of a generative AI tool (such as ChatGPT) without citing your source
 * Copy code from the output of a generative AI tool prompted by someone other than you (or your teammates,
-for the group project)
+for a group project)
 
 These rules are intended to mimic what is acceptable in industry when
 working as a software engineer: using the resources available to you,
@@ -273,26 +185,12 @@ Please note that it is my professional obligation and responsibility to report a
 
 # Late Policy
 
-You may use up to two late days on Individual Projects 1 and 2 (in
-total: either 2 on one of the two or one on each) without
-penalty. Assignments turned in after your second late day will not be
-accepted.
-
-Your group may use up to two late days on the Group Projects (in
-total). Assignments turned in after your group’s second late day will
-not be accepted.
-
-You may not use late days on Individual Project 0, the Group Project
-Class Demo, or the Group Project Final Submission (or resubmission).
+TBD, but some late submissions will be allowed.
 
 # Acknowledgments
 
-This course is heavily indebted to a number of other courses in software engineering at other universities, especially:
-* [Jon Bell](https://www.jonbell.net/)’s [CS 4530](https://neu-se.github.io/CS4530-Fall-2022/) at Northeastern (special thanks to Jon and his colleagues for their permission to re-use the Covey.Town project materials.)
-* [Wes Weimer](https://web.eecs.umich.edu/~weimerw/)'s [EECS 481](https://web.eecs.umich.edu/~weimerw/481/index.html) at the University of Michigan
-* [Michael Ernst](https://homes.cs.washington.edu/~mernst/)'s [CSE 403](https://courses.cs.washington.edu/courses/cse403/19wi/) at the University of Washington
-
-As a student, if you’re looking for more materials (or just a different perspective) on any of the topics we cover, you might start with those (excellent) courses.
+This course is heavily indebted to [Wes Weimer](https://web.eecs.umich.edu/~weimerw/)'s courses that I took as an undergraduate: UVa's [CS 4610](https://web.eecs.umich.edu/~weimerw/2015-4610/) and [CS 4501](https://web.eecs.umich.edu/~weimerw/2015-4610/ca.html)
+that I took as a student. Thanks to Wes for sharing his materials!
 
 ----
 
