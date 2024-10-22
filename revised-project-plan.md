@@ -5,6 +5,10 @@ permalink: /projects/revised-project-plan.html
 parent: Projects
 nav_order: 5
 ---
+
+## Changelog:
+* 17 October, ~5pm eastern time: updated the rubric based on feedback from TAs about initial project plan grading.
+
 # Revised Project Plan **Due Monday 21 October 2024 11:59pm AoE**{: .label .label-red }
 You should use the feedback on your preliminary project plan to revise the scope of your project, and discuss any changes with your assigned mentor. The goal of this assignment is to finalize the intended scope of your project based on these discussions and to outline the tasks that you will need to accomplish in order to complete your project.
 
@@ -83,6 +87,7 @@ The revised project plan will account for 10% of your project grade, and will be
 ### Introductory problem statement (5 points): 
 * Receive full marks if there is a narrative consisting of 4-10 sentences that describes a specific problem that your project aims to solve.
 * Receive partial credit if the narrative is present, but does not describe a problem that the project aims to solve
+* Minor deductions for factual errors ("don't say false things") or egregious overclaims ("our project will usher in a new era of world peace")
 
 ### User stories (15 points):
 Each of the three user stories will account for 5% of your grade on this assignment and graded as follows:
@@ -97,7 +102,7 @@ Each of the three user stories will account for 5% of your grade on this assignm
 Your work breakdown will be evaluated holistically on the following rubric:
 
 #### Coverage of tasks needed (30 points):
-Receive full marks if the work breakdown includes all (reasonably expected) tasks to implement your feature, considering these kinds of tasks: 
+Receive full marks if the work breakdown includes all (reasonably expected) tasks to implement your feature at a level of detail sufficient for the course staff to understand what you will be working on in a given sprint, considering these kinds of tasks: 
   * Background research 
   * Design of interfaces and data types
   * Deployment of third-party services
@@ -110,13 +115,14 @@ However, we believe that this list is exhaustive (we do not expect other kinds o
 
 #### Assignment of tasks (10 points):
 Receive full marks if:
-* Each element on the work breakdown is assigned to one team member
+* Each element of the work breakdown is assigned to specific team members, and no "small" or "medium" task is assigned to more than one team member. You have a bit of flexibility about how you want to assign tasks (e.g., it's permitted for you to have "primary" and "secondary" team members for each tasks, just one team member per task, etc.) as long as it is clear to the course staff which team member has the primary responsibility for each task.
 * The distribution of tasks of each size are roughly similar between the whole team (no single person is assigned significantly more or fewer tasks of one size)
+* Each team member has at least one task assigned to them during each sprint
 
 #### Sizing of tasks (30 points):
 Receive full marks if each element on the work breakdown:
-* Has a size estimate (small, medium, or large) that is provided by the team member assigned the task.
-* Has a responsible justification for that estimation
+* Has a reasonable size estimate (small, medium, or large) that is provided by the team member assigned the task.
+* Has a reasonable justification for that estimation
 * Every "large" task:
   * Is accompanied by a reasonable explanation of why the team is unable to provide a responsible estimate
   * Is accompanied by at least one small or medium task, scheduled well-before the "large" task is due to be completed. We would expect that most of these research tasks are scheduled to sprint 0, or perhaps sprint 1.
