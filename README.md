@@ -12,7 +12,8 @@ seo:
 
 <span style="color:red">Note: this website is an early draft and everything on it is subject to change.</span>
 
-<span style="color:red">Schedule Builder says that this class will be on Wednesday nights, 6-9pm. That is **not** correct: there was a data entry error in the scheduling process. I expect the course to run in a 2/week (80-minute) slot, probably on TR or WF mornings, but we're waiting to find out when there will be a room available. Sorry for the confusion!</span>
+<span style="color:red">Schedule Builder says that this class will be on Wednesday nights, 6-9pm. That is **not** correct: it will be on **Monday and Wednesday mornings at 10am**.
+Sorry for the confusion!</span>
 
 Welcome to CS 485: Compilers! This course teaches students how to
 build an optimizing compiler for a Java-like object-oriented
