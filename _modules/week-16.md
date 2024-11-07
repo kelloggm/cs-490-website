@@ -2,11 +2,11 @@
 title: Week 16
 ---
 
-Exam Slot (TBD)
- : 
+Dec 16
+ : Final exam at 11:30am in GITC 1100
 
-Dec TBD
+Dec 18
  : **All group project [final deliverables (re-submission)](../projects/project-deliverable.html#resubmission-after-the-final-demo) due**{: .label .label-red } 
 
-Dec TBD+1
+Dec 19
  : **[Individual Reflection](../projects/project-deliverable.html#individual-reflection-1) due**{: .label .label-red } 

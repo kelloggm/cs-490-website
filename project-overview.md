@@ -25,8 +25,8 @@ All implementation will take place in the TypeScript programming language, using
 | 10/25/24 | [Deployment Demo]({{ site.baseurl }}{% link demos.md %}) | Show that you can deploy a lightly-modified copy of covey.town to a remotely-accessible machine. |
 | 11/8/24 | [Wizard-of-Oz Demo]({{ site.baseurl }}{% link demos.md %}) | Show what your project will look like, once it is complete, to your project mentor and the instructor. This demo doesn't require you to show any working code: it is purely about design. |
 | 11/22/24 | [Preliminary Demo]({{ site.baseurl }}{% link demos.md %}) | Demonstrate one user story to your project mentor and the instructor. In this demo, you need to actually be running your own code (unlike the Wizard-of-Oz demo).  |
-| 12/10/24 | Project Implementation and Documentation | Deliver your new feature, including design documentation and tests. You will demo it to the class on the last day of class (12/11). |
-| 12/X/24 | Project Implementation and Documentation (Resubmission) | If your demo on 12/11 does not meet your project goals, you may schedule another demo with your project mentor and the instructor before the final exam (on 12/X). Re-submit your code and documentation immediately before the demo. |
+| 12/10/24 | Project Implementation and Documentation | Deliver your new feature, including design documentation and tests. You will demo it to the instructor in the days right after our last class (12/11-12/13). |
+| 12/18/24 | Project Implementation and Documentation (Resubmission) | If your demo on 12/11 does not meet your project goals, you may schedule another demo with your project mentor and the instructor no more than one week after the last day of class (12/18). Re-submit your code and documentation immediately before the demo. |
 
 All assignments are due on the specified date, AoE (i.e., before the beginning of the next day anywhere on Earth, which is at 7am EST the next day).
 
@@ -111,6 +111,3 @@ Accompanying the final team deliverable will be an *individual reflection*, whic
 * The evolution of your project concept: How does the project that you delivered compare to what you originally planned to deliver? What caused these deviations?
 * The software engineering processes that you feel could have been improved in your project: were there any procesess that in hindsight, you wish that you followed, or wish that you followed better?
 * Your team dynamic: Provide a frank (and ideally, blameless) postmortem of your and your teammates collaborative performance and participation. If you had to do this same project over with the same teammates, what would *you* have done differently (or not) to improve your team's overall performance?
-
-Finally, you will participate in a "project showcase" during the last day of class. During this showcase, you'll take turns demo'ing your new feature to the rest
-of the class, while the rest of your team views the demos of other teams.
