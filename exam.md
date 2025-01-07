@@ -51,3 +51,5 @@ just reading the solutions.
 [Au23 Final](../assets/au23-final.pdf) ([key](../assets/au23-final-key.pdf))
 
 [Au24 Midterm](../assets/au24-midterm.pdf) ([key](../assets/au24-midterm-key.pdf))
+
+[Au24 Final](../assets/au24-final.pdf) ([key](../assets/au24-final-key.pdf))
