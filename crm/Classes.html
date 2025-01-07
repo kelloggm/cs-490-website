@@ -1,0 +1,55 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<link rel="Stylesheet" type="text/css" href="style.css">
+<script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+<script type="text/x-mathjax-config">
+	MathJax.Hub.Config({
+		// Set the default size for all of the math, 100% was awkwardly large on my screen
+		"HTML-CSS": { scale: 90 },
+		TeX: {
+			extensions: ["AMSmath.js", "AMSsymbols.js"],
+            Macros: {
+                HY: "{\\unicode{x2013}}",
+                LQT: "{\\unicode{x201C}}",
+                RQT: "{\\unicode{x201D}}",
+            }
+		}
+	});
+</script>
+<title>Classes</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+</head>
+<body>
+
+<p>
+<a href="Getting Started.html">Previous</a> <a href="The Cool Reference Manual.html">Up</a> <a href="Features.html">Next</a>
+</p>
+<div id="Classes"><h2 id="Classes">Classes</h2></div>
+
+<p>
+All code in Cool is organized into classes. Each class definition must be contained in a single source file, but multiple classes may be defined in the same file. Class definitions have the form:
+</p>
+<pre>
+class &lt;type&gt; [ inherits &lt;type&gt; ] {
+	&lt;feature_list&gt;
+};
+</pre>
+<p>
+The notation [ ... ] denotes an optional construct. All class names are globally visible. Class names begin with an uppercase letter. Classes may not be redefined.
+</p>
+<ul>
+<li>
+<a href="Features.html">Features</a>
+
+<li>
+<a href="Inheritance.html">Inheritance</a>
+
+</ul>
+
+<p>
+<a href="Getting Started.html">Previous</a> <a href="The Cool Reference Manual.html">Up</a> <a href="Features.html">Next</a>
+</p>
+
+</body>
+</html>

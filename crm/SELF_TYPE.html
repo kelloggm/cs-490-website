@@ -1,0 +1,69 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<link rel="Stylesheet" type="text/css" href="style.css">
+<script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+<script type="text/x-mathjax-config">
+	MathJax.Hub.Config({
+		// Set the default size for all of the math, 100% was awkwardly large on my screen
+		"HTML-CSS": { scale: 90 },
+		TeX: {
+			extensions: ["AMSmath.js", "AMSsymbols.js"],
+            Macros: {
+                HY: "{\\unicode{x2013}}",
+                LQT: "{\\unicode{x201C}}",
+                RQT: "{\\unicode{x201D}}",
+            }
+		}
+	});
+</script>
+<title>SELF_TYPE</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+</head>
+<body>
+
+<p>
+<a href="Types.html">Previous</a> <a href="Types.html">Up</a> <a href="Type Checking.html">Next</a>
+</p>
+<div id="SELF_TYPE"><h2 id="SELF_TYPE">SELF_TYPE</h2></div>
+
+<p>
+The type \(\rm SELF\_TYPE\) is used to refer to the type of the \(\rm self\) variable. This is useful in classes that will be inherited by other classes, because it allows the programmer to avoid specifying a fixed final type at the time the class is written. For example, the program
+</p>
+<pre>
+class Silly {
+	copy() : SELF_TYPE { self };
+};
+
+class Sally inherits Silly { };
+
+class Main {
+	x : Sally &lt;- (new Sally).copy();
+
+	main() : Sally { x };
+};
+</pre>
+<p>
+Because \(\rm SELF\_TYPE\) is used in the definition of the \(\rm copy\) method, we know that the result of \(\rm copy\) is the same as the type of the \(\rm self\) parameter. Thus, it follows that \(\rm (new Sally).copy()\) has type \(\rm Sally\), which conforms to the declaration of attribute \(\rm x\).
+</p>
+
+<p>
+Note that the meaning of \(\rm SELF\_TYPE\) is not fixed, but depends on the class in which it is used. In general, \(\rm SELF\_TYPE\) may refer to the class \(\rm C\) in which it appears, or any class that conforms to \(\rm C\). When it is useful to make explicit what  \(\tt SELF\_TYPE\) may refer to, we use the name of the class \(\rm C\) in which \(\rm SELF\_TYPE\) appears as an index  \(\tt SELF\_TYPE_{C}\). This subscript notation is not part of Cool syntax--it is used merely to make clear in what class a particular occurrence of \(\rm SELF\_TYPE\) appears.
+</p>
+
+<p>
+From Definition <a href="Types.html">4.1</a>, it follows that  \(\tt SELF\_TYPE_{X} \leq SELF\_TYPE_{X}\). There is also a special conformance rule for \(\rm SELF\_TYPE\):
+</p>
+\[
+\tt SELF\_TYPE_{C} \leq P\ \ if\ \ C \leq P
+\]
+<p>
+Finally, \(\rm SELF\_TYPE\) may be used in the following places: \(\rm new\ SELF\_TYPE\), as the return type of a method, as the declared type of a \(\rm let\) variable, or as the declared type of an attribute. No other uses of \(\rm SELF\_TYPE\) are permitted.
+</p>
+
+<p>
+<a href="Types.html">Previous</a> <a href="Types.html">Up</a> <a href="Type Checking.html">Next</a>
+</p>
+
+</body>
+</html>

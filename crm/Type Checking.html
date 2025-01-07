@@ -1,0 +1,55 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<link rel="Stylesheet" type="text/css" href="style.css">
+<script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+<script type="text/x-mathjax-config">
+	MathJax.Hub.Config({
+		// Set the default size for all of the math, 100% was awkwardly large on my screen
+		"HTML-CSS": { scale: 90 },
+		TeX: {
+			extensions: ["AMSmath.js", "AMSsymbols.js"],
+            Macros: {
+                HY: "{\\unicode{x2013}}",
+                LQT: "{\\unicode{x201C}}",
+                RQT: "{\\unicode{x201D}}",
+            }
+		}
+	});
+</script>
+<title>Type Checking</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+</head>
+<body>
+
+<p>
+<a href="SELF_TYPE.html">Previous</a> <a href="Types.html">Up</a> <a href="Attributes.html">Next</a>
+</p>
+<div id="Type Checking"><h2 id="Type Checking">Type Checking</h2></div>
+
+<p>
+The Cool type system guarantees at compile time that execution of a program cannot result in runtime type errors. Using the type declarations for identifiers supplied by the programmer, the type checker infers a type for every expression in the program.
+</p>
+
+<p>
+It is important to distinguish between the type assigned by the type checker to an expression at compile time, which we shall call the \(\it static\) type of the expression, and the type(s) to which the expression may evaluate during execution, which we shall call the \(\it dynamic\) types.
+</p>
+
+<p>
+The distinction between static and dynamic types is needed because the type checker cannot, at compile time, have perfect information about what values will be computed at runtime. Thus, in general, the static and dynamic types may be different. What we require, however, is that the type checker's static types be \(\it sound\) with respect to the dynamic types.
+</p>
+
+<p>
+\(\bf Definition\ 4.2\) For any expression \(\tt e\), let \(\tt D_{e}\) be a dynamic type of \(\tt e\) and let \(\tt S_{e}\) be the static type inferred by the type checker. Then the type checker is \(\it sound\) if for all expressions \(\tt e\) it is the case that \(\tt D_{e} \leq S_{e}\).
+</p>
+
+<p>
+Put another way, we require that the type checker err on the side of overestimating the type of an expression in those cases where perfect accuracy is not possible. Such a type checker will never accept a program that contains type errors. However, the price paid is that the type checker will reject some programs that would actually execute without runtime errors.
+</p>
+
+<p>
+<a href="SELF_TYPE.html">Previous</a> <a href="Types.html">Up</a> <a href="Attributes.html">Next</a>
+</p>
+
+</body>
+</html>

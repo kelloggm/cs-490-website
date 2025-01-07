@@ -1,0 +1,92 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<link rel="Stylesheet" type="text/css" href="style.css">
+<script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+<script type="text/x-mathjax-config">
+	MathJax.Hub.Config({
+		// Set the default size for all of the math, 100% was awkwardly large on my screen
+		"HTML-CSS": { scale: 90 },
+		TeX: {
+			extensions: ["AMSmath.js", "AMSsymbols.js"],
+            Macros: {
+                HY: "{\\unicode{x2013}}",
+                LQT: "{\\unicode{x201C}}",
+                RQT: "{\\unicode{x201D}}",
+            }
+		}
+	});
+</script>
+<title>Type Environments</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+</head>
+<body>
+
+<p>
+<a href="Type Rules.html">Previous</a> <a href="Type Rules.html">Up</a> <a href="Type Checking Rules.html">Next</a>
+</p>
+<div id="Type Environments"><h2 id="Type Environments">Type Environments</h2></div>
+
+<p>
+To a first approximation, type checking in Cool can be thought of as a bottom-up algorithm: the type of an expression \(e\) is computed from the (previously computed) types of \(e\)'s subexpressions. For example, an integer \(\rm 1\) has type \(\rm Int\); there are no subexpressions in this case. As another example, if \(\tt e_n\) has type \(\tt X\), then the expression  \(\tt \{\ e_1; \ldots; e_n;\ \!\}\) has type \(\tt X\).
+</p>
+
+<p>
+A complication arises in the case of an expression \(\tt v\), where \(\tt v\) is an object identifier. It is not possible to say what the type of \(\tt v\) is in a strictly bottom-up algorithm; we need to know the type declared for \(\tt v\) in the larger expression. Such a declaration must exist for every object identifier in valid Cool programs.
+</p>
+
+<p>
+To capture information about the types of identifiers, we use a \(\it type\ environment\). The environment consists of three parts: a method environment \(M\), an object environment \(O\), and the name of the current class in which the expression appears. The method environment and object environment are both functions (also called \(\it mappings\)). The object environment is a function of the form 
+</p>
+\[
+O(v)=T
+\]
+<p>
+which assigns the type \(T\) to object identifier \(v\). The method
+environment is more complex; it is a function of the form 
+</p>
+\[
+M(C,f)=(T_1,\ldots,T_{n-1},T_n)
+\]
+<p>
+where \(C\) is a class name (a type), \(f\) is a method name, and  \( t_1,\ldots,t_n\) are types. The tuple of types is the \(\it signature\) of the method. The interpretation of signatures is that in class \(C\) the method \(f\) has formal parameters of types \((t_1,\ldots,t_{n-1})\)---in that order---and a return type \(t_n\).
+</p>
+
+<p>
+Two mappings are required instead of one because object names and method names do not clash---i.e., there may be a method and an object identifier of the same name.
+</p>
+
+<p>
+The third component of the type environment is the name of the current class, which is needed for type rules involving \(\rm SELF\_TYPE\).
+</p>
+
+<p>
+Every expression \(e\) is type checked in a type environment; the subexpressions of \(e\) may be type checked in the same environment or, if \(e\) introduces a new object identifier, in a modified environment. For example, consider the expression
+</p>
+<pre>
+let c : Int &lt;- 33 in
+ ...
+</pre>
+<p>
+The \(\rm let\) expression introduces a new variable \(\rm c\) with type \(\rm Int\). Let \(O\) be the object component of the type environment for the \(\rm let\). Then the body of the \(\rm let\) is type checked in the object type environment 
+</p>
+\[
+O[Int/c]
+\]
+<p>
+where the notation \(O[T/c]\) is defined as follows:
+</p>
+\[
+\begin{eqnarray}
+O[T/c](c) &amp;\ =\ &amp; T
+\\
+O[T/c](d) &amp;=&amp; O(d)\ \ {\rm if}\ d \neq c
+\end{eqnarray}
+\]
+
+<p>
+<a href="Type Rules.html">Previous</a> <a href="Type Rules.html">Up</a> <a href="Type Checking Rules.html">Next</a>
+</p>
+
+</body>
+</html>

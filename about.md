@@ -106,7 +106,7 @@ This course has four programming projects:
 * **PA1: the Rosetta Stone**: Students will implement the same program in four languages, one from
 each of the following buckets:
     * _Bucket 1: Languages You Already Know_: Java, C, C++, or Python3
-    * _Bucket 2: Languages With An Unusual Type System_: Kotlin, Rust, or TypeScript
+    * _Bucket 2: Languages With An Unusual Type System_: Kotlin, Rust, or Scala
     * _Bucket 3: Functional Languages_: OCaml or Haskell
     * _Bucket 4: Project Language_: [Classroom Object-Oriented Language (COOL)](https://weimer.github.io/csci2320/crm/) (TODO: host this yourself)
 * **PA2: the COOL Typechecker**: the typechecker takes an AST (produced by a provided COOL parser)
@@ -189,8 +189,7 @@ TBD, but some late submissions will be allowed.
 
 # Acknowledgments
 
-This course is heavily indebted to [Wes Weimer](https://web.eecs.umich.edu/~weimerw/)'s courses that I took as an undergraduate: UVa's [CS 4610](https://web.eecs.umich.edu/~weimerw/2015-4610/) and [CS 4501](https://web.eecs.umich.edu/~weimerw/2015-4610/ca.html)
-that I took as a student. Thanks to Wes for sharing his materials!
+This course is heavily indebted to [Wes Weimer](https://web.eecs.umich.edu/~weimerw/)'s courses that I took as an undergraduate: UVa's [CS 4610](https://web.eecs.umich.edu/~weimerw/2015-4610/) and [CS 4501](https://web.eecs.umich.edu/~weimerw/2015-4610/ca.html). Thanks to Wes for sharing his materials!
 
 ----
 

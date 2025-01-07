@@ -1,0 +1,65 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<link rel="Stylesheet" type="text/css" href="style.css">
+<script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+<script type="text/x-mathjax-config">
+	MathJax.Hub.Config({
+		// Set the default size for all of the math, 100% was awkwardly large on my screen
+		"HTML-CSS": { scale: 90 },
+		TeX: {
+			extensions: ["AMSmath.js", "AMSsymbols.js"],
+            Macros: {
+                HY: "{\\unicode{x2013}}",
+                LQT: "{\\unicode{x201C}}",
+                RQT: "{\\unicode{x201D}}",
+            }
+		}
+	});
+</script>
+<title>Syntax for Cool Objects</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+</head>
+<body>
+
+<p>
+<a href="Environment and the Store.html">Previous</a> <a href="Operational Semantics.html">Up</a> <a href="Class definitions.html">Next</a>
+</p>
+<div id="Syntax for Cool Objects"><h2 id="Syntax for Cool Objects">Syntax for Cool Objects</h2></div>
+
+<p>
+Every Cool value is an object. Objects contain a list of named attributes, a bit like records in C. In addition, each object belongs to a class. We use the following syntax for values in Cool:
+</p>
+
+\[
+v = X(a_{1} = l_{1}, a_{2} = l_{2}, \dots , a_{n} = l_{n})
+\]
+
+<p>
+Read the syntax as follows: The value \( v\) is a member of class \(X\) containing the attributes \(a_1, \ldots, a_n\) whose locations are  \(l_1, \ldots, l_n\). Note that the attributes have an associated location. Intuitively this means that there is some space in memory reserved for each attribute. The value \( v\) has dynamic type \(X\).
+</p>
+
+<p>
+For base objects of Cool (i.e., \(\tt Int\)s, \(\tt String\)s, and \(\tt Bool\)s) we use a special case of the above syntax. Base objects have a class name, but their attributes are not like attributes of normal classes, because they cannot be modified. Therefore, we describe base objects using the following syntax:
+</p>
+
+\[
+\begin{array}{l}
+Int(5)
+\\
+Bool(true)
+\\
+String(4,{\tt"Cool"})
+\end{array}
+\]
+
+<p>
+For \(\tt Int\)s and \(\tt Bool\)s, the meaning is obvious. \(\tt String\)s contain two parts, the length and the actual sequence of ASCII characters.
+</p>
+
+<p>
+<a href="Environment and the Store.html">Previous</a> <a href="Operational Semantics.html">Up</a> <a href="Class definitions.html">Next</a>
+</p>
+
+</body>
+</html>

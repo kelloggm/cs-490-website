@@ -1,0 +1,119 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<link rel="Stylesheet" type="text/css" href="style.css">
+<script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+<script type="text/x-mathjax-config">
+	MathJax.Hub.Config({
+		// Set the default size for all of the math, 100% was awkwardly large on my screen
+		"HTML-CSS": { scale: 90 },
+		TeX: {
+			extensions: ["AMSmath.js", "AMSsymbols.js"],
+            Macros: {
+                HY: "{\\unicode{x2013}}",
+                LQT: "{\\unicode{x201C}}",
+                RQT: "{\\unicode{x201D}}",
+            }
+		}
+	});
+</script>
+<title>Environment and the Store</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+</head>
+<body>
+
+<p>
+<a href="Operational Semantics.html">Previous</a> <a href="Operational Semantics.html">Up</a> <a href="Syntax for Cool Objects.html">Next</a>
+</p>
+<div id="Environment and the Store"><h2 id="Environment and the Store">Environment and the Store</h2></div>
+
+<p>
+Before we can present a semantics for Cool we need a number of concepts and a considerable amount of notation. An \(\it environment\) is a mapping of variable identifiers to \(\it locations\). Intuitively, an environment tells us for a given identifier the address of the memory location where that identifier's value is stored. For a given expression, the environment must assign a location to all identifiers to which the expression may refer. For the expression, e.g., \(a + b\), we need an environment that maps \(a\) to some location and \(b\) to some location. We'll use the following syntax to describe environments, which is very similar to the syntax of type assumptions used in Section <a href="Type Rules.html">12</a>.
+</p>
+
+\[
+E = [a : l_{1} , b : l_{2}]
+\]
+
+<p>
+This environment maps \(a\) to location \(l_{1}\), and \(b\) to location \(l_{2}\).
+</p>
+
+<p>
+The second component of the context for the evaluation of an expression is the \(\it store\)(memory). The store maps locations to values, where values in Cool are just objects. Intuitively, a store tells us what value is stored in a given memory location. For the moment, assume all values are integers. A store is similar to an environment:
+</p>
+
+\[
+S=[l_{1} \rightarrow 55, l_{2} \rightarrow 77]
+\]
+
+<p>
+This store maps location \(l_{1}\) to value \(55\) and location \(l_{2}\) to value \(77\).
+</p>
+
+<p>
+Given an environment and a store, the value of an identifier can be found by first looking up the location that the identifier maps to in the environment and then looking up the location in the store.
+</p>
+
+\[
+E(a) = l_{1}
+\\
+S(l_{1}) = 55
+\]
+
+<p>
+Together, the environment and the store define the execution state at a particular step of the evaluation of a Cool expression. The double indirection from identifiers to locations to values allows us to model variables. Consider what happens if the value \(99\) is assigned variable \(a\) in the environment and store defined above. Assigning to a variable means changing the value to which it refers but not its location. To perform the assignment, we look up the location for \(a\) in the environment \(E\) and then change the mapping for the obtained location to the new value, giving a new store \(S'\).
+</p>
+
+\[
+\begin{eqnarray}
+E(a) &amp;=&amp; l_{1}
+\\
+S' &amp;=&amp; S[99/l_{1}]
+\end{eqnarray}
+\]
+
+<p>
+The syntax \(S[v/l]\) denotes a new store that is identical to the store \(S\), except that \(S'\) maps location \(l\) to value \( v\). For all locations \(l'\) where \(l'\not=l\), we still have \(S'(l')=S(l')\).
+</p>
+
+<p>
+The store models the contents of memory of the computer during program execution. Assigning to a variable modifies the store.
+</p>
+
+<p>
+There are also situations in which the environment is modified. Consider the following Cool fragment:
+</p>
+<pre>
+let c : Int &lt;- 33 in
+  c
+</pre>
+
+<p>
+When evaluating this expression, we must introduce the new identifier \(c\) into the environment before evaluating the body of the \(\rm let\). If the current environment and state are \(E\) and \(S\), then we create a new environment \(E'\) and a new store \(S'\) defined by:
+</p>
+
+\[
+\begin{eqnarray}
+l_{c} &amp;=&amp; newloc(S)
+\\
+E' &amp;=&amp; E[l_{c}/c]
+\\
+S' &amp;=&amp; S[33/l_{c}]
+\end{eqnarray}
+\]
+
+<p>
+The first step is to allocate a location for the variable \(c\). The location should be fresh, meaning that the current store does not have a mapping for it. The function \(newloc()\) applied to a store gives us an unused location in that store. We then create a new environment \(E'\), which maps \(c\) to \(l_{c}\) but also contains all of the mappings of \(E\) for identifiers other than \(c\). Note that if \(c\) already has a mapping in \(E\), the new environment \(E'\) hides this old mapping. We must also update the store to map the new location to a value. In this case \(l_{c}\) maps to the value \(33\), which is the initial value for \(c\) as defined by the let-expression.
+</p>
+
+<p>
+The example in this subsection oversimplifies Cool environments and stores a bit, because simple integers are not Cool values. Even integers are full-fledged objects in Cool.
+</p>
+
+<p>
+<a href="Operational Semantics.html">Previous</a> <a href="Operational Semantics.html">Up</a> <a href="Syntax for Cool Objects.html">Next</a>
+</p>
+
+</body>
+</html>

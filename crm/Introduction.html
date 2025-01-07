@@ -1,0 +1,51 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<link rel="Stylesheet" type="text/css" href="style.css">
+<script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+<script type="text/x-mathjax-config">
+	MathJax.Hub.Config({
+		// Set the default size for all of the math, 100% was awkwardly large on my screen
+		"HTML-CSS": { scale: 90 },
+		TeX: {
+			extensions: ["AMSmath.js", "AMSsymbols.js"],
+            Macros: {
+                HY: "{\\unicode{x2013}}",
+                LQT: "{\\unicode{x201C}}",
+                RQT: "{\\unicode{x201D}}",
+            }
+		}
+	});
+</script>
+<title>Introduction</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+</head>
+<body>
+
+<p>
+<a href="The Cool Reference Manual.html">Previous</a> <a href="The Cool Reference Manual.html">Up</a> <a href="Getting Started.html">Next</a>
+</p>
+<div id="Introduction"><h2 id="Introduction">Introduction</h2></div>
+
+<p>
+This manual describes the programming language Cool: the \(\it C\)lassroom \(\it O\)bject-\(\it O\)riented \(\it L\)anguage. Cool is a small language that can be implemented with reasonable effort in a one semester course. Still, Cool retains many of the features of modern programming languages including objects, static typing, and automatic memory management.
+</p>
+
+<p>
+Cool programs are sets of \(\it classes\). A class encapsulates the variables and procedures of a data type. Instances of a class are \(\it objects\). In Cool, classes and types are identified. That is, every class defines a type. Classes permit programmers to define new types and associated procedures (or \(\it methods\)) specific to those types. Inheritance allows new types to extend the behavior of existing types.
+</p>
+
+<p>
+Cool is an \(\it expression\) language. Most Cool constructs are expressions, and every expression has a value and a type. Cool is \(\it type\ safe\): procedures are guaranteed to be applied to data of the correct type. While static typing imposes a strong discipline on programming in Cool, it guarantees that no runtime type errors can arise in the execution of Cool programs.
+</p>
+
+<p>
+This manual is divided into informal and formal components. For a short, informal overview, the first half (through Section <a href="Main Class.html">9</a>) suffices. The formal description begins with Section <a href="Lexical Structure.html">10</a>.
+</p>
+
+<p>
+<a href="The Cool Reference Manual.html">Previous</a> <a href="The Cool Reference Manual.html">Up</a> <a href="Getting Started.html">Next</a>
+</p>
+
+</body>
+</html>

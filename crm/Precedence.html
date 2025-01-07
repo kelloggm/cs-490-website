@@ -1,0 +1,53 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<link rel="Stylesheet" type="text/css" href="style.css">
+<script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+<script type="text/x-mathjax-config">
+	MathJax.Hub.Config({
+		// Set the default size for all of the math, 100% was awkwardly large on my screen
+		"HTML-CSS": { scale: 90 },
+		TeX: {
+			extensions: ["AMSmath.js", "AMSsymbols.js"],
+            Macros: {
+                HY: "{\\unicode{x2013}}",
+                LQT: "{\\unicode{x201C}}",
+                RQT: "{\\unicode{x201D}}",
+            }
+		}
+	});
+</script>
+<title>Precedence</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+</head>
+<body>
+
+<p>
+<a href="Cool Syntax.html">Previous</a> <a href="Cool Syntax.html">Up</a> <a href="Type Rules.html">Next</a>
+</p>
+<div id="Precedence"><h2 id="Precedence">Precedence</h2></div>
+
+<p>
+The precedence of infix binary and prefix unary operations, from highest to lowest, is given by the following table:
+</p>
+<pre>
+.
+@
+~
+isvoid
+* /
++ -
+&lt;=  &lt;  =
+not
+&lt;-
+</pre>
+<p>
+All binary operations are left-associative, with the exception of assignment, which is right-associative, and the three comparison operations, which do not associate.
+</p>
+
+<p>
+<a href="Cool Syntax.html">Previous</a> <a href="Cool Syntax.html">Up</a> <a href="Type Rules.html">Next</a>
+</p>
+
+</body>
+</html>

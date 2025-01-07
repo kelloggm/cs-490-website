@@ -1,0 +1,45 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<link rel="Stylesheet" type="text/css" href="style.css">
+<script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+<script type="text/x-mathjax-config">
+	MathJax.Hub.Config({
+		// Set the default size for all of the math, 100% was awkwardly large on my screen
+		"HTML-CSS": { scale: 90 },
+		TeX: {
+			extensions: ["AMSmath.js", "AMSsymbols.js"],
+            Macros: {
+                HY: "{\\unicode{x2013}}",
+                LQT: "{\\unicode{x201C}}",
+                RQT: "{\\unicode{x201D}}",
+            }
+		}
+	});
+</script>
+<title>Assignment</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+</head>
+<body>
+
+<p>
+<a href="Identifiers.html">Previous</a> <a href="Expressions.html">Up</a> <a href="Dispatch.html">Next</a>
+</p>
+<div id="Assignment"><h2 id="Assignment">Assignment</h2></div>
+
+<p>
+An assignment has the form
+</p>
+<pre>
+&lt;id&gt; &lt;- &lt;expr&gt;
+</pre>
+<p>
+The static type of the expression must conform to the declared type of the identifier. The value is the value of the expression. The static type of an assignment is the static type of \(\rm &lt;expr&gt;\).
+</p>
+
+<p>
+<a href="Identifiers.html">Previous</a> <a href="Expressions.html">Up</a> <a href="Dispatch.html">Next</a>
+</p>
+
+</body>
+</html>

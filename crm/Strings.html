@@ -1,0 +1,87 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<link rel="Stylesheet" type="text/css" href="style.css">
+<script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+<script type="text/x-mathjax-config">
+	MathJax.Hub.Config({
+		// Set the default size for all of the math, 100% was awkwardly large on my screen
+		"HTML-CSS": { scale: 90 },
+		TeX: {
+			extensions: ["AMSmath.js", "AMSsymbols.js"],
+            Macros: {
+                HY: "{\\unicode{x2013}}",
+                LQT: "{\\unicode{x201C}}",
+                RQT: "{\\unicode{x201D}}",
+            }
+		}
+	});
+</script>
+<title>Strings</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+</head>
+<body>
+
+<p>
+<a href="Integers, Identifiers, and Special Notation.html">Previous</a> <a href="Lexical Structure.html">Up</a> <a href="Comments.html">Next</a>
+</p>
+<div id="Strings"><h2 id="Strings">Strings</h2></div>
+
+<p>
+Strings are enclosed in double quotes \(\rm \LQT ... \RQT\). Within a string, a sequence '\c' denotes the two characters '\' and 'c', with the exception of the following: 
+</p>
+<pre>
+\t tab
+\n newline
+</pre>
+<p>
+The two-character sequences \(\rm \backslash n\) and \(\rm \backslash t\) are called \(\it escape\ sequences\). Other escape sequences like \(\rm \backslash r\) (carriage return) are not part of Cool. These two special escape sequences should not be interpreted or transformed by the lexer; they are handled by the \(\rm IO\) module and the run-time system.
+</p>
+
+<p>
+A newline character may not appear in a string:
+</p>
+<pre>
+"This is not
+OK"
+</pre>
+<p>
+A string may contain embedded double quotes, so long as they are escaped. The following is a valid Cool string:
+</p>
+<pre>
+"David St. Hubbins said, \"It's such a fine line between stupid, and clever.\""
+</pre>
+<p>
+Note that Cool's interpretation of \(\rm \backslash "\) may not be what you are expecting. The two-character sequence \(\rm \backslash "\) (which is not an escape sequence) does not become \(\rm "\) in any sense. Instead, it stays \(\rm \backslash "\). This is different from most other languages, but simplifies lexing and interpreting. Example:
+</p>
+<pre>
+class Main inherits IO {
+	main() : Object {
+		out_string("She said, \"Hello.\"\n")
+	} ;
+} ;
+</pre>
+<ul>
+<li>
+Output: \(\rm She\ said,\ \backslash \LQT Hello.\backslash \RQT\)
+
+</ul>
+
+<p>
+A string may not contain EOF; strings cannot cross file boundaries. A string may not contain NUL, the character with ASCII value 0. The lexer must reject source text that contains malformed strings.
+</p>
+
+<p>
+A string may contain the two-character sequence \(\rm \backslash 0\) (backslash zero). However, that sequence does not have any special meaning -- it just yields a backslash followed by a zero inside the string.
+</p>
+
+<p>
+The single character with converted integer value zero (the NUL) is not allowed. Any other character may be included in a string.
+</p>
+
+<p>
+<a href="Integers, Identifiers, and Special Notation.html">Previous</a> <a href="Lexical Structure.html">Up</a> <a href="Comments.html">Next</a>
+</p>
+
+</body>
+</html>

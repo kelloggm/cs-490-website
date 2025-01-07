@@ -1,0 +1,78 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<link rel="Stylesheet" type="text/css" href="style.css">
+<script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+<script type="text/x-mathjax-config">
+	MathJax.Hub.Config({
+		// Set the default size for all of the math, 100% was awkwardly large on my screen
+		"HTML-CSS": { scale: 90 },
+		TeX: {
+			extensions: ["AMSmath.js", "AMSsymbols.js"],
+            Macros: {
+                HY: "{\\unicode{x2013}}",
+                LQT: "{\\unicode{x201C}}",
+                RQT: "{\\unicode{x201D}}",
+            }
+		}
+	});
+</script>
+<title>Types</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+</head>
+<body>
+
+<p>
+<a href="Inheritance.html">Previous</a> <a href="The Cool Reference Manual.html">Up</a> <a href="SELF_TYPE.html">Next</a>
+</p>
+<div id="Types"><h2 id="Types">Types</h2></div>
+
+<p>
+In Cool, every class name is also a type. In addition, there is a type \(\rm SELF\_TYPE\) that can be used in special circumstances.
+</p>
+
+<p>
+A \(\it type\ declaration\) has the form \(\rm x:C\), where \(\rm x\) is a variable and \(\rm C\) is a type. Every variable must have a type declaration at the point it is introduced, whether that is in a \(\rm let\), \(\rm case\), or as the formal parameter of a method. The types of all attributes must also be declared.
+</p>
+
+<p>
+The basic type rule in Cool is that if a method or variable expects a value of type \(\rm P\), then any value of type \(\rm C\) may be used instead, provided that \(\rm P\) is an ancestor of \(\rm C\) in the class hierarchy. In other words, if \(\rm C\) inherits from \(\rm P\), either directly or indirectly, then a \(\rm C\) can be used wherever a \(\rm P\) would suffice.
+</p>
+
+<p>
+When an object of class \(\rm C\) may be used in place of an object of class \(\rm P\), we say that \(\rm C\) \(\it conforms\) to \(\rm P\) or that \(\tt C \le P\) (think: \(\rm C\) is lower down in the inheritance tree). As discussed above, conformance is defined in terms of the inheritance graph.
+</p>
+
+<p>
+\(\bf Definition\ 4.1\) (Conformance) Let \(\tt A,C,\) and \(\tt P\) be types.
+</p>
+<ul>
+<li>
+\(\tt A \le A\) for all types \(\rm A\)
+
+<li>
+if \(\rm C\) inherits from \(\rm P\), then \(\tt C \leq P\)
+
+<li>
+if \(\tt A \leq C\) and \(\tt C \le P\) then \(\tt A \leq P\)
+
+</ul>
+
+<p>
+Because \(\rm Object\) is the root of the class hierarchy, it follows that \(\tt A \leq Object\) for all types \(\tt A\).
+</p>
+<ul>
+<li>
+<a href="SELF_TYPE.html">SELF_TYPE</a>
+
+<li>
+<a href="Type Checking.html">Type Checking</a>
+
+</ul>
+
+<p>
+<a href="Inheritance.html">Previous</a> <a href="The Cool Reference Manual.html">Up</a> <a href="SELF_TYPE.html">Next</a>
+</p>
+
+</body>
+</html>

@@ -1,0 +1,61 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<link rel="Stylesheet" type="text/css" href="style.css">
+<script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+<script type="text/x-mathjax-config">
+	MathJax.Hub.Config({
+		// Set the default size for all of the math, 100% was awkwardly large on my screen
+		"HTML-CSS": { scale: 90 },
+		TeX: {
+			extensions: ["AMSmath.js", "AMSsymbols.js"],
+            Macros: {
+                HY: "{\\unicode{x2013}}",
+                LQT: "{\\unicode{x201C}}",
+                RQT: "{\\unicode{x201D}}",
+            }
+		}
+	});
+</script>
+<title>Let</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+</head>
+<body>
+
+<p>
+<a href="Blocks.html">Previous</a> <a href="Expressions.html">Up</a> <a href="Case.html">Next</a>
+</p>
+<div id="Let"><h2 id="Let">Let</h2></div>
+
+<p>
+A let expression has the form
+</p>
+<pre>
+let &lt;id1&gt; : &lt;type1&gt; [ &lt;- &lt;expr1&gt; ], ..., &lt;idn&gt; : &lt;typen&gt; [ &lt;- &lt;exprn&gt; ] in &lt;expr&gt;
+</pre>
+<p>
+The optional expressions are \(\it initialization\); the other expression is the \(\it body\). A \(\rm let\) is evaluated as follows. First \(\rm &lt;expr1&gt;\) is evaluated and the result bound to \(\rm &lt;id1&gt;\). Then \(\rm &lt;expr2&gt;\) is evaluated and the result bound to \(\rm &lt;id2&gt;\), and so on, until all of the variables in the \(\rm let\) are initialized. (If the initialization of \(\rm &lt;idk&gt;\) is omitted, the default initialization of type \(\rm &lt;typek&gt;\) is used.) Next the body of the \(\rm let\) is evaluated. The value of the \(\rm let\) is the value of the body.
+</p>
+
+<p>
+The \(\rm let\) identifiers \(\rm &lt;id1&gt;,...,&lt;idn&gt;\) are visible in the body of the \(\rm let\). Furthermore, identifiers \(\rm &lt;id1&gt;,...,&lt;idk&gt;\) are visible in the initialization of \(\rm &lt;idm&gt;\) for any \(\rm m \gt k\).
+</p>
+
+<p>
+If an identifier is defined multiple times in a \(\rm let\), later bindings hide earlier ones. Identifiers introduced by \(\rm let\) also hide any definitions for the same names in containing scopes. Every \(\rm let\) expression must introduce at least one identifier.
+</p>
+
+<p>
+The type of an initialization expression must conform to the declared type of the identifier. The type of \(\rm let\) is the type of the body.
+</p>
+
+<p>
+The \(\rm &lt;expr&gt;\) of a \(\rm let\) extends as far (encompasses as many tokens) as the grammar allows.
+</p>
+
+<p>
+<a href="Blocks.html">Previous</a> <a href="Expressions.html">Up</a> <a href="Case.html">Next</a>
+</p>
+
+</body>
+</html>

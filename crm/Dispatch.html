@@ -1,0 +1,68 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<link rel="Stylesheet" type="text/css" href="style.css">
+<script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+<script type="text/x-mathjax-config">
+	MathJax.Hub.Config({
+		// Set the default size for all of the math, 100% was awkwardly large on my screen
+		"HTML-CSS": { scale: 90 },
+		TeX: {
+			extensions: ["AMSmath.js", "AMSsymbols.js"],
+            Macros: {
+                HY: "{\\unicode{x2013}}",
+                LQT: "{\\unicode{x201C}}",
+                RQT: "{\\unicode{x201D}}",
+            }
+		}
+	});
+</script>
+<title>Dispatch</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+</head>
+<body>
+
+<p>
+<a href="Assignment.html">Previous</a> <a href="Expressions.html">Up</a> <a href="Conditionals.html">Next</a>
+</p>
+<div id="Dispatch"><h2 id="Dispatch">Dispatch</h2></div>
+
+<p>
+There are three forms of dispatch (i.e. method call) in Cool. The three forms differ only in how the called method is selected. The most commonly used form of dispatch is
+</p>
+<pre>
+&lt;expr&gt;.&lt;id&gt;(&lt;expr&gt;,...,&lt;expr&gt;)
+</pre>
+<p>
+Consider the dispatch  \(\tt e_0.f(e_1,\ldots,e_n)\). To evaluate this expression, the arguments are evaluated in left-to-right order, from \(\tt e_1\) to \(\tt e_n\). Next, \(\tt e_0\) is evaluated and its class \(\rm C\) noted (if \(\tt e_0\) is \(\rm void\) a runtime error is generated). Finally, the method \(\rm f\) in class \(\rm C\) is invoked, with the value of \(\tt e_0\) bound to \(\rm self\) in the body of \(\rm f\) and the actual arguments bound to the formals as usual. The value of the expression is the value returned by the method invocation.
+</p>
+
+<p>
+Type checking a dispatch involves several steps. Assume \(\tt e_0\) has static type A. (Recall that this type is not necessarily the same as the type \(\rm C\) above. \(\rm A\) is the type inferred by the type checker; \(\rm C\) is the class of the object computed at runtime, which is potentially any subclass of \(\rm A\).) Class \(\rm A\) must have a method \(\rm f\), the dispatch and the definition of \(\rm f\) must have the same number of arguments, and the static type of the \(i\)th actual parameter must conform to the declared type of the \(i\)th formal parameter.
+</p>
+
+<p>
+If \(\rm f\) has return type \(\rm B\) and \(\rm B\) is a class name, then the static type of the dispatch is \(\rm B\). Otherwise, if \(\rm f\) has return type \(\rm SELF\_TYPE\), then the static type of the dispatch is \(\rm A\). To see why this is sound, note that the \(\rm self\) parameter of the method \(\rm f\) conforms to type \(\rm A\). Therefore, because \(\rm f\) returns \(\rm SELF\_TYPE\), we can infer that the result must also conform to \(\rm A\). Inferring accurate static types for dispatch expressions is what justifies including \(\rm SELF\_TYPE\) in the Cool type system.
+</p>
+
+<p>
+The other forms of dispatch are:
+</p>
+<pre>
+&lt;id&gt;(&lt;expr&gt;,...,&lt;expr&gt;)
+&lt;expr&gt;@&lt;type&gt;.id(&lt;expr&gt;,...,&lt;expr&gt;)
+</pre>
+<p>
+The first form is shorthand for \(\rm self.&lt;id&gt;(&lt;expr&gt;,...,&lt;expr&gt;)\).
+</p>
+
+<p>
+The second form provides a way of accessing methods of parent classes that have been hidden by redefinitions in child classes. Instead of using the class of the leftmost expression to determine the method, the method of the class explicitly specified is used. For example, \(\rm e@B.f()\) invokes the method \(\rm f\) in class \(\rm B\) on the object that is the value of \(\rm e\). For this form of dispatch, the static type to the left of "@" must conform to the type specified to the right of "@".
+</p>
+
+<p>
+<a href="Assignment.html">Previous</a> <a href="Expressions.html">Up</a> <a href="Conditionals.html">Next</a>
+</p>
+
+</body>
+</html>

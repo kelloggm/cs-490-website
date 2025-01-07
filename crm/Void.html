@@ -1,0 +1,47 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<link rel="Stylesheet" type="text/css" href="style.css">
+<script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+<script type="text/x-mathjax-config">
+	MathJax.Hub.Config({
+		// Set the default size for all of the math, 100% was awkwardly large on my screen
+		"HTML-CSS": { scale: 90 },
+		TeX: {
+			extensions: ["AMSmath.js", "AMSsymbols.js"],
+            Macros: {
+                HY: "{\\unicode{x2013}}",
+                LQT: "{\\unicode{x201C}}",
+                RQT: "{\\unicode{x201D}}",
+            }
+		}
+	});
+</script>
+<title>Void</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+</head>
+<body>
+
+<p>
+<a href="Attributes.html">Previous</a> <a href="Attributes.html">Up</a> <a href="Methods.html">Next</a>
+</p>
+<div id="Void"><h2 id="Void">Void</h2></div>
+
+<p>
+All variables in Cool are initialized to contain values of the appropriate type. The special value \(\rm void\) is a member of all types and is used as the default initialization for variables where no initialization is supplied by the user. (\(\rm void\) is used where one would use \(\rm NULL\) in C or \(\rm null\) in Java; Cool does not have anything equivalent to C's or Java's \(\rm void\) type.) Note that there is no name for \(\rm void\) in Cool; the only way to create a \(\rm void\) value is to declare a variable of some class other than \(\rm Int\), \(\rm String\), or \(\rm Bool\) and allow the default initialization to occur, or to store the result of a \(\rm while\) loop.
+</p>
+
+<p>
+There is a special form \(\rm isvoid\ expr\) that tests whether a value is \(\rm void\) (see Section <a href="Isvoid.html">7.11</a>). In addition, \(\rm void\) values may be tested for equality. A \(\rm void\) value may be passed as an argument, assigned to a variable, or otherwise used in any context where any value is legitimate, except that a dispatch to or case on \(\rm void\) generates a runtime error.
+</p>
+
+<p>
+Variables of the basic classes \(\rm Int\), \(\rm Bool\), and \(\rm String\) are initialized specially; see Section <a href="Basic Classes.html">8</a>.
+</p>
+
+<p>
+<a href="Attributes.html">Previous</a> <a href="Attributes.html">Up</a> <a href="Methods.html">Next</a>
+</p>
+
+</body>
+</html>
