@@ -100,6 +100,19 @@ help with the homework. Participating on Discord is optional, but if you do
 participate in a productive manner (especially by answering other student's questions!), it will have a
 positive impact on your participation score.
 
+### Office Hours and Viewing Test Cases
+
+In addition to offering you a chance to ask questions about the lecture material,
+the instructor's office hours have a unique feature that can help you with the compiler's programming assignments (i.e., PA2-4).
+During the instructor's office hours (only---TA office hours do not count), once per assignment, each team (or student, if working individually)
+may ask to view the content of one test case from the grading server (you'll need to ask by test case number). Note that "per assignment"
+means that you can use this power only three times per semester, by default: once each for PA2, PA3, and PA4. You can only use this power
+in-person, and you cannot record the result electronically (e.g., by taking a photo). The idea here is to allow you to get "unstuck" if there
+is a particularly tricky test case that you're struggling with on the autograder.
+
+You can gain more uses of this power per assignment by choosing a language from a language bucket other than Bucket 1; see
+the [languages page](../languages/).
+
 ## Programming Projects
 
 This course has four programming projects:
