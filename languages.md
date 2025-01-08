@@ -4,11 +4,11 @@ title: Supported Languages
 description: Information about supported programming languages.
 ---
 
-## Language Choice
-
 This page discusses the languages supported in this class. It has two goals:
-* explain the course policies on language choice for the programming assignments, especially PA2-4
-* give technical details on the versions of each language that the course supports
+* explain the course policies on language choice for the programming assignments, and
+* give technical details on the versions of each language that the course supports.
+
+## Language Choice for Programming Assignments
 
 PA1 groups the languages into four buckets:
 * _Bucket 1: Languages You Already Know_: Java, C, C++, or Python3

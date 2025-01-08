@@ -2,17 +2,16 @@
 title: Week 3
 ---
 
-Sep 18
-: [Testing (2)](../assets/lecture-testing2.pdf)
-  : **Mandatory reading**: Petrovic's [Mutation Testing](https://testing.googleblog.com/2021/04/mutation-testing.html)
+Feb 3
+ : **[PA1](../projects/pa1.html#what-to-turn-in-for-pa1) due**{: .label .label-red } 
 
-    **Your Choice reading**: Memon et al.'s [Taming Google-Scale Continuous Testing](../assets/googletest.pdf)
+Feb 3
+: [Compiler Structure](../assets/lecture-lexing-and-parsing.pdf)
+  : **Mandatory reading**: _Engineering a Compiler_ (_EaC_), Chapter 1
 
-Sep 20
-: [Testing (3)](../assets/lecture-testing3.pdf)
-  : **Mandatory reading**: SQLite's [How SQLite is Tested](https://www.sqlite.org/testing.html) and 
-
-    **Your Choice reading**: Barr et al.'s [The Oracle Problem in Software Testing: A Survey](../assets/testoracles.pdf)
+Feb 5
+: [Scoping and Types](../assets/lecture-scoping-and-types.pdf)
+  : **Mandatory reading**: _EaC_ 4.1 and 4.2
 
 
 

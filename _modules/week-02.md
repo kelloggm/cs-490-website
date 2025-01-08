@@ -2,17 +2,20 @@
 title: Week 2
 ---
 
-Sep 9
- : **[Individual Project 0](../projects/ip0.html) due**{: .label .label-red } 
+Jan 27
+ : **[PA1c1](../projects/pa1.html#what-to-turn-in-for-pa1c1) due**{: .label .label-red } 
 
-Sep 11
-: [Reading Code](../assets/lecture-reading-code.pdf)
-  : **Mandatory reading**: Atwood's [Learn to Read the Source, Luke](https://blog.codinghorror.com/learn-to-read-the-source-luke/), Coleman's [How to quickly and effectively read other people’s code](https://selftaughtcoders.com/how-to-quickly-and-effectively-read-other-peoples-code/), and the [Individual Project 1 Specification](../projects/ip1.html)
+Jan 27
+: [Functional Programming (1)](../assets/lecture-fp1.pdf)
+  : **Mandatory reading**: Backus' [_Speedcoding_](../assets/backus_speedcoding.pdf) and the [COOL Reference Manual](../crm/)
 
-    **Your Choice reading**: Endres et al.'s [Relating Reading, Visualization, and Coding for New Programmers: A Neuroimaging Study](https://web.eecs.umich.edu/~weimerw/p/weimer-icse2021-reading-preprint.pdf)
+    **Optional reading**: Kingsbury's [Reversing the technical interview](https://aphyr.com/posts/340-reversing-the-technical-interview)
 
-Sep 13
-: [Testing (1)](../assets/lecture-testing1.pdf)
-  : **Mandatory reading**: Shore's [The Art of Agile Development: Test-Driven Development](http://www.jamesshore.com/v2/books/aoad1/test_driven_development)
+Jan 29
+: [Func. Prog. (2) and Intro to COOL](../assets/lecture-fp2.pdf)
+  : **Mandatory reading**: [CD 7.2.4: The ML Type System](../assets/7a_mltyp.pdf) and the [COOL Reference Manual](../crm/) (yes, again. It's really important!)
 
-    **Your Choice reading**: Saff and Ernst's [An Experimental Evaluation of Continuous Testing During Development](https://homes.cs.washington.edu/~mernst/pubs/ct-user-study-issta2004.pdf)
+    **Optional reading**: [CD 10.6: Theoretical Foundations of Functional Languages](../assets/10a_thfnd.pdf)
+
+Jan 30
+ : **[PA1c2](../projects/pa1.html#what-to-turn-in-for-pa1c2) due**{: .label .label-red } 

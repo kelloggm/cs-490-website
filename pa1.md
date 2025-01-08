@@ -2,7 +2,7 @@
 layout: project
 title: "PA1: Rosetta Stone"
 permalink: /projects/pa1.html
-parent: Projects
+parent: Programming Assignments
 nav_order: 1
 due_date: "Monday, 3 February 2025, 11:59PM AoE."
 submission_notes: Submit on GradeScope

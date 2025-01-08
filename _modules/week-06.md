@@ -2,19 +2,14 @@
 title: Week 6
 ---
 
-Oct 7
- : **[Project Plan](../projects/project-plan.html) due**{: .label .label-red } 
-
-Oct 9
-: [Working in Teams](../assets/lecture-teams.pdf)
-  : **Mandatory reading**: Fowler's [Two Pizza Team](https://martinfowler.com/bliki/TwoPizzaTeam.html) and Jackson's [The Google Technical Interview](../assets/googleinterview.pdf)
+Feb 24
+: [Abstract Interpretation (1)](../assets/lecture-ai1.pdf)
+  : **Mandatory reading**: Ernst's [_Notes on Program Analysis_](https://homes.cs.washington.edu/~mernst/pubs/program-analysis-book.pdf), Chapter 2 through 2.12 
   
-    **Your Choice reading**: Behroozi et al.'s [Hiring is Broken: What Do Developers Say About Technical Interviews?](../assets/hiring-is-broken.pdf)
+    **Optional reading**: TBD
 
-Oct 11
-: [Code Review](../assets/lecture-code-review.pdf)
-  : **Mandatory reading**: Google's [How to do a code review](https://google.github.io/eng-practices/review/reviewer/) (read all six linked sub-pages in the bulleted list)
+Feb 26
+: [Abstract Interpretation (2)](../assets/lecture-ai2.pdf)
+  : **Mandatory reading**: Ernst's [_Notes on Program Analysis_](https://homes.cs.washington.edu/~mernst/pubs/program-analysis-book.pdf), 2.13 through 2.20
 
-    **Your Choice reading**: Bacchelli and Bird's [Expectations, Outcomes, and Challenges Of Modern Code Review](../assets/codereview.pdf)
-
-
+    **Optional reading**: TBD
