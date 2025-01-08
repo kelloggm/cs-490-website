@@ -2,19 +2,19 @@
 title: Week 7
 ---
 
-Oct 14
- : **[Individual Project 2](../projects/ip2.html) due**{: .label .label-red } 
+Mar 3
+ : **[PA2](../projects/pa2.html#what-to-turn-in-for-pa2) (full) due**{: .label .label-red } 
 
-Oct 16
-: [Languages](../assets/lecture-languages.pdf)
-  : **Mandatory reading**: Howarth's [Why Discord is Switching from Go to Rust](https://discord.com/blog/why-discord-is-switching-from-go-to-rust)
+Mar 3
+: [Intermediate Representations](../assets/lecture-irs.pdf)
+  : **Mandatory reading**: _EaC_ 5
 
-    **Optional reading**: Hoare's [Hints on Programming Language Design](../assets/hoarehints.pdf) (shorter than it looks!)
+    **Optional reading**: TBD
 
-Oct 18
-: [Build Systems](../assets/lecture-build-systems.pdf)
-  : **Mandatory reading**: Atwood's [The F5 Key Is Not a Build Process](https://blog.codinghorror.com/the-f5-key-is-not-a-build-process/)
+Mar 5
+: [x86-64 Assembly](../assets/lecture-x86-review.pdf)
+  : **Mandatory reading**: _EaC_ 6 through 6.4
 
-    **Optional reading**: Mokhov et al.'s [Build Systems à la Carte](https://www.microsoft.com/en-us/research/uploads/prod/2018/03/build-systems-final.pdf)
+    **Optional reading**: TBD
 
 

@@ -2,17 +2,16 @@
 title: Week 10
 ---
 
-Nov 6
-: [Software Architecture](../assets/lecture-architecture.pdf)
-  : **Mandatory reading**: Kästner's [Thinking Like a Software Architect](https://ckaestne.medium.com/thinking-like-a-software-architect-121ea6919871) and Ross' [How Architecture Diagrams Enable Better Conversations](https://www.unravelled.dev/how-architecture-diagrams-enable-better-conversations/)
+Mar 24
+: Mid-term Exam (in-class)
+  : see the [exams](../exam) page for more information
 
-    **Optional reading**: Garlan's [Software Architecture](../assets/architecture.pdf)
+Mar 26
+: [Multi-language Projects](../assets/lecture-multilang.pdf)
+  : **Mandatory reading**: [Extending Python with C or C++](https://docs.python.org/3/extending/extending.html)
 
-Nov 8
-: [Design Patterns](../assets/lecture-design-patterns.pdf)
-  : **Mandatory reading**: Fowler's [Writing Software Patterns](https://www.martinfowler.com/articles/writingPatterns.html) (read up to, but not including, "Common Pattern Forms") and Lewis and Fowler's [Microservices]( https://www.martinfowler.com/articles/microservices.html)
+    **Optional reading**: TBD
 
-    **Optional reading**: Kellogg et al.'s [Verifying Object Construction](https://kelloggm.github.io/martinjkellogg.com/papers/ICSE2020-camera-ready.pdf)
-
- : **Project [Wizard-of-Oz Demo](../projects/project-demos.html#wizard-of-oz-demo) due**{: .label .label-red } 
+Mar 28
+ : **[PA3c2](../projects/pa3.html#what-to-turn-in-for-pa3c2) due**{: .label .label-red } 
 
