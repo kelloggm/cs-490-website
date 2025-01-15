@@ -1,0 +1,60 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<link rel="Stylesheet" type="text/css" href="style.css">
+<script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+<script type="text/x-mathjax-config">
+	MathJax.Hub.Config({
+		// Set the default size for all of the math, 100% was awkwardly large on my screen
+		"HTML-CSS": { scale: 90 },
+		TeX: {
+			extensions: ["AMSmath.js", "AMSsymbols.js"],
+            Macros: {
+                HY: "{\\unicode{x2013}}",
+                LQT: "{\\unicode{x201C}}",
+                RQT: "{\\unicode{x201D}}",
+            }
+		}
+	});
+</script>
+<title>Conditionals</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+</head>
+<body>
+
+<p>
+<a href="Dispatch.html">Previous</a> <a href="Expressions.html">Up</a> <a href="Loops.html">Next</a>
+</p>
+<div id="Conditionals"><h2 id="Conditionals">Conditionals</h2></div>
+
+<p>
+A conditional has the form
+</p>
+<pre>
+if &lt;expr&gt; then &lt;expr&gt; else &lt;expr&gt; fi
+</pre>
+<p>
+The semantics of conditionals is standard. The predicate is evaluated first. If the predicate is \(\rm true\), then the \(\rm then\) branch is evaluated. If the predicate is \(\rm false\), then the \(\rm else\) branch is evaluated. The value of the conditional is the value of the evaluated branch.
+</p>
+
+<p>
+The predicate must have static type \(\rm Bool\). The branches may have any static types. To specify the static type of the conditional, we define an operation \(\sqcup\) (pronounced "join") on types as follows. Let \(\rm A,B,D\) be any types other than \(\rm SELF\_TYPE\). The \(\it least\ type\) of a set of types means the least element with respect to the conformance relation \(\leq\). 
+</p>
+\[
+\begin{eqnarray*}
+\tt A \sqcup B &amp;=&amp; \tt the\ least\ type\ C\ such\ that\ A \leq C\ and\ B \leq C \\
+\tt A \sqcup A &amp;=&amp; \tt A\ \hphantom{the least}(idempotent) \\
+\tt A \sqcup B &amp;=&amp; \tt B \sqcup A\ \hphantom{the le}(commutative) \\
+\tt SELF\_TYPE_{D} \sqcup A &amp;=&amp; \tt D \sqcup A
+\end{eqnarray*}
+\]
+<p>
+Let \(\rm T\) and \(\rm F\) be the static types of the branches of the conditional. Then the static type of the conditional is  \(\tt T \sqcup F\). (think: Walk towards \(\rm Object\) from each of \(\rm T\) and \(\rm F\) until the paths meet.)
+</p>
+
+<p>
+<a href="Dispatch.html">Previous</a> <a href="Expressions.html">Up</a> <a href="Loops.html">Next</a>
+</p>
+
+</body>
+</html>

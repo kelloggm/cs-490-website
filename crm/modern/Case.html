@@ -1,0 +1,73 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<link rel="Stylesheet" type="text/css" href="style.css">
+<script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+<script type="text/x-mathjax-config">
+	MathJax.Hub.Config({
+		// Set the default size for all of the math, 100% was awkwardly large on my screen
+		"HTML-CSS": { scale: 90 },
+		TeX: {
+			extensions: ["AMSmath.js", "AMSsymbols.js"],
+            Macros: {
+                HY: "{\\unicode{x2013}}",
+                LQT: "{\\unicode{x201C}}",
+                RQT: "{\\unicode{x201D}}",
+            }
+		}
+	});
+</script>
+<title>Case</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+</head>
+<body>
+
+<p>
+<a href="Let.html">Previous</a> <a href="Expressions.html">Up</a> <a href="New.html">Next</a>
+</p>
+<div id="Case"><h2 id="Case">Case</h2></div>
+
+<p>
+A case expression has the form
+</p>
+<pre>
+case &lt;expr0&gt; of
+	&lt;id1&gt; : &lt;type1&gt; =&gt; &lt;expr1&gt;;
+	...
+	&lt;idn&gt; : &lt;typen&gt; =&gt; &lt;exprn&gt;;
+esac
+</pre>
+<p>
+Case expressions provide runtime type tests on objects. First, \(\rm expr0\) is evaluated and its dynamic type \(\rm C\) noted (if \(\rm expr0\) evaluates to \(\rm void\) a run-time error is produced). Next, from among the branches the branch with the least type \(\rm &lt;typek&gt;\) such that \(\rm C \leq &lt;typek&gt;\) is selected. The identifier \(\rm &lt;idk&gt;\) is bound to the value of \(\rm &lt;expr0&gt;\) and the expression \(\rm &lt;exprk&gt;\) is evaluated. The result of the \(\rm case\) is the value of \(\rm &lt;exprk&gt;\). If no branch can be selected for evaluation, a run-time error is generated. Every \(\rm case\) expression must have at least one branch.
+</p>
+
+<p>
+For each branch, let \(\tt T_i\) be the static type of \(\rm &lt;expri&gt;\). The static type of a \(\rm case\) expression is \(\tt\bigsqcup_{1 \leq i \leq n} T_i\). The identifier \(\rm id\) introduced by a branch of a \(\rm case\) hides any variable or attribute definition for \(\rm id\) visible in the containing scope.
+</p>
+
+<p>
+The \(\rm case\) expression has no special construct for a "default" or "otherwise" branch. The same affect is achieved by including a branch
+</p>
+<pre>
+x : Object =&gt; ...
+</pre>
+<p>
+because every type is \(\leq\) to \(\rm Object\).
+</p>
+
+<p>
+The \(\rm case\) expression provides programmers a way to insert explicit runtime type checks in situations where static types inferred by the type checker are too conservative. A typical situation is that a programmer writes an expression \(\tt e\) and type checking infers that \(\tt e\) has static type \(\tt P\). However, the programmer may know that, in fact, the dynamic type of \(\tt e\) is always \(\tt C\) for some \(\tt C \leq P\). This information can be captured using a case expression:
+</p>
+<pre>
+case e of x : C =&gt; ...
+</pre>
+<p>
+In the branch the variable \(\tt x\) is bound to the value of \(\tt e\) but has the more specific static type \(\tt C\).
+</p>
+
+<p>
+<a href="Let.html">Previous</a> <a href="Expressions.html">Up</a> <a href="New.html">Next</a>
+</p>
+
+</body>
+</html>

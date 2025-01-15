@@ -1,0 +1,51 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<link rel="Stylesheet" type="text/css" href="style.css">
+<script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+<script type="text/x-mathjax-config">
+	MathJax.Hub.Config({
+		// Set the default size for all of the math, 100% was awkwardly large on my screen
+		"HTML-CSS": { scale: 90 },
+		TeX: {
+			extensions: ["AMSmath.js", "AMSsymbols.js"],
+            Macros: {
+                HY: "{\\unicode{x2013}}",
+                LQT: "{\\unicode{x201C}}",
+                RQT: "{\\unicode{x201D}}",
+            }
+		}
+	});
+</script>
+<title>String</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+</head>
+<body>
+
+<p>
+<a href="Int.html">Previous</a> <a href="Basic Classes.html">Up</a> <a href="Bool.html">Next</a>
+</p>
+<div id="String"><h2 id="String">String</h2></div>
+
+<p>
+The \(\rm String\) class provides strings. The following methods are defined:
+</p>
+<pre>
+length() : Int
+concat(s : String) : String
+substr(i : Int, l : Int) : String
+</pre>
+<p>
+The method \(\rm length\) returns the length of the \(\rm self\) parameter. The method \(\rm concat\) returns the string formed by concatenating \(\rm s\) after \(\rm self\). The method \(\rm substr\) returns the substring of its \(\rm self\) parameter beginning at position \(\rm i\) with length \(\rm l\); string positions are numbered beginning at 0. A runtime error is generated if the specified substring is out of range. Substring errors are always reported as taking place on line 0.
+</p>
+
+<p>
+The default initialization for variables of type \(\rm String\) is \(\rm \LQT \RQT\) (not \(\rm void\)). It is an error to inherit from or redefine \(\rm String\).
+</p>
+
+<p>
+<a href="Int.html">Previous</a> <a href="Basic Classes.html">Up</a> <a href="Bool.html">Next</a>
+</p>
+
+</body>
+</html>

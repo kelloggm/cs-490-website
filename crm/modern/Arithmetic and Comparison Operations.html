@@ -1,0 +1,103 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<link rel="Stylesheet" type="text/css" href="style.css">
+<script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+<script type="text/x-mathjax-config">
+	MathJax.Hub.Config({
+		// Set the default size for all of the math, 100% was awkwardly large on my screen
+		"HTML-CSS": { scale: 90 },
+		TeX: {
+			extensions: ["AMSmath.js", "AMSsymbols.js"],
+            Macros: {
+                HY: "{\\unicode{x2013}}",
+                LQT: "{\\unicode{x201C}}",
+                RQT: "{\\unicode{x201D}}",
+            }
+		}
+	});
+</script>
+<title>Arithmetic and Comparison Operations</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+</head>
+<body>
+
+<p>
+<a href="Isvoid.html">Previous</a> <a href="Expressions.html">Up</a> <a href="Basic Classes.html">Next</a>
+</p>
+<div id="Arithmetic and Comparison Operations"><h2 id="Arithmetic and Comparison Operations">Arithmetic and Comparison Operations</h2></div>
+
+<p>
+\(\bf Binary\ Arithmetic\)
+</p>
+
+<p>
+Cool has four binary arithmetic operations: \(\rm +,\ -,\ *,\ /\). The syntax is
+</p>
+<pre>
+expr1 &lt;op&gt; expr2
+</pre>
+<p>
+To evaluate such an expression first \(\rm expr1\) is evaluated and then \(\rm expr2\). The result of the operation is the result of the expression.
+</p>
+
+<p>
+The static types of the two sub-expressions must be \(\rm Int\). The static type of the entire arithmetic expression is also \(\rm Int\). Cool has only integer division.
+</p>
+
+<p>
+\(\bf Binary\ Relations\)
+</p>
+
+<p>
+Cool has three comparison operations: \(\rm &lt;,\ &lt;=,\ =\). These comparisons may be applied to subexpressions of any types, subject to the following rules:
+</p>
+<ul>
+<li>
+\(\rm expr1\) is an \(\rm Int\) if and only if \(\rm expr2\) is an \(\rm Int\)
+
+<li>
+\(\rm expr1\) is a \(\rm String\) if and only if \(\rm expr2\) is a \(\rm String\)
+
+<li>
+\(\rm expr1\) is a \(\rm Bool\) if and only if \(\rm expr2\) is a \(\rm Bool\)
+
+<li>
+Otherwise, \(\rm expr1\) may be of any type (including \(\rm SELF\_TYPE\)) and \(\rm expr2\) may be of any (possibly different) type (including \(\rm SELF\_TYPE\)).
+
+</ul>
+
+<p>
+In all cases, the result of the comparison is a \(\rm Bool\). See <a href="Type Checking Rules.html">the type checking rules</a> for more information.
+</p>
+
+<p>
+In principle, there is nothing wrong with permitting equality tests between, for example, \(\rm Bool\) and \(\rm Int\). However, such a test must always be false and almost certainly indicates some sort of programming error. The Cool type checking rules catch such errors at compile-time instead of waiting until runtime.
+</p>
+
+<p>
+On non-basic objects, equality is decided via pointer equality (i.e., whether the memory addresses of the objects are the same). Equality is defined for \(\rm void\): two \(\rm void\) values are equal and a \(\rm void\) value is never equal to a non-\(\rm void\) value. See <a href="Operational Rules.html">the operational semantics rules</a> for more informaiton.
+</p>
+
+<p>
+\(\bf Unary\ Expressions\)
+</p>
+
+<p>
+Finally, there is one unary arithmetic and one unary logical operator.
+</p>
+<ul>
+<li>
+The expression \(\rm \sim\ &lt;expr&gt;\) is the integer complement of \(\rm &lt;expr&gt;\). The subexpression \(\rm &lt;expr&gt;\) must have static type \(\rm Int\) and the entire expression has static type \(\rm Int\).
+
+<li>
+The expression \(\rm not &lt;expr&gt;\) is the boolean complement of \(\rm &lt;expr&gt;\). The subexpression \(\rm &lt;expr&gt;\) must have static type \(\rm Bool\) and the entire expression has static type \(\rm Bool\).
+
+</ul>
+
+<p>
+<a href="Isvoid.html">Previous</a> <a href="Expressions.html">Up</a> <a href="Basic Classes.html">Next</a>
+</p>
+
+</body>
+</html>

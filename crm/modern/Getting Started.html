@@ -1,0 +1,79 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<link rel="Stylesheet" type="text/css" href="style.css">
+<script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+<script type="text/x-mathjax-config">
+	MathJax.Hub.Config({
+		// Set the default size for all of the math, 100% was awkwardly large on my screen
+		"HTML-CSS": { scale: 90 },
+		TeX: {
+			extensions: ["AMSmath.js", "AMSsymbols.js"],
+            Macros: {
+                HY: "{\\unicode{x2013}}",
+                LQT: "{\\unicode{x201C}}",
+                RQT: "{\\unicode{x201D}}",
+            }
+		}
+	});
+</script>
+<title>Getting Started</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+</head>
+<body>
+
+<p>
+<a href="Introduction.html">Previous</a> <a href="The Cool Reference Manual.html">Up</a> <a href="Classes.html">Next</a>
+</p>
+<div id="Getting Started"><h2 id="Getting Started">Getting Started</h2></div>
+
+<p>
+Cool source files have extension \(\rm .cl\). The programming projects will also define other file formats related to Cool but they are not officially part of the language specification.
+</p>
+
+<p>
+You can obtain the Cool interpreter \(\rm cool\) from the course website. To interpret (i.e., run) a Cool program:
+</p>
+<pre>
+cool file.cl 
+</pre>
+<p>
+This official version is often called the \(\it reference\ implementation\) and you are encouraged to use it as a point of comparison when you are designing and testing parts of the course project.
+The reference Cool interpreter has been specifically structured so that you can run the various stages (i.e., lexing, parsing, type-checking and interpreting) independently. This power is useful for PA2 through PA5.
+</p>
+
+<p>
+The Cool interpreter has an number of command-line options:
+</p>
+
+<dl>
+<dt>--lex</dt>
+<dd>This option causes Cool to stop after lexing and produce a new file, \(\rm file.cl \HY lex\), which contains the lexed tokens in a simple interchange format. Handy for PA2.</dd>
+<dt>--unlex</dt>
+<dd>This option causes Cool to undo lexing and produce \(\rm file.cl2\) (a Cool source file) from the lexed tokens. This is usually used as a debugging aid for PA2 by feeding Cool a \(\rm file.cl \HY lex\) file produced by \(\it your\ lexer\) from \(\rm file.cl\) and then comparing \(\rm file.cl2\) to the original \(\rm file\).cl.</dd>
+<dt>--parse</dt>
+<dd>This option causes Cool to stop after parsing and produce a new file, \(\rm file.cl \HY ast\), which contains the abstract syntax tree in a simple interchange format. Handy for PA3.</dd>
+<dt>--unparse</dt>
+<dd>This option causes Cool to undo parsing and produce \(\rm file.cl3\) (a Cool source file) from the abstract syntax tree. This is usually used as a debugging aid for PA3 by feeding Cool a \(\rm file.cl \HY ast\) file produced by your parser from \(\rm file.cl\) and then comparing \(\rm file.cl3\) to the original \(\rm file.cl\).</dd>
+<dt>--type</dt>
+<dd>This option causes Cool to stop after type checking and semantic analysis and produce a new file, \(\rm file.cl \HY type\), which contains the <a href="Class definitions.html">class mapping and implementation mapping</a> in a simple interchange format. Handy for PA4.</dd>
+<dt>--class-map</dt>
+<dd>This option causes Cool to stop after type checking and semantic analysis and produce a new file, \(\rm file.cl \HY type\), which contains the <a href="Class definitions.html">class mapping</a> only in a simple interchange format. Handy for the PA4 Checkpoint (WA4).</dd>
+<dt>--imp-map</dt>
+<dd>This option causes Cool to stop after type checking and semantic analysis and produce a new file, \(\rm file.cl \HY type\), which contains the <a href="Class definitions.html">implementation mapping</a> only in a simple interchange format. Handy for the rest of PA4.</dd>
+<dt>--parent-map</dt>
+<dd>This option causes Cool to stop after type checking and semantic analysis and produce a new file, \(\rm file.cl \HY type\), which contains the <a href="Class definitions.html">parent mapping</a> only in a simple interchange format. Handy for the rest of PA4.</dd>
+<dt>--out \(\it newname\)</dt>
+<dd>Causes Cool to produce \(\it newname.cl\) (or \(\rm .cl \HY ast\), or whatever) instead of \(\rm file.cl\).</dd>
+</dl>
+
+<p>
+You may encounter other University uses of Cool on the web that mention programs such as \(\rm coolc\) and \(\rm spim\). Those tool are used for a course on compilers; this is a course on interpreters. We will not use \(\rm coolc\) or \(\rm spim\). In addition, we use a slightly different version of the Cool language specification, so comparing results against external tools may not be helpful.
+</p>
+
+<p>
+<a href="Introduction.html">Previous</a> <a href="The Cool Reference Manual.html">Up</a> <a href="Classes.html">Next</a>
+</p>
+
+</body>
+</html>

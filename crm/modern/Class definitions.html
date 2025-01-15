@@ -1,0 +1,106 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<link rel="Stylesheet" type="text/css" href="style.css">
+<script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+<script type="text/x-mathjax-config">
+	MathJax.Hub.Config({
+		// Set the default size for all of the math, 100% was awkwardly large on my screen
+		"HTML-CSS": { scale: 90 },
+		TeX: {
+			extensions: ["AMSmath.js", "AMSsymbols.js"],
+            Macros: {
+                HY: "{\\unicode{x2013}}",
+                LQT: "{\\unicode{x201C}}",
+                RQT: "{\\unicode{x201D}}",
+            }
+		}
+	});
+</script>
+<title>Class definitions</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+</head>
+<body>
+
+<p>
+<a href="Syntax for Cool Objects.html">Previous</a> <a href="Operational Semantics.html">Up</a> <a href="Operational Rules.html">Next</a>
+</p>
+<div id="Class definitions"><h2 id="Class definitions">Class definitions</h2></div>
+
+<p>
+In the rules presented in the next section, we need a way to refer to the definitions of attributes and methods for classes. Suppose we have the following Cool class definition:
+</p>
+<pre>
+class B {
+   s : String &lt;- "Hello";
+   g (y:String) : Int {
+      y.concat(s)
+   };
+   f (x:Int) : Int {
+      x+1
+   };
+};
+
+class A inherits B {
+   a : Int;
+   b : B &lt;- new B;
+   f(x:Int) : Int {
+      x+a
+   };
+};
+</pre>
+
+<p>
+Two mappings, called \(\it class\) and \(\it implementation\), are associated with \(\it class\) definitions. The class mapping is used to get the attributes, as well as their types and initializations, of a particular class: 
+</p>
+
+\[
+class(a) = (s:String \leftarrow {\tt"Hello"}, a:Int \leftarrow O, b:B \leftarrow new\ B)
+\]
+
+<p>
+Note that the information for class \(A\) contains everything that it inherited from class \(B\), as well as its own definitions. If \(B\) had inherited other attributes, those attributes would also appear in the information for \(A\). The attributes are listed in the order they are inherited and then in source order: all the attributes from the greatest ancestor are listed first in the order in which they textually appear, then the attributes of the next greatest ancestor, and so on, on down to the attributes defined in the particular class. We rely on this order in describing how new objects are initialized.
+</p>
+
+<p>
+The general form of a class mapping is:
+</p>
+
+\[
+class(X) = (a_{1}:T_{1} \leftarrow e_{1}, \dots , a_{n}:T_{n} \leftarrow e_{n})
+\]
+
+<p>
+Note that every attribute has an initializing expression, even if the Cool program does not specify one for each attribute. The \(\it default\) initialization for a variable or attribute is the default of its type. The default of \(\tt Int\) is \(\tt 0\), the default of \(\rm String\) is  \(\tt ""\), the default of \(\rm Bool\) is \(\rm false\), and the default of any other type is \(\rm void\). (<a href="Footnotes.html">5</a>) The default of type \(T\) is written \(D_{T}\).
+</p>
+
+<p>
+The implementation mapping gives information about the methods of a class. For the above example, \(\it implementation\) of A is defined as follows:
+</p>
+
+\[
+\begin{eqnarray}
+implementation(A,f) &amp;=&amp; (x, x+a)
+\\
+implementation(A,g) &amp;=&amp; (y, y.concat(s))
+\end{eqnarray}
+\]
+
+<p>
+In general, for a class \(X\) and a method \(m\), 
+</p>
+
+\[
+implementation(X,m) = (x_{1}, x_{2}, \dots , x_{n}, e_{body})
+\]
+
+<p>
+specifies that method \(m\) when invoked from class \(X\), has formal parameters  \(x_{1}, \ldots, x_{n}\), and the body of the method is expression \(e_{body}\).
+</p>
+
+<p>
+<a href="Syntax for Cool Objects.html">Previous</a> <a href="Operational Semantics.html">Up</a> <a href="Operational Rules.html">Next</a>
+</p>
+
+</body>
+</html>

@@ -1,0 +1,43 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<link rel="Stylesheet" type="text/css" href="style.css">
+<script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+<script type="text/x-mathjax-config">
+	MathJax.Hub.Config({
+		// Set the default size for all of the math, 100% was awkwardly large on my screen
+		"HTML-CSS": { scale: 90 },
+		TeX: {
+			extensions: ["AMSmath.js", "AMSsymbols.js"],
+            Macros: {
+                HY: "{\\unicode{x2013}}",
+                LQT: "{\\unicode{x201C}}",
+                RQT: "{\\unicode{x201D}}",
+            }
+		}
+	});
+</script>
+<title>Comments</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+</head>
+<body>
+
+<p>
+<a href="Strings.html">Previous</a> <a href="Lexical Structure.html">Up</a> <a href="Keywords.html">Next</a>
+</p>
+<div id="Comments"><h2 id="Comments">Comments</h2></div>
+
+<p>
+There are two forms of comments in Cool. Any characters between two dashes \(\rm \LQT \HY \RQT\) and the next newline (or EOF, if there is no next newline) are treated as comments. Comments may also be written by enclosing text in  \((\ast \ldots \ast )\). The latter form of comment may be nested but may not contain EOF. 
+</p>
+
+<p>
+Comments cannot cross file boundaries.
+</p>
+
+<p>
+<a href="Strings.html">Previous</a> <a href="Lexical Structure.html">Up</a> <a href="Keywords.html">Next</a>
+</p>
+
+</body>
+</html>

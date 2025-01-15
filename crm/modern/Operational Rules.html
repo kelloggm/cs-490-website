@@ -1,0 +1,441 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<link rel="Stylesheet" type="text/css" href="style.css">
+<script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+<script type="text/x-mathjax-config">
+	MathJax.Hub.Config({
+		// Set the default size for all of the math, 100% was awkwardly large on my screen
+		"HTML-CSS": { scale: 90 },
+		TeX: {
+			extensions: ["AMSmath.js", "AMSsymbols.js"],
+            Macros: {
+                HY: "{\\unicode{x2013}}",
+                LQT: "{\\unicode{x201C}}",
+                RQT: "{\\unicode{x201D}}",
+            }
+		}
+	});
+</script>
+<title>Operational Rules</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+</head>
+<body>
+
+<p>
+<a href="Class definitions.html">Previous</a> <a href="Operational Semantics.html">Up</a> <a href="Cool Assembly Language.html">Next</a>
+</p>
+<div id="Operational Rules"><h2 id="Operational Rules">Operational Rules</h2></div>
+
+<p>
+Equipped with environments, stores, objects, and class definitions, we can now attack the operational semantics for Cool. The operational semantics is described by rules similar to the rules used in type checking. The general form of the rules is: 
+</p>
+
+\[
+\frac{
+\vdots
+}
+{
+so,S,E \vdash e_{1} : v,S'
+}
+\]
+
+<p>
+The rule should be read as: In the context where \(\it self\) is the object \(so\), the store is \(S\), and the environment is \(E\), the expression \(e_{1}\) evaluates to object \(v\) and the new store is \(S'\). The dots above the horizontal bar stand for other statements about the evaluation of sub-expressions of \(e_{1}\).
+</p>
+
+<p>
+Besides an environment and a store, the evaluation context contains a self object \(so\). The self object is just the object to which the identifier \(\tt self\) refers if \(\tt self\) appears in the expression. We do not place \(\tt self\) in the environment and store because \(\tt self\) is not a variable--it cannot be assigned to. Note that the rules specify a new store after the evaluation of an expression. The new store contains all changes to memory resulting as side effects of evaluating expression \(e_{1}\).
+</p>
+
+<p>
+The rest of this section presents and briefly discusses each of the operational rules. A few cases are not covered; these are discussed at the end of the section. 
+</p>
+
+\[
+\frac{\begin{array}{l}
+so,S_{1},E \vdash e_{1}:v_{1}, S_{2}
+\\
+E(Id) = l_{1}
+\\
+S_{3} = S_{2}[v_{1}/l_{1}]
+\end{array}}
+{so,S_{1},E \vdash Id \leftarrow e_{1} : v_{1}, S_{3}}\mbox{[Assign]}
+\]
+
+<p>
+An assignment first evaluates the expression on the right-hand side, yielding a value \(v_{1}\). This value is stored in memory at the address for the identifier.
+</p>
+
+<p>
+The rules for identifier references, self, and constants are straightforward:
+</p>
+
+\[
+\frac{\begin{array}{l}
+E(Id) = l
+\\
+S(l) = v
+\end{array}}
+{so, S, E \vdash Id : v, S}\mbox{[Var]}
+\]
+
+\[
+\frac{\begin{array}{l}
+\\
+\end{array}}
+{so, S, E \vdash self : so, S}\mbox{[Self]}
+\]
+
+\[
+\frac{\begin{array}{l}
+\\
+\end{array}}
+{so, S, E \vdash true : Bool(true), S}\mbox{[True]}
+\]
+
+\[
+\frac{\begin{array}{l}
+\\
+\end{array}}
+{so, S, E \vdash false : Bool(false), S}\mbox{[False]}
+\]
+
+\[
+\frac{\begin{array}{l}
+i \ is \ an \ integer \ constant
+\end{array}}
+{so, S, E \vdash i : Int(i), S}\mbox{[Int]}
+\]
+
+\[
+\frac{\begin{array}{l}
+s \ is \ a \ string \ constant
+\\
+l = length(s)
+\end{array}}
+{so, S, E \vdash s : String(l,s), S}\mbox{[String]}
+\]
+
+\[
+\frac{
+\begin{array}{l}
+T_0 = \left\{ \begin{array}{rl}
+X &amp; {\rm if}\ T = {\rm SELF\_TYPE \ and \ so = X(\dots)}
+\\
+T &amp; {\rm otherwise}
+\end{array}
+\right.
+\\
+class(T_{0}) = (a_{1} : T_{1} \leftarrow e_{1} , \dots , a_{n} : T_{n} \leftarrow e_{n})
+\\
+l_{i} = newloc(S_{1}), for \ i = 1 \dots n \ and \ each \ l_{i} \ is \ distinct
+\\
+v_{1} = T_{0}(a_{1} = l_{1}, \dots , a_{n} = l_{n})
+\\
+S_{2} = S_{1}[D_{T_{1}}/l_{1}, \dots , D_{T_{n}}/l_{n}]
+\\
+v_{1}, S_{2}, [a_{1} : l_{1}, \dots , a_{n} : l_{n}] \vdash {a_{1} \leftarrow e_{1}; \dots ; a_{n} \leftarrow e_{n};} : v_{2}, S_{3}
+\end{array}
+}{so, S_{1}, E \vdash new \ T : v_{1}, S_{3}}\mbox{[New]}
+\]
+
+<p>
+The tricky thing in a \(\rm new\) expression is to initialize the attributes in the right order. If an attribute does not have an initializer, \(\it do \ not\) evaluate an assignment expression for it in the final step. Note also that, during initialization, attributes are bound to the default of the appropriate class.
+</p>
+
+\[
+\frac{\begin{array}{l}
+so, S_{1}, E \vdash e_{1} : v_{1}, S_{2}
+\\
+so, S_{2}, E \vdash e_{2} : v_{2}, S_{3}
+\\
+\vdots
+\\
+so, S_{n}, E \vdash e_{n} : v_{n}, S_{n+1}
+\\
+so, S_{n+1}, E \vdash e_{0} : v_{0}, S_{n+2}
+\\
+v_{0} = X(a_{1} = l_{a_{1}} , \dots , a_{m} = l_{a_{m}})
+\\
+implementation(X,f) = (x_{1}, \dots , x_{n}, e_{n+1})
+\\
+l_{x_{i}} = newloc(S_{n+2}), \ for \ i = 1 \dots n \ and \ each \ l_{x_{i}} \ is \ distinct
+\\
+S_{n+3} = S_{n+2}[v_{1}/l_{x_{1}} , \dots , v_{n}/l_{x_{n}}]
+\\
+v_{0}, S_{n+3}, [a_{1} : l_{a_{1}}, \dots , a_{m} : l_{a_{m}}, x_{1} : l_{x_{1}} , \dots , x_{n} : l_{x_{n}}] \vdash e_{n+1} : v_{n+1} , S_{n+4}
+\end{array}}
+{so, S_{1}, E \vdash e_{0}.f(e_{1}, \dots , e_{n}) : v_{n+1}, S_{n+4}}\mbox{[Dispatch]}
+\]
+
+\[
+\frac{\begin{array}{l}
+so, S_{1}, E \vdash e_{1} : v_{1}, S_{2}
+\\
+so, S_{2}, E \vdash e_{2} : v_{2}, S_{3}
+\\
+\vdots
+\\
+so, S_{n}, E \vdash e_{n} : v_{n}, S_{n+1}
+\\
+so, S_{n+1}, E \vdash e_{0} : v_{0}, S_{n+2}
+\\
+v_{0} = X(a_{1} = l_{a_{1}} , \dots , a_{m} = l_{a_{m}})
+\\
+implementation(T,f) = (x_{1}, \dots , x_{n}, e_{n+1})
+\\
+l_{x_{i}} = newloc(S_{n+2}), \ for \ i = 1 \dots n \ and \ each \ l_{x_{i}} \ is \ distinct
+\\
+S_{n+3} = S_{n+2}[v_{1}/l_{x_{1}} , \dots , v_{n}/l_{x_{n}}]
+\\
+v_{0}, S_{n+3}, [a_{1} : l_{a_{1}}, \dots , a_{m} : l_{a_{m}}, x_{1} : l_{x_{1}} , \dots , x_{n} : l_{x_{n}}] \vdash e_{n+1} : v_{n+1} , S_{n+4}
+\end{array}}
+{so, S_{1}, E \vdash e_{0}@T.f(e_{1}, \dots , e_{n}) : v_{n+1}, S_{n+4}}\mbox{[Static Dispatch]}
+\]
+
+<p>
+The two dispatch rules do what one would expect. The arguments are evaluated and saved. Next, the expression on the left-hand side of the \(\rm \LQT . \RQT\) is evaluated. In a normal dispatch, the class of this expression is used to determine the method to invoke; otherwise the class is specified in the dispatch itself.
+</p>
+
+\[
+\frac{\begin{array}{l}
+so, S_{1}, E \vdash e_{1} : Bool(true), S_{2}
+\\
+so, S_{2}, E \vdash e_{2} : v_{2}, S_{3}
+\end{array}}
+{so, S_{1}, E \vdash if \ e_{1} \ then \ e_{2} \ else \ e_{3} \ fi : v_{2}, S_{3}}\mbox{[If-True]}
+\]
+
+\[
+\frac{\begin{array}{l}
+so, S_{1}, E \vdash e_{1} : Bool(false), S_{2}
+\\
+so, S_{2}, E \vdash e_{3} : v_{3}, S_{3}
+\end{array}}
+{so, S_{1}, E \vdash if \ e_{1} \ then \ e_{2} \ else \ e_{3} \ fi : v_{3}, S_{3}}\mbox{[If-False]}
+\]
+
+<p>
+There are no surprises in the if-then-else rules. Note that value of the predicate is a \(\tt Bool\) object, not a boolean.
+</p>
+
+\[
+\frac{\begin{array}{l}
+so, S_{1}, E \vdash e_{1} : v_{1}, S_{2}
+\\
+so, S_{2}, E \vdash e_{2} : v_{2}, S_{3}
+\\
+\vdots
+\\
+so, S_{n}, E \vdash e_{n} : v_{n}, S_{n+1}
+\end{array}}
+{so, S_{1}, E \vdash \{ e_{1} ; e_{2} ; \dots ; e_{n} ; \} : v_{n}, S_{n+1}}\mbox{[Sequence]}
+\]
+
+<p>
+Blocks are evaluated from the first expression to the last expression, in order. The result is the result of the last expression.
+</p>
+
+\[
+\frac{\begin{array}{l}
+so, S_{1}, E \vdash e_{1} : v_{1}, S_{2}
+\\
+l_{1} = newloc(S_{2})
+\\
+S_{3} = S_{2}[v_{1}/l_{1}]
+\\
+E' = E[l_{1}/Id]
+\\
+so, S_{3}, E' \vdash e_{2} : v_{2}, S_{4}
+\end{array}}
+{so, S_{1}, E \vdash let \ Id : T_{1} \leftarrow e_{1} \ in \ e_{2} : v_{2}, S_{4}}\mbox{[Let]}
+\]
+
+<p>
+A \(\tt let\) evaluates any initialization code, assigns the result to the variable at a fresh location, and evaluates the body of the \(\tt let\). (If there is no initialization, the variable is initialized to the default value of \(T_1\).) We give the operational semantics only for the case of \(\tt let\) with a single variable. The semantics of a multiple \(\tt let\) 
+</p>
+
+\[
+let \ x_{1} : T_{1} \leftarrow e_{1}, x_{2} : T_{2} \leftarrow e_{2} , \dots , x_{n} : T_{n} \leftarrow e_{n} \ in \ e
+\]
+
+<p>
+is defined to be the same as
+</p>
+
+\[
+let \ x_{1} : T_{1} \leftarrow e_{1} \ in \ (let \ x_{2} : T_{2} \leftarrow e_{2} , \dots , x_{n} : T_{n} \leftarrow e_{n} \ in \ e)
+\]
+
+\[
+\frac{\begin{array}{l}
+so, S_{1}, E \vdash e_{0} : v_{0} , S_{2}
+\\
+v_{0} = X(\dots)
+\\
+T_{i} = closest \ ancestor \ of \ X \ in \ \{ T_{1}, \dots , T_{n} \}
+\\
+l_{0} = newloc(S_{2})
+\\
+S_{3} = S_{2}[v_{0}/l_{0}]
+\\
+E' = E[l_{0}/Id_{i}]
+\\
+so, S_{3}, E' \vdash e_{i} : v_{1}, S_{4}
+\end{array}}
+{so, S_{1}, E \vdash case \ e_{0} \ of \ Id_{1} : T_{1} \Rightarrow e_{1} ; \dots ; Id_{n} : T_{n} \Rightarrow e_{n} ; esac : v_{1}, S_{4}}\mbox{[Case]}
+\]
+
+<p>
+Note that the \(\tt case\) rule requires that the class hierarchy be available in some form at runtime, so that the correct branch of the \(\tt case\) can be selected. This rule is otherwise straightforward.
+</p>
+
+\[
+\frac{\begin{array}{l}
+so, S_{1}, E \vdash e_{1} : Bool(true), S_{2}
+\\
+so, S_{2}, E \vdash e_{2} : v_{2}, S_{3}
+\\
+so, S_{3}, E \vdash while \ e_{1} \ loop \ e_{2} \ pool : void, S_{4}
+\end{array}}
+{so, S_{1}, E \vdash while \ e_{1} \ loop \ e_{2} \ pool : void, S_{4}}\mbox{[Loop-True]}
+\]
+
+\[
+\frac{\begin{array}{l}
+so, S_{1}, E \vdash e_{1} : Bool(false), S_{2}
+\end{array}}
+{so, S_{1}, E \vdash while \ e_{1} \ loop \ e_{2} \ pool : void, S_{2}}\mbox{[Loop-False]}
+\]
+
+<p>
+There are two rules for \(\tt while\): one for the case where the predicate is \(\tt true\) and one for the case where the predicate is \(\tt false\). Both cases are straightforward. The two rules for \(\tt isvoid\) are also straightforward:
+</p>
+
+\[
+\frac{\begin{array}{l}
+so, S_{1}, E \vdash e_{1} : void, S_{2}
+\end{array}}
+{so, S_{1}, E \vdash isvoid \ e_{1} : Bool(true), S_{2}}\mbox{[IsVoid-True]}
+\]
+
+\[
+\frac{\begin{array}{l}
+so, S_{1}, E \vdash e_{1} : X(\dots), S_{2}
+\end{array}}
+{so, S_{1}, E \vdash isvoid \ e_{1} : Bool(false), S_{2}}\mbox{[IsVoid-False]}
+\]
+
+<p>
+The remainder of the rules are for the primitive arithmetic and logical operations. These are all easy rules.
+</p>
+
+\[
+\frac{\begin{array}{l}
+so, S_{1}, E \vdash e_{1} : Bool(b), S_{2}
+\\
+v_{1} = Bool(\neg b)
+\end{array}}
+{so, S_{1}, E \vdash not \ e_{1} : v_{1}, S_{2}}\mbox{[Not]}
+\]
+
+\[
+\frac{\begin{array}{l}
+so, S_{1}, E \vdash e_{1} : Int(i_{1}), S_{2}
+\\
+v_{1} = Int(-i_{1})
+\end{array}}
+{so, S_{1}, E \vdash \verb|~| e_{1} : v_{1}, S_{2}}\mbox{[Neg]}
+\]
+
+\[
+\frac{\begin{array}{l}
+so, S_{1}, E \vdash e_{1} : Int(i_{1}), S_{2}
+\\
+so, S_{2}, E \vdash e_{2} : Int(i_{2}), S_{3}
+\\
+op \in \{ *, +, -, / \}
+\\
+v_{1} = Int(i_{1} \ op \ i_{2})
+\end{array}}
+{so, S_{1}, E \vdash e_{1} \ op \ e_{2} : v_{1} , S_{3}}\mbox{[Arith]}
+\]
+
+<p>
+Cool \(\tt Int\)s are 32-bit two's complement signed integers; the arithmetic operations are defined accordingly.
+</p>
+
+<p>
+The notation and rules given above are not powerful enough to describe how objects are tested for equality, or how runtime exceptions are handled. For these cases we resort to an English description.
+</p>
+
+<p>
+In \(e_{1} = e_{2}\), first \(e_{1}\) is evaluated and then \(e_{2}\) is evaluated. The two objects are compared for equality by first comparing their pointers (addresses). If they are the same, the objects are equal. The value \(\tt void\) is not equal to any object except itself. If the two objects are of type \(\tt String\), \(\tt Bool\), or \(\tt Int\), their respective contents are compared. \(\tt &lt;\) and \(\tt &lt;=\) are handled similarly. The case for integer arguments is simple:
+</p>
+
+\[
+\frac{
+\begin{array}{l}
+so, S_{1}, E \vdash e_{1} : Int(i_{1}), S_{2}
+\\
+so, S_{2}, E \vdash e_{2} : Int(i_{2}), S_{3}
+\\
+op \in \{ \le , \lt \}
+\\
+v_{1} = \left\{ \begin{array}{ll}
+Bool(true), &amp; {\rm if}\ i_{1} \ op \ i_{2}
+\\
+Bool(false), &amp; {\rm otherwise}
+\end{array}
+\right.
+\end{array}}
+{so, S_{1}, E \vdash e_{1} \ op \ e_{2} : v_{1} , S_{3}}\mbox{[Comp]}
+\]
+
+<p>
+... but \(\tt String\) and \(\tt Bool\) also admit comparisons. String comparisons are performed using the standard ASCII string ordering (e.g., \(\tt "abc" &lt; "xyz"\)). For booleans, \(\tt false\) is defined to be less than \(\tt true\). Any other comparison (e.g., a comparison among non-void objects of different types) returns \(\tt false\). Note that for some objects this may be unintuitive: if \(\tt c\) is a \(\tt Cat\) and \(\tt d\) is a \(\tt Dog\) then \(\tt c &lt; d\) is \(\tt false\) but \(\tt d &lt; c\) is also \(\tt false\). Note also that comparison is based on the dynamic type of the object, not on the static type of the object.
+</p>
+
+<p>
+In addition, the operational rules do not specify what happens in the event of a runtime error. When a runtime error occurs, output is flushed and execution aborts. The following list specifies all possible runtime errors.
+</p>
+
+<ol>
+<li>
+A dispatch (static or dynamic) on \(\tt void\).
+
+<li>
+A case on \(\tt void\).
+
+<li>
+Execution of a case statement without a matching branch.
+
+<li>
+Division by zero.
+
+<li>
+Substring out of range. \(\it (This \ error \ is \ always \ reported \ on \ line \ 0, \ since \ it \ occurs \ inside \ an \ "internal" \ library \ function.)\)
+
+<li>
+Heap overflow. \(\it (You \ do \ not \ need \ to \ implement \ this \ runtime \ error.)\)
+
+<li>
+Stack overflow.
+
+</ol>
+
+<p>
+Each outstanding "method invocation" (static or dynamic) and each outstanding "new" object allocation expression counts as a "Cool Activation Record". (Just to be clear, that second clause about "new" is counting currently-resolving constructor calls, not "total objects living in the heap".) A Cool interpreter \(\it must\) flag a "stack overflow" runtime error if and only if there are \(\textbf{1000}\) (one thousand) or more outstanding Cool Activation Records.
+</p>
+
+<p>
+Finally, the rules given above do not explain the execution behaviour for dispatches to primitive methods defined in the \(\tt Object\), \(\tt IO\), or \(\tt String\) classes. Descriptions of these primitive methods are given in Sections <a href="Int.html">8.3</a>-<a href="Bool.html">8.5</a>.
+</p>
+
+<p>
+<a href="Class definitions.html">Previous</a> <a href="Operational Semantics.html">Up</a> <a href="Cool Assembly Language.html">Next</a>
+</p>
+
+</body>
+</html>

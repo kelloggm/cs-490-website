@@ -1,0 +1,54 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<link rel="Stylesheet" type="text/css" href="style.css">
+<script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+<script type="text/x-mathjax-config">
+	MathJax.Hub.Config({
+		// Set the default size for all of the math, 100% was awkwardly large on my screen
+		"HTML-CSS": { scale: 90 },
+		TeX: {
+			extensions: ["AMSmath.js", "AMSsymbols.js"],
+            Macros: {
+                HY: "{\\unicode{x2013}}",
+                LQT: "{\\unicode{x201C}}",
+                RQT: "{\\unicode{x201D}}",
+            }
+		}
+	});
+</script>
+<title>Inheritance</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+</head>
+<body>
+
+<p>
+<a href="Features.html">Previous</a> <a href="Classes.html">Up</a> <a href="Types.html">Next</a>
+</p>
+<div id="Inheritance"><h2 id="Inheritance">Inheritance</h2></div>
+
+<p>
+If a class definition has the form
+</p>
+<pre>
+class C inherits P { ... };
+</pre>
+<p>
+then class \(\rm C\) inherits the features of \(\rm P\). In this case P is the \(\it parent\) class of \(\rm C\) and \(\rm C\) is a \(\it child\) class of \(\rm P\).
+The semantics of \(\rm C\ inherits\ P\) is that \(\rm C\) has all of the features defined in \(\rm P\) in addition to its own features. In the case that a parent and child both define the same method name, then the definition given in the child class takes precedence. It is illegal to redefine attribute names. Furthermore, for type safety, it is necessary to place some restrictions on how methods may be redefined (see Section <a href="Methods.html">6</a>).
+</p>
+
+<p>
+There is a distinguished class \(\rm Object\). If a class definition does not specify a parent class, then the class inherits from \(\rm Object\) by default. A class may inherit only from a single class; this is aptly called "single inheritance."(<a href="Footnotes.html">3</a>) The parent-child relation on classes defines a graph. This graph may not contain cycles. For example, if \(\rm C\) inherits from \(\rm P\), then \(\rm P\) must not inherit from \(\rm C\). Furthermore, if \(\rm C\) inherits from \(\rm P\), then \(\rm P\) must have a class definition somewhere in the program. Because Cool has single inheritance, it follows that if both of these restrictions are satisfied, then the inheritance graph forms a tree with \(\rm Object\) as the root.
+</p>
+
+<p>
+In addition to \(\rm Object\), Cool has four other \(\it basic\ classes\): \(\rm Int\), \(\rm String\), \(\rm Bool\), and \(\rm IO\). The basic classes are discussed in Section <a href="Basic Classes.html">8</a>.
+</p>
+
+<p>
+<a href="Features.html">Previous</a> <a href="Classes.html">Up</a> <a href="Types.html">Next</a>
+</p>
+
+</body>
+</html>

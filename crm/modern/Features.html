@@ -1,0 +1,95 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<link rel="Stylesheet" type="text/css" href="style.css">
+<script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+<script type="text/x-mathjax-config">
+	MathJax.Hub.Config({
+		// Set the default size for all of the math, 100% was awkwardly large on my screen
+		"HTML-CSS": { scale: 90 },
+		TeX: {
+			extensions: ["AMSmath.js", "AMSsymbols.js"],
+            Macros: {
+                HY: "{\\unicode{x2013}}",
+                LQT: "{\\unicode{x201C}}",
+                RQT: "{\\unicode{x201D}}",
+            }
+		}
+	});
+</script>
+<title>Features</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+</head>
+<body>
+
+<p>
+<a href="Classes.html">Previous</a> <a href="Classes.html">Up</a> <a href="Inheritance.html">Next</a>
+</p>
+<div id="Features"><h2 id="Features">Features</h2></div>
+
+<p>
+The body of a class definition consists of a list of feature definitions. A feature is either an \(\it attribute\) or a \(\it method\). An attribute of class \(\rm A\) specifies a variable that is part of the state of objects of class \(\rm A\). A method of class \(\rm A\) is a procedure that may manipulate the variables and objects of class \(\rm A\).
+</p>
+
+<p>
+One of the major themes of modern programming languages is \(\it information\ hiding\), which is the idea that certain aspects of a data type's implementation should be abstract and hidden from users of the data type. Cool supports information hiding through a simple mechanism: all attributes have scope local to the class, and all methods have global scope. Thus, the only way to provide access to object state in Cool is through methods.
+</p>
+
+<p>
+Feature names must begin with a lowercase letter. No method name may be defined multiple times in a class, and no attribute name may be defined multiple times in a class, but a method and an attribute may have the same name.
+</p>
+
+<p>
+A fragment from \(\rm list.cl\) illustrates simple cases of both attributes and methods:
+</p>
+<pre>
+class Cons inherits List {
+	xcar : Int;
+	xcdr : List;
+
+	isNil() : Bool { false };
+
+	init(hd : Int, tl : List) : Cons {
+		{
+			xcar &lt;- hd;
+			xcdr &lt;- tl;
+			self;
+		}
+	};
+...
+};
+</pre>
+<p>
+In this example, the class \(\rm Cons\) has two attributes \(\rm xcar\) and \(\rm xcdr\) and two methods \(\rm isNil\) and \(\rm init\). Note that the types of attributes, as well as the types of formal parameters and return types of methods, are explicitly declared by the programmer.
+</p>
+
+<p>
+Given object \(\rm c\) of class \(\rm Cons\) and object \(\rm l\) of class \(\rm List\), we can set the \(\rm xcar\) and \(\rm xcdr\) fields by using the method \(\rm init\):
+</p>
+<pre>
+c.init(1,l)
+</pre>
+<p>
+This notation is \(\it object \HY oriented\ dispatch\). There may be many definitions of \(\rm init\) methods in many different classes. The dispatch looks up the class of the object \(\rm c\) to decide which \(\rm init\) method to invoke. Because the class of \(\rm c\) is \(\rm Cons\), the \(\rm init\) method in the \(\rm Cons\) class is invoked. Within the invocation, the variables \(\rm xcar\) and \(\rm xcdr\) refer to \(\rm c\)'s attributes. The special variable \(\rm self\) refers to the object on which the method was dispatched, which, in the example, is \(\rm c\) itself.
+</p>
+
+<p>
+There is a special form \(\rm new\ C\) that generates a fresh object of class \(\rm C\). An object can be thought of as a record that has a slot for each of the attributes of the class as well as pointers to the methods of the class. A typical dispatch for the \(\rm init\) method is:
+</p>
+<pre>
+(new Cons).init(1,new Nil)
+</pre>
+<p>
+This example creates a new cons cell and initializes the "car" of the cons cell to be 1 and the "cdr" to be \(\rm new\ Nil\).(<a href="Footnotes.html">2</a>) There is no mechanism in Cool for programmers to deallocate objects. Cool has \(\it automatic\ memory\ management\); objects that cannot be used by the program are deallocated by a runtime garbage collector.
+</p>
+
+<p>
+Attributes are discussed further in Section <a href="Attributes.html">5</a> and methods are discussed further in Section <a href="Methods.html">6.</a>
+</p>
+
+<p>
+<a href="Classes.html">Previous</a> <a href="Classes.html">Up</a> <a href="Inheritance.html">Next</a>
+</p>
+
+</body>
+</html>

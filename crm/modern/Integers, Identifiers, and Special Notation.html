@@ -1,0 +1,51 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<link rel="Stylesheet" type="text/css" href="style.css">
+<script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+<script type="text/x-mathjax-config">
+	MathJax.Hub.Config({
+		// Set the default size for all of the math, 100% was awkwardly large on my screen
+		"HTML-CSS": { scale: 90 },
+		TeX: {
+			extensions: ["AMSmath.js", "AMSsymbols.js"],
+            Macros: {
+                HY: "{\\unicode{x2013}}",
+                LQT: "{\\unicode{x201C}}",
+                RQT: "{\\unicode{x201D}}",
+            }
+		}
+	});
+</script>
+<title>Integers, Identifiers, and Special Notation</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+</head>
+<body>
+
+<p>
+<a href="Lexical Structure.html">Previous</a> <a href="Lexical Structure.html">Up</a> <a href="Strings.html">Next</a>
+</p>
+<div id="Integers, Identifiers, and Special Notation"><h2 id="Integers, Identifiers, and Special Notation">Integers, Identifiers, and Special Notation</h2></div>
+
+<p>
+Integers are non-empty strings of digits 0-9. It is a lexer error if a literal integer constant is too big to be represented as a 32-bit signed integer. 32-bit signed integers range from -2,147,483,648 to +2,147,483,647. Cool integer constants are always non-negative, so valid integer constants range from 0 to 2,147,483,647.
+</p>
+
+<p>
+Identifiers are strings (other than keywords) consisting of letters, digits, and the underscore character. Type identifiers begin with a capital letter; object identifiers begin with a lower case letter. Identifiers \(\it are\) case sensitive.
+</p>
+
+<p>
+\(\bf self\) and \(\bf SELF\_TYPE\) are treated specially by Cool but are not treated as keywords. \(\bf self\) should be reported by the lexer as an identifier and \(\bf SELF\_TYPE\) should be reported by the lexer as a type. Both \(\it are\) case sensitive.
+</p>
+
+<p>
+The special syntactic symbols (e.g., parentheses, assignment operator, etc.) are given in Figure <a href="Cool Syntax.html">1</a>.
+</p>
+
+<p>
+<a href="Lexical Structure.html">Previous</a> <a href="Lexical Structure.html">Up</a> <a href="Strings.html">Next</a>
+</p>
+
+</body>
+</html>

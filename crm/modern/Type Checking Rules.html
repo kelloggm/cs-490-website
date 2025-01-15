@@ -1,0 +1,373 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<link rel="Stylesheet" type="text/css" href="style.css">
+<script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+<script type="text/x-mathjax-config">
+	MathJax.Hub.Config({
+		// Set the default size for all of the math, 100% was awkwardly large on my screen
+		"HTML-CSS": { scale: 90 },
+		TeX: {
+			extensions: ["AMSmath.js", "AMSsymbols.js"],
+            Macros: {
+                HY: "{\\unicode{x2013}}",
+                LQT: "{\\unicode{x201C}}",
+                RQT: "{\\unicode{x201D}}",
+            }
+		}
+	});
+</script>
+<title>Type Checking Rules</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+</head>
+<body>
+
+<p>
+<a href="Type Environments.html">Previous</a> <a href="Type Rules.html">Up</a> <a href="Operational Semantics.html">Next</a>
+</p>
+<div id="Type Checking Rules"><h2 id="Type Checking Rules">Type Checking Rules</h2></div>
+
+<p>
+The general form a type checking rule is: 
+</p>
+\[
+\frac{\vdots}{O,M,C \vdash e : T}
+\]
+<p>
+The rule should be read: In the type environment for objects \(O\), methods \(M\), and containing class \(C\), the expression \(e\) has type \(T\). The dots above the horizontal bar stand for other statements about the types of sub-expressions of \(e\). These other statements are hypotheses of the rule; if the hypotheses are satisfied, then the statement below the bar is true. In the conclusion, the "<a href="https:&#47;&#47;en.wikipedia.org&#47;wiki&#47;Turnstile_%28symbol%29">turnstile</a>" ("\(\vdash\)") separates context (\(O,M,C\)) from statement (\(e : T\)).
+</p>
+
+<p>
+The rule for object identifiers is simply that if the environment assigns an identifier \(Id\) type \(T\), then \(Id\) has type \(T\). 
+</p>
+\[
+\frac{O(Id) = T}{O,M,C \vdash Id : T}\mbox{[Var]}
+\]
+<p>
+The rule for assignment to a variable is more complex: 
+</p>
+\[
+\frac{
+\begin{array}{l}
+O(Id) = T
+\\
+O,M,C \vdash e_1 : T'
+\\
+T' \le T
+\\
+\end{array}
+}{O,M,C \vdash Id \leftarrow e_1 : T'}\mbox{[ASSIGN]}
+\]
+<p>
+Note that this type rule--as well as others--use the conformance relation \(\leq\) (see Section <a href="Inheritance.html">3.2</a>). The rule says that the assigned expression \(e_1\) must have a type \(T'\) that conforms to the type \(T\) of the identifier \(Id\) in the type environment. The type of the whole expression is \(T'\).
+The type rules for constants are all easy: 
+</p>
+\[
+\frac{}{O,M,C \vdash true:Bool}\mbox{[True]}
+\]
+\[
+\frac{}{O,M,C \vdash false:Bool}\mbox{[False]}
+\]
+\[
+\frac{i\ {\rm is\ an\ integer\ constant}}{O,M,C \vdash i:Int}\mbox{[Int]}
+\]
+\[
+\frac{s\ {\rm is\ an\ string\ constant}}{O,M,C \vdash s:String}\mbox{[String]}
+\]
+<p>
+There are two cases for new, one for new SELF_TYPE and one for any other form: 
+</p>
+\[
+\frac{
+T' = \left\{
+\begin{array}{rl}
+{\rm SELF\_TYPE_C} &amp; {\rm if}\ T = {\rm SELF\_TYPE}
+\\
+T &amp; {\rm otherwise}
+\end{array}
+\right.
+}{O,M,C\vdash new\ T:T'}\mbox{[New]}
+\]
+<p>
+Dispatch expressions are the most complex to type check.
+</p>
+\[
+\frac{
+\begin{array}{l}
+O,M,C \vdash e_0:T_0
+\\
+O,M,C \vdash e_1:T_1
+\\
+\vdots
+\\
+O,M,C \vdash e_n:T_n
+\\
+T'_0 = \left\{ \begin{array}{rl}
+C &amp; {\rm if}\ T_0 = {\rm SELF\_TYPE_C}
+\\
+T_0 &amp; {\rm otherwise}
+\end{array}
+\right.
+\\
+M(T'_0,f)=(T'_1,\ldots,T'_n,T'_{n+1})
+\\
+T_i \le T'_i\quad 1 \le i \le n
+\\
+T_{n+1} = \left\{
+\begin{array}{rl}
+T_0 &amp; {\rm if}\ T'_{n+1}={\rm SELF\_TYPE}
+\\
+T'_{n+1} &amp; {\rm otherwise}
+\end{array}
+\right.
+\end{array}
+}{O,M,C \vdash e_0.f(e_1,\ldots,e_n):T_{n+1}}\mbox{[Dispatch]}
+\]
+
+\[
+\frac{
+\begin{array}{l}
+O,M,C \vdash e_0:T_0
+\\
+O,M,C \vdash e_1:T_1
+\\
+\vdots
+\\
+O,M,C \vdash e_n:T_n
+\\
+T_0 \le T
+\\
+M(T,f)=(T'_1,\ldots,T'_n,T'_{n+1})
+\\
+T_i \le T'_i\quad 1 \le i \le n
+\\
+T_{n+1} = \left\{
+\begin{array}{rl}
+T_0 &amp; {\rm if}\ T'_{n+1}={\rm SELF\_TYPE}
+\\
+T'_{n+1} &amp; {\rm otherwise}
+\end{array}
+\right.
+\end{array}
+}{O,M,C \vdash e_0@T.f(e_1,\ldots,e_n):T_{n+1}}\mbox{[Static Dispatch]}
+\]
+<p>
+To type check a dispatch, each of the subexpressions must first be type checked. The type \(T_0\) of \(e_0\) determines which declaration of the method \(f\) is used. The argument types of the dispatch must conform to the declared argument types. Note that the type of the result of the dispatch is either the declared return type or \(T_0\) in the case that the declared return type is \(\tt SELF\_TYPE\). The only difference in type checking a static dispatch is that the class \(T\) of the method \(f\) is given in the dispatch, and the type \(T_0\) must conform to \(T\).
+</p>
+
+<p>
+The type checking rules for \(\rm if\) and \(\rm \{ \HY \}\) expressions are straightforward. See Section <a href="Conditionals.html">7.5</a> for the definition of the \(\sqcup\) operation. 
+</p>
+\[
+\frac{\begin{array}{l}
+O,M,C \vdash e_1:Bool
+\\
+O,M,C \vdash e_2:T_2
+\\
+O,M,C \vdash e_3:T_3
+\end{array}}
+{O,M,C \vdash {\rm if}\ e_1\ {\rm then}\ e_2\ {\rm else}\ e_3\ {\rm fi}:T_2\sqcup T_3}\mbox{[If]}
+\]
+\[
+\frac{\begin{array}{l}
+O,M,C \vdash e_1:T_1
+\\
+O,M,C \vdash e_2:T_2
+\\
+\vdots
+\\
+O,M,C \vdash e_n:T_n
+\end{array}}
+{O,M,C \vdash \{\ e_1;e_2;\ldots e_n;\ \}:T_n}\mbox{[Sequence]}
+\]
+<p>
+The \(\rm let\) rule has some interesting aspects. 
+</p>
+\[
+\frac{\begin{array}{l}
+T'_0 = \left\{
+\begin{array}{rl}
+{\tt SELF\_TYPE_C} &amp; {\rm if}\ T_0 = {\tt SELF\_TYPE}
+\\
+T_0 &amp; {\rm otherwise}
+\end{array}
+\right.
+\\
+O,M,C \vdash e_1:T_1
+\\
+T_1 \le T'_0
+\\
+O[T'_0/x],M,C \vdash e_2:T_2
+\end{array}}
+{O,M,C \vdash {\rm let}\ x: T_0 \leftarrow e_1\ in\ e_2:T_2}\mbox{[Let-Init]}
+\]
+<p>
+First, the initialization \(e_1\) is type checked in an environment without a new definition for \(x\). Thus, the variable \(x\) cannot be used in \(e_1\) unless it already has a definition in an outer scope. Second, the body \(e_2\) is type checked in the environment \(O\) extended with the typing \(x:T_0'\). Third, note that the type of \(x\) may be \(\rm SELF\_TYPE\).
+</p>
+\[
+\frac{\begin{array}{l}
+T'_0 = \left\{
+\begin{array}{rl}
+{\tt SELF\_TYPE_C} &amp; {\rm if}\ T_0 = {\tt SELF\_TYPE}
+\\
+T_0 &amp; {\rm otherwise}
+\end{array}
+\right.
+\\
+O[T'_0/x],M,C \vdash e_1:T_1
+\end{array}}
+{O,M,C \vdash {\rm let}\ x:T_0\ {\rm in}\ e_1:T_1}\mbox{[Let-No-Init]}
+\]
+<p>
+The rule for \(\rm let\) with no initialization simply omits the conformance requirement. We give type rules only for a \(\rm let\) with a single variable. Typing a multiple \(\rm let\) 
+</p>
+\[
+\rm let\ x_1 : T_1\ [\leftarrow e_1],\ x_2: T_2\ [\leftarrow e_2], \ldots,\ x_n :T_n\ [\leftarrow e_n]\ in\ e
+\]
+<p>
+is defined to be the same as typing
+</p>
+\[
+\rm let\ x_1 : T_1\ [\leftarrow e_1]\ in\ (let\ x_2 :T_2\ [\leftarrow e_2],\ldots,\ x_n : T_n\ [\leftarrow e_n]\ in\ e\ )\
+\]
+
+\[
+\frac{\begin{array}{l}
+O,M,C \vdash e_0:T_0
+\\
+O[T_1/x_1],M,C \vdash e_1:T'_1
+\\
+\vdots
+\\
+O[T_n/x_n],M,C \vdash e_n:T'_n
+\end{array}}
+{O,M,C \vdash {\rm case}\ e_0\ {\rm of}\ x_1:T_1 \Rightarrow e_1;,\ldots x_n:T_n \Rightarrow e_n;\ {\rm esac}:\sqcup_{1 \le i \le n} T'_i}\mbox{[Case]}
+\]
+<p>
+Each branch of a \(\rm case\) is type checked in an environment where variable \(x_i\) has type \(T_i\). The type of the entire \(\rm case\) is the join of the types of its branches. The variables declared on each branch of a \(\rm case\) must all have distinct types.
+</p>
+\[
+\frac{\begin{array}{l}
+O,M,C \vdash e_1:Bool
+\\
+O,M,C \vdash e_2:T_2
+\end{array}}
+{O,M,C \vdash {\rm while}\ e_1\ {\rm loop}\ e_2\ {\rm pool}:Object}\mbox{[Loop]}
+\]
+<p>
+The predicate of a loop must have type \(Bool\); the type of the entire loop is always \(Object\). An \(\rm isvoid\) test has type \(Bool\): 
+</p>
+\[
+\frac{
+O,M,C \vdash e_1:T_1
+}
+{O,M,C \vdash {\rm isvoid}\ e_1:Bool}\mbox{[Isvoid]}
+\]
+<p>
+With the exception of the rule for equality, the type checking rules for the primitive logical and arithmetic operations are easy. 
+</p>
+\[
+\frac{
+O,M,C \vdash e_1:Bool
+}
+{O,M,C \vdash \lnot e_1:Bool}\mbox{[Not]}
+\]
+\[
+\frac{
+O,M,C \vdash e_1:Int
+}
+{O,M,C \vdash \sim e_1:Int}\mbox{[Neg]}
+\]
+\[
+\frac{\begin{array}{l}
+O,M,C \vdash e_1:Int
+\\
+O,M,C \vdash e_2:Int
+\\
+{\rm op} \in \{*,+,-,/\}
+\end{array}}
+{O,M,C \vdash e_1\ op\ e_2:Int}\mbox{[Arith]}
+\]
+<p>
+The wrinkle in the rule for equality is that any types may be freely compared except \(\rm Int\), \(\rm String\) and \(\rm Bool\), which may only be compared with objects of the same type. The cases for \(\rm &lt;\) and \(\rm &lt;=\) are similar to the rule for equality. 
+</p>
+\[
+\frac{\begin{array}{l}
+O,M,C \vdash e_1 : T_1
+\\
+O,M,C \vdash e_2 : T_2
+\\
+T_1 \in \{Int,String,Bool\} \lor T_2 \in \{Int,String,Bool\} \Rightarrow T_1 = T_2
+\end{array}}
+{O,M,C \vdash e_1 = e_2 : Bool}\mbox{[Equal]}
+\]
+<p>
+The final cases are type checking rules for attributes and methods. For a class \(C\), let the object environment \(O_C\) give the types of all attributes of \(C\) (including any inherited attributes). More formally, if \(x\) is an attribute (inherited or not) of \(C\), and the declaration of \(x\) is \(x:T\), then 
+</p>
+\[
+O_C(x) = \left\{
+\begin{array}{rl}
+{\rm SELF\_TYPE_C} &amp; {\rm if}\ T = {\rm SELF\_TYPE}
+\\
+T &amp; otherwise
+\end{array}
+\right.
+\]
+<p>
+The method environment \(M\) is global to the entire program and defines for every class \(C\) the signatures of all of the methods of \(C\) (including any inherited methods).
+</p>
+
+<p>
+The two rules for type checking attribute defininitions are similar the rules for \(\rm let\). The essential difference is that attributes are visible within their initialization expressions. Note that \(\rm self\) is bound in the initialization. 
+</p>
+\[
+\frac{\begin{array}{l}
+O_C(x) = T_0
+\\
+O_C [{\rm SELF\_TYPE}_C/self],M,C \vdash e_1 : T_1
+\\
+T_1 \le T_0
+\end{array}}
+{O_C,M,C \vdash x : T_0 \leftarrow e_1; }\mbox{[Attr-Init]}
+\]
+\[
+\frac{
+O_C(x) = T
+}
+{O_C,M,C \vdash x : T;}\mbox{[Attr-No-Init]}
+\]
+<p>
+The rule for typing methods checks the body of the method in an environment where \(O_C\) is extended with bindings for the formal parameters and \(\rm self\). The type of the method body must conform to the declared return type.
+</p>
+\[
+\frac{\begin{array}{l}
+M(C,f) = (T_1,\ldots,T_n,T_0)
+\\
+O_C[{\rm SELF\_TYPE}_C/self][T_1/x_1]\ldots[T_n/x_n],M,C \vdash e : T'_0
+\\
+T'_0 \le \left\{
+\begin{array}{rl}
+{\rm SELF\_TYPE}_C &amp; {\rm if}\ T_0 = {\rm SELF\_TYPE}
+\\
+T_0 &amp; otherwise
+\end{array}
+\right.
+\end{array}}
+{O_C,M,C \vdash f(x_1 : T_1,\ldots,x_n : T_n):T_0 \{\ e\ \};}\mbox{[Method]}
+\]
+<div id="Type Checking Rules-Other Semantic Checks"><h3 id="Other Semantic Checks">Other Semantic Checks</h3></div>
+
+<p>
+There are a number of semantic checks applied to Cool programs that are not captured by formal typing rules. For example, a Cool program cannot contain an inheritance cycle. Similarly, a Cool program cannot contain a class that inherits from \(\rm String\). These rules are scattered through the \(\it Cool\ Reference\ Manual\).
+</p>
+
+<p>
+The order in which these other checks are performed is \(\it not\ specified\). If a Cool program contains both an inheritance cycle and also a class that inherits from \(\rm String\), the Cool compiler may report whichever error it prefers.
+</p>
+
+<p>
+<a href="Type Environments.html">Previous</a> <a href="Type Rules.html">Up</a> <a href="Operational Semantics.html">Next</a>
+</p>
+
+</body>
+</html>

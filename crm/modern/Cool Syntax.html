@@ -1,0 +1,109 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<link rel="Stylesheet" type="text/css" href="style.css">
+<script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+<script type="text/x-mathjax-config">
+	MathJax.Hub.Config({
+		// Set the default size for all of the math, 100% was awkwardly large on my screen
+		"HTML-CSS": { scale: 90 },
+		TeX: {
+			extensions: ["AMSmath.js", "AMSsymbols.js"],
+            Macros: {
+                HY: "{\\unicode{x2013}}",
+                LQT: "{\\unicode{x201C}}",
+                RQT: "{\\unicode{x201D}}",
+            }
+		}
+	});
+</script>
+<title>Cool Syntax</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+</head>
+<body>
+
+<p>
+<a href="White Space.html">Previous</a> <a href="The Cool Reference Manual.html">Up</a> <a href="Precedence.html">Next</a>
+</p>
+<div id="Cool Syntax"><h2 id="Cool Syntax">Cool Syntax</h2></div>
+
+\[
+\begin{eqnarray}
+program &amp;::=&amp; [\![class;]\!]^{+}
+\\
+class &amp;::=&amp; {\tt class\ TYPE\ }[{\tt inherits\ TYPE}] \{\ [\![feature;]\!]^{*}\ \}
+\\
+feature &amp;::=&amp; {\tt ID} (\ [\ formal [\![,formal]\!]^{*}\ ]): {\tt TYPE}\ \{\ expr\ \}
+\\
+&amp;|&amp; {\tt ID:TYPE}\ [\  &lt;\!\!\!-\ expr\ ]
+\\
+formal &amp;::=&amp; {\tt ID:TYPE}
+\\
+expr &amp;::=&amp; {\tt ID }&lt; \!\!\!-\ expr
+\\
+&amp;|&amp; expr[@{\tt TYPE}].{\tt ID}(\ [\ expr\ [\![,expr]\!]^{*}\ ]\ )
+\\
+&amp;|&amp; {\tt ID}(\ [\ expr\ [\![, expr]\!]^{*}\ ]\ ) 
+\\
+&amp;|&amp; {\tt if}\ expr\ {\tt then}\ expr\ {\tt else}\ expr\ {\tt fi}
+\\
+&amp;|&amp; {\tt while}\ expr\ {\tt loop}\ expr\ {\tt pool}
+\\
+&amp;|&amp; \{\ [\![expr;]\!]^{+}\ \}
+\\
+&amp;|&amp; {\tt let\ ID:TYPE}\ [\ &lt;\!\!\!-\ expr\ ]\ [\![{\tt ,ID:TYPE}\ [\ &lt;\!\!\!-\ expr\ ]]\!]^{*}\ {\tt in}\ expr
+\\
+&amp;|&amp; {\tt case}\ expr\ {\tt of}\ [\![{\tt ID:TYPE} = &gt;\ expr;]\!]^{+}\ {\tt esac}
+\\
+&amp;|&amp; {\tt new\ TYPE}
+\\
+&amp;|&amp; {\tt isvoid}\ expr
+\\
+&amp;|&amp; expr\ +\ expr
+\\
+&amp;|&amp; expr\ -\ expr
+\\
+&amp;|&amp; expr\ *\ expr
+\\
+&amp;|&amp; expr\ /\ expr
+\\
+&amp;|&amp; \sim expr
+\\
+&amp;|&amp; expr &lt; \ expr
+\\
+&amp;|&amp; expr &lt; = \ expr
+\\
+&amp;|&amp; expr = \ expr
+\\
+&amp;|&amp; {\tt not}\ expr
+\\
+&amp;|&amp; (expr)
+\\
+&amp;|&amp; {\tt ID}
+\\
+&amp;|&amp; {\rm integer}
+\\
+&amp;|&amp; {\rm string}
+\\
+&amp;|&amp; {\tt true}
+\\
+&amp;|&amp; {\tt false}
+\\
+{\bf Figure\ 1} &amp;:&amp; {\rm Cool\ syntax.}
+\end{eqnarray}
+\]
+<p>
+Figure 1 provides a specification of Cool syntax. The specification is not in pure Backus-Naur Form (BNF); for convenience, we also use some regular expression notation. Specifically, \(A^{\ast}\) means zero or more \(A\)'s in succession; \(A^+\) means one or more \(A\)'s. Items in square brackets \([\ldots]\) are optional. Double brackets  \(\lbrack\!\lbrack \, \rbrack\!\rbrack \) are not part of Cool; they are used in the grammar as a meta-symbol to show association of grammar symbols (e.g.  \(a \lbrack\!\lbrack b c \rbrack\!\rbrack ^ {+}\) means \(a\) followed by one or more \(bc\) pairs).
+</p>
+<ul>
+<li>
+<a href="Precedence.html">Precedence</a>
+
+</ul>
+
+<p>
+<a href="White Space.html">Previous</a> <a href="The Cool Reference Manual.html">Up</a> <a href="Precedence.html">Next</a>
+</p>
+
+</body>
+</html>

@@ -1,0 +1,43 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<link rel="Stylesheet" type="text/css" href="style.css">
+<script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+<script type="text/x-mathjax-config">
+	MathJax.Hub.Config({
+		// Set the default size for all of the math, 100% was awkwardly large on my screen
+		"HTML-CSS": { scale: 90 },
+		TeX: {
+			extensions: ["AMSmath.js", "AMSsymbols.js"],
+            Macros: {
+                HY: "{\\unicode{x2013}}",
+                LQT: "{\\unicode{x201C}}",
+                RQT: "{\\unicode{x201D}}",
+            }
+		}
+	});
+</script>
+<title>Identifiers</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+</head>
+<body>
+
+<p>
+<a href="Constants.html">Previous</a> <a href="Expressions.html">Up</a> <a href="Assignment.html">Next</a>
+</p>
+<div id="Identifiers"><h2 id="Identifiers">Identifiers</h2></div>
+
+<p>
+The names of local variables, formal parameters of methods, \(\rm self\), and class attributes are all expressions. The identifier \(\rm self\) may be referenced, but it is an error to assign to \(\rm self\) or to bind \(\rm self\) in a \(\rm let\), a \(\rm case\), or as a formal parameter. It is also illegal to have attributes named \(\rm self\).
+</p>
+
+<p>
+Local variables and formal parameters have lexical scope. Attributes are visible throughout a class in which they are declared or inherited, although they may be hidden by local declarations within expressions. The binding of an identifier reference is the innermost scope that contains a declaration for that identifier, or to the attribute of the same name if there is no other declaration. The exception to this rule is the identifier \(\rm self\), which is implicitly bound in every class.
+</p>
+
+<p>
+<a href="Constants.html">Previous</a> <a href="Expressions.html">Up</a> <a href="Assignment.html">Next</a>
+</p>
+
+</body>
+</html>

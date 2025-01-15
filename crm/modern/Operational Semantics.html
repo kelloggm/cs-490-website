@@ -1,0 +1,57 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<link rel="Stylesheet" type="text/css" href="style.css">
+<script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+<script type="text/x-mathjax-config">
+	MathJax.Hub.Config({
+		// Set the default size for all of the math, 100% was awkwardly large on my screen
+		"HTML-CSS": { scale: 90 },
+		TeX: {
+			extensions: ["AMSmath.js", "AMSsymbols.js"],
+            Macros: {
+                HY: "{\\unicode{x2013}}",
+                LQT: "{\\unicode{x201C}}",
+                RQT: "{\\unicode{x201D}}",
+            }
+		}
+	});
+</script>
+<title>Operational Semantics</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+</head>
+<body>
+
+<p>
+<a href="Type Checking Rules.html">Previous</a> <a href="The Cool Reference Manual.html">Up</a> <a href="Environment and the Store.html">Next</a>
+</p>
+<div id="Operational Semantics"><h2 id="Operational Semantics">Operational Semantics</h2></div>
+
+<p>
+This section contains a mostly formal presentation of the operational semantics for the Cool language. The operational semantics define for every Cool expression what value it should produce in a given context. The context has three components: an environment, a store, and a self object. These components are described in the next section. Section <a href="Syntax for Cool Objects.html">13.2</a> defines the syntax used to refer to Cool objects, and Section <a href="Class definitions.html">13.3</a> defines the syntax used to refer to class definitions.
+</p>
+
+<p>
+Keep in mind that a formal semantics is a specification only--it does not describe an implementation. The purpose of presenting the formal semantics is to make clear all the details of the behavior of Cool expressions. How this behavior is implemented is another matter.
+</p>
+<ul>
+<li>
+<a href="Environment and the Store.html">Environment and the Store</a>
+
+<li>
+<a href="Syntax for Cool Objects.html">Syntax for Cool Objects</a>
+
+<li>
+<a href="Class definitions.html">Class definitions</a>
+
+<li>
+<a href="Operational Rules.html">Operational Rules</a>
+
+</ul>
+
+<p>
+<a href="Type Checking Rules.html">Previous</a> <a href="The Cool Reference Manual.html">Up</a> <a href="Environment and the Store.html">Next</a>
+</p>
+
+</body>
+</html>
