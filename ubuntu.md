@@ -28,9 +28,6 @@ documentation and install supported tools. This tutorial is meant to
 help you walk through the creation of an x86\_64 Ubuntu 22.04
 environment.
 
-This tutorial is most useful for **deploying covey.town**, which is easiest
-on a free-tier AWS instance created using the "Cloud" option in this tutorial.
-
 ## Two Options — Local or Cloud
 
 There are two options that this tutorial covers:
@@ -38,8 +35,8 @@ There are two options that this tutorial covers:
 * Some students may have WSL Ubuntu set up. It is a different version of Ubuntu and may or may not work for this class: we recomend that you follow the instructions below if you run into trouble. However, your experience setting it up will help you here!
 * Some student reports that VirtualBox is not compatible with the new Macbooks (e.g., with M1 and M2 chipsets). If you are using such a Macbook, you may have to select the Option 2 below and use the Cloud instead of your local machine.
 * Some students have experience with docker. Unfortunately, docker will not suffice here (but experience with it will help you): follow the instructions below.
-* Some students already have other versions of Ubuntu installed. Covey.town will _probably_ work fine on these other versions, but again if you run into trouble you should follow these instructions.
-2. **Option 2: Cloud**: Set up an Amazon EC2 cloud instance with Ubuntu 22.04 running on it. This option will work if you have a slower or older computer. _Start early; Amazon takes up to 24 hours to verify cloud computing accounts._ This option involves more of a command-line interface but typically runs some course tools a bit faster than local machine. This option also has the advantage that you can easily run a webserver (or other publicly-accessible webservice, such as covey.town!) from an EC2 instance.
+* Some students already have other versions of Ubuntu installed. Everything will _probably_ work fine on these other versions, but again if you run into trouble you should follow these instructions.
+2. **Option 2: Cloud**: Set up an Amazon EC2 cloud instance with Ubuntu 22.04 running on it. This option will work if you have a slower or older computer. _Start early; Amazon takes up to 24 hours to verify cloud computing accounts._ This option involves more of a command-line interface but typically runs some course tools a bit faster than local machine.
 
 Both options should work with all assignments in this course. Option 1 (local VM) will have you install VirtualBox on your computer, download an Ubuntu 22.04 installation image, and install x86\_64 Ubuntu 22.04 in your virtual machine. A reasonably modern computer (e.g., at most 5 years old) should be able to run a VM guest without issue. However, some students report that the VM executes too slowly (e.g., the mouse is laggy, keystrokes are missed, programs take too long, etc.). If your VM guest is too slow, you can consider using Option 2 instead (see below).
 
@@ -379,6 +376,6 @@ You can safely stop the VM instance when you aren't using it (e.g., between home
 
 ## Final Remarks
 
-There is some systems programming in this course. We will use a mixture of command line tools, multiple languages, and other large projects that you may not have seen, written, or used before. That's the point. In software engineering, much of your day-to-day work will involve reading code and documentation, as well as getting things set up to run. We are big believers that this type of experience is some of the most valuable you can acquire as a student — it makes you more productive at other tasks.
+There is a lot of systems programming in this course. We will use a mixture of command line tools, multiple languages, and other large projects that you may not have seen, written, or used before. That's the point. In software engineering, much of your day-to-day work will involve reading code and documentation, as well as getting things set up to run. We are big believers that this type of experience is some of the most valuable you can acquire as a student — it makes you more productive at other tasks.
 
 This tutorial is not meant to take more than 2 hours (excluding the time taken to download the Ubuntu 22.04 `.iso` in Option 1, or the Amazon AWS signup time in Option 2). Please contact us on Discord if you have any questions!

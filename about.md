@@ -17,7 +17,7 @@ analyses. Students will also be introduced to functional programming,
 and its advantages for transformation-based programs like compilers
 that have strict correctness requirements.
 
-# Prerequisites
+## Prerequisites
 
 As a special topics course, this class officially has no prerequisites, and you're signing up for it
 at your own risk. If this course were to be offered as a regular course, the prerequisite would
@@ -33,7 +33,7 @@ The first homework assignment is due right at the drop date,
 and is intended to let you check that you have the basic skills that
 will be needed for this course.
 
-# Topics
+## Topics
 
 * Functional programming
 * Scoping
@@ -53,7 +53,7 @@ will be needed for this course.
 * Debuggers
 * Linking, Loading, and Shared Libraries
 
-# Grading and Assignments
+## Grading and Assignments
 
 Your grade is composed of the following sub-scores (in no particular order):
 * 60%: Programming Projects (5% for PA1 (Rosetta Stone), 17.5% for PA2 (COOL Typechecker), 17.5% for PA3 (COOL Code Generator), 20% for PA4 (COOL Optimizing Compiler))
@@ -70,17 +70,17 @@ distribution twice during the semester:
 
 You will be notified of your current projected class grade via email at each of these points.
 
-## Textbook
+### Textbook
 
 This course uses [_Engineering A Compiler, 2nd edition_](https://www.cs.rice.edu/~keith/Errata.html) as the primary
 textbook. NJIT's library has copies available online. This textbook will be supplemented by other readings.
 
-## Participation & Professionalism
+### Participation & Professionalism
 
 Your participation & professionalism grade is based on your interactions with the instructors and TAs:
 in-class, on the course discussion forum, in office hours, etc.
 
-### Remote Participation
+#### Remote Participation
 
 Generally this class does not support remote participation: teaching
 is much more effective, in my experience, when everyone is physically
@@ -92,7 +92,7 @@ or 24 hours in advance (if you're traveling or otherwise planning to be
 unable to come to class). Notify the instructor via email if you need
 to participate in a particular class remotely.
 
-### Asking Questions
+#### Asking Questions
 
 There is a course [Discord server]()
 which you can use to ask (and answer) questions about any of the course topics or for
@@ -100,7 +100,7 @@ help with the homework. Participating on Discord is optional, but if you do
 participate in a productive manner (especially by answering other student's questions!), it will have a
 positive impact on your participation score.
 
-### Office Hours and Viewing Test Cases
+#### Office Hours and Viewing Test Cases
 
 In addition to offering you a chance to ask questions about the lecture material,
 the instructor's office hours have a unique feature that can help you with the compiler's programming assignments (i.e., PA2-4).
@@ -108,12 +108,13 @@ During the instructor's office hours (only---TA office hours do not count), once
 may ask to view the content of one test case from the grading server (you'll need to ask by test case number). Note that "per assignment"
 means that you can use this power only three times per semester, by default: once each for PA2, PA3, and PA4. You can only use this power
 in-person, and you cannot record the result electronically (e.g., by taking a photo). The idea here is to allow you to get "unstuck" if there
-is a particularly tricky test case that you're struggling with on the autograder.
+is a particularly tricky test case that you're struggling with on the autograder. For that reason, you can only use this power once you
+have made a submission to the autograder that received a nonzero score on the relevant assignment.
 
 You can gain more uses of this power per assignment by choosing a language from a language bucket other than Bucket 1; see
 the [languages page](../languages/).
 
-## Programming Projects
+### Programming Projects
 
 This course has four programming projects:
 * **PA1: the Rosetta Stone**: Students will implement the same program in four languages, one from
@@ -121,7 +122,7 @@ each of the following buckets:
     * _Bucket 1: Languages You Already Know_: Java, C, C++, or Python3
     * _Bucket 2: Languages With An Unusual Type System_: Kotlin, Rust, or Scala
     * _Bucket 3: Functional Languages_: OCaml or Haskell
-    * _Bucket 4: Project Language_: [Classroom Object-Oriented Language (COOL)](https://weimer.github.io/csci2320/crm/) (TODO: host this yourself)
+    * _Bucket 4: Project Language_: [Classroom Object-Oriented Language (COOL)](../crm/onepage/crm-onepage.html)
 * **PA2: the COOL Typechecker**: the typechecker takes an AST (produced by a provided COOL parser)
 as input and produce either a type error or a special AST-related output format that serializes data structures produced during typechecking.
 * **PA3: the COOL Code Generator**: the code generator takes the typechecker's output and produces x86-64 assembly.
@@ -135,7 +136,7 @@ Each assignment includes at least one "checkpoint" to encourage you to start ear
 
 All assignments except PA1 may be completed in pairs (but working alone is also permitted).
 
-## Exams
+### Exams
 
 There are two exams in this course:
 * a mid-term, which is held in class about halfway through the semester (worth 10% of your course grade)
@@ -151,7 +152,7 @@ the course staff privately via email if you are not able to attend for
 any reason (e.g., you are sick or need special accommodations) and we will arrange an alternative.
 See the [exams page](../exam) for more information.
 
-# Collaboration Policy
+## Collaboration Policy
 
 Collaboration is generally encouraged in this course, as is consulting
 online resources. You are permitted to copy small amounts of code
@@ -188,7 +189,20 @@ such as your teammates and the wider internet, is always allowed. But,
 it would be illegal to copy code from a competing company working on a
 similar product.
 
-# Consequences of Violating the Collaboration Policy
+### Generative AI Policy
+
+You are permitted to use generative AI tools on any assignment in this course, as long as you include a record of your interaction with the generative AI tool
+in your submission. For example, if you use ChatGPT to help you with an assignment, you are required to include the output of the "share" tool in OpenAI's interface
+as a code comment in your submission. You may choose how you include your prompts and responses in your submission (e.g., it's also permissible to include the full
+text of both your prompts and the output of the tool), but the following must be accessible to the course staff while grading:
+* the name and version of the model being used
+* the full text of your prompts
+* the full text of the model's responses
+
+Moreover, there is a specific style of prompt that is **forbidden** in this course when interacting with generative AI tools: you may not include text directly copied
+from the assignment descriptions in your prompts. Doing so is a violation of the collaboration policy and will be treated as cheating.
+
+### Consequences of Violating the Collaboration Policy
 
 (From the University)
 
@@ -196,11 +210,31 @@ similar product.
 
 Please note that it is my professional obligation and responsibility to report any academic misconduct to the Dean of Students Office. Any student found in violation of the code by cheating, plagiarizing or using any online software inappropriately will result in disciplinary action. This may include a failing grade of F, and/or suspension or dismissal from the university. If you have any questions about the code of Academic Integrity, please contact the Dean of Students Office at dos@njit.edu”
 
-# Late Policy
+## Late Policy
 
-TBD, but some late submissions will be allowed.
+PA1, PA2, PA3, and all checkpoint assignments may be submitted late, with an escalating "Fibonacci" penalty for each day beyond the due date. More specifically:
 
-# Acknowledgments
+| Days Late | Penalty |
+| --- | --- |
+| 1 | 2% |
+| 2 | 3% |
+| 3 | 5% |
+| 4 | 8% |
+| 5 | 13% |
+| 6 | 21% |
+| `n` | `fib(n + 2)`% |
+
+"Days Late" is always computed AoE, so if the assignment is due on a Monday and you submit it while it is still Thursday anywhere on Earth (e.g., at 5am Friday in Newark), you will be assessed a 5% penalty (3 days late).
+
+PA4 may not be submitted late, because it is due on the same day as the final exam. After that point, the course is over and I will be computing final grades. No exceptions to this policy will be made.
+
+## Research
+
+Your class work might be used for research purposes. For example, we may use anonymized student assignments to design algorithms or build tools to help programmers. Any student who wishes to opt out can contact the instructor or TA to do so after final grades have been issued. This has no impact on your grade in any manner.
+
+Students interested in considering undergraduate research should make an appointment with the professor to talk about it. I am happy to discuss independent study projects, paid research work over the summer, research work for credit, graduate school, or any other research related topic. To make an appointment with the professor, send a calendar invitation at a time when [my calendar](https://calendar.google.com/calendar/u/0?cid=bWprNzZAbmppdC5lZHU) shows that I'm free during "regular business hours" (roughly 9-5, Monday through Friday). Include enough information in the invite so that I know why you want to talk to me.
+
+## Acknowledgments
 
 This course is heavily indebted to [Wes Weimer](https://web.eecs.umich.edu/~weimerw/)'s courses that I took as an undergraduate: UVa's [CS 4610](https://web.eecs.umich.edu/~weimerw/2015-4610/) and [CS 4501](https://web.eecs.umich.edu/~weimerw/2015-4610/ca.html). Thanks to Wes for sharing his materials!
 
