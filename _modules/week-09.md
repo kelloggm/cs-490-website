@@ -2,8 +2,8 @@
 title: Week 9
 ---
 
-Mar 17
+Mon Mar 17
 : **No Class** (Spring Break)
 
-Mar 19
+Wed Mar 19
 : **No Class** (Spring Break)

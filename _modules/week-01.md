@@ -2,10 +2,10 @@
 title: Week 1
 ---
 
-Jan 20
+Mon Jan 20
 : No class, MLK day
 
-Jan 22
+Wed Jan 22
  : [Introduction](../assets/lecture-intro.pdf)
    : **Mandatory reading**: [syllabus](../about/) and [PA1 specification](../projects/pa1.html)
 

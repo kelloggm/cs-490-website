@@ -24,7 +24,7 @@ Completing PA2-4 in a language from Bucket 1 has no penalties or benefits.
 
 Completing PA2-4 in a language from Bucket 2 entitles you to one extra [test case view](../about/#office-hours-and-viewing-test-cases) per assignment.
 
-Completing PA2-4 in a language from Bucket 3 entitles you to one extra test case view per assignment and one point of extra credit per assignment (only on the
+Completing PA2-4 in a language from Bucket 3 entitles you to two extra test case views per assignment and one point of extra credit per assignment (only on the
 final submission, not on the checkpoints).
 
 You may switch languages between PA2 and PA3, but I don't recommend doing so. You must not switch between PA3 and PA4, because

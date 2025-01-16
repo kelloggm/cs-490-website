@@ -2,16 +2,16 @@
 title: Week 6
 ---
 
-Feb 24
+Mon Feb 24
  : **[PA2c2](../projects/pa2.html#what-to-turn-in-for-pa2c2) due**{: .label .label-red } 
 
-Feb 24
+Mon Feb 24
 : [Abstract Interpretation (1)](../assets/lecture-ai1.pdf)
   : **Mandatory reading**: Ernst's [_Notes on Program Analysis_](https://homes.cs.washington.edu/~mernst/pubs/program-analysis-book.pdf), Chapter 2 through 2.12 
   
     **Optional reading**: _EaC_ chapter 9 (alternative treatment to Ernst of much of the same material. I prefer Ernst, but the _EaC_ treatment is good, too. If you're struggling with Ernst, you should definitely read this.)
 
-Feb 26
+Wed Feb 26
 : [Abstract Interpretation (2)](../assets/lecture-ai2.pdf)
   : **Mandatory reading**: Ernst's [_Notes on Program Analysis_](https://homes.cs.washington.edu/~mernst/pubs/program-analysis-book.pdf), 2.13 through 2.20
 

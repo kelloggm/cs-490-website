@@ -126,7 +126,7 @@ Some resources are available to help you:
 
 ### Commentary
 
-This problem is just [topological sort](http://en.wikipedia.org/wiki/Topological_sort) not-so-cleverly disguised. Feel free to look up how to do toposort on the internet (but remember that you must turn in your own work; you may not copy someone else's code and claim it as your own).
+This problem is just [topological sort](http://en.wikipedia.org/wiki/Topological_sort) not-so-cleverly disguised. Feel free to look up how to do toposort on the internet or ask your favorite generative AI tool to explain it to you (but remember that you must turn in your own work; you may not copy someone else's code and claim it as your own).
 
 Take a look at the files in [pa1-hint.zip](../assets/pa1-hint.zip). You could do worse than using them as starting points.
 
@@ -190,10 +190,10 @@ Turn in six files:
 
 PA1 Grading (out of 25 points):
 * 20 points — autograding
-  * 5 points — autograder tests for PA1c1
-  * 5 points - autograder tests for PA1c2
-  * 10 points — autograder tests for PA1
-  * The scoring is proportional: if there are 8 tests for PA1c1 and your best submission passes 4 of them (50%), you will receive 2.5/5 points for PA1c1 (50%).
+  * 2 points — autograder tests for PA1c1
+  * 2 points - autograder tests for PA1c2
+  * 16 points — autograder tests for PA1
+  * The scoring is proportional: if there are 8 tests for PA1c1 and your best submission passes 4 of them (50%), you will receive 1/2 points for PA1c1 (50%).
 * 4 points — for a clear description in your `README.txt`
   * 4 — thorough discussion of design decisions (including language comparisons) and choice of test cases; a few paragraphs of coherent English sentences should be fine
   * 2 — vague or hard to understand; omits important details
