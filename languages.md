@@ -34,7 +34,7 @@ PA4 builds on PA3---I expect you to modify you PA3 implementation to complete PA
 
 ### Cool
 
-**Cool** is a _Classroom Object-Oriented Language_ — it is essentially a small subset of Java. It's small enough to be manageable for semester projects but large enough to help you to learn all of the concepts and to write non-trivial programs.
+**Cool** is a _Classroom Object-Oriented Language_ — it is essentially a small subset of Java. It's small enough to be manageable for semester projects but large enough to help you to learn all of the concepts and to write non-trivial programs. This course uses Cool version 1.36.
 
 Here is a "Hello, World" program in Cool:
 ```
@@ -112,6 +112,10 @@ Useful links for assembly programming that were helpful in the construction of t
 
 ## Language Choices
 
+---
+
+#### Bucket One: Languages You Already Know
+
 ### Python
 
 [Python](https://en.wikipedia.org/wiki/Python_(programming_language)) is a high-level, general-purpose programming language.
@@ -147,18 +151,56 @@ NJIT students should be familiar with Java from CS 113. Therefore, it is a "Buck
 
 This course uses `javac` version 11.0.24, via the [OpenJDK](https://openjdk.org/) project.
 
-### Bucket Two: Languages With An Unusual Type System
+---
 
-#### Kotlin
+#### Bucket Two: Languages With An Unusual Type System
 
-#### Rust
+### Kotlin
 
-#### Scala
+[Kotlin](https://kotlinlang.org/) ([wiki](https://en.wikipedia.org/wiki/Kotlin_(programming_language))) is a cross-platform, statically typed, general-purpose high-level programming language with type inference. Kotlin is designed to interoperate fully with Java, and the JVM version of Kotlin's standard library depends on the Java Class Library, but type inference allows its syntax to be more concise.
+Unlike Java, Kotlin makes a distinction between nullable and non-nullable data types. It also shares several design principles with Scala. Kotlin is a fully-supported language for Android app development.
 
-### Bucket Three: Functional Languages
+No required classes at NJIT use Kotlin, so it is Bucket 2.
 
-#### Haskell
+This course uses `kotlinc` (available [here](https://kotlinlang.org/docs/command-line.html)) version `kotlinc-jvm 2.0.20 (JRE 11.0.24+8-post-Ubuntu-1ubuntu322.04)`.
 
-#### OCaml
+### Rust
+
+[Rust](https://www.rust-lang.org/) ([wiki](https://en.wikipedia.org/wiki/Rust_(programming_language))) is a general-purpose programming language emphasizing performance, type safety, and concurrency. It enforces memory safety, meaning that all references point to valid memory. It does so without a traditional garbage collector; instead, memory safety errors and data races are prevented by the "borrow checker", which tracks the object lifetime of references at compile time.
+It is popular for systems programming, and there have been calls to replace C and C++ with Rust in critical applications.
+
+No required classes at NJIT use Rust, so it is Bucket 2.
+
+This course uses `rustc` version `rustc 1.75.0 (82e1608df 2023-12-21)` (built from a source tarball).
+
+### Scala
+
+[Scala](https://www.scala-lang.org/) ([wiki](https://en.wikipedia.org/wiki/Scala_(programming_language))) is a strong statically typed high-level general-purpose programming language that supports both object-oriented programming and functional programming. Designed to be concise, many of Scala's design decisions are intended to address criticisms of Java. Scala source code can be compiled to Java bytecode and run on a Java virtual machine (JVM). When running on the JVM, Scala provides language interoperability with Java so that libraries written in either language may be referenced directly in Scala or Java code. Unlike Java, Scala has many features of functional programming languages, including currying, immutability, lazy evaluation, and pattern matching. It also has an advanced type system supporting algebraic data types, covariance and contravariance, higher-order types (but not higher-rank types), anonymous types, operator overloading, optional parameters, named parameters, raw strings, and an experimental exception-only version of algebraic effects that can be seen as a more powerful version of Java's checked exceptions.
+
+No required classes at NJIT use Scala, so it is in Bucket 2.
+
+TODO: provide specific Scala compiler version number.
+
+---
+
+#### Bucket Three: Functional Languages
+
+### Haskell
+
+[Haskell](https://www.haskell.org/) ([wiki](https://en.wikipedia.org/wiki/Haskell)) is a general-purpose, statically-typed, purely functional programming language with type inference and lazy evaluation. Haskell has pioneered several programming language features such as type classes, which enable type-safe operator overloading, and monadic input/output (IO). It is a purely functional programming language, which means that functions generally have no side effects. Haskell has a strong, static type system based on Hindley–Milner type inference.
+
+Haskell is a purely functional language, and therefore is in Bucket 3. If you're not sure how to get started with Haskell, I recommend [Learn You A Haskell For Great Good!](https://learnyouahaskell.com/)
+
+This course uses [The Glorious Glasgow Haskell Compilation System](https://www.haskell.org/ghc/), version 8.8.4.
+
+### OCaml
+
+[OCaml](https://ocaml.org/) ([wiki](https://en.wikipedia.org/wiki/OCaml)) is a general-purpose, high-level, multi-paradigm programming language. Languages derived from the original "Meta Language" ("ML") are best known for their static type systems and type-inferring compilers. OCaml unifies functional, imperative, and object-oriented programming under an ML-like type system. OCaml's type-inferring compiler greatly reduces the need for the manual type annotations that are required in most statically typed languages. For example, the data types of variables and the signatures of functions usually need not be declared explicitly, as they do in languages like Java and C#, because they can be inferred from the operators and other functions that are applied to the variables and other values in the code. Effective use of OCaml's type system can require some sophistication on the part of a programmer, but this discipline is rewarded with reliable, high-performance software.
+
+While OCaml is not a purely functional language, its [standard library](https://ocaml.org/manual/4.13/api/index.html) is very limited, making it difficult to program in non-functional styles without additional libraries[^2]. It is therefore in Bucket 3.
+
+This courses uses `ocamlc` version 4.13.1.
 
 [^1]: You don't want to use COOL as your implementation language, anyway. It intentionally omits many convenience features of higher-level languages to simplify the compiler implementation process, but that can make it unwieldy for writing "real" programs.
+
+[^2]: While you're not allowed to use it for this class, the [Base](https://opensource.janestreet.com/base/) library from Jane Street is the preferred "standard library that's not in the standard library" for most production uses of OCaml that I've encountered.

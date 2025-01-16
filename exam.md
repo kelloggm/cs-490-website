@@ -34,3 +34,12 @@ course.
 [CS 490 Au23 Midterm](../assets/au23-midterm.pdf) ([key](../assets/au23-midterm-key.pdf))
 
 [CS 490 Au23 Final](../assets/au23-final.pdf) ([key](../assets/au23-final-key.pdf))
+
+[CS 490 Au24 Midterm](../assets/au24-midterm.pdf) ([key](../assets/au24-midterm-key.pdf))
+
+[CS 490 Au24 Final](../assets/au24-final.pdf) ([key](../assets/au24-final-key.pdf))
+
+[CS 684 Sp24 Midterm](../assets/sp24-midterm.pdf) ([key](../assets/sp24-midterm-key.pdf))
+
+[CS 684 Sp24 Final](../assets/sp24-final.pdf) ([key](../assets/sp24-final-key.pdf))
+
