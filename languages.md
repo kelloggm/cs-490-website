@@ -14,7 +14,7 @@ PA1 groups the languages into four buckets:
 * _Bucket 1: Languages You Already Know_: Java, C, C++, or Python3
 * _Bucket 2: Languages With An Unusual Type System_: Kotlin, Rust, or Scala
 * _Bucket 3: Functional Languages_: OCaml or Haskell
-* _Bucket 4: Project Language_: [Classroom Object-Oriented Language (COOL)](../crm/)
+* _Bucket 4: Project Language_: [Classroom Object-Oriented Language (COOL)](../crm/modern/)
 
 For PA2-4, you may work in any of the above languages except COOL[^1]. For each of those assignments,
 the input language is COOL (or, more accurately, a pre-parsed version of COOL). The output for PA3 and
@@ -123,7 +123,7 @@ Python is dynamically typechecked and garbage-collected. It supports multiple pr
 
 NJIT students should be familiar with Python from CS 100, CS 301, and other required courses. Therefore, it is a "Bucket 1" language.
 
-This course uses Python version 3.10.12.
+This course uses Python version 3.10.12. The command we use to run a Python submission is either `python3 rosetta.py` (for PA1) or `python3 main.py` (for PA2-4).
 
 ### C
 
@@ -134,6 +134,7 @@ NJIT students should be familiar with C from their systems programming courses, 
 familiarity with C, since it is the historical ["lingua franca"](https://en.wikipedia.org/wiki/Lingua_franca) for systems programming. Therefore, it is a "Bucket 1" language.
 
 This course uses the [GNU Compiler Collection](https://gcc.gnu.org/) ("gcc") C compiler, version 11.4.0. (More specifically, `(Ubuntu 11.4.0-1ubuntu1~22.04)`.)
+We use the following commands to compile and run your C submissions: `gcc rosetta.c ; ./a.out` (for PA1) and `gcc *.c *.h ; ./a.out` (for PA2-4).
 
 ### C++
 
@@ -142,6 +143,7 @@ This course uses the [GNU Compiler Collection](https://gcc.gnu.org/) ("gcc") C c
 NJIT students should be familiar with C++ because it is used in CS 280. Therefore, C++ is a "Bucket 1" language.
 
 This course uses the [GNU Compiler Collection](https://gcc.gnu.org/)'s `g++` compiler, version 11.4.0. (More specifically, `(Ubuntu 11.4.0-1ubuntu1~22.04)`.)
+We use the following commands to compile and run your C submissions: `g++ rosetta.cpp ; ./a.out` (for PA1) and `g++ *.cpp *.h ; ./a.out` (for PA2-4).
 
 ### Java
 
@@ -149,7 +151,8 @@ This course uses the [GNU Compiler Collection](https://gcc.gnu.org/)'s `g++` com
 
 NJIT students should be familiar with Java from CS 113. Therefore, it is a "Bucket 1" language.
 
-This course uses `javac` version 11.0.24, via the [OpenJDK](https://openjdk.org/) project.
+This course uses `javac` version 11.0.24, via the [OpenJDK](https://openjdk.org/) project. We use the following commands to compile and run your Java submission:
+`javac Rosetta.java & java Rosetta` (for PA1) and `javac *.java & java Main` (for PA2-4).
 
 ---
 
@@ -163,6 +166,7 @@ Unlike Java, Kotlin makes a distinction between nullable and non-nullable data t
 No required classes at NJIT use Kotlin, so it is Bucket 2.
 
 This course uses `kotlinc` (available [here](https://kotlinlang.org/docs/command-line.html)) version `kotlinc-jvm 2.0.20 (JRE 11.0.24+8-post-Ubuntu-1ubuntu322.04)`.
+We use the following commands to compile and run your Kotlin code: `kotlinc Rosetta.kt ; kotlin RosettaKt` (for PA1) and `kotlinc *.kt ; kotlin MainKt` (for PA2-4).
 
 ### Rust
 
@@ -172,6 +176,7 @@ It is popular for systems programming, and there have been calls to replace C an
 No required classes at NJIT use Rust, so it is Bucket 2.
 
 This course uses `rustc` version `rustc 1.75.0 (82e1608df 2023-12-21)` (built from a source tarball).
+To compile and run your Rust code, we use the following commands: `rustc rosetta.rs ; ./rosetta` (for PA1) and `rustc -o a.out *.rs ; ./a.out` (for PA2-4).
 
 ### Scala
 
@@ -179,7 +184,7 @@ This course uses `rustc` version `rustc 1.75.0 (82e1608df 2023-12-21)` (built fr
 
 No required classes at NJIT use Scala, so it is in Bucket 2.
 
-TODO: provide specific Scala compiler version number.
+This course uses Scala version 2.11.12. To compile and run your Scala code, we use the following commands: `scalac Rosetta.scala ; scala Rosetta` (for PA1) and `scalac *.scala ; scala Main` (for PA2-4).
 
 ---
 
@@ -192,15 +197,19 @@ TODO: provide specific Scala compiler version number.
 Haskell is a purely functional language, and therefore is in Bucket 3. If you're not sure how to get started with Haskell, I recommend [Learn You A Haskell For Great Good!](https://learnyouahaskell.com/)
 
 This course uses [The Glorious Glasgow Haskell Compilation System](https://www.haskell.org/ghc/), version 8.8.4.
+To compile and run your Haskell code, we use the following commands: `ghc -o rosetta rosetta.hs ; ./rosetta` (for PA1) and `ghc -o a.out *.hs ; ./a.out` (PA2-4).
 
 ### OCaml
 
-[OCaml](https://ocaml.org/) ([wiki](https://en.wikipedia.org/wiki/OCaml)) is a general-purpose, high-level, multi-paradigm programming language. Languages derived from the original "Meta Language" ("ML") are best known for their static type systems and type-inferring compilers. OCaml unifies functional, imperative, and object-oriented programming under an ML-like type system. OCaml's type-inferring compiler greatly reduces the need for the manual type annotations that are required in most statically typed languages. For example, the data types of variables and the signatures of functions usually need not be declared explicitly, as they do in languages like Java and C#, because they can be inferred from the operators and other functions that are applied to the variables and other values in the code. Effective use of OCaml's type system can require some sophistication on the part of a programmer, but this discipline is rewarded with reliable, high-performance software.
+[OCaml](https://ocaml.org/) ([wiki](https://en.wikipedia.org/wiki/OCaml)) is a general-purpose, high-level, multi-paradigm programming language. Languages derived from the original "Meta Language" (the "ml" in "Ocaml") are best known for their static type systems and type-inferring compilers. OCaml unifies functional, imperative, and object-oriented programming under an ML-like type system. OCaml's type-inferring compiler greatly reduces the need for the manual type annotations that are required in most statically typed languages. For example, the data types of variables and the signatures of functions usually need not be declared explicitly, as they do in languages like Java and C#, because they can be inferred from the operators and other functions that are applied to the variables and other values in the code. Effective use of OCaml's type system can require some sophistication on the part of a programmer, but this discipline is rewarded with reliable, high-performance software.
 
 While OCaml is not a purely functional language, its [standard library](https://ocaml.org/manual/4.13/api/index.html) is very limited, making it difficult to program in non-functional styles without additional libraries[^2]. It is therefore in Bucket 3.
 
 This courses uses `ocamlc` version 4.13.1.
+To compile and run your OCaml code, we use the following commands: `ocamlopt -o rosetta unix.cmxa str.cmxa rosetta.ml ; ./rosetta` (for PA1) and `ocamlopt -o a.out unix.cmxa str.cmxa *.ml ; ./a.out`.[^3]
 
 [^1]: You don't want to use COOL as your implementation language, anyway. It intentionally omits many convenience features of higher-level languages to simplify the compiler implementation process, but that can make it unwieldy for writing "real" programs.
 
 [^2]: While you're not allowed to use it for this class, the [Base](https://opensource.janestreet.com/base/) library from Jane Street is the preferred "standard library that's not in the standard library" for most production uses of OCaml that I've encountered.
+
+[^3]: Note that `ocamlc` and `ocamlopt` are _argument-order-sensitive_: files are compiled in the order that they are supplied. It is your responsibility to name your files in such a way that all dependencies are respected by `ocamlopt`. No, we will not run `ocamldep` for you.)

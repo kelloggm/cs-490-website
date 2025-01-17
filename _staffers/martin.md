@@ -6,7 +6,7 @@ website: https://kelloggm.github.io/martinjkellogg.com
 photo: martin.jpg
 pronouns: he/him
 ---
-Office Hours: Thursdays, 1:30-2:30pm eastern, GITC 4314; or by appointment.
+Office Hours: Wednesdays, 3:30-4:30pm eastern, GITC 4314; or by appointment.
 
 To schedule an appointment with me, check [my
 calendar](https://calendar.google.com/calendar/u/0?cid=bWprNzZAbmppdC5lZHU)

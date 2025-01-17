@@ -19,6 +19,13 @@ For this assignment you will write a _semantic analyzer_. Among other things, th
 
 You will also write additional code to unserialize the AST produced by the provided parser and to serialize the class map, implementation map, parent map, and annotated AST produced by your semantic analysis.
 
+### Summary of Checkpoints
+
+You need to make three submissions for this assignment:
+* **PA2c1** requires you to write test cases (i.e., Cool programs) that find injected bugs in our reference semantic analyzer. This checkpoint ensures that you have a robust test suite for your own semantic analyzer. This checkpoint is relatively straightforward (you just need to write small Cool programs), so it due early: on **Friday, February 7**.
+* **PA2c2** requires you have a mostly-working semantic analyzer. You must have handled all semantic errors except those related to _typechecking expressions_. And, you only need to output the class map, rather than the full `.cl-type` file format. This checkpoint is the big one for PA2, so it is due one week before the full due date: on **Monday, February 24**.
+* **PA2 (full)** requires a complete semantic analyzer. It is due on **Monday, March 3**.
+
 ### Specification
 
 You must create three artifacts:
