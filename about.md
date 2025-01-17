@@ -5,8 +5,6 @@ layout: page
 
 # Syllabus
 
-<span style="color:red">Note: this syllabus is a draft and is subject to change.</span>
-
 Welcome to CS 485: Compilers! This course teaches students how to
 build an optimizing compiler for a Java-like object-oriented
 programming language. Topics include program semantics, typechecking,

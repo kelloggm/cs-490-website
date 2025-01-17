@@ -10,11 +10,6 @@ seo:
 
 # Welcome to CS 485: Compilers
 
-<span style="color:red">Note: this website is an early draft and everything on it is subject to change.</span>
-
-<span style="color:red">Schedule Builder says that this class will be on Wednesday nights, 6-9pm. That is **not** correct: it will be on **Monday and Wednesday mornings at 10am**.
-Sorry for the confusion!</span>
-
 Welcome to CS 485: Compilers! This course teaches students how to
 build an optimizing compiler for a Java-like object-oriented
 programming language. Topics include program semantics, typechecking,
@@ -28,7 +23,8 @@ that have strict correctness requirements.
 On this course website, you can find:
 - the [syllabus](about.md),
 - a [course calendar](calendar.md) (which includes links to the required readings),
-- a [staff](staff.md) page,
 - links to all [assignment descriptions](./projects),
+- information about [supported programming languages](languages.md),
+- a [staff](staff.md) page,
 - useful [tutorials](tutorials.md), and
-- information about [exams](exam.md) (including old/practice exams with solutions).
+- information about [exams](exam.md).
