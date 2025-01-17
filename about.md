@@ -92,7 +92,7 @@ to participate in a particular class remotely.
 
 #### Asking Questions
 
-There is a course [Discord server]()
+There is a course [Discord server](https://discord.com/channels/1329854456967467048/1329854456967467051)
 which you can use to ask (and answer) questions about any of the course topics or for
 help with the homework. Participating on Discord is optional, but if you do
 participate in a productive manner (especially by answering other student's questions!), it will have a
