@@ -4,4 +4,4 @@ role: TA
 email: tb359@njit.edu
 photo: tom.jpg
 ---
-Office Hours: TBD
+Office Hours: Mondays, 1-2PM; Fridays, 1-2PM. Location TBD.
