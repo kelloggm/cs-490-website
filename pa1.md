@@ -14,7 +14,7 @@ You must choose one language from each of the following buckets for your four im
 * _Bucket 1: Languages You Already Know_: Java, C, C++, or Python3
 * _Bucket 2: Languages With An Unusual Type System_: Kotlin, Rust, or Scala
 * _Bucket 3: Functional Languages_: OCaml or Haskell
-* _Bucket 4: Project Language_: [Classroom Object-Oriented Language (COOL)](../crm/)
+* _Bucket 4: Project Language_: [Classroom Object-Oriented Language (COOL)](../crm/modern/)
 
 Each bucket is intended to challenge you in a different way. _Bucket 1_ gives you a chance to implement the solution in a language you're already comfortable in, so that you can focus on the problem. _Bucket 2_ challenges you to redo that implementation in a language that shares some similarities with languages that you've seen before,
 but which also includes some features you might be unfamiliar with. In particular, all _Bucket 2_ languages support programming in a structured imperative style, even if they permit functional programming. _Bucket 3_ challenges you to redo the implementation in a true functional programming language. Finally, _Bucket 4_ will familiarize you with the course project language COOL ("Classroom Object-Oriented Language"). All subsequent assignments in this course (PA2-PA4) involve implementing parts of a COOL compiler, so you'll have an easier time with them if you've used the language a bit. COOL itself is also a bit tricky to program in: it intentionally omits many convenience features of higher-level languages to simplify the compiler implementation process, but that can make it unwieldy for writing "real" programs.
