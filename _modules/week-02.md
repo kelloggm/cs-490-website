@@ -7,7 +7,7 @@ Mon Jan 27
 
 Mon Jan 27
 : [Functional Programming (1)](../assets/lecture-fp1.pdf)
-  : **Mandatory reading**: Backus' [_Speedcoding_](../assets/backus-speedcoding.pdf) and the [COOL Reference Manual](../crm/)
+  : **Mandatory reading**: Backus' [_Speedcoding_](../assets/backus-speedcoding.pdf) and the [COOL Reference Manual](../crm/modern/)
 
     **Optional reading**: Kingsbury's [Reversing the technical interview](https://aphyr.com/posts/340-reversing-the-technical-interview)
 
