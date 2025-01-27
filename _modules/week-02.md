@@ -13,7 +13,7 @@ Mon Jan 27
 
 Wed Jan 29
 : [Func. Prog. (2) and Intro to COOL](../assets/lecture-fp2.pdf)
-  : **Mandatory reading**: [CD 7.2.4: The ML Type System](../assets/7a_mltyp.pdf) and the [COOL Reference Manual](../crm/) (yes, again. It's really important!)
+  : **Mandatory reading**: [CD 7.2.4: The ML Type System](../assets/7a_mltyp.pdf) and the [COOL Reference Manual](../crm/modern) (yes, again. It's really important!)
 
     **Optional reading**: [CD 10.6: Theoretical Foundations of Functional Languages](../assets/10a_thfnd.pdf)
 
