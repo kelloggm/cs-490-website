@@ -20,6 +20,10 @@ that I think are difficult enough that only those who have deeply
 understood multiple concepts that we covered in class will even be
 able to answer them in a reasonable way, and everything in between.
 
+I will post the keys to quizzes and exams here as the semester progresses.
+
+[Quiz on the Cool Reference Manual (1/29)](../assets/quiz-cool.pdf) ([key](../assets/quiz-cool-key.pdf))
+
 To help you prepare for this semester's exams, below you can find
 links to exams from other courses that I've taught in previous semesters, all of which have
 solutions ("keys"). These exams are provided
