@@ -15,7 +15,8 @@ Wed Feb 5
 : [Scoping and Types](../assets/lecture-scoping-and-types.pdf)
   : **Mandatory reading**: _EaC_ 4.1 and 4.2
 
-    **Optional reading**: Dolan's [_Counterexamples in Type Systems_](https://counterexamples.org/)
+    **Optional reading**: Dolan's [_Counterexamples in Type Systems_](https://counterexamples.org/) and
+    Cardelli's [_Type Systems_](http://lucacardelli.name/papers/typesystems.pdf)
 
 Fri Feb 7
  : **[PA2c1](../projects/pa2.html#what-to-turn-in-for-pa2c1) due**{: .label .label-red } 
