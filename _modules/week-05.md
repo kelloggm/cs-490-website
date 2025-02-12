@@ -3,7 +3,7 @@ title: Week 5
 ---
 
 Mon Feb 17
-: [COOL Typechecking and Runtime Organization](../assets/lecture-cool-typechecking.pdf)
+: [Cool Typechecking and Runtime Organization](../assets/lecture-cool-typechecking.pdf)
   : **Mandatory reading**: _EaC_ 4.5 and 4.6
 
 Wed Feb 19
