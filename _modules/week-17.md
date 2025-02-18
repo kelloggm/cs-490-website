@@ -2,8 +2,8 @@
 title: Exam Week
 ---
 
-TBD May X
- : **Final Exam** (in-person, location TBD)
+May 15
+ : **Final Exam** (in-person, CULM LECT 1 2:30-5pm)
 
-TBD May X
+May 15
  : **[PA4](../projects/pa4.html#what-to-turn-in-for-pa4) (full) due**{: .label .label-red } 
