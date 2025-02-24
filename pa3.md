@@ -94,3 +94,32 @@ Whitespace and newlines do not matter in your `file.s` assembly code. However, *
 
 You should implement all of the [operational semantics rules in the Reference Manual](../crm/modern/Operational%20Semantics.html). You will also have to implement all of the built-in functions on the [five Basic Classes](../crm/modern/Basic%20Classes.html).
 
+### PA3c1: Testing the Reference Compiler
+
+PA3c1 is a **preliminary testing exercise** that introduces a form of [test-driven development](http://en.wikipedia.org/wiki/Test-driven_development)
+or [mutation testing](http://en.wikipedia.org/wiki/Mutation_testing) into our software development process and requires you to construct a high-quality test suite.
+
+The goal of PA3c1 is to leave you with a high-quality test suite of Cool programs that you can use to evaluate your own PA3 and PA4 code generators. Writing a code generator requires you to consider many corner cases when reading the formal and informal semantics in the Cool Reference Manual. While you you can check for correct "positive" behavior by executing your code generator's output against the reference compiler on existing "good" Cool programs, it is comparatively harder to check for "negative" behavior (i.e., run-time errors, strange corner cases).
+
+If you fail to construct a rich test suite of semantically-valid programs you will face a frustrating series of "you fail held-out negative test x" reports for PA3c3 and PA3 proper, which can turn into unproductive guessing games. Because students often report that this is frustrating (even though it is, shall we say, infinitely more realistic than making all of the post-deployment tests visible in advance), the PA3c1 preliminary testing exercise provides a structured means to help you get started with the construction of a rich test suite.
+
+The course staff have produced 21 variants of the reference compiler, each with a secret [intentionally-introduced defect](http://en.wikipedia.org/wiki/Fault_injection) related to code generation. A high-quality test suite is one that reveals each introduced defect by showing a difference between the behavior of the true reference compiler and the corresponding buggy version. You desire a high-quality test suite to help you gain confidence in your own PA3 (and, eventually, PA4) submission.
+
+For PA3c1, you must produce semantically-valid Cool programs (test cases). There are 21 separate held-out seeded code generator bugs waiting on the grading server. For each bug, if one of your tests causes the reference and the buggy version to produce difference output, you win: that test has revealed that bug. For full credit your tests must reveal at least 15 of the 21 unknown defects.
+
+The secret defects that we have injected into the reference compiler correspond to common defects made by students in PA3. Thus, if you make a rich test suite for PA3c1 that reveals many defects, you can use it on your own PA3 submission to reveal and fix your own bugs!
+
+For PA3c1 you should turn in (electronically):
+* A zip file containing a set of .cl files: Cool code generator testcases.
+  * Each testcase you submit must be syntactically semantically valid (i.e., must pass `cool --type`).
+  * Each testcase you submit _may_ have a corresponding input file. For example, if you submit `wes.cl` you may also submit `wes.cl-input` (if you do, you must follow this naming convention or it will be ignored).
+  * Each testcase you submit must be at most 2048 characters (i.e., `wc -c yourtest.cl` says 2048 or less). You want each of your testcases to be meaningful so that it helps you narrow down a bug later (cf. [Delta Debugging](https://en.wikipedia.org/wiki/Delta_debugging)).
+    * You, A Mischevious Student: Ha ha! I will get around this edict by removing comments and compressing whitespace and variable names.
+    * Me, A Former Mischevious Student: Remember, the point of PA3c1 is not to make me happy, but to provide you with a high quality test suite. You're only hurting yourself later by making low-quality tests now. When your compiler fails one of your own tests later you'll end up shrinking the test down as part of debugging, so you're not actually saving yourself any time.
+  * No testcase should be named `bug`... or `ref`... because the testing server uses those prefices internally. If you submit a test case with such a name it will be ignored. (Limited course resources can either be spent making better lectures, grading your assignments, etc., or ironing out wrinkles such as these from grading scripts. We have chosen to focus on pedagogy.)
+
+Your zip file _may_ also contain:
+* `team.txt` -- an optional file listing your other team member (if you are not working in a team, do not include this file)
+
+Hint: because you can find "positive" bugs in your code generator more easily (e.g., by running your code generator on the known-good Cool programs from cool-examples.zip), this exercise is somewhat biased toward "negative" or "tricky" bugs.
+
