@@ -176,7 +176,7 @@ It is popular for systems programming, and there have been calls to replace C an
 No required classes at NJIT use Rust, so it is Bucket 2.
 
 This course uses `rustc` version `rustc 1.75.0 (82e1608df 2023-12-21)` (built from a source tarball).
-To compile and run your Rust code, we use the following commands: `rustc rosetta.rs ; ./rosetta` (for PA1) and `rustc -o a.out *.rs ; ./a.out` (for PA2-4).
+To compile and run your Rust code, we use the following commands: `rustc rosetta.rs ; ./rosetta` (for PA1) and `rustc -o a.out main.rs ; ./a.out` (for PA2-4).
 
 ### Scala
 
