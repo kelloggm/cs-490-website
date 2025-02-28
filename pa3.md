@@ -110,7 +110,7 @@ For PA3c1, you must produce semantically-valid Cool programs (test cases). There
 The secret defects that we have injected into the reference compiler correspond to common defects made by students in PA3. Thus, if you make a rich test suite for PA3c1 that reveals many defects, you can use it on your own PA3 submission to reveal and fix your own bugs!
 
 For PA3c1 you should turn in (electronically):
-* A zip file containing a set of .cl files: Cool code generator testcases.
+* A set of .cl files: Cool code generator testcases.
   * Each testcase you submit must be syntactically semantically valid (i.e., must pass `cool --type`).
   * Each testcase you submit _may_ have a corresponding input file. For example, if you submit `wes.cl` you may also submit `wes.cl-input` (if you do, you must follow this naming convention or it will be ignored).
   * Each testcase you submit must be at most 2048 characters (i.e., `wc -c yourtest.cl` says 2048 or less). You want each of your testcases to be meaningful so that it helps you narrow down a bug later (cf. [Delta Debugging](https://en.wikipedia.org/wiki/Delta_debugging)).
@@ -118,8 +118,183 @@ For PA3c1 you should turn in (electronically):
     * Me, A Former Mischevious Student: Remember, the point of PA3c1 is not to make me happy, but to provide you with a high quality test suite. You're only hurting yourself later by making low-quality tests now. When your compiler fails one of your own tests later you'll end up shrinking the test down as part of debugging, so you're not actually saving yourself any time.
   * No testcase should be named `bug`... or `ref`... because the testing server uses those prefices internally. If you submit a test case with such a name it will be ignored. (Limited course resources can either be spent making better lectures, grading your assignments, etc., or ironing out wrinkles such as these from grading scripts. We have chosen to focus on pedagogy.)
 
-Your zip file _may_ also contain:
-* `team.txt` -- an optional file listing your other team member (if you are not working in a team, do not include this file)
-
 Hint: because you can find "positive" bugs in your code generator more easily (e.g., by running your code generator on the known-good Cool programs from cool-examples.zip), this exercise is somewhat biased toward "negative" or "tricky" bugs.
 
+### PA3c2: Three-Address Code Generator
+
+For this checkpoint you will write a program that converts the abtract syntax tree for a method into [three-address code](https://en.wikipedia.org/wiki/Three-address_code).
+While your full compiler is not _required_ to use three-address code as one of its intermediate representations, we strongly encourage you to do so.
+The first checkpoint for PA4 will also use the `cl-tac` three-address code format, so it behooves you to maintain your implementation.
+
+Your program will take a `.cl-type` program (like those you generated for PA2) as input, and then generate a `.cl-tac` program in the format described below.
+
+#### Three-Address Code Example
+
+[Three-address code](http://en.wikipedia.org/wiki/Three_address_code) is a simplified representation focusing on assignments to variables and unary or binary operators.
+
+The code below computes (1+3)*7 prints out the result, 28:
+```
+a <- int 1
+b <- int 3
+c <- + a b 
+d <- int 7
+e <- * c d 
+retval <- call out_int e 
+return retval 
+```
+
+In three address code the expression (1+3)*7 must be broken down so that the addition and multiplication operations are each handled separately. (The exact format is described below.)
+
+As a second example, the code below reads in an integer and computes its absolute value (by checking to see if it is negative and subtracting it from zero if so):
+```
+x <- call in_int
+z <- int 0
+b <- < x z 
+bt b is_negative
+output <- x
+jmp do_the_printing
+label is_negative
+output <- - z x 
+label do_the_printing
+retval <- call out_int output 
+return retval
+```
+
+Note the use of labels, conditional branches and unconditional jumps. You can use the cool reference compiler to evaluate `.cl-tac` files:
+```
+$ echo -87 | ./cool absval.cl-tac
+87
+```
+
+#### Expressions to Three-Address Code
+
+Three-address code is a simplified representation focusing on assignments to variables and unary or binary operators.
+
+The traditional approach to converting expressions to three-address code involves a recursive descent traversal of the abstract syntax tree. The recursive descent traversal returns both a three-address code instruction as well as a list of additional instructions that should be prepended to the output.
+
+Consider the following pseudocode:
+
+```
+let rec convert (a : ast) : (tac_instr list * tac_expr) =
+                match a with
+                | AST_Variable(v) -> [], TAC_Variable(v)
+                | AST_Int(i) -> 
+                        let new_var = fresh_variable () in
+                        [TAC_Assign_Int(new_var, i)], (TAC_Variable(new_var)
+                | AST_Plus(a1,a2) ->
+                        let i1, ta1 = convert a1 in 
+                        let i2, ta2 = convert a2 in 
+                        let new_var = fresh_variable () in
+                        let to_output = TAC_Assign_Plus(new_var, ta1, ta2) in
+                        (i1 @ i2 @ [to_output]), (TAC_Variable(new_var))
+                | ... 
+```
+
+On the input `(1+3)+5`, this code first calls itself recursively on `(1+3)`. To convert `(1+3)`, it calls itself recursively on `1` and `3`. To convert `1`, it finds a fresh variable `x`, outputs `x <- 1`, and returns `x`. Similarly, to convert `3`, it finds a fresh variable `y`, outputs `y <- 3`, and returns `y`. Now it can convert `1+3` by finding a fresh variable `z` and outputting `z <- x + y`, returning `z`. The final output would look like:
+```
+temp1 <- int 1
+temp2 <- int 3
+temp3 <- + temp1 temp2
+temp4 <- int 5
+temp5 <- + temp3 temp4
+```
+
+#### Control-Flow to Three-Address Code
+
+The traditional approach to converting control-flow statements to three-address code involves a recursive descent traversal of the abstract syntax tree. The recursive descent traversal returns a list of three-address code instructions.
+
+For example, an instruction of the form if `COND` then `THEN_BRANCH` else `ELSE_BRANCH` typically becomes:
+
+```
+... code to evaluate COND
+bt COND then_label
+... code to evaluate ELSE_BRANCH
+jmp end_label
+label then_label
+... code to evaluate THEN_BRACH
+label end_label
+```
+
+You must consider other control-flow instructions (e.g., while loops, short-circuit boolean evaluation, etc.) and similarly convert them.
+
+#### `.cl-tac` Format
+
+The format of `.cl-tac` files is designed to be easy to serialize and deserialize — you can process it in just a few lines, without needing special parsing tools.
+
+A `.cl-tac` file is text-based and line-based. Your program must support Unix, Mac and Windows text files — regardless of where you, personally, developed your program. Note that lines can be delineated by carriage returns, new lines, or both (e.g., the regular expression [\r\n]+ may be helpful).
+
+Possible line contents are (stand-ins for lexemes in _italics_):
+
+**Arithmetic**
+* _x_ <- + _y_ _z_
+* _x_ <- - _y_ _z_
+* _x_ <- * _y_ _z_
+* _x_ <- / _y_ _z_
+
+**Comparisons**
+* _x_ <- < _y_ _z_
+* _x_ <- <= _y_ _z_
+* _x_ <- = _y_ _z_
+
+**Constants**:
+* _x_ <- int _integer_
+* _x_ <- bool _boolean_
+* _x_ <- string\n _string-on-next-line_ \n (Note that the string constant will appear on the next line. The string constant assignment is the only three-address form that takes two lines.)
+
+**Boolean Negation**:
+* _x_ <- not _y_
+
+**Arithmetic Negation**:
+* _x_ <- ~ _y_
+
+**Object Allocation**:
+* _x_ <- new _type_ (Relevant types are Int, String, Bool and Object. See the Cool Reference Manual.)
+
+**Object Default Value**:
+* _x_ <- default _type_
+
+**Null Check:**
+* _x_ <- isvoid _y_
+
+**Function Calls**:
+* _x_ <- call out_int _y_
+* _x_ <- call out_string _y_
+* _x_ <- call in_int
+* _x_ <- call in_string
+
+**Branches, Labels and Control Flow:**
+* jmp _label_
+* label _label_
+* return _x_
+* comment _...text until end of line..._
+* bt _x_ _label_ (The bt instruction branches if the variable x is True (x must be a Bool); otherwise control falls through to the next instruction.)
+
+#### Commentary
+
+You can use `cool --type` to obtain a `.cl-type` file.
+
+You can use `cool --opt --cfg` to obtain [control-flow graph images that can be processed by GraphViz](https://www.graphviz.org/).
+
+You can use `cool --tac file.cl` to produce _file.cl-tac_ for the first method in that Cool file. Thus you can use the Cool reference compiler to produce three address code for you automatically, given Cool source code. You should do this to test your PA3c2 code.
+
+#### What to Turn In for PA3c2
+
+You must turn in these files:
+* `source_files` — your implementation, including exactly one of the following files:
+  * `main.c`
+  * `main.py`
+  * `main.cpp`
+  * `Main.java`
+  * `main.kt`
+  * `main.rs`
+  * `Main.scala`
+  * `main.ml`
+  * `main.hs`
+
+### PA3c3: Code Generation For a Restricted Subset of Cool
+
+Assignment description coming soon!
+
+### PA3: The Full Compiler
+
+Assignment description coming soon!
