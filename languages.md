@@ -104,8 +104,9 @@ For all assembly code in this course, you should always use these flags when ass
 
 ---
 
-Useful links for assembly programming that were helpful in the construction of the reference compiler:
+Useful links for assembly programming that were helpful in the construction of the reference compiler and/or suggested by other professors that I trust to know what they're about:
 * Randal E. Bryant and David R. O'Hallaron's [x86-64 Machine Level Proramming](https://web.eecs.umich.edu/~weimerw/2015-4610/reading/bryant-ohallaron-x86-64.pdf)
+* ["x86-64 Instructions and ABI" handout](../assets/handout-03.pdf) from UChicago CMSC 22620, Spring 2009. Super useful as a cheatsheet for the basics!
 * Wikibook's [X86 Assembly/GAS Syntax](http://en.wikibooks.org/wiki/X86_Assembly/GAS_Syntax)
 * Stack Overflow on [Assembly Debugging with GDB](http://stackoverflow.com/questions/2420813/using-gdb-to-single-step-assembly-code-outside-specified-executable-causes-error)
 * GDB's [Manual on Inspecting Registers](http://web.mit.edu/gnu/doc/html/gdb_10.html#SEC63)

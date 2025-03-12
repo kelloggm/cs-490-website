@@ -244,6 +244,8 @@ You can use `cool --opt --cfg` to obtain [control-flow graph images that can be 
 
 You can use `cool --tac file.cl` to produce _file.cl-tac_ for the first method in that Cool file. Thus you can use the Cool reference compiler to produce three address code for you automatically, given Cool source code. You should do this to test your PA3c2 code.
 
+The input program will introduce only one class, `Main`, with only one method, `main`. So, you can either match the reference compiler's behavior (and print out the TAC for only the first method) or print out TAC for all methods - we will not be able to tell the difference on the grading server.
+
 #### What to Turn In for PA3c2
 
 You must turn in these files:
