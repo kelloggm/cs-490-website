@@ -7,7 +7,7 @@ Mon Mar 10
   : **Mandatory reading**: _EaC_ 6 through 6.4
     
 Wed Mar 12
-: [Code Generation (1)](../assets/lecture-cg1.pdf)
+: [Code Generation (1)](../assets/lecture-codegen1.pdf)
   : **Mandatory reading**: _EaC_ 7 through 7.4
 
 Fri Mar 14
