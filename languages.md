@@ -55,8 +55,9 @@ The Cool programming language is formally specified and defined in _The Cool Ref
 
 #### Cool Reference Compiler
 
-Different versions of the reference compiler are available for different platforms. Information on running the compiler is available in the reference manual.
-* [Linux/x86 (64 bit)](../assets/cool/linux-x86_64/cool) (v. 1.36) (1.36 binaries with alternate library requirements: [B](../assets/cool/linux-x86_64/cool-136b) [C](../assets/cool/linux-x86_64/cool-136c) [D](../assets/cool/linux-x86_64/cool-136d))
+Different versions of the reference compiler are available for different platforms. Information on running the compiler is available in the reference manual. Only version 1.39, which is only available for Linux/x86 (64 bit), supports generating (correct) x86-64 assembly code, as you will need to do for PA3 and PA4.
+* [Linux/x86 (64 bit)](../assets/cool/linux-x86_64/cool) (v. 1.39)
+  * (legacy 1.36 binaries with alternate library requirements: [A](../assets/cool/linux-x86_64/cool-136b) [B](../assets/cool/linux-x86_64/cool-136b) [C](../assets/cool/linux-x86_64/cool-136c) [D](../assets/cool/linux-x86_64/cool-136d); **WARNING**: Cool 1.36 generates assembly code with known bugs when running with the `--x86` flags on modern Linux platforms)
 * [Linux/x86 (32 bit)](../assets/cool/linux-x86/cool) (v. 1.36)
 * [Mac OS X Apple M-Series Chips (ARM-64)](../assets/cool/darwin-arm/cool) (v. 1.36) 
 * [Mac OS X/x86 (Intel Chips)](../assets/cool/darwin/cool) (v. 1.36)
