@@ -199,7 +199,7 @@ This course uses Scala version 2.11.12. To compile and run your Scala code, we u
 Haskell is a purely functional language, and therefore is in Bucket 3. If you're not sure how to get started with Haskell, I recommend [Learn You A Haskell For Great Good!](https://learnyouahaskell.com/)
 
 This course uses [The Glorious Glasgow Haskell Compilation System](https://www.haskell.org/ghc/), version 8.8.4.
-To compile and run your Haskell code, we use the following commands: `ghc -o rosetta rosetta.hs ; ./rosetta` (for PA1) and `ghc -o a.out *.hs ; ./a.out` (PA2-4).
+To compile and run your Haskell code, we use the following commands: `ghc -o rosetta Rosetta.hs ; ./rosetta` (for PA1) and `ghc -o a.out *.hs ; ./a.out` (PA2-4).
 
 ### OCaml
 
