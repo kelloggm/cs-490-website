@@ -16,7 +16,7 @@ meetings at least 24 hours in advance, or I will automatically decline
 them.
 
 In your invitation, you must, at a minimum, 1) invite me to the event,
-2) add a note to the event description that mentions CS 490 and what you'd like to meet about,
+2) add a note to the event description that mentions the code of this class (e.g., "CS 490") and what you'd like to meet about,
 and 3) specify whether you would prefer the meeting to be in-person or remote.
 It is unprofessional to schedule a meeting with me unless you have exhausted your other options
 to solve the issue (for example, don't schedule a meeting with me about a homework issue until

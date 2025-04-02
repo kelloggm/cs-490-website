@@ -257,7 +257,7 @@ Resulting `.cl-type` class map output _with comments_ (each row represents one l
 | 0 | |
 | Main | |
 | 1 | Our Main has one attribute... |
-| initialzier | |
+| initializer | |
 | my_attribute | ...named "my_attribute"... |
 | Int | ...with type Int |
 | 2 | initializer expression line number |

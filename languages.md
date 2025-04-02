@@ -25,7 +25,7 @@ Completing PA2-4 in a language from Bucket 1 has no penalties or benefits.
 Completing PA2-4 in a language from Bucket 2 entitles you to one extra [test case view](../about/#office-hours-and-viewing-test-cases) per assignment.
 
 Completing PA2-4 in a language from Bucket 3 entitles you to two extra test case views per assignment and one point of extra credit per assignment (only on the
-final submission, not on the checkpoints).
+final submission, not on the checkpoints, max score of 100%).
 
 You may switch languages between PA2 and PA3, but I don't recommend doing so. You must not switch between PA3 and PA4, because
 PA4 builds on PA3---I expect you to modify you PA3 implementation to complete PA4. See the assignment pages for more details.
@@ -34,7 +34,7 @@ PA4 builds on PA3---I expect you to modify you PA3 implementation to complete PA
 
 ### Cool
 
-**Cool** is a _Classroom Object-Oriented Language_ — it is essentially a small subset of Java. It's small enough to be manageable for semester projects but large enough to help you to learn all of the concepts and to write non-trivial programs. This course uses Cool version 1.36.
+**Cool** is a _Classroom Object-Oriented Language_ — it is essentially a small subset of Java. It's small enough to be manageable for semester projects but large enough to help you to learn all of the concepts and to write non-trivial programs. This course uses Cool version ~~1.36~~ 1.39.
 
 Here is a "Hello, World" program in Cool:
 ```
