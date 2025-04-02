@@ -4,7 +4,7 @@ title: "PA3: Code Generator"
 permalink: /projects/pa3.html
 parent: Programming Assignments
 nav_order: 3
-due_date: "Monday, 7 April 2025, 11:59PM AoE."
+due_date: "Wednesday, 9 April 2025, 11:59PM AoE."
 submission_notes: Submit on GradeScope
 ---
 
@@ -26,8 +26,8 @@ You will also write additional code to unserialize the class map, implementation
 You need to make four submissions for this assignment:
 * **PA3c1** requires you to write test cases (i.e., Cool programs) that find injected bugs in our reference compiler. This checkpoint ensures that you have a robust test suite for your own compiler before you begin implementing it in earnest. This checkpoint is relatively straightforward (you just need to write small Cool programs), so it due early: on **Friday, March 7**.
 * **PA3c2** requires you to produce a simple intermediate representation for (some) Cool programs ("three-address code" (TAC), which we'll discuss in class). While it's up to you how much you want to use TAC for the rest of PA3, we think it's a useful intermediate representation, and we want to force you to make some progress early. And, it's hard to break the compiler up into sensible chunks, so this is the best that we can do. Since producing TAC is pretty straightforward compared to the rest of the compiler implementation, this checkpoint is due relatively quickly after PA3c1: on **Monday, March 17**.
-* **PA3c3** requires that your compiler generates assembly instructions for certain simple Cool programs. This is harder than it sounds: once you have this part working, getting to the full compiler is usually easier than getting to this point. For that reason, we give you a few weeks to make it to this point: it is due on **Monday, March 31**.
-* **PA3 (full)** requires that your compiler handle all of Cool. It is due on **Monday, April 7**.
+* **PA3c3** requires that your compiler generates assembly instructions for certain simple Cool programs. This is harder than it sounds: once you have this part working, getting to the full compiler is usually easier than getting to this point. For that reason, we give you a few weeks to make it to this point: it is due on **Wednesday, April 2**.
+* **PA3 (full)** requires that your compiler handle all of Cool. It is due on **Wednesday, April 9**.
 
 ### Specification
 

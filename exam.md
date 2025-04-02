@@ -26,7 +26,7 @@ I will post the keys to quizzes and exams here as the semester progresses.
 
 [Quiz on Abstract Interpretation] (3/5)(../assets/quiz-ai.pdf) ([key](../assets/quiz-ai-key.pdf))
 
-[Midterm](../assets/sp25-midterm.pdf) ([key](../assets/sp25-midterm-key.pdf)
+[Midterm](../assets/sp25-midterm.pdf) ([key](../assets/sp25-midterm-key.pdf))
 
 To help you prepare for this semester's exams, below you can find
 links to exams from other courses that I've taught in previous semesters, all of which have
