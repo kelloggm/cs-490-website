@@ -9,7 +9,7 @@ Mon Feb 3
 : [Compiler Structure](../assets/lecture-lexing-and-parsing.pdf)
   : **Mandatory reading**: _Engineering a Compiler_ (_EaC_), Chapter 1
 
-    **Optional readings**: Clark's [_Removing Left Recursion_](../assets/RemovingLeftRecursion.pdf) and Wegner's [_Programming Languages: The First 25 Years_](../assets/PLHistoryDesign25yrs.PDF)
+    **Optional readings**: Clark's [_Removing Left Recursion_](../assets/RemovingLeftRecursion.pdf) and Wegner's [_Programming Languages: The First 25 Years_](../assets/PLHistoryDesign25yrs.pdf)
 
 Wed Feb 5
 : [Scoping and Types](../assets/lecture-scoping-and-types.pdf)
