@@ -12,5 +12,5 @@ Wed Feb 12
 : [More Static Semantics](../assets/lecture-semantics2.pdf)
   : **Mandatory reading**: _EaC_ 4.4
 
-    **Optional reading**: Hoare's [_Proof of a Program: FIND_](../assets/HoareFind.pdf) and/or Djikstra's [_Guarded Commands, Nondeterminacy, and Formal Derivation of Programs_](../assets/DjikstraGC.pdf)
+    **Optional reading**: Hoare's [_Proof of a Program: FIND_](../assets/HoareFind.pdf) and/or Dijkstra's [_Guarded Commands, Nondeterminacy, and Formal Derivation of Programs_](../assets/DijkstraGC.pdf)
 
