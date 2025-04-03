@@ -32,5 +32,103 @@ that your generated assembly code takes to execute various test programs.
 ### Summary of Checkpoints
 
 There is one checkpoint for the Optimizer:
-* **PA4c1** requires you to implement a dead-code eliminator for Cool three-address code (i.e., the same format as PA3c2). This dead-code eliminator need not be part of the same codebase as the rest of PA4 -- the specification for (see below) is standalone. However, your final PA4 submission is required to include a dead-code eliminator, so we strongly suggest that you integrate PA4c1 into your existing codebase. For example, you might have a command-line switch in your main codebase that makes it match the PA4c1 specification, which you enable by default when submitting PA4c1. This checkpoint is due on **Monday, April 21**.
+* **PA4c1** requires you to implement a dead-code eliminator for Cool three-address code (i.e., the same format as PA3c2). This dead-code eliminator need not be part of the same codebase as the rest of PA4 -- the specification for it (see below) is standalone. However, your final PA4 submission is required to include a dead-code eliminator, so we strongly suggest that you integrate PA4c1 into your existing codebase. For example, you might have a command-line switch in your main codebase that makes it match the PA4c1 specification, which you enable by default when submitting PA4c1. This checkpoint is due on **Monday, April 21**.
 * **PA4 (full)** will be evaluated on the day of the final exam. You will automatically make a submission to PA4 when you submit PA3 (i.e., we will add your PA3 submission to the leaderboard). You can continue to make changes to your optimizer and resubmit it as many times as you'd like between the PA3 and PA4 deadlines.
+
+### PA4c1: Dead Code Elimination
+
+PA4c1 is a stand-alone checkpoint assignment designed to encourage you to write a [dead-code eliminator](http://en.wikipedia.org/wiki/Dead_code_elimination) for [Cool three-address code](../pa3.html#pa3c2-three-address-code-generator).
+Since your final PA4 submission is _required_ to include a dead-code eliminator, we encourage you to use this checkpoint as an excuse to implement one. However,
+if it would be more convenient for your compiler's design to do dead-code elimination on another IR, you _can_ skip this checkpoint (but we don't
+recommend it, and it will cost you a few points). Come talk to the course staff if you're unsure.
+
+For this checkpoint, your dead-code eliminator should implement a "global" [live-variable analysis](https://en.wikipedia.org/wiki/Live-variable_analysis)
+(like the one discussed in class); recall that "global", in the context of optimization, means "considers a single method at once."
+
+#### Specification
+
+You should submit a program that takes a single command-line argument (e.g., `file.cl-tac`). That argument will be an ASCII text Cool Three Address Code file (as described in the PA3c2 specification)
+corresponding to a single method. The cl-tac file will always be well-formed (i.e., there will be no errors in the cl-tac file).
+Your program must output a revised, valid .cl-tac file to standard output. The output should be the same as the input but with dead code removed.
+Your program will consist of a number of source files, all in the same programming language. We suggest (but do not require) that it be a variant of your main
+PA3/PA4 codebase; we would implement this specification by setting a flag in our compiler's codebase.
+
+#### Dead Code Elimination
+
+A variable is **live** if it may be needed in the future.
+That is, an assignment to variable _v_ at point _p_ is live if there exists a path from _p_ to the function exit along which _v_ is read before it is overwritten.
+
+For example, consider the following TAC:
+```
+a <- int 1
+b <- int 3
+c <- + a b 
+d <- int 7
+retval <- call out_int c 
+return retval 
+```
+
+On the fourth line, the assignment to _d_ is dead because _d_ is not subsequently used. Dead assignments can be removed. Often eliminating one piece of dead code can reveal additional dead code.
+For example, consider this fragment of TAC:
+```
+a <- int 1
+b <- int 3
+c <- + a b 
+d <- int 7
+e <- + d d 
+retval <- call out_int c 
+return retval 
+```
+
+In above example, the assignment to _d_ is **not** dead (yet!) but the assignment to _e_ is dead. Once the assignment to _e_ is eliminated, the assignment to _d_ becomes dead and can then be eliminated. Thus, live variable analysis and dead code elimination must be repeated until nothing further changes.
+
+You should use the [live variable analysis](http://en.wikipedia.org/wiki/Live_variable_analysis) form of [data-flow analysis](http://en.wikipedia.org/wiki/Data-flow_analysis) to determine which assignments are dead code. We discussed this topic in class (in the "Global Optimization" and "Dead Code Elimination" lectures), but you are not required to follow the lecture slides' formalism: you may use any of the (many) equivalent analyses described online, in the textbook, etc - as long as you preserve the program's semantics and remove dead code.
+
+Note that function calls with I/O side effects should never be eliminated.
+
+#### Basic Blocks and Control-Flow Graphs
+
+A [basic block](http://en.wikipedia.org/wiki/Basic_block) is a sequence of instructions with only one control-flow entry and one control-flow exit. That is, once you start executing the instructions in a basic block, you must execute all of them — you cannot jump out early or jump in half-way through.
+
+A _local_ dataflow analysis operates on basic blocks. As part of this checkpoint, you will need to implement a local dead-code eliminator.
+
+As part of this assignment you will also implement a _global_ dataflow analysis that operates on multiple basic blocks (that together form one entire method). A [control-flow graph](http://en.wikipedia.org/wiki/Control_flow_graph) is a graph in which the nodes are basic blocks and the edges represent potential control flow.
+
+You are not required to use these formalisms, exactly, in the your implementation. However, we _strongly_ suggest that you explicitly represent the basic blocks and control-flow graph of the input TAC program.
+
+#### Commentary
+
+A successful implementation of this checkpoint will have the following stages:
+1. Deserialize the input .cl-tac file
+2. Identify basic blocks and construct the control-flow graph
+3. Repeat until nothing changes:
+  a. Perform global live variable analysis on the control-flow graph
+    * This involves local live variable analysis on individual statements or basic blocks
+  b. Eliminate dead code
+4. Serialize the result to standard output in .cl-tac format
+
+You can do basic testing as follows:
+```
+$ cool --tac file.cl --out original
+$ cool --tac --opt file.cl --out ref_optimized
+$ my-dce original.cl-tac > my_optimized.cl-tac
+$ cool ref_optimized.cl-tac > optimized.output
+$ cool my_optimized.cl-tac > my.output
+$ diff optimized.output my.output
+$ cool --profile ref_optimized.cl-tac | grep STEPS
+$ cool --profile my_optimized.cl-tac | grep STEPS
+```
+
+Passing --opt and --tac to the reference compiler will cause the reference compiler to perform dead code elimination before emitting the .cl-tac file.
+
+#### Scoring
+
+There are fifteen test cases for PA4c1 (they are the same test cases, in the same order, that were used for PA3c3).
+We will run each with 10 inputs. You _lose_ one-tenth of a point for each input for which you do not
+produce the correct output, to a miniumum of zero. You gain one-tenth of a point for each test input for which
+your generated cl-tac, when simulated, executes fewer instructions than a threshold chosen by the course staff.
+Your score is rounded down to the nearest integer.
+
+### PA4 (full): the Optimizer
+
+More details coming soon!
