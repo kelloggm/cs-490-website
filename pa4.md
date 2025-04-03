@@ -102,9 +102,9 @@ A successful implementation of this checkpoint will have the following stages:
 1. Deserialize the input .cl-tac file
 2. Identify basic blocks and construct the control-flow graph
 3. Repeat until nothing changes:
-  a. Perform global live variable analysis on the control-flow graph
-    * This involves local live variable analysis on individual statements or basic blocks
-  b. Eliminate dead code
+    1. Perform global live variable analysis on the control-flow graph
+        * This involves local live variable analysis on individual statements or basic blocks
+    2. Eliminate dead code
 4. Serialize the result to standard output in .cl-tac format
 
 You can do basic testing as follows:
@@ -119,7 +119,7 @@ $ cool --profile ref_optimized.cl-tac | grep STEPS
 $ cool --profile my_optimized.cl-tac | grep STEPS
 ```
 
-Passing --opt and --tac to the reference compiler will cause the reference compiler to perform dead code elimination before emitting the .cl-tac file.
+Passing `--opt` and `--tac` to the reference compiler will cause the reference compiler to perform dead code elimination before emitting the .cl-tac file.
 
 #### Scoring
 
