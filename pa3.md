@@ -349,12 +349,16 @@ examine how the reference compiler does this to get an idea of what to do.
 
 #### Line Numbers for Error Reporting
 
-The typing rules do not directly specify the line numbers on which errors are to be reported. As of v1.36, the Cool reference compiler uses these guidelines:
+The typing rules do not directly specify the line numbers on which errors are to be reported.
+As of v1.39, the Cool reference compiler uses these guidelines:
 * Stack overflow: undefined (not your responsibility)
 * Division by zero: location of the division expression
 * Substring out of range: location of the internal expression (i.e., 0)
 * Dispatch on void: location of dispatch expression
 * case-related errors: location of case expression
+
+Note that this list specifically excludes stack overflows. It is **not your responsibility** to handle them, and code you generate
+_may segfault_ when it encounters a stack overflow. The reference compiler does this.
 
 Note that the reference _interpreter_ uses different line numbers in some cases; you must match the reference _compiler_ (which you invoke by passing the `--x86` argument to `cool`).
 
