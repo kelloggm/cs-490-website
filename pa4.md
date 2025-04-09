@@ -32,7 +32,7 @@ that your generated assembly code takes to execute various test programs.
 ### Summary of Checkpoints
 
 There is one checkpoint for the Optimizer:
-* **PA4c1** requires you to implement a dead-code eliminator for Cool three-address code (i.e., the same format as PA3c2). This dead-code eliminator need not be part of the same codebase as the rest of PA4 -- the specification for it (see below) is standalone. However, your final PA4 submission is required to include a dead-code eliminator, so we strongly suggest that you integrate PA4c1 into your existing codebase. For example, you might have a command-line switch in your main codebase that makes it match the PA4c1 specification, which you enable by default when submitting PA4c1. This checkpoint is due on **Monday, April 21**.
+* **PA4c1** requires you to implement a dead-code eliminator for Cool three-address code (i.e., the same format as PA3c2). This dead-code eliminator need not be part of the same codebase as the rest of PA4 -- the specification for it (see below) is standalone. However, your final PA4 submission is required to include a dead-code eliminator, so we strongly suggest that you integrate PA4c1 into your existing codebase. For example, you might have a command-line switch in your main codebase that makes it match the PA4c1 specification, which you enable by default when submitting PA4c1. This checkpoint is due on **Monday, April 28**.
 * **PA4 (full)** will be evaluated on the day of the final exam. You will automatically make a submission to PA4 when you submit PA3 (i.e., we will add your PA3 submission to the leaderboard). You can continue to make changes to your optimizer and resubmit it as many times as you'd like between the PA3 and PA4 deadlines.
 
 ### PA4c1: Dead Code Elimination

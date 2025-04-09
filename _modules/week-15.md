@@ -3,6 +3,9 @@ title: Week 15
 ---
 
 Mon Apr 28
+ : **[PA4c1](../projects/pa4.html#what-to-turn-in-for-pa4c1) due**{: .label .label-red } 
+
+Mon Apr 28
 : [Pluggable Type Systems](../assets/lecture-vanity.pdf)
   : **Mandatory reading**: The [Checker Framework manual](https://checkerframework.org/manual/), chapters 1, 2, and 3 (except 2.2.2, which you can skip).
 
