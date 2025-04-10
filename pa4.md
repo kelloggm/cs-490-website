@@ -8,8 +8,6 @@ due_date: "Day of Your Final Exam, 2025, 11:59PM AoE."
 submission_notes: Submit on GradeScope
 ---
 
-**This page is still under construction: check back for more details later.**
-
 You are advised to complete this assignment in the same language you used for PA3. Your starter code for this assignment is typically your final PA3 submission.
 You are permitted to, but strongly discouraged from, starting over without using your PA3 submission. If you plan to do so, you should discuss the situation
 with the instructor and/or TAs first.
@@ -20,7 +18,7 @@ The course staff are not responsible for finding you a willing teammate. You are
 
 ### Goal
 
-For this assignment you will write an _optimizing_ code generator. This typically involves transforming the abstract syntax tree into a control-flow graph of three-address code and applying a number of dataflow analyses and optimizations. In addition, students typically apply pattern-matching optimizations at the AST level and peephole optimizations at the assembly level.
+For this assignment you will write an _optimizing_ code generator. This typically involves transforming the abstract syntax tree into a control-flow graph of three-address code and applying a number of dataflow analyses and optimizations. In addition, students typically apply pattern-matching optimizations at the AST level and peephole optimizations at the assembly level. You have a lot of **creative freedom** in this assignment to choose the optimizations that you want to implement. There is no "one true answer": any and every optimization that you can think of might be useful.
 
 In all cases, the optimized assembly code you emit must produce **exactly the same** result as the reference compiler. The first rule of optimization is "don't break the program".
 
@@ -137,7 +135,7 @@ We provide a **pseudo-anonymous leaderboard** for this assignment. Your submissi
 
 The leaderboard has three kinds of submissions:
 * student submissions. These are labeled with a student-chosen pseudonym.
-* reference submissions. These are labeled "reference" and "refernce opt"; they correspond directly to version 1.39 of the reference compiler
+* reference submissions. These are labeled "reference" and "refernce opt"; they correspond directly to version 1.40 of the reference compiler
 without the `--opt` flag and with the `--opt` flag, respectively. You must beat these for full credit on the assignment.
 * "boss" submissions, which are graciously provided by people who have taken this class or a similar one in the past (including your professor).
 Beating these is totally optional, but you might enjoy gloating.
@@ -146,9 +144,9 @@ Beating these is totally optional, but you might enjoy gloating.
 
 You must create three artifacts:
 1. A program that takes a single command-line argument (e.g., `file.cl-type`). That argument will be an ASCII text Cool class map, implementation map, parent map and annotated AST file (as described in PA2). Your program must emit x86-64 Assembly Language (`file.s`). Your program will consist of a number of source files.
-  1. Compiling `file.s` with `gcc -static -no-pie` on a 64-bit x86 Linux system must produce an executable that, when run, produces the correct output for `file.cl` according to Cool's operational semantics.
-  1. You will only be given `.cl-type` files from programs that pass the semantic analysis phase of the reference compiler. You are not responsible for correctly handling (1+"hello") programs.
-  1. Your optimizer _must_ construct a control-flow graph representation, perform an intraprocedural data-flow analysis, and use the results to eliminate dead code. (You may be more precise, for example with an interprocedural analysis, if you like.) This single optimization is necessary but not sufficient — you must also do additional optimizations.
+    1. Compiling `file.s` with `gcc -static -no-pie` on a 64-bit x86 Linux system must produce an executable that, when run, produces the correct output for `file.cl` according to Cool's operational semantics.
+    1. You will only be given `.cl-type` files from programs that pass the semantic analysis phase of the reference compiler. You are not responsible for correctly handling (1+"hello") programs.
+    1. Your optimizer _must_ construct a control-flow graph representation, perform an intraprocedural data-flow analysis, and use the results to eliminate dead code. (You may be more precise, for example with an interprocedural analysis, if you like.) This single optimization is necessary but not sufficient — you must also do additional optimizations.
 2. A plain ASCII text file called `readme.txt` describing your optimization design decisions and choice of benchmarks. You must also describe your approach to the control flow graph, dataflow analysis and dead code elimination requirement. You should describe any other optimizations you carried out. See the grading rubric. A few paragraphs should suffice.
 3. Two benchmarks `benchmark1.cl` and `benchmark2.cl`. Each benchmark should be a valid Cool program of reasonable runtime. Optimizers will be graded on the average of their performance on a pool of programs: that pool contains some baseline Cool programs as well as all benchmarks submitted by participants (see the section on "Benchmark Submission", below). You can thus "stack the deck" in your favor by constructing programs that you are very good at optimizing but that others may not be able to handle.
 
@@ -178,21 +176,23 @@ output. _C_ is a real value in the range [0, 1].
 * your **benchmark correctness score** _B_ is the fraction of additional benchmarks for which your compiler's
 generated x86 code and the x86 code generated by the reference compiler (without `--opt`) produce the same
 output. _B_ is a real value in the range [0, 1].
-* your **improvement score** _I_ is the relative improvement of your compiler's generated assembly over the
+* your **quickness score** _Q_ is the relative improvement of your compiler's generated assembly over the
 generated assembly from the reference compiler (again, on a set of Cool program + test input pairs) in
 terms of clock cycles, as measured by `perf stat -r 100`. We measure this for each test case + input pair
 individually, and then average all pairs for which you got the same output as the reference compiler. The
-set of pairs used for computing _I_ is the union of the sets used for _C_ and _B_.
-_I_ is a positive real value. It may be either greater or less than 1; a value greater than 1 indicates that the
+set of pairs used for computing _Q_ is the union of the sets used for _C_ and _B_.
+_Q_ is a positive real value. It may be either greater or less than 1; a value greater than 1 indicates that the
 code you produce is _slower_ than the reference compiler; less than 1 indicates that your code is _faster_.
 * your **size score** _Z_ is the relative improvement of your compiler's generated assembly over the
-reference compiler, in terms of code size. We measure this by comparing the size of your `.s` file
-to the `.s` file produced by the reference for each test case that you pass, and then averaging
-the results.
+reference compiler, in terms of code size. We measure this by comparing the size of the binary generated
+by assembling and linking your `.s` file
+to the binary generated from the `.s` file produced by the reference for each test case that you pass, and then averaging
+the results. It may be either greater or less than 1; a value greater than 1 indicates that the
+code you produce is _larger_ than the reference compiler; less than 1 indicates that your code is _smaller_.
 
 Your **overall score** _S_ is defined by the following formula (higher is better):
 
-_S = C^2 * B * (1/I)^2 * 1/Z_
+_S = C^2 * B * (1/Q)^2 * 1/Z_
 
 Some things to note:
 * the exponents represent the relative importance of the optimization targets:
@@ -216,13 +216,19 @@ Our initial set of benchmarks _B_ contains all of these benchmarks _and some oth
 #### Benchmark Submission (100% Optional!)
 
 You may submit new benchmarks for inclusion in the set of Cool programs used to compute the benchmark score
-_B_ (and, thus, the improvement and size scores) using [this form](https://forms.gle/CCZVC2ZZ3F6MczF8A).
+_B_ (and, thus, the quickness and size scores) using [this form](https://forms.gle/CCZVC2ZZ3F6MczF8A).
 The instructor will check the responses to this form once per "business day" while the optimizer competition
 is running.
 You will not be notified whether your benchmark has been included.
 If you make multiple low-quality submissions to this form, I may (at my discretion) choose not to evaluate future submissions.
 
 It is completely optional to submit benchmarks via this form. However, only benchmarks submitted via this form will be considered for addition to the set of benchmarks used on the leaderboard. You are required to provide two benchmarks with your final submission, but they need not have been submitted via this form.
+
+Submitted benchmarks **must** take 50,000 instructions or fewer to execute via the reference compiler with `–asm –profile`. **You** are responsible for verifying that this is the case before submitting the form.
+
+We guarantee that benchmarks will have consistent numbering on the autograder, even as we add additional,
+student-submitted benchmarks. For example, if a benchmark is ever labeled "benchmark 9" on the autograder,
+then "benchmark 9" on the autograder will always refer to that benchmark.
 
 #### Commentary and Suggestions
 
@@ -256,12 +262,15 @@ If you haven't heard of one of optimizations above, search around for it on the 
 #### Grading
 
 Grading (out of 100)
-* 64 points - for optimizer performance tests
-  * -0 - performance better than "reference --opt" (TODO: give "reference --opt"'s _I_ score here)
-  * -16 - _I_ < 1, but worse than "reference --opt"
-  * -32 - _I_ > 1 but < 1.5
-  * -64 - _I_ > 1.5
-* -X - you fail X PA3 tests
+* 64 points - for optimizer performance tests (this is the autograder "score" that Gradescope reports to you)
+  * -0 - quickness score better than "reference --opt" (TODO: give "reference --opt"'s quickness score here)
+  * -16 - quickness score _Q_ < 1, but worse than "reference --opt"
+  * -32 - quickness score _Q_ > 1 but < 1.5
+  * -64 - quickness score _Q_ > 1.5
+  * -0 - size score _Z_ < 1
+  * -4 - size score _Z_ > 1 but < 1.5
+  * -8 - size score _Z_ > 1.5
+  * -_X_ - you fail _X_ PA3 tests
 * -48 points - hard-coding some benchmark files rather than writing a generic optimizer
 * -24 points - total failure to implement control-flow graphs, liveness and dead code elimination
 * -12 points - partial failure to implement control-flow graphs, liveness and dead code elimination
