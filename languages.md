@@ -34,7 +34,7 @@ PA4 builds on PA3---I expect you to modify you PA3 implementation to complete PA
 
 ### Cool
 
-**Cool** is a _Classroom Object-Oriented Language_ — it is essentially a small subset of Java. It's small enough to be manageable for semester projects but large enough to help you to learn all of the concepts and to write non-trivial programs. This course uses Cool version ~~1.36~~ ~~1.39~~ 1.40.
+**Cool** is a _Classroom Object-Oriented Language_ — it is essentially a small subset of Java. It's small enough to be manageable for semester projects but large enough to help you to learn all of the concepts and to write non-trivial programs. This course uses Cool version ~~1.36~~ ~~1.39~~ ~~1.40~~ 1.41.
 
 Here is a "Hello, World" program in Cool:
 ```
@@ -55,8 +55,8 @@ The Cool programming language is formally specified and defined in _The Cool Ref
 
 #### Cool Reference Compiler
 
-Different versions of the reference compiler are available for different platforms. Information on running the compiler is available in the reference manual. Only version 1.40, which is only available for Linux/x86 (64 bit), supports generating (correct) x86-64 assembly code, as you will need to do for PA3 and PA4.
-* [Linux/x86 (64 bit)](../assets/cool/linux-x86_64/cool) (v. 1.40)
+Different versions of the reference compiler are available for different platforms. Information on running the compiler is available in the reference manual. Only version 1.41, which is only available for Linux/x86 (64 bit), supports generating (correct) x86-64 assembly code, as you will need to do for PA3 and PA4.
+* [Linux/x86 (64 bit)](../assets/cool/linux-x86_64/cool) (v. 1.41)
   * (legacy 1.36 binaries with alternate library requirements: [A](../assets/cool/linux-x86_64/cool-136b) [B](../assets/cool/linux-x86_64/cool-136b) [C](../assets/cool/linux-x86_64/cool-136c) [D](../assets/cool/linux-x86_64/cool-136d); **WARNING**: Cool 1.36 generates assembly code with known bugs when running with the `--x86` flags on modern Linux platforms)
 * [Linux/x86 (32 bit)](../assets/cool/linux-x86/cool) (v. 1.36)
 * [Mac OS X Apple M-Series Chips (ARM-64)](../assets/cool/darwin-arm/cool) (v. 1.36) 

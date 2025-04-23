@@ -13,6 +13,8 @@ Mon Apr 28
 
 Wed Apr 30
 : [Erfan Arvan](https://web.njit.edu/~ea442/) guest lecture on [Exceptions](../assets/lecture-exceptions.pdf)
-  : **Mandatory reading**: TBD
+  : **Mandatory reading**: The Java Language Specification's section on [Exceptions](https://docs.oracle.com/javase/specs/jls/se8/html/jls-11.html)
+
+    **Optional reading**: [Exceptions](https://ahdak.github.io/blog/effective-java-part-9/) from Bloch's _Effective Java_, or Chapter 14 of Pierce's _Types and Programming Languages_.
 
 
