@@ -4,7 +4,7 @@ title: "PA4: Optimizer"
 permalink: /projects/pa4.html
 parent: Programming Assignments
 nav_order: 4
-due_date: "Day of Your Final Exam, 2025, 11:59PM AoE."
+due_date: "May 15, 2025, 2:30PM EDT."
 submission_notes: Submit on GradeScope
 ---
 

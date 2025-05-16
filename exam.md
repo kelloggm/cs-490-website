@@ -28,6 +28,8 @@ I will post the keys to quizzes and exams here as the semester progresses.
 
 [Midterm](../assets/sp25-midterm.pdf) ([key](../assets/sp25-midterm-key.pdf))
 
+[Final](../assets/s25-compilers-final.pdf) ([key](../assets/sp25-compilers-final-key.pdf))
+
 To help you prepare for this semester's exams, below you can find
 links to exams from other courses that I've taught in previous semesters, all of which have
 solutions ("keys"). These exams are provided
