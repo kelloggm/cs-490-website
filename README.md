@@ -1,11 +1,11 @@
 ---
 layout: home
-title: CS 490 (Au24)
+title: CS 490 (Au25)
 nav_exclude: true
 permalink: /:path/
 seo:
   type: Course
-  name: CS 490 (Au24)
+  name: CS 490 (Au25)
 ---
 
 # Welcome to CS 490!
