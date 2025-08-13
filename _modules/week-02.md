@@ -2,17 +2,17 @@
 title: Week 2
 ---
 
-Sep 9
+Sep 8
  : **[Individual Project 0](../projects/ip0.html) due**{: .label .label-red } 
 
-Sep 11
+Sep 8
+ : [Code-level Design](../assets/lecture-code-level-design.pdf)
+   : **Mandatory reading**: Spolsky's [The Joel Test](https://www.joelonsoftware.com/2000/08/09/the-joel-test-12-steps-to-better-code/) (note that this article is from 2000, so the examples are a little dated), Gransee's [Opinions on Opinionated Formatters](https://www.seangransee.com/blog/autoformatters), the Prettier team's [Option Philosophy](https://prettier.io/docs/en/option-philosophy.html), and Wikipedia's [Law of Triviality](https://en.wikipedia.org/wiki/Law_of_triviality).
+
+     **Your Choice reading**: Ajami et al.'s [Syntax, predicates, idioms — what really affects code complexity?](../assets/complexity.pdf)
+
+Sep 10
 : [Reading Code](../assets/lecture-reading-code.pdf)
   : **Mandatory reading**: Atwood's [Learn to Read the Source, Luke](https://blog.codinghorror.com/learn-to-read-the-source-luke/), Coleman's [How to quickly and effectively read other people’s code](https://selftaughtcoders.com/how-to-quickly-and-effectively-read-other-peoples-code/), and the [Individual Project 1 Specification](../projects/ip1.html)
 
     **Your Choice reading**: Endres et al.'s [Relating Reading, Visualization, and Coding for New Programmers: A Neuroimaging Study](https://web.eecs.umich.edu/~weimerw/p/weimer-icse2021-reading-preprint.pdf)
-
-Sep 13
-: [Testing (1)](../assets/lecture-testing1.pdf)
-  : **Mandatory reading**: Shore's [The Art of Agile Development: Test-Driven Development](http://www.jamesshore.com/v2/books/aoad1/test_driven_development)
-
-    **Your Choice reading**: Saff and Ernst's [An Experimental Evaluation of Continuous Testing During Development](https://homes.cs.washington.edu/~mernst/pubs/ct-user-study-issta2004.pdf)

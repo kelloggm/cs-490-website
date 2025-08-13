@@ -2,15 +2,15 @@
 title: Week 5
 ---
 
-Oct 2
-: [Version Control](../assets/lecture-vcs.pdf)
-  : **Mandatory reading**: Ernst's [Version control concepts and best practices](https://homes.cs.washington.edu/~mernst/advice/version-control.html) and Thompson's [My favourite Git commit](https://dhwthompson.com/2019/my-favourite-git-commit)
-  
-    **Your Choice reading**: De Rosso et al.'s [Purposes, concepts, misfits, and a redesign of git](../assets/gitless.pdf)
+Sep 29
+: [Requirements and Specifications (1)](../assets/lecture-specs1.pdf)
+  : **Mandatory reading**: Spolsky's [How to be a Program Manager](https://www.joelonsoftware.com/2009/03/09/how-to-be-a-program-manager/), Ubl's [Design Docs at Google](https://www.industrialempathy.com/posts/design-docs-at-google/), and the [Individual Project 2 Specification](../projects/ip2.html)
 
-Oct 4
-: [Process](../assets/lecture-process.pdf)
-  : **Mandatory reading**: The [Agile Manifesto](https://agilemanifesto.org/) and its [Twelve Principles](https://agilemanifesto.org/principles.html) (this should be a quick read, but I suggest you think about what it is advocating for at least a few minutes before moving onto the next article) and Santo's ["Waterfall" doesn't mean what you think it means](https://changelog.com/posts/waterfall-doesnt-mean-what-you-think-it-means)
+    **Your Choice reading**: Ernst et al.'s [The Daikon system for dynamic detection of likely invariants](../assets/daikon.pdf)
+
+Oct 1
+: [Requirements and Specifications (2)](../assets/lecture-specs2.pdf)
+  : **Mandatory reading**: Wayne's [Using Formal Methods at Work](https://www.hillelwayne.com/post/using-formal-methods/) and the [Group Project Specification](../projects/project-overview.html)
   
-    **Your Choice reading**: Anda et al.'s [Variability and Reproducibility in Software Engineering: A Study of Four Companies that Developed the Same System](../assets/estimation.pdf)
+    **Your Choice reading**: Lamport's [Introduction to TLA](../assets/tla.pdf)
 

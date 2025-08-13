@@ -2,19 +2,20 @@
 title: Week 8
 ---
 
-Oct 21
+Oct 20
+: [Build Systems](../assets/lecture-build-systems.pdf)
+  : **Mandatory reading**: Atwood's [The F5 Key Is Not a Build Process](https://blog.codinghorror.com/the-f5-key-is-not-a-build-process/)
+
+    **Your Choice reading**: Mokhov et al.'s [Build Systems à la Carte](https://www.microsoft.com/en-us/research/uploads/prod/2018/03/build-systems-final.pdf)
+
+Oct Z
  : **[Revised Project Plan](../projects/revised-project-plan.html) due**{: .label .label-red } 
 
-Oct 23
+Oct 22
 : [Static Analysis](../assets/lecture-static-analysis.pdf)
   : **Mandatory reading**: Ayewah et al.'s [Experiences Using Static Analysis to Find Bugs](../assets/findbugs.pdf) and Schwartz-Narbonne's [How to integrate formal proofs into software development](https://www.amazon.science/blog/how-to-integrate-formal-proofs-into-software-development)
 
     **Your Choice reading**: Chapter 2 ("Abstract Interpretation") of Ernst's [Notes on Program Analysis](../assets/ernst-ai-notes.pdf)
     
-Oct 25
-: [Debugging (1)](../assets/lecture-debugging.pdf)
-  : **Mandatory reading**: Zeil's [Debugging – Using Hypotheses to Track Down the Culprit](https://www.cs.odu.edu/~zeil/cs333/s14/Public/debugging2/debugging2__html.html) and Taylor's [Debugging](https://airs.com/ian/essays/debug/debug.html)
-
-    **Your Choice reading**: Ko and Myers' [Designing the WhyLine: A Debugging Interface for Asking Questions about Program Behavior](../assets/whyline.pdf)
-
+Oct 24
  : **Project [Deployment Demo](../projects/project-demos.html#deployment-demo-due) due**{: .label .label-red } 
