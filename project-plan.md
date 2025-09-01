@@ -3,9 +3,9 @@ layout: page
 title: Project Plan
 permalink: /projects/project-plan.html
 parent: Projects
-nav_order: 4
+nav_order: 5
 ---
-# Project Plan **Due Monday 7 October 2024, 11:59pm AoE**{: .label .label-red }
+# Preliminary Project Plan **Due Monday 13 October 2025, 11:59pm AoE**{: .label .label-red }
 All projects will involve frontend and backend development of a new feature for Covey.Town.
 Once teams have been formed, you and your team will decide what kind of new feature you would like to build.
 Your feature should be something that can be implemented within the timeframe allotted (5 weeks, plus 2 weeks of planning), and will be implemented in a fork of the main Covey.Town codebase.

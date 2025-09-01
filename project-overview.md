@@ -19,14 +19,19 @@ All implementation will take place in the TypeScript programming language, using
 
 | Date | Deliverable | Description | 
 | -----| ----------- | ----------- |
-| 9/25/24 | Team Formation | Specify preferences for teammates |
-| 10/7/24 | [Preliminary Project Plan]({{ site.baseurl }}{% link project-plan.md %}) | Propose a new feature for Covey.Town that can be planned and implemented within 7 weeks |
-| 10/21/24 | [Revised Project Plan]({{ site.baseurl }}{% link revised-project-plan.md %}) | Refine the scope of your feature based on staff feedback, define detailed requirements and project acceptance criteria. |
-| 10/25/24 | [Deployment Demo]({{ site.baseurl }}{% link demos.md %}) | Show that you can deploy a lightly-modified copy of covey.town to a remotely-accessible machine. |
-| 11/8/24 | [Wizard-of-Oz Demo]({{ site.baseurl }}{% link demos.md %}) | Show what your project will look like, once it is complete, to your project mentor and the instructor. This demo doesn't require you to show any working code: it is purely about design. |
-| 11/22/24 | [Preliminary Demo]({{ site.baseurl }}{% link demos.md %}) | Demonstrate one user story to your project mentor and the instructor. In this demo, you need to actually be running your own code (unlike the Wizard-of-Oz demo).  |
-| 12/10/24 | Project Implementation and Documentation | Deliver your new feature, including design documentation and tests. You will demo it to the instructor in the days right after our last class (12/11-12/13). |
-| 12/18/24 | Project Implementation and Documentation (Resubmission) | If your demo on 12/11 does not meet your project goals, you may schedule another demo with your project mentor and the instructor no more than one week after the last day of class (12/18). Re-submit your code and documentation immediately before the demo. |
+| 9/29/25 | [Individual Project Proposals]({{ site.baseurl }}{% link individual-project-plan.md %}) | Propose a feature for Covey.Town and specify preferences for teammates |
+| 10/3/25 | Team Assignment | Teams will be assigned based on individual proposed features. |
+| 10/13/25 | [Preliminary Project Plan]({{ site.baseurl }}{% link project-plan.md %}) | As a team, propose and plan a new feature for Covey.Town that can be implemented within 7 weeks |
+| 10/27/25 | [Revised Project Plan]({{ site.baseurl }}{% link revised-project-plan.md %}) | Refine the scope of your feature based on staff feedback, define detailed requirements and project acceptance criteria. |
+| 10/31/25 | [Deployment Demo]({{ site.baseurl }}{% link demos.md %}) | Show that you can deploy a lightly-modified copy of covey.town to a remotely-accessible machine. |
+| 11/3/25 | First [team survey]({{ site.baseurl }}{% link surveys.md %}) | Let us know how you think the project is going. |
+| 11/7/25 | [Wizard-of-Oz Demo]({{ site.baseurl }}{% link demos.md %}) | Show what your project will look like, once it is complete, to your project mentor and the instructor. This demo doesn't require you to show any working code: it is purely about design. |
+| 11/21/25 | [Preliminary Demo]({{ site.baseurl }}{% link demos.md %}) | Demonstrate one user story to your project mentor and the instructor. In this demo, you need to actually be running your own code (unlike the Wizard-of-Oz demo).  |
+| 11/26/25 | Second [team survey]({{ site.baseurl }}{% link surveys.md %}) | Let us know how you think the project is going. |
+| 12/10/25 | Project Implementation and Documentation | Deliver your new feature, including design documentation and tests. |
+| 12/12/25 | Final Demo | You will demo your feature to the instructor by this date. |
+| 12/12/25 | Third [team survey]({{ site.baseurl }}{% link surveys.md %}) | Let us know how you think the project is going. |
+| 12/17/25 | Project Implementation and Documentation (Resubmission) | If your final demo does not meet your project goals, you may schedule another demo with your project mentor and the instructor no more than one week after the last day of class (12/17). Re-submit your code and documentation immediately before the demo. |
 
 All assignments are due on the specified date, AoE (i.e., before the beginning of the next day anywhere on Earth, which is at 7am EST the next day).
 
@@ -59,18 +64,24 @@ We will make regular efforts to collect and distribute this feedback throughout 
 
 ### Team Formation
 All projects will be completed in a team of 3-4 students (most teams will have 4).
-The very first deliverable for the project will be a team formation survey: you will be able to indicate
+Part of the first deliverable for the project will be a team formation survey: you will be able to indicate
 your preferences for teammates. The instructors will assign students to the teams based on a number of factors including your responses to the survey.
+
+### Individual Project Proposal
+You'll write a one-page proposal for a feature. You only need to explain the feature _from a user perspective_ in this document.
+We'll create groups so that people whose individual proposals are similar are grouped together.
+Your feature should be something that can be implemented within the timeframe allotted (5-7 weeks), and will be implemented in a fork of the main Covey.Town codebase.
 
 ### Team Meetings with Mentor
 Each team will be assigned a member of the course staff as a mentor, who will also serve as your point of contact for project grading.
-During the first week after project teams are announced, you will have a "Kickoff Meeting" with your mentor, where you will meet your mentor and have the opportunity to share any early ideas that you might want feedback on before submitting the project pitch.
+During the first week after project teams are announced, you will have a "Kickoff Meeting" with your mentor, where you will meet your mentor and have the opportunity to share any early ideas that you might want feedback on before submitting the preliminary proposal.
 Once project begins in full force, you will have regular standup meetings with your mentor (scheduled at your team's and your mentor's convenience, at least once every week) in order to help ensure that you are making progress on the project, and to help address problems that you encounter (be they technical or non-technical problems).
 
 ###  Preliminary Project Plan
 All projects will involve frontend and backend development of a new feature for Covey.Town.
 Once teams have been formed, you and your team will decide what kind of new feature you would like to build.
-Your feature should be something that can be implemented within the timeframe allotted (5-7 weeks), and will be implemented in a fork of the main Covey.Town codebase.
+We suggest starting with one of your individual proposals, but you're welcome to come up with something new together, too, if you'd like.
+Talk to your mentor!
 Given that you will be up-to-speed on the Covey.Town codebase (and have been introduced to TypeScript, React, NodeJS, and testing frameworks),
 and that you will have a team of three or four, we expect that the feature that you propose will be more complex than the feature implemented in the individual
 projects.
@@ -81,7 +92,7 @@ The project plan will focus on two sections:
 
 ### Creating a GitHub Repository
 Your team's development must take place within a private GitHub repository in our GitHub Classroom. To create your repository, each member of your team should follow these instructions:
-1. Sign in to [GitHub.com](https://www.github.com/), and then [use our invitation to create a repository with the covey.town codebase](https://classroom.github.com/a/_rhZSIMP). Check to see if one of your groupmates has created a group already - if so, select it to join it. Otherwise, you should enter your group number and the current semester (e.g. "Group 7-Au25") as the team name. 
+1. Sign in to [GitHub.com](https://www.github.com/), and then [use our invitation to create a repository with the covey.town codebase](). Check to see if one of your groupmates has created a group already - if so, select it to join it. Otherwise, you should enter your group number and the current semester (e.g. "Group 7-Au25") as the team name. 
 2. Refresh the page, and it will show a link to your new repository. Click the link to navigate to your new repository. This is the repository you will use for the project.
 
 This repository will be private, and visible only to your team and the course staff. After the semester ends, you are welcome to make it public - you have complete administrative control of the repository.

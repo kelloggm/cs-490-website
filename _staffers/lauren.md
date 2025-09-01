@@ -1,7 +1,7 @@
 ---
-name: Lauren Coste
+name: TBD
 role: Teaching Assistant
-email: lgc3@njit.edu
-photo: lauren.jpg
+email: TBD
+photo: 
 ---
-Office Hours: Mondays 4-5pm (GITC 4324) and Fridays 4-5pm (GITC 4324)
+Office Hours: TBD

@@ -3,12 +3,10 @@ layout: page
 title: Project Final Deliverable
 permalink: /projects/project-deliverable.html
 parent: Projects
-nav_order: 7
+nav_order: 8
 ---
 Changelog:
-* November 7: changed final demo from final day of class, in-class to by appointment with the instructor
-
-# Project: Final Deliverable **Due 10 December 2024 11:59pm AoE**{: .label .label-red }
+# Project: Final Deliverable **Due 10 December 2025 11:59pm AoE**{: .label .label-red }
 
 The final project deliverable is the implementation (in GitHub) and the documentation turned in to Canvas. It also includes your final demo.
 
@@ -39,7 +37,7 @@ Accompanying the final team deliverable will be an *individual reflection*, whic
 #### Project Demo
 
 You will make a live (in-person) demo to the instructor in the last week of classes. Your demo must last for no longer than ten minutes.
-Your team can sign up for a slot [here](https://docs.google.com/spreadsheets/d/1YazcO3Sd0QLCm5eVmrg0Yr-eMAYkFCsD9TXSjIHWARo/edit?usp=sharing);
+Your team can sign up for a slot [here]();
 slots are available on the last day of class and on the two reading days immediately thereafter.
 Make sure that at least one member of your team has a laptop that can access your deployed covey.town instance with them when you arrive for your
 demo. Because demos are short and often scheduled back-to-back, if your whole team is not present and ready to start your demo at the time that you've

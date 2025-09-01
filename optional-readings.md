@@ -1,5 +1,5 @@
 ---
-layout: project
+layout: page
 title: '"Your Choice" Readings'
 permalink: /projects/optional-readings.html
 parent: Projects

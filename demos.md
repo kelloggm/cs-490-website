@@ -3,7 +3,7 @@ layout: page
 title: Project Demos
 permalink: /projects/project-demos.html
 parent: Projects
-nav_order: 6
+nav_order: 7
 ---
 
 # Demos
@@ -14,11 +14,11 @@ for the instructor (and your group project mentor), and at least one will be for
 
 ## Deployment Demo
 
-**Due Friday 25 October 2024, 5:30pm EST**{: .label .label-red }
+**Due Friday 31 October 2025, 5:30pm EST**{: .label .label-red }
 
 In this demo, you'll show that you can build and deploy covey.town on a publicly-accessible
 server. You'll do this demo with just your group project mentor, during your regular standup
-meeting during the week of October 21-25.
+meeting during the week of October 27-31.
 
 There are two requirements for this demo:
 * you provide your group project mentor with a link that they can follow that allows them to join a covey.town
@@ -40,7 +40,7 @@ There are only two possible grades for this demo: 0 or 10.
 
 ## Wizard-of-Oz Demo
 
-**Due Friday 8 November 2024, 5:30pm EST**{: .label .label-red }
+**Due Friday 7 November 2025, 5:30pm EST**{: .label .label-red }
 
 The next demo is the ["Wizard-of-Oz"](https://en.wikipedia.org/wiki/Wizard_of_Oz_experiment) demo.
 In this demo, you'll show what your project will look like when it is finished. In this demo, you don't
@@ -80,7 +80,7 @@ your project mentor, and the instructor can attend before the deadline.
 
 ## Preliminary Demo
 
-**Due Friday 22 November 2024, 5:30pm EST**{: .label .label-red }
+**Due Friday 21 November 2025, 5:30pm EST**{: .label .label-red }
 
 By the preliminary demo, you should have a significant part of the coding for your
 feature completed. In this demo, you should show that at least one of the user
@@ -91,7 +91,7 @@ For this demo, your code must be deployed in a covey.town instance (but the inst
 permitted to be local to the demo laptop). All demonstrated feature(s) must be implemented:
 you may not "fake" them as you could in the Wizard-of-Oz demo. All code used in the demo
 must be committed to your project GitHub repository and should have been reviewed by at
-least one team member other than its author.
+least one team member other than its author. Also, by this point we expect that every team member has participated in at least one code review as a code author and at least one review as a reviewer.
 
 Aim for your demo to take about five minutes. The demo will usually occur during your regular weekly meeting with your
 project mentor during the week that the demo is due, which the instructor will try to attend. In the event of a conflict, the instructor will let
@@ -107,12 +107,15 @@ your project mentor, and the instructor can attend before the deadline.
 is based on the quality of your code reviews up to this point)
 * Code is demonstrated in a running covey.town instance
 * Demo takes about 5 minutes
+* Each team member has authored at least one PR that has been merged after a thorough code review
+* Each team member has participated in at least one PR as a reviewer
 
 #### Meets minimum requirements:
 * Demo shows working code related to your project
 * Code is checked into your project GitHub, and no code was pushed directly to `main` without a review
 * Code is demonstrated in a running covey.town instance
 * Demo takes between 3 and 7 minutes
+* Each team member has contributed to the team's GitHub repo, either as a code author or as a reviewer
 
 ## Final Demo
 
