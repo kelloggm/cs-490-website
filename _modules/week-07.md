@@ -14,6 +14,7 @@ Oct 13
 Oct 15
 : [Languages](../assets/lecture-languages.pdf)
   : **Mandatory reading**: Howarth's [Why Discord is Switching from Go to Rust](https://discord.com/blog/why-discord-is-switching-from-go-to-rust)
+  and Schwab's [Safety through Incompatibility](https://lukasschwab.me/blog/gen/safe-incompatibility.html)
 
     **Your Choice reading**: Hoare's [Hints on Programming Language Design](../assets/hoarehints.pdf) (shorter than it looks!)
 

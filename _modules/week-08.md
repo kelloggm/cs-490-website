@@ -12,5 +12,5 @@ Oct 22
 : [Static Analysis](../assets/lecture-static-analysis.pdf)
   : **Mandatory reading**: Ayewah et al.'s [Experiences Using Static Analysis to Find Bugs](../assets/findbugs.pdf) and Schwartz-Narbonne's [How to integrate formal proofs into software development](https://www.amazon.science/blog/how-to-integrate-formal-proofs-into-software-development)
 
-    **Your Choice reading**: Chapter 2 ("Abstract Interpretation") of Ernst's [Notes on Program Analysis](../assets/ernst-ai-notes.pdf)
+    **Your Choice reading**: Chapter 2 ("Abstract Interpretation") of Ernst's [Notes on Program Analysis](https://homes.cs.washington.edu/~mernst/pubs/program-analysis-book.pdf)
     

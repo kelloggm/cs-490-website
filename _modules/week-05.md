@@ -13,7 +13,7 @@ Sep 29
 
 Oct 1
 : [Working in Teams](../assets/lecture-teams.pdf)
-  : **Mandatory reading**: Fowler's [Two Pizza Team](https://martinfowler.com/bliki/TwoPizzaTeam.html) and Jackson's [The Google Technical Interview](../assets/googleinterview.pdf)
+  : **Mandatory reading**: Fowler's [Two Pizza Team](https://martinfowler.com/bliki/TwoPizzaTeam.html) and Arguelles' [My favorite coding question to give candidates (and why)](https://carloarg02.medium.com/my-favorite-coding-question-to-give-candidates-17ea4758880c)
   
     **Your Choice reading**: Behroozi et al.'s [Hiring is Broken: What Do Developers Say About Technical Interviews?](../assets/hiring-is-broken.pdf)
 
