@@ -25,7 +25,7 @@ software engineering firms.
 
 Official course outcomes:
 * Students will be able to explain the major theories and methods applicable to professional software engineering.
-* Students will be able to design, implement and evaluate a computer based system to meet desired needs.
+* Students will be able to design, implement and evaluate a computer-based system to meet desired needs.
 * Students will be able to function effectively on a team to accomplish a goal.
 * Students will be able to use current techniques, skills and tools necessary for computing practice.
 
@@ -59,8 +59,8 @@ don’t come up when you’re building a shed.
 
 The first homework assignment is due right at the drop date,
 and is intended to let you check that you have the basic skills that
-will be needed for this course: it requires you to write a
-well-defined program in a language you’ve never seen before.
+will be needed for this course: it requires you to make a trivial change to a
+big program in a language you’ve never seen before.
 
 However, software engineering is a broad topic that requires a synthesis
 of knowledge, and students will
@@ -93,9 +93,9 @@ out of CS 490 if you have seen those classes first (or are taking them concurren
 
 Your grade is composed of the following sub-scores (in no particular order):
 * 15%: Participation & Professionalism
-* 15%: Individual Projects
-* 45%: Group Project
-* 25%: Exams (10% for the mid-term, 15% for the final)
+* 15%: Individual Assignments
+* 35%: Group Project
+* 35%: Exams (15% for the mid-term, 20% for the final)
 
 This class will be curved: when grading, I prefer to use the whole
 range available rather than scores in a tight range. That is, if an
@@ -162,7 +162,7 @@ to participate in a particular class remotely.
 
 ### Asking Questions
 
-There is a course [Discord server](https://discord.com/channels/1279147849291923617/1279147849291923619)
+There is a course [Discord server](http://discord.com/channels/1412140735339303064/1412140735804735602)
 which you can use to ask (and answer) questions about any of the course topics or for
 help with the homework. Participating on Discord is optional, but if you do
 participate in a productive manner (especially by answering other student's questions!), it will have a
@@ -232,8 +232,7 @@ online resources. You are permitted to copy small amounts of code
 from any source except someone else's copy of an assignment,
 *as long as you cite your source*. “someone else's copy of an
 assignment” also includes students not currently enrolled in the
-course - e.g., students who took (or are taking - I am in contact with
-the instructors using covey.town at Northeastern and we will compare code submitted in both classes)
+course - e.g., students who took (or are taking)
 this class in previous semesters or
 took classes that used similar individual projects at other
 institutions. To make this more clear, here are some examples of
@@ -273,17 +272,7 @@ Please note that it is my professional obligation and responsibility to report a
 
 # Late Policy
 
-You may use up to two late days on Individual Projects 1 and 2 (in
-total: either 2 on one of the two or one on each) without
-penalty. Assignments turned in after your second late day will not be
-accepted.
-
-Your group may use up to two late days on the Group Projects (in
-total). Assignments turned in after your group’s second late day will
-not be accepted.
-
-You may not use late days on Individual Project 0, the Group Project
-Class Demo, or the Group Project Final Submission (or resubmission).
+All deadlines are final; no late work will be accepted for credit. We are always happy to give you feedback on late work if you contact us by email.
 
 # Acknowledgments
 
