@@ -28,7 +28,7 @@ All implementation will take place in the TypeScript programming language, using
 | 11/7/25 | [Wizard-of-Oz Demo]({{ site.baseurl }}{% link demos.md %}) | Show what your project will look like, once it is complete, to your project mentor and the instructor. This demo doesn't require you to show any working code: it is purely about design. |
 | 11/21/25 | [Preliminary Demo]({{ site.baseurl }}{% link demos.md %}) | Demonstrate one user story to your project mentor and the instructor. In this demo, you need to actually be running your own code (unlike the Wizard-of-Oz demo).  |
 | 11/26/25 | Second [team survey]({{ site.baseurl }}{% link surveys.md %}) | Let us know how you think the project is going. |
-| 12/10/25 | Project Implementation and Documentation | Deliver your new feature, including design documentation and tests. |
+| 12/10/25 | Project [Implementation and Documentation]({{ site.baseurl }}{% link project-deliverable.md %}) | Deliver your new feature, including design documentation and tests. |
 | 12/12/25 | Final Demo | You will demo your feature to the instructor by this date. |
 | 12/12/25 | Third [team survey]({{ site.baseurl }}{% link surveys.md %}) | Let us know how you think the project is going. |
 | 12/17/25 | Project Implementation and Documentation (Resubmission) | If your final demo does not meet your project goals, you may schedule another demo with your project mentor and the instructor no more than one week after the last day of class (12/17). Re-submit your code and documentation immediately before the demo. |

@@ -9,5 +9,7 @@ Nov 24
     **Your Choice reading**: Xu et al.'s ["Do Not Blame Users for Misconfiguration"](https://cseweb.ucsd.edu//~tixu/papers/sosp13.pdf)
 
 Nov 26
-: **No class** (Friday classes meet for Thanksgiving holiday)
+ : **No class** (Friday classes meet for Thanksgiving holiday)
     
+Nov 26
+ : **Second [Project Team Survey](../projects/surveys.html) due**{: .label .label-red }

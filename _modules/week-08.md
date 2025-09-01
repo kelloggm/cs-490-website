@@ -8,14 +8,9 @@ Oct 20
 
     **Your Choice reading**: Mokhov et al.'s [Build Systems à la Carte](https://www.microsoft.com/en-us/research/uploads/prod/2018/03/build-systems-final.pdf)
 
-Oct Z
- : **[Revised Project Plan](../projects/revised-project-plan.html) due**{: .label .label-red } 
-
 Oct 22
 : [Static Analysis](../assets/lecture-static-analysis.pdf)
   : **Mandatory reading**: Ayewah et al.'s [Experiences Using Static Analysis to Find Bugs](../assets/findbugs.pdf) and Schwartz-Narbonne's [How to integrate formal proofs into software development](https://www.amazon.science/blog/how-to-integrate-formal-proofs-into-software-development)
 
     **Your Choice reading**: Chapter 2 ("Abstract Interpretation") of Ernst's [Notes on Program Analysis](../assets/ernst-ai-notes.pdf)
     
-Oct 24
- : **Project [Deployment Demo](../projects/project-demos.html#deployment-demo-due) due**{: .label .label-red } 

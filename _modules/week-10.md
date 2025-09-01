@@ -6,6 +6,8 @@ Nov 3
 : Mid-term Exam (in-class)
   : see the [exams](../exam) page for old and practice exams (with keys)
 
+Nov 3
+: **First [Project Team Survey](../projects/surveys.html) due**{: .label .label-red }
 
 Nov 5
 : [Software Architecture](../assets/lecture-architecture.pdf)
