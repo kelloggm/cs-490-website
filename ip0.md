@@ -18,7 +18,7 @@ We understand that some of you may have some web development experience, but don
 Covey.Town is a web application that consists of some code that runs in each client's web browser, and also code that runs on a server.
 Users join the application in a "town": a 2D arcade-style map with different rooms to explore.
 Each town is also a video call: when two players get close to each other, they can see and hear each other; there is also a text chat available within the town.
-Like most real-world software engineering projects, Covey.Town is not new: the project has been development since 2021.
+Like most real-world software engineering projects, Covey.Town is not new: the project has been in development since 2021.
 
 ## Objectives of this Assignment
 
@@ -109,6 +109,17 @@ Your recording should be no longer than **one minute**.
 You can record your screen however you like; it's your responsibility to figure
 out how to do so. Consult your favorite search engine to find out how
 to record your screen on your operating system.
+
+### Tutorials
+
+We've prepared several [tutorials](../tutorials/) that might be useful for this assignment
+(and for understanding Covey.Town generally). The most useful to look at now
+are probably:
+* [setting up a development environment with NodeJS, VSCode and TypeScript](https://web.njit.edu/~mjk76/teaching/cs490-au25/tutorials/week1-getting-started.html)
+* [TypeScript basics](https://web.njit.edu/~mjk76/teaching/cs490-au25/tutorials/week1-typescript-basics.html). Most of the Covey.Town
+codebase is written in TypeScript, so if you're looking at the code and struggling to read it, this should be your first stop.
+* [React basics](https://web.njit.edu/~mjk76/teaching/cs490-au25/tutorials/react-basics). [React](https://react.dev/) is a user interface library
+that Covey.Town builds on. If you're struggling to understand how Covey.Town's graphical interface works, you might want to read this tutorial.
 
 ## Rubric
 
