@@ -1,7 +1,7 @@
 ---
-name: TBD
+name: Tiffany Yang
 role: Teaching Assistant
-email: TBD
+email: ty37@njit.edu
 photo: 
 ---
 Office Hours: TBD
