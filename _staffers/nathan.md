@@ -2,6 +2,6 @@
 name: Nathan Yong
 role: Teaching Assistant
 email: ny79@njit.edu
-photo: 
+photo: nathan.png 
 ---
 Office Hours: TBD
