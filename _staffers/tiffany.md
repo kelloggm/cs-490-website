@@ -2,6 +2,6 @@
 name: Tiffany Yang
 role: Teaching Assistant
 email: ty37@njit.edu
-photo: 
+photo: tiffany.jpg 
 ---
 Office Hours: TBD
