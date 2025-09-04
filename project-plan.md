@@ -6,28 +6,11 @@ parent: Projects
 nav_order: 5
 ---
 # Preliminary Project Plan **Due Monday 13 October 2025, 11:59pm AoE**{: .label .label-red }
-All projects will involve frontend and backend development of a new feature for Covey.Town.
-Once teams have been formed, you and your team will decide what kind of new feature you would like to build.
-Your feature should be something that can be implemented within the timeframe allotted (5 weeks, plus 2 weeks of planning), and will be implemented in a fork of the main Covey.Town codebase.
-You can play with a demo deployment of the app at [app.covey.town](https://app.covey.town), and in the coming weeks, we will provide tutorials and instructions for you to run the entire application in a local development environment, and also to deploy it to the cloud.
-Given that you will be up-to-speed on the Covey.Town codebase (and have been introduced to TypeScript, React, NodeJS, and testing frameworks),
-and that you will have a team of three or four, we expect that the feature that you propose will be more complex than the feature implemented in the individual
-homeworks.
-
-Feel free to look at existing systems like [Gather.Town](https://gather.town), [Sococo](https://www.sococo.com), [Reslash](https://reslash.co), [Screen](https://screen.so/home), and [Gatherly.IO](https://www.gatherly.io) for inspiration on new features to build for Covey.Town. Also see the NYTimes Magazine article [The Race to Fix Fix Virtual Meetings](https://www.nytimes.com/2021/02/17/magazine/video-conference.html). 
-Examples of features that students might propose include:
-* Create some new form of "Interactable" object, such as a whiteboard or game
-* Create an interface for uploading and choosing between different maps and avatars (will require also learning to use the [Phaser3 API](https://photonstorm.github.io/phaser3-docs/index.html))
-* Add screenreader support - generate a textual representation of the map and what players can do to interact with it
-* Support real persistence: store data in a database (e.g. Postgres + GraphQL), allow users to register and save a profile (e.g. using Auth0) 
-* Add direct messaging, image messaging, and other chat features
-* Anything else you can imagine that might be useful to a user of Covey.Town
-
-Please note that multiple teams might choose to propose the same feature, or a variation of that same feature - this is OK.
-
-When considering your project, please keep in mind that you will be allowed to publicly post your project online: while your immediate audience for the project is the course staff, if you are ultimately looking for software engineering jobs or co-ops, this project can be a useful piece of your portfolio. If you build a sufficiently maintainable feature (i.e., if your project is particularly well architected and tested), we will also consider pull requests to merge your feature into the main Covey.Town codebase on GitHub, allowing you to also tell recruiters that you have contributed a feature to an open source project on GitHub!
-
-The project plan will include:
+This is the first team assignment of the group project. In this assignment, your team
+will:
+* settle on a feature that everyone in the group is happy to propose. This feature can be one of the ones that one of you proposed in the individual project proposals, but it doesn't have to be.
+* write a _project plan_ that lays out in greater detail both the design of your feature and how you plan to break up the work that's necessary to build it.
+Specifically, the project plan will include:
 * Introductory problem statement
 * User stories and acceptance criteria: high level description of how users will interact with your new feature. 
 * Work breakdown: Define engineering tasks that will be necessary to implement your new feature. Map each task to a sprint. 
