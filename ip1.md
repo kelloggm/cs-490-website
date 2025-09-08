@@ -223,18 +223,18 @@ full credit, you test suite must detect at least 167 of these 180 injected bugs.
 gives the scoring function for this part:
 
 | Mutants detected | Points |
-| 167 | 27 |
+|---|---|
+| >= 167 | 27 |
 | 166 | 24 |
 | >= 164 | 21 |
 | >= 161 | 18 |
-156	15
-148	12
-135	9
-124	6
-90	3
-< 90	0
-
-TODO: scoring function!
+| >= 156 | 15 |
+| >= 148 | 12 |
+| >= 135 | 9 |
+| >= 124 | 6 |
+| >= 90 | 3 |
+| < 90 | 0 |
+|---|---|
 
 ### **Task 2**: wiring up `QuantumTicTacToeGameArea` (12 points)
 
