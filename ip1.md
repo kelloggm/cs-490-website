@@ -219,7 +219,20 @@ for this method before they got sick: they wrote a `makeMove` method and two sim
 There are basic tests for `_join()`, `_leave()`, and `applyMove` present, but they aren't nearly
 complete enough. You should write test cases as you implement the features above. On the autograder,
 we will inject a set of 180 bugs into the reference implementation of `QuantumTicTacToeGame.ts`. For
-full credit, you test suite must detect at least 167 of these 180 injected bugs.
+full credit, you test suite must detect at least 167 of these 180 injected bugs. The following table
+gives the scoring function for this part:
+
+| Mutants detected | Points |
+| 167 | 27 |
+| 166 | 24 |
+| >= 164 | 21 |
+| >= 161 | 18 |
+156	15
+148	12
+135	9
+124	6
+90	3
+< 90	0
 
 TODO: scoring function!
 
