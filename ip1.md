@@ -86,7 +86,7 @@ It's your job to finish building and testing this feature before we release it.
 
 The senior engineer who was working on this task has already made a good start: they've
 designed most of the feature, implemented and tested most
-of the frontend, and stubbed out the backend. Their code is in the `fall2025-ip1` branch
+of the frontend, and stubbed out the backend. Their code is in the `fall2025-ip1` [branch](http://github.com/kelloggm/covey.town/tree/fall2025-ip1)
 of the course staff's [Covey.Town repository](https://github.com/kelloggm/covey.town)
 that you forked or cloned in [IP0](https://kelloggm.github.io/martinjkellogg.com/teaching/cs490-au25/projects/ip0.html). To get this starter code, you need to fetch this branch. The process
 differs depending on whether you _forked_ or _cloned_ the starter repository in IP0.
@@ -134,13 +134,15 @@ TicTacToe.
 For example, while you are permitted to modify `TicTacToeGame.ts`, you are **not** permitted to modify
 its existing test suite: that test suite still must pass unmodified. This restriction represents a
 backwards-compatibility constraint that is common in the real world: you're allowed to modify code
-_as long as its externally-visible behavior doesn't change_.
+_as long as its externally-visible behavior doesn't change_. Note that the list of files in
+`package.json` needs to include everything that you modified; see the submission instructions.
 
 ## Implementation Tasks
 
 There are three high-level tasks you need to do:
 * **Task 1:** implement the backend of the game (in `QuantumTicTacToe.ts`) and test it (in`QuantumTicTacToe.test.ts`). This has barely been started, so this should be the bulk of your work.
-* **Task 2:** wire up the backend so that it can handle incoming events (`QuantumTicTacToeGameArea.ts`). This has tests and the senior engineer who handed this off to you has started it already: you just have to finish it.
+* **Task 2:** wire up the backend so that it can handle incoming events (`QuantumTicTacToeGameArea.ts`). The senior engineer who handed this off to you has written a complete test suite and
+started it already: you just have to finish it.
 * **Task 3:** finish wiring up the frontend and the backend by implementing the `_updateFrom` method in `QuantumTicTacToeAreaController.ts` in the frontend. Your colleague has already written tests for this, as well.
 
 We suggest that you complete the tasks in the order presented here, but it's up to you.
@@ -149,8 +151,8 @@ We suggest that you complete the tasks in the order presented here, but it's up 
 
 The `QuantumTicTacToeGame` class extends the base `Game` class. The senior engineer has already
 defined the relevant types for the game's state and for moves, which you can find in
-the file `shared/types/CoveyTownSocket.d.ts`. They're also reproduced below
-
+the file `shared/types/CoveyTownSocket.d.ts`. They're also reproduced below:
+<details><summary>QuantumTicTacToe types</summary>
 {% highlight typescript %}
 /**
  * Type for a move in Quantum TicTacToe
@@ -179,6 +181,7 @@ export interface QuantumTicTacToeGameState extends WinnableGameState {
   };
 }
 {% endhighlight %}
+</details>
 
 Note how `QuantumTicTacToeMove` extends the existing `TicTacToeMove` type. The senior engineer
 working on this project wanted to reuse as much of the existing TicTacToe logic as possible,
@@ -195,7 +198,7 @@ Grading:
 
 First, you should implement the basic joining and leaving functionality via the `_join()` and `_leave()` methods.
 You'll need to manage the "subgames" (A, B, and C) as well as any state that the Quantum game itself
-needs to manage. The senior engineer left a few tests for these functions, but you'll want
+needs to manage. The senior engineer wrote a few basic tests for these functions, but you'll want
 to write some of your own, as well. We recommend that you look at the implementation of the similarly-named
 methods in `TicTacToeGame.ts` and `Game.ts` to get an idea of how these are supposed to work.
 
@@ -288,7 +291,7 @@ We will review your code and note each violation of this rubric. We will deduct 
 
 ### Submission
 
-Submit your assignment to [Gradescope]().
+Submit your assignment to [Gradescope](https://www.gradescope.com/courses/1121276).
 Please contact the instructors immediately if you have difficulty accessing the course on Gradescope.
 The course entry code for Gradescope is pinned in the "#ip1-help" channel on Discord.
 
