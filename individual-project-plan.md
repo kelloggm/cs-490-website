@@ -8,30 +8,37 @@ nav_order: 4
 # Individual Project Proposal **Due Monday 29 September 2025, 11:59pm AoE**{: .label .label-red }
 All projects will involve frontend and backend development of a new feature for Covey.Town.
 Once teams have been formed, you and your team will decide exactly what kind of new feature you would like to build.
-Your feature should be something that can be implemented within the timeframe allotted (5 weeks, plus 2 weeks of planning), and will be implemented in a fork of the main Covey.Town codebase.
-You can play with a demo deployment of the app at [app.covey.town](https://app.covey.town), and in the coming weeks, we will provide tutorials and instructions for you to run the entire application in a local development environment, and also to deploy it to the cloud.
-Given that you will be up-to-speed on the Covey.Town codebase (and have been introduced to TypeScript, React, NodeJS, and testing frameworks),
-and that you will have a team of three or four, we expect that the feature that you propose will be more complex than the feature implemented in the individual
-homework.
+Your feature should be something that can be implemented within the timeframe allotted (~6 weeks, plus ~2 weeks of planning), and will be implemented in a fork of the main Covey.Town codebase.
+You can play with a demo deployment of the app at [app.covey.town](https://app.covey.town).
+Given that you will be up-to-speed on the Covey.Town codebase (and have been introduced to TypeScript, React, NodeJS, and testing frameworks)
+via the individual project,
+and that you will have a team of three or four, we expect that the feature that you propose will be significantly more complex than the feature implemented in
+[IP1](https://kelloggm.github.io/martinjkellogg.com/teaching/cs490-au25/projects/ip1.html).
 
 In this assignment, you'll first suggest a possible project on your own via a one-page project proposal. We'll use your proposals to help us assign teams based on both the direction of the proposals (i.e., we'll try to group people who suggested similar projects) and the quality of the proposals (i.e., we'll try to group people who wrote good proposals together). Hopefully, this gives you an incentive to write a good proposal!
 
 Feel free to look at existing systems like [Gather.Town](https://gather.town), [Sococo](https://www.sococo.com), [Reslash](https://reslash.co), [Screen](https://screen.so/home), and [Gatherly.IO](https://www.gatherly.io) for inspiration on new features to build for Covey.Town. Also see the NYTimes Magazine article [The Race to Fix Fix Virtual Meetings](https://www.nytimes.com/2021/02/17/magazine/video-conference.html). 
 Examples of features that students might propose include:
-* Create some new form of "Interactable" object, such as a whiteboard or game
+* Create some new form of "Interactable" object that models something that might be found in a real conference space, such as a whiteboard or game
+  * if you are going to create an interactable version of some sort of game, be careful: it is easy to pick a game that's too simple or too complex
 * Create an interface for uploading and choosing between different maps and avatars (will require also learning to use the [Phaser3 API](https://photonstorm.github.io/phaser3-docs/index.html))
+* Create an interface for choosing between different visual styles, fonts, avatars, etc.
 * Add screenreader support - generate a textual representation of the map and what players can do to interact with it
 * Support real persistence: store data in a database (e.g. Postgres + GraphQL), allow users to register and save a profile (e.g. using Auth0) 
 * Add direct messaging, image messaging, and other chat features
-* Anything else you can imagine that might be useful to a user of Covey.Town
+* Add a working map to the town that allows you to locate (and navigate to?) other players
+* Integrate with some external service that will enhance the user experience (e.g., integrating with Spotify to add music to the town)
+* Add a virtual assistant to the town that can carry out various actions on behalf of the user via a natural language interface
+* Add support for advertising in the town (and potentially integrate with an external ad service like Google)
+* Anything else you can imagine that might be useful to a user or operator of Covey.Town
 
 Please note that multiple students (at this stage) or teams (at the preliminary plan stage) might choose to propose the same feature, or a variation of that same feature - this is OK.
 
-When considering project ideas, please keep in mind that you will be allowed to publicly post your project online: while your immediate audience for the project is the course staff, if you are ultimately looking for software engineering jobs or co-ops, this project can be a useful piece of your portfolio. If you build a sufficiently maintainable feature (i.e., if your project is particularly well architected and tested), we will also consider pull requests to merge your feature into the main Covey.Town codebase on GitHub, allowing you to also tell recruiters that you have contributed a feature to an open source project on GitHub!
+When considering project ideas, please keep in mind that you will be allowed to publicly post your project online: while your immediate audience for the project is the course staff, if you are ultimately looking for software engineering jobs or co-ops, this project can be a useful piece of your portfolio. If you build a sufficiently maintainable feature (i.e., if your project is particularly well architected and tested), we will also consider pull requests to merge your feature into the main Covey.Town codebase on GitHub, allowing you to also tell recruiters that you have contributed a feature to an open source project on GitHub.
 
 ## Writing a One-Pager
 
-There is a strict one-page limit to the length of your individual proposal. One page is very short! So, it's critical that you use your space well.
+There is a **strict one-page limit** to the length of your individual proposal. One page is very short! So, it's critical that you use your space well.
 
 We suggest trying to answer the following questions, in this order (e.g., in one paragraph each):
 * **Why?** What problem is your project idea trying to solve? Who will benefit if you succeed?
@@ -40,5 +47,28 @@ We suggest trying to answer the following questions, in this order (e.g., in one
 
 There's also a lot of guidance online about how to write a good one-pager, especially in a software engineering context. For example, Amazon famously starts many design meetings with one-pagers. Here are some pieces of advice that we find credible:
 * ["How To Write a One-Pager like an Amazonian"](https://francisshanahan.substack.com/p/how-to-write-a-one-pager-like-an) by Fancis Shanahan
+* ["Microspeak: The one-pager"](https://devblogs.microsoft.com/oldnewthing/20220719-00/?p=106873) by Raymond Chen
 * ["Undervalued Software Engineering Skills: Writing Well"](https://blog.pragmaticengineer.com/on-writing-well/) by Gergely Orosz
-* 
+
+## Rubric
+
+This assignment will be graded out of 50 points. There are five subscores, for **Ambition**, **Clarity**, **Rationale**, **Technical Challenges**, and **Writing**. These are detailed below.
+
+### Ambition (10 points)
+
+This subscore represents whether your proposal is appropriately-ambitious for a four-person team of undergraduates in half of a semester.
+You'll receive less than full credit if your proposal is either too ambitious or not ambitious enough:
+* 10 points if your proposal is appropriately-ambitious for a four-person team of undergraduates in half of a semester
+* 8 points if your proposal is a bit too ambitious or a bit unambitious. For example, if there is an obvious addition to the project that would make it significantly better and you don't include it, you might get this score.
+* 5 points if your proposal is viable but either much too ambitious or not nearly ambitious enough. For example, you might get this score if you propose to re-implement an indie videogame built by a one-person team over the course of years in Covey.Town in 6 weeks, or if you propose something that's only a little more complex than IP1.
+* 0 points if your proposal is not viable. For example, you might get this score if you propose to re-implement a commercially-produced videogame that was developed by a team of engineers in six weeks, or if your proposal is no more ambitious than IP1.
+
+### Clarity (10 points)
+
+This subscore represents whether your proposal is clear to the reader. Any ambiguities in what you are proposing to do will result
+in deductions; the amount deducted will depend on the importance and severity of the ambiguity.
+
+### Rationale (10 points)
+
+This subscore represents whether your proposal clearly identifies **why** it will be valuable to users or operators of Covey.Town, and what
+the benefit(s) of your proposal will be.

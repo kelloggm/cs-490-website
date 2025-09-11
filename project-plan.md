@@ -88,6 +88,7 @@ The project plan will account for 7.5% of your project grade, and will be graded
 ### Introductory problem statement (5 points): 
 * Receive full marks if there is a narrative consisting of 4-10 sentences that describes a specific problem that your project aims to solve.
 * Receive partial credit if the narrative is present, but does not describe a problem that the project aims to solve
+* Minor deductions for factual errors ("don't say false things") or egregious overclaims ("our project will usher in a new era of world peace")
 
 ### User stories (12 points):
 Each of the three user stories will account for 4 points of your grade on this assignment and graded as follows:
@@ -112,9 +113,10 @@ It is not possible to state generically for all projects whether *all* of the ab
 However, we believe that this list is exhaustive (we do not expect other kinds of tasks).
 
 #### Assignment of tasks (9 points):
-Receive full marks if:
-* Each element on the work breakdown is assigned to one team member
+Receive full marks if
+* Each element of the work breakdown is assigned to specific team members, and no "small" or "medium" task is assigned to more than one team member. You have a bit of flexibility about how you want to assign tasks (e.g., it's permitted for you to have "primary" and "secondary" team members for each tasks, just one team member per task, etc.) as long as it is clear to the course staff which team member has the primary responsibility for each task.
 * The distribution of tasks of each size are roughly similar between the whole team (no single person is assigned significantly more or fewer tasks of one size)
+* Each team member has at least one task assigned to them during each sprint)
 
 #### Sizing of tasks (20 points):
 Receive full marks if each element on the work breakdown:
