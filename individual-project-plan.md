@@ -52,7 +52,7 @@ There's also a lot of guidance online about how to write a good one-pager, espec
 
 ## Rubric
 
-This assignment will be graded out of 50 points. There are five subscores, for **Ambition**, **Clarity**, **Rationale**, **Technical Challenges**, and **Writing**. These are detailed below.
+This assignment will be graded out of 50 points. There are five subscores, for **Ambition**, **Clarity**, **Rationale**, **Technical Challenges and Alternatives**, and **Writing**. These are detailed below.
 
 ### Ambition (10 points)
 
@@ -71,4 +71,32 @@ in deductions; the amount deducted will depend on the importance and severity of
 ### Rationale (10 points)
 
 This subscore represents whether your proposal clearly identifies **why** it will be valuable to users or operators of Covey.Town, and what
-the benefit(s) of your proposal will be.
+the benefit(s) of your proposal will be. In particular, for full credit your proposal should:
+* clearly distinguish between goals and non-goals
+* identify the target audience of your feature
+* make a clear argument for how the proposed feature will benefit the target audience
+
+### Technical Challenges and Alternatives (10 points)
+
+This subscore represents whether your proposal has engaged with the technical difficulties that you're likely to encounter while
+building the proposed feature. At a high-level, we're looking for evidence that you've thought the feature through.
+Full credit proposals can show that by doing at least one of the following:
+* discussing at least one reasonable alternative to the proposed feature that would solve the same problem, and making a credible arguemnt that the proposed feature is the better option
+* discussing a difficult technical challenge that you expect to encounter while building the feature and a proposed solution
+* discussing libraries that your feature can build on to mitigate expected technical challenges
+
+### Writing (10 points)
+
+This subscore represents the quality of your writing. While the "quality" of writing is subjective in general, for
+a one-page project proposal we're looking for the following:
+* no typos
+* appropriate use of technical jargon
+* concision
+
+To help with concision, we recommend thinking about the "length-to-content ratio" (LCR) of your writing. That is, if it's possible
+to say the same thing with fewer syllables or words, do so. A longer writeup on the idea of LCR can be found [here](https://docs.google.com/document/d/1iqbMNrIHH2w6i05aEae6y0HnsX53aKrFji5GgGZCyAg/edit?usp=sharing).
+
+## Submission
+
+Your project plan should be submitted as a single PDF in [Canvas](https://njit.instructure.com/courses/55106) to the assignment "Individual Project Proposal."
+The assignment is due by the end of September 29, AoE.
