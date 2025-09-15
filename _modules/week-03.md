@@ -10,7 +10,7 @@ Sep 15
 
 Sep 17
 : [Testing (2)](../assets/lecture-testing2.pdf)
-  : **Mandatory reading**: Petrovic's [Mutation Testing](https://testing.googleblog.com/2021/04/mutation-testing.html)
+  : **Mandatory reading**: Petrovic's [Mutation Testing](https://testing.googleblog.com/2021/04/mutation-testing.html) and the [Individual Project Proposal specification](https://kelloggm.github.io/martinjkellogg.com/teaching/cs490-au25/projects/individual-project-proposal.html)
 
     **Your Choice reading**: Memon et al.'s [Taming Google-Scale Continuous Testing](../assets/googletest.pdf)
 
