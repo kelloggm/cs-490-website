@@ -114,7 +114,7 @@ However, we believe that this list is exhaustive (we do not expect other kinds o
 
 #### Assignment of tasks (9 points):
 Receive full marks if
-* Each element of the work breakdown is assigned to specific team members, and no "small" or "medium" task is assigned to more than one team member. You have a bit of flexibility about how you want to assign tasks (e.g., it's permitted for you to have "primary" and "secondary" team members for each tasks, just one team member per task, etc.) as long as it is clear to the course staff which team member has the primary responsibility for each task.
+* Each element of the work breakdown is assigned to specific team members, and we can clearly identify which specific team member is primarily responsible for each "small" or "medium" task. You have a bit of flexibility about how you want to assign tasks (e.g., it's permitted for you to have "primary" and "secondary" team members for each tasks, just one team member per task, etc.) as long as it is clear to the course staff which team member has the primary responsibility for each task.
 * The distribution of tasks of each size are roughly similar between the whole team (no single person is assigned significantly more or fewer tasks of one size)
 * Each team member has at least one task assigned to them during each sprint)
 
