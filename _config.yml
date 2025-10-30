@@ -13,11 +13,11 @@
 # you will see them accessed via {{ site.title }}, {{ site.github_repo }}, and so on.
 # You can create any custom variable you would like, and they will be accessible
 # in the templates via {{ site.myvariable }}.
-title: CS 485 Compilers (Sp25)
-tagline: The course website for NJIT CS 485 Compilers
-description: The course website for NJIT CS 485 in Spring 2025, as taught by Martin Kellogg
+title: CS 485 AI-Assisted Software Engineering (Sp26)
+tagline: The course website for NJIT CS 485 AI-Assisted Software Engineering
+description: The course website for NJIT CS 485 in Spring 2026, as taught by Martin Kellogg
 author: Martin Kellogg
-baseurl: '/martinjkellogg.com/teaching/cs485-sp25/' # the subpath of your site, e.g. /blog
+baseurl: '/martinjkellogg.com/teaching/cs485-sp26/' # the subpath of your site, e.g. /blog
 url: 'https://kelloggm.github.io' # the base hostname & protocol for your site, e.g. http://example.com
 exclude: ["Gemfile", "Gemfile.lock", "LICENSE"]
 
@@ -28,13 +28,9 @@ search_enabled: true
 heading_anchors: true
 permalink: pretty
 aux_links:
-  CRM:
-    - 'https://kelloggm.github.io/martinjkellogg.com/teaching/cs485-sp25/crm/onepage/crm-onepage.html'
   Discord:
     - 'https://discord.com/channels/1329854456967467048/1329854456967467051'
-  Gradescope:
-    - 'https://www.gradescope.com/courses/956674'
-footer_content: "&copy; 2022-2025 Martin Kellogg, Wes Weimer, Jonathan Bell, Adeel Bhutta and Mitch Wand. Released under the <a href=\"https://creativecommons.org/licenses/by-sa/4.0/\">CC BY-SA</a> license"
+footer_content: "&copy; 2022-2026 Martin Kellogg, Jonathan Bell, Adeel Bhutta and Mitch Wand. Released under the <a href=\"https://creativecommons.org/licenses/by-sa/4.0/\">CC BY-SA</a> license"
 
 # Collections for website data
 collections:

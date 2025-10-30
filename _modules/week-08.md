@@ -2,13 +2,16 @@
 title: Week 8
 ---
 
-Mon Mar 10
-: [x86-64 Assembly](../assets/lecture-x86-review.pdf)
-  : **Mandatory reading**: _EaC_ 6 through 6.4
-    
-Wed Mar 12
-: [Code Generation (1)](../assets/lecture-codegen1.pdf)
-  : **Mandatory reading**: _EaC_ 7 through 7.4
+Mon Mar 9
+: Backend Dev w/ LLMs
+  : **Mandatory reading**: TBD
+  : **Optional reading**: TBD
 
-Fri Mar 14
- : **[PA3c2](../projects/pa3.html#what-to-turn-in-for-pa3c2) due**{: .label .label-red } 
+Wed Mar 11
+: Backend Dev w/ LLMs
+  : **Mandatory reading**: TBD
+  : **Optional reading**: TBD
+
+Sometime this week
+  : **Reflection essay on LLMs for backend dev due**{: .label .label-red }
+  : **Project backend code initial submission due**{: .label .label-red }

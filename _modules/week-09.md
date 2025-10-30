@@ -2,8 +2,12 @@
 title: Week 9
 ---
 
-Mon Mar 17
-: **No Class** (Spring Break)
+Mon Mar 23
+: Testing w/ LLMs
+  : **Mandatory reading**: TBD
+  : **Optional reading**: TBD
 
-Wed Mar 19
-: **No Class** (Spring Break)
+Wed Mar 25
+: Testing w/ LLMs
+  : **Mandatory reading**: TBD
+  : **Optional reading**: TBD

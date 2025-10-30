@@ -2,15 +2,16 @@
 title: Week 10
 ---
 
-Mon Mar 24
-: [Code Generation (2)](../assets/lecture-codegen2.pdf)
-  : **Mandatory reading**: _EaC_ 7.5 through end of 7
+Mon Mar 30
+: Testing w/ LLMs
+  : **Mandatory reading**: TBD
+  : **Optional reading**: TBD
 
-    **Optional reading**: McCarthy and Painter's [_Correctness of a Compiler for Arithmetic Expressions_](../assets/mcpain.pdf)
+Wed Apr 1
+: Testing w/ LLMs
+  : **Mandatory reading**: TBD
+  : **Optional reading**: TBD
 
-Wed Mar 26
-: Mid-term Exam (in-class)
-  : see the [exams](../exam) page for more information
-
-
-
+Sometime this week
+  : **Reflection essay on LLMs for testing due**{: .label .label-red }
+  : **Project synthetic tests submission due**{: .label .label-red }

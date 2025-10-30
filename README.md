@@ -1,30 +1,36 @@
 ---
 layout: home
-title: CS 485 Compilers (Sp25)
+title: CS 485 AI-Assisted Software Engineering (Sp26)
 nav_exclude: true
 permalink: /:path/
 seo:
   type: Course
-  name: CS 485 Compilers (sp25)
+  name: CS 485 AI-Assisted Software Engineering (sp26)
 ---
 
-# Welcome to CS 485: Compilers
+<img id="course-banner" src="" alt="Course Banner" style="width:100%;" />
 
-Welcome to CS 485: Compilers! This course teaches students how to
-build an optimizing compiler for a Java-like object-oriented
-programming language. Topics include program semantics, typechecking,
-intermediate representations like single static assignment (SSA) form,
-code generation, and classic compiler optimizations including register
-allocation via graph coloring, peephole optimizations, and dataflow
-analyses. Students will also be introduced to functional programming,
-and its advantages for transformation-based programs like compilers
-that have strict correctness requirements.
+# CS 485: AI-Assisted Software Engineering
 
-On this course website, you can find:
+Modern generative artificial intelligence tools are astonishingly effective at generating code, given natural language specifications. The software engineering industry is rapidly adopting these tools to improve engineers’ productivity: instead of writing all of their code themselves, many engineers are now effectively “team leaders”, managing a “team” of artificial intelligence tools. In this course, students will get hands-on experience in using such artificial intelligence tools for software engineering in a semester-long course project. Topics will include agents, requirements elicitation and specification in the AI era, AI code generation and how to ensure that AI-generated code is correct, and discussions of how other traditional software engineering practices like code review and static analysis can help with AI-assisted software engineering.
+
+<span style="color: red; font-size: 2em;"><strong>This website is under construction!</strong></span>
+
+Any and all of its contents may change before the start of the spring semester.
+When it is complete, the course website will consist of:
 - the [syllabus](about.md),
 - a [course calendar](calendar.md) (which includes links to the required readings),
-- links to all [assignment descriptions](./projects),
-- information about [supported programming languages](languages.md),
-- a [staff](staff.md) page,
-- useful [tutorials](tutorials.md), and
-- information about [exams](exam.md).
+- links to  [assignment descriptions](./projects),
+- a [staff](staff.md) page, and
+- useful [tutorials](tutorials.md).
+
+{% raw %}
+<script>
+  document.addEventListener("DOMContentLoaded", function() {
+    var bannerCount = 4;
+    var randomIndex = Math.floor(Math.random() * bannerCount);
+    var bannerImage = "assets/images/banner" + randomIndex + ".png";
+    document.getElementById("course-banner").src = bannerImage;
+  });
+</script>
+{% endraw %}

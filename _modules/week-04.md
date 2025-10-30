@@ -2,15 +2,16 @@
 title: Week 4
 ---
 
-Mon Feb 10
-: [Typechecking and Static Semantics](../assets/lecture-semantics1.pdf)
-  : **Mandatory reading**: _EaC_ 4.3
+Mon Feb 9
+: Specifications
+  : **Mandatory reading**: TBD
+  : **Optional reading**: TBD
 
-    **Optional reading**: Chapter 30 ("Type Inference") of Krishnamurthi's [_Programming Languages: Application and Interpretation_](https://cs.brown.edu/~sk/Publications/Books/ProgLangs/2007-04-26/plai-2007-04-26.pdf) (pages 289-299 in the linked PDF)
+Wed Feb 11
+: Specifications
+  : **Mandatory reading**: TBD
+  : **Optional reading**: TBD
 
-Wed Feb 12
-: [More Static Semantics](../assets/lecture-semantics2.pdf)
-  : **Mandatory reading**: _EaC_ 4.4
-
-    **Optional reading**: Hoare's [_Proof of a Program: FIND_](../assets/HoareFind.pdf) and/or Dijkstra's [_Guarded Commands, Nondeterminacy, and Formal Derivation of Programs_](../assets/DijkstraGC.pdf)
-
+Sometime this week
+  : **Reflection essay on requirements gathering w/ LLMs due**{: .label .label-red }
+  : **Project requirements doc due**{: .label .label-red }
