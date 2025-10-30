@@ -1,11 +1,11 @@
 ---
 layout: home
-title: CS 485 AI-Assisted Software Engineering (Sp26)
+title: CS 485/698 AI-Assisted Software Engineering (Sp26)
 nav_exclude: true
 permalink: /:path/
 seo:
   type: Course
-  name: CS 485 AI-Assisted Software Engineering (sp26)
+  name: CS 485/698 AI-Assisted Software Engineering (sp26)
 ---
 
 <img id="course-banner" src="" alt="Course Banner" style="width:100%;" />
@@ -17,6 +17,10 @@ Modern generative artificial intelligence tools are astonishingly effective at g
 <span style="color: red; font-size: 2em;"><strong>This website is under construction!</strong></span>
 
 Any and all of its contents may change before the start of the spring semester.
+
+The registrar is still working on scheduling this course. However, they have indicated to me
+that it will _probably_ be scheduled Monday/Wednesday 11:30am-12:50pm.
+
 When it is complete, the course website will consist of:
 - the [syllabus](about.md),
 - a [course calendar](calendar.md) (which includes links to the required readings),
