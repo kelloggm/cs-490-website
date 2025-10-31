@@ -7,7 +7,7 @@ nav_order: 9
 ---
 
 There will be three anonymous surveys on how the project is going and how your teammates are performing:
-* the first will be due on November 3, after the Deployment Demo
+* the [first](https://forms.gle/GFtJ5jGu9FG5yR9g8) will be due the week after the Deployment Demo (November 7)
 * the second on November 26, right before Thanksgiving
 * the third with your individual reflection, after you submit your final deliverables
 

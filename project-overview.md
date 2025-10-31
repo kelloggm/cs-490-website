@@ -24,7 +24,7 @@ All implementation will take place in the TypeScript programming language, using
 | 10/13/25 | [Preliminary Project Plan]({{ site.baseurl }}{% link project-plan.md %}) | As a team, propose and plan a new feature for Covey.Town that can be implemented within 7 weeks |
 | 10/27/25 | [Revised Project Plan]({{ site.baseurl }}{% link revised-project-plan.md %}) | Refine the scope of your feature based on staff feedback, define detailed requirements and project acceptance criteria. |
 | 10/31/25 | [Deployment Demo]({{ site.baseurl }}{% link demos.md %}) | Show that you can deploy a lightly-modified copy of covey.town to a remotely-accessible machine. |
-| 11/3/25 | First [team survey]({{ site.baseurl }}{% link surveys.md %}) | Let us know how you think the project is going. |
+| 11/7/25 | First [team survey]({{ site.baseurl }}{% link surveys.md %}) | Let us know how you think the project is going. |
 | 11/7/25 | [Wizard-of-Oz Demo]({{ site.baseurl }}{% link demos.md %}) | Show what your project will look like, once it is complete, to your project mentor and the instructor. This demo doesn't require you to show any working code: it is purely about design. |
 | 11/21/25 | [Preliminary Demo]({{ site.baseurl }}{% link demos.md %}) | Demonstrate one user story to your project mentor and the instructor. In this demo, you need to actually be running your own code (unlike the Wizard-of-Oz demo).  |
 | 11/26/25 | Second [team survey]({{ site.baseurl }}{% link surveys.md %}) | Let us know how you think the project is going. |
