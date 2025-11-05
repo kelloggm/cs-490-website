@@ -84,8 +84,8 @@ positive impact on your participation score.
 
 This course does not have traditional exams. Your understanding will be assessed through your project work, reflection essays, and in-class participation.
 
-## BS vs MS students: 
-MS students will be expected to 1) work in teams only with other MS students, and 2) choose more ambitious course projects. I will also provide a set of readings in the current literature on this topic throughout the semester; for the undergrads, these readings will be optional, but for the graduate students they will be required. I will also require an additional reflective essay from each graduate student on one of the papers from throughout the semester, to be presented to the whole class during one of the last class sessions. Otherwise, all students will be held to the same standards.
+## BS vs MS/PhD students: 
+MS/PhD students will be expected to 1) work in teams only with other MS students, and 2) choose more ambitious course projects. I will also provide a set of readings in the current literature on this topic throughout the semester; for the undergrads, these readings will be optional, but for the graduate students they will be required. I will also require an additional reflective essay from each graduate student on one of the papers from throughout the semester, to be presented to the whole class during one of the last class sessions. Otherwise, all students will be held to the same standards.
 
 ## Collaboration Policy
 

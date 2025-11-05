@@ -18,8 +18,9 @@ Modern generative artificial intelligence tools are astonishingly effective at g
 
 Any and all of its contents may change before the start of the spring semester.
 
-The registrar is still working on scheduling this course. However, they have indicated to me
-that it will _probably_ be scheduled Monday/Wednesday 11:30am-12:50pm.
+The course will meet on Mondays and Wednesdays at 11:30am. The course is open to students at all levels:
+bachelor's, master's, and PhD. Graduate students will be expected to engage with current research in the
+topic; see [this description](https://kelloggm.github.io//martinjkellogg.com/teaching/cs485-sp26/about/#bs-vs-msphd-students) in the syllabus for the specific requirements for graduate students.
 
 When it is complete, the course website will consist of:
 - the [syllabus](about.md),
