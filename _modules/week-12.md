@@ -10,7 +10,7 @@ Nov 17
 
 
 Nov 19
-: [DevOps (1)](../assets/lecture-devops1.pdf)
+: [DevOps (1)](../assets/lecture-devops.pdf)
   : **Mandatory reading**: Sloss' ["Introduction"](https://sre.google/sre-book/introduction/) and Baye's ["Emergency Response"](https://sre.google/sre-book/emergency-response/) from Google's [Site Reliability Engineering](https://sre.google/sre-book/table-of-contents/)
 
     **Your Choice reading**: Dean and Barroso's ["The Tail at Scale"](../assets/tail-at-scale.pdf)
