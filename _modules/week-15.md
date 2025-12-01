@@ -4,7 +4,7 @@ title: Week 15
 
 Dec 8
 : Software Engineer Panel
-  : **Mandatory reading**: none, but you must [submit a question](#) by December 2 AoE
+  : **Mandatory reading**: none, but you must [submit a question](#) by December 7 AoE
 
     **Your Choice reading**: none
 
