@@ -8,10 +8,12 @@ Mon Feb 9
   : **Optional reading**: TBD
 
 Wed Feb 11
+  : **[Reflection essay](../assignments/a1) on requirements gathering w/ LLMs due at the start of class**{: .label .label-red }
+
+Wed Feb 11
 : Specifications
   : **Mandatory reading**: TBD
   : **Optional reading**: TBD
 
-Sometime this week
-  : **Reflection essay on requirements gathering w/ LLMs due**{: .label .label-red }
-  : **Project requirements doc due**{: .label .label-red }
+Wed Feb 11
+: **[Project requirements doc](../projects/p1) due**{: .label .label-red }
