@@ -1,6 +1,6 @@
 ---
 layout: page
-title: Programming Assignments
+title: Project
 permalink: /projects/
 has_children: true
 nav_order: 3
