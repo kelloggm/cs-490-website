@@ -55,3 +55,5 @@ just reading the solutions.
 [Au24 Final](../assets/au24-final.pdf) ([key](../assets/au24-final-key.pdf))
 
 [Au25 Midterm](../assets/au25-midterm.pdf) ([key](../assets/au25-midterm-key.pdf))
+
+[Au25 Final](../assets/au25-final.pdf) ([key](../assets/au25-final-key.pdf))
