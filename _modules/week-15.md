@@ -3,8 +3,8 @@ title: Week 15
 ---
 
 Mon May 5
-: Slack
+: Project presentations
   : **Mandatory reading**: TBD
 
-Sometime this week
-  : **Project final submission + postmortem due**{: .label .label-red }
+Mon May 5
+  : **[Project final submission + postmortem](../projects/p7) due**{: .label .label-red }

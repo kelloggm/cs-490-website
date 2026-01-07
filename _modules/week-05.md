@@ -3,14 +3,16 @@ title: Week 5
 ---
 
 Mon Feb 16
-: Frontend Dev w/ LLMs
+: Frontend: Introduction
   : **Mandatory reading**: TBD
-  : **Optional reading**: TBD
+  
+	**Optional reading**: TBD
 
 Wed Feb 18
-: Frontend Dev w/ LLMs
+: Frontend: Creating the UI Code
   : **Mandatory reading**: TBD
-  : **Optional reading**: TBD
+  
+	**Optional reading**: TBD
 
-Sometime this week
-  : **Project specification doc due**{: .label .label-red }
+Wed Feb 18
+  : **[Project specification](../projects/p2) doc due**{: .label .label-red }

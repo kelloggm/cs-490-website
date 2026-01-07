@@ -3,11 +3,13 @@ title: Week 7
 ---
 
 Mon Mar 2
-: Backend Dev w/ LLMs
+: Backend: Coding Lab
   : **Mandatory reading**: TBD
-  : **Optional reading**: TBD
+  
+	**Optional reading**: TBD
 
 Wed Mar 4
-: Backend Dev w/ LLMs
+: Backend: Notifications
   : **Mandatory reading**: TBD
-  : **Optional reading**: TBD
+  
+	**Optional reading**: TBD

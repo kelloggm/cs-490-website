@@ -3,15 +3,19 @@ title: Week 6
 ---
 
 Mon Feb 23
-: Frontend Dev w/ LLMs
-  : **Mandatory reading**: TBD
-  : **Optional reading**: TBD
+: Frontend: Creating UI Behaviors
+  : **Mandatory reading**: [Good Vibrations? A Qualitative Study of Co-Creation, Communication, Flow, and Trust in Vibe Coding](https://arxiv.org/abs/2509.12491)
+  
+	**Optional reading**: TBD
+
+Before class on Feb 25
+  : **Reflection essay on LLMs for frontend dev due**{: .label .label-red }
 
 Wed Feb 25
-: Frontend Dev w/ LLMs
+: Frontend: Discussion
   : **Mandatory reading**: TBD
-  : **Optional reading**: TBD
+  
+	**Optional reading**: TBD
 
-Sometime this week
-  : **Reflection essay on LLMs for frontend dev due**{: .label .label-red }
-  : **Project frontend code initial submission due**{: .label .label-red }
+Wed Feb 25
+  : **Project [frontend code initial submission](../projects/p3) due**{: .label .label-red }
