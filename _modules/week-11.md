@@ -2,17 +2,18 @@
 title: Week 11
 ---
 
+Sun Apr 5
+  : **[Project synthetic tests](../projects/p5) submission due**{: .label .label-red }
+
 Mon Apr 6
-: Deployment
+: Deployment: Intro
   : **Mandatory reading**: TBD
   
 	**Optional reading**: TBD
 
 Wed Apr 8
-: Deployment
+: Deployment: Backend
   : **Mandatory reading**: TBD
   
 	**Optional reading**: TBD
 
-Wed Apr 8
-  : **[Project deployment](../projects/p6) due**{: .label .label-red }

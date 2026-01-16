@@ -8,8 +8,10 @@ Mon Apr 27
   
 	**Optional reading**: TBD
 
+Before class on Apr 29
+: Reflection essay on optional reading due (graduate students only)
+
 Wed Apr 29
 : Course wrapup + start project presentations
-  : **Mandatory reading**: TBD
+  : **Mandatory reading**: none
   
-	**Optional reading**: TBD

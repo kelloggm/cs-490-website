@@ -15,5 +15,3 @@ Wed Feb 11
   : **Mandatory reading**: TBD
    **Optional reading**: TBD
 
-Wed Feb 11
-: **[Project requirements doc](../projects/p1) due**{: .label .label-red }
