@@ -27,7 +27,7 @@ Officially, none. Students will be expected to know how to program well enough t
 ## Grading and Assignments
 
 Your grade is composed of the following sub-scores (in no particular order):
-*   50%: Course Project (consisting of 5 sub-assignments, with the final submission worth 30% of the total course grade)
+*   50%: Course Project (consisting of 7 sub-assignments, with the final submission worth 25% of the total course grade)
 *   18%: Reflection Essays
 *   32%: In-class Activities, Participation, and Professionalism
 
@@ -45,15 +45,19 @@ There will be a semester-long course project that will involve a significant sof
 As part of your submission for each assignment, you will be required to submit the logs of all of your interactions with
 your AI tools. Be sure to keep these logs. TODO: add more details here for students about how to do this to avoid surprises.
 
-The course project is broken down into 5 sub-assignments, with the final submission being the largest component.
+The course project is broken down into [seven sub-assignments](../projects), with the final submission being the largest component.
 
-Students will also complete several reflection essays throughout the semester, which are designed to encourage critical thinking about the use of AI in software engineering. These essays must be completed without the assistance of AI tools.
+Students will also complete [several reflection essays](../assignments) throughout the semester, which are designed to encourage critical thinking about the use of AI in software engineering. These essays must be completed without the assistance of AI tools.
 
 ### Textbook
 
 This course has no required textbook. Students will make heavy use of generative AI tools via APIs, so a subscription to one of them is recommended. In particular, a web-based LLM is not sufficient, because students will be expected to run their LLMs in “agentic” loops, where an automated process (e.g., a test suite) provides feedback to the LLM until some condition is met. Student- or free-tier plans are often available. I expect students will need at least one of Claude Code, Cursor, OpenAI Codex, etc.
 
 Topic-specific reading materials for software engineering topics (e.g., software architecture, various testing techniques, code review, etc.) will be provided; these will be officially optional, but strongly recommended for students who have not taken CS 490.
+
+#### List of known student plans for AI tools:
+* [Figma Make](https://www.figma.com/education/)
+* TODO: add more as we become aware of them
 
 ### Participation & Professionalism
 
@@ -74,7 +78,7 @@ to participate in a particular class remotely.
 
 #### Asking Questions
 
-There is a course [Discord server](https://discord.com/channels/1329854456967467048/1329854456967467051) <!-- TODO: Verify this Discord link is for the new AI-assisted SE course. -->
+There is a course [Discord server](https://discord.com/channels/1462907670855159891/1462907671735832585)
 which you can use to ask (and answer) questions about any of the course topics or for
 help with the homework. Participating on Discord is optional, but if you do
 participate in a productive manner (especially by answering other student's questions!), it will have a
@@ -85,38 +89,34 @@ positive impact on your participation score.
 This course does not have traditional exams. Your understanding will be assessed through your project work, reflection essays, and in-class participation.
 
 ## BS vs MS/PhD students: 
-MS/PhD students will be expected to 1) work in teams only with other MS students, and 2) choose more ambitious course projects. I will also provide a set of readings in the current literature on this topic throughout the semester; for the undergrads, these readings will be optional, but for the graduate students they will be required. I will also require an additional reflective essay from each graduate student on one of the papers from throughout the semester, to be presented to the whole class during one of the last class sessions. Otherwise, all students will be held to the same standards.
+MS/PhD students will be expected to 1) work in teams only with other MS students, and 2) choose more ambitious course projects. I will also provide a set of readings in the current literature on this topic throughout the semester, called "Special topics readings" on the calendar; for the undergrads, these readings will be optional, but for the graduate students they will be required. I will also require an additional reflective essay from each graduate student on one of the papers from throughout the semester, to be presented to the whole class during one of the last class sessions. Otherwise, all students will be held to the same standards.
 
 ## Collaboration Policy
 
 Collaboration is generally encouraged in this course, as is consulting
 online resources. You are permitted to copy small amounts of code
 from any source except someone else's copy of an assignment,
-*as long as you cite your source*. “someone else's copy of an
+*as long as you cite your source*. “Someone else's copy of an
 assignment” also includes students not currently enrolled in the
 course - e.g., students who took
 this class in previous semesters or
 took classes that used similar projects at other
 institutions. To make this more clear, here are some examples of
-acceptable and unacceptable collaboration on a programming assignment
+acceptable and unacceptable collaboration on  assignments
 in this course:
 
 Acceptable collaborations:
-* Discuss problems/solutions/anything with any number of other students (as long as you don’t look at each other’s code).
+* Discuss problems/solutions/anything with any number of other students (as long as you don’t look at each other’s code or text).
 * Copy a short (about 10 lines or fewer - use your judgment) snippet from [stackoverflow.com](stackoverflow.com) or a similar source, as long as you include a comment with the source URL.
 * Copy code written by one of your teammates during a group project for another part of the group project.
-* Copy code from the output of a generative AI tool such as ChatGPT that you prompted yourself,
-if you include a link to a record of your interaction with the model (e.g., ChatGPT's "share" feature)
-as a code comment.
+* Copy code from the output of a generative AI tool such as ChatGPT that you prompted yourself (as long as you include a log of your interaction with your assignment submission).
 
 Unacceptable collaborations:
-* Copy code directly from another student on an individual project.
+* Copy text from another student's reflection essay.
 * Copy code from another group on a group project.
-* Copy a significant portion (more than about 10 lines of code or a single method - use your judgment) of your assignment from the internet, even if you cite your source.
-* Copy a short snippet from the internet without citing your source.
-* Copy code from the output of a generative AI tool (such as ChatGPT) without citing your source
-* Copy code from the output of a generative AI tool prompted by someone other than you (or your teammates,
-for a group project)
+* Copy any code or text from the internet without citing your source.
+* Copy code from the output of a generative AI tool (such as ChatGPT) without including a log of your interaction with the AI tool, or otherwise implying that it is your own work.
+* Copy code from the output of a generative AI tool prompted by someone other than you or your teammates, for the group project.
 
 These rules are intended to mimic what is acceptable in industry when
 working as a software engineer: using the resources available to you,
@@ -126,16 +126,13 @@ similar product.
 
 ### Generative AI Policy
 
-You are permitted to use generative AI tools on any assignment in this course, as long as you include a record of your interaction with the generative AI tool
-in your submission. For example, if you use ChatGPT to help you with an assignment, you are required to include the output of the "share" tool in OpenAI's interface
-as a code comment in your submission. You may choose how you include your prompts and responses in your submission (e.g., it's also permissible to include the full
-text of both your prompts and the output of the tool), but the following must be accessible to the course staff while grading:
-* the name and version of the model being used
-* the full text of your prompts
-* the full text of the model's responses
+You are permitted (or, sometimes, even required) to use generative AI tools on many assignments in this course.
+Whenever you do, you are **required** to include a log of your interaction with the tool: in particular, you must ensure that the course
+staff has access to both your prompts and the model's responses while grading.
 
-TODO: update this and the collaboration policy to match the expectation that AI tools will be used for all assignments and
-that students will include a full, _replayable_ log of their interactions with the AI as part of their assignment submission.
+For assignments or parts of assignments where you are explicitly forbidden from using a generative AI tool (e.g., on the reflection essays),
+using one is a violation of the collaboration policy. The course staff have intentionally limited the number of times that we ask you not
+to use generative AI tools; please respect it. If you are caught using a generative AI tool for such an assignment, you will **at a minimum** fail the course.
 
 ### Consequences of Violating the Collaboration Policy
 
@@ -161,7 +158,7 @@ Most assignments may be submitted late, with an escalating "Fibonacci" penalty f
 
 "Days Late" is always computed AoE, so if the assignment is due on a Monday and you submit it while it is still Thursday anywhere on Earth (e.g., at 5am Friday in Newark), you will be assessed a 5% penalty (3 days late).
 
-The final project submission may not be submitted late, because it is due on the same day as the final exam. After that point, the course is over and I will be computing final grades. No exceptions to this policy will be made.
+The final project submission may not be submitted late, because it is due at the end of the semester. After that point, the course is over and I will be computing final grades. No exceptions to this policy will be made.
 
 ## Research
 

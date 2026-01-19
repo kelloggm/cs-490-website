@@ -9,11 +9,9 @@ Mon Apr 20
 : Static analysis + LLMs: Intro
   : **Mandatory reading**: TBD
   
-	**Optional reading**: TBD
+    **Special topic reading**: [PredicateFix: Repairing Static Analysis Alerts with Bridging Predicates](https://arxiv.org/abs/2512.16790)
 
 Wed Apr 22
 : Static analysis + LLMs: Discussion
-  : **Mandatory reading**: TBD
-  
-	**Optional reading**: TBD
+  : **Special topic reading**: [LLM-Based Repair of Static Nullability Errors](https://arxiv.org/abs/2507.20674)
 

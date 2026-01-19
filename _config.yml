@@ -29,8 +29,12 @@ heading_anchors: true
 permalink: pretty
 aux_links:
   Discord:
-    - 'https://discord.com/channels/1329854456967467048/1329854456967467051'
-footer_content: "&copy; 2022-2026 Martin Kellogg, Jonathan Bell, Adeel Bhutta and Mitch Wand. Released under the <a href=\"https://creativecommons.org/licenses/by-sa/4.0/\">CC BY-SA</a> license"
+    - 'https://discord.com/channels/1462907670855159891/1462907671735832585'
+  Canvas (undergrad):
+    - 'https://njit.instructure.com/courses/64185'
+  Canvas (grad):
+    - 'https://njit.instructure.com/courses/64184'
+footer_content: "&copy; 2022-2026 Martin Kellogg, Andrew Begel, Austin Henley, Jonathan Bell, Adeel Bhutta and Mitch Wand. Released under the <a href=\"https://creativecommons.org/licenses/by-sa/4.0/\">CC BY-SA</a> license"
 
 # Collections for website data
 collections:

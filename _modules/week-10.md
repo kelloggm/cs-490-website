@@ -4,15 +4,13 @@ title: Week 10
 
 Mon Mar 30
 : Testing w/ LLMs: Mutation Testing
-  : **Mandatory reading**: TBD
+  : **Background reading**: [Mutation Testing](https://testing.googleblog.com/2021/04/mutation-testing.html)
   
-	**Optional reading**: TBD
-
 Before class on Apr 1
   : **Reflection essay on LLMs for testing due**{: .label .label-red }
 
 Wed Apr 1
 : Testing w/ LLMs: Discussion
-  : **Mandatory reading**: none
+  : No reading
  
 

@@ -4,9 +4,7 @@ title: Week 8
 
 Mon Mar 9
 : Backend: Understanding Backends
-  : **Mandatory reading**: TBD
-  
-	**Optional reading**: TBD
+  : **Special topic reading**: [From Code to Correctness: Closing the Last Mile of Code Generation with Hierarchical Debugging](https://arxiv.org/abs/2410.01215)
 
 Before class on Mar 11
   : **Reflection essay on LLMs for backend dev due**{: .label .label-red }

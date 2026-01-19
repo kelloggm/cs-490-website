@@ -12,5 +12,5 @@ Before class on Jan 29
 
 Wed Jan 29
 : LLM Code Generation: Discussion
-  : **Mandatory reading**: none
+  : No reading
  

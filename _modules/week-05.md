@@ -9,7 +9,7 @@ Mon Feb 16
 : Frontend: Introduction
   : **Mandatory reading**: TBD
   
-	**Optional reading**: TBD
+    **Special topics reading**: [Inside Out: Uncovering How Comment Internalization Steers LLMs for Better or Worse](https://arxiv.org/abs/2512.16790)
 
 Wed Feb 18
 : Frontend: Creating the UI Code
