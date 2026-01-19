@@ -1,6 +1,6 @@
 ---
 layout: page
-title: How to Read a Paper (Useful for "Optional" Readings)
+title: How to Read a Paper
 permalink: /tutorials/reading-papers.html
 parent: Tutorials
 nav_order: 2
