@@ -7,7 +7,7 @@ Mon Mar 30
   : **Background reading**: [Mutation Testing](https://testing.googleblog.com/2021/04/mutation-testing.html)
   
 Before class on Apr 1
-  : **Reflection essay on LLMs for testing due**{: .label .label-red }
+  : **[Reflection essay](../assignments/a5) on LLMs for testing due**{: .label .label-red }
 
 Wed Apr 1
 : Testing w/ LLMs: Discussion

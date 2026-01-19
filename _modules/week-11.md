@@ -7,13 +7,10 @@ Sun Apr 5
 
 Mon Apr 6
 : Deployment: Intro
-  : **Mandatory reading**: TBD
-  
-	**Optional reading**: TBD
+  : **Reading**: TBD
+ 
 
 Wed Apr 8
 : Deployment: Backend
-  : **Mandatory reading**: TBD
-  
-	**Optional reading**: TBD
+  : **Reading**: TBD
 

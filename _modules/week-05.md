@@ -13,7 +13,6 @@ Mon Feb 16
 
 Wed Feb 18
 : Frontend: Creating the UI Code
-  : **Mandatory reading**: TBD
+  : **Reading**: TBD
   
-	**Optional reading**: TBD
 
