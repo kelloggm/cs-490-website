@@ -2,6 +2,9 @@
 title: Week 3
 ---
 
+Sun Feb 1
+: **[Project team declaration](../projects/p0) due**{: .label .label-red }
+
 Mon Feb 2
 : Requirements Engineering: User Discovery Lab
   : **Mandatory reading**: [Synthetic Users: If, When, and How to Use AI-Generated “Research”](https://www.nngroup.com/articles/synthetic-users/)
