@@ -3,7 +3,7 @@ title: Week 5
 ---
 
 Sun Feb 15
-: **[Project requirements doc](../projects/p1) due**{: .label .label-red }
+  : **[Project specification](../projects/p2) doc due**{: .label .label-red }
 
 Mon Feb 16
 : Frontend: Introduction

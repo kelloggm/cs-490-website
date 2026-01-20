@@ -2,6 +2,9 @@
 title: Week 4
 ---
 
+Sun Feb 8
+: **[Project requirements doc](../projects/p1) due**{: .label .label-red }
+
 Mon Feb 9
 : Requirements Engineering: Creating Dev Specs
   : **Mandatory reading**: [Development Spec Guidelines](../assets/dev-spec-guidelines.pdf)
