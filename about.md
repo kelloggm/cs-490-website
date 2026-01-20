@@ -57,6 +57,7 @@ Topic-specific reading materials for software engineering topics (e.g., software
 
 #### List of known student plans for AI tools:
 * [Figma Make](https://www.figma.com/education/)
+* [Cursor Pro](https://cursor.com/students)
 * TODO: add more as we become aware of them
 
 ### Participation & Professionalism
