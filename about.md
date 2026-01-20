@@ -43,7 +43,8 @@ you will be notified of your current projected class grade via email at this poi
 There will be a semester-long course project that will involve a significant software development effort. Students will work in small, self-selected teams. The scale of the project will be intentionally absurd: it will be so much work that no reasonable professor could ask their students to write the code themselves. Instead, students will be expected to use AI models to generate most of the code. The project will involve using LLMs as part of every step of the engineering process, from requirements gathering to coding to testing to deployment.
 
 As part of your submission for each assignment, you will be required to submit the logs of all of your interactions with
-your AI tools. Be sure to keep these logs. TODO: add more details here for students about how to do this to avoid surprises.
+your AI tools. Be sure to keep these logs. [This page](../tutorials/llm-logs) has information collected by the course staff about
+how to acquire the necessary logs from different model providers.
 
 The course project is broken down into [seven sub-assignments](../projects), with the final submission being the largest component.
 
