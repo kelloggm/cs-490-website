@@ -6,5 +6,5 @@ Mon Jan 19
 : No class, MLK day
 
 Wed Jan 21
- : Introduction
+ : [Introduction](../assets/intro.pdf)
    : **Mandatory reading**: the [syllabus](../about)
