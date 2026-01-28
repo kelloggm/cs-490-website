@@ -23,7 +23,14 @@ your exploration.
 
 ### Google Gemini Code Assist
 
-See [this page from Google](https://developers.google.com/gemini-code-assist/docs/configure-logging).
+[This page from Google](https://developers.google.com/gemini-code-assist/docs/configure-logging) describes the _best_ way to export logs, but it requires your Google account to be enterprise-level.
+Most personal accounts can't access this feature.
+
+[Google Takeout](https://takeout.google.com/) can export the logs of chat sessions via the web interface. Make a takeout request and uncheck everything except "My Activity". Click on the "All activity data included" button and uncheck everything _except_ "Gemini Apps".
+
+For the [Gemini CLI](https://github.com/google-gemini/gemini-cli), it's straightforward to collect logs, since it saves them locally: one MacOS or Linux, in `~/.gemini/tmp/`, and on Windows in `%USERPROFILE%\.gemini\tmp\`. Inside that folder, you will see subdirectories with long hexadecimal names (e.g., `4ebf39`...). Find the ones associated with whatever you're working on, and then inside each of those, look for `logs.json`. Submit these `.json` files. If you use the command `/chat save [tag]`, it creates a file named `checkpoint-[tag].json` in that same directory, which makes it more convenient to find a particular record.
+
+For Gemini use via an IDE, you have to recover the logs from the IDE itself. This varies by IDE; if you figure out how to do it for your IDE, let us know, and we'll add instructions here.
 
 ### GitHub Copilot in VS Code
 
