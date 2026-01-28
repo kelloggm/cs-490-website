@@ -2,6 +2,7 @@
 name: Chun Jie (Michael) Chong
 role: TA
 email: cc255@njit.edu
+website: https://chun-jie-chong.github.io/chunjiechong.com/
 photo: Michael_Chong.jpg
 pronouns: he/him
 ---
