@@ -2,9 +2,6 @@
 title: Week 3
 ---
 
-Sun Feb 1
-: **[Project team declaration](../projects/p0) due**{: .label .label-red }
-
 Mon Feb 2
 : Requirements Engineering: User Discovery Lab
   : **Mandatory reading**: [Synthetic Users: If, When, and How to Use AI-Generated “Research”](https://www.nngroup.com/articles/synthetic-users/)
@@ -12,6 +9,9 @@ Mon Feb 2
     **Background reading**: [The Mom Test](https://hailpixel.gumroad.com/l/momtest) by Rob Fitzpatrick. (Note: this is a book; it costs $10. You're not required to read this, but you should be familiar with the ideas in it before class.)
 
     **Special topics reading**: [Analysis of LLMs vs Human Experts in Requirements Engineering](https://arxiv.org/abs/2501.19297)
+
+Mon Feb 2
+: **[Project team declaration](../projects/p0) due**{: .label .label-red }
 
 Wed Feb 4
 : Requirements Engineering: Creating Effective User Stories
