@@ -11,6 +11,6 @@ Before class on Jan 28
   : **[Reflection essay](../assignments/a1) on experience w/ LLM code generation due**{: .label .label-red }
   
 Wed Jan 28
-: LLM Code Generation: Discussion
+: [LLM Code Generation: Discussion](../assets/llm-coding-discussion.pdf)
   : No reading
  
