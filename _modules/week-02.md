@@ -3,7 +3,7 @@ title: Week 2
 ---
 
 Mon Jan 26
-: LLM Code Generation: Modifying an Existing Codebase
+: ~~LLM Code Generation: Modifying an Existing Codebase~~ Class is cancelled (**snow day**), in-class activity is homework instead. **Check your email** for activity instructions.
   : **Mandatory reading**: Willison's [2025: The year in LLMs](https://simonwillison.net/2025/Dec/31/the-year-in-llms/)
  
 
