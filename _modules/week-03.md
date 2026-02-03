@@ -3,7 +3,7 @@ title: Week 3
 ---
 
 Mon Feb 2
-: Requirements Engineering: User Discovery Lab
+: Requirements Engineering: [User Discovery Lab](../assets/lecture-user-discovery.pdf)
   : **Mandatory reading**: [Synthetic Users: If, When, and How to Use AI-Generated “Research”](https://www.nngroup.com/articles/synthetic-users/)
 
     **Background reading**: [The Mom Test](https://hailpixel.gumroad.com/l/momtest) by Rob Fitzpatrick. (Note: this is a book; it costs $10. You're not required to read this, but you should be familiar with the ideas in it before class.)
