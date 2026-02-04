@@ -14,7 +14,7 @@ Mon Feb 2
 : **[Project team declaration](../projects/p0) due**{: .label .label-red }
 
 Wed Feb 4
-: Requirements Engineering: Creating Effective User Stories
+: Requirements Engineering: [Creating Effective User Stories](../assets/lecture-user-stories.pdf)
   : **Background reading**: [INVEST in Good Stories, and SMART Tasks](https://xp123.com/invest-in-good-stories-and-smart-tasks/)
   
 	**Special topics reading**: [When Prompts Go Wrong: Evaluating Code Model Robustness to Ambiguous, Contradictory, and Incomplete Task Descriptions](https://arxiv.org/abs/2507.20439)
