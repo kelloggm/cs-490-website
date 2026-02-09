@@ -6,7 +6,7 @@ Sun Feb 8
 : **[Project requirements doc](../projects/p1) due**{: .label .label-red }
 
 Mon Feb 9
-: Requirements Engineering: Creating Dev Specs
+: Requirements Engineering: [Creating Dev Specs](../assets/lecture-dev-specs.pdf)
   : **Mandatory reading**: [Development Spec Guidelines](../assets/dev-spec-guidelines.pdf)
 
     **Background reading**: [How To Be A Program Manager](https://www.joelonsoftware.com/2009/03/09/how-to-be-a-program-manager/) and [Design Docs at Google](https://www.industrialempathy.com/posts/design-docs-at-google/)
