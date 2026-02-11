@@ -7,7 +7,7 @@ Sun Feb 15
 
 Mon Feb 16
 : Frontend: Introduction
-  : **Mandatory reading**: TBD
+  : **Mandatory reading**: [Vibing a Non-Trivial Ghostty Feature](https://mitchellh.com/writing/non-trivial-vibing)
   
     **Special topics reading**: [Inside Out: Uncovering How Comment Internalization Steers LLMs for Better or Worse](https://arxiv.org/abs/2512.16790)
 
