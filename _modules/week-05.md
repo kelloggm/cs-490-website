@@ -12,7 +12,7 @@ Mon Feb 16
     **Special topics reading**: [Inside Out: Uncovering How Comment Internalization Steers LLMs for Better or Worse](https://arxiv.org/abs/2512.16790)
 
 Wed Feb 18
-: Frontend: Creating the UI Code
+: [Frontend: Creating the UI Code](../assets/lecuture-frontend2.pdf)
   : **Mandatory Reading**: [How AI assistance impacts the formation of coding skills](https://www.anthropic.com/research/AI-assistance-coding-skills) (this isn't directly related to the lecture content, but I think everyone should read it)
   
 
