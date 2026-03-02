@@ -7,7 +7,7 @@ Sun Mar 1
 
 Mon Mar 2
 : Frontend: Discussion
-	**Special topics reading**: [A Causal Perspective on Measuring, Explaining and Mitigating Smells in LLM-Generated Code](https://arxiv.org/pdf/2511.15817)
+  : **Special topics reading**: [A Causal Perspective on Measuring, Explaining and Mitigating Smells in LLM-Generated Code](https://arxiv.org/pdf/2511.15817)
 
 Wed Mar 4
 : Backend: Coding Lab
