@@ -6,7 +6,7 @@ Sun Mar 1
   : **Project [frontend code initial submission](../projects/p3) due**{: .label .label-red }
 
 Mon Mar 2
-: Frontend: Discussion
+: [Frontend: Discussion](../assets/lecture-a3-discussion.pdf)
   : **Special topics reading**: [A Causal Perspective on Measuring, Explaining and Mitigating Smells in LLM-Generated Code](https://arxiv.org/pdf/2511.15817)
 
 Wed Mar 4
