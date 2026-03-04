@@ -10,5 +10,5 @@ Mon Mar 2
   : **Special topics reading**: [A Causal Perspective on Measuring, Explaining and Mitigating Smells in LLM-Generated Code](https://arxiv.org/pdf/2511.15817)
 
 Wed Mar 4
-: Backend: Coding Lab
+: [Backend: Coding Lab](../assets/lecture-backend1.pdf)
   : **Special topics reading**: [Smoke and Mirrors: Jailbreaking LLM-based Code Generation via Implicit Malicious Prompts](https://arxiv.org/abs/2503.17953)
