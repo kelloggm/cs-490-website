@@ -3,7 +3,7 @@ title: Week 8
 ---
 
 Mon Mar 9
-: Backend: Understanding Backends
+: [Backend: Data and Notifications](../assets/lecture-backend2.pdf)
   : **Special topics reading**: [From Code to Correctness: Closing the Last Mile of Code Generation with Hierarchical Debugging](https://arxiv.org/abs/2410.01215)
 
 Before class on Mar 11
