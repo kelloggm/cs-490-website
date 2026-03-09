@@ -13,9 +13,5 @@ Wed Mar 11
 : Backend: Discussion
   : No reading
   
-Fri Mar 13
-  : **Project [backend code initial submission](../projects/p4) due**{: .label .label-red }
-
-
 Mar 14 to Mar 22
 : Spring Break, no classes
