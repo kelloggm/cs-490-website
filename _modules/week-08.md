@@ -10,7 +10,7 @@ Before class on Mar 11
   : **[Reflection essay](../assignments/a4) on LLMs for backend dev due**{: .label .label-red }
 
 Wed Mar 11
-: Backend: Discussion
+: [Backend: Discussion](../assets/lecture-backend-discussion.pdf)
   : No reading
   
 Mar 14 to Mar 22
