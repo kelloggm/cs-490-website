@@ -13,7 +13,8 @@ Mon Mar 23
 	**Special topic reading**: [An LLM Agentic Approach for Legal-Critical Software: A Case Study for Tax Prep Software](https://arxiv.org/abs/2509.13471)
 
 Wed Mar 25
-: Testing w/ LLMs: TDD and CI
+: Testing w/ LLMs: TDD
   : **Background reading**: [The Art of Agile Development: Test-Driven Development](https://www.jamesshore.com/v2/books/aoad1/test_driven_development)
 
-    **Special topic reading**: [E-Test: E'er-Improving Test Suites](https://arxiv.org/abs/2510.19860)
+    **Special topic reading**: [TDFlow: Agentic Workflows for Test Driven Development](https://arxiv.org/pdf/2510.23761)
+
