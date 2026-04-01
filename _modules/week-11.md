@@ -7,10 +7,10 @@ Sun Apr 5
 
 Mon Apr 6
 : Deployment: Intro
-  : **Reading**: TBD
+  : **Mandatory reading**: [Amplify Tutorial](https://docs.aws.amazon.com/amplify/latest/userguide/getting-started-next.html)
  
 
 Wed Apr 8
 : Deployment: Backend
-  : **Reading**: TBD
+  : **Mandatory reading**: [API Gateway Tutorial](https://docs.aws.amazon.com/lambda/latest/dg/services-apigateway-tutorial.html)
 
