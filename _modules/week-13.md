@@ -11,7 +11,7 @@ Mon Apr 20
 
     **Background reading**: Thomson's [Static Analysis: An Introduction](https://queue.acm.org/detail.cfm?id=3487021)
 
-    **Special topics reading**: [PredicateFix: Repairing Static Analysis Alerts with Bridging Predicates](https://arxiv.org/abs/2512.16790)
+    **Special topics reading**: [PredicateFix: Repairing Static Analysis Alerts with Bridging Predicates](https://arxiv.org/abs/2503.12205)
 
 Wed Apr 22
 : Static analysis + LLMs: Discussion
