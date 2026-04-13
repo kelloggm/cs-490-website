@@ -3,7 +3,7 @@ title: Week 12
 ---
 
 Mon Apr 13
-: Deployment: CD and Monitoring
+: [Deployment: Monitoring](../assets/lecture-deployment3.pdf)
   : **Background reading**: Ewaschuk's [Monitoring Distributed Systems](https://sre.google/sre-book/monitoring-distributed-systems/)
 
 Before class on Apr 15

@@ -11,6 +11,6 @@ Mon Apr 6
  
 
 Wed Apr 8
-: [Deployment: Backend](../assets/lecture-deployment2.pdf)
+: [Deployment: Backend and CD](../assets/lecture-deployment2.pdf)
   : **Mandatory reading**: [API Gateway Tutorial](https://docs.aws.amazon.com/lambda/latest/dg/services-apigateway-tutorial.html)
 
