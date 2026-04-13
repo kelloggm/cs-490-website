@@ -22,9 +22,9 @@ able to answer them in a reasonable way, and everything in between.
 
 I will post the keys to quizzes and exams here as the semester progresses.
 
-[Quiz on the Cool Reference Manual (1/29)](../assets/quiz-cool.pdf) ([key](../assets/quiz-cool-key.pdf))
+[Quiz on the Cool Reference Manual](../assets/quiz-cool.pdf) (1/29) ([key](../assets/quiz-cool-key.pdf))
 
-[Quiz on Abstract Interpretation] (3/5)(../assets/quiz-ai.pdf) ([key](../assets/quiz-ai-key.pdf))
+[Quiz on Abstract Interpretation](../assets/quiz-ai.pdf) (3/5) ([key](../assets/quiz-ai-key.pdf))
 
 [Midterm](../assets/sp25-midterm.pdf) ([key](../assets/sp25-midterm-key.pdf))
 
