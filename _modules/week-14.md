@@ -3,7 +3,7 @@ title: Week 14
 ---
 
 Mon Apr 27
-: Guest Lecture (Michael Chong): Evaluating the Quality of LLM-Generated Code
+: [Guest Lecture (Michael Chong): Evaluating the Quality of LLM-Generated Code](../assets/lecture-michael-aise.pdf)
   : **Mandatory Reading**: [Towards Understanding the Characteristics of Code Generation Errors Made by Large Language Models](https://dl.acm.org/doi/10.1109/ICSE55347.2025.00180)
 
 Before class on Apr 29
