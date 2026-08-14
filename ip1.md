@@ -4,9 +4,14 @@ title: "Individual Project 1"
 permalink: /projects/ip1.html
 parent: Projects
 nav_order: 1
-due_date: "Monday, 22 September 2025, 11:59PM AoE"
+due_date: "Monday, 21 September 2026, 11:59PM AoE"
 submission_notes: Submit via GradeScope
 ---
+
+<!-- TODO(au26): this entire assignment is slated to be replaced for Fall 2026 (it did not
+     go well in Au25). Until it is rewritten, note that the starter code still points at
+     the `fall2025-ip1` branch of github.com/kelloggm/covey.town; a new branch will be
+     needed for whatever replaces this. -->
 
 The overall goal of the individual assignment for this semester is to simulate
 a "starter task" that you might be asked to take on as a junior engineer who is just starting
@@ -25,7 +30,7 @@ When someone in industry talks about "senior" engineers, they usually mean "engi
 </details>
 
 <details><summary>A note on the accuracy of estimates in software engineering.</summary>
-As we'll <a href="https://kelloggm.github.io/martinjkellogg.com/teaching/cs490-au25/assets/lecture-process.pdf">discuss later in this class</a>, engineers' estimates of how long
+As we'll <a href="https://kelloggm.github.io/martinjkellogg.com/teaching/cs490-au26/assets/lecture-process.pdf">discuss later in this class</a>, engineers' estimates of how long
 an engineering task will take are notoriously variable. If it takes you significantly
 longer (or shorter) to do the task than our senior engineer's estimate, don't worry!
 This estimate is here as a rough guide for how long we think this task will take, but
@@ -88,7 +93,7 @@ The senior engineer who was working on this task has already made a good start: 
 designed most of the feature, implemented and tested most
 of the frontend, and stubbed out the backend. Their code is in the `fall2025-ip1` [branch](http://github.com/kelloggm/covey.town/tree/fall2025-ip1)
 of the course staff's [Covey.Town repository](https://github.com/kelloggm/covey.town)
-that you forked or cloned in [IP0](https://kelloggm.github.io/martinjkellogg.com/teaching/cs490-au25/projects/ip0.html). To get this starter code, you need to fetch this branch. The process
+that you forked or cloned in [IP0](https://kelloggm.github.io/martinjkellogg.com/teaching/cs490-au26/projects/ip0.html). To get this starter code, you need to fetch this branch. The process
 differs depending on whether you _forked_ or _cloned_ the starter repository in IP0.
 
 <details><summary>Can I trust that the senior engineer's code is perfect?</summary>
@@ -291,7 +296,7 @@ We will review your code and note each violation of this rubric. We will deduct 
 
 ### Submission
 
-Submit your assignment to [Gradescope](https://www.gradescope.com/courses/1121276).
+Submit your assignment to Gradescope (TODO: link to this semester's Gradescope course).
 Please contact the instructors immediately if you have difficulty accessing the course on Gradescope.
 The course entry code for Gradescope is pinned in the "#ip1-help" channel on Discord.
 

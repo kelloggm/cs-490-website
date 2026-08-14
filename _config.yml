@@ -13,11 +13,11 @@
 # you will see them accessed via {{ site.title }}, {{ site.github_repo }}, and so on.
 # You can create any custom variable you would like, and they will be accessible
 # in the templates via {{ site.myvariable }}.
-title: CS 490-001 (Au25)
+title: CS 490-001 (Au26)
 tagline: The course website for NJIT CS 490-001
-description: The course website for NJIT CS 490-001 in Fall 2024, as taught by Martin Kellogg
+description: The course website for NJIT CS 490-001 in Fall 2026, as taught by Martin Kellogg
 author: Martin Kellogg
-baseurl: '/martinjkellogg.com/teaching/cs490-au25/' # the subpath of your site, e.g. /blog
+baseurl: '/martinjkellogg.com/teaching/cs490-au26/' # the subpath of your site, e.g. /blog
 url: 'https://kelloggm.github.io' # the base hostname & protocol for your site, e.g. http://example.com
 exclude: ["Gemfile", "Gemfile.lock", "LICENSE"]
 
@@ -27,14 +27,16 @@ color_scheme: light
 search_enabled: true
 heading_anchors: true
 permalink: pretty
-aux_links:
-  Canvas:
-    - 'https://njit.instructure.com/courses/55106'
-  Discord:
-    - 'https://discord.com/channels/1412140735339303064/1412140735804735602'
-  Gradescope:
-    - 'https://www.gradescope.com/courses/1121276'
-footer_content: "&copy; 2022-2025 Martin Kellogg, Jonathan Bell, Adeel Bhutta and Mitch Wand. Released under the <a href=\"https://creativecommons.org/licenses/by-sa/4.0/\">CC BY-SA</a> license"
+# TODO(au26): create this semester's Canvas course, Discord server, and Gradescope
+# course, then uncomment these three aux_links and fill in the new URLs.
+# aux_links:
+#   Canvas:
+#     - 'TODO'
+#   Discord:
+#     - 'TODO'
+#   Gradescope:
+#     - 'TODO'
+footer_content: "&copy; 2022-2026 Martin Kellogg, Jonathan Bell, Adeel Bhutta and Mitch Wand. Released under the <a href=\"https://creativecommons.org/licenses/by-sa/4.0/\">CC BY-SA</a> license"
 
 # Collections for website data
 collections:

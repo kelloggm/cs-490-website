@@ -2,16 +2,16 @@
 title: Week 4
 ---
 
-Sep 22
+Sep 21
  : **[Individual Project 1](../projects/ip1.html) due**{: .label .label-red } 
 
-Sep 22
+Sep 21
 : [Testing (3)](../assets/lecture-testing3.pdf)
   : **Mandatory reading**: SQLite's [How SQLite is Tested](https://www.sqlite.org/testing.html) and the [Group Project Specification](../projects/project-overview.html).
 
     **Your Choice reading**: Barr et al.'s [The Oracle Problem in Software Testing: A Survey](../assets/testoracles.pdf)
 
-Sep 24
+Sep 23
 : [Version Control](../assets/lecture-vcs.pdf)
   : **Mandatory reading**: Ernst's [Version control concepts and best practices](https://homes.cs.washington.edu/~mernst/advice/version-control.html) and Thompson's [My favourite Git commit](https://dhwthompson.com/2019/my-favourite-git-commit)
   

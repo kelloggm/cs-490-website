@@ -5,6 +5,8 @@ layout: page
 
 # Syllabus
 
+**Lectures**: Mondays and Wednesdays at 10:00am, in KUPF 117.
+
 Welcome to CS 490: Guided Design in Software Engineering! This is a
 course about building software that satisfies stronger properties than
 “it works”: it’s about building software that is correct, reliable,
@@ -93,8 +95,8 @@ out of CS 490 if you have seen those classes first (or are taking them concurren
 
 Your grade is composed of the following sub-scores (in no particular order):
 * 15%: Participation & Professionalism
-* 15%: Individual Assignments
-* 35%: Group Project
+* 5%: Individual Assignments
+* 45%: Group Project
 * 35%: Exams (15% for the mid-term, 20% for the final)
 
 This class will be curved: when grading, I prefer to use the whole
@@ -162,7 +164,7 @@ to participate in a particular class remotely.
 
 ### Asking Questions
 
-There is a course [Discord server](http://discord.com/channels/1412140735339303064/1412140735804735602)
+There is a course Discord server (TODO: link to this semester's Discord server)
 which you can use to ask (and answer) questions about any of the course topics or for
 help with the homework. Participating on Discord is optional, but if you do
 participate in a productive manner (especially by answering other student's questions!), it will have a
@@ -212,8 +214,8 @@ The project will provide hands-on experience to complement the skills taught in 
 ## Exams
 
 There are two exams in this course:
-* a mid-term, which is held in class about halfway through the semester (worth 10% of your course grade)
-* a final exam, which is held during the university-scheduled final exam slot (worth 15% of your course grade)
+* a mid-term, which is held in class about halfway through the semester (worth 15% of your course grade)
+* a final exam, which is held during the university-scheduled final exam slot (worth 20% of your course grade)
 
 Both exams will cover a range of topics discussed in lecture
 and/or in the mandatory readings, from any time during the

@@ -7,9 +7,9 @@ nav_order: 9
 ---
 
 There will be three anonymous surveys on how the project is going and how your teammates are performing:
-* the [first](https://forms.gle/GFtJ5jGu9FG5yR9g8) will be due the week after the Deployment Demo (November 7)
-* the [second](https://forms.gle/3QpCdLoW6Xavhtp87) on November 26, right before Thanksgiving
-* the third with your individual reflection, after you submit your final deliverables
+* the first (TODO: link to this semester's survey form) will be due the week after the Deployment Demo (November 6)
+* the second (TODO: link to this semester's survey form) on November 25, right before Thanksgiving
+* the third (TODO: link to this semester's survey form) with your individual reflection, after you submit your final deliverables
 
 These surveys exist to help the course staff identify problems; they are not directly used for grading.
 They're designed to only take a few minutes of your time, and are graded on completion as reading quizzes.

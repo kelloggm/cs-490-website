@@ -5,7 +5,7 @@ permalink: /projects/individual-project-proposal.html
 parent: Projects
 nav_order: 4
 ---
-# Individual Project Proposal **Due Monday 29 September 2025, 11:59pm AoE**{: .label .label-red }
+# Individual Project Proposal **Due Monday 28 September 2026, 11:59pm AoE**{: .label .label-red }
 All projects will involve frontend and backend development of a new feature for Covey.Town.
 Once teams have been formed, you and your team will decide exactly what kind of new feature you would like to build.
 Your feature should be something that can be implemented within the timeframe allotted (~6 weeks, plus ~2 weeks of planning), and will be implemented in a fork of the main Covey.Town codebase.
@@ -13,7 +13,7 @@ You can play with a demo deployment of the app at [app.covey.town](https://app.c
 Given that you will be up-to-speed on the Covey.Town codebase (and have been introduced to TypeScript, React, NodeJS, and testing frameworks)
 via the individual project,
 and that you will have a team of three or four, we expect that the feature that you propose will be significantly more complex than the feature implemented in
-[IP1](https://kelloggm.github.io/martinjkellogg.com/teaching/cs490-au25/projects/ip1.html).
+[IP1](https://kelloggm.github.io/martinjkellogg.com/teaching/cs490-au26/projects/ip1.html).
 
 In this assignment, you'll first suggest a possible project on your own via a one-page project proposal. We'll use your proposals to help us assign teams based on both the direction of the proposals (i.e., we'll try to group people who suggested similar projects) and the quality of the proposals (i.e., we'll try to group people who wrote good proposals together). Hopefully, this gives you an incentive to write a good proposal!
 
@@ -98,5 +98,5 @@ to say the same thing with fewer syllables or words, do so. A longer writeup on 
 
 ## Submission
 
-Your project plan should be submitted as a single PDF in [Canvas](https://njit.instructure.com/courses/55106) to the assignment "Individual Project Proposal."
-The assignment is due by the end of September 29, AoE.
+Your project plan should be submitted as a single PDF in Canvas (TODO: link to this semester's Canvas course) to the assignment "Individual Project Proposal."
+The assignment is due by the end of September 28, AoE.

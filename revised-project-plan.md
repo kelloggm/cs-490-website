@@ -6,7 +6,7 @@ parent: Projects
 nav_order: 6
 ---
 
-# Revised Project Plan **Due Monday 27 October 2025 11:59pm AoE**{: .label .label-red }
+# Revised Project Plan **Due Monday 26 October 2026 11:59pm AoE**{: .label .label-red }
 You should use the feedback on your preliminary project plan to revise the scope of your project, and discuss any changes with your assigned mentor. The goal of this assignment is to finalize the intended scope of your project based on these discussions and to outline the tasks that you will need to accomplish in order to complete your project.
 
 Your mentor will review your project plan and provide you with feedback on the scope and details provided in your preliminary plan.
@@ -64,11 +64,11 @@ Each work item should contain the following information:
     * Large: Currently unable to provide a responsible estimate. 
 * A brief (1-2 sentence max) justification of how you reached the size estimate of the task
 * Milestone for delivering the task, chosen from one of the following two-week sprints:
-  * Sprint 0: Oct 7 - Oct 18
-  * Sprint 1: Oct 19 - Nov 1
-  * Sprint 2: Nov 2 - Nov 15
-  * Sprint 3: Nov 16 - Nov 29
-  * Sprint 4: Nov 30 - Dec 10 (note: this sprint is shorter than the other---only about 10 days. We don't recommend scheduling many tasks in this sprint, because of the likelihood that some tasks from prior sprints might not be done yet.)
+  * Sprint 0: Oct 6 - Oct 17
+  * Sprint 1: Oct 18 - Oct 31
+  * Sprint 2: Nov 1 - Nov 14
+  * Sprint 3: Nov 15 - Nov 28
+  * Sprint 4: Nov 29 - Dec 9 (note: this sprint is shorter than the other---only about 10 days. We don't recommend scheduling many tasks in this sprint, because of the likelihood that some tasks from prior sprints might not be done yet.)
 
 Your work breakdown should take the format of a simple textual list.
 

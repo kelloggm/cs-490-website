@@ -6,7 +6,7 @@ parent: Projects
 nav_order: 8
 ---
 Changelog:
-# Project: Final Deliverable **Due 10 December 2025 11:59pm AoE**{: .label .label-red }
+# Project: Final Deliverable **Due 9 December 2026 11:59pm AoE**{: .label .label-red }
 
 The final project deliverable is the implementation (in GitHub) and the documentation turned in to Canvas. It also includes your final demo.
 
@@ -36,9 +36,14 @@ Accompanying the final team deliverable will be an *individual reflection*, whic
 
 #### Project Demo
 
+<!-- TODO(au26): set the demo window in the paragraph below. Our last regular class meeting
+     is Wed Dec 9, the university's last day of classes is Sun Dec 13, and the reading days
+     are Dec 14 and Dec 15. The Au25 wording was "the last day of class and the two reading
+     days immediately thereafter". -->
+
 You will make a live (in-person) demo to the instructor in the last week of classes. Your demo must last for no longer than ten minutes.
-Your team can sign up for a slot [here]();
-slots are available on the last day of class and on the two reading days immediately thereafter.
+Your team can sign up for a slot (TODO: link to this semester's signup sheet);
+slots are available TODO.
 Make sure that at least one member of your team has a laptop that can access your deployed covey.town instance with them when you arrive for your
 demo. Because demos are short and often scheduled back-to-back, if your whole team is not present and ready to start your demo at the time that you've
 signed up for, you will lose your slot and you will have to sign up for a later one.
@@ -179,9 +184,9 @@ If your team is in this situation, you must:
 * On the same day as the final demo (i.e., the last day of class), send an email to the instructor, your project mentor TA, and your teammates declaring that
 you intend to resubmit. Each of your teammates must respond by this deadline indicating that they agree that a resubmission is appropriate.
 * In writing (email is fine), declare exactly which feature(s) or user stor(ies) you will complete by the resubmission deadline. This email must be received
-by the instructor and TAs no later than 72 hours after the deadline for your initial email declaring your intention to resubmit (i.e., it must be received no more than 3 days later, AoE, than the last day of class).
+by the instructor and TAs no later than one week after the deadline for your initial email declaring your intention to resubmit (i.e., it must be received no more than one week later, AoE, than the last day of class).
 * You must schedule a meeting with your project mentor and the instructor before the class' final exam (note: day of the final exam is **not** acceptable) to re-demonstrate your
-feature. The deadline for scheduling this demo is the same as the deadline for providing the scope of work email (see previous bullet point): no more than 3 days after the last day of class. Note that the instructor generally does not check email on the weekend.
+feature. The deadline for scheduling this demo is the same as the deadline for providing the scope of work email (see previous bullet point): no more than one week after the last day of class. Note that the instructor generally does not check email on the weekend.
 
 The consequences of choosing to resubmit are:
 * you will not receive your final grades on your project materials until **after** your resubmission demo.

@@ -14,11 +14,11 @@ for the instructor (and your group project mentor), and at least one will be for
 
 ## Deployment Demo
 
-**Due Friday 31 October 2025, 5:30pm EST**{: .label .label-red }
+**Due Friday 30 October 2026, 5:30pm EDT**{: .label .label-red }
 
 In this demo, you'll show that you can build and deploy covey.town on a publicly-accessible
 server. You'll do this demo with just your group project mentor, during your regular standup
-meeting during the week of October 27-31.
+meeting during the week of October 26-30.
 
 There are two requirements for this demo:
 * you provide your group project mentor with a link that they can follow that allows them to join a covey.town
@@ -40,7 +40,7 @@ There are only two possible grades for this demo: 0 or 10.
 
 ## Wizard-of-Oz Demo
 
-**Due Friday 7 November 2025, 5:30pm EST**{: .label .label-red }
+**Due Friday 6 November 2026, 5:30pm EST**{: .label .label-red }
 
 The next demo is the ["Wizard-of-Oz"](https://en.wikipedia.org/wiki/Wizard_of_Oz_experiment) demo.
 In this demo, you'll show what your project will look like when it is finished. In this demo, you don't
@@ -80,7 +80,7 @@ your project mentor, and the instructor can attend before the deadline.
 
 ## Preliminary Demo
 
-**Due Friday 21 November 2025, 5:30pm EST**{: .label .label-red }
+**Due Friday 20 November 2026, 5:30pm EST**{: .label .label-red }
 
 By the preliminary demo, you should have a significant part of the coding for your
 feature completed. In this demo, you should show that at least one of the user
