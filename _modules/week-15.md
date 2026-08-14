@@ -11,9 +11,6 @@ Dec 7
 Dec 9
  : **All group project [final deliverables](../projects/project-deliverable.html) due**{: .label .label-red } 
 
-Dec 9
-: Optional Oral Exam that replaces IP1 score. Submit this form (TODO: link to this semester's oral exam signup form) if you want to take the exam by Monday 12/7 AoE. Exam takes place in GITC 4402.
-
 <!-- TODO(au26) for the three dates below: pick the final demo window and the third team
      survey / individual reflection deadlines. Our last regular class meeting is Wed Dec 9.
      The university's last day of classes is Sun Dec 13, the reading days are Dec 14 and
