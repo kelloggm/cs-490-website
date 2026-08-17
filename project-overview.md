@@ -14,7 +14,6 @@ Covey.Town provides a virtual meeting space where different groups of people can
 Covey.Town is inspired by existing products like [Gather.Town](https://gather.town), [Sococo](https://www.sococo.com), and [Gatherly.IO](https://www.gatherly.io) --- but it is an open source effort, and the features will be proposed and implemented by you!
 All implementation will take place in the TypeScript programming language, using React for the user interface.
 
-
 ### Overview of Project Deliverables
 
 | Date | Deliverable | Description | 
@@ -29,8 +28,8 @@ All implementation will take place in the TypeScript programming language, using
 | 11/20/26 | [Preliminary Demo]({{ site.baseurl }}{% link demos.md %}) | Demonstrate one user story to your project mentor and the instructor. In this demo, you need to actually be running your own code (unlike the Wizard-of-Oz demo).  |
 | 11/25/26 | Second [team survey]({{ site.baseurl }}{% link surveys.md %}) | Let us know how you think the project is going. |
 | 12/9/26 | Project [Implementation and Documentation]({{ site.baseurl }}{% link project-deliverable.md %}) | Deliver your new feature, including design documentation and tests. |
-| TODO | Final Demo | You will demo your feature to the instructor by this date. |
-| TODO | Third [team survey]({{ site.baseurl }}{% link surveys.md %}) | Let us know how you think the project is going. |
+| TODO | Final Demo | You will demo your feature to the instructor by this date. Final demos will happen sometime tbd after the final project submission. |
+| TODO | Third [team survey]({{ site.baseurl }}{% link surveys.md %}) | Let us know how you thought the project went. |
 | TODO | Project Implementation and Documentation (Resubmission) | If your final demo does not meet your project goals, you may schedule another demo with your project mentor and the instructor no more than one week after the last day of class. Re-submit your code and documentation immediately before the demo. |
 
 All assignments are due on the specified date, AoE (i.e., before the beginning of the next day anywhere on Earth, which is at 7am EST the next day).
@@ -66,6 +65,8 @@ We will make regular efforts to collect and distribute this feedback throughout 
 All projects will be completed in a team of 3-4 students (most teams will have 4).
 Part of the first deliverable for the project will be a team formation survey: you will be able to indicate
 your preferences for teammates. The instructors will assign students to the teams based on a number of factors including your responses to the survey.
+Because the team survey will also ask for your GitHub username, which the course staff needs
+to have in order to invite you to your project repo (see "Your Team's GitHub Repository", below).
 
 ### Individual Project Proposal
 You'll write a one-page proposal for a feature. You only need to explain the feature _from a user perspective_ in this document.
@@ -82,23 +83,39 @@ All projects will involve frontend and backend development of a new feature for 
 Once teams have been formed, you and your team will decide what kind of new feature you would like to build.
 We suggest starting with one of your individual proposals, but you're welcome to come up with something new together, too, if you'd like.
 Talk to your mentor!
-Given that you will be up-to-speed on the Covey.Town codebase (and have been introduced to TypeScript, React, NodeJS, and testing frameworks),
-and that you will have a team of three or four, we expect that the feature that you propose will be more complex than the feature implemented in the individual
-projects.
+Given that you should already be up-to-speed on the Covey.Town codebase (and have been introduced to TypeScript, React, NodeJS, and testing frameworks),
+and that you will have a team of three or four, we expect that the feature that you propose will be reasonably complex.
+We will let you know if we think your feature is not ambitious enough (or too ambitious) as part of our feedback on your preliminary plan, but we strongly encourage you to discuss
+project scope with your project mentor _before_ submitting the preliminary proposal.
 
-The project plan will focus on two sections:
+The project plan will have two major sections:
 * User stories and conditions of satisfaction that describe the feature that you plan to implement.
 * Work breakdown: Map your user stories to engineering tasks. Assign each task to a team member (or pair of team members), provide an estimate for how long each task will take, a rationale for that estimate, and schedule those stories into sprints.
 
-### Creating a GitHub Repository
-Your team's development must take place within a private GitHub repository in our GitHub Classroom. To create your repository, each member of your team should follow these instructions:
-1. Sign in to [GitHub.com](https://www.github.com/), and then use our invitation to create a repository with the covey.town codebase (TODO: link to this semester's GitHub Classroom invitation). Check to see if one of your groupmates has created a group already - if so, select it to join it. Otherwise, you should enter your group number and the current semester (e.g. "Group 7-Au26") as the team name. 
-2. Refresh the page, and it will show a link to your new repository. Click the link to navigate to your new repository. This is the repository you will use for the project.
+### Your Team's GitHub Repository
+Your team's development must take place within the GitHub repository created for you by the course staff.
+You will get an invitation to this repository when teams are assigned.
+This repository will be private by default, and visible only to your team and the course staff.
+After the semester ends, you are welcome to make it public - you will have complete administrative control of the repository.
 
-This repository will be private, and visible only to your team and the course staff. After the semester ends, you are welcome to make it public - you have complete administrative control of the repository.
+We will pay close attention to the activity in your team's repo: what you do (or don't do) there
+will impact your grade. You should maintain good engineering discipline in your repo: make issues for
+bugs before you fix them, code review each other's PRs (and don't push straight to `main`!), don't let
+CI fail for long periods of time, etc.---all the things we will talk about in class! The course project
+is your chance to show the course staff that you're internalizing what we're discussing in class about what good
+engineering looks like: don't let the opportunity go to waste.
+
+As a corollary of the above, it is critical that the authors of commits in your GitHub repository reflect
+who actually wrote what code. If you are pair programming, make sure to use
+[Git's co-author feature](https://docs.github.com/en/pull-requests/how-tos/commit-changes/creating-a-commit-with-multiple-authors)
+to attribute commits to more than one author. We will expect to see consistent streams of commits from all
+team members throughout the semester.
 
 ### Revised Project Plan
 Based on the feedback that you receive from the course staff, you will revise your preliminary project plan, creating a more detailed plan to implement your new feature.
+Note that the revised plan due date overlaps with the first sprint, so you will be expected to start working on your project right away once your preliminary plan is approved.
+Some teams will have only a few things to fix in their revised plan, but others may need to make significant changes based on our feedback. That's an incentive to get it right
+the first time: we will expect the same level of polish from all teams by the end of the semester regardless.
 
 The project plan will include:
 * Revised user stories and conditions of satisfaction (based on feedback on the preliminary project plan)
@@ -106,9 +123,9 @@ The project plan will include:
 
 Your team will self-organize, as agile teams do, and will use the work breakdown and schedule as the basis for your check-ins with your team's mentor.
 
-
 ### Project Implementation and Documentation
-You will be assigned a mentor for your project who will work closely with you for the entire project. You will coordinate with the mentor to setup weekly meetings and regular sprint demos. Peer evaluation will also be used.
+You will be assigned a mentor for your project who will work closely with you for the entire project.
+You will coordinate with the mentor to setup weekly meetings and regular sprint demos. Peer evaluation will also be used.
 Your final team deliverable will be a "release" of your new feature on GitHub (with tests), and will be accompanied by a demo.
 *Optionally,* you may also open a pull request to merge your feature into our main repository (submitting a pull request, or the pull request being merged into our
 codebase is independent of the grade you receive, but provides a platform for more visiblity of your project). 
