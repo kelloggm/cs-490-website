@@ -12,8 +12,8 @@ Sep 21
     **Your Choice reading**: Barr et al.'s [The Oracle Problem in Software Testing: A Survey](../assets/testoracles.pdf)
 
 Sep 23
-: [Version Control](../assets/lecture-vcs.pdf)
-  : **Mandatory reading**: Ernst's [Version control concepts and best practices](https://homes.cs.washington.edu/~mernst/advice/version-control.html) and Thompson's [My favourite Git commit](https://dhwthompson.com/2019/my-favourite-git-commit)
+: [Know Your Tools: Version Control and Build Systems](../assets/lecture-vcs.pdf)
+  : **Mandatory reading**: Ernst's [Version control concepts and best practices](https://homes.cs.washington.edu/~mernst/advice/version-control.html) and Atwood's [The F5 Key Is Not a Build Process](https://blog.codinghorror.com/the-f5-key-is-not-a-build-process/)
   
-    **Your Choice reading**: De Rosso et al.'s [Purposes, concepts, misfits, and a redesign of git](../assets/gitless.pdf)
+    **Your Choice reading**: Mokhov et al.'s [Build Systems à la Carte](https://www.microsoft.com/en-us/research/uploads/prod/2018/03/build-systems-final.pdf)
 

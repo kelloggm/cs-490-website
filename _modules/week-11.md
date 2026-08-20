@@ -3,16 +3,13 @@ title: Week 11
 ---
 
 Nov 9
-: [Design Patterns](../assets/lecture-design-patterns.pdf)
-  : **Mandatory reading**: Fowler's [Writing Software Patterns](https://www.martinfowler.com/articles/writingPatterns.html) (read up to, but not including, "Common Pattern Forms") and Lewis and Fowler's [Microservices]( https://www.martinfowler.com/articles/microservices.html)
-
-    **Your Choice reading**: Kellogg et al.'s [Verifying Object Construction](https://kelloggm.github.io/martinjkellogg.com/papers/ICSE2020-camera-ready.pdf)
-
-Nov 11
 : [Tech debt, refactoring, and maintenance (1)](../assets/lecture-techdebt1.pdf)
   : **Mandatory reading**: Allman's [Managing Technical Debt](../assets/techdebt.pdf)
 
     **Your Choice reading**: Kim et al.'s [A Field Study of Refactoring Challenges and Benefits](../assets/refactoring.pdf)
 
+Nov 11
+: [Tech debt, refactoring, and maintenance (2)](../assets/lecture-techdebt2.pdf)
+  : **Mandatory reading**: Spolsky's [Things you should never do, part I](https://www.joelonsoftware.com/2000/04/06/things-you-should-never-do-part-i/) and Majors' [Friday Deploy Freezes Are Exactly Like Murdering Puppies](https://charity.wtf/2019/05/01/friday-deploy-freezes-are-exactly-like-murdering-puppies/)
 
-
+    **Your Choice reading**: Scully et al.'s [Machine Learning: The High-Interest Credit Card of Technical Debt](https://static.googleusercontent.com/media/research.google.com/en//pubs/archive/43146.pdf)
