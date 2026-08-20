@@ -30,12 +30,14 @@ able to answer them in a reasonable way, and everything in between.
 To help you prepare for this semester's exams, below you can find
 links to exams from previous semesters, all of which have
 solutions ("keys"). Some of these exams cover the whole course (anything labeled "final"), so
-you'll want to be careful when studying for the midterm---not everything
+you'll want to be careful when studying for the midterms---not everything
 on these exams will have been covered by then. In addition, keep in mind
 that the set of topics changes a bit semester-to-semester, so it's possible
 that these exams include some topics that we didn't cover, and that your exams
 this semester might include topics that these exams ignore. These exams are provided
 "as-is" to help you study, but please don't over-rely on them.
+Finally, for those of you taking this class in **Fall 2026**, note that for the first
+time there are _two_ midterm exams in this course (previous semesters had only one).
 
 I strongly recommend that before looking at a "key" for one of these exams, you sit down
 and attempt the exam yourself, under something like exam conditions (quiet room, no

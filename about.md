@@ -93,19 +93,17 @@ out of CS 490 if you have seen those classes first (or are taking them concurren
 
 # Grading and Assignments
 
-Your grade is composed of the following sub-scores (in no particular order):
+Your grade is composed of the following sub-scores:
+* 40%: Group Project
+* 40%: Exams (10% for each mid-term, 20% for the final)
 * 15%: Participation & Professionalism
 * 5%: Individual Assignments
-* 45%: Group Project
-* 35%: Exams (15% for the mid-term, 20% for the final)
 
 This class will be curved: when grading, I prefer to use the whole
 range available rather than scores in a tight range. That is, if an
 assignment is worth 10 points, I will give grades at all the points
 between 0 and 10. I will project your raw scores onto the final
-distribution twice during the semester:
-* after the mid-term exam
-* shortly before the final exam
+distribution twice during the semester, after each mid-term exam.
 
 You will be notified of your current projected class grade via email at each of these points.
 
@@ -213,16 +211,16 @@ The project will provide hands-on experience to complement the skills taught in 
 
 ## Exams
 
-There are two exams in this course:
-* a mid-term, which is held in class about halfway through the semester (worth 15% of your course grade)
+There are three exams in this course:
+* two mid-terms, which are held in class during lecture slots (worth 10% of your course grade each)
 * a final exam, which is held during the university-scheduled final exam slot (worth 20% of your course grade)
 
-Both exams will cover a range of topics discussed in lecture
+All exams will cover a range of topics discussed in lecture
 and/or in the mandatory readings, from any time during the
 semester up to the point when the exam is held.
-The exam will be comprehensive, covering many of the topics
+The exams will be comprehensive, covering many of the topics
 we discuss; I may ask about anything we covered in class or that you
-were supposed to read. The exam will be conducted in person. Contact
+were supposed to read. Exams will (only!) be conducted in person. Contact
 the course staff privately via email if you are not able to attend for
 any reason (e.g., you are sick or need special accommodations) and we will arrange an alternative.
 See the [exams page](../exam) for more information.
@@ -247,7 +245,7 @@ Acceptable collaborations:
 * Copy code written by one of your teammates during the group project for another part of the group project.
 * Copy code from the output of a generative AI tool such as ChatGPT that you prompted yourself,
 if you include a link to a record of your interaction with the model (e.g., ChatGPT's "share" feature)
-as a code comment.
+as a code comment or in a commit message.
 
 Unacceptable collaborations:
 * Copy code directly from another student on an individual project.
