@@ -12,9 +12,5 @@ Oct 12
     **Your Choice reading**: Bacchelli and Bird's [Expectations, Outcomes, and Challenges Of Modern Code Review](../assets/codereview.pdf)
 
 Oct 14
-: [Languages](../assets/lecture-languages.pdf)
-  : **Mandatory reading**: Howarth's [Why Discord is Switching from Go to Rust](https://discord.com/blog/why-discord-is-switching-from-go-to-rust)
-  and Schwab's [Safety through Incompatibility](https://lukasschwab.me/blog/gen/safe-incompatibility.html)
-
-    **Your Choice reading**: Hoare's [Hints on Programming Language Design](../assets/hoarehints.pdf) (shorter than it looks!)
-
+: Mid-term Exam 1 (in-class)
+  : see the [exams](../exam) page for old and practice exams (with keys)

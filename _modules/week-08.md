@@ -3,8 +3,11 @@ title: Week 8
 ---
 
 Oct 19
-: Mid-term Exam 1 (in-class)
-  : see the [exams](../exam) page for old and practice exams (with keys)
+: [Languages](../assets/lecture-languages.pdf)
+  : **Mandatory reading**: Howarth's [Why Discord is Switching from Go to Rust](https://discord.com/blog/why-discord-is-switching-from-go-to-rust)
+  and Schwab's [Safety through Incompatibility](https://lukasschwab.me/blog/gen/safe-incompatibility.html)
+
+    **Your Choice reading**: Hoare's [Hints on Programming Language Design](../assets/hoarehints.pdf) (shorter than it looks!)
 
 Oct 21
 : [Static Analysis](../assets/lecture-static-analysis.pdf)
