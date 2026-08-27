@@ -78,7 +78,7 @@ To help you set up a local development environment for this class, we've prepare
 
 ### Getting Started
 
-1. Clone the [GitHub repository](https://github.com/kelloggm/covey.town](https://github.com/kelloggm/covey.town) containing the starter code.
+1. Clone the [GitHub repository](https://github.com/kelloggm/covey.town) containing the starter code.
 2. Open the `covey.town` folder in VSCode.
 3. Open up the VSCode terminal with `ctrl + ~`. Alternatively, you can also open a seperate terminal/cmd. Please make sure the shell is in the same folder as your `package.json`.
 4. Follow the instructions in the `README.md` file to run the app locally.
