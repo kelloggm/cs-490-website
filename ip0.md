@@ -124,16 +124,14 @@ that Covey.Town builds on. If you're struggling to understand how Covey.Town's g
 ## Rubric
 
 This assignment is "pass/fail": you either get full credit because you've
-completed the task, or you don't. The assignment is worth 10 points
-on the same scale as the other individual projects (i.e., 1/10th of the
-value of IP1).
+completed the task, or you don't.
 
 After this assignment is due, we will assume that everyone can run Covey.Town
 locally.
 
 ## Submission Instructions
 
-Submit your assignment via Canvas.
+Submit your video via Canvas.
 
 You may submit solutions as many times as you want; only the last
 submission before the deadline will be counted.
