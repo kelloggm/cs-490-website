@@ -90,7 +90,7 @@ Each essay is worth 2% of your project grade, as one of the project's individual
 components: see the [project overview](../projects/project-overview.html#summary-of-project-grading)
 for how the project grade fits together. Because Honors students write these two essays in
 addition to everything else, the individually-graded portion of an Honors student's project
-grade is 16% rather than 12%.
+grade is 13% rather than 9%.
 
 Each essay is graded out of 100 points.
 The points are allocated for the following:

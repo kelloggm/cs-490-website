@@ -125,7 +125,7 @@ that Covey.Town builds on. If you're struggling to understand how Covey.Town's g
 This assignment is "pass/fail": you either get full credit because you've
 completed the task, or you don't.
 
-This assignment is the first deliverable of the course project: it is worth 3% of your
+This assignment is the first deliverable of the course project: it is worth 1% of your
 project grade, as one of the project's individually-graded components (see the
 [project overview](../projects/project-overview.html#summary-of-project-grading)).
 

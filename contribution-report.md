@@ -69,7 +69,7 @@ November than in December.
 
 ### Grading
 
-This assignment is worth 5% of your project grade, as one of the project's individually-graded
+This assignment is worth 3% of your project grade, as one of the project's individually-graded
 components. See the [project overview](../projects/project-overview.html#summary-of-project-grading)
 for how the project grade fits together.
 
@@ -85,6 +85,13 @@ an explanation of why no link exists.
 * All four sections are present.
 * Sections 1-3 are accurate, but may be incomplete or thin on evidence.
 * The evidence in the report shows that you are making technical contributions to your team's project.
+
+### A preview of the final reflection
+
+The [individual reflection](../projects/project-deliverable.html#individual-reflection-1) that you will submit
+at the end of the semester has this same four-section structure, covering the whole project instead of just the
+first seven weeks, with a much longer version of section 4. Keeping your own records as you go---which pull
+requests were yours, which ones you reviewed---will make both assignments easier.
 
 ### Submission
 

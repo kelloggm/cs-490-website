@@ -172,4 +172,4 @@ no crashes, and no rough edges that you have to explain away.
 
 ## Final Demo
 
-See the [project deliverables](../projects/project-deliverable.html#8-final-demonstration) page.
+See the [project deliverables](../projects/project-deliverable.html#10-final-demonstration) page.

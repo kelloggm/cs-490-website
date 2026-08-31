@@ -46,30 +46,30 @@ Most of the project is graded as a team, but some components are graded individu
 
 | Component | Non-Honors | Honors |
 | --------- | ---------- | ------ |
-| **Individually graded** | **12%** | **16%** |
-| [Individual Project 0](../projects/ip0.html) | 3% | 3% |
-| [Individual Contribution Report](../projects/contribution-report.html) | 5% | 5% |
-| [Individual reflection](../projects/project-deliverable.html#individual-reflection-1) | 4% | 4% |
+| **Individually graded** | **9%** | **13%** |
+| [Individual Project 0](../projects/ip0.html) | 1% | 1% |
+| [Individual Contribution Report](../projects/contribution-report.html) | 3% | 3% |
+| [Individual reflection](../projects/project-deliverable.html#individual-reflection-1) | 5% | 5% |
 | [Honors Reflection Essays](../projects/honors-essays.html) (2 essays, worth 2% each) | --- | 4% |
-| **Team graded** | **88%** | **84%** |
+| **Team graded** | **91%** | **87%** |
 | [Preliminary Project Plan](../projects/project-plan.html) | 5% | 4.8% |
 | [Revised Project Plan](../projects/revised-project-plan.html) | 8% | 7.6% |
-| Meetings with mentor and [team surveys](../projects/surveys.html) | 4% | 3.8% |
-| Ongoing development progress, including code reviews | 12% | 11.5% |
+| Meetings with mentor and [team surveys](../projects/surveys.html) | 5% | 4.8% |
+| Ongoing development progress, including code reviews | 10% | 9.6% |
 | [Deployment demo](../projects/project-demos.html#deployment-demo) | 1% | 1% |
 | [Wizard-of-Oz demo](../projects/project-demos.html#wizard-of-oz-demo) | 2% | 1.9% |
 | [Preliminary demo 1 (with your mentor)](../projects/project-demos.html#preliminary-demo-1-with-your-mentor) | 2% | 1.9% |
 | [Preliminary demo 2 (with the instructor)](../projects/project-demos.html#preliminary-demo-2-with-the-instructor) | 4% | 3.8% |
-| Final demo | 8% | 7.6% |
-| Final implementation of your feature | 19% | 18.1% |
-| Final test suite of your feature | 9% | 8.6% |
+| Final demo | 10% | 9.6% |
+| Final implementation of your feature | 20% | 19% |
+| Final test suite of your feature | 10% | 9.6% |
 | Report: Feature Overview | 4% | 3.8% |
 | Report: Technical Overview | 5% | 4.8% |
 | Report: Process Overview | 5% | 4.8% |
 
 Each column adds up to 100%. Honors students have a larger individually-graded component, because
 it also includes the two [Honors Reflection Essays](../projects/honors-essays.html); their
-team-graded components are scaled down proportionally (by a factor of 21/22) so that the total
+team-graded components are scaled down proportionally (by a factor of 86/90) so that the total
 still comes to 100%.
 
 
@@ -169,7 +169,7 @@ Your final team deliverable will include:
 * Automated tests for your new feature
 * A report
     
-Accompanying the final team deliverable will be an *individual reflection*, which every student must submit on their own, which will include your reflections on:
+Accompanying the final team deliverable will be an *individual reflection*, which every student must submit on their own. It has the same structure as the [Individual Contribution Report](../projects/contribution-report.html) from November---evidence of the code you wrote, the code you reviewed, and the status of the tasks assigned to you---followed by a substantially longer reflection covering:
 * The evolution of your project concept: How does the project that you delivered compare to what you originally planned to deliver? What caused these deviations?
-* The software engineering processes that you feel could have been improved in your project: were there any procesess that in hindsight, you wish that you followed, or wish that you followed better?
+* The software engineering processes that you feel could have been improved in your project: were there any processes that in hindsight, you wish that you followed, or wish that you followed better?
 * Your team dynamic: Provide a frank (and ideally, blameless) postmortem of your and your teammates collaborative performance and participation. If you had to do this same project over with the same teammates, what would *you* have done differently (or not) to improve your team's overall performance?
