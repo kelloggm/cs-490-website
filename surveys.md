@@ -7,8 +7,12 @@ nav_order: 10
 ---
 
 There will be a "team formation survey" due around the same time as the individual project proposal.
-In this survey, you can indicate preferences for (or against) specific teammates. You will also be
-required to provide your GitHub username.
+Teams are assigned randomly from within your section (see the
+[project overview](../projects/project-overview.html#team-formation)): you do not get to choose your
+teammates. This survey is your one chance to nudge that process. In it, you may name a small number of
+students you would prefer *not* to be placed with, and we will try to honor those requests. We do not
+accept requests to be placed *with* particular students. You will also be required to provide your
+GitHub username.
 
 There will be four anonymous surveys on how the project is going and how your teammates are performing:
 * the first (TODO: link to this semester's survey form) will be due the week after the Deployment Demo (October 9)

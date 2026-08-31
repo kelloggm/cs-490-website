@@ -20,8 +20,8 @@ All implementation will take place in the TypeScript programming language, using
 | Date | Deliverable | Description | 
 | -----| ----------- | ----------- |
 | 9/8/26 | [Individual Project 0]({{ site.baseurl }}{% link ip0.md %}) | Get Covey.Town running on your own machine and make a trivial change to it. *Individually graded.* |
-| 9/14/26 | [Individual Project Proposals]({{ site.baseurl }}{% link individual-project-plan.md %}) | Propose a feature for Covey.Town and specify preferences for teammates. *Individually graded.* |
-| 9/18/26 | Team Assignment | Teams will be assigned based on individual proposed features. Your first sprint begins the following Monday. |
+| 9/14/26 | [Individual Project Proposals]({{ site.baseurl }}{% link individual-project-plan.md %}) | Propose a feature for Covey.Town. *Individually graded.* |
+| 9/18/26 | Team Assignment | Teams are assigned randomly within each section. Your first sprint begins the following Monday. |
 | 10/2/26 | [Deployment Demo]({{ site.baseurl }}{% link demos.md %}) | Show that you can deploy a lightly-modified copy of covey.town to a remotely-accessible machine. |
 | 10/5/26 | [Preliminary Project Plan]({{ site.baseurl }}{% link project-plan.md %}) | As a team, propose and plan a new feature for Covey.Town that can be implemented over six sprints |
 | 10/9/26 | First [team survey]({{ site.baseurl }}{% link surveys.md %}) | Let us know how you think the project is going. |
@@ -78,7 +78,7 @@ We will evaluate each individual's contribution on the basis of a variety of fac
 We will make regular efforts to collect and distribute this feedback throughout the project — our ultimate goal is for all students to participate and receive full marks.
 
 ### Honors Projects
-Students in the Honors section are guaranteed to be placed on teams made up entirely of Honors students,
+Because teams are drawn from within each section, students in the Honors section are guaranteed to be placed on teams made up entirely of Honors students,
 and Honors teams are held to a higher standard on the project than other teams.
 In particular, we expect an Honors project to:
 * show significantly more ambition than the average project,
@@ -95,14 +95,20 @@ graded as part of the individually-graded component of the project (see "Summary
 ### Team Formation
 All projects will be completed in a team of 3-4 students (most teams will have 4).
 Teams are announced on September 18, and your team's first sprint begins on Monday, September 21.
-Part of the first deliverable for the project will be a team formation survey: you will be able to indicate
-your preferences for teammates. The instructors will assign students to the teams based on a number of factors including your responses to the survey.
-Because the team survey will also ask for your GitHub username, which the course staff needs
-to have in order to invite you to your project repo (see "Your Team's GitHub Repository", below).
+**The course staff assigns teams randomly from within your section.** You do not get to choose your
+teammates.
+Assigning teams this way mirrors industry, where you rarely get to pick the team you join.
+
+The one exception is the [team formation survey](../projects/surveys.html), which is due around the same
+time as the individual project proposal. On that survey you may name a small number of students you would
+prefer *not* to work with, and we will try to honor those requests when we draw the teams. We do not accept
+requests to be placed *with* particular students. The survey also asks for your GitHub username, which the
+course staff needs in order to invite you to your project repo (see "Your Team's GitHub Repository", below).
 
 ### Individual Project Proposal
 You'll write a one-page proposal for a feature. You only need to explain the feature _from a user perspective_ in this document.
-We'll create groups so that people whose individual proposals are similar are grouped together.
+This proposal is graded individually. Your team is not
+obligated to build the feature you propose, but one purpose of this assignment is to ensure that your future team has a few ideas for possible projects right away.
 Your feature should be something that can be implemented within the timeframe allotted (six two-week sprints), and will be implemented in a fork of the main Covey.Town codebase.
 
 ### Team Meetings with Mentor

@@ -18,7 +18,9 @@ we hold Honors projects to a higher standard: we expect them to be significantly
 significantly more polished, and to scale up to larger numbers of concurrent users.
 Propose accordingly (see the [syllabus](../about/#honors-section) and the [project overview](../projects/project-overview.html#honors-projects)).
 
-In this assignment, you'll first suggest a possible project on your own via a one-page project proposal. 
+In this assignment, you'll first suggest a possible project on your own via a one-page project proposal.
+This proposal is graded individually.
+Your eventual project team will be free to build your feature, someone else's, or something new entirely. 
 Note that this proposal is due early in the semester, before we have covered much of the course material. That is intentional: the project runs for most of the semester, so it has to start early. You are not expected to know all of the details of how you would build your feature yet---you are expected to explain what it is and why it is worth building, from a _user's_ perspective.
 
 Feel free to look at existing systems like [Gather.Town](https://gather.town), [Sococo](https://www.sococo.com), [Reslash](https://reslash.co), [Screen](https://screen.so/home), and [Gatherly.IO](https://www.gatherly.io) for inspiration on new features to build for Covey.Town. Also see the NYTimes Magazine article [The Race to Fix Fix Virtual Meetings](https://www.nytimes.com/2021/02/17/magazine/video-conference.html). 

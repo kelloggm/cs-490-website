@@ -40,7 +40,7 @@ Finally, for those of you taking this class in **Fall 2026**, note that for the 
 time there are _two_ midterm exams in this course (previous semesters had only one).
 The two mid-terms are not weighted equally: the first is worth 10% of your course grade and
 the second is worth 15%, because the second covers more of the course.
-You'll also have had practice taking with this course's exam style, so you'll know what to
+You'll also have had practice with this course's exam style, so you'll know what to
 expect.
 The final is worth 20%.
 
