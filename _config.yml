@@ -27,20 +27,15 @@ color_scheme: light
 search_enabled: true
 heading_anchors: true
 permalink: pretty
-# TODO(au26): fill in section 003's Canvas URL below (replace the '#' href and drop
-# the ": TBD" from its label), and create this semester's Discord server and Gradescope
-# course, then uncomment those two aux_links and fill in the new URLs.
 aux_links:
   'Canvas (001)':
     - 'https://njit.instructure.com/courses/68176'
-  'Canvas (003): TBD':
-    - '#'
+  'Canvas (003)':
+    - 'https://njit.instructure.com/courses/72692'
   'Canvas (HM1)':
     - 'https://njit.instructure.com/courses/68186'
-#   Discord:
-#     - 'https://discord.com/channels/1539630609943633940/1539630723638755438'
-#   Gradescope:
-#     - 'TODO'
+  Discord:
+    - 'https://discord.com/channels/1539630609943633940'
 footer_content: "&copy; 2022-2026 Martin Kellogg, Jonathan Bell, Adeel Bhutta and Mitch Wand. Released under the <a href=\"https://creativecommons.org/licenses/by-sa/4.0/\">CC BY-SA</a> license"
 
 # Collections for website data

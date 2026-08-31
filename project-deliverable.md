@@ -42,14 +42,14 @@ Accompanying the final team deliverable will be an *individual reflection*, whic
      days immediately thereafter". -->
 
 You will make a live (in-person) demo to the instructor in the last week of classes. Your demo must last for no longer than ten minutes.
-Your team can sign up for a slot (TODO: link to this semester's signup sheet);
-slots are available TODO.
+Your team can sign up for a slot ([signup sheet]({{ site.baseurl }}{% link todo.md %}) **coming soon**{: .label .label-yellow });
+slots are available on dates TBD.
 Make sure that at least one member of your team has a laptop that can access your deployed covey.town instance with them when you arrive for your
 demo. Because demos are short and often scheduled back-to-back, if your whole team is not present and ready to start your demo at the time that you've
 signed up for, you will lose your slot and you will have to sign up for a later one.
  
 #### Individual Reflection
-Create a PDF of your reflection, and submit it to Canvas ([section 001](https://njit.instructure.com/courses/68176), [section HM1](https://njit.instructure.com/courses/68186); section 003's Canvas link is TBD), under the assignment "Project: Individual Reflection". 
+Create a PDF of your reflection, and submit it to Canvas ([section 001](https://njit.instructure.com/courses/68176), [section 003](https://njit.instructure.com/courses/72692), [section HM1](https://njit.instructure.com/courses/68186)), under the assignment "Project: Individual Reflection". 
 
 ## Grading
 Each project will be graded by the team's assigned mentor and one other member of the course staff (including at least one instructor). We do not expect all teams to deliver all of the features that were initially proposed - in the (relatively short!) implementation period, there are sure to be some teams that encounter unexpected technical hurdles. As described in greater detail in the rubrics below, teams that have regular communication with their mentor regarding their project status may be permitted variances to their project scope. For most of the submission components below, we provide two benchmark rubrics: one for a submission that is satisfactory (full marks), and one that would be meeting our minimum expectations (a pass). In practice, when grading projects we will usually assign numeric grades and provide partial credit, using these rubrics as guidelines for those two extremes. 

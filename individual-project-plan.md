@@ -109,5 +109,5 @@ to say the same thing with fewer syllables or words, do so. A longer writeup on 
 
 ## Submission
 
-Your project plan should be submitted as a single PDF in Canvas ([section 001](https://njit.instructure.com/courses/68176), [section HM1](https://njit.instructure.com/courses/68186); section 003's Canvas link is TBD) to the assignment "Individual Project Proposal."
+Your project plan should be submitted as a single PDF in Canvas ([section 001](https://njit.instructure.com/courses/68176), [section 003](https://njit.instructure.com/courses/72692), [section HM1](https://njit.instructure.com/courses/68186)) to the assignment "Individual Project Proposal."
 The assignment is due by the end of September 16, AoE.

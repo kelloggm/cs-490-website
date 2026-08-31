@@ -15,10 +15,10 @@ accept requests to be placed *with* particular students. You will also be requir
 GitHub username.
 
 There will be four anonymous surveys on how the project is going and how your teammates are performing:
-* the first (TODO: link to this semester's survey form) will be due the week after the Deployment Demo (October 9)
-* the second (TODO: link to this semester's survey form) the week after the first Preliminary Demo (November 6)
-* the third (TODO: link to this semester's survey form) on November 25, right before Thanksgiving
-* the fourth (TODO: link to this semester's survey form) with your individual reflection, after you submit your final deliverables
+* the first ([survey form]({{ site.baseurl }}{% link todo.md %}) **coming soon**{: .label .label-yellow }) will be due the week after the Deployment Demo (October 9)
+* the second ([survey form]({{ site.baseurl }}{% link todo.md %}) **coming soon**{: .label .label-yellow }) the week after the first Preliminary Demo (November 6)
+* the third ([survey form]({{ site.baseurl }}{% link todo.md %}) **coming soon**{: .label .label-yellow }) on November 25, right before Thanksgiving
+* the fourth ([survey form]({{ site.baseurl }}{% link todo.md %}) **coming soon**{: .label .label-yellow }) with your individual reflection, after you submit your final deliverables
 
 These surveys exist to help the course staff identify problems; they are not directly used for grading.
 They're designed to only take a few minutes of your time, and are graded on completion as reading quizzes.

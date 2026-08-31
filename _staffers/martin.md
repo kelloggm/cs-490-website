@@ -9,7 +9,7 @@ pronouns: he/him
 ---
 Instructor for sections 001 and HM1.
 
-Office Hours: TODO (day and time), GITC 4314; or by appointment.
+Office Hours: Tuesdays 2-3pm, GITC 4314; or by appointment.
 
 To schedule an appointment with me, check [my
 calendar](https://calendar.google.com/calendar/u/0?cid=bWprNzZAbmppdC5lZHU)

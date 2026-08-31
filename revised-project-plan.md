@@ -82,7 +82,7 @@ Your work breakdown should take the format of a simple textual list.
 **Mandatory update for all teams:** Even if your work breakdown is entirely unchanged compared to the preliminary plan, please be certain to include updates on all tasks that were scheduled to be completed before the due date of this revised plan (that is, everything in Sprint 0 and Sprint 1, and anything in Sprint 2 that was due in its first week). Many teams include research/learning tasks in the first week to help inform the rest of the work breakdown: you should be certain to revise your work breakdown based on what you have learned so far.
  
 ## Submission 
-Your revised project plan should be submitted as a single PDF in Canvas ([section 001](https://njit.instructure.com/courses/68176), [section HM1](https://njit.instructure.com/courses/68186); section 003's Canvas link is TBD) to the assignment "Revised Project Plan."
+Your revised project plan should be submitted as a single PDF in Canvas ([section 001](https://njit.instructure.com/courses/68176), [section 003](https://njit.instructure.com/courses/72692), [section HM1](https://njit.instructure.com/courses/68186)) to the assignment "Revised Project Plan."
 Each team submits a single document to Canvas.
 
 ## Grading

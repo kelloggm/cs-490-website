@@ -33,10 +33,10 @@ All implementation will take place in the TypeScript programming language, using
 | 11/20/26 | [Preliminary Demo 2]({{ site.baseurl }}{% link demos.md %}) | Demonstrate one user story to your project mentor and the instructor. |
 | 11/25/26 | Third [team survey]({{ site.baseurl }}{% link surveys.md %}) | Let us know how you think the project is going. |
 | 12/9/26 | Project [Implementation and Documentation]({{ site.baseurl }}{% link project-deliverable.md %}) | Deliver your new feature, including design documentation and tests. |
-| TODO | Final Demo | You will demo your feature to the instructor by this date. Final demos will happen sometime tbd after the final project submission. |
-| TODO | Fourth [team survey]({{ site.baseurl }}{% link surveys.md %}) | Let us know how you thought the project went. |
-| TODO | [Individual Reflection]({{ site.baseurl }}{% link project-deliverable.md %}) | Reflect on the project, your process, and your team. *Individually graded.* |
-| TODO | Project Implementation and Documentation (Resubmission) | If your final demo does not meet your project goals, you may schedule another demo with your project mentor and the instructor no more than one week after the last day of class. Re-submit your code and documentation immediately before the demo. |
+| TBD | Final Demo | You will demo your feature to the instructor by this date. Final demos will happen sometime tbd after the final project submission. |
+| TBD | Fourth [team survey]({{ site.baseurl }}{% link surveys.md %}) | Let us know how you thought the project went. |
+| TBD | [Individual Reflection]({{ site.baseurl }}{% link project-deliverable.md %}) | Reflect on the project, your process, and your team. *Individually graded.* |
+| TBD | Project Implementation and Documentation (Resubmission) | If your final demo does not meet your project goals, you may schedule another demo with your project mentor and the instructor no more than one week after the last day of class. Re-submit your code and documentation immediately before the demo. |
 
 All assignments are due on the specified date, AoE (i.e., before the beginning of the next day anywhere on Earth, which is at 7am EST the next day).
 
