@@ -40,7 +40,11 @@ incoming traffic on the appropriate ports used by covey.town; see the covey.town
 
 ### Rubric (out of 10 points, 1% of final project grade)
 
-There are only two possible grades for this demo: 0 or 10.
+There are three possible grades for this demo:
+* 10, if you meet the two requirements above by the deadline
+* 5, if you meet the two requirements above no more than one week after the deadline
+(i.e., in your _next_ meeting with your mentor rather than this one)
+* 0, otherwise
 
 #### Meets minimum requirements:
 * Provided link leads to a running covey.town instance.
@@ -51,7 +55,7 @@ There are only two possible grades for this demo: 0 or 10.
 **Due Friday 16 October 2026, 5:30pm EDT**{: .label .label-red }
 
 The next demo is the ["Wizard-of-Oz"](https://en.wikipedia.org/wiki/Wizard_of_Oz_experiment) demo.
-In this demo, you'll show what your project will look like when it is finished. In this demo, you don't
+In this demo, you'll show what your project will look like when it is finished. You don't
 need to actually have any of your code working yet: instead, you'll "fake" working code to show off
 your vision for your finished project.
 
@@ -68,8 +72,15 @@ You can use slide animations or transitions to show what your feature will look 
 The key is that you need to convince the course staff that you've thought through how your feature will
 behave in enough detail to implement it.
 
-Aim for your demo to take about five minutes, and to showcase all of your feature's user stories
-from your revised project proposal. The demo will usually occur during your regular weekly meeting with your
+Note that this demo comes *before* your [revised project plan](../projects/revised-project-plan.html)
+is due, and that is deliberate: faking your finished feature is usually the fastest way to discover
+which parts of your design you have not actually thought through yet. Use what you learn here---and
+your mentor's reaction to it---when you revise your plan the following week. The version of the feature
+that you show in your Wizard-of-Oz demo should be what you're planning for the revised project submission,
+meaning that it should take into account any feedback you got on your preliminary proposal.
+
+Aim for your demo to take about five minutes, and to showcase all of your feature's user stories.
+The demo will usually occur during your regular weekly meeting with your
 project mentor during the week that the demo is due, which the instructor will try to attend. In the event of a conflict, the instructor will let
 you know the week beforehand, but it will be up to you to schedule an alternative slot that all of you,
 your project mentor, and the instructor can attend before the deadline.
@@ -79,12 +90,13 @@ your project mentor, and the instructor can attend before the deadline.
 #### Satisfactory:
 * Demo materials are professional in appearance
 * Demo is about five minutes long
-* Demo showcases all user stories from revised project proposal
+* Demo showcases all user stories from your preliminary project plan (with deviations permitted based on feedback)
+* Demo incorporates all feedback you received on your preliminary project plan
 * Feature(s) demonstrated are plausible to implement
 
 #### Meets minimum requirements:
 * Demo is between 3 and 7 minutes long
-* Demo showcases at least two user stories from the revised project proposal
+* Demo showcases at least two user stories from your preliminary project plan
 
 ## Preliminary Demo 1: With Your Mentor
 

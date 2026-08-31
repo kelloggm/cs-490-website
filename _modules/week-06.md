@@ -3,6 +3,9 @@ title: Week 6
 ---
 
 Oct 5
+ : **[Preliminary Project Plan](../projects/project-plan.html) due**{: .label .label-red } 
+
+Oct 5
 : [Testing (1)](../assets/lecture-testing1.pdf)
   : **Mandatory reading**: Shore's [The Art of Agile Development: Test-Driven Development](http://www.jamesshore.com/v2/books/aoad1/test_driven_development)
 

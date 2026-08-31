@@ -3,9 +3,6 @@ title: Week 5
 ---
 
 Sep 28
- : **[Preliminary Project Plan](../projects/project-plan.html) due**{: .label .label-red } 
-
-Sep 28
 : [Know Your Tools: Version Control and Build Systems](../assets/lecture-vcs.pdf)
   : **Mandatory reading**: Ernst's [Version control concepts and best practices](https://homes.cs.washington.edu/~mernst/advice/version-control.html) and Atwood's [The F5 Key Is Not a Build Process](https://blog.codinghorror.com/the-f5-key-is-not-a-build-process/)
   

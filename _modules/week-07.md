@@ -3,9 +3,6 @@ title: Week 7
 ---
 
 Oct 12
- : **[Revised Project Plan](../projects/revised-project-plan.html) due**{: .label .label-red } 
-
-Oct 12
 : [Testing (3)](../assets/lecture-testing3.pdf)
   : **Mandatory reading**: SQLite's [How SQLite is Tested](https://www.sqlite.org/testing.html)
 

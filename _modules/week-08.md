@@ -3,6 +3,9 @@ title: Week 8
 ---
 
 Oct 19
+ : **[Revised Project Plan](../projects/revised-project-plan.html) due**{: .label .label-red } 
+
+Oct 19
 : [Languages](../assets/lecture-languages.pdf)
   : **Mandatory reading**: Howarth's [Why Discord is Switching from Go to Rust](https://discord.com/blog/why-discord-is-switching-from-go-to-rust)
   and Schwab's [Safety through Incompatibility](https://lukasschwab.me/blog/gen/safe-incompatibility.html)
