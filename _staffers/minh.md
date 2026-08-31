@@ -1,6 +1,6 @@
 ---
 name: Minh Le
-role: TA
+role: Teaching Assistant
 email: mql@njit.edu
 photo: tbd.png
 ---

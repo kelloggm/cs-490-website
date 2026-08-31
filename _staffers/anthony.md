@@ -1,6 +1,6 @@
 ---
 name: Anthony Margiotto
-role: TA
+role: Teaching Assistant
 email: aem79@njit.edu
 photo: tbd.png
 ---
