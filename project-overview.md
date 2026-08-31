@@ -61,6 +61,19 @@ In cases where team members do not equally contribute to the project, we may ass
 We will evaluate each individual's contribution on the basis of a variety of factors, including progress reports at meetings, through inspecting version control history, through each students' self-reflection, and through each students' peer evaluation (during and/or) at the end of the project.
 We will make regular efforts to collect and distribute this feedback throughout the project — our ultimate goal is for all students to participate and receive full marks.
 
+### Honors Projects
+Students in the Honors section are guaranteed to be placed on teams made up entirely of Honors students,
+and Honors teams are held to a higher standard on the project than other teams.
+In particular, we expect an Honors project to:
+* show significantly more ambition than the average project,
+* show a significantly higher level of polish (as a rule of thumb: "no bugs in demos"), and
+* produce a solution that scales up to larger numbers of concurrent users.
+
+These expectations apply to every project deliverable described on this page, and the rubrics on the
+individual deliverable pages are read with them in mind. See the [syllabus](../about/#honors-section)
+for more about the Honors section (Honors students also have extra reading-response assignments:
+see the [Honors Reflection Essays page](../projects/honors-essays.html)).
+
 ### Team Formation
 All projects will be completed in a team of 3-4 students (most teams will have 4).
 Part of the first deliverable for the project will be a team formation survey: you will be able to indicate
@@ -85,6 +98,7 @@ We suggest starting with one of your individual proposals, but you're welcome to
 Talk to your mentor!
 Given that you should already be up-to-speed on the Covey.Town codebase (and have been introduced to TypeScript, React, NodeJS, and testing frameworks),
 and that you will have a team of three or four, we expect that the feature that you propose will be reasonably complex.
+Honors teams should expect to clear a higher bar for ambition, polish, and scalability (see "Honors Projects", above).
 We will let you know if we think your feature is not ambitious enough (or too ambitious) as part of our feedback on your preliminary plan, but we strongly encourage you to discuss
 project scope with your project mentor _before_ submitting the preliminary proposal.
 

@@ -14,6 +14,12 @@ In this deliverable, you will revise your project plan based on that feedback, a
 If there were any deficiencies or concerns noted by your mentor on your preliminary plan, you *must* address those concerns in this revised plan.
 If you are unsure of how to address any of these concerns or if you have addressed them, please discuss them with your mentor before submitting this revised plan.
 
+**Honors teams**: this is the document that fixes the scope of your project, so it is the last convenient moment to make sure
+that your project meets our expectations for Honors projects: significantly more ambition than average, significantly more polish,
+and scaling up to larger numbers of concurrent users. If your mentor has told you that your project is not
+yet ambitious enough for an Honors team, you *must* address that here. See the [syllabus](../about/#honors-section) and the
+[project overview](../projects/project-overview.html#honors-projects).
+
 We list page *maximums* for each section as general guidance of what we are willing to grade. Please do not feel compelled to use all of the pages provided, and remember that a diagram or table can be as expressive (or more) as a comparable amount of text.
 
 ## Revised Problem Statement, User Stories and Acceptance Criteria (max 4 pages)

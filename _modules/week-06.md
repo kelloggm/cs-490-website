@@ -14,3 +14,6 @@ Oct 7
   
     **Your Choice reading**: Lamport's [Introduction to TLA](../assets/tla.pdf)
 
+Oct 9
+ : **[Honors Reflection Essay 1](../projects/honors-essays.html) due**{: .label .label-red } (Honors section only)
+

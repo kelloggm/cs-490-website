@@ -12,6 +12,13 @@ Each group project team must do at least four demos of various types during the 
 Some demos will be just your group project mentor, some may be
 for the instructor (and your group project mentor), and at least one will be for the whole class.
 
+**Honors teams**: Honors teams are made up entirely of Honors students, and we hold Honors projects to a higher
+standard: significantly more ambition than average, significantly more polish, and scaling up to larger numbers
+of concurrent users. Demos are where the polish expectation is most visible: our minimum standard for an Honors
+team is "no bugs in demos". The rubrics below apply to every team, but when we grade an Honors team's demo we
+expect it to be smooth and free of visible defects, not merely functional.
+See the [syllabus](../about/#honors-section) and the [project overview](../projects/project-overview.html#honors-projects).
+
 ## Deployment Demo
 
 **Due Friday 30 October 2026, 5:30pm EDT**{: .label .label-red }
@@ -116,6 +123,10 @@ is based on the quality of your code reviews up to this point)
 * Code is demonstrated in a running covey.town instance
 * Demo takes between 3 and 7 minutes
 * Each team member has contributed to the team's GitHub repo, either as a code author or as a reviewer
+
+#### Honors teams:
+For a satisfactory demo, we additionally expect that the user story you demonstrate is polished: no visible bugs,
+no crashes, and no rough edges that you have to explain away.
 
 ## Final Demo
 

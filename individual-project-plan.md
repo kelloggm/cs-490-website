@@ -15,6 +15,11 @@ via the individual project,
 and that you will have a team of three or four, we expect that the feature that you propose will be significantly more complex than the feature implemented in
 [IP1](https://kelloggm.github.io/martinjkellogg.com/teaching/cs490-au26/projects/ip1.html).
 
+If you are in the Honors section, keep in mind that Honors teams are made up entirely of Honors students and that
+we hold Honors projects to a higher standard: we expect them to be significantly more ambitious than average,
+significantly more polished, and to scale up to larger numbers of concurrent users.
+Propose accordingly (see the [syllabus](../about/#honors-section) and the [project overview](../projects/project-overview.html#honors-projects)).
+
 In this assignment, you'll first suggest a possible project on your own via a one-page project proposal. We'll use your proposals to help us assign teams based on both the direction of the proposals (i.e., we'll try to group people who suggested similar projects) and the quality of the proposals (i.e., we'll try to group people who wrote good proposals together). Hopefully, this gives you an incentive to write a good proposal!
 
 Feel free to look at existing systems like [Gather.Town](https://gather.town), [Sococo](https://www.sococo.com), [Reslash](https://reslash.co), [Screen](https://screen.so/home), and [Gatherly.IO](https://www.gatherly.io) for inspiration on new features to build for Covey.Town. Also see the NYTimes Magazine article [The Race to Fix Fix Virtual Meetings](https://www.nytimes.com/2021/02/17/magazine/video-conference.html). 
@@ -62,6 +67,10 @@ You'll receive less than full credit if your proposal is either too ambitious or
 * 8 points if your proposal is a bit too ambitious or a bit unambitious. For example, if there is an obvious addition to the project that would make it significantly better and you don't include it, you might get this score.
 * 5 points if your proposal is viable but either much too ambitious or not nearly ambitious enough. For example, you might get this score if you propose to re-implement an indie videogame built by a one-person team over the course of years in Covey.Town in 6 weeks, or if you propose something that's only a little more complex than IP1.
 * 0 points if your proposal is not viable. For example, you might get this score if you propose to re-implement a commercially-produced videogame that was developed by a team of engineers in six weeks, or if your proposal is no more ambitious than IP1.
+
+Proposals from students in the Honors section are graded against a higher bar: for full marks, an Honors proposal must be
+appropriately-ambitious for a four-person Honors team, which means significantly more ambitious than the average proposal.
+An Honors proposal should also account for the extra polish and scalability that we expect from Honors projects.
 
 ### Clarity (10 points)
 

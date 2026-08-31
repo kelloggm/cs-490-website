@@ -56,6 +56,21 @@ Each project will be graded by the team's assigned mentor and one other member o
 
 In cases where team members do not equally contribute to the project, we may assign different grades to different individuals, up to an extreme of deducting 50% of the marks from a student. We will evaluate each individual's contribution on the basis of a variety of factors, including progress reports at meetings with your mentor, through inspecting version control history, through each student's self-reflection, and through each team's (or student's) peer evaluations during and/or at the end of the project. We will make regular efforts to collect and distribute this feedback throughout the project. Our ultimate goal is for all students to participate and receive full marks.
 
+### Honors Projects
+
+Honors teams are made up entirely of students from the Honors section, and we hold Honors projects to a higher
+standard than other projects. When we apply the rubrics below to an Honors team, we expect that the delivered
+project:
+* is significantly more ambitious than the average project in the class,
+* is significantly more polished---in particular, we expect to encounter _no bugs_ while testing an honors project,
+* scales up to larger numbers of concurrent users than a typical project would (and that your report and your
+tests give us some evidence that it does), and
+* the engineering process used by the team (and therefore the Technical and Process Overview documents) show a high level of sophistication, taking advantage of some of
+the more advanced techniques that we discussed in lecture, as appropriate to the project.
+
+An Honors project that would be "satisfactory" from a non-Honors team may not receive full marks.
+See the [syllabus](../about/#honors-section) and the [project overview](../projects/project-overview.html#honors-projects).
+
 ### Summary of grading
 * Planning Documents
   * 7.5% Preliminary Project Plan (already graded)
@@ -147,7 +162,8 @@ The final report should consist of three sections:
 ##### Satisfactory:
 * Technical Overview contains a description of any substantive changes to the existing Covey.Town codebase, and of the architecture of your new code.
 * It uses UML diagrams, CRC cards, state diagrams or any of the other techniques that help describe the structure.
-* It provides a well-reasoned rationale for why this is the "right" design. 
+* It provides a well-reasoned rationale for why this is the "right" design.
+* Important technical and design trade-offs are justified by referencing discussions in lecture or assigned readings from the rest of the course.
 * The document is at most 2 pages (fewer pages are absolutely acceptable, consider this a rough limit) 
 ##### Meets minimum requirements:
 * Technical Overview includes a description of all major changes to the code compared to our existing Covey.Town codebase.
@@ -156,7 +172,8 @@ The final report should consist of three sections:
 #### 7.5% Process Overview
 ##### Satisfactory:
 * Process overview contains a detailed description of the manner in which agile project management processes were used during the project (i.e., sprints, sprint reviews, retrospectives and blameless reviews).
-* It provides a summary of what was planned to happen in each sprint vs what actually happened, with a discussion of what was revised as a result. 
+* It provides a summary of what was planned to happen in each sprint vs what actually happened, with a discussion of what was revised as a result.
+* Process decisions are justified by referencing discussions in lecture or assigned readings from the rest of the course.
 * The document is at most 2 pages (fewer pages are absolutely acceptable, consider this a rough limit) 
 
 #### Meets minimum requirements:
@@ -173,6 +190,10 @@ Select projects may be hosted in a project showcase. Here are the projects from 
 
 #### Meets minimum requirements:
 * Demo is functional on the final day of class and is mostly consistent with the project as described in the rest of your final submission
+
+#### Honors teams:
+For full marks, we additionally expect no bugs in the demo: it should run cleanly, without crashes, visible defects, or
+rough edges that you have to explain away.
 
 ### Resubmission After the Final Demo
 

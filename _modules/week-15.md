@@ -26,3 +26,6 @@ TODO
 
 TODO
  : **[Individual Reflection](../projects/project-deliverable.html#individual-reflection-1) due**{: .label .label-red } 
+
+Dec 13
+ : **[Honors Reflection Essay 2](../projects/honors-essays.html) due**{: .label .label-red } (Honors section only)

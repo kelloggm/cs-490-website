@@ -119,6 +119,8 @@ Most "Your Choice" readings are research papers from
 the software engineering literature: the idea is that you will do a
 deeper dive on two topics that interest you. The "Your Choice" readings
 will be checked on the exams: see the ["Your Choice" reading page](../projects/optional-readings.html).
+Students in the Honors section must additionally write two short reflection essays about "Your Choice" readings
+during the semester: see the [Honors Reflection Essays page](../projects/honors-essays.html).
 
 ## Participation & Professionalism
 

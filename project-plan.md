@@ -20,6 +20,13 @@ Your team will self-organize, as agile teams do, and will enhance and adapt its 
 As such, the primary goal of this document is to *begin* the planning process, and *not* to produce a detailed plan that must be followed precisely.
 The course staff will provide feedback on your project to help ensure that the scope of your project is appropriate.
 
+**Honors teams**: every member of your team is an Honors student, and we hold Honors projects to a higher standard.
+We expect an Honors project to be significantly more ambitious than average, to be significantly more polished,
+and to scale up to larger numbers of concurrent users. Plan for all three from the start:
+in particular, your user stories, conditions of satisfaction, and work breakdown should reflect the extra ambition,
+and your work breakdown should include the testing and scalability work that the other two expectations imply.
+See the [syllabus](../about/#honors-section) and the [project overview](../projects/project-overview.html#honors-projects).
+
 We list page *maximums* for each section as general guidance of what we are willing to grade. Please do not feel compelled to use all of the pages provided, and remember that a diagram or table can be as expressive (or more) as a comparable amount of text.
 
 ## Problem Statement, User Stories and Acceptance Criteria (max 4 pages)
