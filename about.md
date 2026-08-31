@@ -5,13 +5,6 @@ layout: page
 
 # Syllabus
 
-**Lectures**:
-* Section 001 (Kellogg): Mondays and Wednesdays at 10:00am, in KUPF 117.
-* Section 003 (Dale): Mondays at 8:30am-11:20am, in GITC 3600.
-* Section HM1 (Kellogg): meets with section 001 (Mondays and Wednesdays at 10:00am, in KUPF 117).
-
-This website is shared by all three sections; see [Coordination](#coordination) below.
-
 Welcome to CS 490: Guided Design in Software Engineering! This is a
 course about building software that satisfies stronger properties than
 “it works”: it’s about building software that is correct, reliable,
@@ -27,6 +20,13 @@ mirror real engineering activities, most readings are blog posts from
 engineers, etc. Our overarching goal in this class is to expose you
 to how high-quality software engineering is done at the world's best
 software engineering firms.
+
+**Lectures**:
+* Section 001 (Kellogg): Mondays and Wednesdays at 10:00am, in KUPF 117.
+* Section 003 (Dale): Mondays at 8:30am-11:20am, in GITC 3600.
+* Section HM1 (Kellogg): meets with section 001 (Mondays and Wednesdays at 10:00am, in KUPF 117).
+
+This website is shared by all three sections; see [Coordination](#coordination) below.
 
 # Course Outcomes
 
@@ -123,7 +123,7 @@ readings. We expect you to read mandatory readings before coming to
 class that day, and reading quizzes (see Participation &
 Professionalism, below) will cover the mandatory readings only. During
 the semester, you **must** complete **at least two** "Your Choice" readings:
-one before the mid-term, and another before the final.
+one before the first mid-term, and another before the final.
 Most "Your Choice" readings are research papers from
 the software engineering literature: the idea is that you will do a
 deeper dive on two topics that interest you. The "Your Choice" readings

@@ -5,7 +5,7 @@ permalink: /projects/individual-project-proposal.html
 parent: Projects
 nav_order: 4
 ---
-# Individual Project Proposal **Due Monday 14 September 2026, 11:59pm AoE**{: .label .label-red }
+# Individual Project Proposal **Due Wednesday 16 September 2026, 11:59pm AoE**{: .label .label-red }
 All projects will involve frontend and backend development of a new feature for Covey.Town.
 Once teams have been formed, you and your team will decide exactly what kind of new feature you would like to build.
 Your feature should be something that can be implemented within the timeframe allotted (six two-week sprints, running from late September through the end of the semester), and will be implemented in a fork of the main Covey.Town codebase.
@@ -110,4 +110,4 @@ to say the same thing with fewer syllables or words, do so. A longer writeup on 
 ## Submission
 
 Your project plan should be submitted as a single PDF in Canvas (TODO: link to this semester's Canvas course) to the assignment "Individual Project Proposal."
-The assignment is due by the end of September 14, AoE.
+The assignment is due by the end of September 16, AoE.

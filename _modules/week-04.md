@@ -3,6 +3,9 @@ title: Week 4
 ---
 
 Sep 21
+: **Team Assignments** published no later than this date. The first sprint of the group project also begins on Monday, September 21.
+
+Sep 21
 : Requirements and Specifications (1)
   : **Mandatory reading**: Spolsky's [How to be a Program Manager](https://www.joelonsoftware.com/2009/03/09/how-to-be-a-program-manager/) and Ubl's [Design Docs at Google](https://www.industrialempathy.com/posts/design-docs-at-google/).
 

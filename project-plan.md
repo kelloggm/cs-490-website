@@ -5,7 +5,7 @@ permalink: /projects/project-plan.html
 parent: Projects
 nav_order: 5
 ---
-# Preliminary Project Plan **Due Monday 5 October 2026, 11:59pm AoE**{: .label .label-red }
+# Preliminary Project Plan **Due Wednesday 7 October 2026, 11:59pm AoE**{: .label .label-red }
 This is the first team assignment of the group project. In this assignment, your team
 will:
 * settle on a feature that everyone in the group is happy to propose. This feature can be one of the ones that one of you proposed in the individual project proposals, but it doesn't have to be.
@@ -88,7 +88,7 @@ Your work breakdown should take the format of a simple textual list.
 ## Submission 
 Your project plan should be submitted as a single PDF in Canvas (TODO: link to this semester's Canvas course) to the assignment "Preliminary Project Plan."
 Each team submits a single document to Canvas: when uploading the submission, your teams should already be present in Canvas. Be sure to tag your team mates.
-The assignment is due by the end of October 5, AoE.
+The assignment is due by the end of October 7, AoE.
 
 ## Grading
 The project plan will account for 5% of your project grade, and will be graded out of 75 points. The grading of the project plan is further broken down as follows:

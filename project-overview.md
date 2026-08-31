@@ -20,13 +20,13 @@ All implementation will take place in the TypeScript programming language, using
 | Date | Deliverable | Description | 
 | -----| ----------- | ----------- |
 | 9/8/26 | [Individual Project 0]({{ site.baseurl }}{% link ip0.md %}) | Get Covey.Town running on your own machine and make a trivial change to it. *Individually graded.* |
-| 9/14/26 | [Individual Project Proposals]({{ site.baseurl }}{% link individual-project-plan.md %}) | Propose a feature for Covey.Town. *Individually graded.* |
-| 9/18/26 | Team Assignment | Teams are assigned randomly within each section. Your first sprint begins the following Monday. |
+| 9/16/26 | [Individual Project Proposals]({{ site.baseurl }}{% link individual-project-plan.md %}) | Propose a feature for Covey.Town. *Individually graded.* |
+| 9/21/26 | Team Assignment | Teams are assigned randomly within each section. Your first sprint begins the same day. |
 | 10/2/26 | [Deployment Demo]({{ site.baseurl }}{% link demos.md %}) | Show that you can deploy a lightly-modified copy of covey.town to a remotely-accessible machine. |
-| 10/5/26 | [Preliminary Project Plan]({{ site.baseurl }}{% link project-plan.md %}) | As a team, propose and plan a new feature for Covey.Town that can be implemented over six sprints |
+| 10/7/26 | [Preliminary Project Plan]({{ site.baseurl }}{% link project-plan.md %}) | As a team, propose and plan a new feature for Covey.Town that can be implemented over six sprints |
 | 10/9/26 | First [team survey]({{ site.baseurl }}{% link surveys.md %}) | Let us know how you think the project is going. |
 | 10/16/26 | [Wizard-of-Oz Demo]({{ site.baseurl }}{% link demos.md %}) | Show what your project will look like, once it is complete, to your project mentor and the instructor. This demo doesn't require you to show any working code: it is purely about design. |
-| 10/19/26 | [Revised Project Plan]({{ site.baseurl }}{% link revised-project-plan.md %}) | Refine the scope of your feature based on staff feedback, define detailed requirements and project acceptance criteria. |
+| 10/21/26 | [Revised Project Plan]({{ site.baseurl }}{% link revised-project-plan.md %}) | Refine the scope of your feature based on staff feedback, define detailed requirements and project acceptance criteria. |
 | 10/30/26 | [Preliminary Demo 1]({{ site.baseurl }}{% link demos.md %}) | Demonstrate your own working code to your project mentor for the first time. |
 | 11/6/26 | Second [team survey]({{ site.baseurl }}{% link surveys.md %}) | Let us know how you think the project is going. |
 | 11/13/26 | [Individual Contribution Report]({{ site.baseurl }}{% link contribution-report.md %}) | Show us, with evidence, what you personally have contributed so far. *Individually graded.* |
@@ -94,7 +94,7 @@ graded as part of the individually-graded component of the project (see "Summary
 
 ### Team Formation
 All projects will be completed in a team of 3-4 students (most teams will have 4).
-Teams are announced on September 18, and your team's first sprint begins on Monday, September 21.
+Teams are announced no later than September 21, and your team's first sprint begins that same day, Monday, September 21.
 **The course staff assigns teams randomly from within your section.** You do not get to choose your
 teammates.
 Assigning teams this way mirrors industry, where you rarely get to pick the team you join.
