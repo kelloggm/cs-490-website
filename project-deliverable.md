@@ -49,7 +49,7 @@ demo. Because demos are short and often scheduled back-to-back, if your whole te
 signed up for, you will lose your slot and you will have to sign up for a later one.
  
 #### Individual Reflection
-Create a PDF of your reflection, and submit it to Canvas, under the assignment "Project: Individual Reflection". 
+Create a PDF of your reflection, and submit it to Canvas ([section 001](https://njit.instructure.com/courses/68176), [section HM1](https://njit.instructure.com/courses/68186); section 003's Canvas link is TBD), under the assignment "Project: Individual Reflection". 
 
 ## Grading
 Each project will be graded by the team's assigned mentor and one other member of the course staff (including at least one instructor). We do not expect all teams to deliver all of the features that were initially proposed - in the (relatively short!) implementation period, there are sure to be some teams that encounter unexpected technical hurdles. As described in greater detail in the rubrics below, teams that have regular communication with their mentor regarding their project status may be permitted variances to their project scope. For most of the submission components below, we provide two benchmark rubrics: one for a submission that is satisfactory (full marks), and one that would be meeting our minimum expectations (a pass). In practice, when grading projects we will usually assign numeric grades and provide partial credit, using these rubrics as guidelines for those two extremes. 

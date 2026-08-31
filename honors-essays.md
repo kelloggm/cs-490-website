@@ -78,7 +78,7 @@ essay at the time you turn it in, because the course staff may ask you about it 
 
 ### Submission
 
-Submit each essay as a PDF file to Canvas (TODO: link to this semester's Canvas course),
+Submit each essay as a PDF file to [Canvas](https://njit.instructure.com/courses/68186),
 under the assignments "Honors Reflection Essay 1" and "Honors Reflection Essay 2".
 
 If you prepare the essay in some other software (like Tex, Word, or Google Docs), please

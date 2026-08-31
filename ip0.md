@@ -134,7 +134,7 @@ locally.
 
 ## Submission Instructions
 
-Submit your video via Canvas.
+Submit your video via Canvas ([section 001](https://njit.instructure.com/courses/68176), [section HM1](https://njit.instructure.com/courses/68186); section 003's Canvas link is TBD).
 
 You may submit solutions as many times as you want; only the last
 submission before the deadline will be counted.

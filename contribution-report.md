@@ -95,5 +95,5 @@ requests were yours, which ones you reviewed---will make both assignments easier
 
 ### Submission
 
-Submit as a PDF to Canvas (TODO: link to this semester's Canvas course), under the assignment
+Submit as a PDF to Canvas ([section 001](https://njit.instructure.com/courses/68176), [section HM1](https://njit.instructure.com/courses/68186); section 003's Canvas link is TBD), under the assignment
 "Individual Contribution Report."
