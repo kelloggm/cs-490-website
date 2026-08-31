@@ -3,7 +3,7 @@ layout: page
 title: Honors Reflection Essays
 permalink: /projects/honors-essays.html
 parent: Projects
-nav_order: 11
+nav_order: 12
 ---
 
 # Honors Reflection Essays
@@ -36,8 +36,8 @@ reflect on the experience.
 Write a 500-word essay about one of the "Your Choice" readings on the
 [course calendar](../calendar/).
 
-For **Essay 1**, you must choose a reading that was assigned on or before October 12
-(that is, a reading from the part of the course that the first mid-term exam covers).
+For **Essay 1**, you must choose a reading that was assigned on or before October 7
+(that is, any "Your Choice" reading assigned before the essay is due).
 For **Essay 2**, you may choose any other "Your Choice" reading from the semester. The two
 essays must be about two *different* readings.
 
@@ -85,6 +85,12 @@ If you prepare the essay in some other software (like Tex, Word, or Google Docs)
 export it as PDF before submitting.
 
 ### Rubric
+
+Each essay is worth 2% of your project grade, as one of the project's individually-graded
+components: see the [project overview](../projects/project-overview.html#summary-of-project-grading)
+for how the project grade fits together. Because Honors students write these two essays in
+addition to everything else, the individually-graded portion of an Honors student's project
+grade is 16% rather than 12%.
 
 Each essay is graded out of 100 points.
 The points are allocated for the following:

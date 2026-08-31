@@ -38,6 +38,11 @@ this semester might include topics that these exams ignore. These exams are prov
 "as-is" to help you study, but please don't over-rely on them.
 Finally, for those of you taking this class in **Fall 2026**, note that for the first
 time there are _two_ midterm exams in this course (previous semesters had only one).
+The two mid-terms are not weighted equally: the first is worth 10% of your course grade and
+the second is worth 15%, because the second covers more of the course.
+You'll also have had practice taking with this course's exam style, so you'll know what to
+expect.
+The final is worth 20%.
 
 I strongly recommend that before looking at a "key" for one of these exams, you sit down
 and attempt the exam yourself, under something like exam conditions (quiet room, no

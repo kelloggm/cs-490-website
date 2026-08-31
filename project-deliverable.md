@@ -3,7 +3,7 @@ layout: page
 title: Project Final Deliverable
 permalink: /projects/project-deliverable.html
 parent: Projects
-nav_order: 8
+nav_order: 9
 ---
 Changelog:
 # Project: Final Deliverable **Due 9 December 2026 11:59pm AoE**{: .label .label-red }
@@ -72,35 +72,43 @@ An Honors project that would be "satisfactory" from a non-Honors team may not re
 See the [syllabus](../about/#honors-section) and the [project overview](../projects/project-overview.html#honors-projects).
 
 ### Summary of grading
-* Planning Documents
-  * 7.5% Preliminary Project Plan (already graded)
-  * 10% Revised Project Plan (already graded)
-* Activities During the Project
-  * 5% Meetings with Mentor and Team Surveys
-  * 10% Ongoing development progress, including code reviews
-* Final Deliverables
-  * Code 
-    * 20% Final implementation of your feature
-    * 10% Final test suite of your feature
-   * Report
-      * 5% Feature Overview
-      * 7.5% Technical Overview
-      * 7.5% Process Overview
-   * Demonstrations
-      * 2.5% Wizard-of-Oz demo (already graded)
-      * 5% Preliminary Demo (already graded)
-      * 10% Final demo
 
-This adds up to 100%; this sum is worth 45% of the course grade.
+The canonical version of this table is on the [project overview](../projects/project-overview.html#summary-of-project-grading) page.
+
+| Component | Non-Honors | Honors |
+| --------- | ---------- | ------ |
+| **Individually graded** | **12%** | **16%** |
+| Individual Project 0 (already graded) | 3% | 3% |
+| Individual Contribution Report (already graded) | 5% | 5% |
+| Individual reflection | 4% | 4% |
+| Honors Reflection Essays (2 essays, worth 2% each) | --- | 4% |
+| **Team graded** | **88%** | **84%** |
+| Preliminary Project Plan (already graded) | 5% | 4.8% |
+| Revised Project Plan (already graded) | 8% | 7.6% |
+| Meetings with mentor and team surveys | 4% | 3.8% |
+| Ongoing development progress, including code reviews | 12% | 11.5% |
+| Deployment demo (already graded) | 1% | 1% |
+| Wizard-of-Oz demo (already graded) | 2% | 1.9% |
+| Preliminary demo 1, with your mentor (already graded) | 2% | 1.9% |
+| Preliminary demo 2, with the instructor (already graded) | 4% | 3.8% |
+| Final demo | 8% | 7.6% |
+| Final implementation of your feature | 19% | 18.1% |
+| Final test suite of your feature | 9% | 8.6% |
+| Report: Feature Overview | 4% | 3.8% |
+| Report: Technical Overview | 5% | 4.8% |
+| Report: Process Overview | 5% | 4.8% |
+
+Each column adds up to 100%; this sum is worth 45% of the course grade.
 
 Here are the detailed rubrics for the final deliverables:
-### 20% Delivered Features 
+### 19% Delivered Features 
 We will grade each delivered project holistically using the following two rubrics:
 
 #### Satisfactory:
 * Implemented feature satisfies the conditions of satisfaction as proposed by the team and as agreed to by the course staff. If technical difficulties resulted in features being dropped, the project may still earn full marks on "delivered features," but these difficulties must have been documented with the course staff as you encountered them during development.
 * Implemented feature can be deployed locally following the instructions provided with the code submission in its README without any debugging by the course staff.
 * Implemented feature contains no ESLint warnings or errors; does not include any eslint-disable or ts-ignore flags
+* New code follows our course [style guide]({{ site.baseurl }}{% link style.md %}): names follow its conventions, and public properties and methods (other than getters, setters, and constructors) are documented with JSDoc-style comments
 
 #### Meets minimum requirements:
 * Implemented feature largely satisfies acceptance criteria as proposed by the team, but may not meet the course staff’s interpretation of those criteria.
@@ -108,7 +116,7 @@ We will grade each delivered project holistically using the following two rubric
 * The implementation may have some obvious flaws, but largely works without crashing.
 * Implemented feature does not include any eslint-disable or ts-ignore flag
 
-### 10% Testing
+### 9% Testing
 The project must include evidence of testing. Ideally, all new features will be accompanied by fully automated tests, but in some circumstances (particularly when engaging with Phaser, the game library, or Tiled, the map editor), this may not be feasible. If automated tests are not possible, include a discussion of your manual testing strategy, including a script that a future developer could use to manually test the feature.
 
 #### Satisfactory:
@@ -121,13 +129,13 @@ The project must include evidence of testing. Ideally, all new features will be 
 
 ### Activities During the Project
 
-#### 5% Weekly Meetings with Mentor and Team Surveys
-Throughout the semester, each team will be meeting with their mentor and with the instructor to discuss their project progress. Attendance at these meetings and demonstrations of progress will, cumulatively, account for 5% of the project grade. You will also be asked to complete Team Surveys and/or Peer evaluations to help track the progress.
+#### 4% Weekly Meetings with Mentor and Team Surveys
+Throughout the semester, each team will be meeting with their mentor and with the instructor to discuss their project progress. Attendance at these meetings and demonstrations of progress will, cumulatively, account for 4% of the project grade. You will also be asked to complete Team Surveys and/or Peer evaluations to help track the progress.
 Note that being present for meetings (both literally and intellectually)
 with your mentor also factors into your individual Participation and Professionalism grade, so though this is a small part of the
 *project* grade, its weight in your final grade is larger.
 
-#### 10% Ongoing development progress, including code reviews
+#### 12% Ongoing development progress, including code reviews
 Each team is expected to use their GitHub repository, regularly committing changes while developing their project. You will also be expected to use pull-requests and code reviews.
 
 ##### Satisfactory:
@@ -143,7 +151,7 @@ Each team is expected to use their GitHub repository, regularly committing chang
 ### Final Report 
 The final report should consist of three sections:
 
-#### 5% Report -- Feature Overview
+#### 4% Report -- Feature Overview
 
 ##### Satisfactory:
 * The Feature section contains sufficient documentation for a user to interact with your updated version of Covey.Town.
@@ -158,7 +166,7 @@ The final report should consist of three sections:
 * The course staff were able to figure out how to use it through trial and error.
 * The section is at most 4 pages, NOT including figures. Fewer pages are absolutely acceptable, consider this a rough limit
 
-#### 7.5% Report - Technical Overview
+#### 5% Report - Technical Overview
 ##### Satisfactory:
 * Technical Overview contains a description of any substantive changes to the existing Covey.Town codebase, and of the architecture of your new code.
 * It uses UML diagrams, CRC cards, state diagrams or any of the other techniques that help describe the structure.
@@ -169,7 +177,7 @@ The final report should consist of three sections:
 * Technical Overview includes a description of all major changes to the code compared to our existing Covey.Town codebase.
 * The document is at most 2 pages (fewer pages are absolutely acceptable, consider this a rough limit) 
 
-#### 7.5% Process Overview
+#### 5% Process Overview
 ##### Satisfactory:
 * Process overview contains a detailed description of the manner in which agile project management processes were used during the project (i.e., sprints, sprint reviews, retrospectives and blameless reviews).
 * It provides a summary of what was planned to happen in each sprint vs what actually happened, with a discussion of what was revised as a result.
@@ -180,7 +188,7 @@ The final report should consist of three sections:
 * It provides a summary of what was planned to happen in each sprint vs what actually happened, with a discussion of what was revised as a result. 
 * The document is at most 2 pages (fewer pages are absolutely acceptable, consider this a rough limit) 
 
-### 10% Final Demonstration
+### 8% Final Demonstration
 Each team will be required to demonstrate their feature to their classmates and to the instructor(s) and TA(s) on the last day of class.
 
 Select projects may be hosted in a project showcase. Here are the projects from Spring 2022 [project showcase](https://neu-se.github.io/CS4530-Spring-2022/assignments/project-showcase).
@@ -222,7 +230,8 @@ idea if your project would otherwise be graded poorly.
 ## Individual Reflection
 
 Accompanying the final team deliverable will be an individual reflection, which every student must submit on their own.
-Satisfactory completion of all parts of this reflection is required to receive an "A" grade in the course, and may be used to calibrate project scores across multiple team members.
+It is worth 4% of your project grade, as one of the project's individually-graded components.
+Satisfactory completion of all parts of this reflection is *also* required to receive an "A" grade in the course, and may be used to calibrate project scores across multiple team members.
 The individual reflection also provides an opportunity for students to provide confidential feedback on the performance of their teammates.
 
 ### Project Concept

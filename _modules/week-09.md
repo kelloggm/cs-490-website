@@ -3,9 +3,6 @@ title: Week 9
 ---
 
 Oct 26
- : **[Revised Project Plan](../projects/revised-project-plan.html) due**{: .label .label-red } 
-
-Oct 26
 : [Debugging (1)](../assets/lecture-debugging.pdf)
   : **Mandatory reading**: Zeil's [Debugging – Using Hypotheses to Track Down the Culprit](https://www.cs.odu.edu/~zeil/cs333/s14/Public/debugging2/debugging2__html.html) and Taylor's [Debugging](https://airs.com/ian/essays/debug/debug.html)
 
@@ -18,4 +15,4 @@ Oct 28
     **Your Choice reading**: Cleve and Zeller's [Locating Causes of Program Failures](../assets/delta2.pdf)
 
 Oct 30
- : **Project [Deployment Demo](../projects/project-demos.html#deployment-demo-due) due**{: .label .label-red } 
+ : **Project [Preliminary Demo 1](../projects/project-demos.html#preliminary-demo-1-with-your-mentor) due**{: .label .label-red } 

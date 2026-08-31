@@ -94,10 +94,14 @@ out of CS 490 if you have seen those classes first (or are taking them concurren
 # Grading and Assignments
 
 Your grade is composed of the following sub-scores:
-* 40%: Group Project
-* 40%: Exams (10% for each mid-term, 20% for the final)
-* 15%: Participation & Professionalism
-* 5%: Individual Assignments
+* 45%: Exams (10% for the first mid-term, 15% for the second mid-term, 20% for the final)
+* 45%: Project (both the individual and the team parts: see the [project overview](../projects/project-overview.html))
+* 10%: Participation & Professionalism
+
+Note that the project grade includes some individually-graded components---most notably
+[Individual Project 0](../projects/ip0.html), the
+[Individual Contribution Report](../projects/contribution-report.html), and your individual
+reflection at the end of the semester. There is no separate "individual assignments" category.
 
 This class will be curved: when grading, I prefer to use the whole
 range available rather than scores in a tight range. That is, if an
@@ -172,11 +176,10 @@ positive impact on your participation score.
 
 ## Course Project (both Individual and Group)
 
-The assignments and project for this class are designed to mirror the
+The project for this class is designed to mirror the
 experiences of a software engineer joining a new development team: you
-will be “onboarded” to our codebase, make several individual
-contributions, and then form a team to propose, develop and implement
-a new feature. The codebase that we’ll be developing on is a remote
+will be “onboarded” to our codebase, and then form a team to propose, develop and implement
+a new feature over the rest of the semester. The codebase that we’ll be developing on is a remote
 collaboration tool called [Covey.Town](https://www.covey.town/).
 Covey.Town provides a virtual
 meeting space where different groups of people can have simultaneous
@@ -214,7 +217,7 @@ The project will provide hands-on experience to complement the skills taught in 
 ## Exams
 
 There are three exams in this course:
-* two mid-terms, which are held in class during lecture slots (worth 10% of your course grade each)
+* two mid-terms, which are held in class during lecture slots (the first is worth 10% of your course grade, the second 15%---the second covers more material and you'll have experienced my exam design by then, so it counts for more)
 * a final exam, which is held during the university-scheduled final exam slot (worth 20% of your course grade)
 
 All exams will cover a range of topics discussed in lecture
@@ -227,6 +230,11 @@ the course staff privately via email if you are not able to attend for
 any reason (e.g., you are sick or need special accommodations) and we will arrange an alternative.
 See the [exams page](../exam) for more information.
 
+## Coordination
+
+Sections 001 (Kellogg), 003 (Dale), and HM1 (Kellogg) of CS 490 this semester are coordinated and will have joint exams, project grading scales, and TAs/graders.
+You can go to any of the instructors or TAs/graders of these sections for office hours, regardless of which section you are enrolled in.
+
 ## Honors Section
 
 The main difference between the Honors and non-Honors sections is the course project:
@@ -237,6 +245,7 @@ polish ("no bugs in demos"), and 3) produce solutions that scale up to larger nu
 concurrent users.
 
 There are also additional reading and reading-response assignments for Honors students.
+These are graded as part of the individual component of your project grade.
 See the [Your Choice Readings page](../projects/optional-readings.html)
 for more details.
 
@@ -277,7 +286,7 @@ such as your teammates and the wider internet, is always allowed. But,
 it would be illegal to copy code from a competing company working on a
 similar product.
 
-# Consequences of Violating the Collaboration Policy
+## Consequences of Violating the Collaboration Policy
 
 (From the University)
 

@@ -13,7 +13,7 @@ submission_notes: Submit via Canvas
 Welcome aboard to the Covey.Town team! We're glad that you're here and ready to join our development team as a new software engineer.
 We're building an open source virtual meeting application, and are very happy to see that we have so many new developers who can help make this application a reality.
 By the end of the semester, you'll be able to propose, design, implement and test a new feature for our project.
-We understand that some of you may have some web development experience, but don't expect that most of you do, and hence, have created a set of individual projects to help you get up to speed with our existing codebase and development environment.
+We understand that some of you may have some web development experience, but don't expect that most of you do, and hence, have created this individual project to help you get up to speed with our existing codebase and development environment before the team project begins.
 
 Covey.Town is a web application that consists of some code that runs in each client's web browser, and also code that runs on a server.
 Users join the application in a "town": a 2D arcade-style map with different rooms to explore.
@@ -26,8 +26,7 @@ The objectives for this first assignment are to:
 * get you familiar with the basics of Typescript and the VSC/npm
 ecosystem.
 * acquaint you with the existing codebase that will serve as the basis
-for the remaining individual projects in this course (and, later, the
-group project).
+for the group project that you will work on for the rest of the semester.
 * ensure that you're a confident enough programmer to succeed in CS 490,
 which will regularly ask you to tackle programming tasks using tools,
 environments, APIs, etc., with which you are not otherwise familiar.
@@ -125,6 +124,10 @@ that Covey.Town builds on. If you're struggling to understand how Covey.Town's g
 
 This assignment is "pass/fail": you either get full credit because you've
 completed the task, or you don't.
+
+This assignment is the first deliverable of the course project: it is worth 3% of your
+project grade, as one of the project's individually-graded components (see the
+[project overview](../projects/project-overview.html#summary-of-project-grading)).
 
 After this assignment is due, we will assume that everyone can run Covey.Town
 locally.

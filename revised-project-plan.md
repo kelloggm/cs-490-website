@@ -6,7 +6,7 @@ parent: Projects
 nav_order: 6
 ---
 
-# Revised Project Plan **Due Monday 26 October 2026 11:59pm AoE**{: .label .label-red }
+# Revised Project Plan **Due Monday 12 October 2026 11:59pm AoE**{: .label .label-red }
 You should use the feedback on your preliminary project plan to revise the scope of your project, and discuss any changes with your assigned mentor. The goal of this assignment is to finalize the intended scope of your project based on these discussions and to outline the tasks that you will need to accomplish in order to complete your project.
 
 Your mentor will review your project plan and provide you with feedback on the scope and details provided in your preliminary plan.
@@ -50,7 +50,7 @@ Assign tasks to sprints considering these dependencies.
 
 Given the preliminary nature of your project, we do not expect that you will know all of the details about precisely how to implement your feature such that you could break it down into tasks that you feel could be implemented in a day or two.
 However: Large tasks (those which you can not provide a responsible estimate for) must be accompanied by smaller "research" tasks that can be performed early on in the project, providing clear deadlines by which the task must either be refined into smaller tasks (based on new knowledge gathered), or reworked/abandoned.
-You might consider even scheduling some of these research tasks to take place during Sprint 0 (immediately after submitting this document).
+You might consider even scheduling some of these research tasks to take place during the sprint that is in progress when you submit this document.
 
 For example: Consider if you were proposing a "Viewing Area" project (this was an individual project in previous semesters). It might be difficult to consider how to break down a task like "Implement the frontend components for sychnronized video playback" into something that you could commit to doing within a day or two. Given that this is a task that can be delayed until the end of the project (no other tasks depend on it), it would be wise to consider having some tasks early on in the project, such as: "Find react components that embed YouTube videos," and "Implement simple video player that does not synchronize playback." Completing these smaller tasks early would let you both demonstrate that some forward progress is being made, and also allow you to create a much more responsible estimate for how that last, otherwise insurmountably large task would take.
 
@@ -70,22 +70,23 @@ Each work item should contain the following information:
     * Large: Currently unable to provide a responsible estimate. 
 * A brief (1-2 sentence max) justification of how you reached the size estimate of the task
 * Milestone for delivering the task, chosen from one of the following two-week sprints:
-  * Sprint 0: Oct 6 - Oct 17
-  * Sprint 1: Oct 18 - Oct 31
-  * Sprint 2: Nov 1 - Nov 14
-  * Sprint 3: Nov 15 - Nov 28
-  * Sprint 4: Nov 29 - Dec 9 (note: this sprint is shorter than the other---only about 10 days. We don't recommend scheduling many tasks in this sprint, because of the likelihood that some tasks from prior sprints might not be done yet.)
+  * Sprint 0: Sep 21 - Oct 2 (already underway when the preliminary plan is due)
+  * Sprint 1: Oct 5 - Oct 16
+  * Sprint 2: Oct 19 - Oct 30
+  * Sprint 3: Nov 2 - Nov 13
+  * Sprint 4: Nov 16 - Nov 27
+  * Sprint 5: Nov 30 - Dec 9 (note: this sprint is shorter than the others---only about 8 working days. We don't recommend scheduling many tasks in this sprint, because of the likelihood that some tasks from prior sprints might not be done yet.)
 
 Your work breakdown should take the format of a simple textual list.
 
-**Mandatory update for all teams:** Even if your work breakdown is entirely unchanged compared to the preliminary plan, please be certain to include updates on all "sprint 0" tasks (those which were scheduled to be completed before the due date of this revised plan). Many teams include research/learning tasks in the first week to help inform the rest of the work breakdown: you should be certain to revise your work breakdown based on what you have learned so far.
+**Mandatory update for all teams:** Even if your work breakdown is entirely unchanged compared to the preliminary plan, please be certain to include updates on all tasks that were scheduled to be completed before the due date of this revised plan (that is, everything in Sprint 0, and anything in Sprint 1 that was due in its first week). Many teams include research/learning tasks in the first week to help inform the rest of the work breakdown: you should be certain to revise your work breakdown based on what you have learned so far.
  
 ## Submission 
 Your revised project plan should be submitted as a single PDF in Canvas to the assignment "Revised Project Plan."
 Each team submits a single document to Canvas.
 
 ## Grading
-The revised project plan will account for 10% of your project grade, and will be graded out of 100 points. The grading of the revised project plan is further broken down as follows:
+The revised project plan will account for 8% of your project grade, and will be graded out of 100 points. The grading of the revised project plan is further broken down as follows:
 
 ### Introductory problem statement (5 points): 
 * Receive full marks if there is a narrative consisting of 4-10 sentences that describes a specific problem that your project aims to solve.

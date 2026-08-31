@@ -3,17 +3,19 @@ title: Week 6
 ---
 
 Oct 5
-: [Requirements and Specifications (1)](../assets/lecture-specs1.pdf)
-  : **Mandatory reading**: Spolsky's [How to be a Program Manager](https://www.joelonsoftware.com/2009/03/09/how-to-be-a-program-manager/) and Ubl's [Design Docs at Google](https://www.industrialempathy.com/posts/design-docs-at-google/).
+: [Testing (1)](../assets/lecture-testing1.pdf)
+  : **Mandatory reading**: Shore's [The Art of Agile Development: Test-Driven Development](http://www.jamesshore.com/v2/books/aoad1/test_driven_development)
 
-    **Your Choice reading**: Ernst et al.'s [The Daikon system for dynamic detection of likely invariants](../assets/daikon.pdf)
+    **Your Choice reading**: Saff and Ernst's [An Experimental Evaluation of Continuous Testing During Development](https://homes.cs.washington.edu/~mernst/pubs/ct-user-study-issta2004.pdf)
 
 Oct 7
-: [Requirements and Specifications (2)](../assets/lecture-specs2.pdf)
-  : **Mandatory reading**: Wayne's [Using Formal Methods at Work](https://www.hillelwayne.com/post/using-formal-methods/).
-  
-    **Your Choice reading**: Lamport's [Introduction to TLA](../assets/tla.pdf)
+: [Testing (2)](../assets/lecture-testing2.pdf)
+  : **Mandatory reading**: Petrovic's [Mutation Testing](https://testing.googleblog.com/2021/04/mutation-testing.html)
+
+    **Your Choice reading**: Memon et al.'s [Taming Google-Scale Continuous Testing](../assets/googletest.pdf)
+
+Oct 9
+: **First [Project Team Survey](../projects/surveys.html) due**{: .label .label-red }
 
 Oct 9
  : **[Honors Reflection Essay 1](../projects/honors-essays.html) due**{: .label .label-red } (Honors section only)
-

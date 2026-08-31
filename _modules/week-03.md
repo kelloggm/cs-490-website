@@ -3,16 +3,19 @@ title: Week 3
 ---
 
 Sep 14
-: [Testing (1)](../assets/lecture-testing1.pdf)
-  : **Mandatory reading**: Shore's [The Art of Agile Development: Test-Driven Development](http://www.jamesshore.com/v2/books/aoad1/test_driven_development)
+ : **[Individual Project Proposal]({{ site.baseurl }}{% link individual-project-plan.md %}) due**{: .label .label-red } 
 
-    **Your Choice reading**: Saff and Ernst's [An Experimental Evaluation of Continuous Testing During Development](https://homes.cs.washington.edu/~mernst/pubs/ct-user-study-issta2004.pdf)
+Sep 14
+: [Process](../assets/lecture-process.pdf)
+  : **Mandatory reading**: The [Agile Manifesto](https://agilemanifesto.org/) and its [Twelve Principles](https://agilemanifesto.org/principles.html) (this should be a quick read, but I suggest you think about what it is advocating for at least a few minutes before moving onto the next article) and Santo's ["Waterfall" doesn't mean what you think it means](https://changelog.com/posts/waterfall-doesnt-mean-what-you-think-it-means)
+  
+    **Your Choice reading**: Anda et al.'s [Variability and Reproducibility in Software Engineering: A Study of Four Companies that Developed the Same System](../assets/estimation.pdf)
 
 Sep 16
-: [Testing (2)](../assets/lecture-testing2.pdf)
-  : **Mandatory reading**: Petrovic's [Mutation Testing](https://testing.googleblog.com/2021/04/mutation-testing.html) and the [Individual Project Proposal specification](../projects/individual-project-proposal.html)
+: [Working in Teams](../assets/lecture-teams.pdf)
+  : **Mandatory reading**: Fowler's [Two Pizza Team](https://martinfowler.com/bliki/TwoPizzaTeam.html) and Arguelles' [My favorite coding question to give candidates (and why)](https://carloarg02.medium.com/my-favorite-coding-question-to-give-candidates-17ea4758880c)
+  
+    **Your Choice reading**: Behroozi et al.'s [Hiring is Broken: What Do Developers Say About Technical Interviews?](../assets/hiring-is-broken.pdf)
 
-    **Your Choice reading**: Memon et al.'s [Taming Google-Scale Continuous Testing](../assets/googletest.pdf)
-
-
-
+Sep 18
+: **Team Assignments** published no later than this date. The first sprint of the group project begins on Monday, September 21.

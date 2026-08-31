@@ -5,7 +5,7 @@ permalink: /projects/project-plan.html
 parent: Projects
 nav_order: 5
 ---
-# Preliminary Project Plan **Due Monday 12 October 2026, 11:59pm AoE**{: .label .label-red }
+# Preliminary Project Plan **Due Monday 28 September 2026, 11:59pm AoE**{: .label .label-red }
 This is the first team assignment of the group project. In this assignment, your team
 will:
 * settle on a feature that everyone in the group is happy to propose. This feature can be one of the ones that one of you proposed in the individual project proposals, but it doesn't have to be.
@@ -55,7 +55,7 @@ Assign tasks to sprints considering these dependencies.
 
 Given the preliminary nature of your project, we do not expect that you will know all of the details about precisely how to implement your feature such that you could break it down into tasks that you feel could be implemented in a day or two.
 However: Large tasks (those which you can not provide a responsible estimate for) must be accompanied by smaller "research" tasks that can be performed early on in the project, providing clear deadlines by which the task must either be refined into smaller tasks (based on new knowledge gathered), or reworked/abandoned.
-You might consider even scheduling some of these research tasks to take place during Sprint 0 (immediately after submitting this document).
+Your team's first sprint begins the week teams are announced, so Sprint 0 is already in progress by the time this plan is due: describe what you have done in it so far, and schedule any remaining research tasks into Sprint 1.
 
 For example: Consider if you were proposing a "Viewing Area" project (this was an individual project in previous semesters). It might be difficult to consider how to break down a task like "Implement the frontend components for sychnronized video playback" into something that you could commit to doing within a day or two. Given that this is a task that can be delayed until the end of the project (no other tasks depend on it), it would be wise to consider having some tasks early on in the project, such as: "Find react components that embed YouTube videos," and "Implement simple video player that does not synchronize playback." Completing these smaller tasks early would let you both demonstrate that some forward progress is being made, and also allow you to create a much more responsible estimate for how that last, otherwise insurmountably large task would take.
 
@@ -76,21 +76,22 @@ Each work item should contain the following information:
     * Large: Currently unable to provide a responsible estimate. 
 * A brief (1-2 sentence max) justification of how you reached the size estimate of the task 
 * Milestone for delivering the task, chosen from one of the following two-week sprints:
-  * Sprint 0: Oct 6 - Oct 17
-  * Sprint 1: Oct 18 - Oct 31
-  * Sprint 2: Nov 1 - Nov 14
-  * Sprint 3: Nov 15 - Nov 28
-  * Sprint 4: Nov 29 - Dec 9 (note: this sprint is shorter than the other---only about 10 days. We don't recommend scheduling many tasks in this sprint, because of the likelihood that some tasks from prior sprints might not be done yet.)
+  * Sprint 0: Sep 21 - Oct 2 (already underway when the preliminary plan is due)
+  * Sprint 1: Oct 5 - Oct 16
+  * Sprint 2: Oct 19 - Oct 30
+  * Sprint 3: Nov 2 - Nov 13
+  * Sprint 4: Nov 16 - Nov 27
+  * Sprint 5: Nov 30 - Dec 9 (note: this sprint is shorter than the others---only about 8 working days. We don't recommend scheduling many tasks in this sprint, because of the likelihood that some tasks from prior sprints might not be done yet.)
 
 Your work breakdown should take the format of a simple textual list.
  
 ## Submission 
 Your project plan should be submitted as a single PDF in Canvas (TODO: link to this semester's Canvas course) to the assignment "Preliminary Project Plan."
 Each team submits a single document to Canvas: when uploading the submission, your teams should already be present in Canvas. Be sure to tag your team mates.
-The assignment is due by the end of October 12, AoE.
+The assignment is due by the end of September 28, AoE.
 
 ## Grading
-The project plan will account for 7.5% of your project grade, and will be graded out of 75 points. The grading of the project plan is further broken down as follows:
+The project plan will account for 5% of your project grade, and will be graded out of 75 points. The grading of the project plan is further broken down as follows:
 
 ### Introductory problem statement (5 points): 
 * Receive full marks if there is a narrative consisting of 4-10 sentences that describes a specific problem that your project aims to solve.
@@ -131,11 +132,11 @@ Receive full marks if each element on the work breakdown:
 * Has a responsible justification for that estimation
 * Every "large" task:
   * Is accompanied by a reasonable explanation of why the team is unable to provide a responsible estimate
-  * Is accompanied by at least one small or medium task, scheduled well-before the "large" task is due to be completed. We would expect that most of these research tasks are scheduled to sprint 0, or perhaps sprint 1.
+  * Is accompanied by at least one small or medium task, scheduled well-before the "large" task is due to be completed. We would expect that most of these research tasks are scheduled to sprint 1, or perhaps sprint 2.
 
 #### Scheduling of tasks (9 points):
 Receive full marks if each element on the work breakdown:
 * Is assigned to a sprint
 * There are no obvious constraint violations (tasks that logically must happen before others should be scheduled before them)
-* There are no "Large" tasks scheduled in sprint 0
+* There are no "Large" tasks scheduled in sprint 0 or sprint 1
 

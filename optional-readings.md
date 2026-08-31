@@ -3,7 +3,7 @@ layout: page
 title: '"Your Choice" Readings'
 permalink: /projects/optional-readings.html
 parent: Projects
-nav_order: 10
+nav_order: 11
 ---
 
 Each lecture has one or more "Your Choice" reading assignments.

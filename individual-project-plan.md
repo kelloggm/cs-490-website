@@ -5,22 +5,21 @@ permalink: /projects/individual-project-proposal.html
 parent: Projects
 nav_order: 4
 ---
-# Individual Project Proposal **Due Monday 28 September 2026, 11:59pm AoE**{: .label .label-red }
+# Individual Project Proposal **Due Monday 14 September 2026, 11:59pm AoE**{: .label .label-red }
 All projects will involve frontend and backend development of a new feature for Covey.Town.
 Once teams have been formed, you and your team will decide exactly what kind of new feature you would like to build.
-Your feature should be something that can be implemented within the timeframe allotted (~6 weeks, plus ~2 weeks of planning), and will be implemented in a fork of the main Covey.Town codebase.
+Your feature should be something that can be implemented within the timeframe allotted (six two-week sprints, running from late September through the end of the semester), and will be implemented in a fork of the main Covey.Town codebase.
 You can play with a demo deployment of the app at [app.covey.town](https://app.covey.town).
-Given that you will be up-to-speed on the Covey.Town codebase (and have been introduced to TypeScript, React, NodeJS, and testing frameworks)
-via the individual project,
-and that you will have a team of three or four, we expect that the feature that you propose will be significantly more complex than the feature implemented in
-[IP1](https://kelloggm.github.io/martinjkellogg.com/teaching/cs490-au26/projects/ip1.html).
+Given that you will have a team of three or four and most of the semester to work,
+we expect that the feature that you propose will be at least as substantial as one of the features that already exists in Covey.Town---for example, the conversation areas or the viewing areas that you can find in the app today.
 
 If you are in the Honors section, keep in mind that Honors teams are made up entirely of Honors students and that
 we hold Honors projects to a higher standard: we expect them to be significantly more ambitious than average,
 significantly more polished, and to scale up to larger numbers of concurrent users.
 Propose accordingly (see the [syllabus](../about/#honors-section) and the [project overview](../projects/project-overview.html#honors-projects)).
 
-In this assignment, you'll first suggest a possible project on your own via a one-page project proposal. We'll use your proposals to help us assign teams based on both the direction of the proposals (i.e., we'll try to group people who suggested similar projects) and the quality of the proposals (i.e., we'll try to group people who wrote good proposals together). Hopefully, this gives you an incentive to write a good proposal!
+In this assignment, you'll first suggest a possible project on your own via a one-page project proposal. 
+Note that this proposal is due early in the semester, before we have covered much of the course material. That is intentional: the project runs for most of the semester, so it has to start early. You are not expected to know all of the details of how you would build your feature yet---you are expected to explain what it is and why it is worth building, from a _user's_ perspective.
 
 Feel free to look at existing systems like [Gather.Town](https://gather.town), [Sococo](https://www.sococo.com), [Reslash](https://reslash.co), [Screen](https://screen.so/home), and [Gatherly.IO](https://www.gatherly.io) for inspiration on new features to build for Covey.Town. Also see the NYTimes Magazine article [The Race to Fix Fix Virtual Meetings](https://www.nytimes.com/2021/02/17/magazine/video-conference.html). 
 Examples of features that students might propose include:
@@ -61,12 +60,12 @@ This assignment will be graded out of 50 points. There are five subscores, for *
 
 ### Ambition (10 points)
 
-This subscore represents whether your proposal is appropriately-ambitious for a four-person team of undergraduates in half of a semester.
+This subscore represents whether your proposal is appropriately-ambitious for a four-person team of undergraduates working over six two-week sprints.
 You'll receive less than full credit if your proposal is either too ambitious or not ambitious enough:
-* 10 points if your proposal is appropriately-ambitious for a four-person team of undergraduates in half of a semester
+* 10 points if your proposal is appropriately-ambitious for a four-person team of undergraduates working over six two-week sprints
 * 8 points if your proposal is a bit too ambitious or a bit unambitious. For example, if there is an obvious addition to the project that would make it significantly better and you don't include it, you might get this score.
-* 5 points if your proposal is viable but either much too ambitious or not nearly ambitious enough. For example, you might get this score if you propose to re-implement an indie videogame built by a one-person team over the course of years in Covey.Town in 6 weeks, or if you propose something that's only a little more complex than IP1.
-* 0 points if your proposal is not viable. For example, you might get this score if you propose to re-implement a commercially-produced videogame that was developed by a team of engineers in six weeks, or if your proposal is no more ambitious than IP1.
+* 5 points if your proposal is viable but either much too ambitious or not nearly ambitious enough. For example, you might get this score if you propose to re-implement an indie videogame built by a one-person team over the course of years in Covey.Town in twelve weeks, or if you propose something that a single engineer could finish in a week or two.
+* 0 points if your proposal is not viable. For example, you might get this score if you propose to re-implement a commercially-produced videogame that was developed by a team of engineers over years, or if your proposal is no more ambitious than the trivial change you made in [IP0](../projects/ip0.html).
 
 Proposals from students in the Honors section are graded against a higher bar: for full marks, an Honors proposal must be
 appropriately-ambitious for a four-person Honors team, which means significantly more ambitious than the average proposal.
@@ -76,6 +75,7 @@ An Honors proposal should also account for the extra polish and scalability that
 
 This subscore represents whether your proposal is clear to the reader. Any ambiguities in what you are proposing to do will result
 in deductions; the amount deducted will depend on the importance and severity of the ambiguity.
+This subscore is intentionally subjective: it is about how much difficulty we have understanding your idea.
 
 ### Rationale (10 points)
 
@@ -100,7 +100,7 @@ This subscore represents the quality of your writing. While the "quality" of wri
 a one-page project proposal we're looking for the following:
 * no typos
 * appropriate use of technical jargon
-* concision
+* concision, especially absense of common LLM-isms
 
 To help with concision, we recommend thinking about the "length-to-content ratio" (LCR) of your writing. That is, if it's possible
 to say the same thing with fewer syllables or words, do so. A longer writeup on the idea of LCR can be found [here](https://docs.google.com/document/d/1iqbMNrIHH2w6i05aEae6y0HnsX53aKrFji5GgGZCyAg/edit?usp=sharing).
@@ -108,4 +108,4 @@ to say the same thing with fewer syllables or words, do so. A longer writeup on 
 ## Submission
 
 Your project plan should be submitted as a single PDF in Canvas (TODO: link to this semester's Canvas course) to the assignment "Individual Project Proposal."
-The assignment is due by the end of September 28, AoE.
+The assignment is due by the end of September 14, AoE.
