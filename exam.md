@@ -2,6 +2,7 @@
 layout: page
 title: Exams
 description: Information about exams.
+nav_order: 4
 ---
 
 # Exams
