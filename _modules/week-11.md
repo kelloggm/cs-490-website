@@ -10,7 +10,9 @@ Nov 9
 
 Nov 11
 : AI-Assisted Software Engineering
-  : **Mandatory reading**: Butler et al.'s [Eight Myths on Software Engineering and GenAI](https://queue.acm.org/detail.cfm?id=3807963) and Gruhn's [Don't be a meat proxy](https://gruhn.me/blog/2026-08-03/)
+  : **Mandatory reading**: Willison's [What is Agentic Engineering?](https://simonwillison.net/guides/agentic-engineering-patterns/what-is-agentic-engineering/) and [How coding agents work](https://simonwillison.net/guides/agentic-engineering-patterns/how-coding-agents-work/) and Gruhn's [Don't be a meat proxy](https://gruhn.me/blog/2026-08-03/)
+
+    **Your Choice reading**: Roychoudhury et al.'s [Agentic AI Software Engineers: Programming with Trust](https://dl.acm.org/doi/pdf/10.1145/3769314) 
 
 Nov 13
  : **[Individual Contribution Report](../projects/contribution-report.html) due**{: .label .label-red } 
