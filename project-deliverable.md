@@ -3,9 +3,9 @@ layout: page
 title: Project Final Deliverable
 permalink: /projects/project-deliverable.html
 parent: Projects
-nav_order: 9
+nav_order: 8
 ---
-Changelog:
+<!-- Changelog: -->
 # Project: Final Deliverable **Due 9 December 2026 11:59pm AoE**{: .label .label-red }
 
 The final project deliverable is the implementation (in GitHub) and the documentation turned in to Canvas. It also includes your final demo.
@@ -26,7 +26,7 @@ Your final team deliverable will include:
 Accompanying the final team deliverable will be an *individual reflection*, which every student must submit on their own. It has the same structure as the [Individual Contribution Report](../projects/contribution-report.html) from November---evidence of the code you wrote, the code you reviewed, and the status of the tasks assigned to you---followed by a substantially longer reflection covering:
 * The evolution of your project concept: How does the project that you delivered compare to what you originally planned to deliver? What caused these deviations?
 * The software engineering processes that you feel could have been improved in your project: were there any processes that in hindsight, you wish that you followed, or wish that you followed better?
-* Your team dynamic: Provide a frank (and ideally, blameless) postmortem of your and your teammates collaborative performance and participation. If you had to do this same project over with the same teammates, what would *you* have done differently (or not) to improve your team's overall performance?
+* Your team dynamic: Provide a frank (and ideally, blameless) postmortem of your and your teammates' collaborative performance and participation. If you had to do this same project over with the same teammates, what would *you* have done differently (or not) to improve your team's overall performance?
 
 
 ### Submission Instructions
@@ -120,11 +120,11 @@ We will grade each delivered project holistically using the following two rubric
 The project must include evidence of testing. Ideally, all new features will be accompanied by fully automated tests, but in some circumstances (particularly when engaging with Phaser, the game library, or Tiled, the map editor), this may not be feasible. If automated tests are not possible, include a discussion of your manual testing strategy, including a script that a future developer could use to manually test the feature.
 
 #### Satisfactory:
-* Any new or modified backend features include tests that validate that the feature works as intended. These tests cover the changed code, and also contain well-written assertions that thoroughly check the expected behaviors.
+* Any new or modified features include tests that validate that the feature works as intended. These tests cover the changed code, and also contain well-written assertions that thoroughly check the expected behaviors.
 * Tests contains no ESLint warnings or errors; does not include any eslint-disable or ts-ignore flags
 
 #### Meets minimum requirements:
-* Any new or modified backend features include at least one test, which may or may not be an effective test.
+* Any new or modified features include at least one test, which may or may not be an effective test.
 * Tests may contain ESlint warnings (but no errors); does not include any eslint-disable or ts-ignore flags
 
 ### Activities During the Project
@@ -184,20 +184,21 @@ The final report should consist of three sections:
 * Process decisions are justified by referencing discussions in lecture or assigned readings from the rest of the course.
 * The document is at most 2 pages (fewer pages are absolutely acceptable, consider this a rough limit) 
 
-#### Meets minimum requirements:
+##### Meets minimum requirements:
 * It provides a summary of what was planned to happen in each sprint vs what actually happened, with a discussion of what was revised as a result. 
 * The document is at most 2 pages (fewer pages are absolutely acceptable, consider this a rough limit) 
 
 ### 10% Final Demonstration
-Each team will be required to demonstrate their feature to their classmates and to the instructor(s) and TA(s) on the last day of class.
+Each team will demonstrate their feature to the instructor in a private ten-minute slot that your team signs
+up for; see "Project Demo" above for the logistics. There is no whole-class showcase.
 
 Select projects may be hosted in a project showcase. Here are the projects from Spring 2022 [project showcase](https://neu-se.github.io/CS4530-Spring-2022/assignments/project-showcase).
 
 #### Satisfactory:
-* Demo is functional on the final day of class and is consistent with the project as described in the rest of your final submission
+* Demo is functional at your scheduled demo slot and is consistent with the project as described in the rest of your final submission
 
 #### Meets minimum requirements:
-* Demo is functional on the final day of class and is mostly consistent with the project as described in the rest of your final submission
+* Demo is functional at your scheduled demo slot and is mostly consistent with the project as described in the rest of your final submission
 
 #### Honors teams:
 For full marks, we additionally expect no bugs in the demo: it should run cleanly, without crashes, visible defects, or
@@ -205,15 +206,15 @@ rough edges that you have to explain away.
 
 ### Resubmission After the Final Demo
 
-Sometimes, project teams can't quite finish everything they've promised by the time of the final demonstration on the last day of class.
+Sometimes, project teams can't quite finish everything they've promised by the time of their final demonstration.
 It's better to deliver a feature late than never deliver it, so if you find yourself in this situation, you're permitted to continue working
 on your project and resubmit your project materials and do another demo for the instructor and your project mentor.
 
 If your team is in this situation, you must:
-* On the same day as the final demo (i.e., the last day of class), send an email to the instructor, your project mentor TA, and your teammates declaring that
+* On the same day as your final demo, send an email to the instructor, your project mentor TA, and your teammates declaring that
 you intend to resubmit. Each of your teammates must respond by this deadline indicating that they agree that a resubmission is appropriate.
 * In writing (email is fine), declare exactly which feature(s) or user stor(ies) you will complete by the resubmission deadline. This email must be received
-by the instructor and TAs no later than one week after the deadline for your initial email declaring your intention to resubmit (i.e., it must be received no more than one week later, AoE, than the last day of class).
+by the instructor and TAs no later than one week after your initial email declaring your intention to resubmit, and in any case no later than one week, AoE, after the last day of class.
 * You must schedule a meeting with your project mentor and the instructor before the class' final exam (note: day of the final exam is **not** acceptable) to re-demonstrate your
 feature. The deadline for scheduling this demo is the same as the deadline for providing the scope of work email (see previous bullet point): no more than one week after the last day of class. Note that the instructor generally does not check email on the weekend.
 
@@ -303,7 +304,7 @@ Reflect on the evolution of your development process: How did the process by whi
 
 #### Project Team
 
-Reflect on your team dynamic: Provide a frank (and ideally, blameless) postmortem of your and your teammates collaborative performance and participation. If you had to do this same project over with the same teammates, what would you have done differently (or not) to improve your team’s overall performance? Do you think that each of your teammates are deserving of the same grade as you?
+Reflect on your team dynamic: Provide a frank (and ideally, blameless) postmortem of your and your teammates' collaborative performance and participation. If you had to do this same project over with the same teammates, what would you have done differently (or not) to improve your team’s overall performance? Do you think that each of your teammates are deserving of the same grade as you?
 
 ##### Satisfactory:
 * Is at least 2 paragraphs long;

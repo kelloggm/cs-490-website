@@ -3,7 +3,7 @@ layout: page
 title: Revised Project Plan
 permalink: /projects/revised-project-plan.html
 parent: Projects
-nav_order: 6
+nav_order: 5
 ---
 
 # Revised Project Plan **Due Wednesday 21 October 2026 11:59pm AoE**{: .label .label-red }
@@ -27,7 +27,7 @@ Your project plan should begin with a 1-3 paragraph introductory problem stateme
 
 Given the problem statement, develop three user stories that show how a user would interact with the feature. User stories are requirements specified in the format 
 "As a < type of user >, I want < some goal > so that < some reason >."
-My conditions of satisfaction are < list of common cases and special cases that must work >. Please make sure that your conditions of satification are complete (i.e., cover all common cases) and can be turned into testable behaviors.
+My conditions of satisfaction are < list of common cases and special cases that must work >. Please make sure that your conditions of satisfaction are complete (i.e., cover all common cases) and can be turned into testable behaviors.
 
 You should include three different user stories to describe how users will interact with your feature.
 Your three user stories should cover the key behavior that your feature will provide.
@@ -44,7 +44,8 @@ A work breakdown includes all of the tasks necessary to accomplish the project, 
 Consider all of the kinds of tasks that your team will need to perform, including knowledge acquisition, design, implementation, testing and documentation tasks.
 It is hard to say (generically) how many work items are necessary.
 
-Each task on the work breakdown should be assigned to exactly one team member, who should provide a "T-Shirt" estimate for how long it will take (along with a justification for that estimate).
+Each task on the work breakdown should usually be assigned to exactly one team member, who should provide a "T-Shirt" estimate for how long it will take (along with a justification for that estimate).
+A particularly large task may be assigned to two team members, but if you do that you must justify why the task needs two people; do not split tasks this way by default.
 Consider the dependencies between tasks: perhaps an API needs to be designed and specified before implementation can begin; perhaps your development environment needs to be configured before anything else can proceed.
 Assign tasks to sprints considering these dependencies.
 
@@ -52,7 +53,7 @@ Given the preliminary nature of your project, we do not expect that you will kno
 However: Large tasks (those which you can not provide a responsible estimate for) must be accompanied by smaller "research" tasks that can be performed early on in the project, providing clear deadlines by which the task must either be refined into smaller tasks (based on new knowledge gathered), or reworked/abandoned.
 You might consider even scheduling some of these research tasks to take place during the sprint that is in progress when you submit this document.
 
-For example: Consider if you were proposing a "Viewing Area" project (this was an individual project in previous semesters). It might be difficult to consider how to break down a task like "Implement the frontend components for sychnronized video playback" into something that you could commit to doing within a day or two. Given that this is a task that can be delayed until the end of the project (no other tasks depend on it), it would be wise to consider having some tasks early on in the project, such as: "Find react components that embed YouTube videos," and "Implement simple video player that does not synchronize playback." Completing these smaller tasks early would let you both demonstrate that some forward progress is being made, and also allow you to create a much more responsible estimate for how that last, otherwise insurmountably large task would take.
+For example: Consider if you were proposing a "Viewing Area" project (this was an individual project in previous semesters). It might be difficult to consider how to break down a task like "Implement the frontend components for synchronized video playback" into something that you could commit to doing within a day or two. Given that this is a task that can be delayed until the end of the project (no other tasks depend on it), it would be wise to consider having some tasks early on in the project, such as: "Find react components that embed YouTube videos," and "Implement simple video player that does not synchronize playback." Completing these smaller tasks early would let you both demonstrate that some forward progress is being made, and also allow you to create a much more responsible estimate for how that last, otherwise insurmountably large task would take.
 
 Be realistic, and leave time for contingencies and for your other courses.
 If you are uncertain that some tasks will be feasible, then be sure to include evaluation tasks earlier-on in the project that will allow for "go/no-go" decisions to move forward on a task or drop it.
@@ -94,7 +95,7 @@ The revised project plan will account for 8% of your project grade, and will be 
 * Minor deductions for factual errors ("don't say false things") or egregious overclaims ("our project will usher in a new era of world peace")
 
 ### User stories (15 points):
-Each of the three user stories will account for 5% of your grade on this assignment and graded as follows:
+Each of the three user stories will account for 5 points of your grade on this assignment and graded as follows:
 * Receive full marks if:
   * The user story fits the problem statement
   * The user story satisfies the INVEST criteria for good user stories (construed quite broadly)
@@ -121,7 +122,7 @@ However, we believe that this list is exhaustive (we do not expect other kinds o
 Receive full marks if:
 * Each element of the work breakdown is assigned to specific team members, and no "small" or "medium" task is assigned to more than one team member. You have a bit of flexibility about how you want to assign tasks (e.g., it's permitted for you to have "primary" and "secondary" team members for each tasks, just one team member per task, etc.) as long as it is clear to the course staff which team member has the primary responsibility for each task.
 * The distribution of tasks of each size are roughly similar between the whole team (no single person is assigned significantly more or fewer tasks of one size)
-* Each team member has at least one task assigned to them during each sprint
+* Each team member has at least one task assigned to them in each of sprints 1-4
 
 #### Sizing of tasks (30 points):
 Receive full marks if each element on the work breakdown:

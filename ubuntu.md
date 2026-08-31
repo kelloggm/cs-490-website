@@ -131,6 +131,8 @@ Note well: Implicit here is that the guest is, to some extent, _isolated_ from t
 
 You can install VirtualBox with the default settings. For your reference, screenshots of the course staff completing the installation are shown below:
 
+<!-- TODO(au26): these two images are missing -- assets/install1.png and assets/install2.png do not
+     exist in the repo, so both render as broken images. Either upload them or delete these lines. -->
 ![](../assets/install1.png)
 ![](../assets/install2.png)
 

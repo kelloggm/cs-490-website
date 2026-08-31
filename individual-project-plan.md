@@ -3,7 +3,7 @@ layout: page
 title: Individual Project Proposal
 permalink: /projects/individual-project-proposal.html
 parent: Projects
-nav_order: 4
+nav_order: 3
 ---
 # Individual Project Proposal **Due Wednesday 16 September 2026, 11:59pm AoE**{: .label .label-red }
 All projects will involve frontend and backend development of a new feature for Covey.Town.
@@ -23,7 +23,7 @@ This proposal is graded individually.
 Your eventual project team will be free to build your feature, someone else's, or something new entirely. 
 Note that this proposal is due early in the semester, before we have covered much of the course material. That is intentional: the project runs for most of the semester, so it has to start early. You are not expected to know all of the details of how you would build your feature yet---you are expected to explain what it is and why it is worth building, from a _user's_ perspective.
 
-Feel free to look at existing systems like [Gather.Town](https://gather.town), [Sococo](https://www.sococo.com), [Reslash](https://reslash.co), [Screen](https://screen.so/home), and [Gatherly.IO](https://www.gatherly.io) for inspiration on new features to build for Covey.Town. Also see the NYTimes Magazine article [The Race to Fix Fix Virtual Meetings](https://www.nytimes.com/2021/02/17/magazine/video-conference.html). 
+Feel free to look at existing systems like [Gather.Town](https://gather.town), [Sococo](https://www.sococo.com), [Reslash](https://reslash.co), [Screen](https://screen.so/home), and [Gatherly.IO](https://www.gatherly.io) for inspiration on new features to build for Covey.Town. Also see the NYTimes Magazine article [The Race to Fix Virtual Meetings](https://www.nytimes.com/2021/02/17/magazine/video-conference.html). 
 Examples of features that students might propose include:
 * Create some new form of "Interactable" object that models something that might be found in a real conference space, such as a whiteboard or game
   * if you are going to create an interactable version of some sort of game, be careful: it is easy to pick a game that's too simple or too complex
@@ -52,7 +52,7 @@ We suggest trying to answer the following questions, in this order (e.g., in one
 * **How?** What are the technical obstacles? Is there only one way to fix the problem that you're trying to solve in Covey.Town, or are there alternatives (hint: the answer to this question is almost always "yes")? Are there libraries or external tools that you know about that will make it easier to achieve something cool?
 
 There's also a lot of guidance online about how to write a good one-pager, especially in a software engineering context. For example, Amazon famously starts many design meetings with one-pagers. Here are some pieces of advice that we find credible:
-* ["How To Write a One-Pager like an Amazonian"](https://francisshanahan.substack.com/p/how-to-write-a-one-pager-like-an) by Fancis Shanahan
+* ["How To Write a One-Pager like an Amazonian"](https://francisshanahan.substack.com/p/how-to-write-a-one-pager-like-an) by Francis Shanahan
 * ["Microspeak: The one-pager"](https://devblogs.microsoft.com/oldnewthing/20220719-00/?p=106873) by Raymond Chen
 * ["Undervalued Software Engineering Skills: Writing Well"](https://blog.pragmaticengineer.com/on-writing-well/) by Gergely Orosz
 
@@ -92,7 +92,7 @@ the benefit(s) of your proposal will be. In particular, for full credit your pro
 This subscore represents whether your proposal has engaged with the technical difficulties that you're likely to encounter while
 building the proposed feature. At a high-level, we're looking for evidence that you've thought the feature through.
 Full credit proposals can show that by doing at least one of the following:
-* discussing at least one reasonable alternative to the proposed feature that would solve the same problem, and making a credible arguemnt that the proposed feature is the better option
+* discussing at least one reasonable alternative to the proposed feature that would solve the same problem, and making a credible argument that the proposed feature is the better option
 * discussing a difficult technical challenge that you expect to encounter while building the feature and a proposed solution
 * discussing libraries that your feature can build on to mitigate expected technical challenges
 
@@ -102,12 +102,12 @@ This subscore represents the quality of your writing. While the "quality" of wri
 a one-page project proposal we're looking for the following:
 * no typos
 * appropriate use of technical jargon
-* concision, especially absense of common LLM-isms
+* concision, especially absence of common LLM-isms
 
 To help with concision, we recommend thinking about the "length-to-content ratio" (LCR) of your writing. That is, if it's possible
 to say the same thing with fewer syllables or words, do so. A longer writeup on the idea of LCR can be found [here](https://docs.google.com/document/d/1iqbMNrIHH2w6i05aEae6y0HnsX53aKrFji5GgGZCyAg/edit?usp=sharing).
 
 ## Submission
 
-Your project plan should be submitted as a single PDF in Canvas ([section 001](https://njit.instructure.com/courses/68176), [section 003](https://njit.instructure.com/courses/72692), [section HM1](https://njit.instructure.com/courses/68186)) to the assignment "Individual Project Proposal."
+Your proposal should be submitted as a single PDF in Canvas ([section 001](https://njit.instructure.com/courses/68176), [section 003](https://njit.instructure.com/courses/72692), [section HM1](https://njit.instructure.com/courses/68186)) to the assignment "Individual Project Proposal."
 The assignment is due by the end of September 16, AoE.

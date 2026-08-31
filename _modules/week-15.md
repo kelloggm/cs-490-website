@@ -19,7 +19,7 @@ Dec 9
      which would put demos on Dec 13-15 -- four days after our last class meeting. -->
 
 TBD
-: Group project demos for the instructor must be done by this date AoE. Attendence (in-person) is required. At least one group member must bring a laptop with a working demo of your group project (running in a publicly-accessible, deployed covey.town instance). Your team can sign up for a timeslot ([signup sheet]({{ site.baseurl }}{% link todo.md %}) **coming soon**{: .label .label-yellow }).
+: Group project demos for the instructor must be done by this date AoE. Attendance (in-person) is required. At least one group member must bring a laptop with a working demo of your group project (running in a publicly-accessible, deployed covey.town instance). Your team can sign up for a timeslot ([signup sheet]({{ site.baseurl }}{% link todo.md %}) **coming soon**{: .label .label-yellow }).
 
 TBD
  : **Fourth [Project Team Survey](../projects/surveys.html) due**{: .label .label-red }

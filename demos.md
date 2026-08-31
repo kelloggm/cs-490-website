@@ -3,14 +3,15 @@ layout: page
 title: Project Demos
 permalink: /projects/project-demos.html
 parent: Projects
-nav_order: 7
+nav_order: 6
 ---
 
 # Demos
 
 Each group project team must do at least five demos of various types during the semester.
-Some demos will be just your group project mentor, some may be
-for the instructor (and your group project mentor), and at least one will be for the whole class.
+Some demos will be just for your group project mentor, and some will be
+for the instructor (and your group project mentor). All demos are given by your team alone:
+there is no whole-class showcase.
 
 **Honors teams**: Honors teams are made up entirely of Honors students, and we hold Honors projects to a higher
 standard: significantly more ambition than average, significantly more polish, and scaling up to larger numbers

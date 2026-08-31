@@ -3,7 +3,7 @@ layout: page
 title: Honors Reflection Essays
 permalink: /projects/honors-essays.html
 parent: Projects
-nav_order: 12
+nav_order: 11
 ---
 
 # Honors Reflection Essays

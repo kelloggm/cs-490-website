@@ -3,14 +3,14 @@ layout: page
 title: Project Overview
 permalink: /projects/project-overview.html
 parent: Projects
-nav_order: 3
+nav_order: 2
 ---
 
 # Project Overview
 The project for this class is designed to mirror the experiences of a software engineer joining a new development team:
 you will be "onboarded" to our codebase, and then form a team to propose, develop and implement a new feature over the rest of the semester.
-The project runs for almost the whole course: teams are formed in the third week of the semester, and the six two-week sprints that follow run from late September until the last day of class.
-The codebase that we are be developing on is a remote collaboration tool called [Covey.Town](https://www.covey.town).
+The project runs for almost the whole course: teams are formed before the fourth week of the semester, and the six two-week sprints that follow run from late September until the last day of class.
+The codebase that we are developing on is a remote collaboration tool called [Covey.Town](https://www.covey.town).
 Covey.Town provides a virtual meeting space where different groups of people can have simultaneous video calls, allowing participants to drift between different conversations, just like in real life.
 Covey.Town is inspired by existing products like [Gather.Town](https://gather.town), [Sococo](https://www.sococo.com), and [Gatherly.IO](https://www.gatherly.io) --- but it is an open source effort, and the features will be proposed and implemented by you!
 All implementation will take place in the TypeScript programming language, using React for the user interface.
@@ -38,7 +38,7 @@ All implementation will take place in the TypeScript programming language, using
 | TBD | [Individual Reflection]({{ site.baseurl }}{% link project-deliverable.md %}) | Reflect on the project, your process, and your team. *Individually graded.* |
 | TBD | Project Implementation and Documentation (Resubmission) | If your final demo does not meet your project goals, you may schedule another demo with your project mentor and the instructor no more than one week after the last day of class. Re-submit your code and documentation immediately before the demo. |
 
-All assignments are due on the specified date, AoE (i.e., before the beginning of the next day anywhere on Earth, which is at 7am EST the next day).
+All assignments are due on the specified date, AoE (i.e., before the beginning of the next day anywhere on Earth, which is at 7am EST the next day) --- except demos, which must be done during business hours. See the [demos page]({{ site.baseurl }}{% link demos.md %}) for each demo's deadline.
 
 ### Summary of Project Grading
 Your overall project grade (which will account for 45% of your final grade in this course) will be the weighted average of each of the deliverables.
@@ -69,8 +69,13 @@ Most of the project is graded as a team, but some components are graded individu
 
 Each column adds up to 100%. Honors students have a larger individually-graded component, because
 it also includes the two [Honors Reflection Essays](../projects/honors-essays.html); their
-team-graded components are scaled down proportionally (by a factor of 86/90) so that the total
-still comes to 100%.
+team-graded components are scaled down in the expected way so that the total still comes to 100%.
+
+<!-- The Honors team-graded weights are the non-Honors weights times 87/91 (the team-graded totals
+     are 91% non-Honors and 87% Honors), rounded to one decimal place. The rounding drift is absorbed
+     on "Final implementation of your feature" -- it is the only unique base value in the table, so
+     adjusting it cannot make two sibling rows with the same non-Honors weight disagree. -->
+
 
 
 In cases where team members do not equally contribute to the project, we may assign different grades to different individuals, up to an extreme of deducting 50% of the team project grade for a student.
@@ -168,7 +173,7 @@ You will be assigned a mentor for your project who will work closely with you fo
 You will coordinate with the mentor to setup weekly meetings and regular sprint demos. Peer evaluation will also be used.
 Your final team deliverable will be a "release" of your new feature on GitHub (with tests), and will be accompanied by a demo.
 *Optionally,* you may also open a pull request to merge your feature into our main repository (submitting a pull request, or the pull request being merged into our
-codebase is independent of the grade you receive, but provides a platform for more visiblity of your project). 
+codebase is independent of the grade you receive, but provides a platform for more visibility of your project). 
 
 Your final team deliverable will include:
 * The implementation of your new feature
@@ -178,4 +183,4 @@ Your final team deliverable will include:
 Accompanying the final team deliverable will be an *individual reflection*, which every student must submit on their own. It has the same structure as the [Individual Contribution Report](../projects/contribution-report.html) from November---evidence of the code you wrote, the code you reviewed, and the status of the tasks assigned to you---followed by a substantially longer reflection covering:
 * The evolution of your project concept: How does the project that you delivered compare to what you originally planned to deliver? What caused these deviations?
 * The software engineering processes that you feel could have been improved in your project: were there any processes that in hindsight, you wish that you followed, or wish that you followed better?
-* Your team dynamic: Provide a frank (and ideally, blameless) postmortem of your and your teammates collaborative performance and participation. If you had to do this same project over with the same teammates, what would *you* have done differently (or not) to improve your team's overall performance?
+* Your team dynamic: Provide a frank (and ideally, blameless) postmortem of your and your teammates' collaborative performance and participation. If you had to do this same project over with the same teammates, what would *you* have done differently (or not) to improve your team's overall performance?

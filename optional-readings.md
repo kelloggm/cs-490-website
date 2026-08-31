@@ -3,14 +3,16 @@ layout: page
 title: '"Your Choice" Readings'
 permalink: /projects/optional-readings.html
 parent: Projects
-nav_order: 11
+nav_order: 10
 ---
 
 Each lecture has one or more "Your Choice" reading assignments.
 During the semester, you **must** complete **at least two** "Your Choice" readings:
 one before the first mid-term exam, and the other before the final exam.
-Each exam will have one question about the "Your Choice" reading;
-answering it correctly will be part of your grade on the exam.
+The first mid-term and the final will each have one question about the "Your Choice" reading;
+answering it correctly will be part of your grade on that exam.
+**The second mid-term has no "Your Choice" question**, so you do not need to have read a third
+"Your Choice" reading before it.
 
 You may be permitted to answer additional questions about other readings
 for extra credit, too, so long as you don't get any incorrect. This incentivizes

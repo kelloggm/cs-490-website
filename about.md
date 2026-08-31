@@ -28,6 +28,11 @@ software engineering firms.
 
 This website is shared by all three sections; see [Coordination](#coordination) below.
 
+<!-- TODO(au26): the calendar is laid out for the section 001/HM1 Mon+Wed meeting pattern, but
+     section 003 meets only on Mondays (8:30-11:20). Waiting on a separate 003 calendar from the
+     003 instructor; once it arrives, link it here so 003 students can map the shared calendar's
+     Wednesday lectures and readings onto their single weekly block. -->
+
 # Course Outcomes
 
 Official course outcomes:
@@ -127,7 +132,8 @@ one before the first mid-term, and another before the final.
 Most "Your Choice" readings are research papers from
 the software engineering literature: the idea is that you will do a
 deeper dive on two topics that interest you. The "Your Choice" readings
-will be checked on the exams: see the ["Your Choice" reading page](../projects/optional-readings.html).
+are checked on the first mid-term and on the final (the second mid-term has no
+"Your Choice" question): see the ["Your Choice" reading page](../projects/optional-readings.html).
 Students in the Honors section must additionally write two short reflection essays about "Your Choice" readings
 during the semester: see the [Honors Reflection Essays page](../projects/honors-essays.html).
 

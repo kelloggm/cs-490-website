@@ -39,14 +39,11 @@ That is intentional: if you're really struggling to figure out IP0,
 we recommend that you drop the course and return to it in a later
 semester when you are better prepared.
 
-Your assignment will be graded following the rubric embedded in this
-document.  Based on past experiences, we project that this assignment
+Based on past experiences, we project that this assignment
 could take you up to 10 hours (depending on your prior preparation),
 though for most students it should be quicker.
 We encourage you to start early so that you can post questions on
-Discord and attend office
-hours as necessary in order to ensure that you can reach Satisfactory
-marks across the board.
+Discord and attend office hours as necessary.
 
 **This is an individual assignment.** 
 
@@ -73,13 +70,13 @@ The starter code is available at [https://github.com/kelloggm/covey.town](https:
 We recommend that you [fork](https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/working-with-forks/fork-a-repo)
 this repository into your own GitHub account.
 
-To help you set up a local development environment for this class, we've prepared a tutorial for [setting up a development environment with NodeJS, VSCode and TypeScript](https://web.njit.edu/~mjk76/teaching/cs490-au26/tutorials/week1-getting-started.html). Additionally, [An Absolute Beginner's Guide to Using npm](https://nodesource.com/blog/an-absolute-beginners-guide-to-using-npm/) can help you in getting acquainted with `npm`. As a reference for getting started with TypeScript, we suggest the book ["Programming TypeScript" by Boris Cherny](https://learning.oreilly.com/library/view/programming-typescript/9781492037644/). While these resources can help, your specific setup (your OS, your hardware, whatever software is already installed on your computer, etc.) might present some unique difficulties. Figuring out how to deal with those unique difficulties is the crux of this assignment. The course staff might be able to help you, but since most problems are unique we can't offer any guarantees.
+To help you set up a local development environment for this class, we've prepared a tutorial for [setting up a development environment with NodeJS, VSCode and TypeScript](../tutorials/week1-getting-started.html). Additionally, [An Absolute Beginner's Guide to Using npm](https://nodesource.com/blog/an-absolute-beginners-guide-to-using-npm/) can help you in getting acquainted with `npm`. As a reference for getting started with TypeScript, we suggest the book ["Programming TypeScript" by Boris Cherny](https://learning.oreilly.com/library/view/programming-typescript/9781492037644/). While these resources can help, your specific setup (your OS, your hardware, whatever software is already installed on your computer, etc.) might present some unique difficulties. Figuring out how to deal with those unique difficulties is the crux of this assignment. The course staff might be able to help you, but since most problems are unique we can't offer any guarantees.
 
 ### Getting Started
 
 1. Clone the [GitHub repository](https://github.com/kelloggm/covey.town) containing the starter code.
 2. Open the `covey.town` folder in VSCode.
-3. Open up the VSCode terminal with `ctrl + ~`. Alternatively, you can also open a seperate terminal/cmd. Please make sure the shell is in the same folder as your `package.json`.
+3. Open up the VSCode terminal with `ctrl + ~`. Alternatively, you can also open a separate terminal/cmd. Please make sure the shell is in the same folder as your `package.json`.
 4. Follow the instructions in the `README.md` file to run the app locally.
 
 ### Your Task
@@ -114,10 +111,10 @@ to record your screen on your operating system.
 We've prepared several [tutorials](../tutorials/) that might be useful for this assignment
 (and for understanding Covey.Town generally). The most useful to look at now
 are probably:
-* [setting up a development environment with NodeJS, VSCode and TypeScript](https://web.njit.edu/~mjk76/teaching/cs490-au26/tutorials/week1-getting-started.html)
-* [TypeScript basics](https://web.njit.edu/~mjk76/teaching/cs490-au26/tutorials/week1-typescript-basics.html). Most of the Covey.Town
+* [setting up a development environment with NodeJS, VSCode and TypeScript](../tutorials/week1-getting-started.html)
+* [TypeScript basics](../tutorials/week1-typescript-basics.html). Most of the Covey.Town
 codebase is written in TypeScript, so if you're looking at the code and struggling to read it, this should be your first stop.
-* [React basics](https://web.njit.edu/~mjk76/teaching/cs490-au26/tutorials/react-basics). [React](https://react.dev/) is a user interface library
+* [React basics](../tutorials/react-basics). [React](https://react.dev/) is a user interface library
 that Covey.Town builds on. If you're struggling to understand how Covey.Town's graphical interface works, you might want to read this tutorial.
 
 ## Rubric

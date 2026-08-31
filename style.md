@@ -2,8 +2,7 @@
 layout: page
 title: Code Style
 permalink: /policies/style/
-parent: Policies
-nav_order: 1
+nav_order: 5
 ---
 
 ## Code Style

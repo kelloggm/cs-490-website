@@ -3,10 +3,10 @@ layout: page
 title: Project Team Surveys
 permalink: /projects/surveys.html
 parent: Projects
-nav_order: 10
+nav_order: 9
 ---
 
-There will be a "team formation survey" due around the same time as the individual project proposal.
+There will be a "team formation survey" ([survey form]({{ site.baseurl }}{% link todo.md %}) **coming soon**{: .label .label-yellow }) due around the same time as the individual project proposal.
 Teams are assigned randomly from within your section (see the
 [project overview](../projects/project-overview.html#team-formation)): you do not get to choose your
 teammates. This survey is your one chance to nudge that process. In it, you may name a small number of
@@ -20,7 +20,16 @@ There will be four anonymous surveys on how the project is going and how your te
 * the third ([survey form]({{ site.baseurl }}{% link todo.md %}) **coming soon**{: .label .label-yellow }) on November 25, right before Thanksgiving
 * the fourth ([survey form]({{ site.baseurl }}{% link todo.md %}) **coming soon**{: .label .label-yellow }) with your individual reflection, after you submit your final deliverables
 
-These surveys exist to help the course staff identify problems; they are not directly used for grading.
-They're designed to only take a few minutes of your time, and are graded on completion as reading quizzes.
+These surveys exist mainly to help the course staff identify problems, and they're designed to only take a
+few minutes of your time. Each one is graded on completion, and counts as a reading quiz toward your
+Participation score.
 
-More information about the surveys will be posted about a week before the first one is due.
+What you *write* in a survey is not itself graded.
+Submitting the surveys is, however, one input among several to the "Meetings with mentor and team
+surveys" component of your project grade (5% of the project grade — see the
+[project overview](../projects/project-overview.html#summary-of-project-grading)). The other inputs are things
+like whether you show up to your team's meetings with your mentor and your mentor's impression of how you
+participate in them.
+
+The surveys will usually be posted about a week before each one is due.
+Newly-available surveys will always be announced in class and on Discord.

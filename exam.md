@@ -15,7 +15,9 @@ that you are supposed to have viewed. Notably,
 this does not generally include the "Your Choice"
 readings: we don't expect you to have read all of those,
 so questions about them will always offer you a choice
-of which reading to answer a question about.
+of which reading to answer a question about. Only the first
+mid-term and the final have a "Your Choice" question; the
+second mid-term does not.
 See the ["Your Choice" readings page](../projects/optional-readings.html)
 for more information about how the "Your Choice" readings will
 be assessed on the exams.

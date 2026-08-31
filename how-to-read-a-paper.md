@@ -3,7 +3,7 @@ layout: page
 title: How to Read a Paper (Useful for "Your Choice" Readings)
 permalink: /tutorials/reading-papers.html
 parent: Tutorials
-nav_order: 2
+nav_order: 3
 ---
 
 Many of the readings for this course are papers from the research literature.

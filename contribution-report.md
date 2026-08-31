@@ -3,7 +3,7 @@ layout: project
 title: "Individual Contribution Report"
 permalink: /projects/contribution-report.html
 parent: Projects
-nav_order: 8
+nav_order: 7
 due_date: "Friday, 13 November 2026, 11:59PM AoE."
 submission_notes: Submit via Canvas
 ---

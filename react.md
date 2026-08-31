@@ -46,6 +46,9 @@ Let's use **npx** and **create-next-app** to create a new Next.Js project
     - Note 1: This will create a new project directory called my-app under the current directory.
     - Note 2: This will create a git repo in my-app, so you probably shouldn't do this inside a pre-existing git repository.
     - Note 3: Create the project with the following details after executing the command
+<!-- TODO(au26): the assets/week4-react/ directory does not exist in this repo, so the three
+     ./assets/week4-react/*.png images below all render broken. Either upload the directory or
+     remove the image references. -->
     ![image](./assets/week4-react/start-details.png)
 
 2. Navigate to the project directory using the command:
@@ -132,7 +135,7 @@ export default App;
 - The import statement is used to import the public classes/functions from the `react` library.
 - A function can return a single top level element. 
   - div is the top level element in this case and other elements can be nested in it.
-    - The attribute `className` is used to specify a CSS class name if CSS properties have been defined seperately for a class.
+    - The attribute `className` is used to specify a CSS class name if CSS properties have been defined separately for a class.
     - `className` attribute is used to set the value of an element’s class attribute. Using this property, the user can set the class of an element to the desired class.
 - The round brackets (()) after return are used to span a JSX/TSX element across multiple lines.
 - At last , the component needs to be exported from the current file, so that it can be imported somewhere else and can be used either in isolation or combination with other components for rendering on the UI.
