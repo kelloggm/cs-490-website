@@ -7,7 +7,7 @@ Oct 12
   : see the [exams](../exam) page for old and practice exams (with keys)
 
 Oct 14
-: [Testing (3)](../assets/lecture-testing3.pdf)
+: Testing (3)
   : **Mandatory reading**: SQLite's [How SQLite is Tested](https://www.sqlite.org/testing.html)
 
     **Your Choice reading**: Barr et al.'s [The Oracle Problem in Software Testing: A Survey](../assets/testoracles.pdf)
