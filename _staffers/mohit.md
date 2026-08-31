@@ -8,4 +8,4 @@ photo: mohit.png
 ---
 Instructor for section 003.
 
-Office Hours: TODO (day and time), GITC 4406; or by appointment.
+Office Hours: TBD (day and time), GITC 4406; or by appointment.
