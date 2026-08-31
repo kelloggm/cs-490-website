@@ -5,7 +5,12 @@ layout: page
 
 # Syllabus
 
-**Lectures**: Mondays and Wednesdays at 10:00am, in KUPF 117.
+**Lectures**:
+* Section 001 (Kellogg): Mondays and Wednesdays at 10:00am, in KUPF 117.
+* Section 003 (Dale): Mondays at 8:30am-11:20am, in GITC 3600.
+* Section HM1 (Kellogg): meets with section 001 (Mondays and Wednesdays at 10:00am, in KUPF 117).
+
+This website is shared by all three sections; see [Coordination](#coordination) below.
 
 Welcome to CS 490: Guided Design in Software Engineering! This is a
 course about building software that satisfies stronger properties than
@@ -19,7 +24,7 @@ programming assignments and a large group project) of software
 engineering.
 However, this course has a strong emphasis on the practical: the assignments
 mirror real engineering activities, most readings are blog posts from
-engineers, etc. My overarching goal in this class is to expose you
+engineers, etc. Our overarching goal in this class is to expose you
 to how high-quality software engineering is done at the world's best
 software engineering firms.
 
@@ -31,23 +36,23 @@ Official course outcomes:
 * Students will be able to function effectively on a team to accomplish a goal.
 * Students will be able to use current techniques, skills and tools necessary for computing practice.
 
-My course design is based additionally on these unofficial outcomes:
+Our course design is based additionally on these unofficial outcomes:
 * Students will be able to assess the quality of software engineering being done at some future workplace
-* Students will be competent software engineers that I wouldn’t be worried about hiring as an engineering manager
+* Students will be competent software engineers that we wouldn’t be worried about hiring as engineering managers
 
 # Prerequisites
 
 Technically this course requires CS 280 and CS 288, which are both
-courses about *how* to program. I will assume in this course that you
-know how to program: that is, that if I tell you to go write some
+courses about *how* to program. We will assume in this course that you
+know how to program: that is, that if we tell you to go write some
 code, you’ll be able to go do it. Since this course focuses on how to
 program **well** (i.e., how to engineer software!), you first need to know
-how to program at all. I’ll also assume some familiarity with command
-line tools, debugging, and using a search engine: I expect that if I
+how to program at all. We’ll also assume some familiarity with command
+line tools, debugging, and using a search engine: we expect that if we
 ask you to go write code in some language you’ve never seen before,
 you’ll be able to find the necessary components online, find an online
 tutorial on the syntax, and figure out how to write that code. Put
-another way, I won’t teach you how to write a program: this course
+another way, we won’t teach you how to write a program: this course
 already assumes that you can do that.
 
 As an analogy to carpentry, classes like CS 113 teach you how to build
@@ -70,7 +75,7 @@ benefit from almost all of the rest of the undergraduate curriculum.
 We will use concepts from most other courses in the curriculum, including but
 not limited to: CS theory (CS 341), operating systems (CS 332), algorithms (CS 435), data structures (CS 114),
 security (CS 351), and databases (CS 331). You don't _need_ to have taken these courses before
-you take CS 490, but I'll bring up topics from them when they're relevant to the course, so you'll get more
+you take CS 490, but we'll bring up topics from them when they're relevant to the course, so you'll get more
 out of CS 490 if you have seen those classes first (or are taking them concurrently).
 
 # Topics
@@ -103,10 +108,10 @@ Note that the project grade includes some individually-graded components---most 
 [Individual Contribution Report](../projects/contribution-report.html), and your individual
 reflection at the end of the semester. There is no separate "individual assignments" category.
 
-This class will be curved: when grading, I prefer to use the whole
+This class will be curved: when grading, we prefer to use the whole
 range available rather than scores in a tight range. That is, if an
-assignment is worth 10 points, I will give grades at all the points
-between 0 and 10. I will project your raw scores onto the final
+assignment is worth 10 points, we will give grades at all the points
+between 0 and 10. We will project your raw scores onto the final
 distribution twice during the semester, after each mid-term exam.
 
 You will be notified of your current projected class grade via email at each of these points.
@@ -114,7 +119,7 @@ You will be notified of your current projected class grade via email at each of 
 ## Readings and Reading Responses
 
 Each lecture has two kinds of readings: mandatory and "Your Choice"
-readings. I expect you to read mandatory readings before coming to
+readings. We expect you to read mandatory readings before coming to
 class that day, and reading quizzes (see Participation &
 Professionalism, below) will cover the mandatory readings only. During
 the semester, you **must** complete **at least two** "Your Choice" readings:
@@ -157,9 +162,9 @@ you won’t get the full benefit of that intuition.
 ### Remote Participation
 
 Generally this class does not support remote participation: teaching
-is much more effective, in my experience, when everyone is physically
-present. However, I understand that sometimes you are sick, traveling,
-or otherwise unable to come to class. I will arrange for remote participation
+is much more effective, in our experience, when everyone is physically
+present. However, we understand that sometimes you are sick, traveling,
+or otherwise unable to come to class. We will arrange for remote participation
 in any particular lecture as long as you request it at least one hour
 in advance (if you're sick or in some other emergency)
 or 24 hours in advance (if you're traveling or otherwise planning to be
@@ -217,14 +222,14 @@ The project will provide hands-on experience to complement the skills taught in 
 ## Exams
 
 There are three exams in this course:
-* two mid-terms, which are held in class during lecture slots (the first is worth 10% of your course grade, the second 15%---the second covers more material and you'll have experienced my exam design by then, so it counts for more)
+* two mid-terms, which are held in class during lecture slots (the first is worth 10% of your course grade, the second 15%---the second covers more material and you'll have experienced our exam design by then, so it counts for more)
 * a final exam, which is held during the university-scheduled final exam slot (worth 20% of your course grade)
 
 All exams will cover a range of topics discussed in lecture
 and/or in the mandatory readings, from any time during the
 semester up to the point when the exam is held.
 The exams will be comprehensive, covering many of the topics
-we discuss; I may ask about anything we covered in class or that you
+we discuss; we may ask about anything we covered in class or that you
 were supposed to read. Exams will (only!) be conducted in person. Contact
 the course staff privately via email if you are not able to attend for
 any reason (e.g., you are sick or need special accommodations) and we will arrange an alternative.
@@ -292,7 +297,7 @@ similar product.
 
 “Academic Integrity is the cornerstone of higher education and is central to the ideals of this course and the university. Cheating is strictly prohibited and devalues the degree that you are working on. As a member of the NJIT community, it is your responsibility to protect your educational investment by knowing and following the academic code of integrity policy that is found at: http://www5.njit.edu/policies/sites/policies/files/academic-integrity-code.pdf.   
 
-Please note that it is my professional obligation and responsibility to report any academic misconduct to the Dean of Students Office. Any student found in violation of the code by cheating, plagiarizing or using any online software inappropriately will result in disciplinary action. This may include a failing grade of F, and/or suspension or dismissal from the university. If you have any questions about the code of Academic Integrity, please contact the Dean of Students Office at dos@njit.edu”
+Please note that it is our professional obligation and responsibility to report any academic misconduct to the Dean of Students Office. Any student found in violation of the code by cheating, plagiarizing or using any online software inappropriately will result in disciplinary action. This may include a failing grade of F, and/or suspension or dismissal from the university. If you have any questions about the code of Academic Integrity, please contact the Dean of Students Office at dos@njit.edu”
 
 # Late Policy
 

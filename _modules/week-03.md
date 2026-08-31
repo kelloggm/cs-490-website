@@ -7,7 +7,7 @@ Sep 14
 
 Sep 14
 : [Process](../assets/lecture-process.pdf)
-  : **Mandatory reading**: The [Agile Manifesto](https://agilemanifesto.org/) and its [Twelve Principles](https://agilemanifesto.org/principles.html) (this should be a quick read, but I suggest you think about what it is advocating for at least a few minutes before moving onto the next article) and Santo's ["Waterfall" doesn't mean what you think it means](https://changelog.com/posts/waterfall-doesnt-mean-what-you-think-it-means)
+  : **Mandatory reading**: The [Agile Manifesto](https://agilemanifesto.org/) and its [Twelve Principles](https://agilemanifesto.org/principles.html) (this should be a quick read, but we suggest you think about what it is advocating for at least a few minutes before moving onto the next article) and Santo's ["Waterfall" doesn't mean what you think it means](https://changelog.com/posts/waterfall-doesnt-mean-what-you-think-it-means)
   
     **Your Choice reading**: Anda et al.'s [Variability and Reproducibility in Software Engineering: A Study of Four Companies that Developed the Same System](../assets/estimation.pdf)
 

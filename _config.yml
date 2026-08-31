@@ -13,9 +13,9 @@
 # you will see them accessed via {{ site.title }}, {{ site.github_repo }}, and so on.
 # You can create any custom variable you would like, and they will be accessible
 # in the templates via {{ site.myvariable }}.
-title: CS 490-001 (Au26)
-tagline: The course website for NJIT CS 490-001
-description: The course website for NJIT CS 490-001 in Fall 2026, as taught by Martin Kellogg
+title: CS 490 (Au26)
+tagline: The course website for NJIT CS 490, sections 001/003/HM1
+description: The course website for the coordinated sections (001, 003, and HM1) of NJIT CS 490 in Fall 2026, taught by Martin Kellogg and Mohit Dale
 author: Martin Kellogg
 baseurl: '/martinjkellogg.com/teaching/cs490-au26/' # the subpath of your site, e.g. /blog
 url: 'https://kelloggm.github.io' # the base hostname & protocol for your site, e.g. http://example.com

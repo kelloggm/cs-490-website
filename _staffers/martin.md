@@ -1,11 +1,14 @@
 ---
 name: Martin Kellogg
 role: Instructor
+order: 1
 email: martin.kellogg@njit.edu
 website: https://kelloggm.github.io/martinjkellogg.com
 photo: martin.jpg
 pronouns: he/him
 ---
+Instructor for sections 001 and HM1.
+
 Office Hours: TODO (day and time), GITC 4314; or by appointment.
 
 To schedule an appointment with me, check [my

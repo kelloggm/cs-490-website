@@ -6,24 +6,24 @@ description: Information about exams.
 
 # Exams
 
-My exams are generally cumulative: anything
+Our exams are generally cumulative: anything
 we've covered in the course up to the point at
-which you take the exam is fair game. I may also
+which you take the exam is fair game. We may also
 include questions about assigned mandatory readings,
 homework assignments, or any other class content
 that you are supposed to have viewed. Notably,
 this does not generally include the "Your Choice"
-readings: I don't expect you to have read all of those,
+readings: we don't expect you to have read all of those,
 so questions about them will always offer you a choice
 of which reading to answer a question about.
 See the ["Your Choice" readings page](../projects/optional-readings.html)
 for more information about how the "Your Choice" readings will
 be assessed on the exams.
 
-My exam design philosophy is to aim for a wide range
-of question difficulties: I try to include both some questions
-that I think every student should get right and some questions
-that I think are difficult enough that only those who have deeply
+Our exam design philosophy is to aim for a wide range
+of question difficulties: we try to include both some questions
+that we think every student should get right and some questions
+that we think are difficult enough that only those who have deeply
 understood multiple concepts that we covered in class will even be
 able to answer them in a reasonable way, and everything in between.
 
@@ -44,7 +44,7 @@ You'll also have had practice taking with this course's exam style, so you'll kn
 expect.
 The final is worth 20%.
 
-I strongly recommend that before looking at a "key" for one of these exams, you sit down
+We strongly recommend that before looking at a "key" for one of these exams, you sit down
 and attempt the exam yourself, under something like exam conditions (quiet room, no
 interruptions, etc.): this will help you more to prepare for this semester's exam than
 just reading the solutions.

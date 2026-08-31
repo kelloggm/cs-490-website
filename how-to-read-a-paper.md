@@ -35,11 +35,11 @@ way to go).
 
 ## External Resources
 
-I highly recommend Keshav's [How to Read a Paper](http://ccr.sigcomm.org/online/files/p83-keshavA.pdf)
+We highly recommend Keshav's [How to Read a Paper](http://ccr.sigcomm.org/online/files/p83-keshavA.pdf)
 if you're not sure where to start. This short (3-page) article gives a specific strategy
 for attacking a research paper.
 
-I recommend Griswold's [How to Read an Engineering Research Paper](https://cseweb.ucsd.edu/~wgg/CSE210/howtoread.html).
+We recommend Griswold's [How to Read an Engineering Research Paper](https://cseweb.ucsd.edu/~wgg/CSE210/howtoread.html).
 This short article is more aimed at PhD students. but it helps to explain how a research
 paper is structured (and might be useful to you to help understand the anatomy of a research
 paper).

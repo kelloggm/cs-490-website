@@ -22,7 +22,7 @@ programming assignments and a large group project) of software
 engineering.
 However, this course has a strong emphasis on the practical: the assignments
 mirror real engineering activities, most readings are blog posts from
-engineers, etc. My overarching goal in this class is to expose you
+engineers, etc. Our overarching goal in this class is to expose you
 to how high-quality software engineering is done at the world's best
 software engineering firms.
 
