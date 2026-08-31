@@ -225,6 +225,19 @@ the course staff privately via email if you are not able to attend for
 any reason (e.g., you are sick or need special accommodations) and we will arrange an alternative.
 See the [exams page](../exam) for more information.
 
+## Honors Section
+
+The main difference between the Honors and non-Honors sections is the course project:
+Honors students are guaranteed to be in teams of only Honors students, but our expectations
+for Honors course projects are much higher. In particular, we expect Honors projects to
+1) show significantly more ambition than average, 2) show a significantly higher level of
+polish ("no bugs in demos"), and 3) produce solutions that scale up to larger numbers of
+concurrent users.
+
+There are also additional reading and reading-response assignments for Honors students.
+See the [Your Choice Readings page](../projects/optional-readings.html)
+for more details.
+
 # Collaboration Policy
 
 Collaboration is generally encouraged in this course, as is consulting
@@ -234,7 +247,7 @@ from any source except someone else's copy of an assignment,
 assignment” also includes students not currently enrolled in the
 course - e.g., students who took (or are taking)
 this class in previous semesters or
-took classes that used similar individual projects at other
+took classes that used similar projects at other
 institutions. To make this more clear, here are some examples of
 acceptable and unacceptable collaboration on a programming assignment
 in this course:
