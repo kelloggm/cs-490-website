@@ -6,7 +6,11 @@ parent: Projects
 nav_order: 9
 ---
 
-There will be a "team formation survey" ([survey form]({{ site.baseurl }}{% link todo.md %}) **coming soon**{: .label .label-yellow }) due around the same time as the individual project proposal.
+All of the surveys on this page are Google Forms, and you must be signed in to your **NJIT Google
+account** to fill one out. If you get a "you need permission" or "you don't have access" message,
+you are probably signed in to a personal Google account: switch accounts and try again.
+
+There will be a "team formation survey" ([survey form](https://forms.gle/9rtR8gqJMQpFsGoh6)) due around the same time as the individual project proposal.
 Teams are assigned randomly from within your section (see the
 [project overview](../projects/project-overview.html#team-formation)): you do not get to choose your
 teammates. This survey is your one chance to nudge that process. In it, you may name a small number of

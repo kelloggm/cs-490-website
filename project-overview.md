@@ -21,6 +21,7 @@ All implementation will take place in the TypeScript programming language, using
 | -----| ----------- | ----------- |
 | 9/8/26 | [Individual Project 0]({{ site.baseurl }}{% link ip0.md %}) | Get Covey.Town running on your own machine and make a trivial change to it. *Individually graded.* |
 | 9/16/26 | [Individual Project Proposals]({{ site.baseurl }}{% link individual-project-plan.md %}) | Propose a feature for Covey.Town. *Individually graded.* |
+| 9/18/26 | [Team Formation Survey]({{ site.baseurl }}{% link surveys.md %}) | Tell us which students, if any, you would prefer not to be placed with, and give us your GitHub username. |
 | 9/21/26 | Team Assignment | Teams are assigned randomly within each section. Your first sprint begins the same day. |
 | 10/2/26 | [Deployment Demo]({{ site.baseurl }}{% link demos.md %}) | Show that you can deploy a lightly-modified copy of covey.town to a remotely-accessible machine. |
 | 10/7/26 | [Preliminary Project Plan]({{ site.baseurl }}{% link project-plan.md %}) | As a team, propose and plan a new feature for Covey.Town that can be implemented over six sprints |
