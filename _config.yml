@@ -17,7 +17,7 @@ title: CS 490 (Au26)
 tagline: The course website for NJIT CS 490, sections 001/003/HM1
 description: The course website for the coordinated sections (001, 003, and HM1) of NJIT CS 490 in Fall 2026, taught by Martin Kellogg and Mohit Dale
 author: Martin Kellogg
-baseurl: '/martinjkellogg.com/teaching/cs490-au26/' # the subpath of your site, e.g. /blog
+baseurl: '/cs-490-website' # the subpath of your site, e.g. /blog
 url: 'https://kelloggm.github.io' # the base hostname & protocol for your site, e.g. http://example.com
 exclude: ["Gemfile", "Gemfile.lock", "LICENSE", "CLAUDE.md", "provision-classroom.js", "replace.sh", "Examples"]
 
