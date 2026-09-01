@@ -19,7 +19,7 @@ description: The course website for the coordinated sections (001, 003, and HM1)
 author: Martin Kellogg
 baseurl: '/cs-490-website' # the subpath of your site, e.g. /blog
 url: 'https://kelloggm.github.io' # the base hostname & protocol for your site, e.g. http://example.com
-exclude: ["Gemfile", "Gemfile.lock", "LICENSE", "CLAUDE.md", "provision-classroom.js", "replace.sh", "Examples"]
+exclude: ["Gemfile", "Gemfile.lock", "LICENSE", "CLAUDE.md", "provision-classroom.js", "replace.sh", "Examples", "vendor"]
 
 # Theme settings
 remote_theme: just-the-docs/just-the-docs@v0.4.0.rc3
