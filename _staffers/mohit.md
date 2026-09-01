@@ -8,4 +8,4 @@ photo: mohit.png
 ---
 Instructor for section 003.
 
-Office Hours: TBD (day and time), GITC 4406; or by appointment.
+Office Hours: Wednesday and Friday 2:30 PM to 4:00 PM, GITC 4406; or by appointment.
