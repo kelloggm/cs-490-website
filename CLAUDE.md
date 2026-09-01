@@ -33,6 +33,18 @@ The workflow builds with `--baseurl` supplied by GitHub Pages itself, so `_confi
 `baseurl: '/cs-490-website'` matters only for local preview. Renaming the repository
 changes the live URL but does not break the build.
 
+Two settings live on GitHub, not in this repo, and both bit once during setup:
+
+- Pages' source must be **GitHub Actions**, not the legacy branch build.
+- The `github-pages` *environment* has a deployment branch policy. It shipped allowing
+  only `main`, which makes `build` pass and `deploy` fail with "Branch is not allowed to
+  deploy to github-pages". It now allows `au*` and `sp*`, so a new semester branch needs
+  no settings change --- but a branch named outside those patterns would.
+
+`_config.yml`'s `exclude:` must keep `vendor` --- CI installs gems into `vendor/bundle`
+inside the workspace, and without the exclude Jekyll tries to build the jekyll gem's own
+site template and fails the whole build.
+
 Historically the site was built locally and `cp -r`'d into the personal website
 (`../martinjkellogg.com/teaching/cs490-au26/`) by `replace.sh`, which is why the old URLs
 are nested under `/teaching/` --- that arrangement predates Pages, from when the personal
