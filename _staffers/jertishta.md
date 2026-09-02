@@ -9,4 +9,4 @@ photo: jertishta.png
 Shadowing sections 001 and HM1 this semester, in preparation for teaching
 CS 490 in the future.
 
-Office Hours: TBD (day and time), GITC 4301; or by appointment.
+Office Hours: Tuesday and Thursday 10:00 am - 11:20 am, GITC 4301; or by appointment.
