@@ -245,7 +245,8 @@ See the [exams page](../exam) for more information.
 ## Coordination
 
 Sections 001 (Kellogg), 003 (Dale), and HM1 (Kellogg) of CS 490 this semester are coordinated and will have joint exams, project grading scales, and TAs/graders.
-You can go to any of the instructors or TAs/graders of these sections for office hours, regardless of which section you are enrolled in.
+You can go to any of the instructors or TAs/graders of these sections for office hours, regardless of which section you are enrolled in;
+see the [weekly office hours calendar]({{ site.baseurl }}{% link office-hours.md %}) for the full schedule.
 
 ## Honors Section
 

@@ -6,10 +6,14 @@ email: martin.kellogg@njit.edu
 website: https://kelloggm.github.io/martinjkellogg.com
 photo: martin.jpg
 pronouns: he/him
+by_appointment: true
+office_hours:
+  - day: Tuesday
+    start: '2:00 PM'
+    end: '3:00 PM'
+    location: GITC 4314
 ---
 Instructor for sections 001 and HM1.
-
-Office Hours: Tuesdays 2-3pm, GITC 4314; or by appointment.
 
 To schedule an appointment with me, check [my
 calendar](https://calendar.google.com/calendar/u/0?cid=bWprNzZAbmppdC5lZHU)

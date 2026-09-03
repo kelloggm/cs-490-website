@@ -7,6 +7,8 @@ nav_order: 7
 
 # Course Staff
 
+All of these office hours are also collected into a [weekly calendar]({{ site.baseurl }}{% link office-hours.md %}).
+
 ## Instructors
 
 {% assign instructors = site.staffers | where: 'role', 'Instructor' | sort: 'order' %}

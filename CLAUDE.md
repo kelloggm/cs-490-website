@@ -83,6 +83,16 @@ inspection, not by exit code** (see "Verification recipes" below).
   are not posted yet. It is `nav_exclude`d and `search_exclude`d, so it never appears in the
   sidebar or search and does not affect anyone's `nav_order`.
 - `_staffers/`, `assets/` (PDFs of lectures, readings, past exams), `tutorials/`.
+- **Office hours are structured data, and the only generated content on the site.** Each
+  `_staffers/*.md` carries an `office_hours:` list (`day`, `start`, `end`, `location`, with
+  `location: TBD` for unassigned rooms) plus an optional `by_appointment: true`. Two consumers
+  read it: `_layouts/staffer.html` renders it back into the prose sentence the staff page has
+  always shown (`Office Hours: Mondays, 4:30 PM--5:30 PM (location TBD); ...; or by appointment.`),
+  and `office-hours.md` -> `/office-hours/` builds a per-weekday table from `site.staffers`.
+  **Never type a time or a room into `office-hours.md`** --- edit the staffer's file and both
+  pages update. Times are human-readable (`'4:30 PM'`); the page sorts them with the existing
+  `_includes/minutes.liquid`, zero-padded to four digits so the sort is lexicographic. The
+  layout still honours the theme's old scalar `office-hours:` field if a file ever sets it.
 - `*.md~` files are **stale editor backups from previous semesters**. Ignore them; they are
   gitignored and do not reflect the current site.
 
@@ -102,7 +112,7 @@ section order:
 
 Top-level nav is ordered by relative importance / frequency of access, and every top-level page
 carries an explicit `nav_order`: `calendar.md` 1, `about.md` 2, `projects.md` 3, `exam.md` 4,
-`tutorials.md` 5, `style.md` 6, `staff.md` 7. `style.md` is a top-level page despite its
+`tutorials.md` 5, `style.md` 6, `staff.md` 7, `office-hours.md` 8. `style.md` is a top-level page despite its
 `/policies/style/` permalink --- there is no Policies section.
 
 Inserting a page mid-sequence means renumbering the ones after it.
@@ -201,26 +211,29 @@ means **almost any change needs to touch several files**:
    `_modules/week-NN.md`. `project-overview.md`'s deliverables table is a third copy.
 5. **The six-sprint list is duplicated verbatim** in `project-plan.md` and
    `revised-project-plan.md`.
-6. `surveys.md` describes each survey by its anchor event ("the week after the Deployment
+6. **Office hours are the exception to all of this** --- they are generated, not duplicated.
+   Change `_staffers/*.md` and nothing else; `staff.md` and `about.md`'s Coordination section
+   link to `/office-hours/` but restate no times.
+7. `surveys.md` describes each survey by its anchor event ("the week after the Deployment
    Demo"), so moving a demo invalidates its prose as well as its date.
-7. **The per-section Canvas links are repeated in six submission instructions** —
+8. **The per-section Canvas links are repeated in six submission instructions** —
    `ip0.md`, `contribution-report.md`, `project-plan.md`, `individual-project-plan.md`,
    `revised-project-plan.md`, and the individual-reflection section of
    `project-deliverable.md` — plus `honors-essays.md` (HM1 only) and `aux_links:`. The
    Discord URL appears in both `aux_links:` and `about.md`; both point at the server root,
    with no channel id.
-8. Lectures and their readings live only in `_modules/`. Lectures can be reordered freely —
+9. Lectures and their readings live only in `_modules/`. Lectures can be reordered freely —
    there are few real dependencies — but check that anything the project needs (Process,
    Working in Teams, Requirements, Code Review) still precedes the deliverable that uses it,
    and that mid-term 1 on Oct 12 still covers the intended set. Both mid-terms must fall on a
    Monday: sections 001, 003, and HM1 are coordinated and hold joint exams.
-9. **Only the first mid-term and the final have a "Your Choice" question**; the second mid-term
+10. **Only the first mid-term and the final have a "Your Choice" question**; the second mid-term
    has none. Stated in `about.md`, `exam.md`, and `optional-readings.md` --- keep all three in sync.
-10. **The final demo is a private ten-minute slot with the instructor**, signed up for on a sheet;
+11. **The final demo is a private ten-minute slot with the instructor**, signed up for on a sheet;
    there is no whole-class showcase and it is not pinned to the last day of class. `demos.md`,
    `project-deliverable.md` (both the "Project Demo" logistics and the "10% Final Demonstration"
    rubric), `project-overview.md` and `_modules/week-15.md` all have to agree on that.
-11. **Demos are the one exception to the blanket AoE deadline rule** --- they are due at 5:30pm
+12. **Demos are the one exception to the blanket AoE deadline rule** --- they are due at 5:30pm
    local time. `project-overview.md` says so under the deliverables table; `demos.md` carries the
    four actual times.
 

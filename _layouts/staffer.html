@@ -19,7 +19,22 @@
     {%- if page.section -%}
     <p class="staffer-meta">Quiz Section: {{ page.section | markdownify | strip_html }}</p>
     {%- endif -%}
-    {%- if page.office-hours -%}
+    {%- comment -%}
+      Office hours are structured data (see any file in _staffers/), so that the weekly
+      calendar on office-hours.md can be generated from the same source. Rendered back
+      into a prose sentence here.
+    {%- endcomment -%}
+    {%- if page.office_hours -%}
+    {%- capture _office_hours -%}
+    {%- for oh in page.office_hours -%}
+    {%- unless forloop.first %}; {% endunless -%}
+    {{ oh.day }}s, {{ oh.start }}&ndash;{{ oh.end }}
+    {%- if oh.location and oh.location != '' %} ({% if oh.location == 'TBD' %}location TBD{% else %}{{ oh.location }}{% endif %}){% endif -%}
+    {%- endfor -%}
+    {%- if page.by_appointment %}; or by appointment{% endif -%}
+    {%- endcapture -%}
+    <p class="staffer-meta">Office Hours: {{ _office_hours }}.</p>
+    {%- elsif page.office-hours -%}
     <p class="staffer-meta">Office Hours: {{ page.office-hours | markdownify | strip_html }}</p>
     {%- endif -%}
     {{ content }}
