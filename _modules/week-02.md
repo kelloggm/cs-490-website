@@ -16,7 +16,7 @@ Sep 8
      **Your Choice reading**: Ajami et al.'s [Syntax, predicates, idioms — what really affects code complexity?](../assets/complexity.pdf)
 
 Sep 9
-: Reading Code
+: [Reading Code](../assets/lecture-reading-code.pdf)
   : **Mandatory reading**: Atwood's [Learn to Read the Source, Luke](https://blog.codinghorror.com/learn-to-read-the-source-luke/), Coleman's [How to quickly and effectively read other people’s code](https://selftaughtcoders.com/how-to-quickly-and-effectively-read-other-peoples-code/), the [Individual Project Proposal specification](../projects/individual-project-proposal.html), and the [Group Project Specification](../projects/project-overview.html)
 
     **Your Choice reading**: Endres et al.'s [Relating Reading, Visualization, and Coding for New Programmers: A Neuroimaging Study](https://web.eecs.umich.edu/~weimerw/p/weimer-icse2021-reading-preprint.pdf)
