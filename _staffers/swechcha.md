@@ -7,9 +7,9 @@ office_hours:
   - day: Tuesday
     start: '4:00 PM'
     end: '5:00 PM'
-    location: TBD
+    location: GITC 4325
   - day: Thursday
     start: '11:00 AM'
     end: '12:00 PM'
-    location: TBD
+    location: GITC 4325
 ---
