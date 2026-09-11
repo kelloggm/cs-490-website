@@ -18,4 +18,4 @@ Sep 16
     **Your Choice reading**: Behroozi et al.'s [Hiring is Broken: What Do Developers Say About Technical Interviews?](../assets/hiring-is-broken.pdf)
 
 Sep 18
- : **[Team Formation Survey]({{ site.baseurl }}{% link surveys.md %}) due**{: .label .label-red } 
+ : **[Team Formation Survey](https://forms.gle/9rtR8gqJMQpFsGoh6) due**{: .label .label-red } 
