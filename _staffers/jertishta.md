@@ -7,9 +7,9 @@ website: https://people.njit.edu/profile/jq55
 photo: jertishta.png
 by_appointment: true
 office_hours:
-  - day: Tuesday
-    start: '10:00 AM'
-    end: '11:20 AM'
+  - day: Monday
+    start: '1:00 PM'
+    end: '2:30 PM'
     location: GITC 4301
   - day: Thursday
     start: '10:00 AM'
