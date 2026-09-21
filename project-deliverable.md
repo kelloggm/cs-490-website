@@ -75,33 +75,34 @@ See the [syllabus](../about/#honors-section) and the [project overview](../proje
 
 The canonical version of this table is on the [project overview](../projects/project-overview.html#summary-of-project-grading) page.
 
-| Component | Non-Honors | Honors |
+| Component | Non-Honors weight | Honors weight |
 | --------- | ---------- | ------ |
-| **Individually graded** | **9%** | **13%** |
-| Individual Project 0 (already graded) | 1% | 1% |
-| Individual Contribution Report (already graded) | 3% | 3% |
-| Individual reflection | 5% | 5% |
-| Honors Reflection Essays (2 essays, worth 2% each) | --- | 4% |
-| **Team graded** | **91%** | **87%** |
-| Preliminary Project Plan (already graded) | 5% | 4.8% |
-| Revised Project Plan (already graded) | 8% | 7.6% |
-| Meetings with mentor and team surveys | 5% | 4.8% |
-| Ongoing development progress, including code reviews | 10% | 9.6% |
-| Deployment demo (already graded) | 1% | 1% |
-| Wizard-of-Oz demo (already graded) | 2% | 1.9% |
-| Preliminary demo 1, with your mentor (already graded) | 2% | 1.9% |
-| Preliminary demo 2, with the instructor (already graded) | 4% | 3.8% |
-| Final demo | 10% | 9.6% |
-| Final implementation of your feature | 20% | 19% |
-| Final test suite of your feature | 10% | 9.6% |
-| Report: Feature Overview | 4% | 3.8% |
-| Report: Technical Overview | 5% | 4.8% |
-| Report: Process Overview | 5% | 4.8% |
+| **Individually graded** | **13** | **17** |
+| Individual Project 0 (already graded) | 1 | 1 |
+| Individual Project Proposal (already graded) | 4 | 4 |
+| Individual Contribution Report (already graded) | 3 | 3 |
+| Individual reflection | 5 | 5 |
+| Honors Reflection Essays (2 essays, weight 2 each) | --- | 4 |
+| **Team graded** | **91** | **91** |
+| Preliminary Project Plan (already graded) | 5 | 5 |
+| Revised Project Plan (already graded) | 8 | 8 |
+| Meetings with mentor and team surveys | 5 | 5 |
+| Ongoing development progress, including code reviews | 10 | 10 |
+| Deployment demo (already graded) | 1 | 1 |
+| Wizard-of-Oz demo (already graded) | 2 | 2 |
+| Preliminary demo 1, with your mentor (already graded) | 2 | 2 |
+| Preliminary demo 2, with the instructor (already graded) | 4 | 4 |
+| Final demo | 10 | 10 |
+| Final implementation of your feature | 20 | 20 |
+| Final test suite of your feature | 10 | 10 |
+| Report: Feature Overview | 4 | 4 |
+| Report: Technical Overview | 5 | 5 |
+| Report: Process Overview | 5 | 5 |
 
-Each column adds up to 100%; this sum is worth 45% of the course grade.
+The non-Honors weights add up to 104 and the Honors weights add up to 108. Your project grade is your weighted total divided by your column's total, and it is worth 45% of the course grade.
 
 Here are the detailed rubrics for the final deliverables:
-### 20% Delivered Features 
+### Delivered Features (weight 20)
 We will grade each delivered project holistically using the following two rubrics:
 
 #### Satisfactory:
@@ -116,7 +117,7 @@ We will grade each delivered project holistically using the following two rubric
 * The implementation may have some obvious flaws, but largely works without crashing.
 * Implemented feature does not include any eslint-disable or ts-ignore flag
 
-### 10% Testing
+### Testing (weight 10)
 The project must include evidence of testing. Ideally, all new features will be accompanied by fully automated tests, but in some circumstances (particularly when engaging with Phaser, the game library, or Tiled, the map editor), this may not be feasible. If automated tests are not possible, include a discussion of your manual testing strategy, including a script that a future developer could use to manually test the feature.
 
 #### Satisfactory:
@@ -129,13 +130,13 @@ The project must include evidence of testing. Ideally, all new features will be 
 
 ### Activities During the Project
 
-#### 5% Weekly Meetings with Mentor and Team Surveys
-Throughout the semester, each team will be meeting with their mentor and with the instructor to discuss their project progress. Attendance at these meetings and demonstrations of progress will, cumulatively, account for 5% of the project grade. You will also be asked to complete Team Surveys and/or Peer evaluations to help track the progress.
+#### Weekly Meetings with Mentor and Team Surveys (weight 5)
+Throughout the semester, each team will be meeting with their mentor and with the instructor to discuss their project progress. Attendance at these meetings and demonstrations of progress will, cumulatively, carry a weight of 5 in the project grade. You will also be asked to complete Team Surveys and/or Peer evaluations to help track the progress.
 Note that being present for meetings (both literally and intellectually)
 with your mentor also factors into your individual Participation and Professionalism grade, so though this is a small part of the
 *project* grade, its weight in your final grade is larger.
 
-#### 10% Ongoing development progress, including code reviews
+#### Ongoing development progress, including code reviews (weight 10)
 Each team is expected to use their GitHub repository, regularly committing changes while developing their project. You will also be expected to use pull-requests and code reviews.
 
 ##### Satisfactory:
@@ -151,7 +152,7 @@ Each team is expected to use their GitHub repository, regularly committing chang
 ### Final Report 
 The final report should consist of three sections:
 
-#### 4% Report -- Feature Overview
+#### Report -- Feature Overview (weight 4)
 
 ##### Satisfactory:
 * The Feature section contains sufficient documentation for a user to interact with your updated version of Covey.Town.
@@ -166,7 +167,7 @@ The final report should consist of three sections:
 * The course staff were able to figure out how to use it through trial and error.
 * The section is at most 4 pages, NOT including figures. Fewer pages are absolutely acceptable, consider this a rough limit
 
-#### 5% Report - Technical Overview
+#### Report - Technical Overview (weight 5)
 ##### Satisfactory:
 * Technical Overview contains a description of any substantive changes to the existing Covey.Town codebase, and of the architecture of your new code.
 * It uses UML diagrams, CRC cards, state diagrams or any of the other techniques that help describe the structure.
@@ -177,7 +178,7 @@ The final report should consist of three sections:
 * Technical Overview includes a description of all major changes to the code compared to our existing Covey.Town codebase.
 * The document is at most 2 pages (fewer pages are absolutely acceptable, consider this a rough limit) 
 
-#### 5% Process Overview
+#### Process Overview (weight 5)
 ##### Satisfactory:
 * Process overview contains a detailed description of the manner in which agile project management processes were used during the project (i.e., sprints, sprint reviews, retrospectives and blameless reviews).
 * It provides a summary of what was planned to happen in each sprint vs what actually happened, with a discussion of what was revised as a result.
@@ -188,7 +189,7 @@ The final report should consist of three sections:
 * It provides a summary of what was planned to happen in each sprint vs what actually happened, with a discussion of what was revised as a result. 
 * The document is at most 2 pages (fewer pages are absolutely acceptable, consider this a rough limit) 
 
-### 10% Final Demonstration
+### Final Demonstration (weight 10)
 Each team will demonstrate their feature to the instructor in a private ten-minute slot that your team signs
 up for; see "Project Demo" above for the logistics. There is no whole-class showcase.
 
@@ -231,7 +232,7 @@ idea if your project would otherwise be graded poorly.
 ## Individual Reflection
 
 Accompanying the final team deliverable will be an individual reflection, which every student must submit on their own.
-It is worth 5% of your project grade, as one of the project's individually-graded components.
+It carries a weight of 5 in your project grade (out of a total of 104, or 108 for Honors students), as one of the project's individually-graded components.
 Satisfactory completion of all parts of this reflection is *also* required to receive an "A" grade in the course, and may be used to calibrate project scores across multiple team members.
 The individual reflection also provides an opportunity for students to provide confidential feedback on the performance of their teammates.
 

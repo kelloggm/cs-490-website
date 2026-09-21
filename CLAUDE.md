@@ -154,8 +154,8 @@ is mentioned mid-paragraph (`project-deliverable.md`'s release instructions,
 Two consequences:
 
 - **Renaming a heading breaks inbound anchors.** Several rubric headings embed their weight
-  (`### 20% Delivered Features` → `#20-delivered-features`), so changing a percentage
-  changes the anchor. `demos.md` links to `project-deliverable.html#10-final-demonstration`.
+  (`### Delivered Features (weight 20)` → `#delivered-features-weight-20`), so changing a weight
+  changes the anchor. `demos.md` links to `project-deliverable.html#final-demonstration-weight-10`.
 - Duplicate heading text gets a `-1` suffix. `project-deliverable.md` has both
   `#### Individual Reflection` (submission instructions) and `## Individual Reflection` (the
   assignment), so the assignment's anchor is `#individual-reflection-1`, which
@@ -167,15 +167,17 @@ Course grade: **45% exams** (mid-term 1 10%, mid-term 2 15%, final 20%) / **45% 
 **10% participation & professionalism**. There is no separate "individual assignments"
 category — IP0 and the individual reports are graded inside the project.
 
-Project internals, non-Honors / Honors (each column sums to 100):
+Project internals are **weights, not percentages**: non-Honors weights total **104**, Honors
+**108**, and a project grade is the weighted total divided by the column total. This is
+deliberate. The Individual Project Proposal was left out of the table at the start of Au26; it
+was added at weight 4 (half the Revised Project Plan) with every other number kept as it was,
+rather than renormalizing everything into messy decimals. Do not convert back to percentages.
 
-- Individually graded **9 / 13**: IP0 1, Individual Contribution Report 3, individual
-  reflection 5, plus (Honors only) two Honors Reflection Essays at 2 each.
-- Team graded **91 / 87**: Honors team weights are the non-Honors values × 87/91, rounded to
-  one decimal, with the rounding drift absorbed on "Final implementation" (the only unique
-  base value, so no two sibling rows disagree). The student-facing text says only "scaled down
-  in the expected way"; the ratio lives in an HTML comment under the table in
-  `project-overview.md`. Do not put the ratio back into the prose.
+- Individually graded **13 / 17**: IP0 1, Individual Project Proposal 4, Individual
+  Contribution Report 3, individual reflection 5, plus (Honors only) two Honors Reflection
+  Essays at 2 each.
+- Team graded **91 / 91**: the Honors team weights are identical to the non-Honors ones. (They
+  used to be scaled by 87/91 so the Honors column totalled 100; that scaling is gone.)
 
 Timeline: IP0 due Sep 8 → proposal Sep 16 → teams announced Sep 21 → **six two-week sprints,
 Sep 21–Dec 9** (S0 Sep 21–Oct 2, S1 Oct 5–16, S2 Oct 19–30, S3 Nov 2–13, S4 Nov 16–27,
@@ -204,9 +206,12 @@ means **almost any change needs to touch several files**:
    "(already graded)" annotations) and says so in a sentence. Keep the numbers identical.
 2. **Assignment pages restate their own weight** — `ip0.md`, `contribution-report.md`,
    `honors-essays.md`, and the individual-reflection section of `project-deliverable.md`.
-   These must agree with the table.
-3. **Rubric headings in `project-deliverable.md` embed percentages** in the heading text,
-   and the meetings/surveys rubric repeats its percentage in prose.
+   These must agree with the table. So do `individual-project-plan.md`, `project-plan.md`,
+   `revised-project-plan.md`, `surveys.md`, and the four demo rubric headings in `demos.md`.
+   Pages state a weight as "a weight of N in your project grade (out of a total of 104, or 108
+   for Honors students)", so changing either total touches all of them.
+3. **Rubric headings in `project-deliverable.md` and `demos.md` embed weights** in the heading
+   text (`(weight 20)`), and the meetings/surveys rubric repeats its weight in prose.
 4. **Every deadline appears twice**: on the assignment page and in the relevant
    `_modules/week-NN.md`. `project-overview.md`'s deliverables table is a third copy.
 5. **The six-sprint list is duplicated verbatim** in `project-plan.md` and
@@ -231,7 +236,7 @@ means **almost any change needs to touch several files**:
    has none. Stated in `about.md`, `exam.md`, and `optional-readings.md` --- keep all three in sync.
 11. **The final demo is a private ten-minute slot with the instructor**, signed up for on a sheet;
    there is no whole-class showcase and it is not pinned to the last day of class. `demos.md`,
-   `project-deliverable.md` (both the "Project Demo" logistics and the "10% Final Demonstration"
+   `project-deliverable.md` (both the "Project Demo" logistics and the "Final Demonstration (weight 10)"
    rubric), `project-overview.md` and `_modules/week-15.md` all have to agree on that.
 12. **Demos are the one exception to the blanket AoE deadline rule** --- they are due at 5:30pm
    local time. `project-overview.md` says so under the deliverables table; `demos.md` carries the
@@ -266,13 +271,13 @@ means **almost any change needs to touch several files**:
 After editing weights:
 
 ```bash
-# both columns of both tables must total 100
+# non-Honors column must total 104, Honors 108, in both tables
 python3 - <<'EOF'
 import re
 for p in ('project-overview.md','project-deliverable.md'):
     n=h=0.0
     for line in open(p,encoding='utf-8'):
-        m=re.match(r'^\|\s*(.+?)\s*\|\s*(\*\*)?([0-9.]+|---)%?(\*\*)?\s*\|\s*(\*\*)?([0-9.]+|---)%?(\*\*)?\s*\|\s*$',line)
+        m=re.match(r'^\|\s*(.+?)\s*\|\s*(\*\*)?([0-9.]+|---)(\*\*)?\s*\|\s*(\*\*)?([0-9.]+|---)(\*\*)?\s*\|\s*$',line)
         if not m or '**' in m.group(1): continue
         if m.group(3)!='---': n+=float(m.group(3))
         if m.group(6)!='---': h+=float(m.group(6))
@@ -280,8 +285,8 @@ for p in ('project-overview.md','project-deliverable.md'):
 EOF
 
 # the two tables must agree row for row
-diff <(grep -oE "\| [0-9.]+% \| [0-9.]+% \|" project-overview.md) \
-     <(grep -oE "\| [0-9.]+% \| [0-9.]+% \|" project-deliverable.md)
+diff <(grep -oE "\| ([0-9]+|---|\*\*[0-9]+\*\*) \| ([0-9]+|\*\*[0-9]+\*\*) \|$" project-overview.md) \
+     <(grep -oE "\| ([0-9]+|---|\*\*[0-9]+\*\*) \| ([0-9]+|\*\*[0-9]+\*\*) \|$" project-deliverable.md)
 ```
 
 No `TODO` may reach the rendered site. The only legitimate occurrence is the title of a

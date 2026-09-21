@@ -69,7 +69,7 @@ November than in December.
 
 ### Grading
 
-This assignment is worth 3% of your project grade, as one of the project's individually-graded
+This assignment carries a weight of 3 in your project grade (out of a total of 104, or 108 for Honors students), as one of the project's individually-graded
 components. See the [project overview](../projects/project-overview.html#summary-of-project-grading)
 for how the project grade fits together.
 

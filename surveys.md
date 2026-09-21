@@ -30,7 +30,7 @@ Participation score.
 
 What you *write* in a survey is not itself graded.
 Submitting the surveys is, however, one input among several to the "Meetings with mentor and team
-surveys" component of your project grade (5% of the project grade — see the
+surveys" component of your project grade (weight 5 in the project grade, out of a total of 104, or 108 for Honors students — see the
 [project overview](../projects/project-overview.html#summary-of-project-grading)). The other inputs are things
 like whether you show up to your team's meetings with your mentor and your mentor's impression of how you
 participate in them.

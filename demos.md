@@ -39,7 +39,7 @@ There are many ways to deploy covey.town so that it is remotely accessible. The 
 a free-tier AWS instance (by following [our guidelines](../tutorials/ubuntu.html)) and then set it to allow
 incoming traffic on the appropriate ports used by covey.town; see the covey.town documentation for more details.
 
-### Rubric (out of 10 points, 1% of final project grade)
+### Rubric (out of 10 points, weight 1 in the project grade)
 
 There are three possible grades for this demo:
 * 10, if you meet the two requirements above by the deadline
@@ -86,7 +86,7 @@ project mentor during the week that the demo is due, which the instructor will t
 you know the week beforehand, but it will be up to you to schedule an alternative slot that all of you,
 your project mentor, and the instructor can attend before the deadline.
 
-### Rubric (out of 25 points, 2% of final project grade)
+### Rubric (out of 25 points, weight 2 in the project grade)
 
 #### Satisfactory:
 * Demo materials are professional in appearance
@@ -120,7 +120,7 @@ than its author.
 
 Aim for your demo to take about five minutes.
 
-### Rubric (out of 20 points, 2% of final project grade)
+### Rubric (out of 20 points, weight 2 in the project grade)
 
 #### Satisfactory:
 * Demo shows working code for at least one user story from the revised project plan
@@ -160,7 +160,7 @@ project mentor during the week that the demo is due, which the instructor will t
 you know the week beforehand, but it will be up to you to schedule an alternative slot that all of you,
 your project mentor, and the instructor can attend before the deadline.
 
-### Rubric (out of 40 points, 4% of final project grade)
+### Rubric (out of 40 points, weight 4 in the project grade)
 
 #### Satisfactory:
 * Demo shows a user story from the revised project proposal
@@ -185,4 +185,4 @@ no crashes, and no rough edges that you have to explain away.
 
 ## Final Demo
 
-See the [project deliverables](../projects/project-deliverable.html#10-final-demonstration) page.
+See the [project deliverables](../projects/project-deliverable.html#final-demonstration-weight-10) page.

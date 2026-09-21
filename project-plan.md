@@ -92,7 +92,7 @@ Each team submits a single document to Canvas: when uploading the submission, yo
 The assignment is due by the end of October 7, AoE.
 
 ## Grading
-The project plan will account for 5% of your project grade, and will be graded out of 75 points. The grading of the project plan is further broken down as follows:
+The project plan carries a weight of 5 in your project grade (out of a total of 104, or 108 for Honors students), and will be graded out of 75 points. The grading of the project plan is further broken down as follows:
 
 ### Introductory problem statement (5 points): 
 * Receive full marks if there is a narrative consisting of 4-10 sentences that describes a specific problem that your project aims to solve.

@@ -45,37 +45,42 @@ All assignments are due on the specified date, AoE (i.e., before the beginning o
 Your overall project grade (which will account for 45% of your final grade in this course) will be the weighted average of each of the deliverables.
 Most of the project is graded as a team, but some components are graded individually.
 
-| Component | Non-Honors | Honors |
+| Component | Non-Honors weight | Honors weight |
 | --------- | ---------- | ------ |
-| **Individually graded** | **9%** | **13%** |
-| [Individual Project 0](../projects/ip0.html) | 1% | 1% |
-| [Individual Contribution Report](../projects/contribution-report.html) | 3% | 3% |
-| [Individual reflection](../projects/project-deliverable.html#individual-reflection-1) | 5% | 5% |
-| [Honors Reflection Essays](../projects/honors-essays.html) (2 essays, worth 2% each) | --- | 4% |
-| **Team graded** | **91%** | **87%** |
-| [Preliminary Project Plan](../projects/project-plan.html) | 5% | 4.8% |
-| [Revised Project Plan](../projects/revised-project-plan.html) | 8% | 7.6% |
-| Meetings with mentor and [team surveys](../projects/surveys.html) | 5% | 4.8% |
-| Ongoing development progress, including code reviews | 10% | 9.6% |
-| [Deployment demo](../projects/project-demos.html#deployment-demo) | 1% | 1% |
-| [Wizard-of-Oz demo](../projects/project-demos.html#wizard-of-oz-demo) | 2% | 1.9% |
-| [Preliminary demo 1 (with your mentor)](../projects/project-demos.html#preliminary-demo-1-with-your-mentor) | 2% | 1.9% |
-| [Preliminary demo 2 (with the instructor)](../projects/project-demos.html#preliminary-demo-2-with-the-instructor) | 4% | 3.8% |
-| Final demo | 10% | 9.6% |
-| Final implementation of your feature | 20% | 19% |
-| Final test suite of your feature | 10% | 9.6% |
-| Report: Feature Overview | 4% | 3.8% |
-| Report: Technical Overview | 5% | 4.8% |
-| Report: Process Overview | 5% | 4.8% |
+| **Individually graded** | **13** | **17** |
+| [Individual Project 0](../projects/ip0.html) | 1 | 1 |
+| [Individual Project Proposal](../projects/individual-project-proposal.html) | 4 | 4 |
+| [Individual Contribution Report](../projects/contribution-report.html) | 3 | 3 |
+| [Individual reflection](../projects/project-deliverable.html#individual-reflection-1) | 5 | 5 |
+| [Honors Reflection Essays](../projects/honors-essays.html) (2 essays, weight 2 each) | --- | 4 |
+| **Team graded** | **91** | **91** |
+| [Preliminary Project Plan](../projects/project-plan.html) | 5 | 5 |
+| [Revised Project Plan](../projects/revised-project-plan.html) | 8 | 8 |
+| Meetings with mentor and [team surveys](../projects/surveys.html) | 5 | 5 |
+| Ongoing development progress, including code reviews | 10 | 10 |
+| [Deployment demo](../projects/project-demos.html#deployment-demo) | 1 | 1 |
+| [Wizard-of-Oz demo](../projects/project-demos.html#wizard-of-oz-demo) | 2 | 2 |
+| [Preliminary demo 1 (with your mentor)](../projects/project-demos.html#preliminary-demo-1-with-your-mentor) | 2 | 2 |
+| [Preliminary demo 2 (with the instructor)](../projects/project-demos.html#preliminary-demo-2-with-the-instructor) | 4 | 4 |
+| Final demo | 10 | 10 |
+| Final implementation of your feature | 20 | 20 |
+| Final test suite of your feature | 10 | 10 |
+| Report: Feature Overview | 4 | 4 |
+| Report: Technical Overview | 5 | 5 |
+| Report: Process Overview | 5 | 5 |
 
-Each column adds up to 100%. Honors students have a larger individually-graded component, because
-it also includes the two [Honors Reflection Essays](../projects/honors-essays.html); their
-team-graded components are scaled down in the expected way so that the total still comes to 100%.
+The weights in the non-Honors column add up to 104, and the weights in the Honors column add up to 108:
+Honors students have the same weights for everything else, plus the two
+[Honors Reflection Essays](../projects/honors-essays.html).
+Your project grade is your weighted total divided by your column's total. For example, a non-Honors student
+whose weighted total is 94 has a project grade of 94/104, or about 90.4%, and that project grade counts for 45%
+of the course grade.
 
-<!-- The Honors team-graded weights are the non-Honors weights times 87/91 (the team-graded totals
-     are 91% non-Honors and 87% Honors), rounded to one decimal place. The rounding drift is absorbed
-     on "Final implementation of your feature" -- it is the only unique base value in the table, so
-     adjusting it cannot make two sibling rows with the same non-Honors weight disagree. -->
+<!-- The weights are deliberately not percentages. The Individual Project Proposal was left out of
+     the table at the start of Au26; it was added with weight 4 (half the Revised Project Plan) and
+     every other weight was kept as it was, so each existing component keeps its proportion. The
+     Honors column used to scale its team-graded weights by 87/91 to total 100; it now uses the
+     unscaled weights and totals 108. -->
 
 
 

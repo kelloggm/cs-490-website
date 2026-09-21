@@ -87,7 +87,7 @@ Your revised project plan should be submitted as a single PDF in Canvas ([sectio
 Each team submits a single document to Canvas.
 
 ## Grading
-The revised project plan will account for 8% of your project grade, and will be graded out of 100 points. The grading of the revised project plan is further broken down as follows:
+The revised project plan carries a weight of 8 in your project grade (out of a total of 104, or 108 for Honors students), and will be graded out of 100 points. The grading of the revised project plan is further broken down as follows:
 
 ### Introductory problem statement (5 points): 
 * Receive full marks if there is a narrative consisting of 4-10 sentences that describes a specific problem that your project aims to solve.

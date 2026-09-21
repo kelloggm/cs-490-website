@@ -58,6 +58,8 @@ There's also a lot of guidance online about how to write a good one-pager, espec
 
 ## Rubric
 
+This assignment carries a weight of 4 in your project grade (out of a total of 104, or 108 for Honors students), as one of the project's individually-graded components: see the [project overview](../projects/project-overview.html#summary-of-project-grading) for how the project grade fits together.
+
 This assignment will be graded out of 50 points. There are five subscores, for **Ambition**, **Clarity**, **Rationale**, **Technical Challenges and Alternatives**, and **Writing**. These are detailed below.
 
 ### Ambition (10 points)

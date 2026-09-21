@@ -86,11 +86,10 @@ export it as PDF before submitting.
 
 ### Rubric
 
-Each essay is worth 2% of your project grade, as one of the project's individually-graded
+Each essay carries a weight of 2 in your project grade, as one of the project's individually-graded
 components: see the [project overview](../projects/project-overview.html#summary-of-project-grading)
 for how the project grade fits together. Because Honors students write these two essays in
-addition to everything else, the individually-graded portion of an Honors student's project
-grade is 13% rather than 9%.
+addition to everything else, an Honors student's project weights add up to 108 rather than 104.
 
 Each essay is graded out of 100 points.
 The points are allocated for the following:
