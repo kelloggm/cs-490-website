@@ -12,7 +12,7 @@ Sep 21
     **Your Choice reading**: Ernst et al.'s [The Daikon system for dynamic detection of likely invariants](../assets/daikon.pdf)
 
 Sep 23
-: Requirements and Specifications (2)
+: [Requirements and Specifications (2)](../assets/lecture-specs2.pdf)
   : **Mandatory reading**: Wayne's [Using Formal Methods at Work](https://www.hillelwayne.com/post/using-formal-methods/).
   
     **Your Choice reading**: Lamport's [Introduction to TLA](../assets/tla.pdf)
