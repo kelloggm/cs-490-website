@@ -12,5 +12,5 @@ Oct 14
 
     **Your Choice reading**: Barr et al.'s [The Oracle Problem in Software Testing: A Survey](../assets/testoracles.pdf)
 
-Oct 16
+Oct ~~16~~ 18
  : **Project [Wizard-of-Oz Demo](../projects/project-demos.html#wizard-of-oz-demo) due**{: .label .label-red } 

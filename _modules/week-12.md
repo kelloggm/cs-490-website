@@ -14,5 +14,5 @@ Nov 18
 
     **Your Choice reading**: Xu et al.'s ["Do Not Blame Users for Misconfiguration"](https://cseweb.ucsd.edu//~tixu/papers/sosp13.pdf)
 
-Nov 20
+Nov ~~20~~ 22
  : **Project [Preliminary Demo 2](../projects/project-demos.html#preliminary-demo-2-with-the-instructor) due**{: .label .label-red } 

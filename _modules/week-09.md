@@ -14,5 +14,5 @@ Oct 28
 
     **Your Choice reading**: Cleve and Zeller's [Locating Causes of Program Failures](../assets/delta2.pdf)
 
-Oct 30
+~~Oct 30~~ Nov 1
  : **Project [Preliminary Demo 1](../projects/project-demos.html#preliminary-demo-1-with-your-mentor) due**{: .label .label-red } 
