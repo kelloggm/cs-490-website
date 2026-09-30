@@ -9,7 +9,7 @@ Sep 28
     **Your Choice reading**: Mokhov et al.'s [Build Systems à la Carte](https://www.microsoft.com/en-us/research/uploads/prod/2018/03/build-systems-final.pdf)
 
 Sep 30
-: Code Review
+: [Code Review](../assets/lecture-code-review.pdf)
   : **Mandatory reading**: Google's [How to do a code review](https://google.github.io/eng-practices/review/reviewer/) (read all six linked sub-pages in the bulleted list)
 
     **Your Choice reading**: Bacchelli and Bird's [Expectations, Outcomes, and Challenges Of Modern Code Review](../assets/codereview.pdf)
