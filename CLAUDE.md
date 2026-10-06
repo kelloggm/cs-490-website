@@ -132,7 +132,7 @@ see it is not live:
 Your team can sign up for a slot ([signup sheet]({{ site.baseurl }}{% link todo.md %}) **coming soon**{: .label .label-yellow }).
 ```
 
-Currently eight such links: the team formation survey plus four project surveys in
+Currently six such links: the second, third and fourth project surveys in
 `surveys.md`, the reading question form and the demo signup sheet in `_modules/week-15.md`,
 and the signup sheet in `project-deliverable.md`. Replacing one means deleting the label along with the URL.
 

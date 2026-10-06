@@ -25,7 +25,7 @@ All implementation will take place in the TypeScript programming language, using
 | 9/21/26 | Team Assignment | Teams are assigned randomly within each section. Your first sprint begins the same day. |
 | 10/2/26 | [Deployment Demo]({{ site.baseurl }}{% link demos.md %}) | Show that you can deploy a lightly-modified copy of covey.town to a remotely-accessible machine. |
 | 10/7/26 | [Preliminary Project Plan]({{ site.baseurl }}{% link project-plan.md %}) | As a team, propose and plan a new feature for Covey.Town that can be implemented over six sprints |
-| 10/9/26 | First [team survey]({{ site.baseurl }}{% link surveys.md %}) | Let us know how you think the project is going. |
+| 10/9/26 | First [team survey]({{ site.baseurl }}{% link surveys.md %}) ([survey form](https://forms.gle/g4V6JbhGHNuxwFVm6)) | Let us know how you think the project is going. |
 | 10/16/26 | [Wizard-of-Oz Demo]({{ site.baseurl }}{% link demos.md %}) | Show what your project will look like, once it is complete, to your project mentor and the instructor. This demo doesn't require you to show any working code: it is purely about design. |
 | 10/21/26 | [Revised Project Plan]({{ site.baseurl }}{% link revised-project-plan.md %}) | Refine the scope of your feature based on staff feedback, define detailed requirements and project acceptance criteria. |
 | 10/30/26 | [Preliminary Demo 1]({{ site.baseurl }}{% link demos.md %}) | Demonstrate your own working code to your project mentor for the first time. |

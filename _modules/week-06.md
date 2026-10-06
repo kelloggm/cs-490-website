@@ -18,7 +18,7 @@ Oct 7
     **Your Choice reading**: Memon et al.'s [Taming Google-Scale Continuous Testing](../assets/googletest.pdf)
 
 Oct 9
-: **First [Project Team Survey](../projects/surveys.html) due**{: .label .label-red }
+: **First [Project Team Survey](https://forms.gle/g4V6JbhGHNuxwFVm6) due**{: .label .label-red }
 
 Oct 9
  : **[Honors Reflection Essay 1](../projects/honors-essays.html) due**{: .label .label-red } (Honors section only)

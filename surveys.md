@@ -19,7 +19,7 @@ accept requests to be placed *with* particular students. You will also be requir
 GitHub username.
 
 There will be four anonymous surveys on how the project is going and how your teammates are performing:
-* the first ([survey form]({{ site.baseurl }}{% link todo.md %}) **coming soon**{: .label .label-yellow }) will be due the week after the Deployment Demo (October 9)
+* the first ([survey form](https://forms.gle/g4V6JbhGHNuxwFVm6)) will be due the week after the Deployment Demo (October 9)
 * the second ([survey form]({{ site.baseurl }}{% link todo.md %}) **coming soon**{: .label .label-yellow }) the week after the first Preliminary Demo (November 6)
 * the third ([survey form]({{ site.baseurl }}{% link todo.md %}) **coming soon**{: .label .label-yellow }) on November 25, right before Thanksgiving
 * the fourth ([survey form]({{ site.baseurl }}{% link todo.md %}) **coming soon**{: .label .label-yellow }) with your individual reflection, after you submit your final deliverables
