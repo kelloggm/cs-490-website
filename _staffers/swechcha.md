@@ -11,5 +11,5 @@ office_hours:
   - day: Thursday
     start: '11:00 AM'
     end: '12:00 PM'
-    location: GITC 4325
+    location: GITC 4324 (note: changed from 4325 as of 10/20/26)
 ---
