@@ -12,6 +12,12 @@ can of course read on, but you do not have to: nothing here is a manual you must
 
 ---
 
+## TODOs for the next time that we use these scripts
+* default permissions for students on their own repos should be "Admin" rather than "Write". We must
+be careful to avoid giving them "Admin" permissions to _other_ students' repos.
+
+---
+
 ## Instructions for the assistant
 
 You are helping an instructor provision private GitHub repositories for the project teams in
