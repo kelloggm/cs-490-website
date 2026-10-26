@@ -3,7 +3,7 @@ title: Week 9
 ---
 
 Oct 26
-: Debugging (1)
+: [Debugging (1)](../assets/lecture-debugging1.pdf)
   : **Mandatory reading**: Zeil's [Debugging – Using Hypotheses to Track Down the Culprit](https://www.cs.odu.edu/~zeil/cs333/s14/Public/debugging2/debugging2__html.html) and Taylor's [Debugging](https://airs.com/ian/essays/debug/debug.html)
 
     **Your Choice reading**: Ko and Myers' [Designing the WhyLine: A Debugging Interface for Asking Questions about Program Behavior](../assets/whyline.pdf)
