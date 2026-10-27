@@ -29,6 +29,13 @@ The workflow deliberately does **not** gate the deploy on the `TODO` check below
 stray `TODO` is cheap to notice and fix, and a build that refuses to publish over one
 would be worse than the problem. Keep checking by hand (see "Verification recipes").
 
+It **does** gate on staff visibility. `strict_front_matter: true` in `_config.yml` makes any
+front-matter YAML error fail the build (without it Jekyll prints a red error and drops the
+page's front matter --- an unquoted `: ` in a staffer's `location:` once hid a TA from the
+staff page). After the build, `scripts/check-staffers.rb` fails if any `_staffers/*.md`
+name is missing from `/staff/` or, when it has `office_hours:`, from `/office-hours/`
+(e.g. a misspelled `role:`). Run it locally after `bundle exec jekyll build` too.
+
 The workflow builds with `--baseurl` supplied by GitHub Pages itself, so `_config.yml`'s
 `baseurl: '/cs-490-website'` matters only for local preview. Renaming the repository
 changes the live URL but does not break the build.
