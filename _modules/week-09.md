@@ -9,7 +9,7 @@ Oct 26
     **Your Choice reading**: Ko and Myers' [Designing the WhyLine: A Debugging Interface for Asking Questions about Program Behavior](../assets/whyline.pdf)
 
 Oct 28
-: Debugging (2)
+: [Debugging (2)](../assets/lecture-debugging2.pdf)
   : **Mandatory reading**: Zeller's [Automated Debugging: Are We Close?](../assets/delta.pdf) and Alpert's [TODOs aren’t for doing](https://sophiebits.com/2025/07/21/todos-arent-for-doing)
 
     **Your Choice reading**: Cleve and Zeller's [Locating Causes of Program Failures](../assets/delta2.pdf)
