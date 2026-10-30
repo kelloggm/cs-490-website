@@ -15,4 +15,4 @@ Nov 4
     **Your Choice reading**: Kellogg et al.'s [Verifying Object Construction](https://kelloggm.github.io/martinjkellogg.com/papers/ICSE2020-camera-ready.pdf)
 
 Nov 6
-: **Second [Project Team Survey](../projects/surveys.html) due**{: .label .label-red }
+: **Second [Project Team Survey](https://forms.gle/pwYpqvHEKdFn8Uhs6) due**{: .label .label-red }
