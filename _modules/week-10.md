@@ -3,7 +3,7 @@ title: Week 10
 ---
 
 Nov 2
-: Software Architecture
+: [Software Architecture](../assets/lecture-architecture.pdf)
   : **Mandatory reading**: Kästner's [Thinking Like a Software Architect](https://ckaestne.medium.com/thinking-like-a-software-architect-121ea6919871) and Ross' [How Architecture Diagrams Enable Better Conversations](https://www.unravelled.dev/how-architecture-diagrams-enable-better-conversations/)
 
     **Your Choice reading**: Garlan's [Software Architecture](../assets/architecture.pdf)
