@@ -9,7 +9,7 @@ Nov 2
     **Your Choice reading**: Garlan's [Software Architecture](../assets/architecture.pdf)
 
 Nov 4
-: Design Patterns
+: [Design Patterns](../assets/lecture-design-patterns.pdf)
   : **Mandatory reading**: Fowler's [Writing Software Patterns](https://www.martinfowler.com/articles/writingPatterns.html) (read up to, but not including, "Common Pattern Forms") and Lewis and Fowler's [Microservices]( https://www.martinfowler.com/articles/microservices.html)
 
     **Your Choice reading**: Kellogg et al.'s [Verifying Object Construction](https://kelloggm.github.io/martinjkellogg.com/papers/ICSE2020-camera-ready.pdf)
