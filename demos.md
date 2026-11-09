@@ -142,7 +142,9 @@ showing it cleanly, is the better choice for an Honors team.
 
 ## Preliminary Demo 2: With the Instructor
 
-**Due Friday 20 November 2026, 5:30pm EST**{: .label .label-red }
+**Due Tuesday, 24 November 2026, 5:30pm EST**{: .label .label-red }
+
+Sign up [here](https://docs.google.com/spreadsheets/d/1jKBOuybkeWqc78zKGZqR1-xu80O6TPJ-ycHnDwfMzX8/edit?usp=sharing) by Tuesday, 17 November AoE.
 
 By the second preliminary demo, you should have a significant part of the coding for your
 feature completed. In this demo, you should show that at least one of the user

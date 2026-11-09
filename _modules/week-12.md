@@ -8,11 +8,14 @@ Nov 16
 
     **Your Choice reading**: Dean and Barroso's ["The Tail at Scale"](../assets/tail-at-scale.pdf)
 
+Nov 17
+: [Sign up](https://docs.google.com/spreadsheets/d/1jKBOuybkeWqc78zKGZqR1-xu80O6TPJ-ycHnDwfMzX8/edit?usp=sharing) for the 2nd preliminary demo by this date, AoE.
+
 Nov 18
 : DevOps (2)
   : **Mandatory reading**: Lunney and Lueder's ["Postmortem Culture: Learning from Failure"](https://sre.google/sre-book/postmortem-culture/) from Google's [Site Reliability Engineering](https://sre.google/sre-book/table-of-contents/) and Luu's ["Postmortem Lessons"](https://danluu.com/postmortem-lessons/)
 
     **Your Choice reading**: Xu et al.'s ["Do Not Blame Users for Misconfiguration"](https://cseweb.ucsd.edu//~tixu/papers/sosp13.pdf)
 
-Nov ~~20~~ 22
- : **Project [Preliminary Demo 2](../projects/project-demos.html#preliminary-demo-2-with-the-instructor) due**{: .label .label-red } 
+Nov ~~20~~ 24
+: **Project [Preliminary Demo 2](../projects/project-demos.html#preliminary-demo-2-with-the-instructor) due**{: .label .label-red } 
