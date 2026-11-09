@@ -3,7 +3,7 @@ title: Week 11
 ---
 
 Nov 9
-: Tech debt, refactoring, and maintenance
+: [Tech debt, refactoring, and maintenance](../assets/lecture-techdebt1.pdf)
   : **Mandatory reading**: Allman's [Managing Technical Debt](../assets/techdebt.pdf) and Spolsky's [Things you should never do, part I](https://www.joelonsoftware.com/2000/04/06/things-you-should-never-do-part-i/)
 
     **Your Choice reading**: Scully et al.'s [Machine Learning: The High-Interest Credit Card of Technical Debt](https://static.googleusercontent.com/media/research.google.com/en//pubs/archive/43146.pdf)
