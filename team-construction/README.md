@@ -15,6 +15,10 @@ can of course read on, but you do not have to: nothing here is a manual you must
 ## TODOs for the next time that we use these scripts
 * default permissions for students on their own repos should be "Admin" rather than "Write". We must
 be careful to avoid giving them "Admin" permissions to _other_ students' repos.
+* there is a 3000-minute limit on GitHub actions usage per organization. That budget will get hit by
+a group of 34 teams ~halfway through November. In au26, I had to spend ~$50-100 to allow the students to
+keep using CI uninterrupted. Avoid this somehow: make repos public by default, split up the org by section,
+or something else. Must solve this problem before you run these scripts again!
 
 ---
 
