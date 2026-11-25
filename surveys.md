@@ -21,8 +21,8 @@ GitHub username.
 There will be four anonymous surveys on how the project is going and how your teammates are performing:
 * the first ([survey form](https://forms.gle/g4V6JbhGHNuxwFVm6)) will be due the week after the Deployment Demo (October 9)
 * the second ([survey form](https://forms.gle/pwYpqvHEKdFn8Uhs6)) the week after the first Preliminary Demo (November 6)
-* the third ([survey form]({{ site.baseurl }}{% link todo.md %}) **coming soon**{: .label .label-yellow }) on November 25, right before Thanksgiving
-* the fourth ([survey form]({{ site.baseurl }}{% link todo.md %}) **coming soon**{: .label .label-yellow }) with your individual reflection, after you submit your final deliverables
+* the third ([survey form]({{ site.baseurl }}{% link todo.md %}) **coming soon**{: .label .label-yellow }) on December 4, the week after Thanksgiving
+* the fourth ([survey form]({{ site.baseurl }}{% link todo.md %}) **coming soon**{: .label .label-yellow }) with your individual reflection on December 15, after all final demos are finished
 
 These surveys exist mainly to help the course staff identify problems, and they're designed to only take a
 few minutes of your time. Each one is graded on completion, and counts as a reading quiz toward your

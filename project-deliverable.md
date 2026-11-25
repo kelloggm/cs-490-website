@@ -36,14 +36,9 @@ Accompanying the final team deliverable will be an *individual reflection*, whic
 
 #### Project Demo
 
-<!-- TODO(au26): set the demo window in the paragraph below. Our last regular class meeting
-     is Wed Dec 9, the university's last day of classes is Sun Dec 13, and the reading days
-     are Dec 14 and Dec 15. The Au25 wording was "the last day of class and the two reading
-     days immediately thereafter". -->
-
-You will make a live (in-person) demo to the instructor in the last week of classes. Your demo must last for no longer than ten minutes.
+You will make a live (in-person) demo to the instructor between December 10 and December 14. Your demo must last for no longer than ten minutes.
 Your team can sign up for a slot ([signup sheet]({{ site.baseurl }}{% link todo.md %}) **coming soon**{: .label .label-yellow });
-slots are available on dates TBD.
+slots are available from December 10 through December 14.
 Make sure that at least one member of your team has a laptop that can access your deployed covey.town instance with them when you arrive for your
 demo. Because demos are short and often scheduled back-to-back, if your whole team is not present and ready to start your demo at the time that you've
 signed up for, you will lose your slot and you will have to sign up for a later one.
@@ -216,8 +211,8 @@ If your team is in this situation, you must:
 you intend to resubmit. Each of your teammates must respond by this deadline indicating that they agree that a resubmission is appropriate.
 * In writing (email is fine), declare exactly which feature(s) or user stor(ies) you will complete by the resubmission deadline. This email must be received
 by the instructor and TAs no later than one week after your initial email declaring your intention to resubmit, and in any case no later than one week, AoE, after the last day of class.
-* You must schedule a meeting with your project mentor and the instructor before the class' final exam (note: day of the final exam is **not** acceptable) to re-demonstrate your
-feature. The deadline for scheduling this demo is the same as the deadline for providing the scope of work email (see previous bullet point): no more than one week after the last day of class. Note that the instructor generally does not check email on the weekend.
+* You must schedule a meeting with your project mentor and the instructor to re-demonstrate your
+feature. Re-demos will take place between December 16 and the afternoon of December 18 (after the final exam), and must be finished by 5pm Eastern on December 18. The deadline for scheduling this demo is the same as the deadline for providing the scope of work email (see previous bullet point): no more than one week after the last day of class. Note that the instructor generally does not check email on the weekend.
 
 The consequences of choosing to resubmit are:
 * you will not receive your final grades on your project materials until **after** your resubmission demo.
@@ -231,7 +226,7 @@ idea if your project would otherwise be graded poorly.
 
 ## Individual Reflection
 
-Accompanying the final team deliverable will be an individual reflection, which every student must submit on their own.
+Accompanying the final team deliverable will be an individual reflection, which every student must submit on their own. **Due 15 December 2026 11:59pm AoE**{: .label .label-red }
 It carries a weight of 5 in your project grade (out of a total of 104, or 108 for Honors students), as one of the project's individually-graded components.
 Satisfactory completion of all parts of this reflection is *also* required to receive an "A" grade in the course, and may be used to calibrate project scores across multiple team members.
 The individual reflection also provides an opportunity for students to provide confidential feedback on the performance of their teammates.

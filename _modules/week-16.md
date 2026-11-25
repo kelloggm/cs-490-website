@@ -2,15 +2,14 @@
 title: Week 16
 ---
 
-<!-- TODO(au26): fill in the registrar-assigned final exam date, time, and room. The Fall
-     2026 final exam period runs Dec 16-22. -->
+Dec 15
+ : **[Individual Reflection](../projects/project-deliverable.html#individual-reflection-1) due**{: .label .label-red } 
 
-TBD
- : Final exam (date, time, and room to be announced)
+Dec 15
+ : **Fourth [Project Team Survey](../projects/surveys.html) due**{: .label .label-red }
 
-<!-- TODO(au26): set the resubmission deadline once the final demo date is fixed. Per
-     project-deliverable.md it is one week after the last day of class, and it must fall
-     before the final exam. -->
+Dec 18
+ : **Final exam**, 11:30am, GITC 1400
 
-TBD
- : **All group project [final deliverables (re-submission)](../projects/project-deliverable.html#resubmission-after-the-final-demo) due**{: .label .label-red }
+Dec 18
+ : **All group project [final deliverables (re-submission)](../projects/project-deliverable.html#resubmission-after-the-final-demo) due at 5pm Eastern**{: .label .label-red }

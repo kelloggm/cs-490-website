@@ -14,4 +14,7 @@ Dec 2
   : **Mandatory reading**: Shaw's ["What makes good research in software engineering?"](../assets/good-se.pdf)
   
     **Your Choice reading**: read 10 abstracts in the [latest ICSE proceedings](https://dblp.org/db/conf/icse/icse2026.html) and make a list of words you don’t know. Then, look up at least 5 of those words and write a brief definition. Send us the list of words, the 5 definitions, and the titles of the papers whose abstracts you read over email. (The reading quiz question for this reading will cover a topic that everyone who chooses this reading has read.)
+
+Dec 4
+ : **Third [Project Team Survey](../projects/surveys.html) due**{: .label .label-red }
   

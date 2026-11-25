@@ -32,14 +32,14 @@ All implementation will take place in the TypeScript programming language, using
 | 11/6/26 | Second [team survey]({{ site.baseurl }}{% link surveys.md %}) | Let us know how you think the project is going. |
 | 11/13/26 | [Individual Contribution Report]({{ site.baseurl }}{% link contribution-report.md %}) | Show us, with evidence, what you personally have contributed so far. *Individually graded.* |
 | 11/20/26 | [Preliminary Demo 2]({{ site.baseurl }}{% link demos.md %}) | Demonstrate one user story to your project mentor and the instructor. |
-| 11/25/26 | Third [team survey]({{ site.baseurl }}{% link surveys.md %}) | Let us know how you think the project is going. |
-| 12/9/26 | Project [Implementation and Documentation]({{ site.baseurl }}{% link project-deliverable.md %}) | Deliver your new feature, including design documentation and tests. |
-| TBD | Final Demo | You will demo your feature to the instructor by this date. Final demos will happen sometime tbd after the final project submission. |
-| TBD | Fourth [team survey]({{ site.baseurl }}{% link surveys.md %}) | Let us know how you thought the project went. |
-| TBD | [Individual Reflection]({{ site.baseurl }}{% link project-deliverable.md %}) | Reflect on the project, your process, and your team. *Individually graded.* |
-| TBD | Project Implementation and Documentation (Resubmission) | If your final demo does not meet your project goals, you may schedule another demo with your project mentor and the instructor no more than one week after the last day of class. Re-submit your code and documentation immediately before the demo. |
+| 12/4/26 | Third [team survey]({{ site.baseurl }}{% link surveys.md %}) | Let us know how you think the project is going. |
+| 12/9/26 | Project [Implementation and Documentation]({{ site.baseurl }}{% link project-deliverable.md %}) | Deliver your new feature, including design documentation and tests. This is the code freeze. |
+| 12/10/26--12/14/26 | Final Demo | You will demo your feature to the instructor in a private ten-minute slot, signed up for in advance, between December 10 and December 14. |
+| 12/15/26 | [Individual Reflection]({{ site.baseurl }}{% link project-deliverable.md %}) | Reflect on the project, your process, and your team. *Individually graded.* |
+| 12/15/26 | Fourth [team survey]({{ site.baseurl }}{% link surveys.md %}) | Let us know how you thought the project went. |
+| 12/18/26 | Project Implementation and Documentation (Resubmission) | If your final demo does not meet your project goals, you may schedule another demo with your project mentor and the instructor no more than one week after the last day of class. Re-submit your code and documentation immediately before the demo, and in any case by 5pm Eastern on December 18. |
 
-All assignments are due on the specified date, AoE (i.e., before the beginning of the next day anywhere on Earth, which is at 7am EST the next day) --- except demos, which must be done during business hours. See the [demos page]({{ site.baseurl }}{% link demos.md %}) for each demo's deadline.
+All assignments are due on the specified date, AoE (i.e., before the beginning of the next day anywhere on Earth, which is at 7am EST the next day) --- except demos, which must be done during business hours, and the resubmission, which is due at 5pm Eastern. See the [demos page]({{ site.baseurl }}{% link demos.md %}) for each demo's deadline.
 
 ### Summary of Project Grading
 Your overall project grade (which will account for 45% of your final grade in this course) will be the weighted average of each of the deliverables.

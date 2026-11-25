@@ -8,6 +8,3 @@ Nov 23
 
 Nov 25
  : **No class** (Friday classes meet for Thanksgiving holiday)
-    
-Nov 25
- : **Third [Project Team Survey](../projects/surveys.html) due**{: .label .label-red }
